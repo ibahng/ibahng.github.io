@@ -1,0 +1,92 @@
+NOTES ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+LAW =============================================
+ - Intellectual Property
+
+ECONOMICS =======================================
+ - 
+
+FINANCE & MARKETS ===============================
+  - Accounting
+  - Forex
+  - Equities
+  - Commodities
+  - Deriviatives
+  - Fundamental Analysis
+  - Technical Analysis
+  - Valuation
+
+PHARMACEUTICALS =================================
+  - 
+
+BIOLOGY =========================================
+  - Cytology
+    - Structure
+    - Energetics
+    - Communication
+    - Cell Cycle: Mitosis
+    - Protein Synthesis
+
+  - Genetics
+    - Meiosis and Sexual Life Cycles
+    - Mendel and the Gene Idea
+    - The Chromosomal Basis of Inheritance
+
+  - Evolutionary Biology
+    - Natural Selection
+
+  - Ecology
+    - An Introduction to Ecology and the Biosphere
+    - Population Ecology
+    - Community Ecology
+
+  - Cancer Biology
+    - 
+
+  - Immunology
+
+BIOCHEMISTRY ====================================
+  - 
+
+CHEMISTRY =======================================
+  - Equilibrium
+  - Acids and Bases
+  - Gases
+  - Thermodynamics
+  - Quantization
+  - Nomenclature
+  - Nucleophilic Substitution and Elimination
+  - Alcohols
+  - Ethers
+  - Alkane, Alkenes, Alkynes
+
+PUBLICATIONS ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Vertical Jump Paper
+
+CCR-CCL Axes in PDAC
+
++ one more that can be preprint
+
+GITHUB REPOS & PROJECTS ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+dotfiles
+finflux
+firm analyses - look at the projects folder in Desktop
+
+READ PAPERS ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
