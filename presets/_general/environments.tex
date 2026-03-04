@@ -1,0 +1,37 @@
+
+% tcolorbox package
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+
+\tcbset{ % this is the default design of tcolorboxes
+  colframe = black,
+  colback  = black!1,
+  coltitle = black,
+  colbacktitle = black!15,
+  breakable, 
+  arc=0mm,
+  boxrule=0.5pt,
+  toptitle=3pt,
+  bottomtitle=3pt,
+  left=8pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt,
+  before skip=12pt,
+  after skip=12pt,
+  bottomrule at break=-1pt,
+  toprule at break=-1pt,
+  fonttitle=\bfseries,
+}
+
+% Custom Environments
+\newtcolorbox[auto counter, number within=section]{definition}[1][]
+{
+    title = \textbf{Definition \thetcbcounter: ~#1}
+}
+
+\newtcolorbox[auto counter, number within=section]{core}[1][]
+{
+    title = \textbf{Core Concept \thetcbcounter: ~#1}
+}
+

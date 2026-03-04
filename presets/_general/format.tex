@@ -1,0 +1,30 @@
+\usepackage{fancyhdr}
+\usepackage[skip=0.3em, indent=0em]{parskip}
+
+\pagestyle{fancy} % this section generates the lines and text at the top and bottom of each page
+\fancyhead[L]{\thetitle}
+\fancyhead[C]{\theauthor}
+\fancyhead[R]{\thedate}
+\fancyfoot[C]{\thepage}
+\renewcommand{\footrulewidth}{0.3pt}
+\renewcommand{\thispagestyle}[1]{}
+
+\renewcommand{\arraystretch}{1.5} % table vertical padding
+\setlength{\tabcolsep}{10pt} % table horizontal padding
+
+\usepackage{enumitem} % better control over enumerate and itemize
+
+% List customization
+\setlist[itemize]{%
+  label=\bullet,
+  itemsep=2pt,
+  leftmargin=1.5em,
+}
+
+\setlist[enumerate]{%
+  label=(\alph*),
+  itemsep=2pt,
+  leftmargin=1.5em,
+}
+
+

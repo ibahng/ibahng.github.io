@@ -1,0 +1,39 @@
+\usepackage{pgfplots} % for plot creation
+\pgfplotsset{compat=1.18} % setting the version used for pgfplots
+\usepackage{float} % for better figure placement using [h]
+\usepackage{graphicx} % for importing figures into the tex file
+\usepackage{subcaption} % allows for multiple subfigures with individual captions wihtin one figure
+\usepackage{xparse} % allows for more than 9 parameters in commands
+\usepackage{adjustbox} % for valign option
+\captionsetup{font=small} % setting the caption fontsize to small always
+
+\newcommand{\myfig}[4]{
+  \begin{figure}[H]
+    \centering
+    \adjustbox{valign=c}{\includegraphics[width=#1\textwidth]{#2}}
+    \caption{#3}
+    \label{#4}
+  \end{figure}
+}
+
+\newcommand{\mymultifig}[8]{
+  \begin{figure}[H]%
+    \centering%
+    \begin{subfigure}{#1\textwidth}%
+      \centering%
+      \includegraphics[width=\linewidth]{#2}%
+    \end{subfigure}%
+    \hfill%
+    \begin{subfigure}{#3\textwidth}%
+      \centering%
+      \includegraphics[width=\linewidth]{#4}%
+    \end{subfigure}%
+    \hfill%
+    \begin{subfigure}{#5\textwidth}%
+      \centering%
+      \includegraphics[width=\linewidth]{#6}%
+    \end{subfigure}%
+    \caption{#7}%
+    \label{#8}%
+  \end{figure}%
+}
