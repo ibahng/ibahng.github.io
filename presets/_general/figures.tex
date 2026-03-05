@@ -7,7 +7,10 @@
 \usepackage{adjustbox} % for valign option
 \captionsetup{font=small} % setting the caption fontsize to small always
 
-\newcommand{\myfig}[4]{
+\usepackage{silence}
+\WarningsOff[float]  % suppress float package warnings
+
+\newcommand{\myfig}[4]{%
   \begin{figure}[H]
     \centering
     \adjustbox{valign=c}{\includegraphics[width=#1\textwidth]{#2}}

@@ -11,9 +11,93 @@
 
 \input{../../presets/_general/startup}
 
-\section{First Section}
+\section{Kinetic Molecular Theory and Ideal Gas Laws}
 
-Notes start here
+  The \textbf{Kinetic Molecular Theory (KMT)} describes the behavior of gases based on the following postulates:
+
+  1. The \textbf{size of the molecules is tiny} relative to containers
+
+  2. The molecules \textbf{move in a straight line} within the container
+
+  3. Collisions are \textbf{elastic} (\textit{molecules bounce off each other with no loss of energy})
+
+  In the following content, we will eventually derive the \textbf{Ideal Gas Law}:
+  
+  \[
+  PV = nRT
+  \]
+
+  Here, P is pressure, V is volume, n is the number of moles (\textit{of gas}), R is the ideal gas constant, and T is temperature in Kelvin.
+
+  The \textbf{Maxwell-Boltzmann distribution} describes the distribution of molecular speeds in a gas sample at a given temperature (T). As \text{temperature} increases, the distribution broadens, indicating a wider range of molecular speeds.
+
+  \myfig{0.4}{gases_figures/maxwell_plot1}{maxwell plot 1}{fig:maxplot1}
+
+  P is the force per unit area (F/A) exerted by gas molecules colliding with the walls of the container. This depends on (1) the frequency of collisions and (2) the energy of the collisions which is represented by the kinetic energy equation
+
+  \[
+  KE = \frac{1}{2}mv^2
+  \]
+
+  where m is the mass of the gas molecule and v is its velocity.
+
+  When we combine these concepts, we find that an increase in T would either cause an increase in P (\textit{because the molecules collide with container walls more frequently}) or an increase in V (\textit{in order to maintain the same frequency of collisions or P}). P and V therefore have an \textbf{inverse relationship}.
+
+  \begin{definition}[placeholder]
+      The proportional relationship between P and T is called \textbf{Gay-Lussac's Law}
+      
+      The inverse relationship between V and P is called \textbf{Boyle's Law}
+  \end{definition}
+      
+  Another version of the Maxwell-Boltzmann distribution shows us relationship between speed and gas molecule mass under constant T.
+
+  \myfig{0.7}{gases_figures/maxwell_plot2}{maxwell plot 2}{fig:maxplot2}
+
+  At the same T, every gas molecule has the same average KE \textbf{independent of their masses}, thus the velocities of lighter gases are higher than those of heavier ones.
+
+  As such, the V of an ideal gas is directly proportional to n (\# of moles of gas) \textbf{regardless of the identity of the gas} -- this is called \textbf{Avogadro's Law}.
+
+  Now, combining all these relationships, we rearrive at the Ideal Gas Law: 
+
+  \[
+  PV = nRT
+  \]
+
+  Here, R is the ideal gas constant determined experimentally to be $0.0821\ \mathrm{L\cdot atm\,(mol\cdot K)^{-1}}$.
+
+  A commonly used standard set of conditions for ideal gases is \textbf{STP (Standard Temperature and Pressure)}, where 
+  
+  1. T = 273 K (0°C)
+
+  2. P = 1 atm
+
+  3. 1 mole of an ideal gas (n) occupies 22.4 L (V).
+
+\section{Real Gases}
+
+  In reality, no gas is truly ideal and thus the Ideal Gas Law only approximates the behavior of real gases under certain conditions (e.g., low P and high T). The reasons for this are:
+
+  1. \textbf{Gas molecules have finite V} -- at high P, the V occupied by gas molecules becomes significant compared to the total V of the container
+
+  2. \textbf{IMFs exist between gas molecules} -- at low T, the KE of gas molecules decreases, making IMFs more significant and cause deviations from ideal behavior. This leads to condensation.
+
+  \begin{definition}[placeholder]
+      \textbf{Condensation} is a process in which gas molecules come together to form a liquid. It occurs when the average KE of the molecules decreases enough that it can no longer overcome the attractive IMFs, allowing the molecules to become "captured" and held together in a liquid state. This stretches into liquid to solid phase changes as well when the KE decreases further.
+  \end{definition}
+
+  \myfig{0.7}{gases_figures/real_gases}{real gases}{fig:realgases}
+  
+  Because of these deviations, the \textbf{Van der Waals equation} was developed to better describe the behavior of real gases:
+
+  \[
+  \left( P + \frac{an^2}{V^2} \right) (V - nb) = nRT
+  \]
+
+  $\frac{an^2}{V^2}$ corrects for \textbf{the impact of IMFs between gas molecules}. Molecules near the wall are pulled inward by neighoring molecules, reducing the effective P measured experimentally. Thus, we add this term to the measured P to get the true P.
+  
+  $nb$ corrects for \textbf{the finite volume occupied by gas molecules} since the ideal gas law assumes all molecules have virtually no V.
+
+  The constants a and b are specific to each gas and must be determined experimentally.
   
 \end{document}
 

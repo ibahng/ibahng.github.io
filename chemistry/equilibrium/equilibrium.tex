@@ -11,9 +11,260 @@
 
 \input{../../presets/_general/startup}
 
-\section{First Section}
+\section{Reaction Rates}
 
-Notes start here
+  Atoms, ions, and molecules react with one another via collisions. The more frequent and energetic the collisions, the faster the reaction rate.
+
+  Take the formation of compound \ce{C} as an example:
+
+  \bce{\ce{A + B -> C}}
+
+  The rate at which \ce{C} forms depends on factors such as concentration of \ce{A}, concentration of \ce{B}, temperature, the presence of a catalyst, etc. and can be expressed mathematically as:
+
+  \[
+  \text{Rate} = k[\ce{A}]^m[\ce{B}]^n
+  \]
+
+  Here, k is the rate constant, which is specific to the reaction and depends on temperature and the presence of a catalyst (and other factors if applicable). And m and n are the reaction orders, which represents the magnitude of effect that the given reactant has on the reaction rate. Here is how a hypothetical graph of the concentration of \ce{A}, \ce{B}, and \ce{C} over time would look like:
+  \myfig{0.5}{equilibrium_figures/ABC.png}{ABC}{fig:abc}
+
+  \begin{definition}[placeholder]
+    Generally in elementary reactions (single-step reactions), the \textbf{reaction orders (m and n) are equal to the stoichiometric coefficients} of the reactants in the balanced chemical equation. However, in complex reactions (multi-step reactions), although not covered intensely in this context within this course, the reaction orders may not directly correspond to the stoichiometric coefficients and must be determined experimentally.
+  \end{definition}
   
+  Let's take the real world example of the decomposition of \ce{H2O2} ($\ce{H2O2 -> H2O + O2}$) as an example. When you graph the concentration of \ce{H2O2} over time, you get an exponential decay curve.
+  \myfig{0.6}{equilibrium_figures/H2O2_decomposition.png}{H2O2 decomposition}{fig:h2o2}
+
+  As you can see, the rate at which \ce{H2O2} decomposes slows down over time as [\ce{H2O2}] decreases.
+
+\section{Chemical Equilibrium}
+
+  Reactions do not always proceed in only one direction. Many reactions are \textbf{reversible}, meaning that the products can react to reform the reactants. When the rates of the forward and reverse reactions are equal, the system is said to be at \textbf{equilibrium}.
+
+  Thus, for the general reversible reaction \ce{AB <=> A + B}, the equilibrium condition can be expressed as:
+
+  \[
+  k_f[\ce{AB}] = k_b[\ce{A}][\ce{B}]
+  \]
+
+  The equilibrium constant, $K_c$, is defined as:
+
+  \[
+  K_c = \frac{k_f}{k_b} = \frac{[\ce{A}][\ce{B}]}{[\ce{AB}]}
+  \]
+
+  $K_c$ provides insight into the position of equilibrium. A large $K_c$ ($>>1$) indicates that the reaction favors the formation of products, while a small $K_c$ ($<<1$) indicates that the reaction favors the reactants.
+
+  Some examples of reactions that possess a \textbf{large $K_c$} (reaction to completion) include:
+
+  
+  \bce{\ce{Si + O2 -> SiO2}\hspace{5mm}$K_c \approx 10^{150}$}
+
+  
+  \bce{\ce{2H2 + O2 -> H2O}\hspace{5mm}$K_c \approx 10^{81}$}
+
+  Some examples of reactions that possess a \textbf{moderate $K_c$} (half-reaction) include:
+
+  
+  \bce{\ce{CO + Hemoglobin -> CO*Hemoglobin}\hspace{5mm}$K_c \approx 300$}
+  
+  
+  \bce{\ce{O2 + Hemoglobin -> O2*Hemoglobin}\hspace{5mm}$K_c \approx 4$}
+  
+  
+  \bce{\ce{N2O4 -> 2NO2}\hspace{5mm}$K_c \approx 0.2$}
+
+  An example of a reaction that possess a \textbf{neglible $K_c$} (no reaction) include:
+
+  
+  \bce{\ce{N2 + O2 -> 2NO}\hspace{5mm}$K_c \approx 10^{-31}$}
+
+  Let's consider the decomposition of Bromothymol Blue (which will be denoted as \ce{A}) as an example:
+ 
+  \bce{\ce{\textcolor{yellow}{HA} <=> H+ + \textcolor{blue}{A-}}}
+
+  Visually, HA is \textcolor{yellow}{yellow}, while \ce{A^-} is \textcolor{blue}{blue}. If we start with a solution that is purely HA, as the reaction proceeds towards Eq, the solution will gradually change color from \textcolor{yellow}{yellow} to \textcolor{green}{green} to \textcolor{blue}{blue} as more \ce{A^-} is formed.
+
+  If hypothetically, the Eq constant for this reaction is $K_c = 4$, this means that at Eq, the concentration of \ce{A^-} will be four times that of HA. Thus, the solution will appear predominantly \textcolor{blue}{blue} at Eq. Conversely, if $K_c = 0.25$, the concentration of HA will be four times that of \ce{A^-}, and the solution will appear predominantly \textcolor{yellow}{yellow} at Eq.
+  
+\section{Le Chatelier's Principle}
+
+  \textbf{Le Chatelier's Principle} states that a system in Eq subjected to a stress will react in a direction that tends to reduce that stress. Stresses can include changes in \textbf{concentration}, \textbf{pressure}, \textbf{volume}, or \textbf{temperature}.
+
+  First, consider the effect of changing \textbf{CONCENTRATION}. Let's reexamine the Bromothymol Blue example:
+
+  
+  \bce{\ce{\textcolor{yellow}{HA} <=> H+ + \textcolor{blue}{A-}}}
+
+  If we add more \ce{H+} to an initially \textcolor{green}{green} solution (meaning equal parts HA and \ce{A^-}), the system will shift left to consume the excess \ce{H+}, resulting in a more \textcolor{yellow}{yellow} solution. Conversely, if we remove \ce{H+} (by adding \ce{OH-}), the system will shift right to produce more \ce{H+}, resulting in a more \textcolor{blue}{blue} solution.
+
+  Consider another example (\ce{PCl5 -> PCl3 + Cl2}) based on the visual below:
+
+  \myfig{0.5}{equilibrium_figures/lc_conc.png}{lc conc}{fig:lcconc}
+
+  As the abrupt addition of \ce{PCl5} decreases the reaction quotient (Q) below $K_c$, the system shifts right to re-establish Eq, resulting in a subsequent increase in the concentrations of \ce{PCl3} and \ce{Cl2}.
+  
+  Second, consider the effect of changing \textbf{PRESSURE} or \textbf{VOLUME}. For gaseous reactions, increasing pressure (by decreasing volume) will shift the Eq towards the side with fewer moles of gas, while decreasing pressure (by increasing volume) will shift the Eq towards the side with more moles of gas.
+
+  \begin{definition}[Example]
+    The \ce{K_p} (equilibrium constant in terms of partial pressures) is how we express the Eq constant for gaseous reactions. Instead of using concentration, we use partial pressure.
+  \end{definition}
+
+  Consider the following reaction:
+
+  
+  \bce{\ce{2NO2(g) <=> N2O2(g)}\hspace{5mm}$K_p \approx 7$ at 25°C}
+
+  
+  \bce{\ce{K_p = \frac{P_{N2O2}}{(P_{NO2})^2}}}
+
+  If we increase V, P decreases. The system will consequently shift left to produce more \ce{NO2} to counteract the decrease in P by increasing the total moles of gas in the system. This is also represented mathematically as the reaction order for \ce{NO2} being 2, meaning that changes in its concentration (or partial pressure) have a squared effect on the reaction quotient (Q) whereas \ce{N2O2} only has a linear effect.
+
+  Lastly, consider the effect of changing \textbf{TEMPERATURE}. The direction in which the Eq shifts depends on whether the reaction is \textbf{exothermic} (\textit{heat is a product}) or \textbf{endothermic} (\textit{heat is a reactant}).
+
+  Consider the following exothermic reaction:
+
+  \bce{\ce{2NO2(g) <=> N2O4(g) + heat}}
+
+  Just like adding a N2O4 would shift the Eq left, adding heat (increasing T) would also shift the Eq left to consume the excess heat. Conversely, removing heat (decreasing T) would shift the Eq right to produce more heat.
+
+  Endo- and exothermic reactions are covered more in depth in the Thermodynamics chapter.
+
+\section{Types of Equilibria}
+
+  There are two main types of equilibria we will cover: homogenous and heterogeneous equilibria.
+
+  In \textbf{homogeneous equilibria}, all reactants and products are in the same phase (solid, liquid, or gas). Here are some examples.
+
+  
+  \bce{\ce{Fe^{3+}(aq) + SCN^{-}(aq) <=> FeSCN^{2+}(aq)}\hspace{5mm}Solution}
+  
+  
+  \bce{\ce{H2(g) + I2(g) <=> 2HI(g)}\hspace{5mm}Gas}
+  
+  
+  \bce{\ce{HA(aq) <=> H^{+}(aq) + A^{-}(aq)}\hspace{5mm}Acid-Base}
+
+  In \textbf{heterogeneous equilibria}, the reactants and products are in different phases. Here are some examples.
+
+  
+  \bce{\ce{AgCl(s) <=> Ag^{+}(aq) + Cl^{-}(aq)}\hspace{5mm}Solubility of solids}
+  
+  
+  \bce{\ce{O2(g) <=> O2(aq)}\hspace{5mm}Gas solubility}
+  
+  
+  \bce{\ce{H2O(s) <=> H2O(l)}\hspace{5mm}Phase changes}
+
+  Here, we will take a closer look at \textbf{solubility equilibria} and \textbf{phase change equilibria}.
+  
+  First, let's consider the solubility equilibria of \textbf{SOLID COMPOUNDS IN LIQUIDS}.
+  
+  Consider the solubility equilibrium of \ce{C6H12O6} (glucose) in water and its dissociation and crystallization rate equations. We call solutes that do not dissociate in solvent as \textbf{molecular or nonelectrolyte solutes}.
+
+  
+  \bce{\ce{C6H12O6(s) <=> C6H12O6(aq)}}
+
+  
+  \bce{\text{Dissociation Rate} = $k_f(SA)$}
+
+  
+  \bce{\text{Crystallization Rate} = $k_c(SA)$[\ce{C6H12O6(aq)}]}
+
+  As you can see, the dissociation rate only depends on the surface area (SA) of the solid glucose, while the crystallization rate depends on both the SA and the concentration of dissolved glucose in the solution. When we reach equilibrium, these two rates are equal, thus
+
+  \[
+  K_{sp} = \frac{k_c(SA)}{k_f(SA)} = [\ce{C6H12O6(aq)}]
+  \]
+
+  For glucose, the $K_{sp}$ value is 5.1M at 25°C. This means that at equilibrium, the maximum concentration of dissolved glucose in water is 5.1M. Beyond this concentration, any additional glucose will remain undissolved.
+
+  A different compound like \ce{NaCl} works in the same way. We call these types of solutes that dissociate into ions in solvent as \textbf{ionic or electrolyte solutes}.
+
+  
+  \bce{\ce{NaCl(s) <=> Na^{+}(aq) + Cl^{-}(aq)}}
+
+  
+  \bce{\text{Dissociation Rate} = $k_f(SA)$}
+
+  
+  \bce{\text{Crystallization Rate} = $k_c(SA)$[\ce{Na^{+}(aq)}][\ce{Cl^{-}(aq)}]}
+
+  At equilibrium, these two rates are equal, thus
+
+  \[
+  K_{sp} = \frac{k_c(SA)}{k_f(SA)} = [\ce{Na^{+}(aq)}][\ce{Cl^{-}(aq)}]
+  \]
+
+  At 25°C, the $K_{sp}$ value for \ce{NaCl} is approximately $37.3$. With a little algebra, we can determine that the maximum concentration of dissolved \ce{NaCl} in water at equilibrium is approximately $6.11M$.
+  \myfig{0.7}{equilibrium_figures/solid_eq.png}{solid eq}{fig:solideq}
+
+  \begin{definition}[Example]
+    SA being the only factor in the dissociation and crystallization rate is actually a \textbf{simplification}. In reality, many other factors can also affect these rates. However, for the purpose of understanding solubility equilibria, focusing on SA provides a clear and straightforward model for the system.
+  \end{definition}
+  
+  Now, let's consider the solubility equilibria of \textbf{GASEOUS COMPOUNDS IN LIQUIDS}.
+
+  Consider the solubility equilibrium of \ce{CO2} in water.
+
+  
+  \bce{\ce{CO2(g) <=> CO2(aq)}}
+
+  When we reach equilibrium, we have the following:
+
+  \[
+  K_{H} = \frac{[\ce{CO2(aq)}]}{\ce{P_{CO2}}} \to [\ce{CO2(g)}] = K_{H} \ce{P_{CO2}}
+  \]
+
+  This equation is known as the \textbf{Henry's Law}. The constant $K_{H}$ is called the \textbf{Henry's Constant} ($M/atm$). It is a number that is used to describe the solubility of a gas in a liquid. The higher the $K_{H}$ value, the easier it is for a gas to dissolve in a liquid.
+
+  Henry's Law states that at Eq, the concentration of a gas dissolved in a liquid is proportional to its partial pressure in the gas phase.
+  \myfig{0.7}{equilibrium_figures/gas_eq.png}{gas eq}{fig:gaseq}
+
+  Okay, now let's talk about \textbf{PHASE CHANGE EQUILIBRIA}. Consider the vaporization of water in a sealed flask. 
+
+  
+  \bce{\ce{H2O(l) <=> H2O(g)}}
+
+  
+  \bce{\text{Evaporation Rate} = $k_f(SA)$}
+
+  
+  \bce{\text{Condensation Rate} = $k_c(SA)$ \ce{P_{H2O}}}
+
+  Just as the solubility equilibria for nonelectrolyte solutes is only dependent on the solvent concentration, the phase change equilibria for a gas to liquid transition is only dependent on the water vapor pressure within a sealed container.
+
+  \[
+  K_{sp} = \frac{k_c(SA)}{k_f(SA)} = \ce{P_{H2O}}
+  \]
+  \myfig{0.6}{equilibrium_figures/phase_eq.png}{phase eq}{fig:phaseeq}
+
+  Phase change equilibria can be explained in this matter only for the gas to liquid state transition.
+
+\section{Temperature Effects}
+
+  You may have noticed that all the previously covered Eq scenarios took place at a constant T (25°C). However, what if the temperature of the system changed?
+
+  Just like a chemical compound is either a reactant or product within a chemical equation, heat behaves the same way. Therefore, we can think of an increase in T as the addition of heat to the system, and a decrease in T as the removal of heat from the system.
+
+  When heat is released from a reaction (heat is on the product side), the reaction is called \textbf{exothermic}. When heat is consumed from a reaction (heat is on the reactant side), the reaction is called \textbf{endothermic}.
+
+  In the context \textbf{phase change equilibria} (across solid, liquid, and gaseous transitions), an increase in T fundamentally increases the KE of the compound. Under constant P, phase changes represent a point of equilibrium where the strength of the KE of the molecules intersect with the strength of the IMFs holding them together.
+  \myfig{0.4}{equilibrium_figures/phases.png}{phases}{fig:phases}
+
+  When we add a dynamically changing P to the system, the resulting temperatures at which phase changes occur also change. Take water for example. The phase change temperatures we are all familiar with are 0°C and 100°C. This is only the case when P remains constant at 1 atm. If we shift P, the phase change temperatures change accordingly.
+  \myfig{0.5}{equilibrium_figures/water_phases.png}{water phases}{fig:waterphases}
+  
+  Now lets look at the change in K values for a variety of solutes in water across a range of temperatures:
+  \myfig{0.4}{equilibrium_figures/s_curve.png}{s curve}{fig:scurve}
+
+  As you can see, the $K_{sp}$ values of solid solutes tend to increase with increasing T because an addition of heat increases molecular motion and thus increases the statistical probability that the solid solute will enter the aqueous state.
+
+  In the context of gas solubility in a closed container, the $K_{H}$ values of gases tend to decrease with increasing T. The outgassing process of gases requires the input of heat becauase gaseous molecules have higher KE than the same molecules in an aqueous state. With increasing T, this relative favoring of the gaseous state decreases $K_{H} = \frac{C}{P}$ by increasing the partial pressure (P) at the expense of the concentration (C). 
+  
+  \begin{definition}[Example]
+    You may think that the increase in pressure also increases solubility, thus there must be some magnitude of a favoring of increased C. However, the shift toward the gas phase is so dominant that it overrides the fact that higher pressure usually helps solubility.
+  \end{definition}
+
 \end{document}
 

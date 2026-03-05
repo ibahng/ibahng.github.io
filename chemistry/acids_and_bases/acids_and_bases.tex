@@ -11,8 +11,229 @@
 
 \input{../../presets/_general/startup}
 
-\section{First Section}
+\section{Acid-Base Basics}
 
-Notes start here
+  \begin{definition}[Acids]
+    \textbf{Acids} are substances that increase the [\ce{H+}] of a solution.
+
+    \bce{(shorthand) \ce{HA(aq) <=> H^{+}(aq) + A^{-}(aq)}}
+    
+    \bce{(more accurately) \ce{HA(aq) + \ce{H2O(l)} <=> H3O^{+}(aq) + A^{-}(aq)}}
+  \end{definition}
+
+  \begin{definition}[Bases]
+    \textbf{Bases} are substances that decrease the [\ce{H+}] of a solution (usually through the addition of \ce{OH-}, however there are exceptions).
+
+    \bce{(shorthand) \ce{BOH(aq) + \ce{H+}(aq) <=> B^{+}(aq) + H2O(aq)}}
+    
+    \bce{(more accurately) \ce{BOH(aq) + \ce{H3O+}(aq) <=> B^{+}(aq) + 2H2O(l)}} 
+  \end{definition}
+  
+  The definition that acids are \ce{H+} donors and bases are \ce{H+} acceptors (not just \ce{OH-} donors) is called the \textbf{Brønsted-Lowry Theory}.
+
+  Like reactions in previous sections, acid-base reactions also have equilibriums specific to each compound.
+
+  We categorize acid-base reactions with high $K_{a/b}$ as \textbf{strong acids/bases}, and those with low $K_{a/b}$ as \textbf{weak acids/bases}. Strong acids and bases also tend to conduct electricity better because of more dissociated ions.
+  
+  \begin{definition}[Indicators]
+    \textbf{Indicators} (In) are weak acids or bases that change color at some [\ce{H+}] level in a solution. The color change occurs because the acid and base forms of the indicators possess different colors.
+  
+    \bce{\ce{HIn(aq) <=> H^{+}(aq) + In^{-}(aq)}}
+  
+    thus the Eq is defined as
+  
+    \[
+      K_{In} = \frac{[H^{+}][In^{-}]}{[HIn]}
+    \]
+  
+    Here are a few examples of indicators.
+  
+    \bce{Anthocyanin: \ce{\textcolor{red}{HA}(aq) <=> H^{+}(aq) + \textcolor{blue}{$A^{-}$}(aq)}}
+  
+    \bce{Anthoxanthin: \ce{HB(aq) <=> H^{+}(aq) + \textcolor{yellow}{$B^{-}$}(aq)}}
+  \end{definition}
+  
+\section{Acid-Base Stoichiometry}
+
+  Water is \textbf{amiphiprotic}, meaning that it can both accept or donate an \ce{H^+}.
+
+  \bce{(\ce{H^+} Acceptor) \ce{HCl(aq) + \ce{H2O(l)} <=> H3O^{+}(aq) + Cl^{-}(aq)}}
+
+  \bce{(\ce{H^+} Donor) \ce{NH3(aq) + \ce{H2O}(l) <=> NH4^{+}(aq) + OH^{-}(aq)}}
+
+  Water also maintains equilibrium with the autoionized form of itself.
+
+  \bce{\ce{H2O(l) + H2O(l) <=> H3O^{+}(aq) + OH^{-}(aq)}}
+
+  Therefore the equlibrium of \ce{H2O(l)} is represented as
+
+  \[
+    K_{W} = [H3O^{+}][OH^{-}] = [H^{+}][OH^{-}]
+  \]
+  
+  Heat is a reactant in this autoionization reaction, thus an increase in T will shift the Eq right, and a decrease in T will shift the Eq left.
+
+  \myfig{0.5}{acids_and_bases_figures/water_ph.png}{Water pH levels}{fig:water_ph}
+
+  \begin{definition}[pH]
+    \textbf{pH} is a measure of how acidic (low pH) or basic (high pH) a solution is. Mathematically, pH is defined as
+  
+    \[
+      pH = -\log_{10}[H^{+}]
+    \]
+  
+    In layman's terms, a pH of 5 has 10 times more \ce{H+} than a pH of 6, and a pH of 4 has 10 times more \ce{H+} than a pH of 5, and etc.
+  \end{definition}
+
+  A common misconception people often make is that a pH of 7 corresponds to a neutral solution of water (meaning an equal [\ce{H+}] and [\ce{OH-}]). As shown in the table above, we see that \textbf{the pH of 7 being neutral only applies to a T of 25°C}. Based on the Le Chatelier's principle, at higher T, the Eq will shift right to produce more \ce{H3O+}, effectively making a lower pH value as the new neutral base point.
+
+  From a molecular perspective, the rate of autoionization increases with T elevation because the higher KE of the water molecules makes it statistically more likely to collide with one another in order to form more \ce{H3O+} and \ce{OH-}, thus decreasing the pH of the solution. The opposite works for lower temperatures.
+
+  Let's take a look at stoichiometric calculations for [\ce{H^+}] for strong acids and bases.
+
+  For \textbf{STRONG ACIDS AND BASES}, we rely on straightforward stoichiometry to calculate [\ce{H^+}]. We'll use HCl as an example.
+
+  \bce{\ce{HCl(aq) + \ce{H2O(l)} <=> H3O^{+}(aq) + Cl^{-}(aq)}}
+
+  The equilibrium for HCl is represented as 
+
+  \[
+    K_{a} = \frac{[\ce{H3O+}][Cl^{-}]}{[HCl]} >> 1
+  \]
+
+  The $K_{a/b}$ for strong acids and bases are extremely high as shown above. The approximate $K_a$ value for HCl is $10^{7}$. Thus when dealing with strong acids and bases, we can assume the initial [HCl] to be equal to the final [$H3O^{+}$] value with a negligible margin of error.
+
+  \[
+    [HCl] = [\ce{H3O+}]
+  \]
+
+  With this, you can subsequently calculate pH using the formala $pH = -\log_{10}[H^{+}]$
+
+  For \textbf{WEAK ACIDS AND BASES}, we rely on slightly more complex stoichiometry to calculate [\ce{H^+}]. We'll use acetic acid (\ce{CH3COOH}) as an example.
+
+  \bce{\ce{CH3COOH(aq) + \ce{H2O(l)} <=> H3O^{+}(aq) + CH3COO^{-}(aq)}}
+
+  The equilibrium for acetic acid is represented as 
+
+  \[
+    K_{a} = \frac{[H3O^{+}][\ce{CH3COO-}]}{[\ce{CH3COOH}]} << 1
+  \]
+
+  The $K_{a/b}$ for weak acids and bases is much lower. For acetic acid, the approximate $K_a$ value is $1.8 \times 10^{-5}$. Thus for calculating the $K_a$ of acetic acid, we can derive the equation
+
+  \[
+    K_a = 1.8 \times 10^{-5} = \frac{[H3O^{+}]_{final}[\ce{CH3COO-}]_{final}}{[\ce{CH3COOH}]_{initial} - [H3O^{+}]_{final}} \approx \frac{[H3O^{+}]_{final}[\ce{CH3COO-}]_{final}}{[\ce{CH3COOH}]_{initial}}
+  \]
+
+  Here, since 1 mole of \ce{CH3COOH} is consumed every one mole of \ce{H3O+} or \ce{CH3COO-} is formed, $[\ce{CH3COOH}]_{final}$ must be equal to $[\ce{CH3COOH}]_{initial} - [H3O^{+}]_{final}$. However, since the $K_a$ value is extremely low, we can approximate $[\ce{CH3COOH}]_{final}$ as just $[\ce{CH3COOH}]_{initial}$ because the $[H3O^{+}]_{final}$ value is negligible in comparison to $[\ce{CH3COOH}]_{initial}$.
+
+  The lower the $K_{a/b}$ of a weak acid or base is, the more accurate the stoichiometric calculation is.
+
+  Now let's take a look at the relationship between \textbf{CONJUGATE ACID-BASE PAIRS}. Every acid or base has a corresponding conjugate base or acid. For instance the conjugate acid for \ce{NH3} is \ce{NH4+}, and the conjugate base for \ce{HNO3} is \ce{NO3-}. These are represented as
+
+  \bce{\ce{NH3(aq) + H+(aq) <=> NH4^{+}(aq)}}
+
+  \bce{\ce{HNO3(aq) <=> H+(aq) + NO3^{-}(aq)}}
+
+  Because the chemical reaction for an acid is the same as that of the conjugate base (\textit{just reversed}), the $K_a$ for an acid is the inverse of the $K_b$ for the conjugate base. As such, the stronger the acid/base, the weaker the corresponding conjugate base/acid will be. 
+
+  Let us take a look at this outline example.
+
+  \bce{(Acid) \ce{HA(aq) + H2O(l) <=> H3O+(aq) + A-(aq)}}
+
+  \bce{(Conjugate Base) \ce{A-(aq) + H2O(l) <=> HA(aq) + OH-(aq)}}
+
+  Thus the equilibrium constants are
+
+  \[
+    K_{a} = \frac{[H3O^{+}][\ce{A-}]}{[\ce{HA}]} , K_{b} = \frac{[\ce{HA}][OH^{-}]}{[\ce{A-}]}
+  \]
+
+  When we rewrite $K_b$ as
+
+  \[
+    K_{b} = \frac{[\ce{HA}][OH^{-}]}{[\ce{A-}]} \times \frac{[\ce{H3O+}]}{[\ce{H3O+}]}
+  \]
+
+  We can see that the value of $K_b$ is equal to $K_w/K_a$. Thus we can further rearrange the equation to derive
+
+  \[
+    K_w = K_a K_b
+  \]
+  
+  This relationship is true for all conjugate acid-base pairs.
+
+\section{Titration and Buffers}
+
+  \textbf{Titration} is the processs of adding an acid or base to a solution to neutralize the pH or bring it about to a level where occurs a change at a previously known pH (via indicators). This laboratory technique \textbf{allows chemists to determine the pH of a solution} by observing the amount of base or acid it takes to reach a neutral or target pH level.
+
+  \myfig{0.45}{acids_and_bases_figures/titration.png}{Titration setup}{fig:titration}
+
+  Let's look at this example of a strong acid (HCl) being titrated with a strong base (NaOH).
+
+  \bce{\ce{HCl(aq) + NaOH(aq) <=> NaCl(aq) + H2O(l)}}
+
+  We can just summarize this into a net equation
+
+  \bce{\ce{H+(aq) + OH-(aq) <=> H2O(l)}}
+
+  Let us say that we have an intial solution of HCl with an unknown concentration and thus an unknown number of moles of HCl. In order to neutralize this solution, we would need to add equal amounts of NaOH to reach a neutral pH. Thus, based on the amount of a given solution of NaOH we add to the HCl solution, we can calculate the original concentration of HCl in the initial solution.
+
+  \myfig{0.45}{acids_and_bases_figures/sa_sb_tcurve.png}{Strong Acid - Strong Base Titration Curve}{fig:sa_sb_tcurve}
+
+  The point at which the moles of titrant added is exactly stoichiometrically equal to the amount of the analyte originally present is called the \textbf{equivalence point}. For the case of a strong acid with a strong base, this point is at a pH of 7.
+
+  Let's now take a look at the titration curve for a weak acid (\ce{CH3COOH}) and a strong base (NaOH).
+
+  \myfig{0.45}{acids_and_bases_figures/wa_sb_tcurve.png}{Weak Acid - Strong Base Titration Curve}{fig:wa_sb_tcurve}
+
+  The equivalence point for this case \textbf{lies above pH 7}, indicating a basic state at equal parts weak acid and strong base. This is because once all \ce{H^+} is neutralized by canceling out with the \ce{OH-} from NaOH, \textbf{what is left is the strong conjugate base molecules} from dissociated \ce{CH3COOH} or \ce{CH3COO-}. In the presence of this strong base, some water molecules will react with the \ce{CH3COO-} to form \ce{CH3COOH} and \ce{OH-}, thus resulting in a higher pH value at equivalance.
+
+  When performing acid-base stoichiometry, it's helpful to (1) assume the reaction will go to completion and then (2) look at what is left and ask how it affects the pH.
+
+  \textbf{BUFFERS} are solutions containing both a weak acid and its conjugate base. They are used to resist large change of pH upon addition of strong acids or bases.
+
+  First, let's take a look at some algebraic manipulation for for the Eq constant of a weak acid equation.
+
+  \bce{\ce{HA(aq) + H2O(l) <=> A-(aq) + H3O+(aq)}}
+
+  Thus the Eq constant is
+
+  \[
+    K_a = \frac{[H3O^{+}][\ce{A-}]}{[\ce{HA}]} = [H3O^{+}]\frac{[\text{conjugate base}]}{[\text{conjugate acid}]}
+  \]
+
+  With some simple log algebra, we can rewrite this as
+
+  \[
+    -\log K_a = -\log [H3O^{+}] + \log \frac{[\text{conjugate base}]}{[\text{conjugate acid}]}
+  \]
+
+  \[
+    pH = pK_a + \log \frac{[\text{conjugate base}]}{[\text{conjugate acid}]}
+  \]
+
+  This equation is a simple way to determine the pH of a buffer solution under a given concentration of the weak acid and its conjugate base.
+
+  Making a buffer solution can be done in one of three ways.
+
+  (1) Mixing equal parts of the weak acid and its conjugate base.
+
+  \bce{Mix 500mL 0.5M \ce{CH3COOH} with 500mL 0.5M \ce{CH3COONa}.}
+
+  (2) Mix weak acid with half the amount of a strong base.
+
+  \bce{Mix 500mL 0.5M \ce{CH3COOH} with 500mL 0.5M NaOH.}
+
+  (3) Mix the conjugate base with half the amount of a strong acid.
+
+  \bce{Mix 500mL 0.5M \ce{CH3COONa} with 500mL 0.5M HCl.}
+
+  In all of these cases, when $[\ce{CH3COOH}] = [\ce{CH3COO-}]$ the pH would be equal to $pK_a$ because $\log 1 = 0$. It's also important to note that at $pK_a$ is half way betweent he equivalance point and y-axis of the titration curve. Any subsequent addition of a strong acid or base will shift the pH value, as shown in the following titration curve, but the pH will be resistant to change for a given range.
+
+  \myfig{0.6}{acids_and_bases_figures/buffer_curve.png}{Buffer solution titration curve}{fig:buffer_curve}
+
+  Using this knowledge, chemists can customize the pH they want a buffer solution to hover around based on the $K_a$ value of a weak acid. Conversely, a buffering solution can also be held at a basic pH level by adding equal parts of weak base with its cooresponding strong conjugate acid.
+
   
 \end{document}

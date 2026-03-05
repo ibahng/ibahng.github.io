@@ -22,16 +22,17 @@
   bottomrule at break=-1pt,
   toprule at break=-1pt,
   fonttitle=\bfseries,
+  fontupper=\setlength{\parskip}{0.6em}
 }
 
 % Custom Environments
 \newtcolorbox[auto counter, number within=section]{definition}[1][]
 {
-    title = \textbf{Definition \thetcbcounter: ~#1}
+  title = \textbf{Definition \thetcbcounter: ~#1}
 }
 
 \newtcolorbox[auto counter, number within=section]{core}[1][]
 {
-    title = \textbf{Core Concept \thetcbcounter: ~#1}
+  title = \textbf{Core Concept \thetcbcounter: ~#1}
 }
 

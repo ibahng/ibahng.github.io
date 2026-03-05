@@ -11,9 +11,260 @@
 
 \input{../../presets/_general/startup}
 
-\section{First Section}
+\section{Alcohol Nomenclature \& Foundations}
 
-Notes start here
+  \textbf{Alcohols} are a fundamental class of compounds characterized by the presence of one or more hydroxyl (\ce{-OH}) groups attached to a carbon atom.
+
+  Naming alcohol is done through the following steps.
+
+  (1) Find the longest chain \textbf{containing} the \ce{-OH} group and switch the suffix of alkan\textbf{e} to alkan\textbf{ol}. When there are multiple \ce{-OH} groups, the the suffix -ol becomes -diol, triol, etc. \textit{Mind that the chosen chain may not be the longest chain in the molecule.}
+
+  (2) Number from the end \textbf{closest} to the \ce{-OH} group.
+
+  (3) Follow the rest of the naming conventions in alkanes.
+
+  Here are some examples of alcohol names using the nomenclature steps above.
+  
+  \myfig{0.6}{alcohols_figures/alc_nomenclature}{Alcohol Nomenclature Examples}{fig:alc_nomenclature}
+  
+  Cyclic alcohols are called \textbf{cycloalkanols} and follow the same nomenclature system as cycloalkanes. 
+
+  \myfig{0.6}{alcohols_figures/cycloalkanes}{Cycloalkanol Nomenclature Examples}{fig:cycloalkanol_nomenclature}
+
+  The names of the cycloalkanols above are 
+  
+  \[
+      \text{cyclohexan-1-ol}\qquad\text{cis-3-methyl-cyclohexan-1-ol}\qquad\text{1-ethyl-cyclopentan-1-ol}
+  \]
+  
+  Also, in cases where \ce{-OH} or \ce{-OR} groups are defined as substituents, they are called hydroxy- and alkoxy-, respectively. \textit{This is analogous to alkanes being called alkyl-.}
+
+  Just like we have learned about primary, secondary, and tertiary halogen reactions, we also use the same system to define alcohol molecules as well.
+
+  \myfig{0.65}{alcohols_figures/pst_alcohols}{Primary, Secondary, and Tertiary Alcohols}{fig:pst_alcohols}
+
+
+  Let's talk about the physical properties of alcohols. Alcohols have relatively \textbf{high melting and boiling points}, and \textbf{water solubility} because of their ability to hydrogen bond, increasing IMFs and allowing solvation by water. 
+
+  Keep in mind that water solubility decreases with the size of R because \textbf{R is hydrophobic} and \textbf{-OH is hydrophilic}.
+
+  Let us take a look at the acidity across various alcohols.
+
+  \bce{\ce{ROH + H2O <=> RO- + H3O+}}
+
+  Using the shell reaction above, here are the $pK_a$s of alcohols across various R groups. As a reminder, lower $pK_a$ values means higher acidity.
+
+  \begin{table}[h]
+  \centering
+  \begin{tabular}{lll}
+  \hline
+  \# & \textbf{ROH} & \textbf{p\textit{K}$_a$} \\
+  \hline
+  1 & H$_2$\textcolor{red}{O} & 15.7 \\
+  2 & CH$_3$\textcolor{red}{O}H & 15.5 \\
+  3 & CH$_3$CH$_2$\textcolor{red}{O}H & 15.9 \\
+  4 & (CH$_3$)$_2$CH\textcolor{red}{O}H & 17.1 \\
+  5 & (CH$_3$)$_3$C\textcolor{red}{O}H & 18 \\
+  6 & \textcolor{green!60!black}{Cl}CH$_2$CH$_2$\textcolor{red}{O}H & 14.3 \\
+  7 & C\textcolor{green!60!black}{F}$_3$CH$_2$\textcolor{red}{O}H & 12.4 \\
+  8 & C\textcolor{green!60!black}{F}$_3$CH$_2$CH$_2$\textcolor{red}{O}H & 14.6 \\
+  \end{tabular}
+  \end{table}
+
+  Recognize that as the alcohol shifts from methyl $\rightarrow$ primary $\rightarrow$ secondary $\rightarrow$ tertiary R groups (\#2 $\rightarrow$ \#3 $\rightarrow$ \#4 $\rightarrow$ \#5), the acidity of the alcohol decreases. This pattern is primarily driven by \textbf{solvation}. In water or alcohol solvents, the negative charge on an alkoxide ion (\ce{RO-}) is stabilized through solvent molecules surrounding the \ce{-O^-} to spread out the charge.
+
+  Higher acidity when R contains more halogens (\#7) compared to less (\#6) occurs due to the \textbf{inductive effect}. The resulting \ce{RO-} is more stablized when the R group is able to share the burden of the concentrated negative charge on the O. With more halogens (\textit{which are very EN elements}), the negative charge is more easily spread out. This effect tapers off with increasing distance between the halogens and the \ce{-O^-} as shown in \#8.
+
+  As a review of past concepts, remember that these $pK_a$ values are all relative, meaning that under varying conditions, the same alcohol can act as a base or acid (\textbf{amphoteric}). For instance, when methanol is mixed with HCl, the resulting mixture will treat methanol as a base because HCl has a much lower $pK_a$ value than methanol. 
+
+  \bce{\ce{CH3OH + HCl <=> CH3OH2+ + Cl-}}
+
+  In the case where we mix methanol with a higher relative $pK_a$ value (\textit{such as a strong base}), methanol would be treated as an acid.
+
+  \bce{\ce{CH3OH + NaOH <=> CH3O- + Na+ + H2O}}
+
+  Recall that the mixture above is a pH buffer solution---a mixture of an weak acid or base with its cooresponding conjugate base or acid. We have covered this topic in \textit{Introductory Chemistry 2.3.3 Titration and Buffers}.
+
+\section{Alcohol Synthesis}
+
+  Alcohol is synthesized primarily through one of three different methods. We will go through each method in turn. 
+
+  Firstly, through \textbf{RADICAL HALOGENATION AND SN2/1}. Our goal here is the following
+  
+  \bce{\ce{R-L + OH- -> R-OH + L-}}
+
+  When we have \ce{H3C-L} or \ce{R_{prim}-L} only, we can accomplish this reaction purely through SN2 because there is little hinderance around the electrophile.
+
+  \myfig{0.5}{alcohols_figures/as_sn2}{Alcohol Synthesis via SN2}{fig:as_sn2}
+
+  However, the possiblity of E2 reactions is introduced when $\beta$ branching is present
+
+  \myfig{0.5}{alcohols_figures/as_e2}{E2 Competition in Primary Alcohols with Beta Branching}{fig:as_e2}
+
+  We can resolve the E2 problem by using a less basic, "masked " OH-equivalent such as acetate.
+
+  \myfig{0.15}{alcohols_figures/acetate}{Acetate Ion Structure}{fig:acetate}
+
+  After substituting the halogen leaving group in a $\beta$ branched R group, we can convert the acetate subtitutent into a -OH group via hydrolysis.
+
+  \myfig{0.55}{alcohols_figures/as_acetate_hydrolysis}{Alcohol Synthesis via Acetate Substitution and Hydrolysis}{fig:as_acetate_hydrolysis}
+
+  Moving onto \ce{R_{sec}-L} and \ce{R_{ter}-L}, SN2 is inefficient or impossible due to steric hinderance around the electrophile, thus we carry out alcohol synthesis via SN1. By using a poor Nu like \ce{H2O}, we can avoid E2. However, again, there is the possiblity of E1 reactions. The only solution to this is to carry out the reaction at lower temperatures to minimize the free energy push the E1 reaction gets from having a greater entropy change ($\Delta S$) than the SN1 reaction.
+
+  \myfig{0.5}{alcohols_figures/as_sn1}{Alcohol Synthesis via SN1}{fig:as_sn1}
+  
+  Secondly, alcohol can be synthesized via the \textbf{REDUCTION OF ALDEHYDE AND KETONES}.
+
+  \myfig{0.4}{alcohols_figures/aldehyde_ketone}{Aldehyde and Ketone Structures}{fig:aldehyde_ketone}
+
+  At the end of the day, what we are trying to do is incorporate \ce{H2} into the molecule to produce a \ce{R_{sec}-OH} or \ce{R_{prim}-OH} alcohol.
+
+  \myfig{0.5}{alcohols_figures/ka_alcohol}{Reduction of Aldehydes and Ketones to Alcohols}{fig:ka_alcohol}
+
+  Direct hydrogenation is possible, but cumbersome because it needs \ce{H2} pressure and catalysts (e.g. Rd, Pt). Instead, the most common laboratory method is via \textbf{hydrides} (\ce{H-}). Hydride donors are prepared either through boron (B) or aluminum (Al) via the following reactions.
+
+  \bce{\ce{Na^{+}H- + BH3 -> Na^{+}BH4-}\hspace{5mm} \textit{sodium borohydride}}
+
+  \bce{\ce{Li^{+}H- + AlH3 -> Li^{+}AlH4-}\hspace{5mm} \textit{lithium aluminum hydride}}
+
+  These reagents (\ce{BH4-} and \ce{AlH40}) are still basic by nature and will undergo protonation by alcohols or water (protic) to give \ce{H2}, which is not what we want.
+  
+  However, it's important to keep in mind that the reactivities of \ce{AlH4-} and \ce{BH4-} differ. \ce{AlH4-} is a much more aggressive hydride donor compared to \ce{BH4-} because Al is a less electronegative element compared to B, thus the added negative charge near from the hydride is more unstable compared to B. Consequently, \ce{AlH4-} is so reactive that it will react even with air moisture to form \ce{H2}.
+
+  Thus the \ce{Na^{+}BH4-} reaction with water is relatively slow, \textbf{allowing us to use alcohol solvents} if needed without worrying about protonation.
+
+  \bce{\ce{Na^{+}BH4- ->[H2O] 4H2 + Na^{+}B(OH)4-}\hspace{5mm} \textit{slow}}
+
+  On the other hand, \ce{Li^{+}AlH4-} is much more aggressive as we have explained above, thus we must use aprotic or dry solvents to prevent protonation, such as ethers.
+
+  \bce{\ce{Li^{+}AlH4- ->[H2O] 4H2 + Li^{+}Al(OH)4-}\hspace{5mm} \textit{violent}}
+
+  \begin{definition}[placeholder]
+      \ce{Li^{+}AlH4-} (but not \ce{Na^{+}BH4-}) will reduce even halides.\\
+
+      \bce{\ce{RX + LiAlH4 -> R-H}}
+  \end{definition}
+
+  The donated hydride will thus attack the central carbon of the ketone or aldehyde, resulting in an alkoxide.
+
+  \myfig{0.5}{alcohols_figures/alkoxide}{Formation of an Alkoxide Intermediate}{fig:alkoxide}
+
+  The resulting alkoxide is then protonated by alcohol solvent (in the case of \ce{Na^{+}BH4-}) or aqueous work up (in the case of \ce{Li^{+}AlH4-}). Mind that the aqeuous work up is in a separate step after purification.
+
+  \myfig{0.55}{alcohols_figures/alkoxide_post}{Protonation of Alkoxide to Form Alcohol}{fig:alkoxide_post}
+
+  In all, the mechanism of \ce{NaBH4} is termolecular, concerted, and simultaneous. On the other hand, \ce{LiAlH4} is a stepwise delivery of [1] \ce{H-} and [2] \ce{H^+}, \ce{H2O} (the work-up step).
+
+  We can \textbf{oxidize these resulting alcohols back to aldehydes and ketones} by using \ce{Cr^{VI}} reagents, which accept \ce{e^-}s and consequently form \ce{Cr^{III}}. One such compound is chromic acid, formed via the following.
+
+  \myfig{0.6}{alcohols_figures/chromic_acid}{Formation of Chromic Acid Reagent}{fig:chromic_acid}
+
+  Chromic acid is best for secondary alcohols, thus resulting in ketones. Primary alcohols, on the other hand, are \textbf{overoxidized} in aqueous medium.
+
+  \myfig{0.75}{alcohols_figures/ca_oxidation}{Oxidation of Alcohols via Chromic Acid}{fig:ca_oxidation}
+
+  We overcome this issue by using pyridinium chlorochromate or PCC which is soluble in organic solvents. This compound avoids the overoxidation that chromic acid would have done.
+
+  \myfig{0.65}{alcohols_figures/pcc}{Pyridinium Chlorochromate (PCC) Structure}{fig:pcc}
+
+  The third method of alcohol synthesis we will be covering is via \textbf{ORGANOMETALLICS}. This method is specifically done through \textbf{grignard reagents} (\ce{RMgX}) and organolithium reagents (\ce{RLi}). Just as \ce{BH4-} and \ce{LiH4-} are were used to donate hydrides to push the $\pi$ bond \ce{e^-}s onto the oxygen, grignard reagents do the same but donates entire R group in the process rather than hydrides.
+
+  We can create organolithium reagents via the following.
+
+  \bce{\ce{Li + RX ->[hexane][-X] R-Li + LiX}}
+
+  While grignard reagents require ether solvents as we will see soon, organolithium reagents must be done in a nonreactive, nonpolar solvent like hexane. This is due to the EN differences between the two metals.
+
+  We can create grignard reagents via the following.
+
+  \bce{\ce{Mg + RX ->[ether] R-Mg-X}}
+
+  This reaction must be done in ether to prevent \ce{RMgX} from clumping up.   Ether allows RMgX to maintain an aqueous state by donating \ce{e^-} density to the Mg to fulfill its octet (a.k.a. solvation).
+
+  \myfig{0.25}{alcohols_figures/grignard}{Solvation of Grignard Reagent in Ether}{fig:grignard}
+
+  The resulting \ce{R-M} or \ce{R-M-X} molecule is one that is polarized because of the EN difference between the R group and M. However, this time, we see the R group (\textit{carbons}) being the more EN over its cooresponding partner M (because M is more left in the periodic table). This is different from most organic molecules where carbon is usually the one that holds a partial positve charge. Consequently, this makes the carbon basic and nucleophilic.
+
+  \myfig{0.45}{alcohols_figures/grignard_ion}{Polarization of Grignard Reagents}{fig:grignard_ion}
+
+  This makes them extremely easy to protonate via hydrolysis and thus need to be made by very dry solvents unless the goal was change \ce{R-X} to an \ce{R-H}
+
+  \myfig{0.6}{alcohols_figures/rx_rh}{Conversion of Alkyl Halide to Alkane via Grignard}{fig:rx_rh}
+
+  However, when reacted with ketones, aldehydes, or formaldehyde, they form cooresponding alkoxides, which can then be put through an aqueous work-up in order to form alcohol.
+
+  \myfig{0.6}{alcohols_figures/rm_alcohol}{Alcohol Synthesis via Grignard Addition to Carbonyls}{fig:rm_alcohol}
+
+
+  This method of alcohol formation is a \textbf{very powerful tool} because it allows us to add a R group to any carbonyl containing compound whereas the other methods (such as using \ce{BH4-} and \ce{LiH4-}) could only add H.
+  
+\section{Alcohol Reactions}
+
+  As a review of simple acid-base chemistry, in order to deprotonate alcohol, it requires a stronger base than \ce{RO-}. In other words, the base must have a stronger affinity to the \ce{H^+} than the conjugate base of the alcohol (\ce{RO-}).   If the alcohol is acidic, water will usually suffice in this matter. However, in cases where water is more acidic than the alcohol itself, \ce{H^+} can be donated to the alcohol and \ce{H2O} L group will be formed, leaving the resulting product to have a unstable, empty atomic orbital on the C after the L group departs
+
+  \myfig{0.55}{alcohols_figures/missing_h}{Formation of Oxonium Ion and Carbocation}{fig:missing_h}
+
+  This phenomenon presents a range of complications when dealing with alcohol reactions. For instance, let's say that we want to replace the \ce{-OH} with a different functional group like a halide \ce{X}.
+
+  This can occur either through SN2.
+
+  \myfig{0.65}{alcohols_figures/ar_sn2}{Nucleophilic Substitution (SN2) of Alcohols}{fig:ar_sn2}
+
+  Or SN1.
+
+  \myfig{0.6}{alcohols_figures/ar_sn1}{Nucleophilic Substitution (SN1) of Alcohols}{fig:ar_sn1}
+
+  However, the issue of mixtures occur via different potential mechanistic occurances.
+
+  Firstly, there is the issue of \textbf{hydride shifts} during SN1 reactions. 
+  
+  \myfig{0.8}{alcohols_figures/ar_hshift}{Hydride Shift Mechanism in SN1 Reaction}{fig:ar_hshift}
+  
+  This is particularly an issue if the hydride shift is a favorable occurance such as the move from a \ce{R_{sec}+} to a \ce{R_{tert}+}. Degenerate shifts (\ce{R_{sec}+} $\rightarrow$ \ce{R_{sec}+} or \ce{R_{tert}+} $\rightarrow$ \ce{R_{tert}+}) are less common, but can still occur. This results in the halide attacking at a different location from the one intended.
+
+  \myfig{0.8}{alcohols_figures/ar_hshift2}{Hydride Shift Resulting in Regioisomeric Products}{fig:ar_hshift2}
+
+  In specific cases like ring structures, these hydride shifts happen stereospecifically.
+
+  \myfig{0.7}{alcohols_figures/ar_ring_attack}{Stereospecific Hydride Shift in Ring Structures}{fig:ar_ring_attack}
+
+  Then, there is the complication of E1 reactions, which become more prevalent at higher T and in absence of a viable nucleophile. \textit{Notice how the \ce{H^+} detachment at the last step happens at the tertiary position and not the secondary (where the \ce{-OH} originally was) due to greater stablity from more hyperconjugation.}
+
+  \myfig{0.7}{alcohols_figures/ar_e1}{Elimination (E1) Mechanism in Alcohols}{fig:ar_e1}
+
+  Additionally, entire alkyl shifts can occur although not as commonly as hydride shifts because of the greater $E_a$. These shift can occur even in \ce{R_{prim}-OH}s.
+
+  \myfig{0.5}{alcohols_figures/ar_alkyl_shift}{Alkyl Shift Mechanism in Alcohol Reactions}{fig:ar_alkyl_shift}
+
+  However, it is especially favorable and fast when the shift relieves ring stain as shown in the following figure.
+
+  \myfig{0.75}{alcohols_figures/ar_ring}{Ring Expansion via Alkyl Shift}{fig:ar_ring}
+
+
+  So, how do we actually turn an ROH into RNu without all of these potential issues that are bound to happen? The solution is to use inorganic derivatives as reactive or isolable intermediates.
+
+  \textbf{[-OH +Br]} Let's first take a look at how to replace an -OH with a -Br in an ROH. We use \ce{PBr3}.
+
+  \bce{\ce{3ROH + PBr3 -> 3RBr + H3PO3}}
+
+  As you can see, one molecule of \ce{PBr3} can be used to change 3 ROH molecules to RBr, resulting in phosphorous acid (\ce{H3PO3}) as a byproduct. The mechanism for this reaction is as follows.
+
+  \myfig{0.7}{alcohols_figures/ar_ohbr}{Mechanism of Alcohol Bromination using PBr3}{fig:ar_ohbr}
+
+  \textbf{[-OH +Cl]} Next, let's take a look at how to replace an -OH with a -Cl in an ROH. We use \ce{SOCl2}.
+
+  \myfig{0.6}{alcohols_figures/ar_ohcl_eq}{Reaction of Alcohol with Thionyl Chloride (SOCl2)}{fig:ar_ohcl_eq}
+
+  Again, the mechanism is as follows.
+
+  \myfig{0.85}{alcohols_figures/ar_ohcl}{Mechanism of Alcohol Chlorination using SOCl2}{fig:ar_ohcl}
+  
+  \textbf{[-OH +L]} In order to replace an -OH with a good L group, we can use isolable sulfonates such as the following molecules and cooresponding reactions.
+
+  \myfig{0.7}{alcohols_figures/ar_isosulf}{Formation of Isolable Sulfonate Esters}{fig:ar_isosulf}
+
+  Remember that the displaced \ce{Cl-} after the sulfonates attach to the R group is stablized as a floating ion via solvation by the pyradine solvent as seen in the reaction above with \ce{SOCl2}.
+    
   
 \end{document}
 
