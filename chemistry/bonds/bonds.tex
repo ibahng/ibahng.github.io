@@ -1,0 +1,137 @@
+\documentclass[10pt]{article}
+\usepackage{titling}
+
+\title{Bonds}
+\date{DATE PLACEHOLDER}
+\author{Ingyu Bahng}
+
+\input{../../presets/chemistry/preamble}
+
+\begin{document}
+
+\input{../../presets/_general/startup}
+
+\section{Bonds and Intermolecular Forces}
+
+  \subsection{Bond Types}
+
+  Properties of matter depend on the types of bonds and intermolecular forces (IMF) present. \textbf{Covalent bonds} involve the sharing of electrons between atoms. \textbf{Ionic bonds} result from the electrostatic attraction between oppositely charged ions. \textbf{Metallic bonds} are formed by the sharing of valence electrons. \textbf{IMFs}, such as hydrogen bonding, dipole-dipole interactions, and London dispersion forces, influence properties like boiling point, melting point, and solubility.
+
+  1. \textbf{Molecular Covalent} (e.g. \ce{H2}, \ce{Cl2}, \ce{H2O}, \ce{CH4}) -- \textit{soft liquids}
+
+    \myfig{0.5}{bonds_figures/molecular_covalent}{caption}{fig:fig1}
+
+  2. \textbf{Network Covalent} (e.g. Carbon, Hydrocarbon, Sulfur) -- \textit{hard solids, non-brittle, non-conductive}
+
+    \myfig{0.6}{bonds_figures/network_covalent}{caption}{fig:fig2}
+  
+  3. \textbf{Ionic} (e.g. \ce{NaCl}, \ce{MgCl2}, \ce{CuSO4}) -- \textit{anions(-) \& cations(+) are held together by electrostatic forces}
+
+    \myfig{0.5}{bonds_figures/ionic}{caption}{fig:fig3}
+
+  4. \textbf{Metallic} (e.g. \ce{Li}, \ce{Na}, \ce{Ca}, \ce{Al}) -- \textit{malleable, bendable, conductor}
+
+  Metals consist of positively charged ions surrounded by a "sea of delocalized \ce{e^-}s", allowing for high electrical and thermal conductivity, malleability, and ductility.
+
+    \myfig{0.25}{bonds_figures/metallic}{caption}{fig:fig4}
+    \myfig{0.25}{bonds_figures/metallic}{caption}{fig:fig5}
+    \myfig{0.25}{bonds_figures/metallic}{caption}{fig:fig6}
+
+  \subsection{VSEPR and Molecular Geometry}
+  
+  The shapes of molecules can be predicted using the \textbf{VSEPR (Valence Shell Electron Pair Repulsion)} theory, which states that electron pairs around a central atom will arrange themselves to minimize repulsion.
+  
+    \myfig{0.9}{bonds_figures/VESPR_table}{caption}{fig:fig7}
+  
+  \ce{CH4} $\rightarrow$ no lone pairs, 4 \ce{e^-} dense areas $\rightarrow$ \textbf{tetrahedral} \\
+  \ce{H2O} $\rightarrow$ 2 lone pairs, 4 \ce{e^-} dense areas $\rightarrow$ \textbf{bent} \\
+  \ce{NH3} $\rightarrow$ 1 lone pair, 4 \ce{e^-} dense areas$\rightarrow$ \textbf{pyramidal}.
+
+  \begin{definition}
+  It is important to note here that \textbf{lone pairs take up more space than bonding pairs}, which can affect bond angles. For example, in \ce{NH3}, the bond angle is 107° instead of the ideal tetrahedral angle of 109.5° due to the presence of a lone pair on nitrogen. Similarly, in \ce{H2O}, the bond angle is 104.5° because of the two lone pairs on oxygen.
+  \end{definition}
+
+  \subsection{Bond Polarity and Electronegativity}
+
+  The bond polarity of a molecule is determined by the difference in \textbf{electronegativity (EN)} between the bonded atoms. The strength of the bonds from weakest to strongest can be categorized as follows:
+
+  1. \textbf{Nonpolar Covalent}: EN difference $< 0.5$ -- (\textit{e.g. \ce{H2}, \ce{Cl2}, \ce{F2}})
+
+  2. \textbf{Polar Covalent}: EN difference between $0.5$ and $1.7$ --(\textit{e.g. \ce{H2O}, \ce{NH3}, \ce{HCl}})
+  
+  3. \textbf{Ionic}: EN difference $> 1.7$ -- (\textit{e.g. \ce{NaCl}, \ce{MgO}, \ce{CaF2}})
+
+  The EN values of elements are fundamentally determined by the laws of electromagnetic forces, which depend on the \textbf{strength of opposing charges} (\ce{Q_1} \& \ce{Q_2}) and the \textbf{distance between them} (r). This is described by Coulomb's Law:
+  
+  \[
+  F = k \frac{Q_1 Q_2}{r^2}
+  \]
+  
+  \textbf{As you move across the periodic table from left to right ($\rightarrow$), EN increases} due to the increasing number of \ce{p^+} attracting the same number of \ce{e^-} shells. \textbf{As you move downwards ($\downarrow$), EN decreases} because the atomic radius increases, reducing the effective nuclear charge (\ce{Z_e_f_f}) felt by the valence electrons.
+
+  The \ce{Z_{eff}} can be approximated using the formula
+  
+  \[
+  Z_eff = Z - S
+  \]
+  
+  where \ce{Z} is the actual nuclear charge (number of \ce{p^+}) and S is the number of \ce{e^-} within the valence shell (\textit{this excludes the valence \ce{e^-}s}).
+
+  \begin{definition}
+  Keep in mind that \textbf{the actual definition of \ce{Z_{eff}} is more nuanced} than the formula above. The shielding effect of inner electrons is not uniform, and different orbitals (s, p, d, f) have varying effects on \ce{Z_{eff}}. For example, s-electrons are more effective at shielding than p-electrons. Additionally, electron-electron repulsions within the same shell can also affect the effective nuclear charge experienced by valence electrons.
+  \end{definition}
+
+  \subsection{Intermolecular Forces}
+
+  Before discussing intermolecular forces (IMFs), it is important to understand that although an individual bond may be polar, the \textbf{overall molecule can be nonpolar if the molecular geometry allows for the dipole moments to cancel out}. For example, \ce{CO2} has polar bonds, but the linear geometry results in a nonpolar molecule.
+  
+    \myfig{0.3}{bonds_figures/canceled_dipole}{caption}{fig:fig8}
+
+  Thus, when evaluating molecular polarity, both bond polarity and molecular geometry must be considered.
+
+  IMFs are the forces of attraction/repulsion \textbf{between} molecules. They are generally weaker than covalent or ionic bonds but play a crucial role in determining the physical properties of substances. The main types of IMFs include:
+
+  1. \textbf{London Dispersion Forces (LDFs)} -- present in all molecules, but dominant in nonpolar molecules. They arise from temporary dipoles created by the movement of \ce{e^-}. The strength of LDFs increases with the size and shape of the molecule (\textit{more surface area = stronger LDFs}).
+  
+    \myfig{0.4}{bonds_figures/LDF}{caption}{fig:fig9}
+
+  \begin{definition}
+    The boiling point (BP) of alkanes (\ce{C_xH_y}) increases with increasing molar mass due to stronger LDFs. Similarly, a larger surface area in molecules like long-chain hydrocarbons leads to higher BPs compared to their more compact isomers due to an increased area for LDF interactions.
+
+    \myfig{0.4}{bonds_figures/alkane_ldf}{caption}{fig:fig10}
+  \end{definition}
+
+  2. \textbf{Dipole-induced Dipole \& Ion-induced Dipole} -- occurs when a polar molecule or ion induces a dipole in a nonpolar molecule by distorting its electron cloud.
+
+    \myfig{0.3}{bonds_figures/induced_dipole}{caption}{fig:fig11}
+
+  3. \textbf{Dipole-Dipole Interactions} -- occur between polar molecules where the (+) end of one molecule is attracted to the (-) end of another.
+
+    \myfig{0.45}{bonds_figures/dipole_dipole}{caption}{fig:fig12}
+
+  4. \textbf{Hydrogen Bonding} -- a special case of dipole-dipole interaction that occurs when H is bonded to highly electronegative atoms like N, O, or F.
+
+    \myfig{0.25}{bonds_figures/h_bonds}{caption}{fig:fig13}
+
+  4. \textbf{Ion-Dipole Interactions} -- occur between ionic compounds and polar molecules, such as when salt (\ce{NaCl}) dissolves in water.
+
+    \myfig{0.25}{bonds_figures/ion_dipole}{caption}{fig:fig14}
+
+  \begin{definition}
+  SIDE NOTE: \textbf{Formal Charge (FC)} is a useful concept for determining the most stable Lewis structure for a molecule. It is calculated using the formula
+
+  \[
+  FC = V - (L + \frac{B}{2})
+  \]
+
+  V $\rightarrow$ \# of valence \ce{e^-} \\
+  L $\rightarrow$ \# of lone pairs \\
+  B $\rightarrow$ \# of bonding \ce{e^-} \\
+  
+  The \textbf{most stable Lewis structure typically has the smallest formal charges} on atoms, with negative formal charges residing on the more electronegative atoms. \\
+  
+  \textit{For example, in \ce{NO3^-}, N has a formal charge of +1, while one of the O atoms has a formal charge of -1, and the other two O atoms have a formal charge of 0. This distribution of formal charges helps to explain the resonance structures and overall stability of the nitrate ion.}
+  \end{definition}
+
+\end{document}
+
