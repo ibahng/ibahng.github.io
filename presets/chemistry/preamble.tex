@@ -12,3 +12,25 @@
   \hspace{7mm}{#1}
 }
 
+\newcommand{\sno}[0]{
+  $\mathrm{S}_{\mathrm{N}}1$
+}
+
+\newcommand{\snt}[0]{
+  $\mathrm{S}_{\mathrm{N}}2$
+}
+
+\newcommand{\reactionfig}[4]{
+    \begin{figure}[H]
+    \centering
+    \scalebox{#4}{
+    \schemestart
+    #1
+    \schemestop
+    }
+    \caption{#2}
+    \label{#3}
+    \end{figure}
+}
+
+
