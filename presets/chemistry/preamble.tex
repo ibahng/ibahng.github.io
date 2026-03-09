@@ -24,13 +24,82 @@
     \begin{figure}[H]
     \centering
     \scalebox{#4}{
-    \schemestart
     #1
-    \schemestop
     }
     \caption{#2}
     \label{#3}
     \end{figure}
 }
 
+\newcommand{\doublereactionfig}[5]{
+    \begin{figure}[H]
+    \centering
+    \begin{minipage}{\textwidth}
+    \centering
+    \scalebox{#5}{
+    #1
+    }
+    \end{minipage}
 
+    \vspace{2.5em}
+
+    \begin{minipage}{\textwidth}
+    \centering
+    \scalebox{#5}{
+    #2
+    }
+    \end{minipage}
+
+    \caption{#3}
+    \label{#4}
+    \end{figure}
+}
+
+\newcommand{\triplereactionfig}[6]{
+    \begin{figure}[H]
+    \centering
+    \begin{minipage}{\textwidth}
+    \centering
+    \scalebox{#6}{
+    #1
+    }
+    \end{minipage}
+
+    \vspace{2.5em}
+
+    \begin{minipage}{\textwidth}
+    \centering
+    \scalebox{#6}{
+    #2
+    }
+    \end{minipage}
+
+    \vspace{2.5em}
+
+    \begin{minipage}{\textwidth}
+    \centering
+    \scalebox{#6}{
+    #3
+    }
+    \end{minipage}
+
+    \caption{#4}
+    \label{#5}
+    \end{figure}
+}
+
+\newcommand{\scheme}[1]{
+  \schemestart
+    #1
+  \schemestop
+}
+
+\newcommand{\chemmovearrow}[1]{
+  \chemmove[shorten <=5pt, shorten >=5pt]{
+    #1
+  }
+}
+
+\newcommand{\reactionfigarrow}[5]{
+  \draw[#5](#1)..controls +(#2:1cm)and+(#4:1cm)..(#3);  
+}

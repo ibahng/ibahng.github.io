@@ -11,236 +11,736 @@
 
 \input{../../presets/_general/startup}
 
-\section{Alcohol Foundations}
-
-  \begin{definition}[Alcohols]
-   
-    \textbf{Alcohols} (\ce{ROH}) are a fundamental class of compounds characterized by the presence of one or more hydroxyl (\ce{-OH}) groups attached to a carbon atom.
-
-    Because of this hydroxyl group(s) they possess relatively \textbf{high melting and boiling points} and \textbf{high water solubility} because of their ability to hydrogen bond. However, their water solubility decreases with the size of R because \textbf{R is hydrophobic} and \textbf{-OH is hydrophilic}.
-
-  \end{definition}
-
-  The acidic nature of alcohols is represented by the shell equation \ce{ROH + H2O <=> RO- + H3O+}. Using this equation, here are the $pK_a$s of alcohols across various R groups. \textit{As a reminder, lower $pK_a$ values means higher acidity.}
-
-  \begin{table}[H]
-    \centering
-    \begin{tabular}{lll}
-      \hline
-      \# & \textbf{ROH} & \textbf{p\textit{K}$_a$} \\
-      \hline
-      1 & H$_2$\textcolor{red}{O} & 15.7 \\
-      2 & CH$_3$\textcolor{red}{O}H & 15.5 \\
-      3 & CH$_3$CH$_2$\textcolor{red}{O}H & 15.9 \\
-      4 & (CH$_3$)$_2$CH\textcolor{red}{O}H & 17.1 \\
-      5 & (CH$_3$)$_3$C\textcolor{red}{O}H & 18 \\
-      6 & \textcolor{green!60!black}{Cl}CH$_2$CH$_2$\textcolor{red}{O}H & 14.3 \\
-      7 & C\textcolor{green!60!black}{F}$_3$CH$_2$\textcolor{red}{O}H & 12.4 \\
-      8 & C\textcolor{green!60!black}{F}$_3$CH$_2$CH$_2$\textcolor{red}{O}H & 14.6 \\
-    \end{tabular}
-    \caption{$pK_a$ of various alcohols}
-    \label{tab:pka_alc}
-  \end{table}
-
-  \begin{core}[Solvation and Alcohol Acidity]
-
-    Notice that as the alcohol shifts from methyl $\rightarrow$ primary $\rightarrow$ secondary $\rightarrow$ tertiary R groups (2 $\rightarrow$ 3 $\rightarrow$ 4 $\rightarrow$ 5), the acidity of the alcohol increases.
-    
-    This pattern is primarily driven by \textbf{solvation} where the negative charge on an alkoxide ion (\ce{RO-}) is stabilized through solvent molecules surrounding the oxygen to spread out the charge. In more sterically hindered instances like \ce{(CH3)3COH}, this solvation occurs to a lesser extent, making the alkoxide form less stable in comparison to methoxide (\ce{CH3OH}).
-
-  \end{core}
-
-  \begin{core}[Inductive Effect and Alcohol Acidity] 
-
-    The larger presence of electronegative halogen species in ROH increases the acidity of the alcohol due to the \textbf{inductive effect}, which refers to the transmission of a partial electrical charge throughout a molecule's atoms. A resulting alkoxide \ce{RO-} is more stablized when the R group is able to "share the burden" of the concentrated negative charge on the oxygen.
-
-    As a result, compound 7 (\ce{CF3CH2OH}) has a smaller $pK_a$ value compared to compound 6 (\ce{ClCH2CH2OH}). This acidic pattern also occurs with increasing distance between the \ce{-O-} and halogen species, an observation we see in the $pK_a$ differences between compound 7 and 8.
-
-  \end{core}
-
-\section{Alcohol Synthesis}
-
-  Alcohol is synthesized primarily through one of three different methods. We will go through each method in turn. 
-
-  \begin{core}[Radical Halogenation and \snt/\sno \rightarrow Alcohols]
-
-    Our goal can be summarized by the following chemical equation: \ce{R-L + OH- -> R-OH + L-}.
-
-    In the general absence of steric hinderance around the electrophile---such as \ce{H3C-L} or \ce{R_{prim}-L}---we can accomplish this reaction purely via \snt. However, the possibility of undesired E2 reactions increases as steric hinderance becomes more present---such as in β branched compounds.
-   
-    \reactionfig{
-      \chemfig{
-        [:30]
-        -[:-30]
-        (-[-90])
-        -[:30]
-        -[:-30]
-        -[:30]
-        -[:-30]
-        (-[:30,,,,Green]\textcolor{Green}{I})
-      }
-      \arrow{->[\textcolor{Red}{-OH}]}
-      \chemfig{
-        [:30]
-        -[:-30]
-        (-[-90])
-        -[:30]
-        -[:-30]
-        -[:30]
-        -[:-30]
-        (-[:30,,,,Red]\textcolor{Red}{OH}) 
-      }
-    }{Alcohol synthesis via \snt}{fig:filler1}{0.75}
-
-    \reactionfig{
-      \chemfig{
-        [:30]
-        -[:-30](-[-90])
-        -[:30]
-        -[:-30]
-        -[:30](-[90])
-        -[:-30]
-        (-[:30,,,,Green]\textcolor{Green}{I})
-      }
-      \arrow{->[\textcolor{Red}{-OH}]}
-      \chemfig{
-        [:30]
-        -[:-30]
-        (-[-90])
-        -[:30]
-        -[:-30]
-        -[:30]
-        (-[90])
-        =[:-30,,,,Red]
-      }
-    }{Undesired E2 reaction in β branched R groups}{fig:filler2}{0.75}
-    
-    In order to resolve this E2 issue, we use a less basic, "masked " OH-equivalent such as acetate.
-
-    \reactionfig{
-      \chemfig{
-        (-[:180,,,,Red]\textcolor{Red}{O-})
-        (-[:60]CH_3)
-        =[:-60,,,,Red]\textcolor{Red}{O}
-      }
-    }{Acetate ion structure}{fig:acetate}{0.8}
-    
-    After substituting the halogen leaving group in a β branched R group, we can convert the acetate subtitutent into a -OH group via hydrolysis.
-
-    \reactionfig{
-      \chemfig{
-        -[:30](-[90])
-        -[:-30]
-        -[:30]\textcolor{Green}{Br}
-      }
-      \+
-      \chemfig{
-        (-[:180,,,,Red]\textcolor{Red}{O-})
-        (-[:60]CH_3)
-        =[:-60,,,,Red]\textcolor{Red}{O}
-      }
-      \arrow{->[\snt]}
-      \chemfig{
-        -[:30](-[90])
-        -[:-30]
-        -[:30]\textcolor{Red}{\ddot{O}}
-        -[:0,,,,blue,decorate,decoration={snake,amplitude=0.5mm,segment length=2mm}]\textcolor{Red}{C}(=[:90,,,,Red]\textcolor{Red}{\ddot{O}})-[:0,,,,Red]\textcolor{Red}{CH_3}
-      }
-      \arrow{->[\ce{H2O}, \textcolor{Red}{\ce{^-OH}}][hydrolysis]}
-      \chemfig{
-        -[:30](-[90])
-        -[:-30]
-        -[:30,,,,Red]\textcolor{Red}{OH}
-      }
-    }{Alcohol synthesis via acetate substitution and hydrolysis}{fig:filler3}{0.8}
-
-    For \ce{R_{sec}-L} and \ce{R_{ter}-L}, \snt is inefficient or impossible due to steric hinderance around the electrophile, thus we carry out alcohol synthesis via \sno. By using a poor Nu like \ce{H2O}, we can avoid E2, however, we are again met with the possibility of E1 products. To reduce this undesired occurance, we can lower temperature to minimize the free energy push the E1 reaction gets from having a greater entropy change (ΔS) than the \sno pathway.
-
-    \myfig{0.5}{alcohols_figures/as_sn1}{Alcohol Synthesis via SN1}{fig:as_sn1} % *****************
-    
-  \end{core} 
-
-  \begin{core}[Reduction of Aldehydes and Ketones \rightarrow Alcohols]
-
-    With aldehydes or ketones, we must find a way to incorporate \ce{H2} into the compound to produce a \ce{R_{sec}-OH} or \ce{R_{prim}-OH} alcohol, respectively.
-
-    % \myfig{0.5}{alcohols_figures/ka_alcohol}{Reduction of Aldehydes and Ketones to Alcohols}{fig:ka_alcohol}
-
-    Direct hydrogenation is possible, but cumbersome because it needs \ce{H2} pressure and catalysts (e.g. Rd, Pt). Instead, the most common laboratory method is via \textbf{hydride} (\ce{H-}) donors, which are prepared either through boron or aluminum via the following reactions.
-
-    \bce{\ce{Na^{+}H- + BH3 -> Na^{+}BH4-}\hspace{5mm} \textit{sodium borohydride}}
-
-    \bce{\ce{Li^{+}H- + AlH3 -> Li^{+}AlH4-}\hspace{5mm} \textit{lithium aluminum hydride}}
-
-    \ce{BH4-} and \ce{AlH40} are still basic by nature and will undergo protonation by alcohols or water (protic) to give \ce{H2}, an undesired reaction pathway. However their reactivities differ. \ce{AlH4-} is a much more aggressive \ce{H-} donor compared to \ce{BH4-} because Al is less electronegative than B, thus the nearby negative charge from \ce{H-} is less stable compared to B. Consequently, \ce{AlH4-} is so reactive that it will react even with air moisture to form \ce{H2}.
-
-    As a result, \ce{Na^{+}BH4-} \textbf{allows us to use alcohol solvents} if needed without worrying about protonation. On the other hand, \ce{Li^{+}AlH4-} requires aprotic or dry solvents to prevent protonation, such as ethers.
-
-    \bce{\ce{Na^{+}BH4- ->[H2O] 4H2 + Na^{+}B(OH)4-}\hspace{5mm} \textit{slow}}
-
-    \bce{\ce{Li^{+}AlH4- ->[H2O] 4H2 + Li^{+}Al(OH)4-}\hspace{5mm} \textit{violent}}
-
-    The donated \ce{H-} will thus attack the central carbon of the ketone or aldehyde, resulting in an alkoxide, which is then protonated by an alcohol solvent (for \ce{Na^{+}BH4-}) or aqueous work up (for \ce{Li^{+}AlH4-}). \textit{Mind that the aqeuous work up is in a separate step after purification.}
-
-    % \myfig{0.5}{alcohols_figures/alkoxide}{Formation of an Alkoxide Intermediate}{fig:alkoxide}
-
-    % \myfig{0.55}{alcohols_figures/alkoxide_post}{Protonation of Alkoxide to Form Alcohol}{fig:alkoxide_post}
-
-    In all, the mechanism of \ce{NaBH4} is termolecular, concerted, and simultaneous. On the other hand, \ce{LiAlH4} is a stepwise delivery of [1] \ce{H-} and [2] \ce{H^+}, \ce{H2O} (the work-up step).
-
-  \end{core}
-  
-  In order to \textbf{oxidize the resulting alcohols back to aldehydes and ketones}, we can use \ce{Cr^{VI}} reagents, which accept \ce{e^-}s and consequently form \ce{Cr^{III}}. One such compound is chromic acid, formed via the following.
-
-  % \myfig{0.6}{alcohols_figures/chromic_acid}{Formation of Chromic Acid Reagent}{fig:chromic_acid}
-
-  Chromic acid is best for oxidizing \ce{R_{sec}-L}, which results in ketones. \ce{R_{prim}-L}, on the other hand, are \textbf{overoxidized} in aqueous medium.
-
-  % \myfig{0.75}{alcohols_figures/ca_oxidation}{Oxidation of Alcohols via Chromic Acid}{fig:ca_oxidation}
-
-  Thus to oxidize \ce{R_{prim}-L}, we instead use pyridinium chlorochromate (PCC) which is soluble in organic solvents. This compound avoids the overoxidation that chromic acid would have performed.
-
-  % \myfig{0.65}{alcohols_figures/pcc}{Pyridinium Chlorochromate (PCC) Structure}{fig:pcc}
-
-  \begin{core}[Organometallics \rightarrow Alcohols]
-    
-    Alcohol can be synthesized from \textbf{organometallics}, namely \textbf{grignard reagents} (\ce{RMgX}) and organolithium reagents (\ce{RLi}). Just as \ce{BH4-} and \ce{LiH4-} are were used to donate \ce{H-} to push the π bond \ce{e^-}s onto the oxygen, grignard reagents do the same but donates an entire \ce{R-} rather than \ce{H-}.
-
-    We can synthesize organolithium reagents and grignard reagents via the following chemical pathways.
-
-    \bce{\ce{Li + RX ->[hexane][-X] R-Li + LiX} \textit{organolithium reagents}}
-
-    \bce{\ce{Mg + RX ->[ether] R-Mg-X} \textit{grignard reagents}}
-
-    Due to electronegativity differences organolithium reagents must be done in a nonreactive, nonpolar solvent like hexane. Grignard reagents, on the other hand, must be done in ethers to prevent \ce{RMgX} from clumping up via solvation. 
-
-    % \myfig{0.25}{alcohols_figures/grignard}{Solvation of Grignard Reagent in Ether}{fig:grignard}
-
-    The resulting \ce{R-M(X)} bond is highly polarized due to the EN difference between the organic R group and metal. Unlike most organic molecules---where carbon is bonded to more EN elements and bears a partial positive charge---the carbon in \ce{R-M(X)} is more EN than its metallic partner. This reversal of typical polarity, or \textbf{umpolung}, renders the R group carbon both strongly basic and nucleophilic, making them extremely easy to protonate via hydrolysis.
-
-    % \myfig{0.45}{alcohols_figures/grignard_ion}{Polarization of Grignard Reagents}{fig:grignard_ion}
-
-    Consequently, they must be made in very dry solvents unless the goal was to convert a \ce{R-X} to a \ce{R-H}.
-
-    % \myfig{0.6}{alcohols_figures/rx_rh}{Conversion of Alkyl Halide to Alkane via Grignard}{fig:rx_rh}
-
-    However, when reacted with ketones, aldehydes, or formaldehyde, they form cooresponding alkoxides, which can then be put through an aqueous work-up in order to form alcohol. This method of alcohol formation allows chemists to add a R group to any carbonyl containing compound whereas the previously covered methods could only add H.
-
-    % \myfig{0.6}{alcohols_figures/rm_alcohol}{Alcohol Synthesis via Grignard Addition to Carbonyls}{fig:rm_alcohol}
-
-  \end{core}
+% \section{Alcohol Foundations}
+%
+%   \begin{definition}[Alcohols]
+%   
+%     \textbf{Alcohols} (\ce{ROH}) are a fundamental class of compounds characterized by the presence of one or more hydroxyl (\ce{-OH}) groups attached to a carbon atom.
+%
+%     Because of this hydroxyl group(s) they possess relatively \textbf{high melting and boiling points} and \textbf{high water solubility} because of their ability to hydrogen bond. However, their water solubility decreases with the size of R because \textbf{R is hydrophobic} and \textbf{-OH is hydrophilic}.
+%
+%   \end{definition}
+%
+%   The acidic nature of alcohols is represented by the shell equation \ce{ROH + H2O <=> RO- + H3O+}. Using this equation, here are the $pK_a$s of alcohols across various R groups. \textit{As a reminder, lower $pK_a$ values means higher acidity.}
+%
+%   \begin{table}[H]
+%     \centering
+%     \begin{tabular}{lll}
+%       \hline
+%       \# & \textbf{ROH} & \textbf{p\textit{K}$_a$} \\
+%       \hline
+%       1 & H$_2$\textcolor{red}{O} & 15.7 \\
+%       2 & CH$_3$\textcolor{red}{O}H & 15.5 \\
+%       3 & CH$_3$CH$_2$\textcolor{red}{O}H & 15.9 \\
+%       4 & (CH$_3$)$_2$CH\textcolor{red}{O}H & 17.1 \\
+%       5 & (CH$_3$)$_3$C\textcolor{red}{O}H & 18 \\
+%       6 & \textcolor{green!60!black}{Cl}CH$_2$CH$_2$\textcolor{red}{O}H & 14.3 \\
+%       7 & C\textcolor{green!60!black}{F}$_3$CH$_2$\textcolor{red}{O}H & 12.4 \\
+%       8 & C\textcolor{green!60!black}{F}$_3$CH$_2$CH$_2$\textcolor{red}{O}H & 14.6 \\
+%     \end{tabular}
+%     \caption{$pK_a$ of various alcohols}
+%     \label{tab:pka_alc}
+%   \end{table}
+%
+%   \begin{core}[Solvation and Alcohol Acidity]
+%
+%     Notice that as the alcohol shifts from methyl $\rightarrow$ primary $\rightarrow$ secondary $\rightarrow$ tertiary R groups (2 $\rightarrow$ 3 $\rightarrow$ 4 $\rightarrow$ 5), the acidity of the alcohol increases.
+%    
+%     This pattern is primarily driven by \textbf{solvation} where the negative charge on an alkoxide ion (\ce{RO-}) is stabilized through solvent molecules surrounding the oxygen to spread out the charge. In more sterically hindered instances like \ce{(CH3)3COH}, this solvation occurs to a lesser extent, making the alkoxide form less stable in comparison to methoxide (\ce{CH3OH}).
+%
+%   \end{core}
+%
+%   \begin{core}[Inductive Effect and Alcohol Acidity] 
+%
+%     The larger presence of electronegative halogen species in ROH increases the acidity of the alcohol due to the \textbf{inductive effect}, which refers to the transmission of a partial electrical charge throughout a molecule's atoms. A resulting alkoxide \ce{RO-} is more stablized when the R group is able to "share the burden" of the concentrated negative charge on the oxygen.
+%
+%     As a result, compound 7 (\ce{CF3CH2OH}) has a smaller $pK_a$ value compared to compound 6 (\ce{ClCH2CH2OH}). This acidic pattern also occurs with increasing distance between the \ce{-O-} and halogen species, an observation we see in the $pK_a$ differences between compound 7 and 8.
+%
+%   \end{core}
+%
+% \section{Alcohol Synthesis}
+%
+%   Alcohol is synthesized primarily through one of three different methods. We will go through each method in turn. 
+%
+%   \begin{core}[Radical Halogenation and \snt/\sno \rightarrow Alcohols]
+%
+%     Our goal can be summarized by the following chemical equation: \ce{R-L + OH- -> R-OH + L-}.
+%
+%     In the general absence of steric hinderance around the electrophile---such as \ce{H3C-L} or \ce{R_{prim}-L}---we can accomplish this reaction purely via \snt. However, the possibility of undesired E2 reactions increases as steric hinderance becomes more present---such as in β branched compounds.
+%   
+%     \reactionfig{
+%       \scheme{
+%         \chemfig{
+%           [:30]
+%           -[:-30]
+%           (-[-90])
+%           -[:30]
+%           -[:-30]
+%           -[:30]
+%           -[:-30]
+%           (-[:30,,,,Green]\textcolor{Green}{I})
+%         }
+%         \arrow{->[\textcolor{Red}{-OH}]}
+%         \chemfig{
+%           [:30]
+%           -[:-30]
+%           (-[-90])
+%           -[:30]
+%           -[:-30]
+%           -[:30]
+%           -[:-30]
+%           (-[:30,,,,Red]\textcolor{Red}{OH}) 
+%         }
+%       }
+%     }{Alcohol synthesis via \snt}{fig:filler1}{0.75}
+%
+%     \reactionfig{
+%       \scheme{
+%         \chemfig{
+%           [:30]
+%           -[:-30](-[-90])
+%           -[:30]
+%           -[:-30]
+%           -[:30](-[90])
+%           -[:-30]
+%           (-[:30,,,,Green]\textcolor{Green}{I})
+%         }
+%         \arrow{->[\textcolor{Red}{-OH}]}
+%         \chemfig{
+%           [:30]
+%           -[:-30]
+%           (-[-90])
+%           -[:30]
+%           -[:-30]
+%           -[:30]
+%           (-[90])
+%           =[:-30,,,,Red]
+%         }
+%       }
+%     }{Undesired E2 reaction in β branched R groups}{fig:filler2}{0.75}
+%    
+%     In order to resolve this E2 issue, we use a less basic, "masked " OH-equivalent such as acetate.
+%
+%     \reactionfig{
+%       \scheme{
+%         \chemfig{
+%           (-[:180,,,,Red]\textcolor{Red}{O-})
+%           (-[:60]CH_3)
+%           =[:-60,,,,Red]\textcolor{Red}{O}
+%         }
+%       }
+%     }{Acetate ion structure}{fig:acetate}{0.8}
+%    
+%     After substituting the halogen leaving group in a β branched R group, we can convert the acetate subtitutent into a -OH group via hydrolysis.
+%
+%     \reactionfig{
+%       \scheme{
+%         \chemfig{
+%           -[:30](-[90])
+%           -[:-30]
+%           -[:30]\textcolor{Green}{Br}
+%         }
+%         \+
+%         \chemfig{
+%           (-[:180,,,,Red]\textcolor{Red}{O-})
+%           (-[:60]CH_3)
+%           =[:-60,,,,Red]\textcolor{Red}{O}
+%         }
+%         \arrow{->[\snt]}
+%         \chemfig{
+%           -[:30](-[90])
+%           -[:-30]
+%           -[:30]\textcolor{Red}{\ddot{O}}
+%           -[:0,,,,blue,decorate,decoration={snake,amplitude=0.5mm,segment length=2mm}]\textcolor{Red}{C}(=[:90,,,,Red]\textcolor{Red}{\ddot{O}})-[:0,,,,Red]\textcolor{Red}{CH_3}
+%         }
+%         \arrow{->[\ce{H2O}, \textcolor{Red}{\ce{^-OH}}][hydrolysis]}
+%         \chemfig{
+%           -[:30](-[90])
+%           -[:-30]
+%           -[:30,,,,Red]\textcolor{Red}{OH}
+%         }
+%       }
+%     }{Alcohol synthesis via acetate substitution and hydrolysis}{fig:filler3}{0.8}
+%
+%     For \ce{R_{sec}-L} and \ce{R_{ter}-L}, \snt is inefficient or impossible due to steric hinderance around the electrophile, thus we carry out alcohol synthesis via \sno. By using a poor Nu like \ce{H2O}, we can avoid E2, however, we are again met with the possibility of E1 products. To reduce this undesired occurance, we can lower temperature to minimize the free energy push the E1 reaction gets from having a greater entropy change (ΔS) than the \sno pathway.
+%
+%     \doublereactionfig{
+%       \scheme{
+%         \chemfig{
+%           Br-[:30]*6(------)
+%         }
+%         \arrow{->[\ce{H2O}][-HBr]}
+%         \chemfig{
+%           OH-[:30]*6(------) 
+%         }
+%         \+
+%         \chemfig{
+%           *6(=-----) 
+%         }
+%       }
+%     }{
+%       \scheme{
+%         \chemfig{
+%           Cl-[:30](-[:150])*6(------)
+%         }
+%         \arrow{->[\ce{H2O}][-HCl]}
+%         \chemfig{
+%           OH-[:30](-[:150])*6(------) 
+%         }
+%         \+
+%         \chemfig{
+%           -[:30]*6(=-----) 
+%         } 
+%         \+
+%         \chemfig{
+%           =[:30]*6(------) 
+%         }
+%       }
+%     }{Alcohol synthesis via \sno with Br and Cl; undesired E1 products to the right can be minimized with lowering T}{fig:filler5}{0.85}
+% 
+%   \end{core} 
+%
+%   \begin{core}[Reduction of Aldehydes and Ketones \rightarrow Alcohols]
+%
+%     With aldehydes or ketones, we must find a way to incorporate \ce{H2} into the compound to produce a \ce{R_{sec}-OH} or \ce{R_{prim}-OH} alcohol, respectively.
+%
+%     \doublereactionfig{
+%       \scheme{
+%         \chemfig{
+%           [:0]R
+%           -[:30]
+%           (=[90]O)
+%           -[:-30]R'
+%         }
+%         \arrow{<=>[ox][red]}
+%         \chemfig{
+%           [:0]R
+%           -[:30]
+%           (-[:90]OH)
+%           (-[:45]H)
+%           -[:-30]R'
+%         }
+%       }
+%     }{
+%       \scheme{
+%         \chemfig{
+%           [:0]R
+%           -[:30]
+%           (=[90]O)
+%           -[:-30]H
+%         }
+%         \arrow{<=>[ox][red]}
+%         \chemfig{
+%           [:0]R
+%           -[:30]
+%           (-[:90]OH)
+%           (-[:45]H)
+%           -[:-30]H
+%         }
+%       }
+%     }{Reduction of aldehydes (\textit{bottom}) and ketones (\textit{top}) to alcohols}{fig:filler6}{0.8}
+%
+%     Direct hydrogenation is possible, but cumbersome because it needs \ce{H2} pressure and catalysts (e.g. Rd, Pt). Instead, the most common laboratory method is via \textbf{hydride} (\ce{H-}) donors, which are prepared either through boron or aluminum via the following reactions.
+%
+%     \bce{\ce{Na^{+}H- + BH3 -> Na^{+}BH4-}\hspace{5mm} \textit{sodium borohydride}}
+%
+%     \bce{\ce{Li^{+}H- + AlH3 -> Li^{+}AlH4-}\hspace{5mm} \textit{lithium aluminum hydride}}
+%
+%     \ce{BH4-} and \ce{AlH40} are still basic by nature and will undergo protonation by alcohols or water (protic) to give \ce{H2}, an undesired reaction pathway. However their reactivities differ. \ce{AlH4-} is a much more aggressive \ce{H-} donor compared to \ce{BH4-} because Al is less electronegative than B, thus the nearby negative charge from \ce{H-} is less stable compared to B. Consequently, \ce{AlH4-} is so reactive that it will react even with air moisture to form \ce{H2}.
+%
+%     As a result, \ce{Na^{+}BH4-} \textbf{allows us to use alcohol solvents} if needed without worrying about protonation. On the other hand, \ce{Li^{+}AlH4-} requires aprotic or dry solvents to prevent protonation, such as ethers.
+%
+%     \bce{\ce{Na^{+}BH4- ->[H2O] 4H2 + Na^{+}B(OH)4-}\hspace{5mm} \textit{slow}}
+%
+%     \bce{\ce{Li^{+}AlH4- ->[H2O] 4H2 + Li^{+}Al(OH)4-}\hspace{5mm} \textit{violent}}
+%
+%     The donated \ce{H-} will thus attack the central carbon of the ketone or aldehyde, resulting in an alkoxide, which is then protonated by an alcohol solvent (for \ce{Na^{+}BH4-}) or aqueous work up (for \ce{Li^{+}AlH4-}). \textit{Mind that the aqeuous work up is in a separate step after purification. test change}
+%
+%     \triplereactionfig{
+%       \scheme{
+%         \chemfig{
+%           @{donors}\ce{BH4- AlH4-}
+%         }
+%         \qquad
+%         \chemfig{
+%           @{hydride}\textcolor{Red}{\ce{H-}}
+%         }
+%         \+
+%         \chemfig{
+%           [:0]
+%           -[:30]@{centralc}C
+%           (=[:90]O)
+%           -[:-30] 
+%         }
+%         \arrow{->}
+%         \chemfig{
+%           [:0]
+%           -[:30]
+%           (-[:90]\ce{O-})
+%           (-[:45]H)
+%           -[:-30] 
+%         }
+%       }
+%       \chemmovearrow{
+%         \reactionfigarrow{donors}{-60}{hydride}{225}{Black}
+%         \reactionfigarrow{hydride}{60}{centralc}{135}{Red}
+%       }   
+%     }{
+%       \scheme{
+%         \chemfig{
+%           [:0]
+%           -[:30]
+%           -[:-30] 
+%           -[:30]
+%           (=[:90]O)
+%           -[:-30]
+%           -[:30]
+%         }
+%         \arrow{->[\ce{NaBH4, CH3OH}][one step]}
+%         \chemfig{
+%           [:0]
+%           -[:30]
+%           -[:-30] 
+%           -[:30]
+%           (-[:120]OH)
+%           (-[:60]H)
+%           -[:-30]
+%           -[:30]
+%         }
+%       }
+%     }{
+%       \scheme{
+%         \chemfig{
+%           [:0]
+%           -[:30]
+%           -[:-30] 
+%           -[:30]
+%           (-[:90])
+%           -[:-30] 
+%           (=[:-90]O)
+%           -[:30]H
+%         }
+%         \arrow{->[\ce{LiAl\textcolor{Red}{\ce{H4}}}][ether]}
+%         \chemfig{
+%           [:0]
+%           -[:30]
+%           -[:-30] 
+%           -[:30]
+%           (-[:90])
+%           -[:-30] 
+%           (-[:-120]\ce{Li+ H3AlO-})
+%           (-[:-60,,,,Red]\textcolor{Red}{H})
+%           -[:30]H 
+%         }
+%         \arrow{->[\ce{\textcolor{Blue}{\ce{H+}}, H2O}][work-up]}
+%         \chemfig{
+%           [:0]
+%           -[:30]
+%           -[:-30] 
+%           -[:30]
+%           (-[:90])
+%           -[:-30] 
+%           (-[:-120]\textcolor{Blue}{H}O)
+%           (-[:-60,,,,Red]\textcolor{Red}{H})
+%           -[:30]H 
+%         }
+%       }
+%     }{Formation of alkoxide intermediate (\textit{top}); reduction of ketones and aldehydes via \ce{NaBH4} (\textit{middle}) and \ce{LiAlH4} (\textit{bottom})}{fig:filler7}{0.8}
+%
+%     In all, the mechanism of \ce{NaBH4} is termolecular, concerted, and simultaneous. On the other hand, \ce{LiAlH4} is a stepwise delivery of [1] \ce{H-} and [2] \ce{H^+}, \ce{H2O} (the work-up step).
+%
+%   \end{core}
+%  
+%   In order to \textbf{oxidize the resulting alcohols back to aldehydes and ketones}, we can use \ce{Cr^{VI}} reagents, which accept \ce{e^-}s and consequently form \ce{Cr^{III}}. One such compound is chromic acid, formed via the following.
+%
+%   \reactionfig{
+%     \scheme{
+%       \chemfig{
+%         \text{Typically \ce{Na2Cr2O7} or \ce{Cr3} in \ce{H2O}, \ce{H2SO4}}
+%       }
+%       \arrow{->}
+%       \chemfig{
+%         [:0]\ce{Cr^{VI}}
+%         (=[:90]O)
+%         (=[:-90]O)
+%         (-[:0]OH)
+%         (-[:180]OH)
+%       }
+%     }
+%   }{Formation of chromic acid reagent}{fig:filler8}{0.9}
+%
+%   Chromic acid is best for oxidizing \ce{R_{sec}-L}, which results in ketones. \ce{R_{prim}-L}, on the other hand, are \textbf{overoxidized} in aqueous medium.
+%
+%   \doublereactionfig{
+%     \scheme{
+%       \chemfig{
+%         [:30]
+%         HO-*4(----)
+%       }
+%       \+
+%       \chemfig{
+%         \ce{Na2Cr2O7}
+%       }
+%       \arrow{->[\ce{H2SO4}][\ce{H2O}]}
+%       \chemfig{
+%         [:30]
+%         O=*4(----)
+%       }
+%     }
+%   }{
+%     \scheme{
+%       \chemfig{
+%         [:0]
+%         -[:30]
+%         -[:-30]
+%         -[:30]
+%         -[:-30]
+%         -[:30]OH
+%       }
+%       \+
+%       \chemfig{
+%         \ce{Na2Cr2O7}
+%       }
+%       \arrow{->[\ce{H2SO4}][\ce{H2O}]}
+%       \chemfig{
+%         [:0]
+%         -[:30]
+%         -[:-30]
+%         -[:30]
+%         -[:-30]
+%         (=[:-90]O)
+%         -[:30]H
+%       }
+%       \arrow{->[][\textcolor{Red}{not desirable}]}
+%       \chemfig{
+%         [:0]
+%         -[:30]
+%         -[:-30]
+%         -[:30]
+%         -[:-30]
+%         (=[:-90]O)
+%         -[:30]OH
+%       }
+%     }
+%   }{Oxidation of alcohols via chromic acid}{fig:filler9}{0.8}
+%
+%   Thus to oxidize \ce{R_{prim}-L}, we instead use pyridinium chlorochromate (PCC) which is soluble in organic solvents. This compound avoids the overoxidation that chromic acid would have performed.
+%
+%   \reactionfig{
+%     \scheme{
+%       \chemfig{
+%         [:0]
+%         -[:30]
+%         -[:-30] 
+%         -[:30]
+%         -[:-30] 
+%         -[:30]OH 
+%       }
+%       \arrow{->[PCC][\ce{CH3Cl2}]}
+%       \chemfig{
+%         [:0]
+%         -[:30]
+%         -[:-30] 
+%         -[:30]
+%         -[:-30] 
+%         (=[:-90]O)
+%         -[:30]H
+%       }
+%       \arrow{-/>}
+%       \chemfig{
+%         [:0]
+%         -[:30]
+%         -[:-30] 
+%         -[:30]
+%         -[:-30] 
+%         (=[:-90]O)
+%         -[:30]OH
+%       } 
+%     }
+%   }{Pyridinium Chlorochromate (PCC) reaction}{fig:filler10}{0.7}
+%
+%   \begin{core}[Organometallics \rightarrow Alcohols]
+%    
+%     Alcohol can be synthesized from \textbf{organometallics}, namely \textbf{grignard reagents} (\ce{RMgX}) and organolithium reagents (\ce{RLi}). Just as \ce{BH4-} and \ce{LiH4-} are were used to donate \ce{H-} to push the π bond \ce{e^-}s onto the oxygen, grignard reagents do the same but donates an entire \ce{R-} rather than \ce{H-}.
+%
+%     We can synthesize organolithium reagents and grignard reagents via the following chemical pathways.
+%
+%     \bce{\ce{Li + RX ->[hexane][-X] R-Li + LiX} \textit{organolithium reagents}}
+%
+%     \bce{\ce{Mg + RX ->[ether] R-Mg-X} \textit{grignard reagents}}
+%
+%     Due to electronegativity differences organolithium reagents must be done in a nonreactive, nonpolar solvent like hexane. Grignard reagents, on the other hand, must be done in ethers to prevent \ce{RMgX} from clumping up via solvation. 
+%
+%     % -[:0,,,,blue,decorate,decoration={snake,amplitude=0.5mm,segment length=2mm}]
+%
+%     \reactionfig{
+%       \scheme{
+%         \chemfig{
+%           [:0]R
+%           -[:0]Mg
+%           (
+%           -[:90,,,,Blue,decorate,decoration={snake,amplitude=0.5mm,segment length=2mm}]O
+%           (-[:0]R)
+%           (-[:180]R)
+%           )
+%           (
+%           -[:-90,,,,Blue,decorate,decoration={snake,amplitude=0.5mm,segment length=2mm}]O
+%           (-[:0]R)
+%           (-[:180]R)
+%           )
+%           -[:0]X
+%         }
+%       }
+%     }{Solvation of grignard reagent in ether}{fig:filler11}{0.8}
+%
+%     The resulting \ce{R-M(X)} bond is highly polarized due to the EN difference between the organic R group and metal. Unlike most organic molecules---where carbon is bonded to more EN elements and bears a partial positive charge---the carbon in \ce{R-M(X)} is more EN than its metallic partner. This reversal of typical polarity, or \textbf{umpolung}, renders the R group carbon both strongly basic and nucleophilic, making them extremely easy to protonate via hydrolysis.
+%
+%     \reactionfig{
+%       \scheme{
+%         \chemfig{
+%           [:0]\textcolor{Blue}{\ce{R^{δ+}}}
+%           -[:0]\textcolor{Red}{\ce{X^{δ-}}}
+%         }
+%         \arrow{->}
+%         \chemfig{
+%           [:0]\textcolor{Red}{\ce{R^{δ-}}}
+%           -[:0]\ce{\textcolor{Blue}{M^{δ+}}(X)}
+%         }
+%       }
+%     }{Polarization of haloalkanes (\textit{left}) versus grignard reagents (\textit{right})}{fig:filler12}{0.8}
+%
+%     Consequently, they must be made in very dry solvents unless the goal was to convert a \ce{R-X} to a \ce{R-H}.
+%
+%     \doublereactionfig{
+%       \scheme{
+%         \chemfig{
+%           [:0]
+%           -[:30]
+%           -[:-30]
+%           (-[:-90]Br)
+%           -[:30]
+%           -[:-30]
+%         }
+%         \arrow{->[Mg][ether]}
+%         \chemfig{
+%           [:0]
+%           -[:30]
+%           -[:-30]
+%           (-[:-90,,,,Red]\ce{MgBr})
+%           -[:30]
+%           -[:-30]
+%         }
+%         \arrow{->[\ce{\textcolor{Blue}{\ce{D2}}O}][]}
+%         \chemfig{
+%           [:0]
+%           -[:30]
+%           -[:-30]
+%           (-[:-90,,,,Red]D)
+%           -[:30]
+%           -[:-30]
+%         }
+%       }
+%     }{
+%       \scheme{
+%         \chemfig{
+%           [:0]
+%           -[:30]
+%           -[:-30]
+%           -[:30]
+%           -[:-30]
+%           -[:30]Cl
+%         }
+%         \arrow{->[Li][THF]}
+%         \chemfig{
+%           [:0]
+%           -[:30]
+%           -[:-30]
+%           -[:30]
+%           -[:-30]
+%           -[:30,,,,Red]Li
+%         }
+%         \arrow{->[\ce{\textcolor{Blue}{\ce{H2}}O}][]}
+%         \chemfig{
+%           [:0]
+%           -[:30]
+%           -[:-30]
+%           -[:30]
+%           -[:-30]
+%           -[:30,,,,Red]\textcolor{Blue}{H}
+%         }
+%       }
+%     }{Conversion of haloalkanes to alkanes via organometallics}{fig:filler13}{0.8}
+%
+%     However, when reacted with ketones, aldehydes, or formaldehyde, they form cooresponding alkoxides, which can then be put through an aqueous work-up in order to form alcohol. This method of alcohol formation allows chemists to add a R group to any carbonyl containing compound whereas the previously covered methods could only add H.
+%
+%     \reactionfig{
+%       \scheme{
+%         \chemfig{
+%           [:0]
+%           -[:30]@{centralc}\textcolor{Blue}{\ce{C^{δ-}}}  
+%           (=[@{dbond}:90,,,,Red]@{oxygen}\textcolor{Red}{\ce{O^{δ-}}})
+%           -[:-30]
+%         }
+%         \+
+%         \chemfig{
+%           [:0]\textcolor{Red}{\ce{R^{δ-}}}
+%           -[@{rmbond}:0,,,,Red]\ce{\textcolor{Blue}{M^{δ+}}}
+%         }
+%         \arrow{->[][-M]}
+%         \chemfig{
+%           [:0]
+%           -[:30]
+%           (-[:90]\ce{O-})
+%           (-[:30,,,,Red]R)
+%           -[:-30]
+%         }
+%         \arrow{->[\ce{H2O}][aqueous work-up]}
+%         \chemfig{
+%           [:0]
+%           -[:30]
+%           (
+%           -[:90]O
+%           -[:45]H
+%           )
+%           (-[:30]R)
+%           -[:-30]
+%         }
+%       }
+%       \chemmovearrow{
+%         \reactionfigarrow{dbond}{0}{oxygen}{0}{Red}
+%         \reactionfigarrow{rmbond}{-90}{centralc}{-90}{Red}
+%       }
+%     }{Alcohol synthesis via grignard addition to carbonyls}{fig:filler14}{0.9}
+%
+%   \end{core}
   
 \section{Alcohol Reactions}
 
   Deprotonating alcohol requires a stronger base than \ce{RO-}. In other words, the base must have a stronger affinity to the \ce{H^+} than the alkoxide (\ce{RO-}). If the alcohol is acidic, water will usually suffice in this matter. However, in cases where water is more acidic than the alcohol itself, \ce{H^+} can be donated to the alcohol and a subsequent \ce{H2O} L group will be formed, leaving the resulting product to have a highly reactive, empty atomic orbital on the relevant C after the \ce{H2O} L group departs.
 
-  % \myfig{0.55}{alcohols_figures/missing_h}{Formation of Oxonium Ion and Carbocation}{fig:missing_h}
+  % \reactionfig{
+  %   \scheme{
+  %     \chemfig{
+  %       [:0]C
+  %       (<:[:210])
+  %       (<[:-100])
+  %       (-[:120]H)
+  %       -[:0]C
+  %       (<:[:-30])
+  %       (<[:-80])
+  %       (
+  %       -[@{bond1}:60]@{o1}\textcolor{Red}{O}
+  %       (-[:30]H)
+  %       )
+  %     }
+  %     \+
+  %     \chemfig{
+  %       [:0]@{o2}\textcolor{Red}{O}
+  %       (-[@{bond2}:150]@{hydrogen}H)
+  %       (-[:30]H)
+  %     }
+  %     \arrow{->[][\ce{-H2O}]}
+  %     \chemfig{
+  %       [:0]C
+  %       (<:[:210])
+  %       (<[:-100])
+  %       (-[:120]H)
+  %       -[:0]\ce{C+}
+  %       (<:[:15])
+  %       (<[:-15])
+  %     }
+  %   }
+  %   \chemmovearrow{
+  %     \reactionfigarrow{bond1}{150}{o1}{150}{Red}
+  %     \reactionfigarrow{o1}{-30}{hydrogen}{150}{Red}
+  %     \reactionfigarrow{bond2}{-120}{o2}{-120}{Red}
+  %   }
+  % }{Formation of oxonium ion and carbocation}{fig:filler15}{0.9}
 
   This phenomenon presents a range of complications when dealing with alcohol reactions. For instance, let's say that we want to replace the \ce{-OH} with a different functional group like a halide \ce{X}. This can occur either through \snt or \sno.
 
-  % \myfig{0.65}{alcohols_figures/ar_sn2}{Nucleophilic Substitution (SN2) of Alcohols}{fig:ar_sn2}
+  \triplereactionfig{
+    \scheme{
+      \chemfig{
+        [:0]\ce{R_{prim}}
+        -[:0]\textcolor{Red}{O}H
+      }
+      \arrow{<<->[HX][]}
+      \chemfig{
+        [:0]\ce{R_{prim}}
+        -[:0]\ce{\textcolor{Green}{^{+}OH2}}
+      }
+      \arrow{->[\textcolor{Red}{\ce{X-}}][\snt]}
+      \chemfig{
+        [:0]R
+        -[:0]X
+      }
+    }
+  }{
+    \scheme{
+      \chemfig{
+        [:0]
+        -[:-30]
+        -[:30]
+        -[:-30]
+        -[:30]
+        -[:-30]
+        -[:30]OH
+      }
+      \arrow{->[\ce{HBr}]}
+      \chemfig{
+        [:0]
+        -[:-30]
+        -[:30]
+        -[:-30]
+        -[:30]
+        -[:-30]
+        -[:30]Br
+      }
+    }
+  }{
+    \scheme{
+      \chemfig{
+        *6(
+        ---
+        (
+        -[:30]
+        -[:-30]
+        -[:30]OH
+        )
+        ---)
+      }
+      \arrow{->[\ce{HI}]}
+      \chemfig{
+        *6(
+        ---
+        (
+        -[:30]
+        -[:-30]
+        -[:30]I
+        )
+        ---)
+      }
+    }
+  }{\snt of alcohols; needs strong \ce{H^+} with a good nucleophile \ce{HCl}, \ce{HBr}, \ce{HI}}{fig:filler16}{0.8}
 
-  % \myfig{0.6}{alcohols_figures/ar_sn1}{Nucleophilic Substitution (SN1) of Alcohols}{fig:ar_sn1}
+  \reactionfig{
+    \scheme{
+      \chemfig{
+        [:0]\ce{R_{sec/tert}}
+        -[:0]\textcolor{Red}{O}H
+      }
+      \arrow{->[\textcolor{Blue}{\ce{H^+}}][\textcolor{Green}{-\ce{H2O}}]}
+      \chemfig{
+        \textcolor{Blue}{\ce{R+}}
+      }
+      \arrow{->[\sno][]}
+      \chemfig{
+        [:0]R
+        -[:0]\textcolor{Red}{Nu}
+      }
+    }
+  }{\sno of alcohols; \textit{E1 may occur as well, leading to an alkane end product, but \sno dominates for \ce{R_{sec}} in \ce{H2O}}}{fig:filler17}{1}
 
   However, mixtures ensue due to several different mechanisms.
 
@@ -248,15 +748,58 @@
      
     \textbf{Hydride shifts} refer to the movement of a intramolecular hydrogen towards a neighboring empty p orbital.
 
-    % \myfig{0.8}{alcohols_figures/ar_hshift}{Hydride Shift Mechanism in SN1 Reaction}{fig:ar_hshift}
+    \myfig{0.8}{alcohols_figures/ar_hshift}{Hydride Shift Mechanism in SN1 Reaction}{fig:ar_hshift} % KEEP
 
     This is particularly an issue if the shift is favorable, such as the move from a \ce{R_{sec}+} to a \ce{R_{tert}+}. Degenerate shifts (\ce{R_{sec}+} $\rightarrow$ \ce{R_{sec}+} or \ce{R_{tert}+} $\rightarrow$ \ce{R_{tert}+}) are less common, but can still occur, resulting in the halide attacking at a unintended location.
 
-    % \myfig{0.8}{alcohols_figures/ar_hshift2}{Hydride Shift Resulting in Regioisomeric Products}{fig:ar_hshift2}
+    \reactionfig{
+      \scheme{
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \arrow{->[][]}
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \+
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+      }
+    }{Filler caption}{fig:filler18}{0.9}
+
+    \myfig{0.8}{alcohols_figures/ar_hshift2}{Hydride Shift Resulting in Regioisomeric Products}{fig:ar_hshift2} % REPLACE
     
     In specific cases like ring structures, these hydride shifts happen stereospecifically.
 
-    % \myfig{0.7}{alcohols_figures/ar_ring_attack}{Stereospecific Hydride Shift in Ring Structures}{fig:ar_ring_attack}
+    \reactionfig{
+      \scheme{
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \arrow{<=>[][]}
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \arrow{<=>[][]}
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \arrow{<=>[][]}
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+      }
+    }{Filler caption}{fig:filler19}{0.9}
+
+    \myfig{0.7}{alcohols_figures/ar_ring_attack}{Stereospecific Hydride Shift in Ring Structures}{fig:ar_ring_attack} % REPLACE
 
   \end{core}
 
@@ -264,7 +807,31 @@
     
     E1 reactions become particularly more prevalent at higher temperatures and in the absence of a viable nucleophile. \textit{Notice how the \ce{H^+} detachment at the last step happens at the tertiary position and not the secondary due to greater stablity from more hyperconjugation.}
 
-    % \myfig{0.7}{alcohols_figures/ar_e1}{Elimination (E1) Mechanism in Alcohols}{fig:ar_e1}
+    \reactionfig{
+      \scheme{
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \arrow{<=>[][]}
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \arrow{<=>[][]}
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \arrow{<=>[][]}
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+      }
+    }{Filler caption}{fig:filler20}{0.9}
+
+    \myfig{0.7}{alcohols_figures/ar_e1}{Elimination (E1) Mechanism in Alcohols}{fig:ar_e1}
     
   \end{core}
 
@@ -272,11 +839,50 @@
    
     Additionally, entire alkyl or R shifts can occur, although not as commonly as hydride shifts because of the greater $E_a$. These shift can occur even in \ce{R_{prim}-OH}s.
 
-    % \myfig{0.5}{alcohols_figures/ar_alkyl_shift}{Alkyl Shift Mechanism in Alcohol Reactions}{fig:ar_alkyl_shift}
+    \reactionfig{
+      \scheme{
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \arrow{<=>[][]}
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+      }
+    }{Filler caption}{fig:filler21}{0.9}
+
+    \myfig{0.5}{alcohols_figures/ar_alkyl_shift}{Alkyl Shift Mechanism in Alcohol Reactions}{fig:ar_alkyl_shift}
 
     However, alkyl shifts are especially favorable and fast when relieving ring stain.
 
-    % \myfig{0.75}{alcohols_figures/ar_ring}{Ring Expansion via Alkyl Shift}{fig:ar_ring}
+    \reactionfig{
+      \scheme{
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \arrow{->[][]}
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \arrow{->[][]}
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \arrow{<=>[][]}
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+      }
+    }{Filler caption}{fig:filler22}{0.9}
+
+
+    \myfig{0.75}{alcohols_figures/ar_ring}{Ring Expansion via Alkyl Shift}{fig:ar_ring}
 
   \end{core}
 
@@ -286,6 +892,56 @@
     
     Chemists use \ce{PBr3} to replace OH groups with Br: \ce{3ROH + PBr3 -> 3RBr + H3PO3}. The mechanism for this reaction is as follows.
 
+    \doublereactionfig{
+      \scheme{
+        \text{STEP 1}
+        \qquad
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \+
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \arrow{->}
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \+
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+      }
+    }{
+      \scheme{
+        \text{STEP 2}
+        \qquad
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \+
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \arrow{->[][]}
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \+
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+      }
+    }{Filler caption}{fig:filler23}{0.9}
+
     \myfig{0.7}{alcohols_figures/ar_ohbr}{Mechanism of Alcohol Bromination using PBr3}{fig:ar_ohbr}
 
   \end{core}
@@ -294,9 +950,103 @@
     
     Chemists use \ce{SOCl2} to replace OH groups with Cl: \ce{ROH + SOCl2 -> RCl + SO2 + HCl}. The mechanism for this reaction is as follows.
 
-    % \myfig{0.85}{alcohols_figures/ar_ohcl}{Mechanism of Alcohol Chlorination using SOCl2}{fig:ar_ohcl}
+    \doublereactionfig{
+      \scheme{
+        \text{STEP 1}
+        \qquad
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \+
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \arrow{->}
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \+
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \+
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+      }
+    }{
+      \scheme{
+        \text{STEP 2}
+        \qquad
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \+
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \+
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \arrow{->}
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \+
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \+
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+      }
+    }{Filler caption}{fig:filler24}{0.9}
+
+    \myfig{0.85}{alcohols_figures/ar_ohcl}{Mechanism of Alcohol Chlorination using SOCl2}{fig:ar_ohcl}
 
     It is important to note here that pyradine is used as a solvent in this reaction in order to neutralize the \ce{HCl} byproduct from further protonating the alcohol or the product, effectively preventing unintended compounds from forming.
+
+    \reactionfig{
+      \scheme{
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \+
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \arrow{->[][]}
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \+
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \+
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+      }
+    }{filler caption}{fig:filler25}{0.9}
 
     \myfig{0.6}{alcohols_figures/ar_ohcl_eq}{Reaction of Alcohol with Thionyl Chloride (SOCl2)}{fig:ar_ohcl_eq}
 
@@ -306,7 +1056,43 @@
    
     To substitute OH with a good leaving group, chemists use isolable sulfonates such as the following molecules and cooresponding reactions.
 
-    % \myfig{0.7}{alcohols_figures/ar_isosulf}{Formation of Isolable Sulfonate Esters}{fig:ar_isosulf}
+    \doublereactionfig{
+      \scheme{
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \+
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \arrow{->[][]}
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+      }
+    }{
+      \scheme{
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \+
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+        \arrow{->[][]}
+        \chemfig{
+          [:0]
+          -[:30]
+        }
+      }
+    }{filler caption}{fig:filler26}{0.9}
+
+    \myfig{0.7}{alcohols_figures/ar_isosulf}{Formation of Isolable Sulfonate Esters}{fig:ar_isosulf}
 
     Notice that the displaced \ce{Cl-} after the sulfonates attach to the R group is stablized as a floating ion via solvation by the pyradine solvent as seen in the reaction above with \ce{SOCl2}.
 
