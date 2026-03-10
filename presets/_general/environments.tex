@@ -35,13 +35,15 @@
 }
 
 % Custom Environments
-\newtcolorbox[auto counter, number within=section]{definition}[1][]
+\newtcolorbox[auto counter, number within=section]{definition}[2][label=]
 {
-  title = \textbf{Definition \thetcbcounter: ~#1}
+  title = \textbf{Definition \thetcbcounter: ~#2},
+  #1
 }
 
-\newtcolorbox[auto counter, number within=section]{core}[1][]
+\newtcolorbox[auto counter, number within=section]{core}[2][]
 {
-  title = \textbf{Core Concept \thetcbcounter: ~#1}
+  title = \textbf{Core Concept \thetcbcounter: ~#2},
+  #1,
 }
 
