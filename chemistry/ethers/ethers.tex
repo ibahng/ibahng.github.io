@@ -7,18 +7,18 @@
 
 \input{../../presets/chemistry/preamble}
 
-\externaldocument[gases-]{../gases/gases}[../gases/gases.pdf]
-\externaldocument[acids-]{../acids_and_bases/acids_and_bases}[../acids_and_bases/acids_and_bases.pdf]
-\externaldocument[equilibrium-]{../equilibrium/equilibrium}[../equilibrium/equilibrium.pdf]
-\externaldocument[thermodynamics-]{../thermodynamics/thermodynamics}[../thermodynamics/thermodynamics.pdf]
-\externaldocument[quantization-]{../quantization/quantization}[../quantization/quantization.pdf]
-\externaldocument[alcohols-]{../alcohols/alcohols}[../alcohols/alcohols.pdf]
-\externaldocument[nomenclature-]{../nomenclature/nomenclature}[../nomenclature/nomenclature.pdf]
-\externaldocument[radical_halogenation-]{../radical_halogenation/radical_halogenation}[../radical_halogenation/radical_halogenation.pdf]
-\externaldocument[conformational_analysis-]{../conformational_analysis/conformational_analysis}[../conformational_analysis/conformational_analysis.pdf]
-\externaldocument[alkane_alkene_alkyne-]{../alkane_alkene_alkyne/alkane_alkene_alkyne}[../alkane_alkene_alkyne/alkane_alkene_alkyne.pdf]
-\externaldocument[nuc_sub_and_elim-]{../nuc_sub_and_elim/nuc_sub_and_elim}[../nuc_sub_and_elim/nuc_sub_and_elim.pdf]
-%\externaldocument[ethers-]{../ethers/ethers}[../ethers/ethers.pdf]
+\externaldocument[gas-]{../gases/gases}[../gases/gases.pdf]
+\externaldocument[aci-]{../acids_and_bases/acids_and_bases}[../acids_and_bases/acids_and_bases.pdf]
+\externaldocument[equ-]{../equilibrium/equilibrium}[../equilibrium/equilibrium.pdf]
+\externaldocument[the-]{../thermodynamics/thermodynamics}[../thermodynamics/thermodynamics.pdf]
+\externaldocument[qua-]{../quantization/quantization}[../quantization/quantization.pdf]
+\externaldocument[alc-]{../alcohols/alcohols}[../alcohols/alcohols.pdf]
+\externaldocument[nom-]{../nomenclature/nomenclature}[../nomenclature/nomenclature.pdf]
+\externaldocument[rad-]{../radical_halogenation/radical_halogenation}[../radical_halogenation/radical_halogenation.pdf]
+\externaldocument[con-]{../conformational_analysis/conformational_analysis}[../conformational_analysis/conformational_analysis.pdf]
+\externaldocument[alk-]{../alkane_alkene_alkyne/alkane_alkene_alkyne}[../alkane_alkene_alkyne/alkane_alkene_alkyne.pdf]
+\externaldocument[nuc-]{../nuc_sub_and_elim/nuc_sub_and_elim}[../nuc_sub_and_elim/nuc_sub_and_elim.pdf]
+%\externaldocument[eth-]{../ethers/ethers}[../ethers/ethers.pdf]
 
 \begin{document}
 
@@ -323,13 +323,14 @@
         \reactionfigarrow{o2}{-90}{c2}{90}{Red}
         \reactionfigarrow{b2}{120}{l2}{150}{Red}
       }
-    }{Relative rates of ring closure}{fig:filler7}{0.8}
+    }{Relative rates of ring closure}{fig:filler7}{1}
 
   \end{core} 
 
   \begin{core}{Symmetrical Ether Synthesis via Alcohols}
     
     Ethers can also be formed by \textbf{alcohols and \ce{H+} through \snt and/or \sno} depending on the R groups. Chemists specifically use this technique to form symmetrical ethers because and alcohol mixure would otherwise produce a slurry of different ether product.
+
     \bce{\ce{2R-OH ->[H2SO4][-H2O] R-O-R}}
 
     For \ce{R_{prim}-OH}, this mechanism works via \snt due to minimal steric hinderance.
@@ -345,7 +346,7 @@
         \qquad
         \chemfig{
           [:0,,,,Green]@{rgroup}\textcolor{Black}{R}
-          -[@{bond}:0]@{oxygen2}\textcolor{Green}{O}
+          -[@{bond}:0]@{oxygen2}\textcolor{Green}{\pcharge{0}{O}}
           (-[:-60]\textcolor{Green}{H})
           -[:60]\textcolor{Green}{H}
         }
@@ -358,7 +359,54 @@
 
     When dealing with \ce{R_{sec/tert}-OH}, this mechanism shifts to \sno.
 
-    \myfig{1.0}{ethers_figures/ether_sn1}{Symmetrical Ether Formation via SN1}{fig:ether_sn1}
+    \reactionfig{
+      \scheme{
+        \chemfig{
+          [:0]
+          -[:60]
+          (-[:120])
+          -[:0]\textcolor{Red}{O}H
+        }
+        \qquad
+        \chemfig{
+          [:0]
+          -[:60]
+          (-[:120])
+          -[@{bond1}:0,,,,Green]@{oxygen1}\textcolor{Green}{\pcharge{0}{O}}
+          (-[:60,,,,Green]\textcolor{Green}{H})
+          -[:-60,,,,Green]\textcolor{Green}{H}
+        }
+        \arrow{->}
+        \chemfig{
+          [:0]
+          -[:60]
+          (-[:120])
+          -[:0]@{oxygen2}\textcolor{Red}{O}
+          -[@{bond2}:-60]H
+        }
+        \qquad
+        \chemfig{
+          [:0]
+          -[:60]@{carbon1}\pcharge{0}{}
+          -[:120]
+        }
+        \arrow{->}
+        \chemfig{
+          [:0]
+          -[:60]
+          (-[:120])
+          -[:0]\textcolor{Red}{O}
+          -[:0]
+          (-[:60])
+          -[:-60]
+        }
+      }
+      \chemmovearrow{
+        \reactionfigarrow{bond1}{-100}{oxygen1}{-90}{Red}
+        \reactionfigarrow{bond2}{-135}{oxygen2}{-150}{Red}
+        \reactionfigarrow{oxygen2}{30}{carbon1}{180}{Red}
+      }
+    }{Symmetrical ether formation via \sno}{fig:filler9}{1}
 
   \end{core} 
 
@@ -366,7 +414,45 @@
     
     However, a unique alcohol combination that preferentially forms an asymetrical ether is an \textbf{unhindered \ce{ROH} and tetrabutyl mixture}.
 
-    \myfig{0.52}{ethers_figures/ether_tbu}{Asymmetrical Ether Formation with t-Butyl Group}{fig:ether_tbu}
+    \reactionfig{
+      \scheme{
+        \chemfig{
+          [:0]\ce{H3C}
+          -[:0]
+          (-[:90]\ce{CH3})
+          (-[:-90]\ce{CH3})
+          -[:0]OH
+        }
+        \+
+        \chemfig{
+          \textcolor{Green}{\ce{RCH2}}\ce{OH}
+        }
+        \arrow{->[\ce{H+}][]}
+        \chembrackets{
+          \chemfig{
+            [:0]\ce{H3C}
+            -[:0]@{carbon}\pcharge{0}{C}
+            (-[:-60]\ce{CH3})
+            -[:60]\ce{CH3}
+          }
+        }
+        \arrow{->[
+          \chemfig{
+            \textcolor{Green}{\ce{RCH2}}@{oxygen}\textcolor{Red}{O}H
+          }
+        ][-\ce{H+}]}
+        \chemfig{
+          [:0]\textcolor{Green}{\ce{RCH2}}\ce{O}
+          -[:0]
+          (-[:90]\ce{CH3})
+          (-[:-90]\ce{CH3})
+          -[:0]\ce{CH3}
+        }
+      }
+      \chemmovearrow{
+        \reactionfigarrow{oxygen}{90}{carbon}{30}{Red}
+      }
+    }{Asymmetrical ether formation with t-Butyl group}{fig:filler10}{0.8}
 
     The \ce{ROH} preferentially attacks readily avaliable t-Bu cations (\textit{due to hyperconjugation}) via \sno. And while the t-Bu cation could be attacked by another t-Bu alcohol molecule, steric hinderance makes this interaction less likely to occur compared to the smaller, less sterically hindered \ce{ROH}.
 
@@ -382,7 +468,46 @@
     
     \ce{R_{prim}-O-R_{prim}} are quite unreactive, exhibiting stability to bases, \ce{RLi}, \ce{RMgBr}, and dilute aqueous \ce{H+}. However they are reactive under \ce{H+X-} exposure.
 
-    \myfig{0.8}{ethers_figures/er_1}{Ether Cleavage with Hydrohalic Acids}{fig:er_1}
+    \reactionfig{
+      \scheme{
+        \chemfig{
+          [:0]\ce{H3CH2C}
+          -[:0]@{oxygen1}\textcolor{Red}{O}
+          -[:0,,,,Red]\textcolor{Red}{\ce{CH2CH3}}
+        }
+        \arrow{<=>[
+          \chemfig{
+            @{proton}\ce{H+}
+          }
+        ][]}
+        \chemfig{
+          [:0,,,,Green]\ce{H3C}
+          -[:0,0.7,,,Black]@{carbon}C
+          (-[:-90,0.5,,,Black]H)
+          (-[:90,0.5,,,Black]H)
+          -[@{bond}:0]@{oxygen2}\textcolor{Green}{\pcharge{0}{O}}
+          (-[:-60]\textcolor{Green}{\ce{CH2CH3}})
+          -[:60]\textcolor{Green}{H}
+        }
+        \arrow{<=>[
+          \chemfig{
+            @{bromine}\textcolor{Red}{\ce{Br-}}
+          }
+        ][]}
+        \chemfig{
+          \ce{CH3CH2}\textcolor{Red}{Br}
+        }
+        \+
+        \chemfig{
+          \textcolor{Green}{\ce{HOCH2CH3}}
+        }
+      }
+      \chemmovearrow{
+        \reactionfigarrow{oxygen1}{60}{proton}{180}{Red}
+        \reactionfigarrow{bond}{-100}{oxygen2}{-100}{Red}
+        \reactionfigarrow{bromine}{150}{carbon}{45}{Red}
+      }
+    }{Ether cleavage with hydrohalic acids}{fig:filler11}{0.8}
 
   \end{core}
 
@@ -390,7 +515,57 @@
     
     \ce{R_{prim}-O-R_{sec}} ethers react either through \sno or \snt depending on the nucleophile strength (\textit{under acidic conditions}). When paired with a \textbf{good nucleophile}, the attack occurs on the \ce{R_{prim}} side carbon via \snt to avoid the steric hinderance of \ce{R_{sec}}.
 
-    \myfig{0.65}{ethers_figures/er_2a}{Mixed Ether Reaction with Good Nucleophile (SN2)}{fig:er_2a}
+    \reactionfig{
+      \scheme{
+        \chemfig{
+          [:0]
+          -[:30]
+          (-[:90])
+          -[:-30]@{oxygen1}\textcolor{Red}{O}
+          -[:30]
+          -[:-30]
+        }
+        \arrow{->[
+          \chemfig{
+            [:0]@{hydrogen}\textcolor{Blue}{H}
+            -[:0,0.7]\textcolor{Red}{I}
+          }
+        ]}
+        \chemname{
+          \chemfig{
+            [:0,,,,Green]
+            -[:30]
+            (-[:90])
+            -[:-30]@{oxygen2}\textcolor{Green}{\pcharge{90}{O}}
+            (-[:-90]\textcolor{Green}{H})
+            -[@{bond}:30]@{carbon}
+            -[:-30,,,,Black]
+          }
+        }{\textit{less hindered on right side}}
+        \arrow{->[
+          \chemfig{
+            @{iodine}\textcolor{Red}{\ce{I-}}
+          }
+        ][]}
+        \chemfig{
+          [:0]
+          -[:60]
+          (-[:120])
+          -[:0]\textcolor{Red}{O}H
+        }
+        \+
+        \chemfig{
+          [:0]\textcolor{Red}{I}
+          -[:-60]
+          -[:-90]
+        }
+      }
+      \chemmovearrow{
+        \reactionfigarrow{oxygen1}{60}{hydrogen}{150}{Red}
+        \reactionfigarrow{bond}{-30}{oxygen2}{-45}{Red}
+        \reactionfigarrow{iodine}{100}{carbon}{80}{Red}
+      }
+    }{Mixed ether reaction with good nucleophile (\snt)}{fig:filler12}{0.8}
 
     When paired with a \textbf{poor nucleophile}, an \sno reaction occurs at the carbocation of \ce{R_{sec}} (\textit{stabalized by hyperconjugation}).
 
