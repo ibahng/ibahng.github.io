@@ -38,31 +38,135 @@
 
   \begin{core}{\snt}
     
-    \snt reactions are \textbf{bimolecular}, meaning that both the leaving group and nucleophile are present in the transition state and making the reaction rate dependent on both [Nu] and [E-L]. The following is a chemical reaction of \ce{CH3Cl} undergoing \snt reaction with \ce{OH-}.
+    \snt reactions are \textbf{bimolecular}, meaning that both the leaving group and nucleophile are present in the transition state and making the reaction rate dependent on both [Nu] and [E-L] ($\text{Rate} = k[\ce{CH3Cl}][\ce{^-OH}]$). The following is a chemical reaction of \ce{CH3Cl} undergoing \snt reaction with \ce{OH-}.
 
-    \myfig{0.5}{nuc_sub_and_elim_figures/sn2_equation}{sn2 equation}{fig:sn2eq}
+    \vspace{15pt}
+    \reactionfig{
+      \scheme{
+        \chemfig{
+          @{oxygen}\textcolor{Red}{\ce{HO-}}
+        }
+        \+
+        \chemfig{
+          [:0]@{carbon}\ce{CH3}
+          -[@{bond}:0,,,,Red]@{chlorine}\textcolor{Green}{Cl}
+        }
+        \arrow{->}
+        \chemfig{
+          \ce{CH3OH}
+        }
+        \+
+        \chemfig{
+          \textcolor{Green}{Cl}
+        }
+      }
+      \chemmovearrow{
+        \reactionfigarrow{oxygen}{60}{carbon}{120}{Red}
+        \reactionfigarrow{bond}{100}{chlorine}{80}{Red}
+      }
+    }{\snt equation}{fig:filler1}{1.0}
 
     Here, Cl is the leaving group and \ce{OH-} is the nucleophile. From a 3D point of view, we see the following outline interaction.
 
-    \myfig{0.65}{nuc_sub_and_elim_figures/sn2_shell}{sn2 shell}{fig:sn2shell}
+    \reactionfig{
+      \scheme{
+        \chemname{
+          \chemfig{
+            @{nucleophile}\textcolor{Red}{\ce{Nu-}}
+          }
+        }{\textcolor{Red}{\textit{Nucleophile}}}
+        \+
+        \chemname{
+          \chemfig{
+            [:0]@{electrophile}\textcolor{Blue}{C^{δ^+}}
+            (-[:120])
+            (<[:-100])
+            (<:[:-160])
+            -[@{bond}:0,,,,Red]@{leaving}\textcolor{Green}{X^{δ^-}}
+          }
+        }{\textcolor{Blue}{\textit{Electrophile}}---\textcolor{Green}{\textit{Leaving Group}}}
+        \arrow{->}
+        \chemfig{
+          [:0]\textcolor{Red}{Nu}
+          -[:0,,,,Red]\textcolor{Blue}{C}
+          (<[:-80])
+          (<:[:-20])
+          -[:60]
+        }
+        \+
+        \chemfig{
+          \textcolor{Green}{\ce{X-}}
+        }
+      }
+      \chemmovearrow{
+        \reactionfigarrow{nucleophile}{60}{electrophile}{180}{Red}
+        \reactionfigarrow{bond}{100}{leaving}{80}{Red}
+      }
+    }{\snt mechanism reaction}{fig:filler2}{0.9}
 
     It is important to note that \snt reactions occur in \textbf{one step}, where bond making and breaking occur simultaneously, meaning there are no intermediates --- unlike the two step propagation of radical halogenation (EXTERNAL REFERENCE TO RAD HAL). Consequently, the energy diagram consists of a single hill and is exothermic when the nucleophile is a more favorable attachment than the leaving group. \textit{L is denoted as X in the figure below.}
 
-    \myfig{0.35}{nuc_sub_and_elim_figures/sn2_energy_diagram}{sn2 energy diagram}{fig:sn23diagram}
+    \pgfig{
+      \begin{axis}[
+          width=7cm,
+          height=7cm,
+          xmin=-4, xmax=4,
+          ymin=-0.3, ymax=1.4,
+          xtick=\empty,
+          ytick=\empty,
+          xlabel={},
+          ylabel={},
+          axis line style={thick},
+          \axispresets
+      ]
+
+      % energy curve — gaussian-like hill
+      \addplot[
+          thick,
+          black,
+          domain=-1.8:1.5,
+          samples=200,
+      ] {exp(-x^2) - 0.15*x};
+
+      % reactant energy level (left)
+      \addplot[thick, black] coordinates {(-3.5, 0.30916) (-1.8, 0.30916)};
+
+      % product energy level (right) — slightly lower
+      \addplot[thick, black] coordinates {(1.5, -0.1196) (3.5, -0.1196)};
+
+      % transition state dot
+      \addplot[mark=*, mark size=2.5pt, black] coordinates {(-0.075, 1.0056)};
+
+      % transition state structure label
+      \node[cyan!70!blue, font=\small] at (axis cs:0, 1.15) {%
+          $\left[\,\text{Nuc}\cdots\text{C}\cdots\text{X}\,\right]$
+      };
+
+      % reactant label
+      \node[font=\small] at (axis cs:-2.5, 0.23) {$\text{R}{-}\text{X} + \text{Nuc:}^{-}$};
+
+      % product label
+      \node[font=\small] at (axis cs:2.8, -0.2) {$\text{R}{-}\text{Nuc} + \text{X}^{-}$};
+
+      % "single transition state" label
+      \node[cyan!70!blue, font=\small, align=center] at (axis cs:2.8, 0.75) {single\\transition\\state};
+
+      \end{axis}
+    }{\snt energy diagram}{fig:filler3}{1.0}
 
     A result of the reaction being one step is \textbf{stereospecificity} --- there is \textit{always} an inversion. A few key consequences of this are worth keeping in mind:
 
     \begin{enumerate}
 
+      \item Inversion does not always imply a shift between the R and S configuration (EXTERNAL REFERENCE TO CONFORMATIONAL ANALYSIS)
 
-\item Inversion does not always imply a shift between the R and S configuration (EXTERNAL REFERENCE TO CONFORMATIONAL ANALYSIS)
+      \item Two successive \snt reactions result in structural retention (double inversion)
 
-\item Two successive \snt reactions result in structural retention (double inversion)
       \item Performing \snt on only one chiral center of a molecule with two chiral centers yields a diastereoisomer (a non-mirror-image stereoisomer)
 
-\item Starting with a \textbf{racemate} (a 50/50 mix of R and S enantiomers) will still yield a racemate, as all configurations are inverted
-    
-\end{enumerate}
+      \item Starting with a \textbf{racemate} (a 50/50 mix of R and S enantiomers) will still yield a racemate, as all configurations are inverted
+        
+    \end{enumerate}
 
     All of these points follow intuitively from the structural consequences of the \snt mechanism, though they may not be immediately obvious.
 
@@ -74,7 +178,20 @@
 
     There are two factors that determine whether a leaving group is good: \textbf{electronegativity} and \textbf{orbital size}. Regarding electronegativity, a good leaving group is also a weak base \ce{A-} --- one that is stable with an extra \ce{e^-} due to its high electronegativity. Regarding orbital size, a larger orbital size element forms relatively weaker bonds, as its molecular bonding orbitals occur at higher energy levels compared to smaller elements, making it more inclined to dissociate. Together, these two factors mean that better leaving groups appear moving left to right ($\rightarrow$) and top to bottom ($\downarrow$) across the periodic table.
 
-    \myfig{0.3}{nuc_sub_and_elim_figures/L_ptable}{l ptable}{fig:lptable}
+    \pgfig{
+      \miniptable
+
+      % PT label
+      \node[font=\small] at (2.5, 1.4) {Periodic Table};
+
+      % EN > OS arrow (left to right, along top)
+      \draw[->, thick] (0.8, 3.5) -- (4.8, 3.5);
+      \node[font=\small] at (2.8, 3.8) {EN $>$ OS};
+
+      % OS > EN arrow (top to bottom, right side)
+      \draw[->, thick] (5.5, 3.2) -- (5.5, 0.2);
+      \node[font=\small] at (6.2, 1.7) {OS $>$ EN};
+    }{Leaving group ability within the periodic table}{fig:filler4}{0.9}
 
     Comparing down the periodic table for halogens:
     \[
@@ -92,7 +209,42 @@
 
     For \textbf{polyatomic} leaving groups, \textbf{resonance} (π conjugation) plays an important additional role. The ability to delocalise \ce{e^-}s across an adjacent p orbital system allows the leaving group to absorb excess charge more effectively --- a larger delocalization system not only stabilises the extra charge but also weakens the leaving group's basicity, making it a better leaving group overall.
 
-    \myfig{0.6}{nuc_sub_and_elim_figures/L_delocalization}{l delocalization}{fig:ldelocalization}
+    \reactionfig{
+      \scheme{
+        \chemname{
+          \chemfig{
+            \textcolor{Green}{\ce{CH3O}}\textcolor{Red}{\ce{^-}}
+          }
+        }{\textcolor{Blue}{15.5} \quad \textcolor{Green}{\textit{poor}}}
+        \qquad
+        \chemfig{
+          \text{\large<}
+        }
+        \qquad
+        \chemname{
+          \chemfig{
+            [:0,0.8,,,Green]\textcolor{Green}{\ce{CH3}}
+            -[:0]\textcolor{Green}{C}
+            (=[:90]\textcolor{Green}{O})
+            -[:0]\textcolor{Green}{O}\textcolor{Red}{\ce{^-}}
+          }
+        }{\textcolor{Blue}{4.7} \quad \textcolor{Green}{\textit{reasonable}}}
+        \qquad
+        \chemfig{
+          \text{\large<}
+        }
+        \qquad
+        \chemname{
+          \chemfig{
+            [:0,0.8,,,Green]\textcolor{Green}{\ce{CH3}}
+            -[:0]\textcolor{Green}{S}
+            (=[:90]\textcolor{Green}{O})
+            (=[:-90]\textcolor{Green}{O})
+            -[:0]\textcolor{Green}{O}\textcolor{Red}{\ce{^-}}
+          }
+        }{\textcolor{Blue}{-1.2} \quad \textcolor{Green}{\textit{excellent}}}
+      }
+    }{Polyatomic leaving groups; \textit{corresponding numbers are $pK_a$ values}}{fig:filler5}{1.0}
 
   \end{core}
 
@@ -102,8 +254,7 @@
 
     \begin{enumerate}
 
-
-\item \textbf{Charge-basicity} refers to the greater tendency of an anion, relative to its neutral counterpart, to form a bond with a cation in order to delocalise its net negative charge.
+      \item \textbf{Charge-basicity} refers to the greater tendency of an anion, relative to its neutral counterpart, to form a bond with a cation in order to delocalise its net negative charge.
       \[
         \ce{OH-} > \ce{H2O}\qquad\qquad\ce{NH2-} > \ce{NH3}\qquad\qquad\ce{SO4^{2-}} > \ce{ROSO3-}
       \]
@@ -130,7 +281,7 @@
         \ce{H2O} < \ce{H2S} < \ce{H2Se} \qquad\text{or}\qquad \ce{(CH3)3N} < \ce{(CH3)3P}
       \]
     
-\end{enumerate}
+    \end{enumerate}
 
     Nucleophilicity arises from a complex interplay of these factors. At its core, it is driven by \textbf{basicity}, which governs the horizontal periodic trend --- atoms become less electronegative and more willing to donate \ce{e^-} density moving left. The vertical trend, however, is governed by the solvent. In \textbf{polar protic solvents}, smaller nucleophiles such as \ce{F-} are heavily solvated, making larger, less-impeded ions like \ce{I-} the stronger attackers. In \textbf{polar aprotic solvents}, these hydrogen-bonding impediments are absent, allowing the intrinsically more basic smaller ions to reassert themselves as the stronger nucleophiles. \textbf{Polarizability} provides larger elements an additional advantage in \snt transition states, as their more diffuse \ce{e^-} clouds can begin overlapping with the electrophilic carbon's orbital from a greater distance.
 
@@ -139,9 +290,9 @@
 
   \end{core}
 
-  \begin{core}{Steric Effects on Nucleophilic and Leavin Group Ability}
+  \begin{core}{Steric Effects on Nucleophilic and Leaving Group Ability}
     
-    \textbf{Steric effects} must be considered for both the nucleophile and leaving group. Steric effects arise from \ce{e^-} \ce{e^-} repulsion between the nucleophile or leaving group and the three substituents bonded to the target electrophile.
+    \textbf{Steric effects} must be considered for both the nucleophile and leaving group. Steric effects arise from \ce{e^-} repulsion between the nucleophile or leaving group and the three substituents bonded to the target electrophile.
 
     \myfig{0.7}{nuc_sub_and_elim_figures/sterics}{sterics}{fig:sterics}
 
@@ -168,13 +319,13 @@
 
     \begin{enumerate}
 
+      \item \sno nucleophilic attack is \textbf{not stereospecific}. A stereochemically pure reactant pool will yield a mixture of stereoisomers upon \sno. In practice, \textbf{slight inversion} is observed due to the transient physical blockade created by the lingering leaving group, which remains in proximity to the carbocation p orbital through ionic attraction.
 
-\item \sno nucleophilic attack is \textbf{not stereospecific}. A stereochemically pure reactant pool will yield a mixture of stereoisomers upon \sno. In practice, \textbf{slight inversion} is observed due to the transient physical blockade created by the lingering leaving group, which remains in proximity to the carbocation p orbital through ionic attraction.
-
-\item Because the rate is limited solely by carbocation formation, the \textbf{rate increases with a better leaving group}.
+      \item Because the rate is limited solely by carbocation formation, the \textbf{rate increases with a better leaving group}.
       \[
         \ce{-Cl} < \ce{-Br} < \ce{-I} < \ce{-O3SR}
       \]
+
       \item \textbf{\sno is accelerated by increasingly polar solvents}, particularly polar protic solvents. As the leaving group begins to depart, polar solvent molecules stabilise it through hydrogen bonding, effectively lowering the energy barrier for its departure.
 
       \myfig{0.7}{nuc_sub_and_elim_figures/sn1_solvent}{sn1 solvent}{fig:sn1solvent}
@@ -183,9 +334,9 @@
 
       \myfig{0.7}{nuc_sub_and_elim_figures/sn1_nu_competition}{sn1 nu competition}{fig:sn1nucomp}
     
-\end{enumerate}
+    \end{enumerate}
 
-    Here, the overall reaction rate is identical across all paths, as it depends solely on the departure of the leaving group (\textit{regardless of the nucleophile identity}). Because acetone is a aprotic solvent, the \ce{Cl-} product will be favored under a mixture of \ce{Cl-} and \ce{I-} because \ce{Cl-} is a stronger nucleophile than \ce{I-} is.
+    Here, the overall reaction rate is identical across all paths, as it depends solely on the departure of the leaving group (\textit{regardless of the nucleophile identity}). Because acetone is a polar aprotic solvent, the \ce{Cl-} product will be favored under a mixture of \ce{Cl-} and \ce{I-} because \ce{Cl-} is a stronger nucleophile than \ce{I-} is.
 
   \end{core}
 
@@ -338,7 +489,7 @@
 
     \textbf{Tertiary substrates:} Steric hindrance completely shuts down \snt, making \sno dominant under weakly basic, good nucleophile conditions. E2 dominates under strongly basic conditions, as it does for secondary substrates. Under poor nucleophile conditions, the \sno to E1 ratio becomes more balanced relative to secondary substrates --- the greater stability of the tertiary carbocation lowers the activation energy for \sno, allowing it to compete more effectively with E1.
 
-    Generally speaking, rather than memorizing each of these scenarios and their cooresponding dominant mechanism, it's helpful to start with \snt as a starting point and ask yourself the following questions.
+    Generally speaking, rather than memorizing each of these scenarios and their corresponding dominant mechanism, it's helpful to start with \snt as a starting point and ask yourself the following questions.
 
     \begin{enumerate}
 
@@ -350,7 +501,7 @@
     
 \end{enumerate}
 
-    However, keep in mind that there are other nuancial factors to consider such as absence of E1 preference for weakly basic, good nucleophile conditions.
+    However, keep in mind that there are other nuanced factors to consider such as absence of E1 preference for weakly basic, good nucleophile conditions.
 
   \end{core}
   

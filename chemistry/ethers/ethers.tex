@@ -38,7 +38,7 @@
           -[:-30]\ce{CH3^{\textcolor{Blue}{δ^+}}}
         }
       }
-    }{Dimethyl ether structure}{filler1}{1.4}
+    }{Dimethyl ether structure}{filler1}{1.3}
 
   \end{core}
 
@@ -102,7 +102,7 @@
           \text{\textit{E2 Reaction}}
         }
       }
-    }{Williamson ether syntehsis retrosynthesis; \textit{unsymmetrical ethers have two retrosynthetic choices, one is usually favorable over the other}}{filler3}{1.1}
+    }{Williamson ether syntehsis retrosynthesis; \textit{unsymmetrical ethers have two retrosynthetic choices, one is usually favorable over the other}}{filler3}{0.8}
 
   \end{core}
   
@@ -194,7 +194,7 @@
           \textcolor{Blue}{\ce{H}}\textcolor{Red}{\ce{OH}}
         }
       }
-    }{Intramolecular Williamson ether synthesis}{fig:filler5}{1.0}
+    }{Intramolecular Williamson ether synthesis}{fig:filler5}{1.2}
 
     \textbf{Intramolecular are particularly favorable over intermolecular ether synthesis} because [1] it does not lower entropy and [2] highly diluted concentrations of the relevant alcohol do not effect it as much because the reaction is occurring with itself.
 
@@ -255,7 +255,7 @@
           \reactionfigarrow{bond}{0}{bromine}{-30}{Red} 
         }
       }
-    }{Backside attack and inversion in cyclic ether formation}{fig:filler6}{0.7}
+    }{Backside attack and inversion in cyclic ether formation}{fig:filler6}{0.75}
 
     The relative rates of ring closure depend on the trade off between ΔH (\textit{ring strain}) and ΔS (\textit{lining up}) in the various transition states. The following is the ranking of ether ring formation speeds by ring size.
 
@@ -507,7 +507,7 @@
         \reactionfigarrow{bond}{-100}{oxygen2}{-100}{Red}
         \reactionfigarrow{bromine}{150}{carbon}{45}{Red}
       }
-    }{Ether cleavage with hydrohalic acids}{fig:filler11}{0.8}
+    }{Ether cleavage with hydrohalic acids}{fig:filler11}{0.9}
 
   \end{core}
 
@@ -612,7 +612,7 @@
       \chemmovearrow{
         \reactionfigarrow{bond}{60}{oxygen}{90}{Red}
       }
-    }{Mixed ether reaction with poor nucleophile (\sno)}{fig:filler13}{0.8}
+    }{Mixed ether reaction with poor nucleophile (\sno)}{fig:filler13}{0.85}
 
   \end{core}
 
@@ -664,7 +664,7 @@
       \chemmovearrow{
         \reactionfigarrow{bond}{-30}{oxygen}{-20}{Red}
       }
-    }{Hydrolysis and deprotection of t-Butyl ethers}{fig:filler14}{0.8}
+    }{Hydrolysis and deprotection of t-Butyl ethers}{fig:filler14}{0.85}
  
   \end{core}
 
@@ -750,15 +750,63 @@
       \chemmovearrow{
         \reactionfigarrow{rgroup}{180}{carbon}{-100}{Red}
       }
-    }{Stereocontrolled ether ring opening}{fig:filler16}{0.8}
+    }{Stereocontrolled ether ring opening}{fig:filler16}{0.9}
 
     With \textbf{neutral nucleophiles}, acidic conditions are required to activate the ether toward nucleophilic attack. Without \ce{H+}, the reaction will not occur.
 
-    \myfig{0.45}{ethers_figures/er_4c}{Acid-Activated Ether Ring Opening with Neutral Nucleophile}{fig:er_4c}
+    \reactionfig{
+      \scheme{
+        \chemfig{
+          [:-30]*3(--O-)
+        }
+        \+
+        \chemfig{
+          \ce{CH3OH}
+        }
+        \qquad
+        \quad
+        \arrow{->[\ce{H+}][\textcolor{Red}{\textit{no rxn w/o \ce{H+}}}]}
+        \chemfig{
+          [:0]\ce{HO}
+          -[:-30]
+          -[:30]
+          -[:-30]\ce{OCH3}
+        }
+      }
+    }{Acid-activated ether ring opening with neutral nucleophile}{fig:filler17}{1}
     
     One important distinction in the neutral nucleophile mechanism is regioselectivity towards the more hindered carbon. In asymmetrical ethers, the nucleophile preferentially attacks the more substituted carbon, as it better stabilizes the partial positive charge (δ$^+$) that develops through hyperconjugation and inductive effects --- causing the C-O bond on that side to stretch and weaken. This gives the mechanism a hybrid \sno/\snt character: it resembles \snt in that nucleophile attack and leaving group departure occur simultaneously, yet resembles \sno in that the partial positive charge mimics a carbocation.
 
-    \myfig{0.55}{ethers_figures/er_4d}{Regioselectivity in Acid-Catalyzed Ring Opening of Asymmetrical Ethers}{fig:er_4d}
+    \reactionfig{
+      \scheme{
+        \chemfig{
+          [:-150]*3(
+          \pcharge{60}{O}
+          (-[:135]H)
+          -C
+          (<:[:-170]H)
+          (<[:-100]H)
+          -\textcolor{Red}{\textbf{C}}
+          (<:[:-10]\ce{CH3})
+          (<[:-80]\ce{CH3})
+          -
+          )
+        }
+        \+
+        \chemfig{
+          \ce{CH3OH}
+        }
+        \arrow{->}
+        \chemfig{
+          [:0]\ce{HO}
+          -[:30]
+          -[:-30]
+          (-[:-70])
+          (-[:-110])
+          -[:30]\ce{OCH3}
+        }
+      }
+    }{Regioselectivity of acid-catalyed ring openign of asymmetrical ethers}{fig:filler18}{1.0}
 
   \end{core}
 
@@ -778,11 +826,138 @@
     
     The better nucleophility of \ce{RS-} eliminates the issue of E2 reactions when paired with \ce{R_{sec}X} like \ce{RO-} has.
 
-    \myfig{0.6}{ethers_figures/sulfur_e2_elimin}{sulfer e2 elimination}{fig:sulfere2_elim}
-    
+    \doublereactionfig{
+      \scheme{
+        \chemfig{
+          \text{w/ oxygen}
+        }
+        \qquad
+        \chemfig{
+          [:0]H
+          -[:0]
+          (-[:-120]H)
+          (-[@{bond1}:-60]@{hydrogen}H)
+          -[@{bond2}:60]
+          (-[:120])
+          -[@{bond3}:0]@{leaving}X
+        }
+        \+
+        \chemfig{
+          [:0]R
+          -[:0,0.7]@{oxygen}\ce{O-}
+        }
+        \arrow{->[][-\ce{X-}]}
+        \chemfig{
+          [:0]
+          -[:60]
+          =[:0]
+        }
+        \+
+        \chemfig{
+          \ce{ROH}
+        }
+      }
+      \chemmovearrow{
+        \reactionfigarrow{oxygen}{-90}{hydrogen}{0}{Red}
+        \reactionfigarrow{bond1}{10}{bond2}{-10}{Red}
+        \reactionfigarrow{bond3}{100}{leaving}{80}{Red}
+      }
+    }{
+      \scheme{
+        \chemfig{
+          \text{w/ sulfur}
+        }
+        \qquad
+        \chemfig{
+          [:0]
+          -[:60]@{carbon}
+          (-[@{bond}:0]@{leaving}X)
+          -[:120]
+        }
+        \+
+        \chemfig{
+          [:0]R
+          -[:0,0.7]@{sulfur}\ce{S-}
+        }
+        \arrow{->[][-\ce{X-}]}
+        \chemname{
+          \chemfig{
+            [:0]RS
+            -[:0]
+            (-[:-60])
+            -[:60]
+          }
+        }{\textit{thioether}}
+      }
+      \chemmovearrow{
+        \reactionfigarrow{sulfur}{-90}{carbon}{180}{Red}
+        \reactionfigarrow{bond}{100}{leaving}{80}{Red}
+      }
+    }{Sulfur versus oxygen reaction with \ce{R_{sec}X}}{fig:filler19}{0.9}
+ 
     Even neutral \ce{RSR{'}} readily undergoes \snt, whereas dimethyl ether (\ce{CH3OCH3}) does not react under the same conditions. When \ce{RSR{'}} attacks an \ce{RX}, the resulting sulfonium ion (\ce{R3S+}) becomes susceptible to attack by another nucleophile — the sulfide, once a good nucleophile, has now become a good leaving group, analogous to \ce{H2O}. This makes \textbf{sulfonium salts} (\ce{R3S+}) effective \textbf{alkylating agents}, meaning they can transfer an alkyl group to an incoming nucleophile.
 
-    \myfig{0.75}{ethers_figures/sulfur_goodnul}{sulfer good nul}{fig:sulfer_goodnul}
+    \doublereactionfig{
+      \scheme{
+        \chemfig{
+          \text{Good Nucleophile}
+        }
+        \qquad
+        \chemfig{
+          [:0]
+          -[:30]@{sulfur}S
+          -[:-30]
+        }
+        \+
+        \chemfig{
+          [:0]@{rgroup}R
+          -[@{bond}:0,0.7]@{leaving}X
+        }
+        \arrow{->}
+        \chemfig{
+          [:0]
+          -[:60]\pcharge{60}{S}
+          (-[:0]R)
+          -[:120]
+        }
+      }
+      \chemmovearrow{
+        \reactionfigarrow{sulfur}{45}{rgroup}{90}{Red}
+        \reactionfigarrow{bond}{100}{leaving}{80}{Red}
+      }
+    }{
+      \scheme{
+        \chemfig{
+          \text{Good Leaving Group}
+        }
+        \qquad
+        \chemfig{
+          @{nuc}\textcolor{Red}{Nu}
+        }
+        \+
+        \chemfig{
+          [:0]@{rgroup}R
+          -[@{bond}:0]@{sulfur}\pcharge{120}{S}
+          (-[:-60])
+          -[:60]
+        }
+        \arrow{->}
+        \chemfig{
+          [:0]Nu
+          -[:0,0.7]R
+        }
+        \+
+        \chemfig{
+          [:0]
+          -[:30]S
+          -[:-30]
+        }
+      }
+      \chemmovearrow{
+        \reactionfigarrow{nuc}{-100}{rgroup}{-80}{Red}
+        \reactionfigarrow{bond}{-100}{sulfur}{-80}{Red}
+      }
+    }{Sulfide acting as a nucleophile to form a sulfonium ion (\textit{top}), which then acts as an alkylating agent toward an incoming nucleophile (\textit{bottom})}{fig:filler20}{0.9}
 
   \end{core}
 
