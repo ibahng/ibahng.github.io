@@ -285,8 +285,21 @@
 
     Nucleophilicity arises from a complex interplay of these factors. At its core, it is driven by \textbf{basicity}, which governs the horizontal periodic trend --- atoms become less electronegative and more willing to donate \ce{e^-} density moving left. The vertical trend, however, is governed by the solvent. In \textbf{polar protic solvents}, smaller nucleophiles such as \ce{F-} are heavily solvated, making larger, less-impeded ions like \ce{I-} the stronger attackers. In \textbf{polar aprotic solvents}, these hydrogen-bonding impediments are absent, allowing the intrinsically more basic smaller ions to reassert themselves as the stronger nucleophiles. \textbf{Polarizability} provides larger elements an additional advantage in \snt transition states, as their more diffuse \ce{e^-} clouds can begin overlapping with the electrophilic carbon's orbital from a greater distance.
 
-    \myfig{0.35}{nuc_sub_and_elim_figures/Nu_ptable}{nuptable}{fig:nuptable}
+    \pgfig{
 
+      \miniptable
+      \node[font=\small] at (2.5, 1.4) {Periodic Table};
+
+      \draw[->, thick] (4.8, 3.5) -- (0.8, 3.5);
+      \node[font=\small] at (2.8, 3.8) {More Basic};
+
+      \draw[->, thick] (5.5, 3.2) -- (5.5, 0.2);
+      \node[font=\small, rotate=-90] at (5.8, 1.7) {protic/polarizability};
+
+      \draw[->, thick] (6.4, 0.2) -- (6.4, 3.2);
+      \node[font=\small, rotate=-90] at (6.7, 1.7) {aprotic};
+
+    }{Nucleophilic ability within the periodic table}{fig:filler6}{0.9}
 
   \end{core}
 
@@ -294,11 +307,93 @@
     
     \textbf{Steric effects} must be considered for both the nucleophile and leaving group. Steric effects arise from \ce{e^-} repulsion between the nucleophile or leaving group and the three substituents bonded to the target electrophile.
 
-    \myfig{0.7}{nuc_sub_and_elim_figures/sterics}{sterics}{fig:sterics}
+    \reactionfig{
+      \scheme{
+        \chemfig{
+          [:0]@{ho1}\ce{HO-}
+        }
+        \quad
+        \chemname{
+          \chemfig{
+            [:0]\textcolor{Blue}{\ce{CH3}}
+            -[:-60]@{carbon1}C
+            (<[:-100]H)
+            (<:[:-150]H)
+            -[:0]\textcolor{Green}{Br}
+          }
+        }{\textit{PRIMARY attack is easy}}
+        \qquad
+        \chemfig{
+          [:0]@{ho2}\ce{HO-}
+        }
+        \quad
+        \chemname{
+          \chemfig{
+            [:0]\textcolor{Blue}{\ce{CH3}}
+            -[:-60]@{carbon2}C
+            (<[:-100]\textcolor{Blue}{\ce{CH3}})
+            (<:[:-150]H)
+            -[:0]\textcolor{Green}{Br}
+          }
+        }{\textit{SECONDARY attack is possible}}
+        \qquad
+        \chemfig{
+          [:0]@{ho3}\ce{HO-}
+        }
+        \quad
+        \chemname{
+          \chemfig{
+            [:0]\textcolor{Blue}{\ce{CH3}}
+            -[:-60]@{carbon3}C
+            (<[:-100]\textcolor{Blue}{\ce{CH3}})
+            (<:[:-150]\textcolor{Blue}{\ce{CH3}})
+            -[:0]\textcolor{Green}{Br}
+          }
+        }{\textcolor{Red}{\textit{TERTIARY attack is impossible}}}
+      }
+      \chemmovearrow{
+        \reactionfigarrow{ho1}{0}{carbon1}{180}{Red}
+        \reactionfigarrow{ho2}{0}{carbon2}{180}{Red}
+      }
+    }{Steric effects in the context of \snt reactions}{fig:filler7}{0.9}
 
     As a consequence, \textbf{leaving groups are better when larger}, as the repulsion assists their departure, while \textbf{nucleophiles are better when smaller}, as bulk impedes their approach. This steric hindrance is greatest when substituents are directly on the electrophilic carbon (α) and diminishes with distance (β, γ, δ, etc.).
 
-    \myfig{0.8}{nuc_sub_and_elim_figures/alpha_beta_branching}{alpha beta branching}{fig:abbranching}
+    \reactionfig{
+      \scheme{
+        \chemfig{
+          [:0]
+          -[:-30]C\textcolor{Red}{\ce{^δ}}
+          (<[:-75])
+          (<:[:-105])
+          -[:30]C\textcolor{Red}{\ce{^γ}}
+          (<[:75])
+          (<:[:105])
+          -[:-30]C\textcolor{Red}{\ce{^β}}
+          (<[:-75])
+          (<:[:-105])
+          -[:30]\textcolor{Blue}{C}\textcolor{Red}{\ce{^α}}
+          (<[:75])
+          (<:[:105])
+          -[:-30,,,,Green]\textcolor{Green}{L}
+        }
+      }
+    }{Carbon branching}{fig:filler8}{0.9}
+
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{ccccc}
+    \hline
+    \textbf{Branch} & \multicolumn{4}{c}{\textbf{Structure \& Relative Rate}} \\
+    \hline
+     & Hydrogens & Primary & Secondary & Tertiary \\
+    α & 145 & 1 & 0.028 & 0 \\
+    β & 1 & 0.8 & 0.05 & $10^{-5}$ \\
+    \hline
+    \end{tabular}
+    \caption{Rate of \snt reactions across different branching patterns}
+    \label{tab:filler9}
+    \end{table} 
 
   \end{core}
 
@@ -310,8 +405,51 @@
     \]
 
     Unlike \snt, \sno proceeds through a series of distinct steps.
-
-    \myfig{0.7}{nuc_sub_and_elim_figures/sn1}{sn1}{fig:sn1}
+    
+    \reactionfig{
+      \scheme{
+        \chemfig{
+          [:0]X
+          -[:-60]C
+          (<[:-100]Z)
+          (<:[:-150]Y)
+          -[@{bond}:0]@{leaving}L
+        }
+        \arrow{->[slow][]}
+        \chemfig{
+          @{nucleophile}\ce{Nu-}
+        }
+        \+
+        \chembrackets{
+          \chemfig{
+            [:0]X
+            -[:-90]@{carbon}\pcharge{45}{C}
+            (<[:-60]Z)
+            (<:[:-120]Y)
+          }
+        }
+        \arrow{->[fast][]}
+        \chemfig{
+          [:0]X
+          -[:-60]C
+          (<[:-100]Z)
+          (<:[:-150]Y)
+          -[:0,,,,Blue]\textcolor{Blue}{Nu}
+        }
+        \+
+        \chemfig{
+          [:0]\textcolor{Red}{Nu}
+          -[:0,,,,Red]C
+          (<[:-80]Z)
+          (<:[:-30]Y)
+          -[:60]X
+        }
+      }
+      \chemmovearrow{
+        \reactionfigarrow{nucleophile}{-45}{carbon}{180}{Red}
+        \reactionfigarrow{nucleophile}{45}{carbon}{0}{Blue}
+      }
+    }{\sno mechanism}{fig:filler10}{0.9}
 
     The first step --- spontaneous dissociation of the leaving group from the electrophile --- is the \textbf{rate limiting step}, as it is highly unfavourable, forming only trace amounts of carbocation at equilibrium. This makes it the bottleneck of the reaction, after which the nucleophile attacks either face of the $sp^2$ hybridised electrophile's perpendicular p orbitals.
 
@@ -328,7 +466,48 @@
 
       \item \textbf{\sno is accelerated by increasingly polar solvents}, particularly polar protic solvents. As the leaving group begins to depart, polar solvent molecules stabilise it through hydrogen bonding, effectively lowering the energy barrier for its departure.
 
-      \myfig{0.7}{nuc_sub_and_elim_figures/sn1_solvent}{sn1 solvent}{fig:sn1solvent}
+      \doublereactionfig{
+        \scheme{
+          \chemfig{
+            \ce{(CH3)3CBr}
+          }
+          \quad
+          \arrow{->[\textcolor{Red}{100\% \ce{H2O}}][]}
+          \quad
+          \chemfig{
+            \ce{(CH3)3COH}
+          }
+          \+
+          \chemfig{
+            \ce{HBr}
+          }
+          \qquad
+          \chemfig{
+            \textcolor{Red}{400,000}
+          }
+        }
+      }{
+        \scheme{
+          \chemfig{
+            \ce{(CH3)3CBr}
+          }
+          \quad
+          \qquad
+          \arrow{->[\textcolor{Blue}{90\% acetone}][\textcolor{Blue}{10\% \ce{H2O}}]}
+          \quad
+          \chemfig{
+            \ce{(CH3)3COH}
+          }
+          \+
+          \chemfig{
+            \ce{HBr}
+          }
+          \qquad
+          \chemfig{
+            \textcolor{Blue}{1}
+          }
+        }
+      }{Relative \sno reaction rates in polar solvents}{fig:filler11}{0.9}      
 
       \item \textbf{Product-determining steps occur after the bottleneck}. Once the carbocation intermediate forms, the dominant product is determined by nucleophilic competition --- the strongest nucleophile in solution will attack preferentially. Consider, for instance, a mixture of NaCl and NaI in acetone.
 
