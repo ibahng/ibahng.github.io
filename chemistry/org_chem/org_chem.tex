@@ -8,12 +8,12 @@
 \input{../../_presets/chemistry/preamble}
 
 % \externaldocument[alc-]{../alcohols/alcohols}[../alcohols/alcohols.pdf]
-% \externaldocument[alk-]{../alkene_alkyne/alkene_alkyne}[../alkene_alkyne/alkene_alkyne.pdf]
+\externaldocument[alk-]{../alkene_alkyne/alkene_alkyne}[../alkene_alkyne/alkene_alkyne.pdf]
 % \externaldocument[app-]{../app_chem/app_chem}[../app_chem/app_chem.pdf]
 % \externaldocument[cen-]{../carb_enol/carb_enol}[../carb_enol/carb_enol.pdf]
 % \externaldocument[cde-]{../carbox_deri/carbox_deri}[../carbox_deri/carbox_deri.pdf]
 % \externaldocument[con-]{../conj_sys/conj_sys}[../conj_sys/conj_sys.pdf]
-% \externaldocument[eth-]{../ethers/ethers}[../ethers/ethers.pdf]
+\externaldocument[eth-]{../ethers/ethers}[../ethers/ethers.pdf]
 % \externaldocument[gen-]{../gen_chem/gen_chem}[../gen_chem/gen_chem.pdf]
 % \externaldocument[qua-]{../quantization/quantization}[../quantization/quantization.pdf]
 % \externaldocument[the-]{../thermodynamics/thermodynamics}[../thermodynamics/thermodynamics.pdf]
@@ -1482,46 +1482,46 @@
 
 \section{Nomenclature}
 
-  \subsection{Alkanes, Alkenes, and Alkynes}
+  \subsection{Alkanes}
+    \label{sec:alkane}
 
-    \subsubsection{Alkanes}
-      \label{sec:alkane}
+    \begin{core}[label=core:alkanes]{Alkanes}
 
-      \begin{core}{Alkanes}
+      Alkanes are saturated hydrocarbons composed exclusively of carbon and hydrogen atoms connected by single covalent bonds. Nomenclature is determined by the number of carbon atoms in the chain: methane (\ce{CH4}) contains one carbon, ethane (\ce{C2H6}) contains two, and so forth. All alkanes conform to the general molecular formula \ce{C_{n}H_{2n+2}}, where $n$ represents the number of carbon atoms.
 
-        Alkanes are saturated hydrocarbons composed exclusively of carbon and hydrogen atoms connected by single covalent bonds. Nomenclature is determined by the number of carbon atoms in the chain: methane (\ce{CH4}) contains one carbon, ethane (\ce{C2H6}) contains two, and so forth. All alkanes conform to the general molecular formula \ce{C_{n}H_{2n+2}}, where $n$ represents the number of carbon atoms.
+      \begin{table}[H]
+        \centering
+        \begin{tabular}{cc}
+          \hline
+          Carbon Count & Alkane Name \\
+          \hline
+          1 & Methane \\
+          2 & Ethane \\
+          3 & Propane \\
+          4 & Butane \\
+          5 & Pentane \\
+          6 & Hexane \\
+          7 & Heptane \\
+          8 & Octane \\
+          9 & Nonane \\
+          10 & Decane \\
+          11 & Undecane \\
+          12 & Dodecane \\
+          13 & Tridecane \\
+          14 & Tetradecane \\
+          \hline
+        \end{tabular}
+        \caption{Systematic nomenclature of alkanes by carbon number}
+        \label{tab:alkanes}
+      \end{table}
 
-        \begin{table}[H]
-          \centering
-          \begin{tabular}{cc}
-            \hline
-            Carbon Count & Alkane Name \\
-            \hline
-            1 & Methane \\
-            2 & Ethane \\
-            3 & Propane \\
-            4 & Butane \\
-            5 & Pentane \\
-            6 & Hexane \\
-            7 & Heptane \\
-            8 & Octane \\
-            9 & Nonane \\
-            10 & Decane \\
-            11 & Undecane \\
-            12 & Dodecane \\
-            13 & Tridecane \\
-            14 & Tetradecane \\
-            \hline
-          \end{tabular}
-          \caption{Systematic nomenclature of alkanes by carbon number}
-          \label{tab:alkanes}
-        \end{table}
+    \end{core}
 
-      \end{core}
+    \subsubsection{n-Alkanes}
 
       \begin{core}{Alkyl Substituents}
 
-        An alkyl \textbf{substituent} is derived from its corresponding alkane by removal of a terminal hydrogen atom. Its general chemical formula is expressed as \ce{C_{n}H_{2n+1}}, and its nomenclature follows that of alkanes, with the suffix "-ane" replaced by "-yl" (\textit{e.g., ethyl, \ce{C2H5}}). 
+        An alkyl \textbf{substituent} is derived from its corresponding alkane by removal of a terminal hydrogen atom. Its general chemical formula is expressed as \ce{C_{n}H_{2n+1}}, and its nomenclature follows that of alkanes, with the suffix "-ane" replaced by "-yl" (\textit{e.g., ethyl, \ce{C2H5}}).
 
         \reactionfig{
           \scheme{
@@ -1544,9 +1544,9 @@
         
       \end{core}
 
-      \begin{core}[label=core:alkane_iupac]{Alkane IUPAC System}
+      \begin{core}[label=core:alkane_iupac]{Foundational Alkane IUPAC System}
 
-        The nomenclature of organic molecules adheres to a standardized system established by the \textbf{International Union of Pure and Applied Chemistry (IUPAC)}. The systematic naming of an organic molecule proceeds according to the following steps.
+        The nomenclature of organic molecules adheres to a standardized system established by the \textbf{International Union of Pure and Applied Chemistry (IUPAC)}. The systematic naming of an organic molecule proceeds according to the following steps. \textit{Nomenclature of subsequently covered organic compounds build upon the following process.}
 
         \begin{enumerate}[label=(\arabic*)]
 
@@ -1570,7 +1570,7 @@
                   (-[:90]\ce{CH3})
                   -[:0,,,,Red]\textcolor{Red}{\ce{CH3}}
                 }
-              }{Correct chain (\textit{4 subtituents})}
+              }{Correct chain (\textit{4 substituents})}
               \qquad
               \qquad
               \chemname{
@@ -1737,7 +1737,7 @@
 
           \end{enumerate}
 
-          \item \textbf{Position Numbering} Number the carbon atoms along the parent chain to indicate substituent positions. The numbering sequence initiates from the terminus \textbf{nearest to a substituent}. If both termini are equidistant from the first substituent, continue comparison until reaching the \textbf{first point of difference}.
+          \item \textbf{Position Numbering}: Number the carbon atoms along the parent chain to indicate substituent positions. The numbering sequence initiates from the terminus \textbf{nearest to a substituent}. If both termini are equidistant from the first substituent, continue comparison until reaching the \textbf{first point of difference}.
 
           \reactionfig{
             \scheme{
@@ -1827,7 +1827,7 @@
             }
           }{Branched chain numbering}{fig:iupac_3c}{0.85}
 
-          \item \textbf{Alphabetical Substituent Ordering} Having established both the identities and positions of substituents, the complete name of the alkane can now be constructed. Note that substituent names are ordered \textbf{alphabetically} rather than numerically. Positional designations are indicated by numerical prefixes corresponding to each substituent.
+          \item \textbf{Alphabetical Substituent Ordering}: Having established both the identities and positions of substituents, the complete name of the alkane can now be constructed. Note that substituent names are ordered \textbf{alphabetically} rather than numerically. Positional designations are indicated by numerical prefixes corresponding to each substituent.
 
           \reactionfig{
             \scheme{
@@ -1958,25 +1958,17 @@
 
       \end{core}
 
-    \subsubsection{Alkenes}
-
-      content
-
-    \subsubsection{Alkynes}
-
-      content
-
     \subsubsection{Cycloalkanes}
 
       \begin{core}{Cycloalkanes}
 
         Cycloalkanes are cyclic alkane structures named systematically according to the number of carbon atoms in the ring, with the prefix "cyclo-" preceding the parent alkane name.
 
-        \vspace{-0.9cm}
+        \vspace{-1.5cm}
         \reactionfig{
           \scheme{
             \chemname{
-              \raisebox{-2.5cm}{
+              \raisebox{-3cm}{
                 \chemfig{
                   *3(---)
                 }
@@ -1985,7 +1977,7 @@
             \qquad
             \qquad
             \chemname{
-              \raisebox{-2.5cm}{
+              \raisebox{-3cm}{
                 \chemfig{
                   *4(----)
                 }
@@ -1994,7 +1986,7 @@
             \qquad
             \qquad
             \chemname{
-              \raisebox{-2.5cm}{
+              \raisebox{-3cm}{
                 \chemfig{
                   *5(-----)
                 }
@@ -2003,7 +1995,7 @@
             \qquad
             \qquad
             \chemname{
-              \raisebox{-2.5cm}{
+              \raisebox{-3cm}{
                 \chemfig{
                   *6(------)
                 }
@@ -2012,388 +2004,741 @@
           }
         }{Cycloalkanes}{fig:cycloalkanes}{0.9}
 
-        \textit{A thorough understanding of \autoref{sec:alkane} is prerequisite to this section.}
-
       \end{core}
 
-      \begin{core}[label=core:cycloalkane_iupac]{Cycloalkane vs Alkane Parent Chain}
+      \begin{core}[label=core:cycloalkane_iupac]{Cycloalkane IUPAC System}
 
-        In compounds containing both cycloalkane and acyclic alkane chains, the parent chain is designated as the structural unit possessing the greater number of carbon atoms.
+        The systematic nomenclature of cycloalkanes follow the procedure outlined below.
 
-        \reactionfig{
-          \scheme{
-            \chemfig{
-              *5(--
-              (
-              -[:30]
-              -[:-30]
-              -[:30]
-              -[:-30]
-              -[:30]
-              -[:-30]
-              )
-              ---)
-            }
-            \qquad
-            \chemfig{
-              *5(--
-              (
-              -[:30]
-              -[:-30]
-              -[:30]
-              )
-              ---)
-            }
-          }
-        }{1-cyclopentylhexane (\textit{left; cycloalkane as substituent}) and propylcyclopentane (\textit{right; chain alkane as substituent})}{fig:iupac_ca}{0.85}
+        \begin{enumerate}[label=(\arabic*)]
 
-        The compound depicted above is designated \textbf{propylcyclopentane}. Note that propylcyclopentane in \autoref{fig:iupac_cb}, a numerical locant for the propyl group is unnecessary, as only one substituent is present on the parent cycloalkane and carbon numbering would therefore be arbitrary.
+          \item \textbf{Parent Chain Identification}: Identify the body that possesses the greatest number of carbon atoms.
 
-      \end{core}
+          \begin{enumerate}
+            
+            \item \textbf{Simultaneous Presence of Cycloalkane and n-Alkane}: The parent chain is designated as the unit possessing the greater number of carbon atoms.
 
-      \begin{core}{Cycloalkane Substituents}
-
-        When multiple substituents are attached to a cycloalkane ring, carbon atoms are numbered to yield the \textbf{lowest possible digit sequence} and substituents are \textbf{cited alphabetically} in the systematic name.
-
-        \doublereactionfig{
-          \scheme{
-            \chemname{
-              \raisebox{-2.5cm}{
+            \reactionfig{
+              \scheme{
                 \chemfig{
-                  *6(-
-                  (-[:-90])
-                  ---
-                  (-[:90]I)
-                  -
-                  (-[:150]Cl)
-                  -)
-                }
-              }
-            }{\large 2-Chloro-1-iodo-4-methyl-cyclohexane}
-            \qquad \qquad
-            \qquad \qquad
-            \qquad \qquad
-            \chemname{
-              \raisebox{-2.5cm}{
-                \chemfig{
-                  *8(-
-                  (-[:-105])
-                  --
+                  *5(--
                   (
-                  -[:-15]
-                  -[:-90]
+                  -[:30]
+                  -[:-30]
+                  -[:30]
+                  -[:-30]
+                  -[:30]
+                  -[:-30]
                   )
-                  -
-                  (-[:15]Cl)
-                  -
-                  (-[:75])
                   ---)
                 }
-              }
-            }{\large 2-Chloro-3-ethyl-1,5-dimethyl-cyclooctane}
-          }
-        }{
-          \scheme{
-            \chemname{
-              \raisebox{-2.5cm}{
+                \qquad
                 \chemfig{
-                  *6(--
+                  *5(--
                   (
+                  -[:30]
                   -[:-30]
                   -[:30]
                   )
-                  -
-                  (-[:30])
                   ---)
                 }
               }
-            }{\large 1-Ethyl-2-methyl-cyclohexane}
-            \qquad \qquad
-            \qquad \qquad
-            \qquad \qquad
-            \chemname{
-              \raisebox{-2.5cm}{
+            }{1-cyclopentylhexane (\textit{left; cycloalkane as substituent}) and propylcyclopentane (\textit{right; chain alkane as substituent})}{fig:iupac_ca}{0.8}
+
+            Note that for propylcyclopentane in \autoref{fig:iupac_ca}, a locant for the propyl group is unnecessary, as only one substituent is present on the parent cycloalkane and carbon numbering would therefore be arbitrary.
+
+            \item \textbf{Multiple Cycloalkane Units}: The smaller ring functions as a substituent to the larger ring.
+
+            \reactionfig{
+              \scheme{
                 \chemfig{
-                  *6(
-                  (-[:-150]Cl)
-                  -
-                  (-[:-90]Br)
-                  --
-                  (-[:30])
-                  ---
-                  )
+                  *5(--
+                  (-[:0]*6(------))
+                  ---)
                 }
               }
-            }{2-Bromo-1-chloro-4-methyl-cyclohexane}
-          }
-        }{Cycloalkane nomenclature examples}{fig:iupac_cb}{0.7}
+            }{Cyclopentylcyclohexane}{fig:iupac_cc}{0.75}
 
-        When a compound contains multiple cycloalkane units, the smaller ring functions as a substituent to the larger ring. An example of \textbf{cyclopentylcyclohexane} is provided below.
+          \end{enumerate}
+
+          \item \textbf{Substituents}: When multiple substituents are attached to a cycloalkane ring, carbon atoms are numbered to yield the \textbf{lowest possible digit sequence} and substituents are \textbf{cited alphabetically} in the name.
+
+          \doublereactionfig{
+            \scheme{
+              \chemname{
+                \raisebox{-2.5cm}{
+                  \chemfig{
+                    *6(-\textcolor{Red}{4}
+                    (-[:-90])
+                    ---\textcolor{Red}{1}
+                    (-[:90]I)
+                    -\textcolor{Red}{2}
+                    (-[:150]Cl)
+                    -)
+                  }
+                }
+              }{\large (a) 2-Chloro-1-iodo-4-methyl-cyclohexane}
+              \qquad \qquad
+              \qquad \qquad
+              \qquad \qquad
+              \chemname{
+                \raisebox{-2.5cm}{
+                  \chemfig{
+                    *8(-\textcolor{Red}{5}
+                    (-[:-105])
+                    --\textcolor{Red}{3}
+                    (
+                    -[:-15]
+                    -[:-90]
+                    )
+                    -\textcolor{Red}{2}
+                    (-[:15]Cl)
+                    -\textcolor{Red}{1}
+                    (-[:75])
+                    ---)
+                  }
+                }
+              }{\large (b) 2-Chloro-3-ethyl-1,5-dimethyl-cyclooctane}
+            }
+          }{
+            \scheme{
+              \chemname{
+                \raisebox{-2.5cm}{
+                  \chemfig{
+                    *6(--\textcolor{Red}{1}
+                    (
+                    -[:-30]
+                    -[:30]
+                    )
+                    -\textcolor{Red}{2}
+                    (-[:30])
+                    ---)
+                  }
+                }
+              }{\large (c) 1-Ethyl-2-methyl-cyclohexane}
+              \qquad \qquad
+              \qquad \qquad
+              \qquad \qquad
+              \chemname{
+                \raisebox{-2.5cm}{
+                  \chemfig{
+                    *6(-\textcolor{Red}{1}
+                    (-[:-90]Br)
+                    -\textcolor{Red}{2}
+                    (-[:-30]Cl)
+                    -\textcolor{Red}{3}
+                    (-[:30])
+                    ---
+                    )
+                  }
+                }
+              }{\large (d) 1-Bromo-2-chloro-3-methyl-cyclohexane}
+            }
+          }{Cycloalkane nomenclature examples}{fig:iupac_cb}{0.7}
+
+          \item \textit{Other rules follow the same process as those discussed in \autoref{core:alkane_iupac}}
+
+        \end{enumerate}
+
+      \end{core}
+
+  \subsection{Alkenes}
+
+    \begin{core}{Alkenes}
+
+      \textbf{Alkenes} (\textit{\autoref{alk-sec:alkenes}}) are unsaturated hydrocarbons containing at least one carbon--carbon double bond. Their nomenclature generally follows the same conventions as those of alkanes (\textit{\autoref{core:alkanes}}), except that the suffix "-ane" is replaced with "-ene" to denote the presence of a double bond (\textit{e.g., ethene, propene, and butene}).
+
+    \end{core}
+
+    \subsubsection{n-Alkenes}
+
+      \begin{core}{Alkenyl Substituents}
+
+        An alkenyl \textbf{substituent} originates from an alkene through the removal of a hydrogen atom, while preserving the carbon--carbon double bond. These substituents generally follow the formula \ce{C_{n}H_{2n-1}}, and are named by replacing the "-ene" suffix of the parent alkene with "-enyl" (\textit{e.g., ethenyl, \ce{C2H3}}). Additionally, the position of the double bond must be specified by indicating its \textbf{starting} location relative to the point of attachment to the parent chain, as illustrated by \textit{prop-2-enyl}.
+
+        \reactionfig{
+          \scheme{
+            \definecuttoff
+            \chemfig{
+              [:0]H
+              -[:-45]C
+              (-[:-135]H)
+              =[:0]C
+              (-[:-90]H)
+              -[:0]C
+              (-[:90]H)
+              (-[:-90]H)
+              -[:0]!{cuttoff}
+            }
+          }
+        }{Prop-2-enyl substituent}{fig:propenyl}{0.8}
+
+        When a substituent is \textbf{connected to the parent backbone through a double bond}, the suffix "-ylidene" is used in place of "-enyl" to indicate the mode of attachment. Observe that the position of the double bond does not require explicit specification, as it is inherently implied by the "-ylidene" suffix.
+
+        \reactionfig{
+          \scheme{
+            \definecuttoff
+            \chemfig{
+              [:0]H
+              -[:0]C
+              (-[:90]H)
+              (-[:-90]H)
+              -[:0]C
+              (-[:90]H)
+              (-[:-90]H)
+              -[:0]C
+              (-[:90]H)
+              =[:0]!{cuttoff}
+            }
+          }
+        }{Propylidene substituent}{fig:propylidene}{0.8}
+
+        Certain substituents possess historically established trivial names that remain prevalent in chemical nomenclature and must be committed to memory, as they do not follow systematic naming conventions.
+
+        \vspace{-1.2cm}
+        \reactionfig{
+          \scheme{
+            \definecuttoff
+            \chemname{
+              \raisebox{-2cm}{
+                \chemfig{
+                  [:0]H
+                  -[:-45]C
+                  (-[:-135]H)
+                  =[:0]C
+                  (-[:-90]H)
+                  -[:0]!{cuttoff}
+                }
+              }
+            }{Vinyl (\textit{Ethenyl})}
+            \qquad \qquad
+            \chemname{
+              \raisebox{-2cm}{
+                \chemfig{
+                  [:0]H
+                  -[:-45]C
+                  (-[:-135]H)
+                  =[:0]C
+                  (-[:-90]H)
+                  -[:0]C
+                  (-[:90]H)
+                  (-[:-90]H)
+                  -[:0]!{cuttoff}
+                }
+              }
+            }{Allyl (\textit{Prop-2-enyl})}
+          }
+        }{Common alkenyl substituent names}{fig:common_alkenyl}{0.8}
+
+      \end{core}
+
+      \begin{core}[label=core:alkene_iupac]{Alkene IUPAC System}
+
+        The systematic nomenclature of alkenes follows the procedure outlined below.
+
+        \begin{enumerate}[label=(\arabic*)]
+
+          \item \textbf{Parent Chain Identification}: Identify the longest continuous carbon chain, irrespective of double bond incorporation. If both \ce{C_{sp$^2$}} carbons are contained within this principal chain, the compound is designated as an alk\textbf{-ene}. Otherwise, it is named as an \textbf{alkenyl-}alkane.
+
+          \reactionfig{
+            \scheme{
+              \chemname{
+                \raisebox{-3cm}{
+                  \chemfig{
+                    [:0]\textcolor{Red}{8}
+                    -[:-30]\textcolor{Red}{7}
+                    -[:30]\textcolor{Red}{6}
+                    -[:-30]\textcolor{Red}{5}
+                    -[:30]\textcolor{Red}{4}
+                    (
+                    =[:90]\textcolor{Red}{3}
+                    (-[:150])
+                    -[:30]\textcolor{Red}{2}
+                    -[:90]\textcolor{Red}{1}
+                    )
+                    -[:-30]
+                    -[:30]
+                  }
+                }
+              }{4-Ethyl-3-methyl-oct-3-ene}
+              \qquad \qquad
+              \chemname{
+                \raisebox{-3cm}{
+                  \chemfig{
+                    [:0]\textcolor{Red}{1}
+                    -[:30]\textcolor{Red}{2}
+                    -[:-30]\textcolor{Red}{3}
+                    -[:30]\textcolor{Red}{4}
+                    (
+                    -[:90]
+                    =[:30]
+                    )
+                    -[:-30]\textcolor{Red}{5}
+                    -[:30]\textcolor{Red}{6}
+                    -[:-30]\textcolor{Red}{7}
+                    -[:30]\textcolor{Red}{8}
+                  }
+                }
+              }{4-vinyl-octane}
+            }
+          }{Alkene nomenclature examples}{fig:alkene_iupac1}{0.8}
+
+          \item \textbf{Position Numbering}: Assign numerical locants such that the doubly bonded carbons receive the lowest possible numbers. When specifying the position of the double bond, only the lower-numbered of the two \ce{C_{sp$^2$}} carbons is indicated.
+
+          \item \textit{Alkenes exhibit stereoisomerism arising from restricted rotation about the carbon-carbon double bond. Nomenclature conventions for disubstituted alkenes are detailed in \autoref{core:cis_trans_alkenes}, while tri- and tetrasubstituted alkenes are addressed in \autoref{sec:ez}.}
+
+          \item \textit{Other rules follow the same process as those discussed in \autoref{core:alkane_iupac}}.
+
+        \end{enumerate}
+
+        A representative example demonstrating the application of these principles is provided below.
 
         \reactionfig{
           \scheme{
             \chemfig{
-              *5(--
-              (-[:0]*6(------))
-              ---)
+              [:0]\textcolor{Red}{11}
+              -[:-30]\textcolor{Red}{10}
+              -[:30]\textcolor{Red}{9}
+              (-[:90]Cl)
+              -[:-30]\textcolor{Red}{8}
+              -[:30]\textcolor{Red}{7}
+              -[:90]\textcolor{Red}{6}
+              =[:30]\textcolor{Red}{5}
+              (
+              -[:90]
+              -[:30]
+              =[:90]
+              )
+              -[:-30]\textcolor{Red}{4}
+              (-[:-90])
+              -[:30]\textcolor{Red}{3}
+              (-[:90])
+              =[:-30]\textcolor{Red}{2}
+              -[:-90]\textcolor{Red}{1}
             }
           }
-        }{Cyclopentylcyclohexane}{fig:iupac_cc}{0.9}
+        }{(2Z,5Z)-5-Allyl-9-chloro-3,4-dimethyl-undec-2,5-diene}{fig:alkene_iupac_final}{0.78}
 
       \end{core}
 
-  \subsection{Alcohol}
+    \subsubsection{Cycloalkenes}
 
-    \begin{core}{Alcohol}
+      \begin{core}{Cycloalkenes}
 
-      \href{../alcohols/alcohols.pdf}{\textbf{Alcohols}} constitute a fundamental class of organic compounds characterized by the presence of one or more hydroxyl (\ce{-OH}) functional groups bonded to sp$^3$-hybridized carbon atoms.
+        Cycloalkenes are cyclic structures containing one or more carbon-carbon double bonds. Their systematic nomenclature is derived from the number of carbon atoms constituting the ring, with the prefix "cyclo-" appended to the corresponding alkene root name.
 
-    \end{core}
-
-    \begin{core}[label=core:alcohol_iupac]{Alcohol IUPAC System}
-
-      The systematic nomenclature of alcohols follows the procedure outlined below.
-
-      \begin{enumerate}[label=(\arabic*)]
-
-        \item \textbf{Parent Chain Identification}: Identify the longest continuous carbon chain \textbf{containing the \ce{-OH} group} and replace the suffix alkan\textbf{-e} with alkan\textbf{-ol}. When multiple \ce{-OH} groups are present, the suffix -ol is modified to -diol, -triol, etc., accordingly. \textit{Note that the selected chain may not necessarily be the longest carbon chain in the molecule.}
-
-        \item \textbf{Alcohol Substituents}: When \ce{-OH} or \ce{-OR} groups function as substituents rather than principal functional groups, they are designated as hydroxy- and alkoxy- groups, respectively. \textit{This nomenclature parallels the designation of alkane-derived substituents as alkyl- groups.}
-
-        \item \textbf{Position Numbering}: Initiate numbering from the terminus \textbf{nearest} to the \ce{-OH} group.
-
-        \item \textit{Apply the remaining nomenclature conventions established for alkanes (\autoref{core:alkane_iupac})}.
-
-      \end{enumerate}
-
-      Representative examples illustrating the application of the aforementioned nomenclature protocol are provided below.
-
-      \vspace{-0.9cm}
-      \doublereactionfig{
-        \scheme{
-          \chemname{
-            \raisebox{-2cm}{
-              \chemfig{
-                [:0]3
-                -[:-30]2
-                -[:30]1
-                -[:-30]\textcolor{Red}{\ce{OH}}
+        \vspace{-1.5cm}
+        \reactionfig{
+          \scheme{
+            \chemname{
+              \raisebox{-3.5cm}{
+                \chemfig{
+                  *3(--=)
+                }
               }
-            }
-          }{1-Propanol}
-          \qquad
-          \chemname{
-            \raisebox{-2cm}{
-              \chemfig{
-                [:0]1
-                -[:-30]2
-                (-[:-90]\textcolor{Red}{OH})
-                -[:30]3
-                -[:-30]4
+            }{Cyclopropene}
+            \qquad
+            \qquad
+            \chemname{
+              \raisebox{-3.5cm}{
+                \chemfig{
+                  *4(---=)
+                }
               }
-            }
-          }{2-Butanol}
-          \qquad
-          \chemname{
-            \raisebox{-2cm}{
-              \chemfig{
-                [:0]5
-                -[:-30]4
-                (-[:-90])
-                -[:30]3
-                -[:-30]2
-                -[:30]1
-                -[:-30]\textcolor{Red}{OH}
+            }{Cyclobutene}
+            \qquad
+            \qquad
+            \chemname{
+              \raisebox{-3.5cm}{
+                \chemfig{
+                  *5(----=)
+                }
               }
-            }
-          }{4-Methyl-1-pentanol}
-        }
-      }{
-        \scheme{
-          \chemname{
-            \raisebox{-2cm}{
-              \chemfig{
-                [:0]Cl
-                -[:-30]3
-                -[:30]2
-                -[:-30]1
-                -[:30]\textcolor{Red}{OH}
+            }{Cyclopentene}
+            \qquad
+            \qquad
+            \chemname{
+              \raisebox{-3.5cm}{
+                \chemfig{
+                  *6(-----=)
+                }
               }
-            }
-          }{3-Chloro-1-propanol}
-          \qquad
-          \chemname{
-            \raisebox{-2cm}{
+            }{Cyclohexene}
+          }
+        }{Cycloalkenes}{fig:cycloalkenes}{0.85}
+
+      \end{core}
+
+      \begin{core}{Cycloalkene IUPAC System}
+
+        \sbs{0.6}{
+          The systematic nomenclature of cycloalkenes adheres to conventions analogous to those governing cycloalkanes (\textit{\autoref{core:cycloalkane_iupac}}). A key distinction is that in cyclic systems, the doubly bonded carbons are assigned positions C$^1$ and C$^2$ by convention; consequently, explicit numerical designation of the double bond position is redundant. The assignment of subsequent positional locants follows the same lowest possible digit sequence rule established in \autoref{core:cycloalkane_iupac}.
+        }{
+          \vspace{0.2cm}
+          \reactionfig{
+            \scheme{
               \chemfig{
-                [:0]1
-                -[:-30]2
-                (-[:-90]\textcolor{Red}{OH})
-                -[:30]3
-                -[:-30]4
-                (-[:-120])
-                (-[:-60])
-                -[:30]5
-              }
-            }
-          }{4,4-Dimethyl-2-pentanol}
-        }
-      }{Alcohol nomenclature examples}{fig:alc_nomenclature}{0.85}
-
-    \end{core}
-
-    \begin{core}{Cycloalkanols}
-
-      Cyclic alcohols are designated \textbf{cycloalkanols} and adhere to nomenclature conventions analogous to those of cycloalkanes (\textit{\autoref{core:cycloalkane_iupac}}). However, the carbon attached to the \ce{OH} group is always designated as \ce{C1}. 
-
-      \reactionfig{
-        \scheme{
-          \chemname{
-            \raisebox{-2.5cm}{
-              \chemfig{
-                [:0]*6(----
-                (-[:90]\textcolor{Red}{OH})
-                --)
-              }
-            }
-          }{cyclohexan-1-ol}
-          \qquad
-          \qquad
-          \chemname{
-            \raisebox{-2.5cm}{
-              \chemfig{
-                [:0]*6(--
-                (-[:-30])
-                --
-                (-[:90]\textcolor{Red}{OH})
-                --)
-              }
-            }
-          }{cis-3-methyl-cyclohexan-1-ol}
-          \qquad
-          \qquad
-          \chemname{
-            \raisebox{-2.5cm}{
-              \chemfig{
-                [:15]*5(---
-                (-[:120]\textcolor{Red}{HO})
-                (
-                -[:60]
-                -[:30]
-                )
-                --)
-              }
-            }
-          }{1-ethyl-cyclopentan-1-ol}
-          \qquad
-        }
-      }{Cycloalkanol nomenclature examples}{fig:cycloalkanol_nomenclature}{0.9}
-
-    \end{core}
-
-    \begin{core}{Primary, Secondary, and Tertiary Alcohols}
-
-      Analogous to the classification system employed for haloalkanes, alcohols are similarly categorized as primary, secondary, or tertiary based on the degree of substitution at the carbon atom bearing the hydroxyl group.
-
-      \reactionfig{
-        \scheme{
-          \chemname{
-            \raisebox{-2.5cm}{
-              \chemfig{
-                [:0]
-                -[:30]
-                -[:-30]OH
-              }
-            }
-          }{Primary alcohol}
-          \qquad
-          \chemname{
-            \raisebox{-2.5cm}{
-              \chemfig{
-                [:0]
-                -[:30]
-                (-[:90]OH)
-                -[:-30]
-              }
-            }
-          }{Secondary alcohol}
-          \qquad
-          \chemname{
-            \raisebox{-2.5cm}{
-              \chemfig{
-                [:0]
-                -[:30]
-                (-[:120])
-                (-[:60]OH)
-                -[:-30]
-              }
-            }
-          }{Tertiary alcohol}
-        }
-      }{Primary, secondary, and tertiary alcohols}{fig:pst_alcohols}{0.85}
-
-    \end{core}
-
-  \subsection{Ethers}
-
-    \begin{core}{Ethers}
-
-      \href{../ethers/ethers.pdf}{\textbf{Ethers}} constitute a fundamental class of organic compounds characterized by an oxygen atom bonded to two alkyl or aryl groups ($\ce{-O-}$), effectively serving as structural derivatives of water where both hydrogen atoms have been replaced by organic substituents.
-
-    \end{core}
-
-    \begin{core}{Ether IUPAC System}
-
-      In systematic ether nomenclature, the larger carbon-containing group is designated as the parent chain, while the smaller group attached to the oxygen is named as an alkoxy substituent (\textit{briefly mentioned in \autoref{core:alcohol_iupac} as \ce{-OR}}).
-
-      \reactionfig{
-        \scheme{
-          \chemname{
-            \raisebox{-2.5cm}{
-              \chemfig{
-                [:0]\ce{H3C}
-                -[:30]
-                -[:-30]
-                -[:30]\textcolor{Red}{O}
-                -[:-30]
-                -[:30]\ce{CH3}
-              }
-            }
-          }{1-Ethoxypropane}
-          \qquad\qquad
-          \chemname{
-            \raisebox{-2.5cm}{
-              \chemfig{
-                [:30]*6(-----
-                (
-                -[:180]\textcolor{Red}{O}
-                -[:120]
-                -[:180]
-                (-[:120]\ce{H3C})
-                -[:-135]
-                -[:180]\ce{H3C}
-                )
+                *6(---
+                \textcolor{Red}3
+                (-[:30])
+                -
+                \textcolor{Red}{2}
+                =
+                \textcolor{Red}{1}
                 -)
               }
             }
-          }{2-Methylbutoxy)cyclohexane}
+          }{3-Methyl-cyclohexene}{fig:cycloalkene_iupac}{0.9}
         }
-      }{Ether nomenclature examples}{fig:filler2}{0.8}
+
+      \end{core}
+
+  \subsection{Alkynes \& Alkenynes}
+
+    \begin{core}{Alkynes \& Alkenynes}
+
+      \textbf{Alkynes} (\textit{\autoref{alk-sec:alkynes}}) are unsaturated hydrocarbons containing at least one carbon--carbon triple bond. Systematic nomenclature is established by replacing the terminal "-ane" suffix of the corresponding saturated alkane (\textit{\autoref{core:alkanes}}) with "-yne" to denote the presence of triple-bond unsaturation (\textit{e.g., ethyne, propyne, butyne}).
+
+      \textbf{Alkenynes} are hydrocarbons possessing both carbon--carbon double and triple bonds within the same molecular framework (\textit{e.g., propenyne, butenyne, pentenyne}).
 
     \end{core}
 
-  \subsection{Thiols}
+    \subsubsection{n-Alkynes}
 
-    \begin{core}{Thiols}
+      \begin{core}{Alkynyl \& Alkenynyl Substituents}
 
-      \textbf{Thiols} are organic compounds characterized by the presence of a sulfhydryl (\textit{\ce{-SH}}) functional group bonded to a carbon atom. Structurally, thiols are the sulfur analogues of alcohols, with sulfur replacing the oxygen atom of the hydroxyl group.
+        An alkynyl \textbf{substituent} is formed from an alkyne by abstraction of a hydrogen atom, while maintaining the carbon--carbon triple bond. Their general formula is given as \ce{C_{n}H_{2n-3}}, and their nomenclature is based on the parent alkyne name, with the suffix "-yne" changed to "-ynyl" (\textit{e.g., ethynyl, \ce{C2H}}). Additionally, the position of the triple bond must be specified by indicating its \textbf{starting} location relative to the point of attachment to the parent chain, as illustrated by \textit{prop-2-ynyl}. This convention extends analogously to alkenynyl substituents.
+        
+        \textit{A directly analogous alkyne substituent corresponding to alkylidenes in alkenes is generally not encountered within the scope of these notes. This is because a branching carbon atom attached to the parent chain can maximally participate in a double bond, as its remaining valences are already occupied by bonds within the parent chain framework.}
+
+        \reactionfig{
+          \scheme{
+            \definecuttoff
+            \chemfig{
+              [:0]H
+              -[:0]C
+              ~[:0]C
+              -[:0]C
+              (-[:90]H)
+              (-[:-90]H)
+              -[:0]!{cuttoff}
+            }
+            \qquad
+            \chemfig{ % replace
+              [:0]H
+              -[:0]C
+              ~[:0]C
+              -[:0]C
+              (-[:90]H)
+              =[:0]C
+              (-[:-90]H)
+              -[:0]!{cuttoff}
+            }
+          }
+        }{Prop-2-ynyl (\textit{left}) and but-1-en-3-ynyl (\textit{right}) substituent}{fig:propynyl}{0.8}
+
+      \end{core}
+
+      \begin{core}{Alkyne \& Alkenyne IUPAC System}
+
+        The systematic nomenclature of alkynes adheres to those established for alkenes (\textit{\autoref{core:alkene_iupac}}). However, the nomenclature of alkenynes necessitates additional rules for positional numbering.
+
+        \begin{itemize}
+
+          \item Positional numbering commences from the terminus nearest to either unsaturated functional group, irrespective of bond multiplicity.
+
+          \reactionfig{
+            \scheme{
+              \chemfig{
+                [:0]\textcolor{Red}{1}
+                =[:0]\textcolor{Red}{2}
+                -[:30]\textcolor{Red}{3}
+                -[:-30]\textcolor{Red}{4}
+                ~[:-30]\textcolor{Red}{5}
+                -[:-30]\textcolor{Red}{6}
+                -[:30]\textcolor{Red}{7}
+              }
+              \qquad \qquad
+              \chemfig{
+                [:0]\textcolor{Red}{1}
+                ~[:30]\textcolor{Red}{2}
+                -[:30]\textcolor{Red}{3}
+                =[:0]\textcolor{Red}{4}
+                -[:-30]\textcolor{Red}{5}
+                -[:0]\textcolor{Red}{6}
+              }
+            }
+          }{Hept-1-en-4-yne (\textit{left}) and cis-Hex-3-en-1-yne (\textit{right})}{fig:alkyne_iupac1}{0.9}
+
+          \item When both double and triple bonds are equidistant from the terminal positions, the double bond receives priority in numbering by virtue of alphabetical precedence (\textit{"-ene-" precedes "-yne"}).
+
+          \reactionfig{
+            \scheme{
+              \chemfig{
+                [:0]\textcolor{Red}{1}
+                =[:0]\textcolor{Red}{2}
+                -[:30]\textcolor{Red}{3}
+                -[:-30]\textcolor{Red}{4}
+                ~[:-30]\textcolor{Red}{5}
+              }
+            }
+          }{Pent-1-en-4-yne}{fig:alkyne_iupac2}{0.9}
+
+        \end{itemize}
+
+      \end{core}
+
+    % \subsubsection{Cycloalkynes}
+
+  \subsection{Alcohol \& Ethers}
+
+    \begin{core}{Alcohol \& Ethers}
+
+      \href{../alcohols/alcohols.pdf}{\textbf{Alcohols}} and \href{../ethers/ethers.pdf}{\textbf{ethers}} constitute a fundamental class of organic compounds characterized by the presence of one or more \ce{-OH} and \ce{-OR} functional groups, respectively, bonded to sp$^3$-hybridized carbon atoms.
 
     \end{core}
 
-    \begin{core}{Thiol IUPAC Nomenclature}
+    \subsubsection{n-Alcohol/Ethers}
 
-      Thiols adhere to nomenclature conventions analogous to those of alcohols, with the principal distinction being the use of the suffix \textbf{-thiol} in place of \textbf{-ol}. Similarly, when sulfur-containing groups function as substituents, they are designated as mercapto- (\ce{-SH}) and alkylthio- (\ce{-SR}) groups, respectively.
+      \begin{core}[label=core:alcohol_iupac]{Alcohol IUPAC System}
 
-      \vspace{-1cm}
+        The systematic nomenclature of alcohols follows the procedure outlined below.
+
+        \begin{enumerate}[label=(\arabic*)]
+
+          \item \textbf{Parent Chain Identification}: Identify the longest continuous carbon chain \textbf{directly connected to the \ce{-OH} group} and replace the suffix alkan\textbf{-e} with alkan\textbf{-ol}. When multiple \ce{-OH} groups are present, the suffix -ol is modified to -diol, -triol, etc., accordingly. \textit{Note that the selected chain may not necessarily be the longest carbon chain in the molecule.}
+
+          \sbs{0.55}{
+            \item \textbf{Alcohol Substituents}: When \ce{-ROH} groups function as substituents rather than principal functional groups, they are designated as "hydroxyalkyl-" groups.
+
+            \item \textbf{Position Numbering}: Initiate numbering from the terminus \textbf{nearest} to the \ce{-OH} group. When met with multiple hydroxyl groups, continue comparison until reaching the \textbf{first point of difference} as shown in \autoref{fig:alc_iupacb}.
+          }{
+            \reactionfig{
+              \scheme{
+                \chemfig{
+                  [:0]\textcolor{Red}{4}
+                  (-[:150]HO)
+                  -[:30]\textcolor{Red}{3}
+                  (
+                  -[:90]
+                  -[:150]HO
+                  )
+                  -[:-30]\textcolor{Red}{2}
+                  (-[:-90]OH)
+                  -[:30]\textcolor{Red}{1}
+                  (-[:-30]OH)
+                }
+              }
+            }{3-Hydroxymethyl-butane-1,2,4-triol}{fig:alc_iupacb}{0.8}
+          }
+
+          \item \textit{Other rules follow the same process as those discussed in \autoref{core:alkane_iupac}}.
+
+        \end{enumerate}
+
+        Representative examples illustrating the application of the aforementioned nomenclature protocol are provided below.
+
+        \vspace{-1cm}
+        \reactionfig{
+          \scheme{
+            \chemname{
+              \raisebox{-2cm}{
+                \chemfig{
+                  [:0]1
+                  -[:-30]2
+                  (-[:-90]\textcolor{Red}{OH})
+                  -[:30]3
+                  -[:-30]4
+                }
+              }
+            }{2-Butanol}
+            \qquad
+            \chemname{
+              \raisebox{-2cm}{
+                \chemfig{
+                  [:0]Cl
+                  -[:-30]3
+                  -[:30]2
+                  -[:-30]1
+                  -[:30]\textcolor{Red}{OH}
+                }
+              }
+            }{3-Chloro-1-propanol}
+            \qquad
+            \chemname{
+              \raisebox{-2cm}{
+                \chemfig{
+                  [:0]1
+                  -[:-30]2
+                  (-[:-90]\textcolor{Red}{OH})
+                  -[:30]3
+                  -[:-30]4
+                  (-[:-120])
+                  (-[:-60])
+                  -[:30]5
+                }
+              }
+            }{4,4-Dimethyl-2-pentanol}
+          }
+        }{Alcohol nomenclature examples}{fig:alc_nomenclature}{0.9}
+
+      \end{core}
+
+      \begin{core}{Primary, Secondary, and Tertiary Alcohols}
+
+        \sbs{0.45}{
+          Analogous to the classification system employed for haloalkanes, alcohols are similarly categorized as primary, secondary, or tertiary based on the degree of substitution at the carbon atom bearing the hydroxyl group.
+        }{
+          \vspace{-1.6cm}
+          \reactionfig{
+            \scheme{
+              \chemname{
+                \raisebox{-3.5cm}{
+                  \chemfig{
+                    [:0]
+                    -[:30]
+                    -[:-30]OH
+                  }
+                }
+              }{Primary alcohol}
+              \qquad
+              \chemname{
+                \raisebox{-3.5cm}{
+                  \chemfig{
+                    [:0]
+                    -[:30]
+                    (-[:90]OH)
+                    -[:-30]
+                  }
+                }
+              }{Secondary alcohol}
+              \qquad
+              \chemname{
+                \raisebox{-3.5cm}{
+                  \chemfig{
+                    [:0]
+                    -[:30]
+                    (-[:120])
+                    (-[:60]OH)
+                    -[:-30]
+                  }
+                }
+              }{Tertiary alcohol}
+            }
+          }{Primary, secondary, and tertiary alcohols}{fig:pst_alcohols}{0.9}
+        }
+
+      \end{core}
+
+      \begin{core}[label=core:ether_iupac]{Ether IUPAC System}
+
+        In ether (\ce{R^{'}OR}) IUPAC nomenclature, the larger carbon-containing group is designated as the parent chain, while the smaller group attached to the oxygen is named as an "alkoxy-" substituent.
+
+        \vspace{-0.5cm}
+        \reactionfig{
+          \scheme{
+            \chemname{
+              \raisebox{-3.5cm}{
+                \chemfig{
+                  [:0]\ce{H3C}
+                  -[:30]
+                  -[:-30]
+                  -[:30]\textcolor{Red}{O}
+                  -[:-30]
+                  -[:30]\ce{CH3}
+                }
+              }
+            }{1-Ethoxypropane}
+            \qquad\qquad
+            \chemname{
+              \raisebox{-3.5cm}{
+                \chemfig{
+                  [:30]*6(-----
+                  (
+                  -[:180]\textcolor{Red}{O}
+                  -[:120]
+                  -[:180]
+                  (-[:120]\ce{H3C})
+                  -[:-135]
+                  -[:180]\ce{H3C}
+                  )
+                  -)
+                }
+              }
+            }{2-Methylbutoxy-cyclohexane}
+          }
+        }{Ether nomenclature examples}{fig:filler2}{0.8}
+
+        \textit{Other rules follow the same process as those discussed in \autoref{core:alkane_iupac}}.
+
+      \end{core}
+
+    \subsubsection{Cycloalkanols}
+
+      \begin{core}{Cycloalkanols}
+
+        Cyclic alcohols are designated \textbf{cycloalkanols} and adhere to conventions analogous to those of cycloalkanes (\textit{\autoref{core:cycloalkane_iupac}}). However, the carbon attached to the \ce{OH} group is always designated as position 1. 
+
+        \reactionfig{
+          \scheme{
+            \chemname{
+              \raisebox{-3cm}{
+                \chemfig{
+                  [:0]*6(----
+                  (-[:90]\textcolor{Red}{OH})
+                  --)
+                }
+              }
+            }{cyclohexan-1-ol}
+            \qquad
+            \qquad
+            \chemname{
+              \raisebox{-3cm}{
+                \chemfig{
+                  [:0]*6(--
+                  (-[:-30])
+                  --
+                  (-[:90]\textcolor{Red}{OH})
+                  --)
+                }
+              }
+            }{cis-3-methyl-cyclohexan-1-ol}
+            \qquad
+            \qquad
+            \chemname{
+              \raisebox{-3cm}{
+                \chemfig{
+                  [:15]*5(---
+                  (-[:120]\textcolor{Red}{HO})
+                  (
+                  -[:60]
+                  -[:30]
+                  )
+                  --)
+                }
+              }
+            }{1-ethyl-cyclopentan-1-ol}
+            \qquad
+          }
+        }{Cycloalkanol nomenclature examples}{fig:cycloalkanol_nomenclature}{0.8}
+
+      \end{core}
+
+    % \subsubsection{Cyclic Ethers}
+
+  \subsection{Thiols \& Thioethers}
+
+    \begin{core}{Thiols \& Thioethers}
+
+      \textbf{Thiols} and \textbf{thioethers} (\textit{\autoref{eth-core:sulfur_analogs}}) are classes of organic compounds characterized by the presence of sulfhydryl (\textit{\ce{-SH}}) and alkylthio (\textit{\ce{-SR}}) functional groups, respectively, bonded to a carbon atom. Structurally, thiols and thioethers are sulfur analogs of alcohols and ethers, respectively, in which the corresponding oxygen atom is replaced by sulfur.
+
+    \end{core}
+
+    \begin{core}{Thiol IUPAC System}
+
+      Thiols follow nomenclature conventions analogous to those of alcohols (\textit{\autoref{core:alcohol_iupac}}), with the primary distinction being the replacement of the suffix "-ol" with "-thiol".
+
+      \vspace{-1.6cm}
       \reactionfig{
         \scheme{
           \chemname{
@@ -2418,22 +2763,10 @@
               }
             }
           }{2-Methyl-1-butanethiol}
-          \qquad
-          \qquad
-          \chemname{
-            \raisebox{-2.5cm}{
-              \chemfig{
-                [:0]
-                -[:30]S
-                -[:-30]
-                -[:30]
-              }
-            }
-          }{Methylthioethane}
         }
-      }{Thiol nomenclature examples}{fig:sulfur_nomenclature1}{0.9}
+      }{Thiol nomenclature examples}{fig:sulfur_nomenclature1}{0.8}
 
-      Furthermore, when both \ce{-OH} and \ce{-SH} functional groups are present within the same molecule, the hydroxyl group (\ce{-OH}) takes precedence over the sulfhydryl group (\ce{-SH}) in determining the principal functional group, thereby designating the compound as an alcohol rather than a thiol.
+      Similarly, when a sulfhydryl group functions as a \textbf{substituent}, it is designated by the prefix "mercapto-" (\ce{-SH}). This nomenclature is most commonly employed when both hydroxyl (\ce{-OH}) and sulfhydryl (\ce{-SH}) functional groups are present within the same molecule. In such cases, the hydroxyl group takes precedence in determining the principal functional group, and the compound is therefore classified and named as an alcohol rather than a thiol.
 
       \reactionfig{
         \scheme{
@@ -2448,6 +2781,25 @@
 
     \end{core}
 
+    \begin{core}{Thioether IUPAC System}
+
+      \sbs{0.55}{
+        Thioethers follow nomenclature conventions analogous to those of ethers (\textit{\autoref{core:ether_iupac}}), with the primary distinction being the use of the prefix "alkylthio-" to designate \ce{-SR} substituents.
+      }{
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              [:0]
+              -[:30]S
+              -[:-30]
+              -[:30]
+            }
+          }
+        }{Methylthioethane}{fig:sulfur_nomenclature3}{0.9}
+      }
+
+    \end{core}
+
   \subsection{Isomer Configurations}
 
     \begin{core}{Stereoisomers}
@@ -2458,7 +2810,7 @@
 
     \subsubsection{Cis \& Trans}
 
-      \begin{core}{Cis \& Trans}
+      \begin{core}[label=core:cis_trans_cycloalkanes]{Cycloalkanes}
 
         Cycloalkane rings possess two distinct spatial orientations relative to the plane of the ring: "above" and "below." When two or more substituents are present, those oriented on the same side of the ring are designated \textbf{cis}, while those positioned on opposite sides are designated \textbf{trans}.
 
@@ -2492,9 +2844,44 @@
               }
             }{\textcolor{Red}{trans}-1-Chloro-2-methylcyclohexane}
           }
-        }{Cis and trans isomers}{fig:cis_trans}{0.75}
+        }{Cis and trans cycloalkane isomers}{fig:cis_trans}{0.8}
 
         Substituents projecting away from the observer (\textit{below the plane of the ring}) are represented by \textbf{dashed bonds}, whereas those projecting toward the observer (\textit{above the plane of the ring}) are denoted by \textbf{wedged bonds}, as illustrated in \autoref{fig:cis_trans}.
+
+      \end{core}
+
+      \begin{core}[label=core:cis_trans_alkenes]{Alkenes}
+
+        Disubstituted alkenes exhibit two distinct spatial orientations for their substituents. Analogous to the nomenclature conventions established for cycloalkanes (\autoref{core:cis_trans_cycloalkanes}), these geometric isomers are designated as \textbf{cis} or \textbf{trans} according to whether the substituents are oriented on the same or opposite sides of the double bond plane, respectively.
+
+        \vspace{-1.5cm}
+        \reactionfig{
+          \scheme{
+            \chemname{
+              \raisebox{-3.5cm}{
+                \chemfig{
+                  [:0]
+                  -[:45]
+                  =[:0]
+                  -[:45]
+                  -[:0]
+                }
+              }
+            }{trans-pent-2-ene}
+            \qquad \qquad \qquad
+            \chemname{
+              \raisebox{-3.5cm}{
+                \chemfig{
+                  [:0]
+                  -[:45]
+                  =[:0]
+                  -[:-45]
+                  -[:0]
+                }
+              }
+            }{cis-pent-2-ene}
+          }
+        }{Cis and trans alkene isomers}{fig:cis_trans_alkene}{0.9}
 
       \end{core}
 
@@ -2508,7 +2895,7 @@
 
       \end{core}
 
-      \begin{core}{Chiral Center}
+      \begin{core}[label=core:chiral]{Chiral Center}
 
         A \textbf{chiral center} (\textit{or stereocenter}) is typically a carbon atom bearing four distinct substituents arranged in tetrahedral geometry.
 
@@ -2576,9 +2963,12 @@
 
         \end{enumerate}
 
-        The designations \textbf{R} (\textit{rectus}) and \textbf{S} (\textit{sinister}) describe the rotational direction from priority 1 to 2 to 3: \textbf{clockwise} rotation corresponds to R, while \textbf{counterclockwise} rotation corresponds to S. This determination is made from a perspective in which the lowest-priority group (\textit{rank 4}) is oriented directly away from the observer.
-
-        \myfig{0.25}{org_chem_figures/ac_pov}{Absolute configuration perspective visualized}{fig:ac_pov}
+        \sbs{0.6}{
+          The designations \textbf{R} (\textit{rectus}) and \textbf{S} (\textit{sinister}) describe the rotational direction from priority 1 to 2 to 3: \textbf{clockwise} rotation corresponds to R, while \textbf{counterclockwise} rotation corresponds to S. This determination is made from a perspective in which the lowest-priority group (\textit{rank 4}) is oriented directly away from the observer.
+        }{
+          \vspace{-2.8cm}
+          \myfig{0.6}{org_chem_figures/ac_pov}{Absolute configuration perspective visualized}{fig:ac_pov}
+        }
 
       \end{core}
 
@@ -2682,6 +3072,61 @@
 
       \end{core}
   
-    % \subsubsection{Entgegen \& Zusammen (E/Z)}
+    \subsubsection{Entgegen \& Zusammen (E/Z)}
+      \label{sec:ez}
+
+      \begin{core}{Entgegen \& Zusammen (E/Z)}
+
+        The E/Z nomenclature system applies the Cahn-Ingold-Prelog priority rules (\textit{\autoref{core:chiral}}) independently to each \ce{C_{sp$^2$}} carbon to identify the highest-priority substituent at each terminus of the double bond. When the respective higher-priority groups are positioned on opposite sides of the double bond plane, the configuration is designated as E, whereas placement on the same side denotes the Z configuration.
+
+        \vspace{-1.5cm}
+        \reactionfig{
+          \scheme{
+            \chemname{
+              \raisebox{-2.5cm}{
+                \chemfig{
+                  [:0]\textcolor{Red}{Cl}
+                  -[:-45,,,,Red]
+                  (
+                  -[:-135]
+                  -[:-180]
+                  )
+                  =[:0]
+                  (
+                  -[:-45,,,,Red]
+                  -[:0,,,,Red]
+                  -[:-45,,,,Red]
+                  )
+                  -[:45]
+                }
+              }
+            }{(3E)-3-Chloro-4-methyl-hept-3-ene}
+            \qquad \qquad \qquad \qquad \qquad
+            \chemname{
+              \raisebox{-2.5cm}{
+                \chemfig{
+                  [:0]\textcolor{Red}{Cl}
+                  -[:-45,,,,Red]
+                  (
+                  -[:-135]
+                  -[:-180]
+                  )
+                  =[:0]
+                  (
+                  -[:45,,,,Red]
+                  -[:0,,,,Red]
+                  -[:45,,,,Red]
+                  )
+                  -[:-45]
+                }
+              }
+            }{(3Z)-3-Chloro-4-methyl-hept-3-ene}
+          }
+        }{E and Z configurations of 3-Chloro-4-methyl-hept-3-ene}{fig:ez_config}{0.9}
+
+      \end{core}
+
+  % \subsection{Priority Hierarchy}
+
 \end{document}
 

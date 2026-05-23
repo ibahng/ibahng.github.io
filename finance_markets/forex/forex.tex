@@ -7,296 +7,305 @@
 
 \input{../../_presets/finance_markets/preamble}
 
-\externaldocument[acc-]{../accounting/accounting}[../accounting/accounting.pdf]
-\externaldocument[com-]{../commodity/commodity}[../commodity/commodity.pdf]
-\externaldocument[cor-]{../corporate_finance/corporate_finance}[../corporate_finance/corporate_finance.pdf]
-\externaldocument[der-]{../derivatives/derivatives}[../derivatives/derivatives.pdf]
-\externaldocument[equ-]{../equity/equity}[../equity/equity.pdf]
-\externaldocument[fix-]{../fixed_income/fixed_income}[../fixed_income/fixed_income.pdf]
-\externaldocument[fnd-]{../fundamental_analysis/fundamental_analysis}[../fundamental_analysis/fundamental_analysis.pdf]
-\externaldocument[mac-]{../macroeconomics/macroeconomics}[../macroeconomics/macroeconomics.pdf]
-\externaldocument[mic-]{../microeconomics/microeconomics}[../microeconomics/microeconomics.pdf]
-\externaldocument[tec-]{../technical_analysis/technical_analysis}[../technical_analysis/technical_analysis.pdf]
-\externaldocument[val-]{../valuation/valuation}[../valuation/valuation.pdf]
-%\externaldocument[for-]{../forex/forex}[../forex/forex.pdf]
+% \externaldocument[acc-]{../accounting/accounting}[../accounting/accounting.pdf]
+% \externaldocument[com-]{../commodity/commodity}[../commodity/commodity.pdf]
+% \externaldocument[cor-]{../corporate_finance/corporate_finance}[../corporate_finance/corporate_finance.pdf]
+% \externaldocument[der-]{../derivatives/derivatives}[../derivatives/derivatives.pdf]
+% \externaldocument[equ-]{../equity/equity}[../equity/equity.pdf]
+% \externaldocument[fix-]{../fixed_income/fixed_income}[../fixed_income/fixed_income.pdf]
+% \externaldocument[fnd-]{../fundamental_analysis/fundamental_analysis}[../fundamental_analysis/fundamental_analysis.pdf]
+% \externaldocument[mac-]{../macroeconomics/macroeconomics}[../macroeconomics/macroeconomics.pdf]
+% \externaldocument[mic-]{../microeconomics/microeconomics}[../microeconomics/microeconomics.pdf]
+% \externaldocument[tec-]{../technical_analysis/technical_analysis}[../technical_analysis/technical_analysis.pdf]
+% \externaldocument[val-]{../valuation/valuation}[../valuation/valuation.pdf]
+% \externaldocument[for-]{../forex/forex}[../forex/forex.pdf]
 
 \begin{document}
 
 \input{../../_presets/_general/startup}
 
-% Currency Market Mechanics
-% ===========================
+\section{Market Foundation}
 
-% At the wake of the “Bretton Woods Agreement,” all allies agreed to lock
-% their currencies to the US dollar, which was in turn convertible to gold
-% (The Gold Standard).
+  \subsection{Historical Developments}
 
-% As the US economy stagnated during the Vietnam War, President Nixon
-% suspended this gold convertibility, beginning the modern fiat currency
-% regime.
+    \begin{core}{Gold as Currency}
 
-% Today, more than $5 trillion is transacted each day in the FOREX market.
+      % Gold is valuable primarily because it cannot be replicated at the whim
+      % of governments.
 
-% The currency market operates 24 hours a day during the business week:
-%     Tokyo → London → New York
+      % Gold's scarcity and inability to be freely printed have helped it
+      % retain long-term value
 
-% The majority of currency transactions are conducted by:
-%     - Financial investors (institutional investors)
-%     - Corporations
-%     - Travellers/tourists
+      % Gold is commonly viewed as:
+      %     - An inflation hedge
+      %     - A store of value during financial crises
 
+      % Example:
+      %     - Gold reached historic highs during the Greek debt crisis of 2012
 
-% Pegged Currencies
-% ---------------------------
+      % Since 1971:
+      %     - Gold has generally been a better store of value than paper currency
 
-% These are currencies that are linked, or pegged, to another country’s
-% currency value.
+    \end{core}
 
-% Example:
-%     - Hong Kong dollar (HKD) is pegged to the US dollar (USD)
+    \begin{core}{Bretton Woods Agreement}
 
-% One of the key mechanisms governments use to maintain currency pegs is
-% foreign exchange (FX) reserves:
-%     - Reserve cash used to manipulate the supply and demand of a currency
-%     - This helps stabilize or maintain its value
+      % At the wake of the "Bretton Woods Agreement," all allies agreed to lock
+      % their currencies to the US dollar, which was in turn convertible to gold
+      % (The Gold Standard).
 
-% Once a pegged currency fails to maintain its peg:
-%     - Any unpaid foreign debt becomes exceedingly difficult to repay
+      % As the US economy stagnated during the Vietnam War, President Nixon
+      % suspended this gold convertibility, beginning the modern fiat currency
+      % regime.
 
+      % 1971 marked the dawn of the modern fiat currency market
 
-% Floating Currencies
-% ---------------------------
+    \end{core}
 
-% These are currencies that are not pegged and fluctuate freely in the
-% global currency market.
+    \begin{core}{Petrodollar}
 
-% Exchange rates are expressed in terms of how much of one currency is
-% needed to purchase another currency.
+      TBD
 
+    \end{core}
 
-% Triangular Arbitrage
-% ---------------------------
+  \subsection{Market Mechanics}
+    
+    \begin{core}{Market Mechanics}
 
-% This process keeps the currency matrix coordinated and prevents traders
-% from profiting off pricing inconsistencies between currencies.
+      % Today, more than $5 trillion is transacted each day in the FOREX market.
+      % Over $5 trillion of currencies are traded every day
 
-% When converting from one low-volume currency to another:
-%     - Investors often transact through the US dollar
+      % The currency market operates 24 hours a day during the business week:
+      %     Tokyo → London → New York
 
-% Approximately 85% of all FX volumes involve the US dollar.
+      % The majority of currency transactions are conducted by:
+      %     - Financial investors (institutional investors)
+      %     - Corporations
+      %     - Travellers/tourists
 
+      % Approximately 85% of all FX volumes involve the US dollar.
+      % The US dollar is the world's reserve currency and the most heavily
+      % traded currency
 
-% Summary: Currency Market Mechanics
-% ===================================
+    \end{core}
 
-% - Over $5 trillion of currencies are traded every day
-% - 1971 marked the dawn of the modern fiat currency market
-% - Several countries peg their currencies to other currencies
-% - Locked exchange rates are government aspirations, not guarantees
-% - Floating currencies move relative to one another in a currency matrix
-% - The US dollar is the world’s reserve currency and the most heavily
-%   traded currency
+    \begin{core}{Triangular Arbitrage}
 
+      % This process keeps the currency matrix coordinated and prevents traders
+      % from profiting off pricing inconsistencies between currencies.
 
-% Currency Valuation
-% ===========================
+      % When converting from one low-volume currency to another:
+      %     - Investors often transact through the US dollar
 
-% Observing Currency Strength
-% ---------------------------
+    \end{core}
 
-% Overall strength or weakness of a currency is determined using
-% “trade-weighted baskets”:
-%     - Indices that calculate the aggregate value of one currency against
-%       its major trading partners
-%     - Larger trading partners are weighted more heavily
+    \begin{core}{Pegged vs Floating Currencies}
 
+      % PEGGED
+        % These are currencies that are linked, or pegged, to another country's
+        % currency value.
 
-% The “Law of One Price”
-% ---------------------------
+        % Example:
+        %     - Hong Kong dollar (HKD) is pegged to the US dollar (USD)
 
-% In the long run:
-%     - Identical goods and services should cost the same regardless of
-%       where they are sold
+        % Several countries peg their currencies to other currencies
+        % Locked exchange rates are government aspirations, not guarantees
 
+        % One of the key mechanisms governments use to maintain currency pegs is
+        % foreign exchange (FX) reserves:
+        %     - Reserve cash used to manipulate the supply and demand of a currency
+        %     - This helps stabilize or maintain its value
 
-% Three Main Drivers of Currency Value
-% --------------------------------------
+        % Once a pegged currency fails to maintain its peg:
+        %     - Any unpaid foreign debt becomes exceedingly difficult to repay
 
-% 1. Surprise changes in interest rates
-% 2. Surprise changes in inflation
-% 3. Surprise changes in trade
+      % FLOATING
+        % These are currencies that are not pegged and fluctuate freely in the
+        % global currency market.
 
+        % Exchange rates are expressed in terms of how much of one currency is
+        % needed to purchase another currency.
 
-% Changes in Interest Rates
-% ---------------------------
+        % Floating currencies move relative to one another in a currency matrix
 
-% All else being equal:
-%     - Surprise increases in interest rates generally strengthen a
-%       currency
+    \end{core}
 
-% When a central bank unexpectedly decreases interest rates:
-%     - Government bond yields fall
-%     - Global investment becomes less attractive
-%     - Demand for that country’s currency decreases
-%     - The currency typically weakens
+\section{Currency Valuation}
 
+  \begin{core}{Measuring Currency Strength}
 
-% Changes in Inflation
-% ---------------------------
+    % Currency value is relative, not absolute
 
-% The law of supply and demand applies to money:
-%     - Excess money supply contributes to inflation
+    % Overall strength or weakness of a currency is determined using
+    % "trade-weighted baskets":
+    %     - Indices that calculate the aggregate value of one currency against
+    %       its major trading partners
+    %     - Larger trading partners are weighted more heavily
 
-% When the money supply of one currency expands more rapidly than another:
-%     - The first currency generally depreciates relative to the second
+    % Trade-weighted baskets measure overall currency strength and weakness
 
+  \end{core}
 
-% Changes in Trade
-% ---------------------------
+  \begin{core}{Law of One Price}
 
-% Exports:
-%     - Lead to currency appreciation
-%     - Foreign buyers must exchange their currency for the exporter’s
-%       currency
-%     - This increases demand for the home currency
+    % In the long run:
+    %     - Identical goods and services should cost the same regardless of
+    %       where they are sold
 
-% Imports:
-%     - Tend to depreciate the importing country’s currency
-%     - The opposite mechanism applies
+    % In the long run, the "Law of One Price" influences currency values
 
+  \end{core}
 
-% Summary: Currency Valuation
-% ===================================
+  \begin{core}{Primary Drivers of Currency Value}
 
-% - Currency value is relative, not absolute
-% - Trade-weighted baskets measure overall currency strength and weakness
-% - In the long run, the “Law of One Price” influences currency values
-% - In the short run, three major drivers are:
-%     1. Surprise changes in interest rates
-%     2. Surprise changes in inflation
-%     3. Surprise changes in trade
+    % Three Main Drivers of Currency Value:
+    % 1. Surprise changes in interest rates
+    % 2. Surprise changes in inflation
+    % 3. Surprise changes in trade
 
+    % In the short run, three major drivers are:
+    %     1. Surprise changes in interest rates
+    %     2. Surprise changes in inflation
+    %     3. Surprise changes in trade
 
-% Central Banks and Currencies
-% ===============================
+    % --- Changes in Interest Rates ---
 
-% Interest rate expectations and inflation expectations are strongly
-% influenced by central bankers through monetary policy and rate-setting
-% agendas.
+      % All else being equal:
+      %     - Surprise increases in interest rates generally strengthen a
+      %       currency
 
-% The principal goal of central banks is to guard against inflation
-% (and, more rarely, deflation).
+      % When a central bank unexpectedly decreases interest rates:
+      %     - Government bond yields fall
+      %     - Global investment becomes less attractive
+      %     - Demand for that country's currency decreases
+      %     - The currency typically weakens
 
-% Typical inflation target:
-%     - Approximately 2%
+    % --- Changes in Inflation ---
 
-% Low but positive inflation is generally considered beneficial for
-% economic growth.
+      % The law of supply and demand applies to money:
+      %     - Excess money supply contributes to inflation
 
-% Inflation targeting is partly psychological:
-%     - Once expectations of rising prices become ingrained, they are
-%       difficult to reverse
+      % When the money supply of one currency expands more rapidly than another:
+      %     - The first currency generally depreciates relative to the second
 
+    % --- Changes in Trade ---
 
-% Inflationary Cycle
-% ---------------------------
+      % Exports:
+      %     - Lead to currency appreciation
+      %     - Foreign buyers must exchange their currency for the exporter's
+      %       currency
+      %     - This increases demand for the home currency
 
-% Sometimes central banks must take extreme measures to break an
-% inflationary cycle:
-%     - Rising wages lead to rising prices
-%     - Rising prices lead to demands for even higher wages
+      % Imports:
+      %     - Tend to depreciate the importing country's currency
+      %     - The opposite mechanism applies
 
-% Workers expect price increases -> Demand for higher pay -> Companies raise wages -> companies lift prices -> CYCLE
+  \end{core}
 
-% Deflationary Cycle
-% ---------------------------
+\section{Central Banks and Monetary Policy}
 
-% Deflation can also become self-reinforcing:
-%     - Consumers delay purchases expecting lower future prices
-%     - Reduced demand leads to layoffs and slower economic activity
+  \begin{core}{Central Banks}
 
-% Prices decline -> consumers defer purchases to await lower prices -> company revenues decline -> companies let go of workers to cut costs -> CYCLE
+    % Interest rate expectations and inflation expectations are strongly
+    % influenced by central bankers through monetary policy and rate-setting
+    % agendas.
 
+    % Central bankers strongly influence currency markets
 
-% Summary: Central Banks and Currencies
-% ========================================
+    % The principal goal of central banks is to guard against inflation
+    % (and, more rarely, deflation).
 
-% - Central bankers strongly influence currency markets
-% - The standard inflation target for industrialized nations is around 2%
-% - Inflation can create a vicious cycle of wage and price increases
-% - Deflation can create a vicious cycle of delayed spending and layoffs
+    % Typical inflation target:
+    %     - Approximately 2%
 
+    % The standard inflation target for industrialized nations is around 2%
 
-% Currency Risk
-% ===========================
+    % Low but positive inflation is generally considered beneficial for
+    % economic growth.
 
-% Currency movements can significantly impact:
-%     - Investment returns
-%     - Corporate financial planning
+    % Inflation targeting is partly psychological:
+    %     - Once expectations of rising prices become ingrained, they are
+    %       difficult to reverse
 
-% Example:
-%     TOPIX (Japanese stock index):
-%         888.51 → 1301.29 in 2013
+  \end{core}
 
-%     Yen per US dollar:
-%         86.75 → 105.26 in 2013
-%         (The yen weakened against the dollar)
+  \begin{core}{Inflationary Cycle}
 
-% Suppose you invested:
-%     - $1 million USD into TOPIX
-%     - Equivalent to approximately 87 million yen
+    % Sometimes central banks must take extreme measures to break an
+    % inflationary cycle:
+    %     - Rising wages lead to rising prices
+    %     - Rising prices lead to demands for even higher wages
 
-% By the end of 2013:
-%     - TOPIX increased by 46%
-%     - However, your return in USD terms was only about 21%
-%     - This occurred because the yen weakened relative to the dollar
+    % Workers expect price increases -> Demand for higher pay -> Companies raise wages -> companies lift prices -> CYCLE
 
+    % Inflation can create a vicious cycle of wage and price increases
 
-% Hedging Currency Risk
-% ---------------------------
+  \end{core}
 
-% Investors can lock in currency exposure for long periods using the
-% currency forward market.
+  \begin{core}{Deflationary Cycle}
 
-% Example:
-%     Spot price:
-%         $1.36 per euro
+    % Deflation can also become self-reinforcing:
+    %     - Consumers delay purchases expecting lower future prices
+    %     - Reduced demand leads to layoffs and slower economic activity
 
-%     10-year forward offer:
-%         $1.52 per euro
+    % Prices decline -> consumers defer purchases to await lower prices -> company revenues decline -> companies let go of workers to cut costs -> CYCLE
 
-% Interpretation:
-%     - The market expects the dollar to weaken against the euro
-%     - You benefit if the actual exchange rate exceeds $1.52 per euro
-%       after 10 years
-%     - This allows you to purchase euros at a cheaper predetermined rate
+    % Deflation can create a vicious cycle of delayed spending and layoffs
 
+  \end{core}
 
-% Gold: The Ancient Currency
-% ===============================
+\section{Currency Risk Management}
 
-% Gold is valuable primarily because it cannot be replicated at the whim
-% of governments.
+  \begin{core}{Impact of Currency Movements}
 
-% Gold is commonly viewed as:
-%     - An inflation hedge
-%     - A store of value during financial crises
+    % Currency movements can significantly impact:
+    %     - Investment returns
+    %     - Corporate financial planning
 
-% Example:
-%     - Gold reached historic highs during the Greek debt crisis of 2012
+    % Currency movements can significantly affect corporations and investors
 
-% Since 1971:
-%     - Gold has generally been a better store of value than paper currency
+    % Example:
+    %     TOPIX (Japanese stock index):
+    %         888.51 → 1301.29 in 2013
 
+    %     Yen per US dollar:
+    %         86.75 → 105.26 in 2013
+    %         (The yen weakened against the dollar)
 
-% Summary: Currency Risk
-% ===================================
+    % Suppose you invested:
+    %     - $1 million USD into TOPIX
+    %     - Equivalent to approximately 87 million yen
 
-% - Currency movements can significantly affect corporations and investors
-% - Historical volatility and exchange-rate forecasts help assess risk
-% - Forward agreements allow investors to hedge or speculate on currencies
-% - Gold’s scarcity and inability to be freely printed have helped it
-%   retain long-term value
+    % By the end of 2013:
+    %     - TOPIX increased by 46%
+    %     - However, your return in USD terms was only about 21%
+    %     - This occurred because the yen weakened relative to the dollar
+
+  \end{core}
+
+  \begin{core}{Hedging Strategies}
+
+    % Investors can lock in currency exposure for long periods using the
+    % currency forward market.
+
+    % Historical volatility and exchange-rate forecasts help assess risk
+
+    % Forward agreements allow investors to hedge or speculate on currencies
+
+    % Example:
+    %     Spot price:
+    %         $1.36 per euro
+
+    %     10-year forward offer:
+    %         $1.52 per euro
+
+    % Interpretation:
+    %     - The market expects the dollar to weaken against the euro
+    %     - You benefit if the actual exchange rate exceeds $1.52 per euro
+    %       after 10 years
+    %     - This allows you to purchase euros at a cheaper predetermined rate
+
+  \end{core}
   
 \end{document}
 
