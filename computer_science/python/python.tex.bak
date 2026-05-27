@@ -13,21 +13,25 @@
 
 \section{Introduction to Python}
 
+  \begin{core}{Brief History}
+
+    Python was created by \textbf{Guido van Rossum}, a Dutch programmer employed at Centrum Wiskunde \& Informatica (CWI) in the Netherlands. Development commenced in December 1989 as a personal project during the Christmas holiday period, with Van Rossum seeking to design a successor to the ABC programming language that would appeal to Unix and C programmers.
+
+  \end{core}
+
   \begin{core}{Python 3.0}
 
-    Following several major releases over preceding decades (\textit{Python 0.9.0 in February 1991, Python 1.0 in January 1994, Python 2.0 in October 2000}), Python 3.0 was released in December 2008 and has since evolved through incremental updates to Python 3.14.5 as of May 10, 2026.
+    Following several major releases over the preceding decades (\textit{Python 0.9.0 in February 1991, Python 1.0 in January 1994, Python 2.0 in October 2000}), Python 3.0 was released in December 2008 and has since evolved through incremental updates to Python 3.14.5 as of May 10, 2026.
 
-    The largest and most impactful version change came with the \textbf{transition from Python 2 to Python 3}, requiring over a decade for a complete migration due to \textbf{deliberate backward incompatibility}. This breaking change made many developers hesitant to migrate given the substantial time and cost involved in a complete update to Python 3 syntax and logic in existing codebases.
-
-    \textit{Today, Python 3 represents the definitive global industry standard for development, while Python 2 is structurally obsolete. Python 2 officially reached its End-of-Life (EOL) on January 1, 2020, and no longer receives security patches, bug fixes, or official maintenance.}
+    The transition from Python 2 to Python 3 proved challenging, requiring over a decade to complete due to deliberate backward incompatibility. This breaking change made many organizations hesitant to migrate given the substantial time, cost, and effort involved in updating existing codebases.
 
   \end{core}
 
   \begin{core}{CPython vs Jython vs PyPy}
 
-    The original Python interpreter was implemented in \textbf{C}, a lower-level language positioned above \textbf{assembly} and \textbf{machine code}. This C-based implementation, known as \textbf{CPython}, remains the standard reference version distributed via \href{https://www.python.org/}{python.org}.
+    The original Python interpreter was implemented in C, a lower-level language positioned above assembly and machine code. This C-based implementation, known as \textbf{CPython}, remains the standard reference version distributed via python.org.
 
-    Alternative implementations include \textbf{Jython}, built on Java for seamless Java ecosystem integration, and \textbf{PyPy}, which offers significantly faster execution for pure Python code. However, Jython remains limited to Python 2.7 compatibility, while PyPy exhibits reduced compatibility with C-based libraries (\textit{\autoref{core:libraries}}), many of which are essential to major projects.
+    Alternative implementations include \textbf{Jython}, built on Java for seamless Java ecosystem integration, and \textbf{PyPy}, which offers significantly faster execution for pure Python code. Jython remains limited to Python 2.7 compatibility, while PyPy exhibits reduced compatibility with C-based libraries (\textit{\autoref{core:libraries}}), many of which are essential to major projects.
 
   \end{core}
 
@@ -39,28 +43,15 @@
 
       \textbf{Numeric data types} encompass the set of data representations used to encode quantitative values within Python. Python provides several built-in numeric forms, each made for different purposes.
 
-      \begin{pyconsole}
-
-        a,b,c,d = 10, 0b1010, 0o12, 0x0a
-        print(a, b, c, d)
-        print(type(a), type(b), type(c), type(d))
-
-        print(type(3.14))
-
-        print(type(2 + 5j))
-
-      \end{pyconsole}
-      \pcon{Numeric data types \textcode{int}, \textcode{float}, and \textcode{complex}}{code:numerics}
-
       \begin{enumerate}
 
         \item \textcode{int}: Integers represent whole numbers without a fractional component. They may be positive, negative, or zero. For example, the values \textcode{7}, \textcode{-42}, and \textcode{0} are all classified as integers in Python.
         
-        Integers can also be represented in \textbf{binary} (\textit{base-2}), \textbf{octal} (\textit{base-8}), or \textbf{hexadecimal} (\textit{base-16}) notation using the prefixes \textcode{0b}, \textcode{0o}, and \textcode{0x}, respectively. For instance, \textcode{0b1010}, \textcode{0o12}, and \textcode{0x0a} all correspond to the decimal integer value \textcode{10}.
+        Integers can also be represented in \textbf{binary} (\textit{base-2}), \textbf{octal} (\textit{base-8}), or \textbf{hexadecimal} (\textit{base-16}) notation using the prefixes \textcode{0b}, \textcode{0o}, or \textcode{0x}, respectively. For instance, \textcode{0b1010}, \textcode{0o12}, and \textcode{0x0a} all corresponds to the decimal integer value \textcode{10}.
 
         \item \textcode{float}: Floats represent real numbers containing decimal components. For instance, \textcode{3.14} and \textcode{-0.001} are floating-point values commonly used to represent continuous numerical quantities.
 
-        \item \textcode{complex}: Complex numbers represent values composed of both real and imaginary components in the form \textcode{a + bi}, where \textcode{i} denotes the imaginary unit satisfying \textcode{i$^2$ = -1}. As an example, the expression \textcode{2 + 5j} represents a complex number, where \textcode{j} denotes the imaginary component.
+        \item \textcode{complex}: Complex numbers represent values composed of both real and imaginary components in the form \textcode{a + bi}, where \textcode{i} denotes the imaginary unit satisfying \textcode{i$^2$=-1}. As an example, the expression \textcode{2 + 5j} represents a complex number, where \textcode{j} denotes the imaginary component.
 
       \end{enumerate}
 
@@ -70,38 +61,17 @@
 
       \textcode{bool} represents logical truth values consisting exclusively of \textcode{True} or \textcode{False}. They are primarily used in conditional expressions, logical operations, and program control flow. For example, the expression \textcode{5 > 3} evaluates to \textcode{True}, whereas \textcode{5 < 3} evaluates to \textcode{False}.
 
-      \begin{pyconsole}
-
-        print(type(True), type(False))
-
-      \end{pyconsole}
-      \pcon{\textcode{bool} data type}{code:bool}
-
     \end{core}
 
     \begin{core}{None}
 
       \textcode{NoneType} data type represents the \textbf{absence} of a value or the \textbf{intentional lack} of an assigned object. Python provides the singleton value \textcode{None} to denote null or undefined states within a program. 
 
-      \begin{pyconsole}
-
-        print(type(None))
-
-      \end{pyconsole}
-      \pcon{\textcode{None} data type}{code:none}
-
     \end{core}
 
     \begin{core}[label=core:string]{String}
 
       The \textcode{str} data type is an ordered sequence of textual characters surrounded by quotation marks, serving as the fundamental data type for text. For example, \textcode{"hello world"} constitutes a string literal. String objects support a variety of methods and operations for transformation and analysis.
-
-      \begin{pyconsole}
-
-        print(type("hello world"))
-
-      \end{pyconsole}
-      \pcon{\textcode{str} data types}{code:str}
 
       \begin{enumerate}
 
@@ -134,9 +104,9 @@
           print(len(example_string))
 
         \end{pyconsole}
-        \pcon{Retrieving string length through \textcode{len()}}{code:s_length}
+        \pcon{String length}{code:s_length}
 
-        \item \textbf{Strip}: \textcode{.strip()} removes leading and trailing characters from the string. By default, \textcode{.strip()} removes whitespace.
+        \item \textbf{Strip}: \textcode{.strip()} removes leading and trailing whitespace characters from the string.
 
         \begin{pyconsole}
 
@@ -146,7 +116,7 @@
           print(stripped_string)
 
         \end{pyconsole}
-        \pcon{Removing leading and trailing whitespace from a string with \textcode{.strip()}}{code:s_strip}
+        \pcon{String strip}{code:s_strip}
 
         \item \textbf{Find}: \textcode{.find()} locates the first occurrence of a specified substring and returns its starting index position.
 
@@ -157,7 +127,7 @@
           example_string.find(substring)
 
         \end{pyconsole}
-        \pcon{Finding a substring within a string through \textcode{.find()}}{code:s_find}
+        \pcon{String substring find}{code:s_find}
 
         \item \textbf{Count}: \textcode{.count()} returns the number of non-overlapping occurrences of a specified substring within the string.
 
@@ -168,7 +138,7 @@
           example_string.count(substring)
 
         \end{pyconsole}
-        \pcon{Determining a substring count within a string using \textcode{.count()}}{code:s_count}
+        \pcon{String substring count}{code:s_count}
 
         \item \textbf{Upper/Lower/Title}: \textcode{.upper()}, \textcode{.lower()}, and \textcode{.title()} converts all characters to uppercase, lowercase, or title case (\textit{capitalizing the first letter of each word}), respectively.
 
@@ -180,7 +150,7 @@
           print(example_string.title())
 
         \end{pyconsole}
-        \pcon{Converting a string to upper, lower, and title case using \textcode{.upper()}, \textcode{.lower()}, and \textcode{.title()}}{code:s_ult}
+        \pcon{String upper, lower, title case}{code:s_ult}
 
         \item \textbf{Escape Characters}: Special character sequences beginning with a backslash that represent non-printable or reserved characters. For instance, \textcode{\textbackslash n} for newline, \textcode{\textbackslash t} for tab, \textcode{\textbackslash\textbackslash} for the \textbackslash character, and \textcode{\"} for the " character.
 
@@ -190,7 +160,7 @@
           print(example_string)
 
         \end{pyconsole}
-        \pcon{Special escape characters}{code:s_escape}
+        \pcon{String escape characters}{code:s_escape}
 
         \item \textbf{Split}: \textcode{.split()} divides the string into a list of substrings based on a specified delimiter character or whitespace.
 
@@ -200,7 +170,7 @@
           print(example_string.split())
 
         \end{pyconsole}
-        \pcon{Spliting a string into components using \textcode{.split()}}{code:s_split}
+        \pcon{String split}{code:s_split}
 
       \end{enumerate}
 
@@ -225,22 +195,23 @@
         \end{pyconsole}
         \pcon{List indexing and slicing}{code:l_index}
 
-        \item \textbf{Element Addition \& Removal}: \textcode{.append()} and \textcode{.insert()} both add a single element to the end of the list, modifying the list in place, but \textcode{.insert()} allows the addition to occur at a specified index position, shifting subsequent elements rightward. Conversely, \textcode{.remove()} deletes the first occurrence of a specified value from the list.
+        \item \textbf{Element Addition \& Removal}: \textcode{.append()} and \textcode{.insert()} both add a single element to the end of the list, modifying the list in place, but \textcode{.insert()} allows the addition to occur at a specified index position, shifting subsequent elements rightward. Conversely, \textcode{.remove()} deletes the first occurrence of a speicfied value from the list.
 
         \begin{pyconsole}
 
           example_list = [1, 2, 3]
           example_list.append(4) # append
           print(example_list)
+
           example_list.insert(2, 5) # inserting 3 at index 2
           print(example_list)
+
           example_list.remove(2) # removal
           print(example_list)
 
         \end{pyconsole}
-        \pcon{List element addition through \textcode{.append()} / \textcode{.insert()} and removal through \textcode{.remove()}}{code:l_add_remove}
 
-        \item \textbf{Sort}: \textcode{.sort()} Arranges list elements in a specified order, modifying the list in place. By default, \textcode{.sort()} arranges the list in ascending order.
+        \item \textbf{Sort}: \textcode{.sort()} Arranges list elements in a specified order, modifying the list in place. By default, \textcode{.sort()} arranges the list in ascending order, but this can be change by setting the parameter \textcode{reverse=True}.
 
         \begin{pyconsole}
 
@@ -248,8 +219,10 @@
           example_list.sort() # ascending order
           print(example_list)
 
+          example_list.sort(reverse=True) # descending order
+          print(example_list)
+
         \end{pyconsole}
-        \pcon{List sorting using \textcode{.sort()}}{code:l_sort}
 
         \item \textbf{Join}: \textcode{.join()} concatenates list elements into a single \textbf{string} using a specified delimiter.
 
@@ -259,7 +232,6 @@
           print(" ".join(example_list))
 
         \end{pyconsole}
-        \pcon{Joining a list of strings using \textcode{.join()}}{code:l_join}
 
         \item \textbf{List Comprehension}: Constructs new lists using concise inline syntax that applies an expression to each element of an iterable (\textit{\autoref{core:for}}).
 
@@ -269,7 +241,6 @@
           print([x*2 for x in numbers])
 
         \end{pyconsole}
-        \pcon{List comprehension}{code:l_comp}
 
       \end{enumerate}
 
@@ -277,7 +248,7 @@
 
     \begin{core}{Tuples}
 
-      A \textcode{tuple} is an ordered, \textbf{immutable} (\textit{cannot be modified after creation}) sequence that can contain elements of any data type, making it suitable for fixed data structures that should not be modified. For example, \textcode{(1, 2, 3, "hello")} constitutes a tuple literal.
+      A \textcode{tuple} is an ordered, \textbf{immutable} (\textit{cannot be modified after creation}) sequence that can contain elements of any data type, making them suitable for fixed data structures that should not be modified. For example, \textcode{(1, 2, 3, "hello")} constitutes a tuple literal.
 
       \begin{enumerate}
 
@@ -286,20 +257,20 @@
         \begin{pyconsole}
 
           example_tuple = (1, 2, 3, 4, 5)
-          print(example_tuple[0], example_tuple[1:4])
+          print(example_tuple[0])
+          print(example_tuple[1:4])
 
         \end{pyconsole}
-        \pcon{Tuple indexing and slicing}{code:t_index}
 
         \item \textbf{Tuple Packing and Unpacking}: Assigns multiple values simultaneously or extracts tuple elements into separate variables.
 
         \begin{pyconsole}
 
-          x,y = (10, 20)
+          coordinates = (10, 20)
+          x, y = coordinates
           print(x)
 
         \end{pyconsole}
-        \pcon{Tuple packing and unpacking}{code:t_pack_unpack}
 
       \end{enumerate}
 
@@ -311,12 +282,11 @@
 
       \begin{enumerate}
 
-        \item \textbf{Element Addition \& Removal}: \textcode{.add()} and \textcode{.update()} inserts a single element or multiple elements, respectively into the set. Conversely, \textcode{.remove()} deletes a specified element, raising an error if the element does not exist.
+        \item \textbf{Element Addition \& Removal}: \textcode{.add()} and \textcode{.update()} inserts a single element or multiple elements, respectively into the set. Conversely, \textcode{.remove()} deletes a specified element, raising an error if the element does not exist
 
         \begin{pyconsole}
 
           example_set = {1, 2, 3}
-
           example_set.add(4) # singular addition
           print(example_set)
 
@@ -327,7 +297,6 @@
           print(example_set)
 
         \end{pyconsole}
-        \pcon{Set element addition through \textcode{.add()} / \textcode{.update()} and removal through \textcode{.remove()}}{code:set_add_remove}
 
         \item \textbf{Set Operations}: Performs mathematical set operations including union, intersection, and difference.
 
@@ -339,17 +308,15 @@
           print(set_a.intersection(set_b))
 
         \end{pyconsole}
-        \pcon{Set operations; \textcode{.union()} and \textcode{.intersection()}}{code:set_ops}
 
         \item \textbf{Frozenset}: \textcode{frozenset()} creates an \textbf{immutable} version of a set that cannot be modified after creation.
 
         \begin{pyconsole}
 
-          fset = frozenset({1,2,3})
-          print(type(fset))
+          example_frozenset = frozenset([1, 2, 3])
+          print(example_frozenset)
 
         \end{pyconsole}
-        \pcon{Frozenset using \textcode{frozenset()}}{code:frozenset}
 
       \end{enumerate}
 
@@ -357,7 +324,7 @@
 
     \begin{core}{Dictionaries}
 
-      A \textcode{dict} is an unordered collection of \textbf{key-value pairs} that enable efficient data lookup by key. Defined using curly braces with colon-separated pairs, dictionaries map unique keys to associated values. For example, \textcode{\{"name": "Alice", "age": 30\}} constitutes a dictionary literal.
+      A \textcode{dict} is an unordered collections of \textbf{key-value pairs} that enable efficient data lookup by key. Defined using curly braces with colon-separated pairs, dictionaries map unique keys to associated values. For example, \textcode{\{"name": "Alice", "age": 30\}} constitutes a dictionary literal.
 
       \begin{enumerate}
 
@@ -367,9 +334,9 @@
 
           example_dict = {"name": "Alice", "age": 30}
           print(example_dict["name"])
+          print(example_dict["age"])
 
         \end{pyconsole}
-        \pcon{Accessing dictionary values}{code:d_access}
 
         \item \textbf{Adding and Modifying}: Assigns new key-value pairs or updates existing values.
 
@@ -380,18 +347,19 @@
           print(example_dict)
 
         \end{pyconsole}
-        \pcon{Dictionary item addition and modification}{code:d_add_mod}
 
-        \item \textbf{Retrieving Dictionary Elements}: \textcode{.keys()}, \textcode{.values()}, and \textcode{.items()} returns a view object containing all dictionary keys, values, and key-value pairs, respectively.
+        \item \textbf{Retrieving Dictionary Elements}: \textcode{.keys()}, \textcode{.values()}, and \textcode{items()} returns a view object containing all dictionary keys, values, and key-value pairs, respectively.
 
         \begin{pyconsole}
 
           example_dict = {"name": "Alice", "age": 30}
-          print(example_dict.keys(), example_dict.values())
+          print(example_dict.keys())
+
+          print(example_dict.values())
+
           print(example_dict.items())
 
         \end{pyconsole}
-        \pcon{Dictionary element retrieval using \textcode{.keys()}, \textcode{.values()}, and \textcode{.items()}}{code:d_retrieve}
 
       \end{enumerate}
 
@@ -399,32 +367,34 @@
 
     \begin{core}{Ranges}
 
-      A \textcode{range} is an memory-efficient immutable sequence of integers commonly used for loop iteration. It is generated using the \textcode{range()} function with \textcode{start}, \textcode{stop}, and optional \textcode{step} parameters.
+      A \textcode{range} is an immutable sequence of integers commonly used for loop iteration. Generated using the \textcode{range()} function with \textcode{start}, \textcode{stop}, and optional \textcode{step} parameters, ranges provide memory-efficient number sequences.
 
-      The \textbf{basic range} creates a sequence of integers from 0 up to (\textit{but not including}) a specified endpoint.
+      The basic range creates a sequence of integers from 0 up to (\textit{but not including}) a specified endpoint.
 
       \begin{pyconsole}
 
-        print(list(range(5)))
+        example_range = range(5)
+        print(list(example_range))
 
       \end{pyconsole}
-      \pcon{Basic range creation}{code:range_basic}
 
-      However, you can also begin the range from a specified \textcode{start} value. Additionally, the \textcode{step} parameter allows for a specified increment between consecutive values.
+      However, you can also begin the range from a specified start value. Additionally, the step parameter allows for a specificed increment between consecutive values
 
       \begin{pyconsole}
+
+        example_range = range(0, 10)
+        print(list(example_range))
 
         example_range = range(0, 10, 2)
-        print(list(range(0, 10, 2)))
+        print(list(example_range))
 
       \end{pyconsole}
-      \pcon{Range with \textcode{start} and \textcode{step}}{code:range_step}
 
     \end{core}
 
     \begin{core}{Bytes \& Bytearrays}
 
-      \textcode{bytes} and \textcode{bytearray} objects are sequences of integer values representing raw binary data. \textcode{bytes} objects are immutable, while \textcode{bytearrays} support modification. These types are essential for binary file operations, network protocols, and low-level data manipulation.
+      \textcode{bytes} and a \textcode{bytearray} are sequences of integer values representing raw binary data. \textcode{bytes} objects are immutable, while \textcode{bytearrays} support modification. These types are essential for binary file operations, network protocols, and low-level data manipulation.
 
       \begin{enumerate}
 
@@ -433,10 +403,10 @@
         \begin{pyconsole}
 
           example_bytes = b"hello"
-          print(example_bytes, type(example_bytes))
+          print(example_bytes)
+          print(type(example_bytes))
 
         \end{pyconsole}
-        \pcon{Bytes using \textcode{b""} syntax}{code:bytes}
 
         \item \textbf{Bytearray}: \textcode{bytearray()} creates a mutable sequence of bytes that can be modified after creation.
 
@@ -447,7 +417,6 @@
           print(example_bytearray)
 
         \end{pyconsole}
-        \pcon{Bytearray creation through \textcode{bytearray()}}{code:bytearray}
 
         \item \textbf{Encoding and Decoding}: Converts between strings and bytes using character encodings.
 
@@ -456,10 +425,11 @@
           text = "hello"
           encoded = text.encode('utf-8')
           print(encoded)
-          print(encoded.decode('utf-8'))
+
+          decoded = encoded.decode('utf-8')
+          print(decoded)
 
         \end{pyconsole}
-        \pcon{Encoding and decoding strings to bytes through \textcode{.encode()} and \textcode{.decode()}}{code:encode_decode}
 
       \end{enumerate}
 
@@ -473,45 +443,47 @@
 
       \begin{enumerate}
 
-        \item \textbf{Basic Arithmetic}: \textcode{+}, \textcode{-}, \textcode{*}, \textcode{/} perform addition, subtraction, multiplication, and division on numeric operands, respectively. Division always returns a floating-point result. Note that \textcode{+} and \textcode{*} also operate on strings for concatenation and repetition (\textit{\autoref{core:string}}).
+        \item \textbf{Basic Arithmetic}: \textcode{+}, \textcode{-}, \textcode{*}, \textcode{/} performs addition, subtraction, multiplication, and division on numeric operands, respectively. Division always returns a floating-point result. Note that \textcode{+} and \textcode{*} also operate on strings for concatenation and repetition (\textit{\autoref{core:string}}).
 
         \begin{pyconsole}
 
-          x,y = 10, 3
-          print(x + y, x - y)
-          print(x * y, x / y)
+          x = 10
+          y = 3
+          print(x + y)
+          print(x - y)
+          print(x * y)
+          print(x / y)
 
         \end{pyconsole}
-        \pcon{Basic arithmetic operators}{code:arithmetic_basic}
         
         \item \textbf{Modulus}: \textcode{\%} returns the remainder after division of the first operand by the second.
 
         \begin{pyconsole}
 
-          x,y = 17, 5
+          x = 17
+          y = 5
           print(x % y)
         \end{pyconsole}
-        \pcon{Modulus operator}{code:modulus}
         
         \item \textbf{Power}: \textcode{**} raises the first operand to the power of the second operand.
 
         \begin{pyconsole}
 
-          x,y = 2, 3
+          x = 2
+          y = 3
           print(x ** y)
 
         \end{pyconsole}
-        \pcon{Power operator}{code:power}
         
         \item \textbf{Floor Division}: \textcode{//} divides the first operand by the second and rounds down to the nearest integer.
 
         \begin{pyconsole}
 
-          x,y = 17, 5
+          x = 17
+          y = 5
           print(x // y)
 
         \end{pyconsole}
-        \pcon{Floor division operator}{code:floor_div}
 
       \end{enumerate}
 
@@ -528,27 +500,37 @@
         \begin{pyconsole}
 
           x = 10
+          print(x)
 
         \end{pyconsole}
-        \pcon{Basic assignment operator}{code:assign_basic}
         
-        \item \textbf{Compound Assignment Operators}: \textcode{+=}, \textcode{-=}, \textcode{*=}, \textcode{/=}, \textcode{\%=}, \textcode{//=}, and \textcode{**=} combine each arithmetic operator (\textit{\autoref{core:arithmetic_operators}}) with assignment, performing the operation on the left operand with the right operand and assigning the result back to the left operand.
+        \item \textbf{Compound Assignment Operators}: \textcode{+=}, \textcode{-=}, \textcode{*=}, \textcode{/=}, \textcode{\%=}, \textcode{//=}, and \textcode{**=} combines each arithmetic operator (\textit{\autoref{core:arithmetic_operators}}) with assignment, performing the operation on the left operand with the right operand and assigning the result back to the left operand.
 
         \begin{pyconsole}
 
           x = 10
           x += 3 # addition
           print(x)
+
           x -= 2 # subtraction
           print(x)
+
           x *= 2 # multiplication
           print(x)
+
           x /= 4 # division
           print(x)
-          # the same logic follow for modulus, floor division, and power
+
+          x %= 3 # modulus
+          print(x)
+
+          x //= 2 # floor division
+          print(x)
+
+          x **= 3 # power
+          print(x)
 
         \end{pyconsole}
-        \pcon{Compound assignment operators}{code:assign_compound}
 
       \end{enumerate}
 
@@ -564,36 +546,36 @@
 
         \begin{pyconsole}
 
-          x,y = 5, 5
+          x = 5
+          y = 5
           print(x == y)
           print(x == 3)
 
         \end{pyconsole}
-        \pcon{Equality comparison operator}{code:equal}
         
         \item \textbf{Not Equal To}: \textcode{!=} returns \textcode{True} if operands are not equal in value.
 
         \begin{pyconsole}
 
-          x,y = 5,3
+          x = 5
+          y = 3
           print(x != y)
           print(x != 5)
 
         \end{pyconsole}
-        \pcon{Inequality comparison operator}{code:not_equal}
         
-        \item \textbf{Relational Comparisons}: \textcode{<}, \textcode{>}, \textcode{<=}, and \textcode{>=} compare the magnitude of two operands, returning \textcode{True} if the left operand is less than, greater than, less than or equal to, or greater than or equal to the right operand, respectively.
+        \item \textbf{Relational Comparisons}: \textcode{<}, \textcode{>}, \textcode{<=}, and \textcode{>=} compares the magnitude of two operands, returning \textcode{True} if the left operand is less than, greater than, less than or equal to, or greater than or equal to the right operand, respectively.
 
         \begin{pyconsole}
 
-          x,y = 5,3
+          x = 5
+          y = 3
           print(x < y)
           print(x > y)
           print(x <= 5)
           print(x >= 5)
 
         \end{pyconsole}
-        \pcon{Relational comparison operators}{code:relational}
 
       \end{enumerate}
 
@@ -605,37 +587,38 @@
 
       \begin{enumerate}
 
-        \item \textbf{And}: \textcode{and} returns \textcode{True} only if both operands are \textcode{True}.
+        \item \textbf{AND}: \textcode{and} returns \textcode{True} only if both operands are \textcode{True}.
 
         \begin{pyconsole}
 
-          x,y = True, False
+          x = True
+          y = False
           print(x and x)
           print(x and y)
 
         \end{pyconsole}
-        \pcon{\textcode{add} logical operator}{code:logical_and}
         
-        \item \textbf{Or}: \textcode{or} returns \textcode{True} if at least one operand is \textcode{True}.
+        \item \textbf{OR}: \textcode{or} returns \textcode{True} if at least one operand is \textcode{True}.
 
         \begin{pyconsole}
 
-          x,y = True, False
+          x = True
+          y = False
           print(x or y)
           print(y or y)
 
         \end{pyconsole}
-        \pcon{\textcode{or} logical operator}{code:logical_or}
         
-        \item \textbf{Not}: \textcode{not} returns the opposite Boolean value of the operand.
+        \item \textbf{NOT}: \textcode{not} returns the opposite Boolean value of the operand.
 
         \begin{pyconsole}
 
-          x,y = True, False
-          print(not x, not y)
+          x = True
+          y = False
+          print(not x)
+          print(not y)
 
         \end{pyconsole}
-        \pcon{\textcode{not} logical operator}{code:logical_not}
 
       \end{enumerate}
 
@@ -653,14 +636,13 @@
 
         x, y = 10, 5
         if x > y:
-            print("x is greater than y") # conditional ends here
+            print("x is greater than y") # conditional ends here placeholder placholder placholder placholder
         elif y > x:
             print("y is greater than x")
         else:
             print("x is equal to y")
 
       \end{pyconsole}
-      \pcon{Conditional \textcode{if} / \textcode{elif} / \textcode{else} statement block}{code:cond_statements}
 
     \end{core}
 
@@ -672,25 +654,25 @@
 
       \begin{pyconsole}
 
-        for num in [1, 2, 3, 4]:
+        numbers = [1, 2, 3, 4, 5, 6]
+        for num in numbers:
             if num == 3:
                 break
             print(num)
 
       \end{pyconsole}
-      \pcon{\textcode{for} loop with \textcode{break}}{code:for_break}
 
       Conversely, the \textcode{continue} statement skips the remainder of the current iteration and proceeds immediately to the next iteration without terminating the loop entirely.
 
       \begin{pyconsole}
 
-        for num in [1, 2, 3]:
-            if num == 2:
+        numbers = [1, 2, 3, 4, 5]
+        for num in numbers:
+            if num == 3:
                 continue
             print(num)
 
       \end{pyconsole}
-      \pcon{\textcode{for} loop with \textcode{continue}}{code:for_continue}
 
     \end{core}
 
@@ -701,28 +683,26 @@
       \begin{pyconsole}
 
         x = 0
-        while x < 3:
+        while x < 5:
             print(x)
             x += 1
 
       \end{pyconsole}
-      \pcon{Basic \textcode{while} loop}{code:while_basic}
       
       The \textcode{break} and \textcode{continue} statements (\textit{\autoref{core:for}}) function identically within \textcode{while} loops, allowing for premature loop termination or iteration skipping, respectively.
 
       \begin{pyconsole}
 
         x = 0
-        while x < 5:
+        while x < 10:
             x += 1
-            if x == 2:
+            if x == 3:
                 continue
-            if x == 4:
+            if x == 7:
                 break
             print(x)
 
       \end{pyconsole}
-      \pcon{\textcode{while} loop with \textcode{continue} and \textcode{break}}{code:while_flow}
 
     \end{core}
 
@@ -730,7 +710,7 @@
 
   \begin{core}[label=core:def]{def}
 
-    The \textcode{def} keyword defines a \textbf{function}---a reusable block of code that executes when called. Functions accept input through \textbf{parameters} (\textit{variables defined in the function}), process data according to their internal logic, and optionally return output values using the \textcode{return} statement.
+    The \textcode{def} keyword defines a \textbf{function}---a reusable block of code that executes when called. Functions accept input through \textbf{parameters} (\textit{variables defined in the function}), process data according to their internal logic, and optionally return output values using the \textcode{return} statement. \textit{Keep in mind that} \textcode{print} \textit{is different from} \textcode{return}.
 
     \begin{pyconsole}
 
@@ -741,7 +721,6 @@
       print(greet("Bob"))
 
     \end{pyconsole}
-    \pcon{Basic function definition through \textcode{def}}{code:func_basic}
     
     Python supports \textbf{positional parameters} (\textit{matched by position}) and \textbf{keyword parameters} (\textit{matched by name}). Additionally, default parameter values allow functions to be called with fewer arguments than defined parameters, providing fallback values when arguments are omitted.
 
@@ -760,9 +739,8 @@
       print(greet("Bob", "Hi"))
 
     \end{pyconsole}
-    \pcon{\textcode{def} function positional and keyword arguments}{code:func_args}
     
-    \textcode{*args} and \textcode{**kwargs} enable functions to accept variable numbers of arguments. \textcode{*args} collects excess positional arguments into a tuple, while \textcode{**kwargs} collects excess keyword arguments into a dictionary.
+    \textbf{*args} and \textbf{**kwargs} enable functions to accept variable numbers of arguments. \textcode{*args} collects excess positional arguments into a tuple, while \textcode{**kwargs} collects excess keyword arguments into a dictionary.
 
     \begin{pyconsole}
 
@@ -779,7 +757,6 @@
       print_kwargs(name="Alice", age=30, city="NYC")
 
     \end{pyconsole}
-    \pcon{\textcode{*args}; \textcode{def} function variable position arguments}{code:func_vargs}
     
     Functions can utilize both \textcode{*args} and \textcode{**kwargs} simultaneously to achieve maximum flexibility in parameter handling.
 
@@ -793,7 +770,6 @@
       flexible_func(1, 2, 3, 4, 5, name="Alice", age=30)
 
     \end{pyconsole}
-    \pcon{\textcode{**kwargs}; \textcode{def} function variable keyword arguments}{code:func_vkwargs}
 
   \end{core}
 
@@ -803,15 +779,17 @@
 
     \begin{pyconsole}
 
-      def add(x, y): # regular function
+      # Regular function
+      def add(x, y):
           return x + y
       
-      add_lambda = lambda x, y: x + y # equivalent lambda function
+      # Equivalent lambda function
+      add_lambda = lambda x, y: x + y
+      
       print(add(3, 5))
       print(add_lambda(3, 5))
 
     \end{pyconsole}
-    \pcon{\textcode{lambda} function}{code:lambda_basic}
     
     Lambda functions are commonly used as \textbf{arguments to higher-order functions} that accept functions as parameters, such as \textcode{map()}, \textcode{filter()}, and \textcode{sorted()}.
 
@@ -819,20 +797,22 @@
 
       numbers = [1, 2, 3, 4, 5]
       
-      squared = list(map(lambda x: x**2, numbers)) # map: apply function to each element
+      # map: apply function to each element
+      squared = list(map(lambda x: x**2, numbers))
       print(squared)
       
-      evens = list(filter(lambda x: x % 2 == 0, numbers)) # filter: keep elements where function returns True
+      # filter: keep elements where function returns True
+      evens = list(filter(lambda x: x % 2 == 0, numbers))
       print(evens)
       
-      words = ["apple", "pie", "zoo", "a"] # sorted: custom sorting key
+      # sorted: custom sorting key
+      words = ["apple", "pie", "zoo", "a"]
       sorted_by_length = sorted(words, key=lambda x: len(x))
       print(sorted_by_length)
 
     \end{pyconsole}
-    \pcon{\textcode{lambda} with \textcode{map()} function}{code:lambda_map}
     
-    Lambda functions can \textbf{reference variables from their enclosing scope}, meaning that they have the ability to access and utilize variables that were defined outside of its own internal parameter list and thus creating closures that capture external states.
+    Lambda functions can \textbf{reference variables from their enclosing scope}, creating closures that capture external state.
 
     \begin{pyconsole}
 
@@ -840,10 +820,12 @@
           return lambda x: x * n
       
       times_two = make_multiplier(2)
+      times_three = make_multiplier(3)
+      
       print(times_two(5))
+      print(times_three(5))
 
     \end{pyconsole}
-    \pcon{\textcode{lambda} function referencing variables from their enclosing scope}{code:lambda_closure}
 
   \end{core}
 
@@ -866,7 +848,6 @@
       print(greet("alice"))
 
     \end{pyconsole}
-    \pcon{Basic uppercase decorator}{code:decorator_basic}
     
     Decorators can accept arguments by adding an additional layer of function nesting, enabling parameterized decoration behavior.
 
@@ -881,14 +862,14 @@
               return wrapper
           return decorator
       
-      @repeat(times=2)
+      @repeat(times=3)
       def say_hello():
           print("Hello!")
+          return "Done"
       
       say_hello()
 
     \end{pyconsole}
-    \pcon{Parameterized multiplier decorator}{code:decorator_param}
     
     Multiple decorators can be stacked on a single function, applying transformations in bottom-to-top order (\textit{the decorator closest to the function executes first}).
 
@@ -912,7 +893,6 @@
       print(text())
 
     \end{pyconsole}
-    \pcon{Stacked decorators}{code:decorator_stacked}
 
   \end{core}
 
@@ -927,17 +907,11 @@
           while count <= n:
               yield count
               count += 1
-     
-      count_gen = count_up_to(10)
-
-      for _ in range(2):
-          print(next(count_gen))
-
-      for _ in range(3): # starts from where it left off in the previous for loop
-          print(next(count_gen))
+      
+      for num in count_up_to(5):
+          print(num)
 
     \end{pyconsole}
-    \pcon{Generator state maintenance using \textcode{next()}}{code:generator_func}
     
     \textbf{Generator expressions} provide a concise syntax for creating generators, analogous to list comprehensions but with parentheses instead of brackets, \textbf{producing values lazily without constructing the entire sequence in memory}. Once a generator yields a value, that value is immediately forgotten by the generator. Once you have looped through the entire generator, it is completely empty. In programming, this is known as \textbf{generator exhaustion}.
 
@@ -945,12 +919,13 @@
 
       squares_gen = (x**2 for x in range(3))
 
-      print(list(squares_gen))  # first time: we consume the generator
+      # First time: We consume the generator
+      print(list(squares_gen))  
 
-      print(list(squares_gen))  # second time: the generator is already exhausted
+      # Second time: The generator is already exhausted
+      print(list(squares_gen))  
 
     \end{pyconsole}
-    \pcon{Generator exhaustion}{code:generator_expr}
 
   \end{core}
 
@@ -988,7 +963,6 @@
         print(account.balance)
 
       \end{pyconsole}
-      \pcon{\textcode{class} instantiation, attributes, and methods}{code:class_basic}
       
       The \textcode{\_\_init\_\_()} method serves as a special constructor that initializes new class instances, executing automatically upon object instantiation. The \textcode{self} parameter references the specific instance being created or manipulated, providing access to that instance's attributes and methods.
       
@@ -1002,7 +976,7 @@
 
       \end{itemize}
 
-      \textbf{Methods} are functions defined within a class namespace that operate on instance data. These functions are bound to the class and accessible only through class instances. In the example above, \textcode{deposit()} and \textcode{withdraw()} exemplify methods that represent the behavioral logic of the \textcode{BankAccount} class, specifically the \textcode{self.balance} attribute.
+      \textbf{Methods} are functions defined within a class namespace that operate on instance data. These functions are bound to the class and accessible only through class instances. In the example above, \textcode{deposit()} and \textcode{withdraw()} exemplify methods that represents the behavioral logic of the \textcode{BankAccount} class, specifically the \textcode{self.balance} attribute.
 
     \end{core}
 
@@ -1027,7 +1001,6 @@
           print(p1.getName())
 
         \end{pyconsole}
-        \pcon{Explicit setter and getter method}{code:class_attrs}
 
         \item \textbf{Decorator Method}: The setter and getter methods are decorated with the \textcode{@property} and \textcode{@<attribute>.setter} annotations.
 
@@ -1052,15 +1025,14 @@
           print(p2.name)     # Intercepted by the getter seamlessly
 
         \end{pyconsole}
-        \pcon{Decorator setter and getter method}{code:class_inherit}
 
       \end{enumerate}
 
-      The difference is how Python handles attribute access under the hood. The explicit method relies on traditional function calls like \textcode{p1.setName()}, which creates a nightmare when trying to convert all \textcode{p1.name = <name>} lines for all class instances to the \textcode{p1.setName()} method, resulting in every file interacting with that variable having to be refactored.
+      The difference is how Python handles attribute access under the hood. The explicit method relies on traditional function calls like \textcode{p1.setName()}), which creates a nightmare when trying to convert all \textcode{p1.name = <name>} lines for all class instances to the \textcode{p1.setName()} method, resulting in every file interacting with that variable having to be refactored
 
       Conversely, the decorator method hooks directly into Python's descriptor protocol such as \textcode{p2.name = "Sally"} (\textit{setter}) and \textcode{p2.name} (\textit{getter}) in the above example. This wraps the underlying functions into a property descriptor object, allowing outside code to maintain the clean, direct assignment syntax of \textcode{p2.name = "Sally"}. 
 
-      \textit{\textbf{The decorator method is simply the undisputed industry standard} way to handle setters and getters because it gives the developer the power to add data validation, transformation, or read-only access control in the background with ease. For instance, omitting the matching setter to a property getter creates a strict read-only functionality for an attribute.}
+      \textit{\textbf{The decorator method is simply the undisputed industry standard} way to handle setters and getters because it give the developer the power to add data validation, transformation, or read-only access control in the background with ease. For instance, omitting the matching setter to a property getter creates a strict read-only functionality for an attribute.}
 
       \begin{pyconsole}
 
@@ -1079,7 +1051,6 @@
         p3.name = "Sally"
 
       \end{pyconsole}
-      \pcon{Setter omission creating a read-only functionality for an attribute}{code:class_super}
 
     \end{core}
 
@@ -1106,10 +1077,9 @@
         print(account.display_balance()) # explicit function
         print(account._BankAccount__balance) # name mangling
 
-        print(account.__balance) # private attributes cannot be directly accessed
+        print(account.__balance)
 
       \end{pyconsole}
-      \pcon{Encapsulation and \textcode{class} private attributes using \textcode{\_\_attribute} syntax}{code:class_prop}
       
       The double underscore prefix (\textcode{\_\_attribute}) designates an attribute as private, triggering Python's name mangling mechanism that converts the attribute name to \textcode{\_ClassName\_\_attribute}. While this prevents direct external access via the original attribute name, the value remains retrievable through properly designed accessor methods (\textit{getters}), explicit retrieval functions, or by explicitly invoking the mangled name syntax---though the latter circumvents the intended encapsulation and is considered poor practice.
 
@@ -1138,7 +1108,6 @@
         print(my_dog.speak())
 
       \end{pyconsole}
-      \pcon{Inheritance of parent \textcode{Animal} by child \textcode{Dog}}{code:class_priv}
       
       In the above code block, the \textcode{Dog} class inherits all attributes and methods from the \textcode{Animal} parent class. When a child class defines a method with an identical name to a parent class method---such as \textcode{speak()} in this example---the child implementation completely overrides the parent version, a behavior known as \textbf{method overriding}.
       
@@ -1171,7 +1140,6 @@
           print(car.description())
 
         \end{pyconsole}
-        \pcon{Method extension using \textcode{super()}}{code:class_readonly}
 
       \end{itemize}
 
@@ -1202,7 +1170,10 @@
         def checkout_gate(payment_processor, total):
             print(payment_processor.process_payment(total))
         
-        visa, wallet, crypto, mobile = MasterCard(), PayPal(), Bitcoin(), ApplePay()
+        visa = MasterCard()
+        wallet = PayPal()
+        crypto = Bitcoin()
+        mobile = ApplePay()
         
         checkout_gate(visa, 150.00)
         checkout_gate(wallet, 150.00)
@@ -1210,7 +1181,6 @@
         checkout_gate(mobile, 150.00)
 
       \end{pyconsole}
-      \pcon{Polymorphism and identically named method \textcode{process\_payment} executing different actions based on paired \textcode{class}}{code:class_methods}
 
       Each payment processor class implements an identically named \textcode{process\_payment()} method with class-specific logic. The \textcode{checkout\_gate()} function accepts any payment processor object and invokes its \textcode{process\_payment()} method, demonstrating polymorphic behavior: the same function call produces different outputs depending on the runtime type of the object passed as an argument. This design enables extensibility---new payment processor classes can be added without modifying the \textcode{checkout\_gate()} function, provided they implement the \textcode{process\_payment()} interface.
 
@@ -1225,6 +1195,7 @@
       \begin{pyconsole}
 
         from abc import ABC, abstractmethod
+
         class PrinterBlueprint(ABC):
             @abstractmethod
             def print_page(self, text):
@@ -1234,16 +1205,17 @@
             def print_page(self, text):
                 return f"Printing office document: {text}"
 
-        class BrokenPrinter(PrinterBlueprint): # Flaw: accidental rename
+        class BrokenPrinter(PrinterBlueprint): # Flaw: The developer accidentally renamed the mandatory method
             def output_text(self, text):
                 return f"Printing: {text}"
 
         printer_1 = OfficePrinter() # success
+
         printer_2 = BrokenPrinter() # renamed mandatory method
+
         printer_3 = PrinterBlueprint() # can't call the abstract parent class
 
       \end{pyconsole}
-      \pcon{Explicit abstraction using the \textcode{abc} module}{code:class_dunder}
 
       As demonstrated above, the instantiation of the \textcode{BrokenPrinter} class fails because it neglects to implement the required \textcode{print\_page()} method prescribed by its abstract base class, \textcode{PrinterBlueprint}. Conversely, the \textcode{OfficePrinter} instantiation succeeds because it strictly adheres to the same method signature outlined within \textcode{PrinterBlueprint}.
 
@@ -1282,7 +1254,6 @@
             print(f"Error Message: {e}")
 
       \end{pyconsole}
-      \pcon{Custom \textcode{InvalidAgeError} exception}{code:class_abc}
 
       As demonstrated above, the custom exception subclass does not require an explicit constructor. It inherits the constructor from the base \textcode{Exception} class, which is already designed to accept arguments---specifically, a string representing an error message.
 
@@ -1306,7 +1277,6 @@
             print("Cleanup: The division operation has finished.")
 
       \end{pyconsole}
-      \pcon{Exception handling with \textcode{try} / \textcode{except} / \textcode{finally} block}{code:exc_custom}
 
       As demonstrated above, the code within the \textcode{try} block executes first. If a specified exception---in this case, a \textcode{ZeroDivisionError}---is raised, the runtime environment prevents premature termination and transfers control to the \textcode{except} block. The \textcode{finally} block subsequently executes regardless of whether the \textcode{try} block succeeded or failed. Consequently, the \textcode{finally} block is typically reserved for essential cleanup operations, such as terminating database connections or closing files.
 
@@ -1326,7 +1296,6 @@
             print("Cleanup: The division operation has finished.")
 
       \end{pyconsole}
-      \pcon{Catching all exceptions with generic \textcode{except:} header; \textit{poor practice}}{code:exc_try}
 
       A more robust practice involves implementing multiple \textcode{except} headers to handle distinct exception types individually. Utilizing the base \textcode{Exception} class as a fallback, paired with \textcode{as e} to capture the error object, allows the program to safely identify and log unexpected exceptions while maintaining application stability.
 
@@ -1343,7 +1312,6 @@
             print(f"An unexpected {type(e).__name__} occurred: {e}")
 
       \end{pyconsole}
-      \pcon{Multiple \textcode{except} blocks}{code:exc_multi}
 
     \end{core}
 
@@ -1378,7 +1346,6 @@
         divide_values(10, 0)
 
       \end{pyconsole}
-      \pcon{\textcode{logging} module usage at \textcode{WARNING} level}{code:exc_finally}
 
       To retain log records for historical reference, a destination file can be specified using the \textcode{filename} parameter within the \textcode{logging.basicConfig()} function, which will route all subsequent log entries to that designated file.
 
@@ -1406,7 +1373,6 @@
         apply_discount(-50.0, 0.2) # This will immediately trigger an AssertionError
 
       \end{pyconsole}
-      \pcon{Internal logic verification through \textcode{assert} keyword}{code:logging}
 
       In practice, assertions are designed to \textbf{verify internal logic} and identify states that the developer considers computationally impossible, primarily used as tools for development and testing phases. 
 
@@ -1462,7 +1428,6 @@
           print(content)
 
     \end{pyconsole}
-    \pcon{File opening and closing through \textcode{with} statement}{code:file_io}
 
   \end{core}
 
@@ -1502,7 +1467,7 @@
       print(f"Content: {retrieved_data}")
 
     \end{pyconsole}
-    \pcon{Pickle object serialization through \textcode{pickle} module commands \textcode{.dump()} and \textcode{.load()}}{code:pickle}
+    \pcon{caption}{code:placholder}
 
     \textit{It is important to keep in mind that deserializing a corrupted or maliciously constructed byte stream can trigger arbitrary code execution within the runtime environment. Consequently, objects should never be unpickled from untrusted or unauthenticated external sources.}
 
@@ -1567,7 +1532,7 @@
         matplotlib https://matplotlib.org/stable/api/index.html
 
 
-    \subsubsection{placeholder}
+    \subsubsection{plaeholder}
 
 \section{Other}
 
