@@ -306,4 +306,909 @@
         for num in [1, 2, 3]:
             if num == 2:
                 continue
-            print(num
+            print(num)
+
+=>PYTHONTEX#pycon#default#default#50#console#####784#
+
+        x = 0
+        while x < 3:
+            print(x)
+            x += 1
+
+=>PYTHONTEX#pycon#default#default#51#console#####796#
+
+        x = 0
+        while x < 5:
+            x += 1
+            if x == 2:
+                continue
+            if x == 4:
+                break
+            print(x)
+
+=>PYTHONTEX#pycon#default#default#52#console#####818#
+
+      def greet(name):
+          return f"Hello, {name}!"
+
+      print(greet("Alice"))
+      print(greet("Bob"))
+
+=>PYTHONTEX#pycon#default#default#53#console#####831#
+
+      def add(x, y):
+          return x + y
+
+      print(add(3, 5))
+      print(add(x=10, y=20))
+
+      def greet(name, greeting="Hello"):
+          return f"{greeting}, {name}!"
+
+      print(greet("Alice"))
+      print(greet("Bob", "Hi"))
+
+=>PYTHONTEX#pycon#default#default#54#console#####850#
+
+      def print_args(*args):
+          for arg in args:
+              print(arg)
+
+      print_args(1, 2, 3, 4, 5)
+
+      def print_kwargs(**kwargs):
+          for key, value in kwargs.items():
+              print(f"{key}: {value}")
+
+      print_kwargs(name="Alice", age=30, city="NYC")
+
+=>PYTHONTEX#pycon#default#default#55#console#####869#
+
+      def flexible_func(x, y, *args, **kwargs):
+          print(f"x: {x}, y: {y}")
+          print(f"args: {args}")
+          print(f"kwargs: {kwargs}")
+
+      flexible_func(1, 2, 3, 4, 5, name="Alice", age=30)
+
+=>PYTHONTEX#pycon#default#default#56#console#####887#
+
+      def add(x, y): # regular function
+          return x + y
+
+      add_lambda = lambda x, y: x + y # equivalent lambda function
+      print(add(3, 5))
+      print(add_lambda(3, 5))
+
+=>PYTHONTEX#pycon#default#default#57#console#####901#
+
+      numbers = [1, 2, 3, 4, 5]
+
+      squared = list(map(lambda x: x**2, numbers)) # map: apply function to each element
+      print(squared)
+
+      evens = list(filter(lambda x: x % 2 == 0, numbers)) # filter: keep elements where function returns True
+      print(evens)
+
+      words = ["apple", "pie", "zoo", "a"] # sorted: custom sorting key
+      sorted_by_length = sorted(words, key=lambda x: len(x))
+      print(sorted_by_length)
+
+=>PYTHONTEX#pycon#default#default#58#console#####920#
+
+      def make_multiplier(n):
+          return lambda x: x * n
+
+      times_two = make_multiplier(2)
+      print(times_two(5))
+
+=>PYTHONTEX#pycon#default#default#59#console#####937#
+
+      def uppercase_decorator(func):
+          def wrapper(*args, **kwargs):
+              result = func(*args, **kwargs)
+              return result.upper()
+          return wrapper
+
+      @uppercase_decorator
+      def greet(name):
+          return f"hello, {name}"
+
+      print(greet("alice"))
+
+=>PYTHONTEX#pycon#default#default#60#console#####956#
+
+      def repeat(times):
+          def decorator(func):
+              def wrapper(*args, **kwargs):
+                  for _ in range(times):
+                      result = func(*args, **kwargs)
+                  return result
+              return wrapper
+          return decorator
+
+      @repeat(times=2)
+      def say_hello():
+          print("Hello!")
+
+      say_hello()
+
+=>PYTHONTEX#pycon#default#default#61#console#####978#
+
+      def bold(func):
+          def wrapper(*args, **kwargs):
+              return f"**{func(*args, **kwargs)}**"
+          return wrapper
+
+      def italic(func):
+          def wrapper(*args, **kwargs):
+              return f"_{func(*args, **kwargs)}_"
+          return wrapper
+
+      @bold
+      @italic
+      def text():
+          return "Hello"
+
+      print(text())
+
+=>PYTHONTEX#pycon#default#default#62#console#####1006#
+
+      def count_up_to(n):
+          count = 1
+          while count <= n:
+              yield count
+              count += 1
+
+      count_gen = count_up_to(10)
+
+      for _ in range(2):
+          print(next(count_gen))
+
+      for _ in range(3): # starts from where it left off in the previous for loop
+          print(next(count_gen))
+
+=>PYTHONTEX#pycon#default#default#63#console#####1027#
+
+      squares_gen = (x**2 for x in range(3))
+
+      print(list(squares_gen))  # first time: we consume the generator
+
+      print(list(squares_gen))  # second time: the generator is already exhausted
+
+=>PYTHONTEX#pycon#default#default#64#console#####1052#
+
+      # math_utils.py
+      def add(a, b):
+          return a + b
+      def subtract(a, b):
+          return a - b
+
+=>PYTHONTEX#pycon#default#default#65#console#####1069#
+
+        # main.py
+        import math_utils
+        print(math_utils.add(3,2))
+
+=>PYTHONTEX#pycon#default#default#66#console#####1082#
+
+        # main.py
+        from math_utils import *
+        print(add(3,2))
+
+=>PYTHONTEX#pycon#default#default#67#console#####1118#
+      # installing a third-party library via pip (run in terminal)
+      # pip install numpy
+      import numpy as np               # importing the library under an alias
+      arr = np.array([1, 2, 3, 4])
+      print(arr * 2)                   # using functionality provided by the library
+=>PYTHONTEX#pycon#default#default#68#console#####1143#
+
+        from random import *
+
+        for i in range(10):
+            print(random()) #picks a random number in [0,1)
+
+        for i in range(10):
+            print(randint(1,50)) #only integers and inclusive
+
+        for i in range(10):
+            print(uniform(1,50)) #only floats and thus exclusive
+
+        for i in range(10):
+            print(randrange(1,12,2)) #picks numbers in steps (default step:1)
+
+=>PYTHONTEX#pycon#default#default#69#console#####1168#
+
+        import math #OR "from math import *
+        #in the second method, you do not need to type the module name every time you use a function within the module like below
+        print(math.sqrt(9))
+        print(math.ceil(8.2))
+        print(math.floor(7.9))
+        print(math.fabs(-2.2))
+
+=>PYTHONTEX#pycon#default#default#70#console#####1182#
+
+        import math
+        r = float(input("Enter radius"))
+        Area = math.pi*r**2
+        print(area)
+
+=>PYTHONTEX#pycon#default#default#71#console#####1207#
+
+        from datetime import *
+
+        def validateCard(expDate):
+            if expDate>datetime.now().date(): #now() returns the date and time; date() retrieves only the date; time is LOCAL
+                print("Valid")
+            else:
+                print("Expired")
+
+        validateCard(date(2020,2,2))
+
+=>PYTHONTEX#pycon#default#default#72#console#####1274#
+
+        class BankAccount:
+            bank = "Chase" # class attribute
+            def __init__(self, owner, balance=0):
+                self.owner = owner # instance attribute
+                self.balance = balance # instance attribute
+            def deposit(self, amount): #method
+                self.balance += amount
+                return self.balance
+            def withdraw(self, amount):
+                if amount <= self.balance:
+                    self.balance -= amount
+                    return self.balance
+                return "Insufficient funds"
+
+        account = BankAccount("Alice", 100)
+        print(account.deposit(50))
+        print(account.withdraw(30))
+        print(account.balance)
+
+=>PYTHONTEX#pycon#default#default#73#console#####1322#
+
+          class Example:
+              def setName(self, n): # setter
+                  self.name = n
+              def getName(self): # getter
+                  return self.name
+
+          p1 = Example()
+          p1.setName("John")
+          print(p1.getName())
+
+=>PYTHONTEX#pycon#default#default#74#console#####1341#
+
+          class PythonicExample:
+              def __init__(self, name):
+                  self._name = name  # Protected backing attribute
+              @property
+              def name(self):  # Getter decorator
+                  return self._name
+              @name.setter
+              def name(self, n):  # Setter decorator
+                  if not n:
+                      raise ValueError("Name cannot be empty")
+                  self._name = n
+
+          p2 = PythonicExample("John")
+          p2.name = "Sally"  # Intercepted by the setter seamlessly
+          print(p2.name)     # Intercepted by the getter seamlessly
+
+=>PYTHONTEX#pycon#default#default#75#console#####1370#
+
+        class ReadOnlyExample:
+            def __init__(self, name):
+                self._name = name  # Protected backing attribute
+            @property
+            def name(self):  # Getter decorator
+                return self._name
+            # Note: The .setter decorator is intentionally omitted to make it read-only
+
+        p3 = ReadOnlyExample("John")
+        print(p3.name)     # Read access works perfectly via the getter
+
+        # Attempting to modify the attribute will now throw an AttributeError
+        p3.name = "Sally"
+
+=>PYTHONTEX#pycon#default#default#76#console#####1397#
+
+        class BankAccount:
+            def __init__(self, owner, initial_deposit):
+                self.owner = owner
+                self.__balance = initial_deposit
+            @property
+            def balance(self):
+                return f"{self.__balance:,.2f}"
+            def display_balance(self):
+                return f"{self.__balance:,.2f}"
+
+        account = BankAccount("Ingyu", 1000)
+        print(account.balance) # getter method
+        print(account.display_balance()) # explicit function
+        print(account._BankAccount__balance) # name mangling
+
+        print(account.__balance) # private attributes cannot be directly accessed
+
+=>PYTHONTEX#pycon#default#default#77#console#####1427#
+
+        class Animal:
+            def __init__(self, name):
+                self.name = name
+            def eat(self):
+                return f"{self.name} is eating."
+            def speak(self):
+                return f"{self.name} makes a generic sound."
+
+        class Dog(Animal):
+            def speak(self):
+                return f"{self.name} barks: Woof!"
+
+        my_dog = Dog("Buddy")
+        print(my_dog.eat())
+        print(my_dog.speak())
+
+=>PYTHONTEX#pycon#default#default#78#console#####1458#
+
+          class Vehicle:
+              def __init__(self, brand, model):
+                  self.brand = brand
+                  self.model = model
+              def description(self):
+                  return f"{self.brand} {self.model}"
+
+          class Car(Vehicle):
+              def __init__(self, brand, model, doors):
+                  super().__init__(brand, model)
+                  self.doors = doors
+              def description(self):
+                  base_info = super().description()
+                  return f"{base_info} with {self.doors} doors"
+
+          car = Car("Toyota", "Camry", 4)
+          print(car.description())
+
+=>PYTHONTEX#pycon#default#default#79#console#####1489#
+
+        class MasterCard:
+            def process_payment(self, amount):
+                return f"Processing ${amount:.2f} via MasterCard networks."
+
+        class PayPal:
+            def process_payment(self, amount):
+                return f"Routing ${amount:.2f} through PayPal wallets."
+
+        class Bitcoin:
+            def process_payment(self, amount):
+                return f"Broadcasting ${amount:.2f} to blockchain."
+
+        class ApplePay:
+            def process_payment(self, amount):
+                return f"Authenticating ${amount:.2f} via Apple."
+
+        def checkout_gate(payment_processor, total):
+            print(payment_processor.process_payment(total))
+
+        visa, wallet, crypto, mobile = MasterCard(), PayPal(), Bitcoin(), ApplePay()
+
+        checkout_gate(visa, 150.00)
+        checkout_gate(wallet, 150.00)
+        checkout_gate(crypto, 150.00)
+        checkout_gate(mobile, 150.00)
+
+=>PYTHONTEX#pycon#default#default#80#console#####1530#
+
+        from abc import ABC, abstractmethod
+        class PrinterBlueprint(ABC):
+            @abstractmethod
+            def print_page(self, text):
+                pass
+
+        class OfficePrinter(PrinterBlueprint): # Matches the blueprint EXACTLY
+            def print_page(self, text):
+                return f"Printing office document: {text}"
+
+        class BrokenPrinter(PrinterBlueprint): # Flaw: accidental rename
+            def output_text(self, text):
+                return f"Printing: {text}"
+
+        printer_1 = OfficePrinter() # success
+        printer_2 = BrokenPrinter() # renamed mandatory method
+        printer_3 = PrinterBlueprint() # can't call the abstract parent class
+
+=>PYTHONTEX#pycon#default#default#81#console#####1571#
+
+        class InvalidAgeError(Exception):
+            pass # no need for constructor
+
+        def verify_age(age):
+            if age < 0:
+                raise InvalidAgeError(f"Age cannot be negative. Received: {age}")
+            print(f"Age {age} successfully verified.")
+
+        try:
+            print("System: Verifying user age...")
+            verify_age(-5)
+
+        except InvalidAgeError as e:
+            print(f"Error Type: {type(e).__name__}")
+            print(f"Error Message: {e}")
+
+=>PYTHONTEX#pycon#default#default#82#console#####1600#
+
+        try:
+            print("Attempting the calculation...")
+            result = 10 / 0
+
+            print(f"The result is {result}") # This line will be skipped because the error happens above
+
+        except ZeroDivisionError:
+            print("Error: You cannot divide a number by zero!")
+        finally:
+            print("Cleanup: The division operation has finished.")
+
+=>PYTHONTEX#pycon#default#default#83#console#####1620#
+
+        try:
+            print("Attempting the calculation...")
+            result = 10 / 0
+
+            print(f"The result is {result}") # This line will be skipped because the error happens above
+
+        except: # catches ALL errors
+            print("Error: You cannot divide a number by zero!")
+        finally:
+            print("Cleanup: The division operation has finished.")
+
+=>PYTHONTEX#pycon#default#default#84#console#####1638#
+
+        try:
+            user_input = "Hello"
+            number = int(user_input)
+
+        except ValueError as e:
+            print(f"The message is: {e}")
+            print(f"The error name is: {type(e).__name__}")
+        except Exception as e: # This is a fallback that catches anything else and prints its name
+            print(f"An unexpected {type(e).__name__} occurred: {e}")
+
+=>PYTHONTEX#pycon#default#default#85#console#####1663#
+
+        import sys
+        import logging
+
+        logging.basicConfig(level=logging.WARNING, format='%(levelname)s: %(message)s', stream=sys.stdout, force=True) # force=True and stream=sys.stdout is needed to output the logs within this pyconsole environment
+
+        def divide_values(a, b):
+            # This will be suppressed because DEBUG is lower than WARNING
+            logging.debug(f"Attempting to divide {a} by {b}.")
+            if b == 0:
+                # This will be captured because ERROR is higher than WARNING
+                logging.error("Division by zero attempted.")
+                return None
+            result = a / b
+            # This will be suppressed because INFO is lower than WARNING
+            logging.info(f"Division successful. Result is {result}.")
+            return result
+
+        logging.warning("System is operating with minimal resources.")
+        divide_values(10, 0)
+
+=>PYTHONTEX#pycon#default#default#86#console#####1700#
+
+        def apply_discount(original_price, discount_rate):
+            # Assert that the parameters fall within logically valid bounds
+            assert original_price > 0, "The original price must be strictly positive."
+            assert 0 <= discount_rate <= 1, "The discount rate must be between 0 and 1."
+            return original_price * (1 - discount_rate)
+
+        final_price = apply_discount(100.0, 0.2) # This will execute successfully
+        print(f"Discounted price: {final_price}")
+
+        apply_discount(-50.0, 0.2) # This will immediately trigger an AssertionError
+
+=>PYTHONTEX#pycon#default#default#87#console#####1758#
+
+      with open("sensor_data.txt", "w") as file_stream:
+          _ = file_stream.write("timestamp: 001, status: active\n")
+          _ = file_stream.write("timestamp: 002, status: active\n")
+          # file stream is automatically closed upon exiting this block
+
+      with open("sensor_data.txt", "r") as file_stream:
+          content = file_stream.read()
+          print(content)
+
+=>PYTHONTEX#pycon#default#default#88#console#####1790#
+
+      import pickle
+
+      session_data = { # complex data structure
+          "user_id": 1042,
+          "permissions": ["admin", "developer"],
+          "matrix_weights": (0.85, 0.12, 0.94)
+      }
+
+      with open("session.pkl", "wb") as binary_stream: # serializing data
+          pickle.dump(session_data, binary_stream)
+
+      with open("session.pkl", "rb") as binary_stream: # deserializing data
+          retrieved_data = pickle.load(binary_stream)
+
+      print(f"Data Type: {type(retrieved_data)}")
+      print(f"Content: {retrieved_data}")
+
+=>PYTHONTEX#pycon#default#default#89#console#####1860#
+
+        import re
+        string = "Take 1 up One 23 idea. One idea 45 at a time"
+
+        result = re.search(r'O\w',string)
+        print(result.group())
+
+=>PYTHONTEX#pycon#default#default#90#console#####1873#
+
+        import re
+        string = "Take 1 up One 23 idea. One idea 45 at a time"
+
+        result = re.findall(r'O\w\w',string)
+        print(result)
+
+=>PYTHONTEX#pycon#default#default#91#console#####1886#
+
+        import re
+        string = "Take 1 up One 23 idea. One idea 45 at a time"
+
+        result = re.match('T\w\w',string)
+        print(result.group())
+
+=>PYTHONTEX#pycon#default#default#92#console#####1899#
+
+        import re
+        string = "Take 1 up One 23 idea. One idea 45 at a time"
+
+        result = re.sub(r'One','Two',string)
+        print(result)
+
+=>PYTHONTEX#pycon#default#default#93#console#####1912#
+
+        import re
+        string = "Take 1 up One 23 idea. One idea 45 at a time"
+
+        result = re.split(r'\d+',string)
+        print(result)
+
+=>PYTHONTEX#pycon#default#default#94#console#####1935#
+
+        import re
+        string = "Take 1 up One 23 idea.One idea 45 at a Time"
+
+        result = re.findall(r'O\w{1}',string) #{m} exactly m repetition
+        print(result)
+
+        result = re.findall(r'O\w{1,2}',string) #{m,n} m minimum, n maximum repetitions
+        print(result)
+
+=>PYTHONTEX#pycon#default#default#95#console#####1951#
+
+        import re
+        string = "Take 1 up One 23 idea.One idea 45 at a Time"
+
+        result = re.findall(r'O\w+',string) #+ one or more repetitions
+        print(result)
+
+        result = re.findall(r'O\w*',string) #* zero or more repetitions
+        print(result)
+
+        result = re.findall(r'O\w?',string) #? zero or one repetitions
+        print(result)
+
+=>PYTHONTEX#pycon#default#default#96#console#####1982#
+
+        import re
+        string = "I live .. like cats oh yeah"
+
+        result = re.search(r'l..e',string)
+        print(result.group())
+
+        result = re.search(r'\.\.',string)
+
+        print(result.group())
+
+=>PYTHONTEX#pycon#default#default#97#console#####1999#
+
+        import re
+        string = "I live .. like cats oh yeah"
+
+        result = re.search(r'^I...',string) # beginning
+        print(result.group())
+
+        result = re.search(r'...h$',string) # end
+        print(result.group())
+
+=>PYTHONTEX#pycon#default#default#98#console#####2015#
+
+        import re
+        string = "I live .. like cats oh yeah"
+
+        result = re.search(r'[aeiou]',string)
+        print(result.group())
+
+        result = re.search(r'[^I li]',string)
+        print(result.group())
+
+=>PYTHONTEX#pycon#default#default#99#console#####2031#
+
+        import re
+        string = "I live .. like cats oh yeah"
+
+        result = re.search(r'(cats|dogs)',string) #(R|S) specifies multiple regular expressions to match; either R OR S
+        print(result.group())
+
+=>PYTHONTEX#pycon#default#default#100#console#####2060#
+
+      import threading
+
+      print('Current thread that is running: {}'.format(threading.current_thread().name))
+
+      if threading.current_thread() == threading.main_thread():
+          print('Main Thread')
+
+=>PYTHONTEX#pycon#default#default#101#console#####2080#
+
+          import threading
+
+          def displayNumbers(count):
+              i = 0
+              print(threading.current_thread().name)
+              while i <= count:
+                  print(i)
+                  i += 1
+
+          print(threading.current_thread().name)
+
+          # notice the args value below is a tuple
+          t = threading.Thread(target=displayNumbers, args = (5,), name = 'displayNumbersThread')
+          t.start()
+          t.join()
+          print("displayNumbers function finished")
+
+=>PYTHONTEX#pycon#default#default#102#console#####2114#
+
+        import threading
+        from time import sleep # the sleep function simply makes the program wait
+
+        class MyThread:
+            def displayNumbers(self):
+                i = 0
+                print(threading.current_thread().name)
+                while i <= 3:
+                    print(i)
+                    i+=1
+
+        obj = MyThread()
+
+        t1 = threading.Thread(target=obj.displayNumbers,name='displayNumbers1')
+        t1.start()
+        sleep(0.5)
+
+        t2 = threading.Thread(target=obj.displayNumbers,name='displayNumbers2')
+        t2.start()
+        t1.join()
+        t2.join()
+
+=>PYTHONTEX#pycon#default#default#103#console#####2149#
+
+        import threading
+        import time
+
+        class Producer:
+            def __init__(self):
+                self.products = []
+                self.ordersplaced = False
+            def produce(self):
+                for i in range(1,5):
+                    self.products.append('Product'+str(i))
+                    time.sleep(1)
+                    print('Item Added')
+                self.ordersplaced = True
+
+        class Consumer:
+            def __init__(self,prod):
+                self.prod = prod
+            def consume(self):
+                while self.prod.ordersplaced == False:
+                    print("Waiting for the orders")
+                    time.sleep(0.4)
+                print('Orders Shipped {}'.format(self.prod.products))
+
+        p = Producer()
+        c = Consumer(p)
+
+        t1 = threading.Thread(target = p.produce)
+        t2 = threading.Thread(target = c.consume)
+
+        t1.start()
+        t2.start()
+        t1.join()
+        t2.join()
+
+=>PYTHONTEX#pycon#default#default#104#console#####2198#
+
+        import threading
+
+        class BookMyBus:
+            def __init__(self,availableSeats):
+                self.availableSeats = availableSeats
+                self.l = threading.Lock()
+            def buy(self,seatsRequested):
+                self.l.acquire() #starting the locked environment
+                print('Total seats available: {}'.format(self.availableSeats))
+                if(self.availableSeats>=seatsRequested):
+                    print('Confirming a seat')
+                    print('Processing the payment')
+                    print('Printing the Ticket')
+                    self.availableSeats-=seatsRequested
+                else:
+                    print('Sorry. No seats available')
+                self.l.release() #ending the locked environment
+
+        obj = BookMyBus(10)
+
+        t1 = threading.Thread(target=obj.buy,args=(3,))
+        t2 = threading.Thread(target=obj.buy,args=(4,))
+        t3 = threading.Thread(target=obj.buy,args=(4,))
+
+        t1.start()
+        t2.start()
+        t3.start()
+        t1.join()
+        t2.join()
+        t3.join()
+
+=>PYTHONTEX#pycon#default#default#105#console#####2242#
+
+        import threading
+        import time
+
+        class Producer:
+            def __init__(self):
+                self.products = []
+                self.c = threading.Condition() # the Condition class already has the lock method in-built into it, thus you don't need to invoke a separate lock method
+            def produce(self):
+                self.c.acquire() # locked environment setting through the Condition class
+                for i in range(1,5):
+                    self.products.append('Product'+str(i))
+                    time.sleep(1)
+                    print('Item Added: Product' + str(i))
+                self.c.notify() # where the program ends and notifies the consumer
+                self.c.release()
+
+        class Consumer:
+            def __init__(self,prod):
+                self.prod = prod
+            def consume(self):
+                self.prod.c.acquire()
+                self.prod.c.wait()
+                self.prod.c.release()
+                print('Orders Shipped: {}'.format(self.prod.products))
+        p = Producer()
+        c = Consumer(p)
+
+        t1 = threading.Thread(target = p.produce)
+        t2 = threading.Thread(target = c.consume)
+
+        t1.start()
+        t2.start()
+
+        t1.join()
+        t2.join()
+
+=>PYTHONTEX#pycon#default#default#106#console#####2309#
+
+        import random
+        import time
+        import queue
+        import threading
+
+        def producer(q):
+            for _ in range(2):
+                print('Producing')
+                q.put(random.randint(1,50)) #putting the random integer into a queue
+                print('Produced')
+                time.sleep(0.5)
+
+        def consumer(q):
+            for _ in range(2):
+                print('Ready to consume')
+                print('Consume Data: {}'.format(q.get())) #returning the queued integer
+                time.sleep(0.5)
+
+        q = queue.Queue()
+        t1 = threading.Thread(target=consumer,args=(q,))
+        t2 = threading.Thread(target=producer,args=(q,))
+
+        t1.start()
+        t2.start()
+        t1.join()
+        t2.join()
+
+=>PYTHONTEX#pycon#default#default#107#console#####2349#
+
+        import queue
+
+        lq = queue.LifoQueue() # last in first out
+        lq.put(400)
+        lq.put(100)
+        lq.put(500)
+        lq.put(50)
+        while not lq.empty(): # this is another function to specify an empty queue
+            print(lq.get(), end=' ')
+        print()
+
+        pq = queue.PriorityQueue() #in order
+        pq.put(400)
+        pq.put(100)
+        pq.put(500)
+        pq.put(50)
+        while not pq.empty():
+            print(pq.get(), end=' ')
+        print()
+
+        pq = queue.PriorityQueue()
+        pq.put((400,'John')) # if the item in the queue is a str, then make a tuple with a int in the first index and it will use that number to define the order
+        pq.put((100,'Bob'))
+        pq.put((500,'Ahmed'))
+        pq.put((50,'Bharath'))
+        while not pq.empty():
+            print(pq.get()[1], end=' ') #insert the index to choose only the name in the prioritized order
+
+=>PYTHONTEX#pycon#default#default#108#console#####2392#
+
+        import threading
+        import time
+
+        def background_task():
+            while True:
+                print('Daemon running...')
+                time.sleep(0.5)
+
+        def main_task():
+            for i in range(3):
+                print('Main thread working: step {}'.format(i))
+                time.sleep(1)
+
+        t1 = threading.Thread(target=background_task)
+        t1.daemon = True # designates t1 as a daemon thread
+        t2 = threading.Thread(target=main_task)
+
+        t1.start()
+        t2.start()
+        t2.join() # only the non-daemon thread is joined; once t2 finishes, t1 is killed automatically
+
+=>PYTHONTEX:SETTINGS#
+version=0.18
+outputdir=pythontex-files-python
+workingdir=.
+workingdirset=false
+gobble=auto
+rerun=default
+hashdependencies=default
+makestderr=false
+stderrfilename=full
+keeptemps=none
+pyfuture=default
+pyconfuture=none
+pygments=true
+pygglobal=:GLOBAL||
+fvextfile=-1
+pyconbanner=none
+pyconfilename=stdin
+depythontex=false
+pygfamily=py|python3|
+pygfamily=pycon|pycon|
+pygfamily=sympy|python3|
+pygfamily=sympycon|pycon|
+pygfamily=pylab|python3|
+pygfamily=pylabcon|pycon|
