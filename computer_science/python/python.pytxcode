@@ -143,4 +143,167 @@
 
 =>PYTHONTEX#pycon#default#default#24#console#####397#
 
-          example_set = {1,
+          example_set = {1, 2, 3}
+
+          example_set.add(4) # singular addition
+          print(example_set)
+
+          example_set.update([3, 4, 5]) # multiple addition
+          print(example_set)
+
+          example_set.remove(3) # removal
+          print(example_set)
+
+=>PYTHONTEX#pycon#default#default#25#console#####415#
+
+          set_a = {1, 2, 3}
+          set_b = {3, 4, 5}
+          print(set_a.union(set_b))
+          print(set_a.intersection(set_b))
+
+=>PYTHONTEX#pycon#default#default#26#console#####427#
+
+          fset = frozenset({1,2,3})
+          print(type(fset))
+
+=>PYTHONTEX#pycon#default#default#27#console#####447#
+
+          example_dict = {"name": "Alice", "age": 30}
+          print(example_dict["name"])
+
+=>PYTHONTEX#pycon#default#default#28#console#####457#
+
+          example_dict = {"name": "Alice"}
+          example_dict["age"] = 30
+          print(example_dict)
+
+=>PYTHONTEX#pycon#default#default#29#console#####468#
+
+          example_dict = {"name": "Alice", "age": 30}
+          print(example_dict.keys(), example_dict.values())
+          print(example_dict.items())
+
+=>PYTHONTEX#pycon#default#default#30#console#####487#
+
+        print(list(range(5)))
+
+=>PYTHONTEX#pycon#default#default#31#console#####496#
+
+        example_range = range(0, 10, 2)
+        print(list(range(0, 10, 2)))
+
+=>PYTHONTEX#pycon#default#default#32#console#####514#
+
+          example_bytes = b"hello"
+          print(example_bytes, type(example_bytes))
+
+=>PYTHONTEX#pycon#default#default#33#console#####524#
+
+          example_bytearray = bytearray(b"hello")
+          example_bytearray[0] = 72 # the byte value for "H" is 72 in ASCII/UTF-8
+          print(example_bytearray)
+
+=>PYTHONTEX#pycon#default#default#34#console#####535#
+
+          text = "hello"
+          encoded = text.encode('utf-8')
+          print(encoded)
+          print(encoded.decode('utf-8'))
+
+=>PYTHONTEX#pycon#default#default#35#console#####559#
+
+          x,y = 10, 3
+          print(x + y, x - y)
+          print(x * y, x / y)
+
+=>PYTHONTEX#pycon#default#default#36#console#####570#
+
+          x,y = 17, 5
+          print(x % y)
+=>PYTHONTEX#pycon#default#default#37#console#####579#
+
+          x,y = 2, 3
+          print(x ** y)
+
+=>PYTHONTEX#pycon#default#default#38#console#####589#
+
+          x,y = 17, 5
+          print(x // y)
+
+=>PYTHONTEX#pycon#default#default#39#console#####609#
+
+          x = 10
+
+=>PYTHONTEX#pycon#default#default#40#console#####620#
+
+          x = 10
+          x += 3 # addition
+          print(x)
+          x -= 2 # subtraction
+          print(x)
+          x *= 2 # multiplication
+          print(x)
+          x /= 4 # division
+          print(x)
+          # the same logic follow for modulus, floor division, and power
+
+=>PYTHONTEX#pycon#default#default#41#console#####648#
+
+          x,y = 5, 5
+          print(x == y)
+          print(x == 3)
+
+=>PYTHONTEX#pycon#default#default#42#console#####659#
+
+          x,y = 5,3
+          print(x != y)
+          print(x != 5)
+
+=>PYTHONTEX#pycon#default#default#43#console#####670#
+
+          x,y = 5,3
+          print(x < y)
+          print(x > y)
+          print(x <= 5)
+          print(x >= 5)
+
+=>PYTHONTEX#pycon#default#default#44#console#####693#
+
+          x,y = True, False
+          print(x and x)
+          print(x and y)
+
+=>PYTHONTEX#pycon#default#default#45#console#####704#
+
+          x,y = True, False
+          print(x or y)
+          print(y or y)
+
+=>PYTHONTEX#pycon#default#default#46#console#####715#
+
+          x,y = True, False
+          print(not x, not y)
+
+=>PYTHONTEX#pycon#default#default#47#console#####735#
+
+        x, y = 10, 5
+        if x > y:
+            print("x is greater than y") # conditional ends here
+        elif y > x:
+            print("y is greater than x")
+        else:
+            print("x is equal to y")
+
+=>PYTHONTEX#pycon#default#default#48#console#####756#
+
+        for num in [1, 2, 3, 4]:
+            if num == 3:
+                break
+            print(num)
+
+=>PYTHONTEX#pycon#default#default#49#console#####768#
+
+        for num in [1, 2, 3]:
+            if num == 2:
+                continue
+            print(num
