@@ -23,7 +23,7 @@
 
   \end{core}
 
-  \begin{core}{CPython vs Jython vs PyPy}
+  \begin{core}[label=core:cpython]{CPython vs Jython vs PyPy}
 
     The original Python interpreter was implemented in \textbf{C}, a lower-level language positioned above \textbf{assembly} and \textbf{machine code}. This C-based implementation, known as \textbf{CPython}, remains the standard reference version distributed via \href{https://www.python.org/}{python.org}.
 
@@ -92,97 +92,116 @@
 
     \end{core}
 
-    \begin{core}[label=core:string]{String}
+    \subsubsection{Strings}
 
-      The \textcode{str} data type is an ordered sequence of textual characters surrounded by quotation marks, serving as the fundamental data type for text. For example, \textcode{"hello world"} constitutes a string literal. String objects support a variety of methods and operations for transformation and analysis.
+      \begin{core}[label=core:string]{String}
 
-      \begin{pyconsole}
-
-        print(type("hello world"))
-
-      \end{pyconsole}
-      \pcon{\textcode{str} data types}{code:str}
-
-      \begin{enumerate}
-
-        \item \textbf{Indexing and Slicing}: Accesses individual characters at specified positions using zero-based numerical indices, or extracts contiguous subsequences by specifying start and end positions.
+        The \textcode{str} data type is an ordered sequence of textual characters surrounded by quotation marks, serving as the fundamental data type for text. For example, \textcode{"hello world"} constitutes a string literal. String objects support a variety of methods and operations for transformation and analysis.
 
         \begin{pyconsole}
 
-          example_string = "hello world"
-          print(example_string[0])
-          print(example_string[3:9])
+          print(type("hello world"))
 
         \end{pyconsole}
-        \pcon{String indexing and slicing}{code:s_index}
+        \pcon{\textcode{str} data types}{code:str}
 
-        \item \textbf{Repetition}: Creates a new string by concatenating multiple copies of the original string.
+        \begin{enumerate}
 
-        \begin{pyconsole}
+          \item \textbf{Indexing and Slicing}: Accesses individual characters at specified positions using zero-based numerical indices, or extracts contiguous subsequences by specifying start and end positions.
 
-          example_string = "hello world"
-          print(example_string*2)
+          \begin{pyconsole}
 
-        \end{pyconsole}
-        \pcon{String repetition}{code:s_rep}
+            example_string = "hello world"
+            print(example_string[0])
+            print(example_string[3:9])
 
-        \item \textbf{Length}: \textcode{len()} returns the total number of characters contained within the string.
+          \end{pyconsole}
+          \pcon{String indexing and slicing}{code:s_index}
 
-        \begin{pyconsole}
+          \item \textbf{Repetition}: Creates a new string by concatenating multiple copies of the original string.
 
-          example_string = "hello world"
-          print(len(example_string))
+          \begin{pyconsole}
 
-        \end{pyconsole}
-        \pcon{Retrieving string length through \textcode{len()}}{code:s_length}
+            example_string = "hello world"
+            print(example_string*2)
 
-        \item \textbf{Strip}: \textcode{.strip()} removes leading and trailing characters from the string. By default, \textcode{.strip()} removes whitespace.
+          \end{pyconsole}
+          \pcon{String repetition}{code:s_rep}
 
-        \begin{pyconsole}
+          \item \textbf{Length}: \textcode{len()} returns the total number of characters contained within the string.
 
-          example_string = "   hello world   "
-          print(example_string)
-          stripped_string = example_string.strip()
-          print(stripped_string)
+          \begin{pyconsole}
 
-        \end{pyconsole}
-        \pcon{Removing leading and trailing whitespace from a string with \textcode{.strip()}}{code:s_strip}
+            example_string = "hello world"
+            print(len(example_string))
 
-        \item \textbf{Find}: \textcode{.find()} locates the first occurrence of a specified substring and returns its starting index position.
+          \end{pyconsole}
+          \pcon{Retrieving string length through \textcode{len()}}{code:s_length}
 
-        \begin{pyconsole}
+          \item \textbf{Strip}: \textcode{.strip()} removes leading and trailing characters from the string. By default, \textcode{.strip()} removes whitespace.
 
-          example_string = "hello world"
-          substring = "l"
-          example_string.find(substring)
+          \begin{pyconsole}
 
-        \end{pyconsole}
-        \pcon{Finding a substring within a string through \textcode{.find()}}{code:s_find}
+            example_string = "   hello world   "
+            print(example_string)
+            stripped_string = example_string.strip()
+            print(stripped_string)
 
-        \item \textbf{Count}: \textcode{.count()} returns the number of non-overlapping occurrences of a specified substring within the string.
+          \end{pyconsole}
+          \pcon{Removing leading and trailing whitespace from a string with \textcode{.strip()}}{code:s_strip}
 
-        \begin{pyconsole}
+          \item \textbf{Find}: \textcode{.find()} locates the first occurrence of a specified substring and returns its starting index position.
 
-          example_string = "hello world"
-          substring = "l"
-          example_string.count(substring)
+          \begin{pyconsole}
 
-        \end{pyconsole}
-        \pcon{Determining a substring count within a string using \textcode{.count()}}{code:s_count}
+            example_string = "hello world"
+            substring = "l"
+            example_string.find(substring)
 
-        \item \textbf{Upper/Lower/Title}: \textcode{.upper()}, \textcode{.lower()}, and \textcode{.title()} converts all characters to uppercase, lowercase, or title case (\textit{capitalizing the first letter of each word}), respectively.
+          \end{pyconsole}
+          \pcon{Finding a substring within a string through \textcode{.find()}}{code:s_find}
 
-        \begin{pyconsole}
+          \item \textbf{Count}: \textcode{.count()} returns the number of non-overlapping occurrences of a specified substring within the string.
 
-          example_string = "hello world"
-          print(example_string.upper())
-          print(example_string.lower())
-          print(example_string.title())
+          \begin{pyconsole}
 
-        \end{pyconsole}
-        \pcon{Converting a string to upper, lower, and title case using \textcode{.upper()}, \textcode{.lower()}, and \textcode{.title()}}{code:s_ult}
+            example_string = "hello world"
+            substring = "l"
+            example_string.count(substring)
 
-        \item \textbf{Escape Characters}: Special character sequences beginning with a backslash that represent non-printable or reserved characters. For instance, \textcode{\textbackslash n} for newline, \textcode{\textbackslash t} for tab, \textcode{\textbackslash\textbackslash} for the \textbackslash character, and \textcode{\"} for the " character.
+          \end{pyconsole}
+          \pcon{Determining a substring count within a string using \textcode{.count()}}{code:s_count}
+
+          \item \textbf{Upper/Lower/Title}: \textcode{.upper()}, \textcode{.lower()}, and \textcode{.title()} converts all characters to uppercase, lowercase, or title case (\textit{capitalizing the first letter of each word}), respectively.
+
+          \begin{pyconsole}
+
+            example_string = "hello world"
+            print(example_string.upper())
+            print(example_string.lower())
+            print(example_string.title())
+
+          \end{pyconsole}
+          \pcon{Converting a string to upper, lower, and title case using \textcode{.upper()}, \textcode{.lower()}, and \textcode{.title()}}{code:s_ult}
+
+
+          \item \textbf{Split}: \textcode{.split()} divides the string into a list of substrings based on a specified delimiter character or whitespace.
+
+          \begin{pyconsole}
+
+            example_string = "hello world this is an example string"
+            print(example_string.split())
+
+          \end{pyconsole}
+          \pcon{Spliting a string into components using \textcode{.split()}}{code:s_split}
+
+        \end{enumerate}
+
+      \end{core}
+
+      \begin{core}[label=core:escape_char]{Escape Characters}
+
+        Certain special string character sequences begin with a backslash and represent non-printable or reserved characters. For instance, \textcode{\textbackslash n} for newline, \textcode{\textbackslash t} for tab, \textcode{\textbackslash\textbackslash} for the \textbackslash character, and \textcode{\"} for the " character.
 
         \begin{pyconsole}
 
@@ -192,19 +211,81 @@
         \end{pyconsole}
         \pcon{Special escape characters}{code:s_escape}
 
-        \item \textbf{Split}: \textcode{.split()} divides the string into a list of substrings based on a specified delimiter character or whitespace.
+      \end{core}
+
+      \begin{core}{String Types}
+
+        Python provides several string literal prefixes that modify how the interpreter parses and stores the resulting object. The three primary prefixes are \textcode{f}, \textcode{r}, and \textcode{b}, which may also be combined in certain valid pairings.
+
+        \begin{enumerate}
+
+          \item \textcode{f}: \textbf{f-strings} allow arbitrary Python expressions to be embedded directly within a string literal by enclosing them in curly braces \textcode{\{\}}. Expressions are evaluated at runtime and their results interpolated into the surrounding string.
+
+          \begin{pyconsole}
+
+            name = "Ada"
+            print(f"Hello, {name}!")
+            print(f"Pi approx {3.14159:.2f}")
+            print(f"{name=}")
+
+          \end{pyconsole}
+          \pcon{f-string demonstration}{code:f_string}
+
+          \item \textcode{r}: \textbf{r-strings} instruct Python to treat every backslash (\textit{\autoref{core:escape_char}}) as a literal character rather than the start of an escape sequence.
+
+          \begin{pyconsole}
+
+            print("line1\nline2")
+            print(r"line1\nline2")
+
+          \end{pyconsole}
+          \pcon{r-string demonstration}{code:r_string}
+
+          \item \textcode{b}: \textbf{b-strings} produce a \textcode{bytes} object (\textit{\autoref{core:bytes}}) rather than a \textcode{str}. Each element must be an ASCII character or an escape sequence. This type is used extensively in binary file I/O, network communication, and low-level data processing.
+
+          \begin{pyconsole}
+
+            b = b"hello"
+            print(type(b))
+            print(b[0])
+
+          \end{pyconsole}
+          \pcon{b-string demonstration}{code:b_string}
+
+        \end{enumerate}
+
+        Prefixes can also be combined in order to use the functionality of multiple string types concurrently. The ordering of these prefixes is insignificant, meaning that the \textcode{rf} prefix is equivalent to the \textcode{fr} prefix. 
+
+        Some commonly used combined string prefixes are \textcode{rf}---which is typically present in dynamic regex (\textit{\autoref{core:regex}}) patterns---and \textcode{rb}, which is used when the corresponding binary string includes literal backslashes.
 
         \begin{pyconsole}
 
-          example_string = "hello world this is an example string"
-          print(example_string.split())
+          user_id = "dev_88"
+          dynamic_path = rf"C:\Users\admin\desktop\{user_id}"
+          print(f"Dynamic Path: {dynamic_path}")
+          
+          binary_regex_pattern = rb"FindThis\x00\x01"
+          print(f"Raw Byte Pattern: {binary_regex_pattern}")
 
         \end{pyconsole}
-        \pcon{Spliting a string into components using \textcode{.split()}}{code:s_split}
+        \pcon{String prefix combination \textcode{rf} and \textcode{rb}}{code:s_comb}
 
-      \end{enumerate}
+      \end{core}
 
-    \end{core}
+      \begin{core}{String Formatting}
+
+        % name = john
+        % marks = 95.456
+        % print("Name is",name,"Marks are",marks)
+        % Name is john Marks are 95.456
+        % print("Name is %s, Marks are %.2f"%(name, marks))#decimal refers to decimal places
+        % Name is john, Marks are 95.45
+        % print("Name is {}, Marks are {}".format(name, marks))
+        % Name is john, Marks are 95.456
+        % print("Name is {0}, Marks are {1}".format(name,marks)) #numbers correspond to index
+        % Name is john, Marks are 95.456
+
+      \end{core}
 
   \subsection{Sequence Data Types}
 
@@ -422,7 +503,7 @@
 
     \end{core}
 
-    \begin{core}{Bytes \& Bytearrays}
+    \begin{core}[label=core:bytes]{Bytes \& Bytearrays}
 
       \textcode{bytes} and \textcode{bytearray} objects are sequences of integer values representing raw binary data. \textcode{bytes} objects are immutable, while \textcode{bytearrays} support modification. These types are essential for binary file operations, network protocols, and low-level data manipulation.
 
@@ -531,7 +612,9 @@
 
         \end{pyconsole}
         \pcon{Basic assignment operator}{code:assign_basic}
-        
+
+        \textit{By convention, identifiers intended to be treated as \textbf{constants}---such as API keys or authentication credentials---are written in full capitals within the Python community, serving as an explicit signal to other developers that the value is not to be mutated at any point during program execution.}
+                
         \item \textbf{Compound Assignment Operators}: \textcode{+=}, \textcode{-=}, \textcode{*=}, \textcode{/=}, \textcode{\%=}, \textcode{//=}, and \textcode{**=} combine each arithmetic operator (\textit{\autoref{core:arithmetic_operators}}) with assignment, performing the operation on the left operand with the right operand and assigning the result back to the left operand.
 
         \begin{pyconsole}
@@ -957,6 +1040,228 @@
   % \begin{core}{Scope}
 
   % \end{core}
+
+\section{Standard Library}
+
+  \begin{core}{Modules}
+
+    A \textbf{module} is a single Python source file---a \textcode{.py} file---that encapsulates a logically related collection of definitions, including functions, classes, and variables, which may be imported and reused across other Python programs via the \textcode{import} statement.
+
+    To illustrate, consider a file named \textcode{math\_utils.py} containing the following definitions.
+
+    \begin{pyconsole}
+
+      # math_utils.py
+      def add(a, b):
+          return a + b
+      def subtract(a, b):
+          return a - b
+
+    \end{pyconsole}
+    \pcon{\textcode{math\_utils.py} contents}{code:math_utils}
+
+    A separate file---\textcode{main.py}, for instance---residing in the same directory may then access the definitions within \textcode{math\_utils.py} via the \textcode{import} statement. There are two conventional forms through which this may be achieved.
+
+    \begin{enumerate}
+
+      \item \textcode{import math\_utils} grants access to \textbf{all} definitions within \textcode{math\_utils.py}; however, each object must be qualified with the \textcode{math\_utils.} prefix upon invocation.
+
+      \begin{pyconsole}
+
+        # main.py
+        import math_utils
+        print(math_utils.add(3,2))
+
+      \end{pyconsole}
+      \pcon{\textcode{import \_} syntax module importing}{code:import1}
+
+      To import only specific definitions rather than the module in its entirety, the \textcode{import \_.\_} syntax may be used in place of the bare \textcode{import \_} form.
+
+      \item \textcode{from math\_utils import *} similarly exposes \textbf{all} definitions from \textcode{math\_utils.py}, but imports them directly into the calling file's namespace, eliminating the need for a qualifying prefix on each invocation.
+
+      \begin{pyconsole}
+
+        # main.py
+        from math_utils import *
+        print(add(3,2))
+
+      \end{pyconsole}
+      \pcon{\textcode{from \_ import \_} syntax module importing}{code:import2}
+
+      This form also supports selective importing, wherein only specific definitions are brought into the calling namespace by replacing the wildcard \textcode{*} with the desired object or function.
+
+    \end{enumerate}
+
+    In summary, the \textcode{import \_} form imports a module by filename---excluding the \textcode{.py} extension---making its contents accessible through dot-qualified notation, whereas the \textcode{from \_ import \_} form brings definitions directly into the calling namespace, foregoing the need for prefix qualification. The latter, however, \textbf{carries the risk of namespace collisions} when multiple modules define identically named objects, and is therefore considered \textbf{poor practice} in larger projects and codebases.
+
+  \end{core}
+
+  \begin{core}{Packages}
+
+    A \textbf{package} is a structured directory of \textbf{one or more related modules}, unified under a common namespace (\textit{the package name}), allowing developers to organise modules \textbf{hierarchically}, making large codebases navigable and preventing namespace collisions between identically named modules residing in different directories. An extremely basic package directory structure looks like the following.
+
+    \dirtree{%
+      .1 my\_package/.
+      .2 \_\_init\_\_.py.
+      .2 math\_utils.py.
+      .2 string\_utils.py.
+    }
+
+    Modules within a package are accessed using dot-separated \textbf{path} notation that mirrors the directory hierarchy, with the package name serving as the top-level namespace. This structure ensures that \textcode{math\_utils} within \textcode{my\_package} remains unambiguously distinct from any identically named module elsewhere in the project, such as \textcode{string\_utils}.
+
+  \end{core}
+
+  \begin{core}[label=core:libraries]{Libraries}
+
+    A \textbf{library} is a broadly distributed, reusable collection of packages and modules that provides generalised functionality intended to be shared across many independent projects. Unlike a module or package, a library is not a formally defined construct within the Python language specification itself; rather, it is an organisational and distributional concept, typically published via the \textbf{Python Package Index (PyPI)} and installable through the \textcode{pip} or \textcode{conda} package manager. The distinction between a package and a library is primarily one of scale and intent: a package is a structural unit of code organisation within a project, whereas a library is a self-contained distribution of functionality designed for broad external consumption.
+
+    \begin{pyconsole}
+      # installing a third-party library via pip (run in terminal)
+      # pip install numpy
+      import numpy as np               # importing the library under an alias
+      arr = np.array([1, 2, 3, 4])
+      print(arr * 2)                   # using functionality provided by the library
+    \end{pyconsole}
+    \pcon{Installing and importing a third-party library}{code:library}
+
+    As illustrated in \autoref{code:library}, once a library has been installed into the active Python environment, its constituent packages and modules are imported using the same \textcode{import} statement as any local module, with an optional alias assigned via the \textcode{as} keyword for brevity. This uniformity of the import interface across modules, packages, and libraries is a deliberate design property of the Python language.
+
+  \end{core}
+
+  \begin{core}{Standard Library}
+
+    Full Library https://docs.python.org/3/py-modindex.html
+
+  \end{core}
+
+  \subsection{Core Modules \& Packages}
+    
+    \begin{core}{random}
+
+      random https://docs.python.org/3/library/random.html
+
+      \begin{pyconsole}
+
+        from random import *
+
+        for i in range(10):
+            print(random()) #picks a random number in [0,1)
+
+        for i in range(10):
+            print(randint(1,50)) #only integers and inclusive
+
+        for i in range(10):
+            print(uniform(1,50)) #only floats and thus exclusive
+
+        for i in range(10):
+            print(randrange(1,12,2)) #picks numbers in steps (default step:1)
+
+      \end{pyconsole}
+      \pcon{caption}{code:placeholder2}
+
+    \end{core}
+
+    \begin{core}{math}
+
+      math https://docs.python.org/3/library/math.html
+
+      \begin{pyconsole}
+
+        import math #OR "from math import *
+        #in the second method, you do not need to type the module name every time you use a function within the module like below
+        print(math.sqrt(9))
+        print(math.ceil(8.2))
+        print(math.floor(7.9))
+        print(math.fabs(-2.2))
+
+      \end{pyconsole}
+      \pcon{caption}{code:placeholder1}
+
+      You can access a range of values like pi using the in-built math module
+
+      \begin{pyconsole}
+
+        import math
+        r = float(input("Enter radius"))
+        Area = math.pi*r**2
+        print(area)
+
+      \end{pyconsole}
+      \pcon{caption}{code:placeholder3}
+
+    \end{core}
+
+    \begin{core}{datetime}
+
+      datetime https://docs.python.org/3/library/datetime.html
+
+      datetime module methods
+        datetime.today() → time in GMT
+        datetime.now()   → time in LOCAL
+        date()
+        time()
+        combine()
+
+      You can check for expiration date like this
+
+      \begin{pyconsole}
+
+        from datetime import *
+
+        def validateCard(expDate):
+            if expDate>datetime.now().date(): #now() returns the date and time; date() retrieves only the date; time is LOCAL
+                print("Valid")
+            else:
+                print("Expired")
+
+        validateCard(date(2020,2,2))
+
+      \end{pyconsole}
+      \pcon{}{code:}
+
+    \end{core}
+
+    \begin{core}{time}
+
+      time https://docs.python.org/3/library/time.html
+
+      Epoch is the start of time on machines: January 1st 1970
+
+      time module methods
+        time()
+        ctime()
+        perf\_counter()
+        sleep()
+
+    \end{core}
+
+    \begin{core}{os}
+
+      os https://docs.python.org/3/library/os.html
+
+    \end{core}
+
+    \begin{core}{sys}
+
+      sys https://docs.python.org/3/library/sys.html
+
+      Command line arguments are arguments/values that are passed by the python run time to our program through a list called argv which is inside the sys module: sys.argv
+
+    \end{core}
+
+    \begin{core}{abc}
+
+      abc https://docs.python.org/3/library/abc.html
+
+    \end{core}
+
+    \begin{core}{re}
+
+      re https://docs.python.org/3/library/re.html
+
+    \end{core}
+
+    From this point on, many coding demonstrations will include the use of certain modules and packages
 
 \section{Object Oriented Programming}
 
@@ -1508,43 +1813,616 @@
 
   \end{core}
 
-\section{Regular Expressions}
+\section{Regular Expression}
 
-  \begin{core}{}
+  \begin{core}[label=core:regex]{Regular Expression}
+
+    \textbf{Regular expressions (regex)} are character sequences or structural patterns that, when evaluated by the \textcode{re} module, enable developers to perform substring searches and pattern validation against a given string.
 
   \end{core}
 
-\section{Threads}
+  \begin{core}[label=core:seq_char]{Sequence Characters}
 
-\section{Networking}
+    A regular expression pattern may be composed of raw literal characters, such as \textcode{a} or \textcode{b}, or \textbf{sequence characters}, which are predefined escape sequences that each represent a distinct subset of the full Unicode character space.
 
-\section{Modules \& Packages}
+    \begin{itemize}
 
-  Library is the umbrella term
+      \item \textcode{\textbackslash d} / \textbf{Digits}: Matches any numeric digit character from 0 to 9.
 
-  modules = flat file library
-  packages = directory structure library
+      \item \textcode{\textbackslash D} / \textbf{Non Digits}: Matches any character that is not a numeric digit.
 
-\section{Python Ecosystem}
+      \item \textcode{\textbackslash s} / \textbf{White Space}: Matches whitespace characters such as spaces, tabs, and newline characters.
+
+      \item \textcode{\textbackslash S} / \textbf{Non White Space}: Matches any character that is not a whitespace character.
+
+      \item \textcode{\textbackslash w} / \textbf{Alphanumeric}: Matches alphanumeric characters and underscores.
+
+      \item \textcode{\textbackslash W} / \textbf{Non Alphanumeric}: Matches any character that is not alphanumeric or an underscore.
+
+      \item \textcode{\textbackslash b} / \textbf{Word Boundary}: Matches positions surrounding complete words.
+
+      \item \textcode{\textbackslash A} / \textbf{Start of String}: Restricts the search to the beginning of the string.
+
+      \item \textcode{\textbackslash Z} / \textbf{End of String}: Restricts the search to the end of the string.
+
+    \end{itemize}
+
+  \end{core}
+
+  \begin{core}{Core Regular Expression Functions}
+
+    The \textcode{re} module exposes several core functions that make up the primary toolset for applying regular expressions against a string. Each function differs in its scope of search and the form of its return value, as demonstrated in the following list.
+
+    \begin{enumerate}
+
+      \item The \textcode{re.search()} function scans the entire string and returns a \textbf{match object} corresponding to the first occurrence of the pattern, or \textcode{None} if no match is found; the exact matched substring is then retrievable via the \textcode{.group()} method on that object.
+
+      \begin{pyconsole}
+
+        import re
+        string = "Take 1 up One 23 idea. One idea 45 at a time"
+
+        result = re.search(r'O\w',string)
+        print(result.group())
+
+      \end{pyconsole}
+      \pcon{\textcode{re.search()} paired with \textcode{.group()} returning the first matching substring}{code:re_search}
+
+      \item The \textcode{re.findall()} function traverses the full string and returns a list of all non-overlapping matches, making it the appropriate choice when multiple occurrences are expected. This does not need to paired with the \textcode{.group} method.
+
+      \begin{pyconsole}
+
+        import re
+        string = "Take 1 up One 23 idea. One idea 45 at a time"
+
+        result = re.findall(r'O\w\w',string)
+        print(result)
+
+      \end{pyconsole}
+      \pcon{\textcode{re.findall()} returning a list of matching substrings}{code:re_findall}
+
+      \item The \textcode{re.match()} function---paired with the \textcode{.group()} method---is more restrictive, as it anchors its search \textbf{exclusively to the beginning of the string} and returns \textcode{None} for any pattern not satisfied at that position.
+
+      \begin{pyconsole}
+
+        import re
+        string = "Take 1 up One 23 idea. One idea 45 at a time"
+
+        result = re.match('T\w\w',string)
+        print(result.group())
+
+      \end{pyconsole}
+      \pcon{\textcode{re.match()} paired with \textcode{.group()} returning the matching substring at the beginning of reference string}{code:re_match}
+
+      \item The \textcode{re.sub()} performs an in-place substitution of all matched substrings with a specified replacement
+
+      \begin{pyconsole}
+
+        import re
+        string = "Take 1 up One 23 idea. One idea 45 at a time"
+
+        result = re.sub(r'One','Two',string)
+        print(result)
+
+      \end{pyconsole}
+      \pcon{\textcode{re.sub()} replacing all matched substrings}{code:re_sub}
+
+      \item The \textcode{re.split()} partitions the string into a list of substrings at each position where the pattern is matched.
+
+      \begin{pyconsole}
+
+        import re
+        string = "Take 1 up One 23 idea. One idea 45 at a time"
+
+        result = re.split(r'\d+',string)
+        print(result)
+
+      \end{pyconsole}
+      \pcon{\textcode{re.split()} spliting given string at all match substring positions}{code:re_split}
+
+    \end{enumerate}
+
+  \end{core}
+
+  \begin{core}[label=core:quantifier]{Quantifiers}
+
+    \textbf{Quantifiers} extend the expressive power of a regex pattern by specifying the number of times a preceding character or sequence character must occur in order for a match to be satisfied. They may enforce an exact repetition count or define a permissible range.
+
+    \begin{enumerate}
+
+      \item The \textcode{\{m\}} quantifier constrains the preceding token to exactly $m$ repetitions, whereas \textcode{\{m,n\}} defines an inclusive range between a minimum of $m$ and a maximum of $n$ repetitions.
+
+      \begin{pyconsole}
+
+        import re
+        string = "Take 1 up One 23 idea.One idea 45 at a Time"
+
+        result = re.findall(r'O\w{1}',string) #{m} exactly m repetition
+        print(result)
+
+        result = re.findall(r'O\w{1,2}',string) #{m,n} m minimum, n maximum repetitions
+        print(result)
+
+      \end{pyconsole}
+      \pcon{Regexes using quantifiers}{code:regex_quant1}
+
+      \item The \textcode{+} quantifier requires one or more occurrences, \textcode{*} permits zero or more, and \textcode{?} allows either zero or one, effectively rendering the preceding token optional.
+
+      \begin{pyconsole}
+
+        import re
+        string = "Take 1 up One 23 idea.One idea 45 at a Time"
+
+        result = re.findall(r'O\w+',string) #+ one or more repetitions
+        print(result)
+
+        result = re.findall(r'O\w*',string) #* zero or more repetitions
+        print(result)
+
+        result = re.findall(r'O\w?',string) #? zero or one repetitions
+        print(result)
+
+      \end{pyconsole}
+      \pcon{Regexes using quantifiers}{code:regex_quant2}
+
+    \end{enumerate}
+
+    Mind that quantifiers are greedy by default, meaning the engine will consume as many characters as possible while still producing an overall match. For instance, the \textcode{{1,2}} quantifier in \autoref{code:regex_quant1} yields a list of \textcode{'One'} strings rather than \textcode{'On'}, as the engine greedily consumes the maximum number of permitted repetitions.
+
+  \end{core}
+
+  \begin{core}{Special Characters}
+
+    In addition to \textbf{sequence characters} (\textit{\autoref{core:seq_char}}) and \textbf{quantifiers} (\textit{\autoref{core:seq_char}}), the \textcode{re} module supports a set of \textbf{special characters} that modify the structural behaviour of a pattern, such as constraining its position within the string, escaping reserved metacharacters, or expressing logical alternation between sub-patterns.
+
+    \begin{enumerate}
+
+      \item The unescaped dot \textcode{.} serves as a wildcard, matching any single character except a newline; when a literal dot is intended, it must be escaped as \textcode{\textbackslash .} to suppress its metacharacter interpretation. This escaping convention applies universally to all reserved metacharacters within the \textcode{re} module.
+
+      \begin{pyconsole}
+
+        import re
+        string = "I live .. like cats oh yeah"
+
+        result = re.search(r'l..e',string)
+        print(result.group())
+
+        result = re.search(r'\.\.',string)
+
+        print(result.group())
+
+      \end{pyconsole}
+      \pcon{\textcode{.} and \textcode{\textbackslash .} special characters}{code:regex_special1}
+
+      \item The anchors \textcode{\^{}} and \textcode{\$} constrain a match to the start and end of the string respectively, analogously to \textcode{\textbackslash A} and \textcode{\textbackslash Z}. 
+
+      \begin{pyconsole}
+
+        import re
+        string = "I live .. like cats oh yeah"
+
+        result = re.search(r'^I...',string) # beginning
+        print(result.group())
+
+        result = re.search(r'...h$',string) # end
+        print(result.group())
+
+      \end{pyconsole}
+      \pcon{Regex matching at the beginning and end of given string using \textcode{\^} and \textcode{\$}}{code:regex_special2}
+
+      \item Character classes, denoted by \textcode{[...]}, define an explicit set of permissible characters at a given position, while the negated form \textcode{[\^{}...]} inverts this constraint to match any character outside the specified set.
+
+      \begin{pyconsole}
+
+        import re
+        string = "I live .. like cats oh yeah"
+
+        result = re.search(r'[aeiou]',string)
+        print(result.group())
+
+        result = re.search(r'[^I li]',string)
+        print(result.group())
+
+      \end{pyconsole}
+      \pcon{Defining sets of permissible characters in a regex}{code:regex_special3}
+
+      \item The alternation operator \textcode{(R|S)} evaluates two or more sub-expressions and returns a match if either is satisfied, providing a concise mechanism for expressing logical disjunction within a pattern.
+
+      \begin{pyconsole}
+
+        import re
+        string = "I live .. like cats oh yeah"
+
+        result = re.search(r'(cats|dogs)',string) #(R|S) specifies multiple regular expressions to match; either R OR S
+        print(result.group())
+
+      \end{pyconsole}
+      \pcon{Alternation operator \textcode{(R|S)} in regex matching}{code:regex_special4}
+
+    \end{enumerate}
+
+  \end{core}
+
+\section{Threading}
+
+  \begin{core}{Threading \& Global Interpreter Lock (GIL)}
+
+    So far, all previous coding examples shown have been \textbf{single-threaded}, meaning that line 1 finishes before moving onto line 2, line 3, and so on. However, with the \textcode{threading} module, a developer is able to execute several concurrent operations within a single \textbf{multi-threaded} process in a practice called \textbf{threading}.
+
+    While, in theory, threading allows for simultaneous execution of code, threading specifically in Python works slightly differently due to a mechanism called the \textbf{Global Interpreter Lock (GIL)}. The GIL is a safety mechanism built into CPython (\textit{\autoref{core:cpython}}) that acts as a master lock on Python's memory and thus prevents multiple threads from executing Python bytecodes exactly simultaneously. As a consequence, the \textcode{threading} module does not necessarily allow different code executions to progress in true parallel, but rather rapidly passes the single GIL back and forth between threads, often yielding the lock during a thread's \textbf{downtime} (\textit{periods of waiting for external operations, such as network requests, file I/O, or user input}).
+
+  \end{core}
+
+  \begin{core}{Main Thread}
+
+    The main thread that is always running is called the \textcode{MainThread}, which can be retrieved through the \textcode{threading} module.
+
+    \begin{pyconsole}
+
+      import threading
+
+      print('Current thread that is running: {}'.format(threading.current_thread().name))
+
+      if threading.current_thread() == threading.main_thread():
+          print('Main Thread')
+
+    \end{pyconsole}
+    \pcon{\textcode{MainThread} confirmation}{code:main_thread}
+
+  \end{core}
+
+  \subsection{Threading Methods}
+
+    \begin{core}[label=core:threading_function]{Threading Through Functions}
+
+      Threading in its most elementary form is invoked by passing a callable into the \textcode{Thread} object, which instantiates a new thread of execution. The \textcode{Thread} constructor accepts two principal parameters: \textcode{target}, which holds a reference to the function object in its non-invoked state, and \textcode{args}, which supplies the positional arguments to that function as a \textbf{tuple}.
+
+        \begin{pyconsole}
+
+          import threading
+
+          def displayNumbers(count):
+              i = 0
+              print(threading.current_thread().name) 
+              while i <= count:
+                  print(i)
+                  i += 1
+
+          print(threading.current_thread().name)
+
+          # notice the args value below is a tuple
+          t = threading.Thread(target=displayNumbers, args = (5,), name = 'displayNumbersThread') 
+          t.start()
+          t.join()
+          print("displayNumbers function finished")
+
+        \end{pyconsole}
+        \pcon{Simple threading via a function}{code:threading_function}
+
+      As demonstrated above, the thread object \textcode{t} is dispatched via the \textcode{.start()} method, which schedules the thread for execution and returns immediately, allowing the main thread to continue concurrently. It is important to distinguish \textcode{.start()} from the lower-level \textcode{.run()} method: whereas \textcode{.start()} delegates execution to a newly spawned OS-level thread, \textcode{.run()} invokes the target callable directly on the \textit{calling} thread, producing strictly \textbf{sequential rather than concurrent behaviour}.
+
+      The \textcode{.join()} method causes the main thread to halt until \textcode{t} has completed execution, thereby synchronising the two threads before control advances to subsequent statements. In this example, the main thread is suspended until \textcode{displayNumbers} returns, after which the final print statement is reached.
+
+      Finally, observe that invoking \textcode{threading.current\_thread().name} from within \textcode{t}'s execution context yields \textcode{displayNumbersThread}, reflecting the identifier supplied via the \textcode{name} parameter at construction time. This illustrates that each \textcode{Thread} instance maintains its own execution context, including thread-local identity metadata accessible at runtime.
+
+    \end{core}
+
+    \begin{core}{Threading Through Class Methods}
+
+      Analogously to the function-based approach demonstrated in \autoref{core:threading_function}, threads may equally be dispatched by targeting instance methods of a class.
+
+      \begin{pyconsole}
+
+        import threading
+        from time import sleep # the sleep function simply makes the program wait
+
+        class MyThread:
+            def displayNumbers(self):
+                i = 0
+                print(threading.current_thread().name)
+                while i <= 3:
+                    print(i)
+                    i+=1
+
+        obj = MyThread()
+
+        t1 = threading.Thread(target=obj.displayNumbers,name='displayNumbers1')
+        t1.start()
+        sleep(0.5)
+
+        t2 = threading.Thread(target=obj.displayNumbers,name='displayNumbers2')
+        t2.start()
+        t1.join()
+        t2.join()
+
+      \end{pyconsole}
+      \pcon{Multi-threading via a class method}{code:threading_class}
+
+      The \textcode{sleep(0.5)} calls serve to introduce a deliberate delay between the dispatch of \textcode{t1} and \textcode{t2}, imposing an approximate execution ordering. In their absence, the relative scheduling of the two threads is delegated entirely to the Python thread scheduler, which provides no ordering guarantees---the threads may interweave arbitrarily or execute in an effectively simultaneous fashion depending on the underlying system load.
+
+    \end{core}
+
+    \begin{core}{Common Producer/Consumer Pattern}
+
+      The producer-consumer pattern is one of the most canonical demonstrations of multi-threaded coordination, wherein two threads operate concurrently on a shared resource.
+
+      \begin{pyconsole}
+
+        import threading
+        import time
+
+        class Producer:
+            def __init__(self):
+                self.products = []
+                self.ordersplaced = False
+            def produce(self):
+                for i in range(1,5):
+                    self.products.append('Product'+str(i))
+                    time.sleep(1)
+                    print('Item Added')
+                self.ordersplaced = True
+
+        class Consumer:
+            def __init__(self,prod):
+                self.prod = prod
+            def consume(self):
+                while self.prod.ordersplaced == False:
+                    print("Waiting for the orders")
+                    time.sleep(0.4)
+                print('Orders Shipped {}'.format(self.prod.products))
+
+        p = Producer()
+        c = Consumer(p)
+
+        t1 = threading.Thread(target = p.produce)
+        t2 = threading.Thread(target = c.consume)
+
+        t1.start()
+        t2.start()
+        t1.join()
+        t2.join()
+
+      \end{pyconsole}
+      \pcon{Multi-threading consumer \& producer pattern}{code:consumer_producer}
+
+      As illustrated in \autoref{code:consumer_producer}, the consumer thread \textcode{t2} continuously polls the shared \textcode{ordersplaced} flag within a busy-wait loop, deferring execution of the shipment statement until the flag evaluates to \textcode{True}. This state transition is driven by the producer thread \textcode{t1}, which iteratively populates the product list via its \textcode{for} loop before setting \textcode{ordersplaced = True} upon completion.
+
+    \end{core}
+
+  \subsection{Locks}
+
+    \begin{core}[label=core:locks]{Locks}
+
+      When multiple threads access a shared resource concurrently, conditions may arise in which overlapping operations produce inconsistent or corrupted state. To prevent this, Python's \textcode{threading} module provides the \textcode{Lock()} class, which enforces \textbf{mutual exclusion} by ensuring that at most one thread may execute a designated critical section at any given time.
+
+      \begin{pyconsole}
+
+        import threading
+
+        class BookMyBus:
+            def __init__(self,availableSeats):
+                self.availableSeats = availableSeats
+                self.l = threading.Lock()
+            def buy(self,seatsRequested):
+                self.l.acquire() #starting the locked environment
+                print('Total seats available: {}'.format(self.availableSeats))
+                if(self.availableSeats>=seatsRequested):
+                    print('Confirming a seat')
+                    print('Processing the payment')
+                    print('Printing the Ticket')
+                    self.availableSeats-=seatsRequested
+                else:
+                    print('Sorry. No seats available')
+                self.l.release() #ending the locked environment
+
+        obj = BookMyBus(10)
+
+        t1 = threading.Thread(target=obj.buy,args=(3,))
+        t2 = threading.Thread(target=obj.buy,args=(4,))
+        t3 = threading.Thread(target=obj.buy,args=(4,))
+
+        t1.start()
+        t2.start()
+        t3.start()
+        t1.join()
+        t2.join()
+        t3.join()
+
+      \end{pyconsole}
+      \pcon{Threading locks enforcing mutual exclusion}{code:locks}
+
+      The critical section---the entirity of the \textcode{buy} method---is surrounded by paired calls to \textcode{.acquire()} and \textcode{.release()}. When a thread invokes \textcode{.acquire()}, it attempts to take ownership of the lock: if the lock is currently unheld, the thread acquires it and proceeds into the critical section; if another thread already holds the lock, the calling thread blocks until the lock is relinquished. Once the protected operations are complete, \textcode{.release()} surrenders ownership of the lock, allowing the next waiting thread to acquire it and enter the critical section in turn.
+
+    \end{core}
+
+    \begin{core}{Thread Synchronisation}
+
+      \textbf{Thread synchronisation} (\textit{communication}) is facilitated through the \textcode{Condition} class and its associated methods, \textcode{wait()} and \textcode{notify()}; these methods must be invoked within a locked context in order to prevent data corruption.
+
+      \begin{pyconsole}
+
+        import threading
+        import time
+
+        class Producer:
+            def __init__(self):
+                self.products = []
+                self.c = threading.Condition() # the Condition class already has the lock method in-built into it, thus you don't need to invoke a separate lock method
+            def produce(self):
+                self.c.acquire() # locked environment setting through the Condition class
+                for i in range(1,5):
+                    self.products.append('Product'+str(i))
+                    time.sleep(1)
+                    print('Item Added: Product' + str(i))
+                self.c.notify() # where the program ends and notifies the consumer
+                self.c.release()
+
+        class Consumer:
+            def __init__(self,prod):
+                self.prod = prod
+            def consume(self):
+                self.prod.c.acquire()
+                self.prod.c.wait() 
+                self.prod.c.release()
+                print('Orders Shipped: {}'.format(self.prod.products))
+        p = Producer()
+        c = Consumer(p)
+
+        t1 = threading.Thread(target = p.produce)
+        t2 = threading.Thread(target = c.consume)
+
+        t1.start()
+        t2.start()
+
+        t1.join()
+        t2.join()
+
+      \end{pyconsole}
+      \pcon{Threading using the \textcode{Condition} class}{code:threading_condition}
+
+      Consider the scenario in which the Python runtime schedules the \textcode{t2} thread (\textit{consumer thread}) first; upon entering \textcode{consume()}, it acquires the lock and immediately finds the product list empty, as the producer has not yet executed. This results in a deadlock: the lock remains held within the \textcode{consume()} block, preventing the \textcode{produce()} function from acquiring it, since both threads contend over the same underlying \textcode{Condition} instance \textcode{self.c} and \textcode{self.prod.c}.
+
+      To prevent the above deadlock scenario, the \textcode{wait()} method---as seen in \autoref{code:threading_condition}---performs three critical operations.
+
+      \begin{enumerate}[label=(\arabic*)]
+
+        \item It \textbf{automically releases the lock} held within the \textcode{acquire()} / \textcode{release()} block of the \textcode{consume()} function, returning it to the general pool so that the producer thread may acquire it.
+
+        \item It suspends the calling thread and places it into an internal waiting queue managed by the \textcode{Condition} object.
+
+        \item It remains suspended in the waiting queue until explicitly signalled by a call to \textcode{notify()}.
+
+      \end{enumerate}
+
+      Once the lock is released back to the pool, the scheduler grants it to the \textcode{t1} thread (\textit{producer thread}), which enters \textcode{produce()}, populates the product list, and completes its work. Prior to calling \textcode{release()}, the producer invokes \textcode{notify()}, which promotes the consumer thread \textcode{t2} from the waiting queue back to a runnable state, subsequently allowing it to acquire the lock and correctly print the shipped orders.
+
+      In summary, the \textcode{wait()}--\textcode{notify()} mechanism is a tool designed explicitly to handle unpredictable scheduling order arising from \textbf{race conditions} (\textit{the Free-For-All race}), and to enforce a correct, deterministic execution sequence across cooperating threads.
+
+    \end{core}
+    
+  \subsection{Queuing}
+
+    \begin{core}{Queuing}
+
+      The \textcode{queue} module provides a thread-safe mechanism for passing objects between threads, offering a simpler and more robust alternative implementation of the producer-consumer pattern with locks (\textit{\autoref{core:locks}}).
+
+      \begin{pyconsole}
+
+        import random
+        import time
+        import queue
+        import threading
+
+        def producer(q):
+            for _ in range(2):
+                print('Producing')
+                q.put(random.randint(1,50)) #putting the random integer into a queue
+                print('Produced')
+                time.sleep(0.5)
+
+        def consumer(q):
+            for _ in range(2):
+                print('Ready to consume')
+                print('Consume Data: {}'.format(q.get())) #returning the queued integer
+                time.sleep(0.5)
+
+        q = queue.Queue()
+        t1 = threading.Thread(target=consumer,args=(q,))
+        t2 = threading.Thread(target=producer,args=(q,))
+
+        t1.start()
+        t2.start()
+        t1.join()
+        t2.join()
+
+      \end{pyconsole}
+      \pcon{Queueing using \textcode{Queue()}}{code:queue}
+
+      As illustrated in \autoref{code:queue}, the \textcode{Queue()} class internally manages all requisite locking, ensuring that concurrent \textcode{put()} and \textcode{get()} operations across multiple threads remain free from race conditions and data corruption. Specifically, the \textcode{put()} method enqueues the random integer generated by \textcode{producer()} into the shared \textcode{q} object, while the \textcode{get()} method dequeues and returns the first item in FIFO order for consumption by \textcode{consumer()}, which outputs the retrieved value via a \textcode{print} statement.
+
+    \end{core}
+
+    \begin{core}{Alternative Queue Ordering}
+
+      Beyond the default FIFO ordering, the \textcode{queue} module exposes alternative queue classes that govern the order in which elements are dequeued, providing developers with flexible retrieval strategies suited to different scheduling requirements.
+
+      \begin{pyconsole}
+
+        import queue
+
+        lq = queue.LifoQueue() # last in first out
+        lq.put(400)
+        lq.put(100)
+        lq.put(500)
+        lq.put(50)
+        while not lq.empty(): # this is another function to specify an empty queue
+            print(lq.get(), end=' ')
+        print()
+
+        pq = queue.PriorityQueue() #in order
+        pq.put(400)
+        pq.put(100)
+        pq.put(500)
+        pq.put(50)
+        while not pq.empty():
+            print(pq.get(), end=' ')
+        print()
+
+        pq = queue.PriorityQueue()
+        pq.put((400,'John')) # if the item in the queue is a str, then make a tuple with a int in the first index and it will use that number to define the order
+        pq.put((100,'Bob'))
+        pq.put((500,'Ahmed'))
+        pq.put((50,'Bharath'))
+        while not pq.empty():
+            print(pq.get()[1], end=' ') #insert the index to choose only the name in the prioritized order
+
+      \end{pyconsole}
+      \pcon{Custom queue ordering}{code:queue_order}
+
+      As demonstrated in \autoref{code:queue_order}, the \textcode{LifoQueue} class implements a last-in, first-out retrieval policy, whereby the most recently enqueued element is always dequeued first. The \textcode{PriorityQueue} class, by contrast, dequeues elements in ascending order of their priority value; when the enqueued items are non-numeric, a tuple of the form \textcode{(priority, item)} may be supplied, whereupon the queue uses the integer at index zero to determine the retrieval order, with only the associated item at index one being extracted for use.
+
+    \end{core}
+
+  \subsection{Daemon Threads}
+
+    \begin{core}{Daemon Threads}
+
+      A \textbf{daemon thread} is a thread that runs silently in the background and is automatically terminated by the Python runtime as soon as all non-daemon threads have completed execution. Unlike standard threads, daemon threads are not awaited by the interpreter upon program exit, meaning any work they have not yet completed is abandoned without notice when the main thread finishes.
+
+      \begin{pyconsole}
+
+        import threading
+        import time
+
+        def background_task():
+            while True:
+                print('Daemon running...')
+                time.sleep(0.5)
+
+        def main_task():
+            for i in range(3):
+                print('Main thread working: step {}'.format(i))
+                time.sleep(1)
+
+        t1 = threading.Thread(target=background_task)
+        t1.daemon = True # designates t1 as a daemon thread
+        t2 = threading.Thread(target=main_task)
+
+        t1.start()
+        t2.start()
+        t2.join() # only the non-daemon thread is joined; once t2 finishes, t1 is killed automatically
+
+      \end{pyconsole}
+      \pcon{Daemon thread termination behaviour}{code:daemon_thread}
+
+      As illustrated in \autoref{code:daemon_thread}, the daemon flag is set via the \textcode{.daemon} attribute prior to invoking \textcode{start()}; assigning it thereafter raises a \textcode{RuntimeError}. Once the non-daemon thread \textcode{t2} completes its iteration and \textcode{join()} returns, the Python runtime terminates the process entirely, forcibly halting the daemon thread \textcode{t1} regardless of its current state within the \textcode{while} loop.
+
+      It is worth noting that daemon threads are deliberately not joined, as doing so would block the main thread indefinitely given their non-terminating nature. This distinguishes them from standard threads, where \textcode{join()} is used to ensure orderly completion.
+
+    \end{core}
+
+\section{Third-Party Libraries}
   
-  \begin{core}[label=core:libraries]{Libraries}
-
-  \end{core}
-
-  \subsection{Standard Library}
-
-    modules (built in)
-      random https://docs.python.org/3/library/random.html
-      math https://docs.python.org/3/library/math.html
-      datetime https://docs.python.org/3/library/datetime.html
-      time https://docs.python.org/3/library/time.html
-
-      os https://docs.python.org/3/library/os.html
-      sys https://docs.python.org/3/library/sys.html
-      abc https://docs.python.org/3/library/abc.html
-      re https://docs.python.org/3/library/re.html
-      Full Library https://docs.python.org/3/py-modindex.html
-
   \subsection{Package Management}
 
     pip and PyPI
@@ -1576,6 +2454,5 @@
   print 
     sep
     end
-  f string formatting
   
 \end{document}
