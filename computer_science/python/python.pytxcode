@@ -76,15 +76,14 @@
             current_dir = os.getcwd()
             print(current_dir)
 
-
-=>PYTHONTEX#pycon#default#default#7#console#####1306#
+=>PYTHONTEX#pycon#default#default#7#console#####1305#
 
             import os
 
             entries = os.listdir('.')
             print(entries)
 
-=>PYTHONTEX#pycon#default#default#8#console#####1332#
+=>PYTHONTEX#pycon#default#default#8#console#####1331#
 
             import os
             import shutil
@@ -115,21 +114,23 @@
             os.rmdir('renamed_dir/sub_parent/child')
             print(os.listdir('renamed_dir/sub_parent'))
 
-=>PYTHONTEX#pycon#default#default#9#console#####1376#
+            os.chdir('..')
+
+=>PYTHONTEX#pycon#default#default#9#console#####1377#
 
             import os
 
             user_profile = os.getenv('USER', 'default_user')
             print(user_profile)
 
-=>PYTHONTEX#pycon#default#default#10#console#####1404#
+=>PYTHONTEX#pycon#default#default#10#console#####1405#
 
             import subprocess
 
             result = subprocess.run(['echo', 'Hello from the subshell!'])
             print(result) # returncode of 0 means success
 
-=>PYTHONTEX#pycon#default#default#11#console#####1422#
+=>PYTHONTEX#pycon#default#default#11#console#####1423#
 
             import subprocess
 
@@ -137,7 +138,7 @@
 
             print(result)
 
-=>PYTHONTEX#pycon#default#default#12#console#####1441#
+=>PYTHONTEX#pycon#default#default#12#console#####1442#
 
             import subprocess
 
@@ -145,7 +146,7 @@
 
             subprocess.run(['python', '-c', 'import sys; sys.exit(1)'], check=True, capture_output=True, text=True) # intentionally exits with an error status (1)
 
-=>PYTHONTEX#pycon#default#default#13#console#####1476#
+=>PYTHONTEX#pycon#default#default#13#console#####1477#
 
             import sys
 
@@ -154,7 +155,7 @@
             print(sys.platform)
             print(sys.executable)
 
-=>PYTHONTEX#pycon#default#default#14#console#####1509#
+=>PYTHONTEX#pycon#default#default#14#console#####1510#
 
             import sys
 
@@ -164,17 +165,45 @@
             # emitting an error message that bypasses standard output redirection
             sys.stderr.write("Warning: Configuration file missing.\n")
 
-=>PYTHONTEX#pycon#default#default#15#console#####1535#
+=>PYTHONTEX#pycon#default#default#15#console#####1554#
 
-            import sys
-            sys.exit(0)
+            import glob
+            import os
 
-=>PYTHONTEX#pycon#default#default#16#console#####1543#
+            print(os.getcwd())
 
-            import sys
-            sys.exit(1)
+            py_files = glob.glob('*.py') # retrieve all Python source files in the active directory
+            print(py_files)
 
-=>PYTHONTEX#pycon#default#default#17#console#####1637#
+            txt_files = glob.glob('**/*.pkl', recursive=True) # retrieve all text files spanning a nested directory structure
+            print(txt_files)
+
+=>PYTHONTEX#pycon#default#default#16#console#####1578#
+
+            import glob
+
+            # Initialize an iterator for CSV files
+            csv_iterator = glob.iglob('data/*.csv')
+            print(type(csv_iterator))
+
+            # Consume the iterator sequentially without bulk memory allocation
+            for filepath in csv_iterator:
+                print(f"Processing: {filepath}")
+
+=>PYTHONTEX#pycon#default#default#17#console#####1601#
+
+            import glob
+
+            # A literal directory name containing shell-reserved characters
+            tricky_dir = "results_[final]*"
+
+            safe_pattern = glob.escape(tricky_dir)
+            print(safe_pattern)
+
+            # Safely executing a search inside the explicitly escaped directory
+            files = glob.glob(f"{safe_pattern}/*.json")
+
+=>PYTHONTEX#pycon#default#default#18#console#####1699#
 
         from datetime import *
 
@@ -186,7 +215,7 @@
 
         validateCard(date(2020,2,2))
 
-=>PYTHONTEX#pycon#default#default#18#console#####1691#
+=>PYTHONTEX#pycon#default#default#19#console#####1753#
 
         class BankAccount:
             bank = "Chase" # class attribute
@@ -207,7 +236,7 @@
         print(account.withdraw(30))
         print(account.balance)
 
-=>PYTHONTEX#pycon#default#default#19#console#####1739#
+=>PYTHONTEX#pycon#default#default#20#console#####1801#
 
           class Example:
               def setName(self, n): # setter
@@ -219,7 +248,7 @@
           p1.setName("John")
           print(p1.getName())
 
-=>PYTHONTEX#pycon#default#default#20#console#####1758#
+=>PYTHONTEX#pycon#default#default#21#console#####1820#
 
           class PythonicExample:
               def __init__(self, name):
@@ -237,7 +266,7 @@
           p2.name = "Sally"  # Intercepted by the setter seamlessly
           print(p2.name)     # Intercepted by the getter seamlessly
 
-=>PYTHONTEX#pycon#default#default#21#console#####1787#
+=>PYTHONTEX#pycon#default#default#22#console#####1849#
 
         class ReadOnlyExample:
             def __init__(self, name):
@@ -253,7 +282,7 @@
         # Attempting to modify the attribute will now throw an AttributeError
         p3.name = "Sally"
 
-=>PYTHONTEX#pycon#default#default#22#console#####1814#
+=>PYTHONTEX#pycon#default#default#23#console#####1876#
 
         class BankAccount:
             def __init__(self, owner, initial_deposit):
@@ -272,7 +301,7 @@
 
         print(account.__balance) # private attributes cannot be directly accessed
 
-=>PYTHONTEX#pycon#default#default#23#console#####1844#
+=>PYTHONTEX#pycon#default#default#24#console#####1906#
 
         class Animal:
             def __init__(self, name):
@@ -290,7 +319,7 @@
         print(my_dog.eat())
         print(my_dog.speak())
 
-=>PYTHONTEX#pycon#default#default#24#console#####1875#
+=>PYTHONTEX#pycon#default#default#25#console#####1937#
 
           class Vehicle:
               def __init__(self, brand, model):
@@ -310,7 +339,7 @@
           car = Car("Toyota", "Camry", 4)
           print(car.description())
 
-=>PYTHONTEX#pycon#default#default#25#console#####1906#
+=>PYTHONTEX#pycon#default#default#26#console#####1968#
 
         class MasterCard:
             def process_payment(self, amount):
@@ -338,7 +367,7 @@
         checkout_gate(crypto, 150.00)
         checkout_gate(mobile, 150.00)
 
-=>PYTHONTEX#pycon#default#default#26#console#####1947#
+=>PYTHONTEX#pycon#default#default#27#console#####2009#
 
         from abc import ABC, abstractmethod
         class PrinterBlueprint(ABC):
@@ -358,7 +387,7 @@
         printer_2 = BrokenPrinter() # renamed mandatory method
         printer_3 = PrinterBlueprint() # can't call the abstract parent class
 
-=>PYTHONTEX#pycon#default#default#27#console#####1988#
+=>PYTHONTEX#pycon#default#default#28#console#####2050#
 
         class InvalidAgeError(Exception):
             pass # no need for constructor
@@ -376,7 +405,7 @@
             print(f"Error Type: {type(e).__name__}")
             print(f"Error Message: {e}")
 
-=>PYTHONTEX#pycon#default#default#28#console#####2017#
+=>PYTHONTEX#pycon#default#default#29#console#####2079#
 
         try:
             print("Attempting the calculation...")
@@ -389,7 +418,7 @@
         finally:
             print("Cleanup: The division operation has finished.")
 
-=>PYTHONTEX#pycon#default#default#29#console#####2037#
+=>PYTHONTEX#pycon#default#default#30#console#####2099#
 
         try:
             print("Attempting the calculation...")
@@ -402,7 +431,7 @@
         finally:
             print("Cleanup: The division operation has finished.")
 
-=>PYTHONTEX#pycon#default#default#30#console#####2055#
+=>PYTHONTEX#pycon#default#default#31#console#####2117#
 
         try:
             user_input = "Hello"
@@ -414,7 +443,7 @@
         except Exception as e: # This is a fallback that catches anything else and prints its name
             print(f"An unexpected {type(e).__name__} occurred: {e}")
 
-=>PYTHONTEX#pycon#default#default#31#console#####2080#
+=>PYTHONTEX#pycon#default#default#32#console#####2142#
 
         import sys
         import logging
@@ -436,7 +465,7 @@
         logging.warning("System is operating with minimal resources.")
         divide_values(10, 0)
 
-=>PYTHONTEX#pycon#default#default#32#console#####2117#
+=>PYTHONTEX#pycon#default#default#33#console#####2179#
 
         def apply_discount(original_price, discount_rate):
             # Assert that the parameters fall within logically valid bounds
@@ -449,7 +478,7 @@
 
         apply_discount(-50.0, 0.2) # This will immediately trigger an AssertionError
 
-=>PYTHONTEX#pycon#default#default#33#console#####2175#
+=>PYTHONTEX#pycon#default#default#34#console#####2237#
 
       with open("sensor_data.txt", "w") as file_stream:
           _ = file_stream.write("timestamp: 001, status: active\n")
@@ -460,7 +489,7 @@
           content = file_stream.read()
           print(content)
 
-=>PYTHONTEX#pycon#default#default#34#console#####2207#
+=>PYTHONTEX#pycon#default#default#35#console#####2269#
 
       import pickle
 
@@ -479,7 +508,7 @@
       print(f"Data Type: {type(retrieved_data)}")
       print(f"Content: {retrieved_data}")
 
-=>PYTHONTEX#pycon#default#default#35#console#####2277#
+=>PYTHONTEX#pycon#default#default#36#console#####2339#
 
         import re
         string = "Take 1 up One 23 idea. One idea 45 at a time"
@@ -487,7 +516,7 @@
         result = re.search(r'O\w',string)
         print(result.group())
 
-=>PYTHONTEX#pycon#default#default#36#console#####2290#
+=>PYTHONTEX#pycon#default#default#37#console#####2352#
 
         import re
         string = "Take 1 up One 23 idea. One idea 45 at a time"
@@ -495,7 +524,7 @@
         result = re.findall(r'O\w\w',string)
         print(result)
 
-=>PYTHONTEX#pycon#default#default#37#console#####2303#
+=>PYTHONTEX#pycon#default#default#38#console#####2365#
 
         import re
         string = "Take 1 up One 23 idea. One idea 45 at a time"
@@ -503,7 +532,7 @@
         result = re.match('T\w\w',string)
         print(result.group())
 
-=>PYTHONTEX#pycon#default#default#38#console#####2316#
+=>PYTHONTEX#pycon#default#default#39#console#####2378#
 
         import re
         string = "Take 1 up One 23 idea. One idea 45 at a time"
@@ -511,7 +540,7 @@
         result = re.sub(r'One','Two',string)
         print(result)
 
-=>PYTHONTEX#pycon#default#default#39#console#####2329#
+=>PYTHONTEX#pycon#default#default#40#console#####2391#
 
         import re
         string = "Take 1 up One 23 idea. One idea 45 at a time"
@@ -519,7 +548,7 @@
         result = re.split(r'\d+',string)
         print(result)
 
-=>PYTHONTEX#pycon#default#default#40#console#####2352#
+=>PYTHONTEX#pycon#default#default#41#console#####2414#
 
         import re
         string = "Take 1 up One 23 idea.One idea 45 at a Time"
@@ -530,7 +559,7 @@
         result = re.findall(r'O\w{1,2}',string) #{m,n} m minimum, n maximum repetitions
         print(result)
 
-=>PYTHONTEX#pycon#default#default#41#console#####2368#
+=>PYTHONTEX#pycon#default#default#42#console#####2430#
 
         import re
         string = "Take 1 up One 23 idea.One idea 45 at a Time"
@@ -544,7 +573,7 @@
         result = re.findall(r'O\w?',string) #? zero or one repetitions
         print(result)
 
-=>PYTHONTEX#pycon#default#default#42#console#####2399#
+=>PYTHONTEX#pycon#default#default#43#console#####2461#
 
         import re
         string = "I live .. like cats oh yeah"
@@ -556,7 +585,7 @@
 
         print(result.group())
 
-=>PYTHONTEX#pycon#default#default#43#console#####2416#
+=>PYTHONTEX#pycon#default#default#44#console#####2478#
 
         import re
         string = "I live .. like cats oh yeah"
@@ -567,7 +596,7 @@
         result = re.search(r'...h$',string) # end
         print(result.group())
 
-=>PYTHONTEX#pycon#default#default#44#console#####2432#
+=>PYTHONTEX#pycon#default#default#45#console#####2494#
 
         import re
         string = "I live .. like cats oh yeah"
@@ -578,7 +607,7 @@
         result = re.search(r'[^I li]',string)
         print(result.group())
 
-=>PYTHONTEX#pycon#default#default#45#console#####2448#
+=>PYTHONTEX#pycon#default#default#46#console#####2510#
 
         import re
         string = "I live .. like cats oh yeah"
@@ -586,7 +615,7 @@
         result = re.search(r'(cats|dogs)',string) #(R|S) specifies multiple regular expressions to match; either R OR S
         print(result.group())
 
-=>PYTHONTEX#pycon#default#default#46#console#####2477#
+=>PYTHONTEX#pycon#default#default#47#console#####2539#
 
       import threading
 
@@ -595,7 +624,7 @@
       if threading.current_thread() == threading.main_thread():
           print('Main Thread')
 
-=>PYTHONTEX#pycon#default#default#47#console#####2497#
+=>PYTHONTEX#pycon#default#default#48#console#####2559#
 
           import threading
 
@@ -614,7 +643,7 @@
           t.join()
           print("displayNumbers function finished")
 
-=>PYTHONTEX#pycon#default#default#48#console#####2531#
+=>PYTHONTEX#pycon#default#default#49#console#####2593#
 
         import threading
         from time import sleep # the sleep function simply makes the program wait
@@ -638,7 +667,7 @@
         t1.join()
         t2.join()
 
-=>PYTHONTEX#pycon#default#default#49#console#####2566#
+=>PYTHONTEX#pycon#default#default#50#console#####2628#
 
         import threading
         import time
@@ -674,7 +703,7 @@
         t1.join()
         t2.join()
 
-=>PYTHONTEX#pycon#default#default#50#console#####2615#
+=>PYTHONTEX#pycon#default#default#51#console#####2677#
 
         import threading
 
@@ -707,7 +736,7 @@
         t2.join()
         t3.join()
 
-=>PYTHONTEX#pycon#default#default#51#console#####2659#
+=>PYTHONTEX#pycon#default#default#52#console#####2721#
 
         import threading
         import time
@@ -745,7 +774,7 @@
         t1.join()
         t2.join()
 
-=>PYTHONTEX#pycon#default#default#52#console#####2726#
+=>PYTHONTEX#pycon#default#default#53#console#####2788#
 
         import random
         import time
@@ -774,7 +803,7 @@
         t1.join()
         t2.join()
 
-=>PYTHONTEX#pycon#default#default#53#console#####2766#
+=>PYTHONTEX#pycon#default#default#54#console#####2828#
 
         import queue
 
@@ -804,7 +833,7 @@
         while not pq.empty():
             print(pq.get()[1], end=' ') #insert the index to choose only the name in the prioritized order
 
-=>PYTHONTEX#pycon#default#default#54#console#####2809#
+=>PYTHONTEX#pycon#default#default#55#console#####2871#
 
         import threading
         import time

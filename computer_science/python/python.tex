@@ -1295,7 +1295,6 @@
             current_dir = os.getcwd()
             print(current_dir)
 
-
           \end{pyconsole}
           \pcon{Querying the active system directory using \textcode{os.getcwd()}}{code:os_getcwd}
 
@@ -1359,6 +1358,8 @@
 
             os.rmdir('renamed_dir/sub_parent/child')
             print(os.listdir('renamed_dir/sub_parent'))
+
+            os.chdir('..')
 
           \end{pyconsole}
           \pcon{Demonstrating directory creation, file system manipulation, and selective deletion within a sandboxed environment}{code:os_sandbox_manipulation}
@@ -1493,7 +1494,7 @@
 
           \item \textcode{sys.argv} is a list containing the command-line arguments passed to a Python script in the terminal.
           \[
-            \texttt{python sys\_arg0 sys\_arg1 sys\_arg2 \ldots}
+            \texttt{python sys\_arg0 sys\_arg1 sys\_arg2 ...}
           \]
 
           By convention, \textcode{sys.argv[0]} always holds the name of the script itself, while the sliced list \textcode{sys.argv[1:]} isolates the actual arguments provided by the user in the terminal.
@@ -1532,22 +1533,6 @@
 
           \item \textcode{sys.exit([arg])} forces the Python interpreter to safely terminate the running script. Passing an integer of \textcode{0} implies a successful, expected completion, whereas passing any non-zero integer---commonly \textcode{1}---signals an error or abnormal exit condition to the host operating system.
 
-          % \begin{pyconsole}
-
-          %   import sys
-          %   sys.exit(0)
-
-          % \end{pyconsole}
-          % \pcon{Enforcing safe script termination and exit status codes using \textcode{sys.exit(0)}}{code:sys_exit0}
-
-          % \begin{pyconsole}
-
-          %   import sys
-          %   sys.exit(1)
-
-          % \end{pyconsole}
-          % \pcon{Enforcing safe script termination and exit status codes using \textcode{sys.exit(1)}}{code:sys_exit1}
-
         \end{itemize}
 
       \end{enumerate}
@@ -1555,6 +1540,83 @@
     \end{core}
 
     \begin{core}{glob}
+
+      The \href{https://docs.python.org/3/library/glob.html}{\textcode{glob}} module provides a mechanism for identifying file paths that match a specified pattern according to the rules utilized by the Unix shell. It is the idiomatic standard library tool for pattern-based directory traversal, bulk file identification, and wildcard filtering.
+
+      \begin{enumerate}
+
+        \item \textbf{Pattern Matching and File Retrieval}
+
+        \begin{itemize}
+
+          \item \textcode{glob.glob(pathname, *, recursive=False)} returns a populated list of path strings that match the specified \textcode{pathname}. The string can contain shell-style wildcards such as \textcode{*} (\textit{matches any sequence of characters}), \textcode{?} (\textit{matches any single character}), and \textcode{[seq]} (\textit{matches any character in} \textcode{seq}). When \textcode{recursive=True} is passed, the \textcode{**} pattern matches zero or more directories and subdirectories recursively.
+
+          \begin{pyconsole}
+
+            import glob
+            import os 
+
+            print(os.getcwd())
+
+            py_files = glob.glob('*.py') # retrieve all Python source files in the active directory
+            print(py_files)
+
+            txt_files = glob.glob('**/*.pkl', recursive=True) # retrieve all text files spanning a nested directory structure
+            print(txt_files)
+
+          \end{pyconsole}
+          \pcon{Extracting file paths using shell-style wildcard patterns via \textcode{glob.glob()}}{code:glob_glob}
+
+        \end{itemize}
+
+        \item \textbf{Memory-Efficient Iteration}
+
+        \begin{itemize}
+
+          \item \textcode{glob.iglob(pathname, *, recursive=False)} provides the exact same pattern-matching semantics as \textcode{glob.glob()}, but returns an iterator instead of a fully realized list. This deferred execution model is highly optimal for systems programming, as it prevents memory exhaustion when traversing directories that contain thousands of files.
+
+          \begin{pyconsole}
+
+            import glob
+
+            # Initialize an iterator for CSV files
+            csv_iterator = glob.iglob('data/*.csv')
+            print(type(csv_iterator))
+
+            # Consume the iterator sequentially without bulk memory allocation
+            for filepath in csv_iterator:
+                print(f"Processing: {filepath}")
+
+          \end{pyconsole}
+          \pcon{Generating an iterator for memory-efficient path traversal using \textcode{glob.iglob()}}{code:glob_iglob}
+
+        \end{itemize}
+
+        \item \textbf{Pattern Escaping}
+
+        \begin{itemize}
+
+          \item \textcode{glob.escape(pathname)} neutralizes special wildcard characters (\textcode{*}, \textcode{?}, and \textcode{[}) by explicitly escaping them. This is functionally necessary when searching within directories whose literal names inadvertently contain shell-reserved characters, ensuring the interpreter does not evaluate them as pattern syntax.
+
+          \begin{pyconsole}
+
+            import glob
+
+            # A literal directory name containing shell-reserved characters
+            tricky_dir = "results_[final]*"
+            
+            safe_pattern = glob.escape(tricky_dir)
+            print(safe_pattern)
+            
+            # Safely executing a search inside the explicitly escaped directory
+            files = glob.glob(f"{safe_pattern}/*.json")
+
+          \end{pyconsole}
+          \pcon{Sanitizing arbitrary strings for literal path matching using \textcode{glob.escape()}}{code:glob_escape}
+
+        \end{itemize}
+
+      \end{enumerate}
 
     \end{core}
 
