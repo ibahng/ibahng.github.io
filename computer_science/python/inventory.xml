@@ -1,0 +1,11 @@
+<store name="TechCentral">
+    <product id="p01">
+        <name>Mechanical Keyboard</name>
+        <price>89.99</price>
+    </product>
+    <product id="p02">
+        <name>Wireless Mouse</name>
+        <price>49.99</price>
+    </product>
+</store>
+

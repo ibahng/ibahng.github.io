@@ -1,540 +1,180 @@
-=>PYTHONTEX#pycon#default#default#0#console#####42#
+=>PYTHONTEX#pycon#default#default#0#console#####1144#
 
-        a,b,c,d = 10, 0b1010, 0o12, 0x0a
-        print(a, b, c, d)
-        print(type(a), type(b), type(c), type(d))
+          import json
 
-        print(type(3.14))
+          data = {'name': 'Alice', 'age': 30}
 
-        print(type(2 + 5j))
+          json_string = json.dumps(data) # Python object -> json string
+          print(json_string)
 
-=>PYTHONTEX#pycon#default#default#1#console#####73#
+          with open('data.json', 'w') as fp: # Python object -> json file
+              json.dump(data, fp)
 
-        print(type(True), type(False))
+=>PYTHONTEX#pycon#default#default#1#console#####1161#
 
-=>PYTHONTEX#pycon#default#default#2#console#####86#
+          import json
 
-        print(type(None))
+          json_string = '{"name": "Alice", "age": 30}'
 
-=>PYTHONTEX#pycon#default#default#3#console#####101#
+          data_from_string = json.loads(json_string) # json string -> Python object
+          print(data_from_string)
 
-          print(type("hello world"))
+          with open('data.json', 'r') as fp: # json file -> Python object
+              data_from_file = json.load(fp)
 
-=>PYTHONTEX#pycon#default#default#4#console#####112#
+          print(data_from_file)
 
-            example_string = "hello world"
-            print(example_string[0])
-            print(example_string[3:9])
+=>PYTHONTEX#pycon#default#default#2#console#####1198#
 
-=>PYTHONTEX#pycon#default#default#5#console#####123#
+          import xml.etree.ElementTree as ET
 
-            example_string = "hello world"
-            print(example_string*2)
+          tree = ET.parse('inventory.xml')
+          print(type(tree))
 
-=>PYTHONTEX#pycon#default#default#6#console#####133#
+=>PYTHONTEX#pycon#default#default#3#console#####1212#
 
-            example_string = "hello world"
-            print(len(example_string))
+            import xml.etree.ElementTree as ET
+            tree = ET.parse('inventory.xml')
 
-=>PYTHONTEX#pycon#default#default#7#console#####143#
+            root = tree.getroot()
+            print(root.tag)
 
-            example_string = "   hello world   "
-            print(example_string)
-            stripped_string = example_string.strip()
-            print(stripped_string)
+=>PYTHONTEX#pycon#default#default#4#console#####1227#
 
-=>PYTHONTEX#pycon#default#default#8#console#####155#
+          import xml.etree.ElementTree as ET
 
-            example_string = "hello world"
-            substring = "l"
-            example_string.find(substring)
+          xml_data = '<store name="TechHub"><item>Laptop</item></store>'
 
-=>PYTHONTEX#pycon#default#default#9#console#####166#
+          root = ET.fromstring(xml_data)
+          print(type(root))
+          print(root.tag)
 
-            example_string = "hello world"
-            substring = "l"
-            example_string.count(substring)
+=>PYTHONTEX#pycon#default#default#5#console#####1248#
 
-=>PYTHONTEX#pycon#default#default#10#console#####177#
+            import xml.etree.ElementTree as ET
 
-            example_string = "hello world"
-            print(example_string.upper())
-            print(example_string.lower())
-            print(example_string.title())
+            xml_data = '''
+            <store name="TechHub">
+                <item id="1">Laptop</item>
+                <item id="2">Mouse</item>
+            </store>
+            '''
+            root = ET.fromstring(xml_data)
 
-=>PYTHONTEX#pycon#default#default#11#console#####190#
+            print(root.get('name')) # fetching an attribute value
 
-            example_string = "hello world this is an example string"
-            print(example_string.split())
+            first_item = root.find('item') # getting ONLY the first matching child element
+            print(first_item.text)
 
-=>PYTHONTEX#pycon#default#default#12#console#####206#
+            all_items = root.findall('item') # retrieving a list of ALL matching child elements
+            print([item.text for item in all_items])
 
-          example_string = "hello world\n\nhello world\\ \t \""
-          print(example_string)
+=>PYTHONTEX#pycon#default#default#6#console#####1291#
 
-=>PYTHONTEX#pycon#default#default#13#console#####224#
+            import os
 
-            name = "Ada"
-            print(f"Hello, {name}!")
-            print(f"Pi approx {3.14159:.2f}")
-            print(f"{name=}")
+            current_dir = os.getcwd()
+            print(current_dir)
 
-=>PYTHONTEX#pycon#default#default#14#console#####236#
 
-            print("line1\nline2")
-            print(r"line1\nline2")
+=>PYTHONTEX#pycon#default#default#7#console#####1306#
 
-=>PYTHONTEX#pycon#default#default#15#console#####246#
+            import os
 
-            b = b"hello"
-            print(type(b))
-            print(b[0])
+            entries = os.listdir('.')
+            print(entries)
 
-=>PYTHONTEX#pycon#default#default#16#console#####261#
+=>PYTHONTEX#pycon#default#default#8#console#####1332#
 
-          user_id = "dev_88"
-          dynamic_path = rf"C:\Users\admin\desktop\{user_id}"
-          print(f"Dynamic Path: {dynamic_path}")
+            import os
+            import shutil
 
-          binary_regex_pattern = rb"FindThis\x00\x01"
-          print(f"Raw Byte Pattern: {binary_regex_pattern}")
+            shutil.rmtree('./sandbox', ignore_errors=True) # recursively deletes the entire sandbox directory tree if it exists; this is in order to start with a clean slate
 
-=>PYTHONTEX#pycon#default#default#17#console#####300#
+            os.makedirs('./sandbox', exist_ok=True)
+            os.chdir('./sandbox')
+            print(os.listdir('.'))
 
-          example_list = [1, 2, 3, 4, 5]
-          print(example_list[0])
-          print(example_list[1:4])
+            os.mkdir('test_dir')
+            print(os.listdir('.'))
 
-=>PYTHONTEX#pycon#default#default#18#console#####311#
+            os.rename('test_dir', 'renamed_dir')
+            print(os.listdir('.'))
 
-          example_list = [1, 2, 3]
-          example_list.append(4) # append
-          print(example_list)
-          example_list.insert(2, 5) # inserting 3 at index 2
-          print(example_list)
-          example_list.remove(2) # removal
-          print(example_list)
+            os.makedirs('renamed_dir/sub_parent/child', exist_ok=True)
+            print(os.listdir('renamed_dir'))
 
-=>PYTHONTEX#pycon#default#default#19#console#####326#
+            with open('renamed_dir/sub_parent/child/temp.txt', 'w') as f:
+                f.write('Clean up test')
 
-          example_list = [3, 1, 4, 1, 5, 9]
-          example_list.sort() # ascending order
-          print(example_list)
+            print(os.listdir('renamed_dir/sub_parent/child'))
 
-=>PYTHONTEX#pycon#default#default#20#console#####337#
+            os.remove('renamed_dir/sub_parent/child/temp.txt')
+            print(os.listdir('renamed_dir/sub_parent/child'))
 
-          example_list = ["hello", "world", "example"]
-          print(" ".join(example_list))
+            os.rmdir('renamed_dir/sub_parent/child')
+            print(os.listdir('renamed_dir/sub_parent'))
 
-=>PYTHONTEX#pycon#default#default#21#console#####347#
+=>PYTHONTEX#pycon#default#default#9#console#####1376#
 
-          numbers = [1, 2, 3, 4, 5]
-          print([x*2 for x in numbers])
+            import os
 
-=>PYTHONTEX#pycon#default#default#22#console#####367#
+            user_profile = os.getenv('USER', 'default_user')
+            print(user_profile)
 
-          example_tuple = (1, 2, 3, 4, 5)
-          print(example_tuple[0], example_tuple[1:4])
+=>PYTHONTEX#pycon#default#default#10#console#####1404#
 
-=>PYTHONTEX#pycon#default#default#23#console#####377#
+            import subprocess
 
-          x,y = (10, 20)
-          print(x)
+            result = subprocess.run(['echo', 'Hello from the subshell!'])
+            print(result) # returncode of 0 means success
 
-=>PYTHONTEX#pycon#default#default#24#console#####397#
+=>PYTHONTEX#pycon#default#default#11#console#####1422#
 
-          example_set = {1, 2, 3}
+            import subprocess
 
-          example_set.add(4) # singular addition
-          print(example_set)
+            result = subprocess.run(['echo', 'Captured output data'], capture_output=True, text=True)
 
-          example_set.update([3, 4, 5]) # multiple addition
-          print(example_set)
+            print(result)
 
-          example_set.remove(3) # removal
-          print(example_set)
+=>PYTHONTEX#pycon#default#default#12#console#####1441#
 
-=>PYTHONTEX#pycon#default#default#25#console#####415#
+            import subprocess
 
-          set_a = {1, 2, 3}
-          set_b = {3, 4, 5}
-          print(set_a.union(set_b))
-          print(set_a.intersection(set_b))
+            subprocess.run(['python', '-c', 'import sys; sys.exit(1)'], capture_output=True, text=True) # intentionally exits with an errror, no CalledProcessError
 
-=>PYTHONTEX#pycon#default#default#26#console#####427#
+            subprocess.run(['python', '-c', 'import sys; sys.exit(1)'], check=True, capture_output=True, text=True) # intentionally exits with an error status (1)
 
-          fset = frozenset({1,2,3})
-          print(type(fset))
+=>PYTHONTEX#pycon#default#default#13#console#####1476#
 
-=>PYTHONTEX#pycon#default#default#27#console#####447#
+            import sys
 
-          example_dict = {"name": "Alice", "age": 30}
-          print(example_dict["name"])
+            print(sys.version)
+            print(sys.version_info)
+            print(sys.platform)
+            print(sys.executable)
 
-=>PYTHONTEX#pycon#default#default#28#console#####457#
+=>PYTHONTEX#pycon#default#default#14#console#####1509#
 
-          example_dict = {"name": "Alice"}
-          example_dict["age"] = 30
-          print(example_dict)
+            import sys
 
-=>PYTHONTEX#pycon#default#default#29#console#####468#
+            # functionally equivalent to print("Standard output message")
+            sys.stdout.write("Standard output message\n")
 
-          example_dict = {"name": "Alice", "age": 30}
-          print(example_dict.keys(), example_dict.values())
-          print(example_dict.items())
+            # emitting an error message that bypasses standard output redirection
+            sys.stderr.write("Warning: Configuration file missing.\n")
 
-=>PYTHONTEX#pycon#default#default#30#console#####487#
+=>PYTHONTEX#pycon#default#default#15#console#####1535#
 
-        print(list(range(5)))
+            import sys
+            sys.exit(0)
 
-=>PYTHONTEX#pycon#default#default#31#console#####496#
+=>PYTHONTEX#pycon#default#default#16#console#####1543#
 
-        example_range = range(0, 10, 2)
-        print(list(range(0, 10, 2)))
+            import sys
+            sys.exit(1)
 
-=>PYTHONTEX#pycon#default#default#32#console#####514#
-
-          example_bytes = b"hello"
-          print(example_bytes, type(example_bytes))
-
-=>PYTHONTEX#pycon#default#default#33#console#####524#
-
-          example_bytearray = bytearray(b"hello")
-          example_bytearray[0] = 72 # the byte value for "H" is 72 in ASCII/UTF-8
-          print(example_bytearray)
-
-=>PYTHONTEX#pycon#default#default#34#console#####535#
-
-          text = "hello"
-          encoded = text.encode('utf-8')
-          print(encoded)
-          print(encoded.decode('utf-8'))
-
-=>PYTHONTEX#pycon#default#default#35#console#####559#
-
-          x,y = 10, 3
-          print(x + y, x - y)
-          print(x * y, x / y)
-
-=>PYTHONTEX#pycon#default#default#36#console#####570#
-
-          x,y = 17, 5
-          print(x % y)
-=>PYTHONTEX#pycon#default#default#37#console#####579#
-
-          x,y = 2, 3
-          print(x ** y)
-
-=>PYTHONTEX#pycon#default#default#38#console#####589#
-
-          x,y = 17, 5
-          print(x // y)
-
-=>PYTHONTEX#pycon#default#default#39#console#####609#
-
-          x = 10
-
-=>PYTHONTEX#pycon#default#default#40#console#####620#
-
-          x = 10
-          x += 3 # addition
-          print(x)
-          x -= 2 # subtraction
-          print(x)
-          x *= 2 # multiplication
-          print(x)
-          x /= 4 # division
-          print(x)
-          # the same logic follow for modulus, floor division, and power
-
-=>PYTHONTEX#pycon#default#default#41#console#####648#
-
-          x,y = 5, 5
-          print(x == y)
-          print(x == 3)
-
-=>PYTHONTEX#pycon#default#default#42#console#####659#
-
-          x,y = 5,3
-          print(x != y)
-          print(x != 5)
-
-=>PYTHONTEX#pycon#default#default#43#console#####670#
-
-          x,y = 5,3
-          print(x < y)
-          print(x > y)
-          print(x <= 5)
-          print(x >= 5)
-
-=>PYTHONTEX#pycon#default#default#44#console#####693#
-
-          x,y = True, False
-          print(x and x)
-          print(x and y)
-
-=>PYTHONTEX#pycon#default#default#45#console#####704#
-
-          x,y = True, False
-          print(x or y)
-          print(y or y)
-
-=>PYTHONTEX#pycon#default#default#46#console#####715#
-
-          x,y = True, False
-          print(not x, not y)
-
-=>PYTHONTEX#pycon#default#default#47#console#####735#
-
-        x, y = 10, 5
-        if x > y:
-            print("x is greater than y") # conditional ends here
-        elif y > x:
-            print("y is greater than x")
-        else:
-            print("x is equal to y")
-
-=>PYTHONTEX#pycon#default#default#48#console#####756#
-
-        for num in [1, 2, 3, 4]:
-            if num == 3:
-                break
-            print(num)
-
-=>PYTHONTEX#pycon#default#default#49#console#####768#
-
-        for num in [1, 2, 3]:
-            if num == 2:
-                continue
-            print(num)
-
-=>PYTHONTEX#pycon#default#default#50#console#####784#
-
-        x = 0
-        while x < 3:
-            print(x)
-            x += 1
-
-=>PYTHONTEX#pycon#default#default#51#console#####796#
-
-        x = 0
-        while x < 5:
-            x += 1
-            if x == 2:
-                continue
-            if x == 4:
-                break
-            print(x)
-
-=>PYTHONTEX#pycon#default#default#52#console#####818#
-
-      def greet(name):
-          return f"Hello, {name}!"
-
-      print(greet("Alice"))
-      print(greet("Bob"))
-
-=>PYTHONTEX#pycon#default#default#53#console#####831#
-
-      def add(x, y):
-          return x + y
-
-      print(add(3, 5))
-      print(add(x=10, y=20))
-
-      def greet(name, greeting="Hello"):
-          return f"{greeting}, {name}!"
-
-      print(greet("Alice"))
-      print(greet("Bob", "Hi"))
-
-=>PYTHONTEX#pycon#default#default#54#console#####850#
-
-      def print_args(*args):
-          for arg in args:
-              print(arg)
-
-      print_args(1, 2, 3, 4, 5)
-
-      def print_kwargs(**kwargs):
-          for key, value in kwargs.items():
-              print(f"{key}: {value}")
-
-      print_kwargs(name="Alice", age=30, city="NYC")
-
-=>PYTHONTEX#pycon#default#default#55#console#####869#
-
-      def flexible_func(x, y, *args, **kwargs):
-          print(f"x: {x}, y: {y}")
-          print(f"args: {args}")
-          print(f"kwargs: {kwargs}")
-
-      flexible_func(1, 2, 3, 4, 5, name="Alice", age=30)
-
-=>PYTHONTEX#pycon#default#default#56#console#####887#
-
-      def add(x, y): # regular function
-          return x + y
-
-      add_lambda = lambda x, y: x + y # equivalent lambda function
-      print(add(3, 5))
-      print(add_lambda(3, 5))
-
-=>PYTHONTEX#pycon#default#default#57#console#####901#
-
-      numbers = [1, 2, 3, 4, 5]
-
-      squared = list(map(lambda x: x**2, numbers)) # map: apply function to each element
-      print(squared)
-
-      evens = list(filter(lambda x: x % 2 == 0, numbers)) # filter: keep elements where function returns True
-      print(evens)
-
-      words = ["apple", "pie", "zoo", "a"] # sorted: custom sorting key
-      sorted_by_length = sorted(words, key=lambda x: len(x))
-      print(sorted_by_length)
-
-=>PYTHONTEX#pycon#default#default#58#console#####920#
-
-      def make_multiplier(n):
-          return lambda x: x * n
-
-      times_two = make_multiplier(2)
-      print(times_two(5))
-
-=>PYTHONTEX#pycon#default#default#59#console#####937#
-
-      def uppercase_decorator(func):
-          def wrapper(*args, **kwargs):
-              result = func(*args, **kwargs)
-              return result.upper()
-          return wrapper
-
-      @uppercase_decorator
-      def greet(name):
-          return f"hello, {name}"
-
-      print(greet("alice"))
-
-=>PYTHONTEX#pycon#default#default#60#console#####956#
-
-      def repeat(times):
-          def decorator(func):
-              def wrapper(*args, **kwargs):
-                  for _ in range(times):
-                      result = func(*args, **kwargs)
-                  return result
-              return wrapper
-          return decorator
-
-      @repeat(times=2)
-      def say_hello():
-          print("Hello!")
-
-      say_hello()
-
-=>PYTHONTEX#pycon#default#default#61#console#####978#
-
-      def bold(func):
-          def wrapper(*args, **kwargs):
-              return f"**{func(*args, **kwargs)}**"
-          return wrapper
-
-      def italic(func):
-          def wrapper(*args, **kwargs):
-              return f"_{func(*args, **kwargs)}_"
-          return wrapper
-
-      @bold
-      @italic
-      def text():
-          return "Hello"
-
-      print(text())
-
-=>PYTHONTEX#pycon#default#default#62#console#####1006#
-
-      def count_up_to(n):
-          count = 1
-          while count <= n:
-              yield count
-              count += 1
-
-      count_gen = count_up_to(10)
-
-      for _ in range(2):
-          print(next(count_gen))
-
-      for _ in range(3): # starts from where it left off in the previous for loop
-          print(next(count_gen))
-
-=>PYTHONTEX#pycon#default#default#63#console#####1027#
-
-      squares_gen = (x**2 for x in range(3))
-
-      print(list(squares_gen))  # first time: we consume the generator
-
-      print(list(squares_gen))  # second time: the generator is already exhausted
-
-=>PYTHONTEX#pycon#default#default#64#console#####1052#
-
-      # math_utils.py
-      def add(a, b):
-          return a + b
-      def subtract(a, b):
-          return a - b
-
-=>PYTHONTEX#pycon#default#default#65#console#####1069#
-
-        # main.py
-        import math_utils
-        print(math_utils.add(3,2))
-
-=>PYTHONTEX#pycon#default#default#66#console#####1082#
-
-        # main.py
-        from math_utils import *
-        print(add(3,2))
-
-=>PYTHONTEX#pycon#default#default#67#console#####1118#
-      # installing a third-party library via pip (run in terminal)
-      # pip install numpy
-      import numpy as np               # importing the library under an alias
-      arr = np.array([1, 2, 3, 4])
-      print(arr * 2)                   # using functionality provided by the library
-=>PYTHONTEX#pycon#default#default#68#console#####1143#
-
-        from random import *
-
-        for i in range(10):
-            print(random()) #picks a random number in [0,1)
-
-        for i in range(10):
-            print(randint(1,50)) #only integers and inclusive
-
-        for i in range(10):
-            print(uniform(1,50)) #only floats and thus exclusive
-
-        for i in range(10):
-            print(randrange(1,12,2)) #picks numbers in steps (default step:1)
-
-=>PYTHONTEX#pycon#default#default#69#console#####1168#
-
-        import math #OR "from math import *
-        #in the second method, you do not need to type the module name every time you use a function within the module like below
-        print(math.sqrt(9))
-        print(math.ceil(8.2))
-        print(math.floor(7.9))
-        print(math.fabs(-2.2))
-
-=>PYTHONTEX#pycon#default#default#70#console#####1182#
-
-        import math
-        r = float(input("Enter radius"))
-        Area = math.pi*r**2
-        print(area)
-
-=>PYTHONTEX#pycon#default#default#71#console#####1207#
+=>PYTHONTEX#pycon#default#default#17#console#####1637#
 
         from datetime import *
 
@@ -546,7 +186,7 @@
 
         validateCard(date(2020,2,2))
 
-=>PYTHONTEX#pycon#default#default#72#console#####1274#
+=>PYTHONTEX#pycon#default#default#18#console#####1691#
 
         class BankAccount:
             bank = "Chase" # class attribute
@@ -567,7 +207,7 @@
         print(account.withdraw(30))
         print(account.balance)
 
-=>PYTHONTEX#pycon#default#default#73#console#####1322#
+=>PYTHONTEX#pycon#default#default#19#console#####1739#
 
           class Example:
               def setName(self, n): # setter
@@ -579,7 +219,7 @@
           p1.setName("John")
           print(p1.getName())
 
-=>PYTHONTEX#pycon#default#default#74#console#####1341#
+=>PYTHONTEX#pycon#default#default#20#console#####1758#
 
           class PythonicExample:
               def __init__(self, name):
@@ -597,7 +237,7 @@
           p2.name = "Sally"  # Intercepted by the setter seamlessly
           print(p2.name)     # Intercepted by the getter seamlessly
 
-=>PYTHONTEX#pycon#default#default#75#console#####1370#
+=>PYTHONTEX#pycon#default#default#21#console#####1787#
 
         class ReadOnlyExample:
             def __init__(self, name):
@@ -613,7 +253,7 @@
         # Attempting to modify the attribute will now throw an AttributeError
         p3.name = "Sally"
 
-=>PYTHONTEX#pycon#default#default#76#console#####1397#
+=>PYTHONTEX#pycon#default#default#22#console#####1814#
 
         class BankAccount:
             def __init__(self, owner, initial_deposit):
@@ -632,7 +272,7 @@
 
         print(account.__balance) # private attributes cannot be directly accessed
 
-=>PYTHONTEX#pycon#default#default#77#console#####1427#
+=>PYTHONTEX#pycon#default#default#23#console#####1844#
 
         class Animal:
             def __init__(self, name):
@@ -650,7 +290,7 @@
         print(my_dog.eat())
         print(my_dog.speak())
 
-=>PYTHONTEX#pycon#default#default#78#console#####1458#
+=>PYTHONTEX#pycon#default#default#24#console#####1875#
 
           class Vehicle:
               def __init__(self, brand, model):
@@ -670,7 +310,7 @@
           car = Car("Toyota", "Camry", 4)
           print(car.description())
 
-=>PYTHONTEX#pycon#default#default#79#console#####1489#
+=>PYTHONTEX#pycon#default#default#25#console#####1906#
 
         class MasterCard:
             def process_payment(self, amount):
@@ -698,7 +338,7 @@
         checkout_gate(crypto, 150.00)
         checkout_gate(mobile, 150.00)
 
-=>PYTHONTEX#pycon#default#default#80#console#####1530#
+=>PYTHONTEX#pycon#default#default#26#console#####1947#
 
         from abc import ABC, abstractmethod
         class PrinterBlueprint(ABC):
@@ -718,7 +358,7 @@
         printer_2 = BrokenPrinter() # renamed mandatory method
         printer_3 = PrinterBlueprint() # can't call the abstract parent class
 
-=>PYTHONTEX#pycon#default#default#81#console#####1571#
+=>PYTHONTEX#pycon#default#default#27#console#####1988#
 
         class InvalidAgeError(Exception):
             pass # no need for constructor
@@ -736,7 +376,7 @@
             print(f"Error Type: {type(e).__name__}")
             print(f"Error Message: {e}")
 
-=>PYTHONTEX#pycon#default#default#82#console#####1600#
+=>PYTHONTEX#pycon#default#default#28#console#####2017#
 
         try:
             print("Attempting the calculation...")
@@ -749,7 +389,7 @@
         finally:
             print("Cleanup: The division operation has finished.")
 
-=>PYTHONTEX#pycon#default#default#83#console#####1620#
+=>PYTHONTEX#pycon#default#default#29#console#####2037#
 
         try:
             print("Attempting the calculation...")
@@ -762,7 +402,7 @@
         finally:
             print("Cleanup: The division operation has finished.")
 
-=>PYTHONTEX#pycon#default#default#84#console#####1638#
+=>PYTHONTEX#pycon#default#default#30#console#####2055#
 
         try:
             user_input = "Hello"
@@ -774,7 +414,7 @@
         except Exception as e: # This is a fallback that catches anything else and prints its name
             print(f"An unexpected {type(e).__name__} occurred: {e}")
 
-=>PYTHONTEX#pycon#default#default#85#console#####1663#
+=>PYTHONTEX#pycon#default#default#31#console#####2080#
 
         import sys
         import logging
@@ -796,7 +436,7 @@
         logging.warning("System is operating with minimal resources.")
         divide_values(10, 0)
 
-=>PYTHONTEX#pycon#default#default#86#console#####1700#
+=>PYTHONTEX#pycon#default#default#32#console#####2117#
 
         def apply_discount(original_price, discount_rate):
             # Assert that the parameters fall within logically valid bounds
@@ -809,7 +449,7 @@
 
         apply_discount(-50.0, 0.2) # This will immediately trigger an AssertionError
 
-=>PYTHONTEX#pycon#default#default#87#console#####1758#
+=>PYTHONTEX#pycon#default#default#33#console#####2175#
 
       with open("sensor_data.txt", "w") as file_stream:
           _ = file_stream.write("timestamp: 001, status: active\n")
@@ -820,7 +460,7 @@
           content = file_stream.read()
           print(content)
 
-=>PYTHONTEX#pycon#default#default#88#console#####1790#
+=>PYTHONTEX#pycon#default#default#34#console#####2207#
 
       import pickle
 
@@ -839,7 +479,7 @@
       print(f"Data Type: {type(retrieved_data)}")
       print(f"Content: {retrieved_data}")
 
-=>PYTHONTEX#pycon#default#default#89#console#####1860#
+=>PYTHONTEX#pycon#default#default#35#console#####2277#
 
         import re
         string = "Take 1 up One 23 idea. One idea 45 at a time"
@@ -847,7 +487,7 @@
         result = re.search(r'O\w',string)
         print(result.group())
 
-=>PYTHONTEX#pycon#default#default#90#console#####1873#
+=>PYTHONTEX#pycon#default#default#36#console#####2290#
 
         import re
         string = "Take 1 up One 23 idea. One idea 45 at a time"
@@ -855,7 +495,7 @@
         result = re.findall(r'O\w\w',string)
         print(result)
 
-=>PYTHONTEX#pycon#default#default#91#console#####1886#
+=>PYTHONTEX#pycon#default#default#37#console#####2303#
 
         import re
         string = "Take 1 up One 23 idea. One idea 45 at a time"
@@ -863,7 +503,7 @@
         result = re.match('T\w\w',string)
         print(result.group())
 
-=>PYTHONTEX#pycon#default#default#92#console#####1899#
+=>PYTHONTEX#pycon#default#default#38#console#####2316#
 
         import re
         string = "Take 1 up One 23 idea. One idea 45 at a time"
@@ -871,7 +511,7 @@
         result = re.sub(r'One','Two',string)
         print(result)
 
-=>PYTHONTEX#pycon#default#default#93#console#####1912#
+=>PYTHONTEX#pycon#default#default#39#console#####2329#
 
         import re
         string = "Take 1 up One 23 idea. One idea 45 at a time"
@@ -879,7 +519,7 @@
         result = re.split(r'\d+',string)
         print(result)
 
-=>PYTHONTEX#pycon#default#default#94#console#####1935#
+=>PYTHONTEX#pycon#default#default#40#console#####2352#
 
         import re
         string = "Take 1 up One 23 idea.One idea 45 at a Time"
@@ -890,7 +530,7 @@
         result = re.findall(r'O\w{1,2}',string) #{m,n} m minimum, n maximum repetitions
         print(result)
 
-=>PYTHONTEX#pycon#default#default#95#console#####1951#
+=>PYTHONTEX#pycon#default#default#41#console#####2368#
 
         import re
         string = "Take 1 up One 23 idea.One idea 45 at a Time"
@@ -904,7 +544,7 @@
         result = re.findall(r'O\w?',string) #? zero or one repetitions
         print(result)
 
-=>PYTHONTEX#pycon#default#default#96#console#####1982#
+=>PYTHONTEX#pycon#default#default#42#console#####2399#
 
         import re
         string = "I live .. like cats oh yeah"
@@ -916,7 +556,7 @@
 
         print(result.group())
 
-=>PYTHONTEX#pycon#default#default#97#console#####1999#
+=>PYTHONTEX#pycon#default#default#43#console#####2416#
 
         import re
         string = "I live .. like cats oh yeah"
@@ -927,7 +567,7 @@
         result = re.search(r'...h$',string) # end
         print(result.group())
 
-=>PYTHONTEX#pycon#default#default#98#console#####2015#
+=>PYTHONTEX#pycon#default#default#44#console#####2432#
 
         import re
         string = "I live .. like cats oh yeah"
@@ -938,7 +578,7 @@
         result = re.search(r'[^I li]',string)
         print(result.group())
 
-=>PYTHONTEX#pycon#default#default#99#console#####2031#
+=>PYTHONTEX#pycon#default#default#45#console#####2448#
 
         import re
         string = "I live .. like cats oh yeah"
@@ -946,7 +586,7 @@
         result = re.search(r'(cats|dogs)',string) #(R|S) specifies multiple regular expressions to match; either R OR S
         print(result.group())
 
-=>PYTHONTEX#pycon#default#default#100#console#####2060#
+=>PYTHONTEX#pycon#default#default#46#console#####2477#
 
       import threading
 
@@ -955,7 +595,7 @@
       if threading.current_thread() == threading.main_thread():
           print('Main Thread')
 
-=>PYTHONTEX#pycon#default#default#101#console#####2080#
+=>PYTHONTEX#pycon#default#default#47#console#####2497#
 
           import threading
 
@@ -974,7 +614,7 @@
           t.join()
           print("displayNumbers function finished")
 
-=>PYTHONTEX#pycon#default#default#102#console#####2114#
+=>PYTHONTEX#pycon#default#default#48#console#####2531#
 
         import threading
         from time import sleep # the sleep function simply makes the program wait
@@ -998,7 +638,7 @@
         t1.join()
         t2.join()
 
-=>PYTHONTEX#pycon#default#default#103#console#####2149#
+=>PYTHONTEX#pycon#default#default#49#console#####2566#
 
         import threading
         import time
@@ -1034,7 +674,7 @@
         t1.join()
         t2.join()
 
-=>PYTHONTEX#pycon#default#default#104#console#####2198#
+=>PYTHONTEX#pycon#default#default#50#console#####2615#
 
         import threading
 
@@ -1067,7 +707,7 @@
         t2.join()
         t3.join()
 
-=>PYTHONTEX#pycon#default#default#105#console#####2242#
+=>PYTHONTEX#pycon#default#default#51#console#####2659#
 
         import threading
         import time
@@ -1105,7 +745,7 @@
         t1.join()
         t2.join()
 
-=>PYTHONTEX#pycon#default#default#106#console#####2309#
+=>PYTHONTEX#pycon#default#default#52#console#####2726#
 
         import random
         import time
@@ -1134,7 +774,7 @@
         t1.join()
         t2.join()
 
-=>PYTHONTEX#pycon#default#default#107#console#####2349#
+=>PYTHONTEX#pycon#default#default#53#console#####2766#
 
         import queue
 
@@ -1164,7 +804,7 @@
         while not pq.empty():
             print(pq.get()[1], end=' ') #insert the index to choose only the name in the prioritized order
 
-=>PYTHONTEX#pycon#default#default#108#console#####2392#
+=>PYTHONTEX#pycon#default#default#54#console#####2809#
 
         import threading
         import time
