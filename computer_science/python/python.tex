@@ -622,6 +622,22 @@
 
     \end{core}
 
+    \begin{core}{Delete}
+
+      Analogously to how assignment operators bind a value to a variable identifier, the \textcode{del} statement unbinds and removes an existing variable from the current namespace, rendering it inaccessible for the remainder of the program's execution unless reassigned.
+
+      \begin{pyconsole}
+
+        a = 5
+        print(a)
+        del a
+        print(a) # error
+
+      \end{pyconsole}
+      \pcon{Deleting variables using \textcode{del}}{code:del}
+
+    \end{core}
+
     \begin{core}[label=core:comparison_operators]{Comparison Operators}
 
       \textbf{Comparison operators} compare two operands and return a Boolean value (\textit{\autoref{core:boolean}}) indicating the result of the comparison.
@@ -795,6 +811,7 @@
     \end{core}
 
 \section{Functions}
+  \label{sec:functions}
 
   \begin{core}[label=core:def]{def}
 
@@ -1026,11 +1043,12 @@
 
   % \end{core}
 
-\section{Modules \& Packages}
+  \section{Modules, Packages, \& The Standard Library}
+  \label{sec:modules_packages}
 
   \begin{core}{Modules}
 
-    A \textbf{module} is a single Python source file---a \textcode{.py} file---that encapsulates a logically related collection of definitions, including functions, classes, and variables, which may be imported and reused across other Python programs via the \textcode{import} statement.
+    A \textbf{module} is a single Python source file---a \textcode{.py} file---that encapsulates a logically related collection of definitions, including functions (\textit{\autoref{sec:functions}}), classes (\textit{\autoref{sec:classes}}), and variables, which may be imported and reused across other Python programs via the \textcode{import} statement.
 
     To illustrate, consider a file named \textcode{math\_utils.py} containing the following definitions.
 
@@ -1039,6 +1057,7 @@
       # math_utils.py
       def add(a, b):
           return a + b
+
       def subtract(a, b):
           return a - b
 
@@ -1098,11 +1117,26 @@
 
   \end{core}
 
-  The importing of modules will recur throughout the subsequent material, appearing either as the primary subject of discussion or as auxiliary tooling within broader coding demonstrations. The curated collection of modules and packages bundled directly with the Python interpreter is collectively referred to as the \textbf{standard library} (\textit{\autoref{core:standard_library}}); beyond this, the vast majority of specialised toolkits are distributed as \textbf{third-party libraries} (\textit{\autoref{core:third_lib}}), which must be explicitly installed into the active Python environment prior to use.
+  \begin{core}[label=core:libraries]{Libraries}
+
+    A \textbf{library} is a broadly distributed, reusable collection of packages and modules that provides generalised functionality intended to be shared across many independent projects. Unlike a module or package, a library is not a formally defined construct within the Python; rather, it is an organisational and distributional concept. The distinction between a package and a library is primarily one of scale and intent: a package is a unit of code organisation within a project, whereas a library is a distribution of functionality designed for broad external consumption.
+
+  \end{core}
+
+  \begin{core}[label=core:standard_library]{Standard Library}
+
+    The \href{https://docs.python.org/3/py-modindex.html}{\textbf{Python Standard Library}} is a comprehensive collection of modules that comes with the Python interpreter upon installation, requiring no external package manager or configuration to access. Each module within the standard library addresses a distinct domain of common programming tasks.
+
+    The importing of standard library modules will recur throughout the subsequent material, appearing either as the primary subject of discussion or as auxiliary tooling within broader coding demonstrations.
+
+    Beyond the Standard Library, the vast majority of specialised toolkits are distributed as \textbf{third-party libraries} (\textit{\autoref{core:third_lib}}), which must be explicitly installed into the active Python environment prior to use.
+
+  \end{core}
 
 \section{Object Oriented Programming}
 
   \subsection{Classes}
+    \label{sec:classes}
 
     \begin{core}{Classes, Attributes, and Methods}
 
@@ -1358,7 +1392,7 @@
 
     \end{core}
 
-    \begin{core}[label=core:abstraction]{Abstraction}
+    \begin{core}[label=core:abstraction]{Abstraction (\textit{abc})}
 
       \textbf{Abstraction} is a fundamental architectural principle that conceals complex, low-level implementation details behind simplified interfaces, restricting external entities to interacting only with an object's external behavior rather than its inner mechanisms, a constraint often realized through \textbf{encapsulation} (\textit{\autoref{core:encapsulation}}), \textbf{inheritance} (\textit{\autoref{core:inheritance}}), and \textbf{polymorphism} (\textit{\autoref{core:polymorphism}}).
 
@@ -1489,8 +1523,9 @@
 
     \end{core}
 
-  \subsection{Logging}
-
+  \subsection{Logging (\textit{logging})}
+    \label{sec:logging}
+    
     \begin{core}{Logging}
 
       \textbf{Logging} is a systematic mechanism for tracking events, errors, and state changes that occur during software execution. While standard \textcode{print()} statements are frequently utilized for \textit{preliminary} debugging, the built-in \textcode{logging} library provides a more robust framework suitable for larger applications. It allows developers to \textbf{categorize outputed messages by severity}.
@@ -1568,7 +1603,7 @@
 
     \begin{enumerate}
 
-      \item \textbf{Open:} Establishing the stream connection and declaring the intended access mode.
+      \item \textbf{Open}: Establishing the stream connection and declaring the intended access mode.
 
       \begin{itemize}
 
@@ -1584,9 +1619,9 @@
 
       If working with binary files, simply append \textcode{'b'} to the end: \textcode{'rb'}, \textcode{'wb'}, \textcode{'ab'}, \textcode{'xb'}
 
-      \item \textbf{Process:} Transmitting data through the stream via read or write operations.
+      \item \textbf{Process}: Transmitting data through the stream via read or write operations.
 
-      \item \textbf{Close:} Severing the connection to flush internal memory.
+      \item \textbf{Close}: Severing the connection to flush internal memory.
 
     \end{enumerate}
 
@@ -1608,49 +1643,205 @@
 
   \end{core}
 
-  \begin{core}[label=core:pickling]{Serialization and Pickling}
+  \subsection{Pickling (\textit{pickle})}
 
-    In data handling, \textbf{serialization} is the process of converting an in-memory object into a byte stream suitable for storage or transfer. In Python, this implemented via the \textcode{pickle} module. The inverse operation---reconstructing a Python object from a byte stream---is known as \textbf{deserialization} (\textit{or unpickling}).
+    \begin{core}[label=core:pickling]{Serialization and Pickling}
 
-    Pickling is highly advantageous when working with complex, custom data structures that cannot be easily represented in standard, human-readable text formats like JSON or CSV.
+      In data handling, \textbf{serialization} is the process of converting an in-memory object into a byte stream suitable for storage or transfer. In Python, this implemented via the \textcode{pickle} module. The inverse operation---reconstructing a Python object from a byte stream---is known as \textbf{deserialization} (\textit{or unpickling}).
 
-    The \textcode{pickle} API primarily relies on two functions for file interactions:
+      Pickling is highly advantageous when working with complex, custom data structures that cannot be easily represented in standard, human-readable text formats like JSON or CSV.
 
-    \begin{itemize}
+      The \textcode{pickle} API primarily relies on two functions for file interactions:
 
-        \item \textcode{pickle.dump(obj, file)} serializes the target object and writes the resulting bytes directly to an open binary file stream.
+      \begin{itemize}
 
-        \item \textcode{pickle.load(file)} reads a binary file stream containing a serialized byte string and reconstructs the original Python object.
+          \item \textcode{pickle.dump(obj, file)} serializes the target object and writes the resulting bytes directly to an open binary file stream.
 
-    \end{itemize}
+          \item \textcode{pickle.load(file)} reads a binary file stream containing a serialized byte string and reconstructs the original Python object.
 
-    \begin{pyconsole}
+      \end{itemize}
 
-      import pickle
+      \begin{pyconsole}
 
-      session_data = { # complex data structure
-          "user_id": 1042,
-          "permissions": ["admin", "developer"],
-          "matrix_weights": (0.85, 0.12, 0.94)
-      }
+        import pickle
 
-      with open("session.pkl", "wb") as binary_stream: # serializing data
-          pickle.dump(session_data, binary_stream)
+        session_data = { # complex data structure
+            "user_id": 1042,
+            "permissions": ["admin", "developer"],
+            "matrix_weights": (0.85, 0.12, 0.94)
+        }
 
-      with open("session.pkl", "rb") as binary_stream: # deserializing data
-          retrieved_data = pickle.load(binary_stream)
+        with open("session.pkl", "wb") as binary_stream: # serializing data
+            pickle.dump(session_data, binary_stream)
 
-      print(f"Data Type: {type(retrieved_data)}")
-      print(f"Content: {retrieved_data}")
+        with open("session.pkl", "rb") as binary_stream: # deserializing data
+            retrieved_data = pickle.load(binary_stream)
 
-    \end{pyconsole}
-    \pcon{Pickle object serialization through \textcode{pickle} module commands \textcode{.dump()} and \textcode{.load()}}{code:pickle}
+        print(f"Data Type: {type(retrieved_data)}")
+        print(f"Content: {retrieved_data}")
 
-    \textit{It is important to keep in mind that deserializing a corrupted or maliciously constructed byte stream can trigger arbitrary code execution within the runtime environment. Consequently, objects should never be unpickled from untrusted or unauthenticated external sources.}
+      \end{pyconsole}
+      \pcon{Pickle object serialization through \textcode{pickle} module commands \textcode{.dump()} and \textcode{.load()}}{code:pickle}
 
-  \end{core}
+      \textit{It is important to keep in mind that deserializing a corrupted or maliciously constructed byte stream can trigger arbitrary code execution within the runtime environment. Consequently, objects should never be unpickled from untrusted or unauthenticated external sources.}
 
-\section{Regular Expression}
+    \end{core}
+
+  \subsection{Javascript Object Notation (\textit{json})}
+
+    \begin{core}{json}
+
+      The \textcode{json} module provides a standardised interface for serialising Python objects into JSON (JavaScript Object Notation) format and deserialising JSON-formatted strings back into native Python objects. It is most commonly used when exchanging data with web APIs or writing structured data to a file.
+
+    \end{core}
+
+    \begin{core}{Dumping \& Loading}
+
+      \begin{enumerate}
+
+        \item \textcode{json.dumps(obj)} serializes a Python object into a JSON-formatted string. You can also serialize a Python object and write the result directly to a file object \textcode{fp} through \textcode{json.dump(obj, fp)}.
+
+        \begin{pyconsole}
+
+          import json
+
+          data = {'name': 'Alice', 'age': 30}
+
+          json_string = json.dumps(data) # Python object -> json string
+          print(json_string)
+
+          with open('data.json', 'w') as fp: # Python object -> json file
+              json.dump(data, fp)
+
+        \end{pyconsole}
+        \pcon{Serializing a Python object to JSON using \textcode{json.dumps()} and \textcode{json.dump()}}{code:json_dump}
+
+        \item \textcode{json.loads(obj)}, on the other hand, deserializes a JSON-formatted string back into a native Python object. Likewise, you can write the result directly to a file object \textcode{fp} thorugh \textcode{json.load(fp)}.
+
+        \begin{pyconsole}
+
+          import json
+
+          json_string = '{"name": "Alice", "age": 30}'
+
+          data_from_string = json.loads(json_string) # json string -> Python object
+          print(data_from_string)  
+
+          with open('data.json', 'r') as fp: # json file -> Python object
+              data_from_file = json.load(fp)
+
+          print(data_from_file)
+
+        \end{pyconsole}
+        \pcon{Deserializing a JSON-formatted string to a Python object using \textcode{json.loads()} and \textcode{json.load()}}{code:json_load}
+
+      \end{enumerate}
+
+    \end{core}
+
+  \subsection{eXtensible Markup Language (\textit{xml})}
+
+    \begin{core}{xml}
+
+      The \textcode{xml} module provides tooling for parsing, traversing, and constructing XML (eXtensible Markup Language) documents. The most practical sub-module for general use is \textcode{xml.etree.ElementTree}---often imported under the alias \textcode{ET} for brevity---which represents an XML document as a navigable tree of \textcode{Element} objects and is the idiomatic interface for XML processing within the standard library.
+
+    \end{core}
+
+    \begin{core}{Parsing XML Files}
+
+      \begin{enumerate}
+
+        \item \textcode{ET.parse(file)} parses an XML file and returns an \textcode{ElementTree} object representing the full document.
+
+        \begin{pyconsole}
+          
+          import xml.etree.ElementTree as ET
+
+          tree = ET.parse('inventory.xml')
+          print(type(tree))
+
+        \end{pyconsole}
+        \pcon{Parsing an XML file through \textcode{ET.parse()}}{code:xml_parse}
+
+        \begin{itemize}
+
+          \item \textcode{tree.getroot()} returns the root \textcode{Element} of a parsed \textcode{ElementTree} object.
+
+          \begin{pyconsole}
+
+            import xml.etree.ElementTree as ET
+            tree = ET.parse('inventory.xml')
+
+            root = tree.getroot()
+            print(root.tag)
+
+          \end{pyconsole}
+          \pcon{Retrieving the root \textcode{Element} of an \textcode{ElementTree} object using \textcode{.getroot()}}{code:xml_getroot}
+
+        \end{itemize}
+
+      \end{enumerate}
+
+    \end{core}
+
+    \begin{core}{Parsing XML Strings}
+
+      \begin{enumerate}
+
+        \item \textcode{ET.fromstring(s)} parses an XML string and returns the root \textcode{Element} object.
+
+        \begin{pyconsole}
+
+          import xml.etree.ElementTree as ET
+
+          xml_data = '<store name="TechHub"><item>Laptop</item></store>'
+
+          root = ET.fromstring(xml_data)
+          print(type(root))
+          print(root.tag)
+
+        \end{pyconsole}
+        \pcon{Parsing an XML string through \textcode{ET.fromstring()}}{code:xml_fromstring}
+
+        \begin{itemize}
+
+          \item \textcode{element.find(tag)} returns the first child \textcode{Element} matching the specified tag, or \textcode{None} if not found.
+
+          \item \textcode{element.findall(tag)} returns a list of all child \textcode{Element}s matching the specified tag.
+
+          \item \textcode{element.get(attr)} retrieves the value of a specified attribute from an \textcode{Element}.
+
+          \begin{pyconsole}
+
+            import xml.etree.ElementTree as ET
+
+            xml_data = '''
+            <store name="TechHub">
+                <item id="1">Laptop</item>
+                <item id="2">Mouse</item>
+            </store>
+            '''
+            root = ET.fromstring(xml_data)
+
+            print(root.get('name')) # fetching an attribute value
+
+            first_item = root.find('item') # getting ONLY the first matching child element
+            print(first_item.text)
+
+            all_items = root.findall('item') # retrieving a list of ALL matching child elements
+            print([item.text for item in all_items])
+
+          \end{pyconsole}
+          \pcon{Retrieving attributes and child \textcode{Element}s from a given parent \textcode{Element} object using \textcode{.find()}, \textcode{.findall()}, and \textcode{.get()}}{code:xml_element_methods}
+
+        \end{itemize}
+
+      \end{enumerate}
+
+    \end{core}
+
+\section{Regular Expression (\textit{re})}
+  \label{sec:regex}
 
   \begin{core}[label=core:regex]{Regular Expression}
 
@@ -1880,13 +2071,12 @@
 
   \end{core}
 
-\section{Threading}
+\section{Threading (\textit{threading})}
+  \label{sec:threading}
 
   \begin{core}{Threading \& Global Interpreter Lock (GIL)}
 
-    So far, all previous coding examples shown have been \textbf{single-threaded}, meaning that line 1 finishes before moving onto line 2, line 3, and so on. However, with the \textcode{threading} module, a developer is able to execute several concurrent operations within a single \textbf{multi-threaded} process in a practice called \textbf{threading}.
-
-    % While, in theory, threading allows for simultaneous execution of code, threading specifically in Python works slightly differently due to a mechanism called the \textbf{Global Interpreter Lock (GIL)}. The GIL is a safety mechanism built into CPython (\textit{\autoref{core:cpython}}) that acts as a master lock on Python's memory and thus prevents multiple threads from executing Python bytecodes exactly simultaneously. As a consequence, the \textcode{threading} module does not necessarily allow different code executions to progress in true parallel, but rather rapidly passes the single GIL back and forth between threads, often yielding the lock during a thread's \textbf{downtime} (\textit{periods of waiting for external operations, such as network requests, file I/O, or user input}).
+    While, in theory, threading allows for simultaneous execution of code, threading specifically in Python works slightly differently due to a mechanism called the \textbf{Global Interpreter Lock (GIL)}. The GIL is a safety mechanism built into CPython (\textit{\autoref{core:cpython}}) that acts as a master lock on Python's memory and thus prevents multiple threads from executing exactly simultaneously. As a consequence, the \textcode{threading} module does not necessarily allow different code executions to progress in true parallel, but rather rapidly passes the single GIL back and forth between threads, often yielding the lock during a thread's \textbf{downtime} (\textit{periods of waiting for external operations, such as network requests, file I/O, or user input}).
 
   \end{core}
 
@@ -2137,7 +2327,8 @@
 
     \end{core}
     
-  \subsection{Queuing}
+  \subsection{Queuing (\textit{queue})}
+    \label{sec:queue}
 
     \begin{core}{Queuing}
 
@@ -2206,7 +2397,7 @@
         print()
 
         pq = queue.PriorityQueue()
-        pq.put((400,'John')) # if the item in the queue is a str, then make a tuple with a int in the first index and it will use that number to define the order
+        pq.put((400,'John')) # if the item in the queue is a str, then make a tuple with an int in the first index and it will use that number to define the order
         pq.put((100,'Bob'))
         pq.put((500,'Ahmed'))
         pq.put((50,'Bharath'))
@@ -2258,849 +2449,793 @@
 
     \end{core}
 
-\section{Standard Library}
+\section{Operating System Interface}
 
-  \begin{core}[label=core:libraries]{Libraries}
+  \subsection{File System (\textit{os})}
 
-    A \textbf{library} is a broadly distributed, reusable collection of packages and modules that provides generalised functionality intended to be shared across many independent projects. Unlike a module or package, a library is not a formally defined construct within the Python; rather, it is an organisational and distributional concept. The distinction between a package and a library is primarily one of scale and intent: a package is a unit of code organisation within a project, whereas a library is a distribution of functionality designed for broad external consumption.
+    \begin{core}{os Module}
+
+      The \href{https://docs.python.org/3/library/os.html#module-os}{\textcode{os}} module provides a portable, platform-agnostic interface for interacting with the underlying operating system, serving as the standard library's primary gateway for file system navigation, directory and file manipulation, and environment configuration retrieval.
+
+    \end{core}
+
+    \begin{core}{Navigating \& Querying the File System}
+
+      The \textbf{current working directory (CWD)} refers to the directory from which the Python interpreter resolves relative paths at runtime, which by default corresponds to the directory in which the executing \textcode{.py} file resides. Its absolute path may be retrieved via \textcode{os.getcwd()}, and the CWD may be reassigned to any target directory by supplying its relative or absolute path to \textcode{os.chdir(path)}.
+
+      \begin{pyconsole}
+
+        import os
+        print(os.getcwd())
+
+        os.chdir('..') # going back a directory
+        print(os.getcwd())
+
+        os.chdir('python') # returning to python directory
+        print(os.getcwd())
+
+      \end{pyconsole}
+      \pcon{Querying the active working directory using \textcode{os.getcwd()}}{code:os_getcwd}
+
+      The contents of any given directory may be enumerated as a list of entry name strings via \textcode{os.listdir(path)}, which defaults to \textcode{path='.'} and thus operates on the CWD when no argument is supplied.
+
+      \begin{pyconsole}
+
+        import os
+        print(os.listdir())
+
+      \end{pyconsole}
+      \pcon{Listing directory contents through \textcode{os.listdir()}}{code:os_listdir}
+
+    \end{core}
+
+    \begin{core}{Managing Files and Directories}
+
+      Directory creation is handled by \textcode{os.mkdir(path)}, which creates a single directory at the specified path, and \textcode{os.makedirs(path)}, which recursively creates the target directory along with any missing intermediate parent directories. Conversely, \textcode{os.remove(path)} deletes a file at the specified path, while \textcode{os.rmdir(path)} removes an empty directory. The demonstration in \autoref{code:os_sandbox_manipulation} exercises these operations within an isolated sandbox environment to preserve the integrity of the host file system.
+
+      \begin{pyconsole}
+
+        import os
+        import shutil
+        shutil.rmtree('./sandbox', ignore_errors=True) # recursively deletes the entire sandbox directory tree if it exists; this is in order to start with a clean slate
+
+        os.makedirs('./sandbox') # making sandbox/
+        os.chdir('./sandbox') # moving to python/sandbox/
+        print(os.listdir('.')) # seeing the contents of sandbox/
+
+        os.mkdir('test_dir') # making sandbox/test_dir/
+        print(os.listdir('.')) # seeing the contents of sandbox/test_dir/
+
+        os.rename('test_dir', 'renamed_dir') # renaming sandbox/test_dir/ to sandbox/renamed_dir/
+        print(os.listdir('.')) # seeing the contents of sandbox/
+
+        os.makedirs('renamed_dir/sub_parent/child') # making sandbox/renamed_dir/sub_parent/child/
+        print(os.listdir('renamed_dir')) # seeing the contents of sandbox/renamed_dir/
+
+        with open('renamed_dir/sub_parent/child/temp.txt', 'w') as f:
+            f.write('Clean up test')
+
+        print(os.listdir('renamed_dir/sub_parent/child')) # seeing the contents of child/
+
+        os.remove('renamed_dir/sub_parent/child/temp.txt') # deleting child/temp.txt
+        print(os.listdir('renamed_dir/sub_parent/child')) # seeing the contents of child/
+
+        os.rmdir('renamed_dir/sub_parent/child') # deleting empty child/
+        print(os.listdir('renamed_dir/sub_parent')) # seeing the contents of sub_parent/
+
+        os.chdir('..') # moving back to python/
+
+      \end{pyconsole}
+      \pcon{Demonstrating directory creation, file system manipulation, and selective deletion within a sandboxed environment}{code:os_sandbox_manipulation}
+
+      File and directory renaming is performed via \textcode{os.rename(src, dst)}, which atomically reassigns the entry at the source path \textcode{src} to the destination path \textcode{dst}, effectively serving as a combined rename and move operation when \textcode{src} and \textcode{dst} reside in different directories.
+
+    \end{core}
+
+    \begin{core}{Retrieving Environment Variables}
+
+      The host operating system's environment variables are exposed as a dictionary-like mapping object through \textcode{os.environ}. For the retrieval of individual variable values, \textcode{os.getenv(key, default=None)} is the conventionally preferred interface, as it safely returns the value associated with the specified key without raising a \textcode{KeyError} on absence, instead falling back to the supplied default value.
+
+      \begin{pyconsole}
+
+        import os
+
+        print(os.getenv('HOME', 'default_home_path'))
+
+        print(os.getenv('NONEXISTENT_EV', 'default_path'))
+
+      \end{pyconsole}
+      \pcon{Extracting host configuration properties using \textcode{os.getenv()}}{code:os_getenv}
+
+      In practice, environment variable retrieval is most commonly employed for the management of sensitive credentials---such as API keys or authentication tokens---in open-source projects, wherein embedding such values directly in source code would expose them publicly upon publication to a version control platform.
+
+    \end{core}
+
+  \subsection{Process Execution (\textit{subprocess})}
+
+    \begin{core}{subprocess Module}
+
+      % The \href{https://docs.python.org/3/library/subprocess.html#module-subprocess}{\textcode{subprocess}} module provides the standard interface for manipulating processes. In layman's terms, \textcode{subprocess} is the module that allows a developer to run terminal commands via Python scripts and subsequently read the results.
+      The \href{https://docs.python.org/3/library/subprocess.html#module-subprocess}{\textcode{subprocess}} module provides the standard library's primary interface for spawning and managing child processes, enabling developers to invoke terminal commands directly from within a Python script and programmatically interact with their output, exit status, and error streams.
+
+    \end{core}
+
+    \begin{core}{Executing Terminal Commands}
+
+      Terminal commands are invoked via \textcode{subprocess.run(args)}, which executes the command specified by \textcode{args}, blocks until the child process terminates, and returns a \textcode{CompletedProcess} instance encapsulating the exit status and any captured output. Security best practices mandate that \textcode{args} be supplied as a \textbf{list of strings} rather than a single string.
+
+      \begin{pyconsole}
+
+        import subprocess
+        print(subprocess.run(['echo', 'Hello from the subshell!'])) # returncode of 0 means success
+
+      \end{pyconsole}
+      \pcon{Executing a basic shell command using \textcode{subprocess.run()}}{code:subprocess_run}
+
+    \end{core}
+
+    \begin{core}{Capturing Command Output}
+
+      By default, \textcode{subprocess.run()} does not capture the child process's standard output, instead allowing it to pass through to the parent process's terminal. Capturing the output programmatically requires \textcode{capture\_output=True}, which redirects both \textcode{stdout} and \textcode{stderr} (\textit{\autoref{core:stdinouterr}}) into the returned \textcode{CompletedProcess} instance as raw byte objects. The additional argument \textcode{text=True} instructs the module to decode these byte streams into string literals using the system's default encoding, making the output directly accessible as a \textcode{str}.
+
+      \begin{pyconsole}
+
+        import subprocess
+        print(subprocess.run(['echo', 'Captured output data'], capture_output=True, text=True))
+
+      \end{pyconsole}
+      \pcon{Capturing standard output from an external process}{code:subprocess_capture}
+
+    \end{core}
+
+    \begin{core}{Enforcing Safe Execution Status}
+
+      By convention, a child process signals successful execution by terminating with an exit status code of zero, whereas any non-zero code indicates a failure condition. Supplying \textcode{check=True} to \textcode{subprocess.run()} instructs the function to raise a \textcode{subprocess.CalledProcessError} exception upon encountering a non-zero exit code, enforcing explicit error boundaries and preventing silent failure propagation in cases where downstream logic depends on the successful completion of the subprocess.
+
+      \begin{pyconsole}
+
+        import subprocess
+
+        subprocess.run(['python', '-c', 'import sys; sys.exit(1)'], capture_output=True, text=True) # intentionally exits with an error, no CalledProcessError
+
+        subprocess.run(['python', '-c', 'import sys; sys.exit(1)'], check=True, capture_output=True, text=True)
+
+      \end{pyconsole}
+      \pcon{Handling execution failures using \textcode{check=True}}{code:subprocess_check}
+
+    \end{core}
+
+  \subsection{Runtime Control (\textit{sys})}
+
+    \begin{core}{sys Module}
+
+      The \href{https://docs.python.org/3/library/sys.html}{\textcode{sys}} module exposes a collection of variables and functions that interface directly with the Python runtime environment, serving as the standard library's primary mechanism for querying interpreter metadata, managing standard I/O streams, processing command-line arguments, and governing script termination behaviour.
+
+    \end{core}
+
+    \begin{core}{Interpreter \& Runtime Information}
+
+      The \textcode{sys} module exposes several attributes for interrogating the active interpreter and host environment at runtime, as demonstrated in \autoref{code:sys_runtime_info}. The \textcode{sys.version} attribute returns a human-readable string describing the interpreter version, while \textcode{sys.version\_info} exposes the same information as a structured named tuple amenable to programmatic comparison. The \textcode{sys.platform} attribute identifies the underlying operating system, and \textcode{sys.executable} returns the absolute path to the Python interpreter binary currently executing the script---equivalent to invoking \textcode{which python} in the terminal.
+
+      \begin{pyconsole}
+
+        import sys
+
+        print(sys.version)
+        print(sys.version_info)
+        print(sys.platform)
+        print(sys.executable)
+
+      \end{pyconsole}
+      \pcon{Querying host platform and interpreter properties}{code:sys_runtime_info}
+
+    \end{core}
+
+    \begin{core}{Command Line Arguments}
+
+      Among the most widely used features of the \textcode{sys} module is \textcode{sys.argv}, a list that captures all command-line arguments supplied to a Python script at invocation.
+      \[
+        \texttt{python script.py sys\_arg1 sys\_arg2 ...}
+      \]
+
+      By convention, \textcode{sys.argv[0]} always holds the name of the invoking script itself, while \textcode{sys.argv[1:]} isolates the arguments explicitly supplied by the caller. This mechanism enables a script's behaviour to be parameterised dynamically at invocation time via the \textbf{command-line interface (CLI)}, without requiring any modification to the source code.
+
+    \end{core}
+
+    \begin{core}[label=core:stdinouterr]{Standard I/O Streams}
+
+      The attributes \textcode{sys.stdin}, \textcode{sys.stdout}, and \textcode{sys.stderr} expose the file-like objects through which the interpreter manages standard input, standard output, and standard error streams, respectively. The built-in \textcode{print()} function, for instance, operates as a high-level wrapper around \textcode{sys.stdout.write()}, automatically appending a newline character and accepting additional formatting arguments that the raw stream interface does not provide.
+
+      \begin{pyconsole}
+
+        import sys
+        
+        # functionally equivalent to print("Standard output message")
+        sys.stdout.write("Standard output message\n")
+
+        # emitting an error message that bypasses standard output redirection
+        sys.stderr.write("Warning: Configuration file missing.\n")
+
+      \end{pyconsole}
+      \pcon{Writing directly to system output and error streams}{code:sys_io_streams}
+
+      Writing directly to \textcode{sys.stderr} allows error diagnostics and warning messages to be emitted on a stream that is kept categorically separate from the primary output stream \textcode{sys.stdout}. This separation is particularly consequential in shell contexts, where the two streams can be independently redirected to distinct destinations---as illustrated in the invocation below, which routes standard output and standard error to \textcode{out.txt} and \textcode{err.txt} respectively.
+      \[
+        \texttt{python script.py > out.txt 2> err.txt}
+      \]
+
+      Likewise, this can also be set within script.py through the following code. 
+
+      \begin{pyconsole}
+
+        import sys
+
+        original_stdout = sys.stdout # saving original out and err paths
+        original_stderr = sys.stderr
+
+        sys.stdout = open('out.txt', 'w') # redirecting out and err
+        sys.stderr = open('err.txt', 'w')
+
+        print("This goes to out.txt")
+        sys.stderr.write("This goes to err.txt\n")
+
+        sys.stdout = original_stdout # restoring original paths
+        sys.stderr = original_stderr
+
+        with open('out.txt', 'r') as f:
+            print(f.read())
+
+        with open('err.txt', 'r') as f:
+            print(f.read())
+
+      \end{pyconsole}
+      \pcon{Redirecting system output and error streams within \textcode{script.py}}{code:sys_io_redirect}
+
+    \end{core}
+
+    \begin{core}{Script Termination}
+
+      Explicit script termination is performed via \textcode{sys.exit()}, which immediately halts execution of the script and reports a numeric exit status code to the host operating system. Passing an integer of \textcode{0} (\textit{the default value}) signals a successful, expected completion, whereas any non-zero integer---most commonly \textcode{1}---indicates that the script exited due to an error or abnormal condition.
+
+      It should be noted that the assignment of zero and non-zero exit codes to successful and abnormal terminations respectively is a formally standardised convention originating from the POSIX specification, upon which all major operating systems and runtime environments base their process termination semantics. There is \textbf{no technical enforcement mechanism at the hardware or OS level that distinguishes a zero exit code from a non-zero one}; the semantic distinction is upheld entirely by convention.
+
+    \end{core}
+
+  \subsection{Path Pattern Matching (\textit{glob})}
+
+    \begin{core}{glob Module}
+
+      The \href{https://docs.python.org/3/library/glob.html}{\textcode{glob}} module provides a mechanism for identifying file paths that match a specified pattern according to the rules utilized by the Unix shell. It is the idiomatic standard library tool for pattern-based directory traversal, bulk file identification, and wildcard filtering.
+
+    \end{core}
+
+    \begin{core}[label=core:glob_glob]{Pattern Matching \& File Retrieval}
+
+      The \textcode{glob.glob(pathname, recursive=False)} is the most commonly used function within the \textcode{glob} module. It \textbf{returns a populated list of path strings} that match the specified \textcode{pathname} string, which can contain shell-style wildcards such as \textcode{*} (\textit{matches any sequence of characters}), \textcode{?} (\textit{matches any single character}), and \textcode{[seq]} (\textit{matches any character in} \textcode{seq}). When \textcode{recursive=True} is passed, the \textcode{**} pattern matches zero or more directories and subdirectories recursively.
+
+      \begin{pyconsole}
+
+        import glob
+        import os 
+
+        print(os.getcwd())
+
+        pkl_files1 = glob.glob('*.pkl') # retrieve all .pkl files in the active directory
+        print(pkl_files1)
+
+        pkl_files2 = glob.glob('**/*.pkl', recursive=True) # retrieve all .pkl files spanning a nested directory structure
+        print(txt_files2)
+
+      \end{pyconsole}
+      \pcon{Extracting file paths using shell-style wildcard patterns via \textcode{glob.glob()}}{code:glob_glob}
+
+    \end{core}
+
+    \begin{core}{Memory Efficient Iteration}
+
+      \textcode{glob.iglob(pathname, recursive=False)} provides the exact same pattern-matching semantics as \textcode{glob.glob()} (\textit{\autoref{core:glob_glob}}), but returns an \textbf{iterator} instead of a fully realized list. This \textbf{deferred execution model} is highly optimal, as it prevents memory exhaustion when parsing directories that contain thousands of files.
+
+      \begin{pyconsole}
+
+        import glob
+
+        csv_iterator = glob.iglob('data/*.csv') # initialize an iterator for CSV files
+        print(type(csv_iterator))
+
+        for filepath in csv_iterator: # consuming the iterator sequentially without bulk memory allocation
+            print(f"Processing: {filepath}") # nothing is outputed because no CSV files exit in the CWD
+
+      \end{pyconsole}
+      \pcon{Generating an iterator for memory-efficient path traversal using \textcode{glob.iglob()}}{code:glob_iglob}
+
+    \end{core}
+
+\section{Standard Mathematical Utilities}
+
+  \subsection{Randomness \& Sampling (\textit{random})}
+
+    \begin{core}{random}
+
+      The \href{https://docs.python.org/3/library/random.html}{\textcode{random}} module implements a pseudo-random number generator, providing utilities for random number generation, sequence sampling, and probabilistic selection across a variety of distributions.
+
+    \end{core}
+
+    \begin{core}{Random Number Generation}
+
+      The \textcode{random} module exposes several functions for generating pseudo-random numerical values across different domains and boundary conditions, as demonstrated in \autoref{code:random_generation}.
+
+      \begin{itemize}
+
+        \item \textcode{random.random()} returns a pseudo-random floating-point number $N$ in the half-open interval $[0.0, 1.0)$, inclusive of the lower bound and exclusive of the upper.
+
+        \item \textcode{random.randint(a, b)} returns a pseudo-random integer $N$ such that $a \leq N \leq b$, with both bounds inclusive.
+
+        \item \textcode{random.uniform(a, b)} returns a pseudo-random floating-point number $N$ such that $a \leq N \leq b$, with both bounds inclusive.
+
+        \item \textcode{random.randrange(start, stop, step)} returns a pseudo-random integer selected from the equivalent \textcode{range(start, stop, step)}, exclusive of the upper bound in accordance with Python's standard range semantics.
+
+      \end{itemize}
+
+      \begin{pyconsole}
+
+        import random
+
+        for i in range(3):
+            print(random.random())
+
+        for i in range(3):
+            print(random.randint(1,50))
+
+        for i in range(3):
+            print(random.uniform(1,50))
+
+        for i in range(3):
+            print(random.randrange(1,12,2))
+
+      \end{pyconsole}
+      \pcon{Generating constrained pseudo-random numerical values}{code:random_generation}
+
+    \end{core}
+
+    \begin{core}{Sequence Sampling and Shuffling}
+
+      Beyond numerical generation, the \textcode{random} module provides functions for selecting elements from and reordering existing sequences, as demonstrated in \autoref{code:random_sampling}.
+
+      \begin{itemize}
+
+        \item \textcode{random.choice(seq)} returns a single pseudo-randomly selected element from a non-empty sequence.
+
+        \item \textcode{random.choices(seq, k=n)} returns a list of \textcode{n} elements drawn from \textcode{seq} \textbf{with replacement}, meaning the same element may appear multiple times in the result.
+
+        \item \textcode{random.sample(seq, k=n)} returns a list of \textcode{n} elements drawn from \textcode{seq} \textbf{without replacement}, guaranteeing that each element appears at most once; the original sequence is not modified.
+
+        \item \textcode{random.shuffle(seq)} reorders the elements of \textcode{seq} in place using a pseudo-random permutation, mutating the original sequence directly and returning \textcode{None}.
+
+      \end{itemize}
+
+      \begin{pyconsole}
+
+        import random
+
+        seq = ['alpha', 'beta', 'gamma', 'delta', 'epsilon']
+
+        print(random.choice(seq))
+
+        print(random.choices(seq, k=3))
+
+        print(random.sample(seq, k=3))
+
+        random.shuffle(seq)
+        print(seq)
+
+      \end{pyconsole}
+      \pcon{Pseudo-random sequence sampling and in-place shuffling}{code:random_sampling}
+
+      It is worth noting that \textcode{random.shuffle()} mutates the original sequence and returns \textcode{None}; assigning its return value to a variable is a common error. Where preservation of the original sequence order is required, \textcode{random.sample(seq, k=len(seq))} provides a functionally equivalent shuffle that returns a new list without modifying the source.
+
+    \end{core}
+
+    \begin{core}{Fixing Randomness}
+
+      Although the \textcode{random} module produces outputs that appear statistically random, the underlying algorithm is entirely \textbf{deterministic}---given the same initial seed value, it will always produce an identical sequence of outputs. By default, the generator is seeded automatically using the system clock or an OS-provided entropy source, which yields a different sequence on each execution. Supplying an explicit seed via \textcode{random.seed(n)} overrides this behaviour, fixing the internal state of the generator and ensuring that the same sequence is reproduced across all subsequent executions, as demonstrated in \autoref{code:random_seed}.
+
+      \begin{pyconsole}
+
+        import random
+
+        random.seed(42)
+
+        print([random.randint(1, 100) for _ in range(5)]) # sequence A
+
+        random.seed(42) # resetting the seed to the same value
+
+        print([random.randint(1, 100) for _ in range(5)]) # sequence A reproduced exactly
+
+        random.seed(99) # different seed produces a different but equally reproducible sequence
+
+        print([random.randint(1, 100) for _ in range(5)]) # sequence B
+
+      \end{pyconsole}
+      \pcon{Demonstrating seed-fixed pseudo-random sequence reproducibility through \textcode{random.seed(n)}}{code:random_seed}
+
+    \end{core}
+
+  \subsection{Mathmatical Operations \& Constants (\textit{math})}
+
+    \begin{core}{math}
+
+      The \href{https://docs.python.org/3/library/math.html}{\textcode{math}} module provides access to mathematical functions and constants defined by the C standard library, operating exclusively on real numbers. It serves as the standard library's primary interface for geometric, logarithmic, trigonometric, and combinatorial computations. For analogous operations over complex numbers, the \href{https://docs.python.org/3/library/cmath.html#module-cmath}{\textcode{cmath}} module is the appropriate alternative.
+
+    \end{core}
+
+    \begin{core}{Mathematical Constants}
+
+      The \textcode{math} module exposes several fundamental mathematical constants as module-level attributes, as demonstrated in \autoref{code:math_constants}.
+
+      \begin{pyconsole}
+
+        import math
+
+        print(math.pi)    # 3.14159
+        print(math.e)     # 2.71828
+        print(math.inf)   # floating-point positive infinity
+        print(math.nan)   # Not a Number (NaN)
+
+      \end{pyconsole}
+      \pcon{Accessing fundamental mathematical constants via the \textcode{math} module}{code:math_constants}
+
+    \end{core}
+
+    \begin{core}{Mathematical Operations}
+
+      The \textcode{math} module exposes a broad selection of mathematical functions; while an exhaustive treatment is beyond the scope of this section, the following code block represents a categorised demonstration of the most commonly used functions.
+
+      \begin{pyconsole}
+
+        import math
+
+        # Rounding and Absolute Value ----------
+        print(math.floor(7.9))       # floor
+        print(math.ceil(8.2))        # ceiling
+        print(math.fabs(-2.2))       # absolute value as float
+
+        # Power and Root
+        print(math.sqrt(9))          # square root
+        print(math.pow(2, 8))        # x^y as float
+
+        # Exponential and Logarithmic ----------
+        print(math.exp(1))           # e^x
+        print(math.log(math.e))      # natural logarithm (base e)
+        print(math.log(100, 10))     # logarithm to specified base
+        print(math.log2(8))          # base-2 logarithm
+        print(math.log10(1000))      # base-10 logarithm
+
+        # Trigonometric ------------------------
+        print(math.sin(math.pi/2))   # sine of x in radians
+        print(math.degrees(math.pi)) # radians to degrees
+        print(math.radians(180))     # degrees to radians
+
+        # Combinatorial ------------------------
+        print(math.factorial(5))     # n!
+        print(math.comb(10, 3))      # n choose k
+        print(math.perm(10, 3))      # ordered arrangements of k from n
+
+      \end{pyconsole}
+      \pcon{Applying fundamental mathematical operations via the \textcode{math} module}{code:math_operations}
+
+    \end{core}
+
+\section{Time \& Scheduling}
+
+  \subsection{Date and Time Representation (\textit{datetime})}
+
+    \begin{core}{datetime}
+
+      The \href{https://docs.python.org/3/library/datetime.html}{\textcode{datetime}} module supplies a suite of classes for representing, manipulating, and formatting dates and times. It serves as the standard library's primary interface for temporal arithmetic, calendar data extraction, and string-based date parsing, and is conventionally accessed via the \textcode{from datetime import ...} syntax to bring its constituent classes directly into the calling namespace.
+
+    \end{core}
+
+    \begin{core}[label=core:dt_formatting]{Date \& Time Formatting}
+
+      Parsing and formatting operations within the \textcode{datetime} module are governed by a system of percentage-prefixed format codes, wherein each code serves as a placeholder for a distinct temporal component. These codes may be freely combined with arbitrary literal text and punctuation to construct highly customised date and time string representations, as catalogued in \autoref{tab:strpf_codes}.
+
+      \begin{table}[H]
+        \centering
+        \begin{tabular}{lll}
+          \hline
+          \hline
+          \textbf{Code} & \textbf{Meaning} & \textbf{Example} \\
+          \hline
+          \textcode{\%Y} & 4-digit year & \textcode{2026} \\
+          \textcode{\%m} & Zero-padded month & \textcode{05} \\
+          \textcode{\%d} & Zero-padded day & \textcode{29} \\
+          \textcode{\%H} & Hour, 24hr & \textcode{14} \\
+          \textcode{\%M} & Minute & \textcode{30} \\
+          \textcode{\%S} & Second & \textcode{00} \\
+          \textcode{\%A} & Full weekday name & \textcode{Friday} \\
+          \textcode{\%B} & Full month name & \textcode{May} \\
+          \textcode{\%f} & Microseconds & \textcode{000000} \\
+          \hline
+        \end{tabular}
+        \caption{Standard format codes for parsing and formatting \textcode{datetime} objects.}
+        \label{tab:strpf_codes}
+      \end{table}
+
+      Two formatting functions recur across all \textcode{datetime} module classes and are introduced here for reference. The \textcode{obj.strftime(format)} method converts a temporal object into a formatted human-readable string according to the supplied format code sequence, while \textcode{datetime.strptime(string, format)} performs the inverse operation, parsing a formatted string literal back into a \textcode{datetime} object.
+
+    \end{core}
+
+    \begin{core}{Date}
+
+      The \textcode{date} class represents a localised calendar date encapsulating a year, month, and day, with no consideration of time or time zone. The current local date may be retrieved via the class method \textcode{date.today()}, while a specific date may be constructed by supplying integer arguments to \textcode{date(year, month, day)}.
+
+      Individual temporal components are accessible as attributes (\textcode{.year}, \textcode{.month}, \textcode{.day}), and the \textcode{.weekday()} method returns an integer in the range $[0, 6]$ mapping Monday through Sunday respectively. Standardised string output is available via \textcode{.isoformat()}, which produces an ISO 8601 compliant representation, and \textcode{.strftime(format)}, which formats the date according to the format codes outlined in \autoref{core:dt_formatting}.
+
+      \begin{pyconsole}
+
+        from datetime import date
+
+        today = date.today()          # current local date
+        d = date(2026, 5, 29)         # construct a specific date
+
+        print(d.year)                 # 2026
+        print(d.month)                # 5
+        print(d.day)                  # 29
+        print(d.weekday())            # 3 (Thursday; 0 = Monday)
+        print(d.isoformat())          # '2026-05-29'
+        print(d.strftime("%d %B %Y")) # '29 May 2026'
+
+      \end{pyconsole}
+      \pcon{Demonstrating \textcode{date} class instantiation, attribute extraction, and string formatting}{code:date_showcase}
+
+    \end{core}
+
+    \begin{core}{Time}
+
+      The \textcode{time} class represents a localised time of day encapsulating an hour, minute, second, and microsecond, independently of any associated date or time zone. A specific time may be constructed by supplying integer arguments to \textcode{time(hour, minute, second, microsecond)}, all of which default to zero if omitted. 
+
+      Individual components are accessible as attributes (\textcode{.hour}, \textcode{.minute}, \textcode{.second}, \textcode{.microsecond}), and standardised string output is available via \textcode{.isoformat()} and \textcode{.strftime(format)}, consistent with the formatting conventions outlined in \autoref{core:dt_formatting}.
+
+      \begin{pyconsole}
+
+        from datetime import time
+        t = time(14, 30, 0)             # construct a specific time
+
+        print(t.hour)                   # 14
+        print(t.minute)                 # 30
+        print(t.second)                 # 0
+        print(t.microsecond)            # 0
+        print(t.isoformat())            # '14:30:00'
+        print(t.strftime("%H:%M:%S"))   # '14:30:00'
+
+      \end{pyconsole}
+      \pcon{Demonstrating \textcode{time} class instantiation, attribute extraction, and string formatting}{code:time_showcase}
+
+    \end{core}
+
+    \begin{core}{Datetime}
+
+      The \textcode{datetime} class serves as a composite representation, \textbf{encapsulating both a calendar date and a time of day within a single object}. The current local date and time may be retrieved via \textcode{datetime.now()}, while a specific moment may be constructed by supplying integer arguments to \textcode{datetime(year, month, day, hour, minute, second)}.
+
+      The constituent date and time components may be isolated via the \textcode{.date()} and \textcode{.time()} methods respectively, and standardised string output is available via \textcode{.isoformat()} and \textcode{.strftime(format)}. The inverse parsing operation, converting a formatted string back into a \textcode{datetime} object, is performed via \textcode{datetime.strptime(string, format)}, as introduced in \autoref{core:dt_formatting}.
+
+      \begin{pyconsole}
+
+        from datetime import datetime
+        now = datetime.now()                              # current local date and time
+        dt = datetime(2026, 5, 29, 14, 30, 0)            # construct a specific datetime
+
+        print(dt.date())                                  # date(2026, 5, 29)
+        print(dt.time())                                  # time(14, 30, 0)
+        print(dt.isoformat())                             # '2026-05-29T14:30:00'
+        print(dt.strftime("%Y-%m-%d %H:%M"))              # '2026-05-29 14:30'
+        print(datetime.strptime("29/05/2026","%d/%m/%Y")) # parsing string to datetime
+
+      \end{pyconsole}
+      \pcon{Demonstrating \textcode{datetime} class instantiation, component extraction, and string formatting}{code:datetime_showcase}
+
+    \end{core}
+
+    \begin{core}{Timedelta}
+
+      The \textcode{timedelta} class represents a fixed duration of time, serving as the result type of arithmetic operations between \textcode{date} or \textcode{datetime} instances. A \textcode{timedelta} object is constructed by supplying any combination of \textcode{days}, \textcode{hours}, \textcode{minutes}, \textcode{seconds}, or \textcode{microseconds} as keyword arguments, and may be added to or subtracted from an existing temporal object to yield a displaced \textcode{date} or \textcode{datetime}.
+
+      Subtracting two \textcode{date} or \textcode{datetime} instances directly yields a \textcode{timedelta} representing the elapsed duration between them, which may be queried via the \textcode{.days} attribute or the \textcode{.total\_seconds()} method.
+
+      \begin{pyconsole}
+
+        from datetime import date, datetime, timedelta
+        delta = timedelta(days=7, hours=3)
+
+        print(date.today() + delta)   # one week and 3 hours from today
+        print(date.today() - delta)   # one week and 3 hours prior to today
+
+        d1 = datetime(2026, 1, 1)
+        d2 = datetime(2026, 5, 29)
+        diff = d2 - d1
+
+        print(diff.days)              # 148
+        print(diff.total_seconds())   # 12787200.0
+
+      \end{pyconsole}
+      \pcon{Executing temporal arithmetic and calculating elapsed durations using \textcode{timedelta}}{code:timedelta_arithmetic}
+
+    \end{core}
+
+  \subsection{System Clock (\textit{time})}
+
+    \begin{core}{time}
+
+      The \href{https://docs.python.org/3/library/time.html}{\textcode{time}} module provides a low-level interface to the host system's clock, offering utilities for querying the current system time and benchmarking code performance. Unlike the \textcode{datetime} module, which operates at the level of human-readable calendar representations, the \textcode{time} module concerns itself primarily with \textbf{raw temporal measurements and system-level time tracking}.
+
+    \end{core}
+
+    \begin{core}{Epoch}
+
+      The \textbf{Unix epoch} is the reference point from which all Unix-based system clocks measure time, defined as midnight on \textbf{January 1, 1970 (UTC)}. All time values returned by the \textcode{time} module are expressed as floating-point offsets in seconds relative to this origin, a representation commonly referred to as \textbf{Unix time} or \textbf{POSIX time}.
+
+    \end{core}
+
+    \begin{core}{System Time \& Execution Control}
+
+      The \textcode{time} module exposes several functions for querying the system clock, converting raw timestamps into human-readable representations, and controlling thread execution timing, as demonstrated in \autoref{code:time_benchmarking}.
+
+      \begin{itemize}
+
+        \item \textcode{time.time()} returns the current system time as a floating-point number of seconds elapsed since the Unix epoch, providing a raw timestamp suitable for logging and time difference calculations.
+
+        \item \textcode{time.ctime(secs)} converts a Unix timestamp expressed in seconds into a locale-appropriate human-readable string; when called without arguments, it converts the current time.
+
+        \item \textcode{time.perf\_counter()} returns a floating-point value from the highest-resolution clock available to the system, measuring elapsed wall-clock time with sub-millisecond precision and making it the appropriate choice for benchmarking code execution.
+
+        \item \textcode{time.sleep(secs)} suspends execution of the calling thread for the specified number of seconds, relinquishing the CPU to other threads or processes during the interval.
+
+      \end{itemize}
+
+      \begin{pyconsole}
+
+        import time
+        start_time = time.perf_counter()
+
+        print(time.time()) # seconds elapsed since the Unix epoch
+        print(time.ctime()) # human-readable representation of current time
+
+        time.sleep(0.1) # suspend execution for 0.1 seconds
+        end_time = time.perf_counter()
+
+        print(end_time - start_time) # execution time in seconds
+
+      \end{pyconsole}
+      \pcon{Querying system time and benchmarking execution duration}{code:time_benchmarking}
+
+    \end{core}
+
+\section{Virtual Environments \& Package Management}
+
+  \begin{core}{Virtual Environment}
 
   \end{core}
 
-  \begin{core}[label=core:standard_library]{Standard Library}
-
-    The \href{https://docs.python.org/3/py-modindex.html}{\textbf{Python Standard Library}} is a comprehensive collection of modules that comes with the Python interpreter upon installation, requiring no external package manager or configuration to access. Each module within the standard library addresses a distinct domain of common programming tasks, spanning areas such as file I/O, networking, data serialisation, concurrency, mathematics, and string manipulation, among others.
-
-    \textit{In previous section, }
-
-  \end{core}
-
-  \subsection{Data Serialization \& Storage}
-
-    \subsubsection{json}
-
-      \begin{core}{json}
-
-        The \textcode{json} module provides a standardised interface for serialising Python objects into JSON (JavaScript Object Notation) format and deserialising JSON-formatted strings back into native Python objects. It is most commonly used when exchanging data with web APIs or writing structured data to a file.
-
-        \begin{enumerate}
-
-          \item \textcode{json.dumps(obj)} serializes a Python object into a JSON-formatted string. You can also serialize a Python object and write the result directly to a file object \textcode{fp} through \textcode{json.dump(obj, fp)}.
-
-          \begin{pyconsole}
-
-            import json
-
-            data = {'name': 'Alice', 'age': 30}
-
-            json_string = json.dumps(data) # Python object -> json string
-            print(json_string)
-
-            with open('data.json', 'w') as fp: # Python object -> json file
-                json.dump(data, fp)
-
-          \end{pyconsole}
-          \pcon{Serializing a Python object to JSON using \textcode{json.dumps()} and \textcode{json.dump()}}{code:json_dump}
-
-          \item \textcode{json.loads(obj)}, on the other hand, deserializes a JSON-formatted string back into a native Python object. Likewise, you can write the result directly to a file object \textcode{fp} thorugh \textcode{json.load(fp)}.
-
-          \begin{pyconsole}
-
-            import json
-
-            json_string = '{"name": "Alice", "age": 30}'
-
-            data_from_string = json.loads(json_string) # json string -> Python object
-            print(data_from_string)  
-
-            with open('data.json', 'r') as fp: # json file -> Python object
-                data_from_file = json.load(fp)
-
-            print(data_from_file)
-
-          \end{pyconsole}
-          \pcon{Deserializing a JSON-formatted string to a Python object using \textcode{json.loads()} and \textcode{json.load()}}{code:json_load}
-
-        \end{enumerate}
-
-      \end{core}
-
-    \subsubsection{pickle}
-
-      \begin{core}{pickle}
-
-        The \textcode{pickle} module implements a Python-specific binary serialisation protocol, enabling arbitrary Python objects---including custom class instances, functions, and data structures not supported by JSON---to be converted into a machine code and subsequently reconstructed. This process is referred to as \textbf{pickling} (\textit{serialisation}) and \textbf{unpickling} (\textit{deserialisation}) respectively.
-
-        A more detailed treatment of the pickling protocol is provided in \autoref{core:pickling}.
-
-      \end{core}
-
-    \subsubsection{xml}
-
-      \begin{core}{xml}
-
-        The \textcode{xml} module provides tooling for parsing, traversing, and constructing XML (eXtensible Markup Language) documents. The most practical sub-module for general use is \textcode{xml.etree.ElementTree}---often imported under the alian \textcode{ET} for brevity---which represents an XML document as a navigable tree of \textcode{Element} objects and is the idiomatic interface for XML processing within the standard library.
-
-        \begin{enumerate}
-
-          \item \textcode{ET.parse(file)} parses an XML file and returns an \textcode{ElementTree} object representing the full document.
-
-          \begin{pyconsole}
-            
-            import xml.etree.ElementTree as ET
-
-            tree = ET.parse('inventory.xml')
-            print(type(tree))
-
-          \end{pyconsole}
-          \pcon{Parsing an XML file through \textcode{ET.parse()}}{code:xml_parse}
-
-          \begin{itemize}
-
-            \item \textcode{tree.getroot()} returns the root \textcode{Element} of a parsed \textcode{ElementTree} object.
-
-            \begin{pyconsole}
-
-              import xml.etree.ElementTree as ET
-              tree = ET.parse('inventory.xml')
-
-              root = tree.getroot()
-              print(root.tag)
-
-            \end{pyconsole}
-            \pcon{Retrieving the root \textcode{Element} of an \textcode{ElementTree} object using \textcode{.getroot()}}{code:xml_getroot}
-
-          \end{itemize}
-
-          \item \textcode{ET.fromstring(s)} parses an XML string and returns the root \textcode{Element} object.
-
-          \begin{pyconsole}
-
-            import xml.etree.ElementTree as ET
-
-            xml_data = '<store name="TechHub"><item>Laptop</item></store>'
-
-            root = ET.fromstring(xml_data)
-            print(type(root))
-            print(root.tag)
-
-          \end{pyconsole}
-          \pcon{Parsing an XML string through \textcode{ET.fromstring()}}{code:xml_fromstring}
-
-          \begin{itemize}
-
-            \item \textcode{element.find(tag)} returns the first child \textcode{Element} matching the specified tag, or \textcode{None} if not found.
-
-            \item \textcode{element.findall(tag)} returns a list of all child \textcode{Element}s matching the specified tag.
-
-            \item \textcode{element.get(attr)} retrieves the value of a specified attribute from an \textcode{Element}.
-
-            \begin{pyconsole}
-
-              import xml.etree.ElementTree as ET
-
-              xml_data = '''
-              <store name="TechHub">
-                  <item id="1">Laptop</item>
-                  <item id="2">Mouse</item>
-              </store>
-              '''
-              root = ET.fromstring(xml_data)
-
-              print(root.get('name')) # fetching an attribute value
-
-              first_item = root.find('item') # getting ONLY the first matching child element
-              print(first_item.text)
-
-              all_items = root.findall('item') # retrieving a list of ALL matching child elements
-              print([item.text for item in all_items])
-
-            \end{pyconsole}
-            \pcon{Retrieving attributes and child \textcode{Element}s from a given parent \textcode{Element} object using \textcode{.find()}, \textcode{.findall()}, and \textcode{.get()}}{code:xml_element_methods}
-
-          \end{itemize}
-
-        \end{enumerate}
-
-      \end{core}
-
-  \subsection{File System \& OS Interface}
-
-    \subsubsection{os}
-
-      \begin{core}{os}
-
-        The \href{https://docs.python.org/3/library/os.html#module-os}{\textcode{os}} module provides portable tooling for interacting with the underlying operating system. It serves as the standard library's primary interface for file system navigation, directory and file manipulation, and environment configuration management.
-
-        \begin{enumerate}
-
-          \item \textbf{Navigating and Querying the File System}
-
-          \begin{itemize}
-
-            \item \textcode{os.getcwd()} returns the absolute path string of the current working directory.
-
-            \begin{pyconsole}
-
-              import os
-
-              current_dir = os.getcwd()
-              print(current_dir)
-
-            \end{pyconsole}
-            \pcon{Querying the active system directory using \textcode{os.getcwd()}}{code:os_getcwd}
-
-            \item \textcode{os.chdir(path)} changes the current working directory to the specified path target.
-
-            \item \textcode{os.listdir(path='.')} returns a list containing the names of the entries within the given directory.
-
-            \begin{pyconsole}
-
-              import os
-
-              entries = os.listdir('.')
-              print(entries)
-
-            \end{pyconsole}
-            \pcon{Listing directory contents through \textcode{os.listdir()}}{code:os_listdir}
-
-          \end{itemize}
-
-          \item \textbf{Managing Files and Directories}
-
-          \begin{itemize}
-
-            \item \textcode{os.mkdir(path)} creates a single directory at the specified path.
-
-            \item \textcode{os.makedirs(path)} recursively creates a target directory along with any missing intermediate directories.
-
-            \item \textcode{os.remove(path)} removes a file path target.
-
-            \item \textcode{os.rmdir(path)} removes an empty directory path target.
-
-            \item \textcode{os.rename(src, dst)} renames a file or directory from the source path to the destination path.
-
-            \begin{pyconsole}
-
-              import os
-              import shutil
-
-              shutil.rmtree('./sandbox', ignore_errors=True) # recursively deletes the entire sandbox directory tree if it exists; this is in order to start with a clean slate
-
-              os.makedirs('./sandbox', exist_ok=True)
-              os.chdir('./sandbox')
-              print(os.listdir('.'))
-
-              os.mkdir('test_dir')
-              print(os.listdir('.'))
-
-              os.rename('test_dir', 'renamed_dir')
-              print(os.listdir('.'))
-
-              os.makedirs('renamed_dir/sub_parent/child', exist_ok=True)
-              print(os.listdir('renamed_dir'))
-
-              with open('renamed_dir/sub_parent/child/temp.txt', 'w') as f:
-                  f.write('Clean up test')
-
-              print(os.listdir('renamed_dir/sub_parent/child'))
-
-              os.remove('renamed_dir/sub_parent/child/temp.txt')
-              print(os.listdir('renamed_dir/sub_parent/child'))
-
-              os.rmdir('renamed_dir/sub_parent/child')
-              print(os.listdir('renamed_dir/sub_parent'))
-
-              os.chdir('..')
-
-            \end{pyconsole}
-            \pcon{Demonstrating directory creation, file system manipulation, and selective deletion within a sandboxed environment}{code:os_sandbox_manipulation}
-
-          \end{itemize}
-
-          \item \textbf{Retrieving Environment Variables}
-
-          \begin{itemize}
-
-            \item \textcode{os.environ} maps the current environment keys and values to a dictionary-like object interface.
-
-            \item \textcode{os.getenv(key, default=None)} safe-extracts the configuration value matching a given key without throwing an exception.
-
-            \begin{pyconsole}
-
-              import os
-
-              user_profile = os.getenv('USER', 'default_user')
-              print(user_profile)
-
-            \end{pyconsole}
-            \pcon{Extracting host configuration properties using \textcode{os.getenv()}}{code:os_getenv}
-
-          \end{itemize}
-
-        \end{enumerate}
-
-      \end{core}
-
-    \subsubsection{subprocess}
-
-      \begin{core}{subprocess}
-
-        The \href{https://docs.python.org/3/library/subprocess.html#module-subprocess}{\textcode{subprocess}} module provides the standard interface for manipulating processes. In layman's terms, \textcode{subprocess} is the module that allows a developer to run terminal commands via Python scripts and subsequently read the results.
-
-        \begin{enumerate}
-
-          \item \textbf{Executing System Commands}
-
-          \begin{itemize}
-
-            \item \textcode{subprocess.run(args)} is the primary workhorse function that executes the command described by \textcode{args}, waits for command completion, and returns a \textcode{CompletedProcess} instance. Security best practices dictate passing commands as a list of strings rather than a single string.
-
-            \begin{pyconsole}
-
-              import subprocess
-
-              result = subprocess.run(['echo', 'Hello from the subshell!'])
-              print(result) # returncode of 0 means success
-
-            \end{pyconsole}
-            \pcon{Executing a basic shell command using \textcode{subprocess.run()}}{code:subprocess_run}
-
-          \end{itemize}
-
-          \item \textbf{Capturing Command Output}
-
-          \begin{itemize}
-
-            \item Passing \textcode{capture\_output=True} alongside \textcode{text=True} routes the standard output and standard error streams directly into the returned \textcode{CompletedProcess} object as readable string attributes. The absence of \textcode{text=True} return byte objects.
-
-            \begin{pyconsole}
-
-              import subprocess
-
-              result = subprocess.run(['echo', 'Captured output data'], capture_output=True, text=True)
-              
-              print(result)
-
-            \end{pyconsole}
-            \pcon{Capturing standard output from an external process}{code:subprocess_capture}
-
-          \end{itemize}
-
-          \item \textbf{Enforcing Safe Execution Status}
-
-          \begin{itemize}
-
-            \item Passing \textcode{check=True} instructs the function to raise a \textcode{subprocess.CalledProcessError} exception if the underlying process exits with a non-zero status code, enforcing strict error boundaries.
-
-            \begin{pyconsole}
-
-              import subprocess
-
-              subprocess.run(['python', '-c', 'import sys; sys.exit(1)'], capture_output=True, text=True) # intentionally exits with an errror, no CalledProcessError
-
-              subprocess.run(['python', '-c', 'import sys; sys.exit(1)'], check=True, capture_output=True, text=True) # intentionally exits with an error status (1)
-
-            \end{pyconsole}
-            \pcon{Handling execution failures using \textcode{check=True}}{code:subprocess_check}
-
-          \end{itemize}
-
-        \end{enumerate}
-
-      \end{core}
-
-    \subsubsection{sys}
-
-      \begin{core}{sys}
-
-        The \href{https://docs.python.org/3/library/sys.html}{\textcode{sys}} module provides access to variables and functions that interact directly with the Python runtime environment. It is the primary tool for querying interpreter details, handling standard input/output streams, processing command-line arguments, and controlling script termination.
-
-        \begin{enumerate}
-
-          \item \textbf{Interpreter and Runtime Information}
-
-          \begin{itemize}
-
-            \item \textcode{sys.version} returns a string containing the Python version number alongside additional build information and compiler details.
-
-            \item \textcode{sys.version\_info} returns a named tuple detailing the five components of the version number (major, minor, micro, releaselevel, and serial), which is highly useful for programmatic version checking.
-
-            \item \textcode{sys.platform} returns a string identifying the underlying operating system platform---e.g., \textcode{'linux'}, \textcode{'darwin'}, \textcode{'win32'}---on which Python is executing.
-
-            \item \textcode{sys.executable} returns a string providing the absolute path to the executable binary of the Python interpreter currently running the script.
-
-            \begin{pyconsole}
-
-              import sys
-
-              print(sys.version)
-              print(sys.version_info)
-              print(sys.platform)
-              print(sys.executable)
-
-            \end{pyconsole}
-            \pcon{Querying host platform and interpreter properties}{code:sys_runtime_info}
-
-          \end{itemize}
-
-          \item \textbf{Command-Line Arguments}
-
-          \begin{itemize}
-
-            \item \textcode{sys.argv} is a list containing the command-line arguments passed to a Python script in the terminal.
-            \[
-              \texttt{python sys\_arg0 sys\_arg1 sys\_arg2 ...}
-            \]
-
-            By convention, \textcode{sys.argv[0]} always holds the name of the script itself, while the sliced list \textcode{sys.argv[1:]} isolates the actual arguments provided by the user in the terminal.
-
-          \end{itemize}
-
-          \item \textbf{Standard I/O Streams}
-
-          \begin{itemize}
-
-            \item \textcode{sys.stdin}, \textcode{sys.stdout}, and \textcode{sys.stderr} are file objects used by the interpreter for standard input, standard output, and standard errors, respectively. For instance, the built-in \textcode{print()} function acts as a convenient wrapper around \textcode{sys.stdout.write()}.
-
-            \begin{pyconsole}
-
-              import sys
-
-              # functionally equivalent to print("Standard output message")
-              sys.stdout.write("Standard output message\n")
-
-              # emitting an error message that bypasses standard output redirection
-              sys.stderr.write("Warning: Configuration file missing.\n")
-
-            \end{pyconsole}
-            \pcon{Writing directly to system output and error streams}{code:sys_io_streams}
-
-            \item Writing directly to \textcode{sys.stderr} allows developers to separate error diagnostics and warning messages from the primary program output stream. For instance, the following terminal Python execution script allows errors/warnings and outputs to be outputed into two different files \textcode{err.txt} and \textcode{out.txt}, respectively.
-            \[
-              \texttt{python script.py > out.txt 2> err.txt}
-            \]
-
-          \end{itemize}
-
-          \item \textbf{Script Termination}
-
-          \begin{itemize}
-
-            \item \textcode{sys.exit([arg])} forces the Python interpreter to safely terminate the running script. Passing an integer of \textcode{0} implies a successful, expected completion, whereas passing any non-zero integer---commonly \textcode{1}---signals an error or abnormal exit condition to the host operating system.
-
-          \end{itemize}
-
-        \end{enumerate}
-
-      \end{core}
-
-    \subsubsection{glob}
-
-      \begin{core}{glob}
-
-        The \href{https://docs.python.org/3/library/glob.html}{\textcode{glob}} module provides a mechanism for identifying file paths that match a specified pattern according to the rules utilized by the Unix shell. It is the idiomatic standard library tool for pattern-based directory traversal, bulk file identification, and wildcard filtering.
-
-        \begin{enumerate}
-
-          \item \textbf{Pattern Matching and File Retrieval}
-
-          \begin{itemize}
-
-            \item \textcode{glob.glob(pathname, *, recursive=False)} returns a populated list of path strings that match the specified \textcode{pathname}. The string can contain shell-style wildcards such as \textcode{*} (\textit{matches any sequence of characters}), \textcode{?} (\textit{matches any single character}), and \textcode{[seq]} (\textit{matches any character in} \textcode{seq}). When \textcode{recursive=True} is passed, the \textcode{**} pattern matches zero or more directories and subdirectories recursively.
-
-            \begin{pyconsole}
-
-              import glob
-              import os 
-
-              print(os.getcwd())
-
-              py_files = glob.glob('*.py') # retrieve all Python source files in the active directory
-              print(py_files)
-
-              txt_files = glob.glob('**/*.pkl', recursive=True) # retrieve all text files spanning a nested directory structure
-              print(txt_files)
-
-            \end{pyconsole}
-            \pcon{Extracting file paths using shell-style wildcard patterns via \textcode{glob.glob()}}{code:glob_glob}
-
-          \end{itemize}
-
-          \item \textbf{Memory-Efficient Iteration}
-
-          \begin{itemize}
-
-            \item \textcode{glob.iglob(pathname, *, recursive=False)} provides the exact same pattern-matching semantics as \textcode{glob.glob()}, but returns an iterator instead of a fully realized list. This \textbf{deferred execution model} is highly optimal, as it prevents memory exhaustion when parsing directories that contain thousands of files.
-
-            \begin{pyconsole}
-
-              import glob
-
-              csv_iterator = glob.iglob('data/*.csv') # initialize an iterator for CSV files
-              print(type(csv_iterator))
-
-              for filepath in csv_iterator: # consuming the iterator sequentially without bulk memory allocation
-                  print(f"Processing: {filepath}")
-
-            \end{pyconsole}
-            \pcon{Generating an iterator for memory-efficient path traversal using \textcode{glob.iglob()}}{code:glob_iglob}
-
-          \end{itemize}
-
-        \end{enumerate}
-
-      \end{core}
-
-  \subsection{Mathematics \& Randomness}
-
-    \subsubsection{random}
-
-      \begin{core}{random}
-
-        The \href{https://docs.python.org/3/library/random.html}{\textcode{random}} module implements pseudo-random number generators for various distributions. It provides the standard tools for generating randomized data, sampling sequences, and performing probabilistic selections.
-
-        \begin{enumerate}
-
-          \item \textbf{Random Number Generation}
-
-            \begin{pyconsole}
-
-              import random
-
-              for i in range(3):
-              print(random.random()) # picks a random number in [0,1)
-
-              for i in range(3):
-              print(random.randint(1,50)) # only integers and inclusive
-
-              for i in range(3):
-              print(random.uniform(1,50)) # only floats and thus exclusive
-
-              for i in range(3):
-              print(random.randrange(1,12,2)) # picks numbers in steps (default step:1)
-
-            \end{pyconsole}
-            \pcon{Generating constrained pseudo-random numerical values}{code:random_generation}
-
-          \begin{itemize}
-
-            \item \textcode{random.random()} returns a floating-point number in the interval $[0.0, 1.0)$.
-
-            \item \textcode{random.randint(a, b)} returns a random integer $N$ such that $a \le N \le b$ (\textit{both bounds are inclusive}).
-
-            \item \textcode{random.uniform(a, b)} returns a random floating-point number $N$ such that $a < N < b$.
-
-            \item \textcode{random.randrange(start, stop, step)} returns a randomly selected element from \textcode{range(start, stop, step)}.
-
-          \end{itemize}
-
-        \end{enumerate}
-
-      \end{core}
-
-    \subsubsection{math}
-
-      \begin{core}{math}
-
-        The \href{https://docs.python.org/3/library/math.html}{\textcode{math}} module provides access to mathematical functions defined by the C standard. It is the primary library for executing standard geometric, logarithmic, and trigonometric calculations.
-
-        \begin{enumerate}
-
-          \item \textbf{Fundamental Mathematical Operations}
-
-            \begin{pyconsole}
-
-              import math
-
-              print(math.sqrt(9))
-              print(math.ceil(8.2))
-              print(math.floor(7.9))
-              print(math.fabs(-2.2))
-
-            \end{pyconsole}
-            \pcon{applying fundamental numeric operations via the \textcode{math} module}{code:math_operations}
-
-          \begin{itemize}
-
-            \item \textcode{math.sqrt(x)} returns the square root of $x$.
-
-            \item \textcode{math.ceil(x)} returns the ceiling of $x$, the smallest integer greater than or equal to $x$.
-
-            \item \textcode{math.floor(x)} returns the floor of $x$, the largest integer less than or equal to $x$.
-
-            \item \textcode{math.fabs(x)} returns the absolute value of $x$ as a float.
-
-
-          \end{itemize}
-          
-          \item \textbf{Mathematical Constants}
-
-            \begin{pyconsole}
-
-              import math
-
-              r = 5.0
-              area = math.pi * (r ** 2)
-              print(area)
-
-            \end{pyconsole}
-            \pcon{Calculating circular area utilizing \textcode{math.pi}}{code:math_constants}
-
-          \begin{itemize}
-
-            \item The module provides access to immutable standard mathematical constants, such as \textcode{math.pi} and \textcode{math.e}.
-
-          \end{itemize}
-
-        \end{enumerate}
-
-      \end{core}
-
-  \subsection{Time \& Scheduling}
-
-    \subsubsection{datetime}
-
-      \begin{core}{datetime}
-
-        The \href{https://docs.python.org/3/library/datetime.html}{\textcode{datetime}} module supplies classes for manipulating dates and times. It provides tools for date arithmetic, time formatting, and calendar data extraction through its core classes, which are conventionally imported using the \textcode{from datetime import ...} syntax.
-
-        \begin{enumerate}
-
-          \item \textbf{Date} / \textcode{date}
-
-            \begin{pyconsole}
-
-              from datetime import date
-
-              today = date.today() # current local date
-              d = date(2026, 5, 29) # construct a specific date
-
-              d.year
-              d.month
-              d.day
-              d.weekday()
-              d.isoformat()
-              d.strftime("%d %B %Y")
-
-            \end{pyconsole}
-            \pcon{Demonstrating \textcode{date} class functionalities and attribute extraction}{code:date_showcase}
-
-            \begin{itemize}
-
-              \item The \textcode{date} class represents a localized calendar date (\textit{year, month, and day}) without time or time zone considerations. Instances allow for direct attribute extraction and ISO 8601 string formatting via \textcode{.isoformat()}.
-
-              \item \textcode{obj.strftime(format)} converts a temporal object into a formatted human-readable string---such as\textcode{\%d \%B \%Y}---whereas \textcode{datetime.strptime(string, format)} parses a formatted string back into a temporal object.
-
-              When parsing or formatting dates in Python, you use specific percentage-prefixed format codes where each letter acts as a unique placeholder for a distinct temporal component. This system allows you to build highly customized date and time strings by freely combining these distinct codes with regular text and punctuation.
-
-              \begin{table}[H]
-                \centering
-                \begin{tabular}{lll}
-                  \hline
-                  \hline
-                  \textbf{Code} & \textbf{Meaning} & \textbf{Example} \\
-                  \hline
-                  \textcode{\%Y} & 4-digit year & \textcode{2026} \\
-                  \textcode{\%m} & Zero-padded month & \textcode{05} \\
-                  \textcode{\%d} & Zero-padded day & \textcode{29} \\
-                  \textcode{\%H} & Hour, 24hr & \textcode{14} \\
-                  \textcode{\%M} & Minute & \textcode{30} \\
-                  \textcode{\%S} & Second & \textcode{00} \\
-                  \textcode{\%A} & Full weekday name & \textcode{Friday} \\
-                  \textcode{\%B} & Full month name & \textcode{May} \\
-                  \textcode{\%f} & Microseconds & \textcode{000000} \\
-                  \hline
-                \end{tabular}
-                \label{tab:strpf_codes}
-                \caption{Standard format codes for parsing and formatting \textcode{datetime} objects.}
-              \end{table}
-
-            \end{itemize}
-
-          \item \textbf{Datetime} / \textcode{datetime}
-
-            \begin{pyconsole}
-
-              from datetime import datetime
-
-              now = datetime.now() # current local date and time
-              utc = datetime.utcnow() # current UTC time (naive)
-
-              dt = datetime(2026, 5, 29, 14, 30, 0)
-
-              dt.date() # extract date portion → date(2026, 5, 29)
-              dt.time() # extract time portion → time(14, 30, 0)
-              dt.isoformat() # '2026-05-29T14:30:00'
-              dt.strftime("%Y-%m-%d %H:%M") # '2026-05-29 14:30'
-
-              datetime.strptime("29/05/2026", "%d/%m/%Y") # Parsing a string into a datetime object
-
-            \end{pyconsole}
-            \pcon{Extracting and formatting date and time components from a \textcode{datetime} object}{code:datetime_components}
-
-            \begin{itemize}
-
-              \item \textcode{datetime.now()} returns the current local date and time, while \textcode{datetime.utcnow()} returns the current naive UTC time. Both are frequently used to initialize a temporal baseline.
-
-              \item A \textcode{datetime} instance encapsulates both date and time. You can isolate these components using the \textcode{.date()} and \textcode{.time()} methods, which return their respective constituent objects.
-
-              \item Similar to the \textcode{date} class, \textcode{datetime} objects support standardized output through \textcode{.isoformat()} and can be manipulated using the \textcode{strptime()} and \textcode{strftime()} string formatting functions.
-
-            \end{itemize}
-
-          \item \textbf{Timedelta} / \textcode{timedelta}
-
-            \begin{pyconsole}
-
-              from datetime import timedelta
-
-              delta = timedelta(days=7, hours=3)
-
-              date.today() + delta # one week and 3 hours from now
-              date.today() - delta # one week and 3 hours ago
-
-              d1 = datetime(2026, 1, 1)
-              d2 = datetime(2026, 5, 29)
-              diff = d2 - d1
-              diff.days # 148
-              diff.total_seconds() # 12787200.0
-
-            \end{pyconsole}
-            \pcon{Executing temporal arithmetic and calculating time differences using \textcode{timedelta}}{code:timedelta_arithmetic}
-
-            \begin{itemize}
-
-              \item The \textcode{timedelta} class represents a duration or the mathematical difference between two dates or times. It enables straightforward temporal arithmetic, allowing you to add or subtract specific time intervals from existing \textcode{date} or \textcode{datetime} objects.
-
-              \item Subtracting two \textcode{datetime} instances automatically yields a \textcode{timedelta} object, which can then be queried for its total duration using attributes like \textcode{.days} or the \textcode{.total\_seconds()} method.
-
-            \end{itemize}
-
-        \end{enumerate}
-
-      \end{core}
-
-    \subsubsection{time}
-
-      \begin{core}{time}
-
-        The \href{https://docs.python.org/3/library/time.html}{\textcode{time}} module provides time-related functions that primarily deal with system clocks and low-level time tracking, rather than calendar dates.
-
-        \begin{enumerate}
-
-          \item \textbf{System Time and Execution Control}
-
-          \begin{itemize}
-
-            % Epoch is the start of time on machines: January 1st 1970
-            \item The \textbf{Epoch} is the point where time mathematically begins for Unix systems: January 1, 1970, 00:00:00 (UTC).
-
-            % time module methods
-            %   time()
-            %   ctime()
-            %   perf_counter()
-            %   sleep()
-            \item \textcode{time.time()} returns the current time as a floating-point number expressed in seconds since the epoch.
-            \item \textcode{time.ctime(secs)} converts a time expressed in seconds since the epoch into a human-readable string.
-            \item \textcode{time.perf\_counter()} returns a float value from a clock with the highest available resolution, making it ideal for benchmarking code execution.
-            \item \textcode{time.sleep(secs)} pauses the execution of the current thread for the given number of seconds.
-
-            \begin{pyconsole}
-
-              import time
-
-              start_time = time.perf_counter()
-              
-              print(f"Seconds since Epoch: {time.time()}")
-              print(f"Readable String: {time.ctime()}")
-              
-              # Suspend execution for 0.1 seconds
-              time.sleep(0.1) 
-              
-              end_time = time.perf_counter()
-              print(f"Execution took: {end_time - start_time:.4f} seconds")
-
-            \end{pyconsole}
-            \pcon{Querying system time and benchmarking execution duration}{code:time_benchmarking}
-
-          \end{itemize}
-
-        \end{enumerate}
-
-      \end{core}
-
-  \subsection{Concurrency \& Data Structures}
-
-    \subsubsection{queue}
-
-      \begin{core}{queue}
-
-      \end{core}
-
-  \subsection{Regular Expressions}
-    
-    \subsubsection{re}
-
-      \begin{core}{re}
-
-        re https://docs.python.org/3/library/re.html
-
-      \end{core}
-
-  \subsubsection{SWE Utilities}
-
-    \subsubsection{logging}
-
-      \begin{core}{logging}
-
-        % content
-
-      \end{core}
-
-    \subsubsection{abc}
-
-      \begin{core}{abc}
-
-        abc https://docs.python.org/3/library/abc.html
-
-      \end{core}
-
-\section{Third-Party Libraries}
-
-\begin{core}[label=core:third_lib]{Third-Party Libraries}
-
-  \end{core}
-  
   \subsection{Package Management}
 
-    pip and PyPI
-    conda
+    \begin{core}{PyPI}
 
-  \subsection{Third-Party Libraries}
+    \end{core}
 
-    packages
-      requests https://requests.readthedocs.io/en/latest/
-      seaborn https://seaborn.pydata.org/generated/seaborn.objects.Plot.html
-      IPython.display https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html
-      scikit https://scikit-learn.org/1.5/api/index.html
-      statsmodels https://www.statsmodels.org/stable/api.html
-      scipy https://docs.scipy.org/doc/scipy/reference/
+    \begin{core}{Anaconda}
 
-    \subsubsection{Data Science}
+    \end{core}
 
-        numpy https://numpy.org/doc/stable/reference/
-        pandas https://pandas.pydata.org/docs/reference/index.html
-        matplotlib https://matplotlib.org/stable/api/index.html
+\section{Third-Party Libraries}
+  \begin{core}[label=core:third_lib]{Third-Party Libraries}
+  \end{core}
+
+  \subsection{Data Science and Analysis}
+    numpy        % https://numpy.org/doc/stable/reference/
+    pandas       % https://pandas.pydata.org/docs/reference/index.html
+    % polars       % https://docs.pola.rs/api/python/stable/reference/
+    % pyarrow      % https://arrow.apache.org/docs/python/api.html
+    % xarray       % https://docs.xarray.dev/en/stable/api.html
+
+  \subsection{Statistical Modelling and Machine Learning}
+    scikit-learn    % https://scikit-learn.org/1.5/api/index.html
+    statsmodels     % https://www.statsmodels.org/stable/api.html
+    scipy           % https://docs.scipy.org/doc/scipy/reference/
+    % xgboost         % https://xgboost.readthedocs.io/en/stable/python/python_api.html
+    % lightgbm        % https://lightgbm.readthedocs.io/en/latest/pythonapi/lightgbm.html
+    % catboost        % https://catboost.ai/en/docs/concepts/python-reference_catboost
+    % imbalanced-learn % https://imbalanced-learn.org/stable/references/index.html
+    % optuna          % https://optuna.readthedocs.io/en/stable/reference/index.html
+
+  \subsection{Data Visualisation}
+    matplotlib      % https://matplotlib.org/stable/api/index.html
+    seaborn         % https://seaborn.pydata.org/api.html
+    plotly          % https://plotly.com/python-api-reference/
+    % bokeh           % https://docs.bokeh.org/en/latest/docs/reference.html
+    % altair          % https://altair-viz.github.io/user_guide/api.html
+    % plotnine        % https://plotnine.org/reference/
+
+  \subsection{Web and Network Communication}
+    requests        % https://requests.readthedocs.io/en/latest/
+    httpx           % https://www.python-httpx.org/api/
+    urllib3         % https://urllib3.readthedocs.io/en/stable/reference/
+    websockets      % https://websockets.readthedocs.io/en/stable/reference/
+    % aiohttp         % https://docs.aiohttp.org/en/stable/
+
+  \subsection{Web Scraping and Parsing}
+    beautifulsoup4  % https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+    selenium        % https://selenium-python.readthedocs.io/api.html
+    % scrapy          % https://docs.scrapy.org/en/latest/index.html
+    % playwright      % https://playwright.dev/python/docs/api/class-playwright
+    % lxml            % https://lxml.de/apidoc/
+
+  \subsection{Web Frameworks and APIs}
+    django          % https://docs.djangoproject.com/en/stable/ref/
+    flask           % https://flask.palletsprojects.com/en/stable/api/
+    % fastapi         % https://fastapi.tiangolo.com/reference/
+    % starlette       % https://www.starlette.io/
+    % pydantic        % https://docs.pydantic.dev/latest/api/
+
+  \subsection{Database and Storage}
+    sqlite3         % https://docs.python.org/3/library/sqlite3.html  (stdlib)
+    % sqlalchemy      % https://docs.sqlalchemy.org/en/20/reference/
+    % psycopg2        % https://www.psycopg.org/docs/module.html
+    % pymongo         % https://pymongo.readthedocs.io/en/stable/api/
+    % redis           % https://redis-py.readthedocs.io/en/stable/
+
+  \subsection{Parallel and Distributed Computing}
+    multiprocessing % https://docs.python.org/3/library/multiprocessing.html  (stdlib)
+    % concurrent.futures % https://docs.python.org/3/library/concurrent.futures.html  (stdlib)
+    % joblib          % https://joblib.readthedocs.io/en/stable/
+    % dask            % https://docs.dask.org/en/stable/
+    % ray             % https://docs.ray.io/en/latest/ray-core/api/
+
+  \subsection{Interactive Computing}
+    IPython.display % https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html
+    % ipywidgets      % https://ipywidgets.readthedocs.io/en/stable/
+    % nbformat        % https://nbformat.readthedocs.io/en/latest/
+
+  % \subsection{Deep Learning}
+  %   torch           % https://pytorch.org/docs/stable/index.html
+  %   torch.nn        % https://pytorch.org/docs/stable/nn.html
+  %   torch.optim     % https://pytorch.org/docs/stable/optim.html
+  %   torchvision     % https://pytorch.org/vision/stable/index.html
+  %   tensorflow      % https://www.tensorflow.org/api_docs/python/tf
+  %   keras           % https://keras.io/api/
+  %   lightning       % https://lightning.ai/docs/pytorch/stable/api/pytorch_lightning.html
+
+  % \subsection{Natural Language Processing}
+  %   nltk            % https://www.nltk.org/api/nltk.html
+  %   spacy           % https://spacy.io/api
+  %   transformers    % https://huggingface.co/docs/transformers/index
+  %   gensim          % https://radimrehurek.com/gensim/apiref.html
+  %   sentence-transformers % https://sbert.net/docs/package_reference/
+
+  % \subsection{File and Data Formats}
+  %   openpyxl        % https://openpyxl.readthedocs.io/en/stable/
+  %   xlrd            % https://xlrd.readthedocs.io/en/latest/
+  %   PyPDF2          % https://pypdf2.readthedocs.io/en/latest/
+  %   pillow          % https://pillow.readthedocs.io/en/stable/reference/
+  %   imageio         % https://imageio.readthedocs.io/en/stable/reference/
+  %   h5py            % https://docs.h5py.org/en/stable/
+  %   pyyaml          % https://pyyaml.org/wiki/PyYAMLDocumentation
+  %   toml            % https://toml.io/en/
 
 
-    \subsubsection{placeholder}
+  % \subsection{Testing and Quality Assurance}
+  %   pytest          % https://docs.pytest.org/en/stable/reference/
+  %   unittest        % https://docs.python.org/3/library/unittest.html  (stdlib)
+  %   hypothesis      % https://hypothesis.readthedocs.io/en/latest/
+  %   mypy            % https://mypy.readthedocs.io/en/stable/
+  %   ruff            % https://docs.astral.sh/ruff/
 
-\section{Other}
-
-  del
-  input()
-  print 
-    sep
-    end
+  % \subsection{DevOps, CLI, and Utilities}
+  %   click           % https://click.palletsprojects.com/en/stable/api/
+  %   argparse        % https://docs.python.org/3/library/argparse.html  (stdlib)
+  %   rich            % https://rich.readthedocs.io/en/stable/
+  %   tqdm            % https://tqdm.github.io/docs/tqdm/
+  %   loguru          % https://loguru.readthedocs.io/en/stable/api/
+  %   dotenv          % https://saurabh-kumar.com/python-dotenv/reference/
+  %   schedule        % https://schedule.readthedocs.io/en/stable/
   
 \end{document}
