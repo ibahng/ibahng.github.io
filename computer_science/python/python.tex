@@ -1589,59 +1589,111 @@
 
     \end{core}
 
-\section{File Input/Output and Data Handling}
+\section{Input/Output \& Data Handling}
 
-  \begin{core}{Files}
+  \subsection{Standard I/O}
 
-    A \textbf{file} is a continuous, one-dimensional \textbf{stream} of data---either plain text characters or raw binary bytes---that an application can sequentially read from or write to during execution.
+    \begin{core}{Input}
 
-  \end{core}
+      The built-in \textcode{input(prompt)} function reads a line of text entered by the user from standard input, blocking execution until the user presses \texttt{Enter}. The optional \textcode{prompt} argument is a string printed to the console immediately before the cursor, used to communicate to the user what input is expected. The function always returns the captured input as a \textcode{str}, regardless of what the user types, so explicit type conversion is required when a numeric value is expected.
 
-  \begin{core}{File Input/Output}
+      \begin{pyconsole}
 
-    To interact with a file, a program must request a \textbf{file object} from the operating system. This object acts as a temporary communication bridge between the application's volatile memory and the persistent storage drive. The fundamental lifecycle of programmatic File I/O strictly adheres to three sequential phases.
+        # name = input('Enter your name: ')
+        # age = int(input('Enter your age: '))
+        # print(f'Hello {name}, you are {age} years old.')
 
-    \begin{enumerate}
+      \end{pyconsole}
+      \pcon{Reading user input from standard input using \textcode{input()}}{code:input}
 
-      \item \textbf{Open}: Establishing the stream connection and declaring the intended access mode.
+      \textit{The above is commented out because the \LaTeX pyconsole environment does not stimulate interactive input.}
 
-      \begin{itemize}
+    \end{core}
 
-        \item \textcode{'r'} / \textbf{read}: Opens a file exclusively for reading, positioning the stream at the beginning of the document. If the specified file does not exist, the runtime raises a \textcode{FileNotFoundError}.
+    \begin{core}{Print}
 
-        \item \textcode{'w'} / \textbf{write}: If the file already exists, its \textbf{existing contents are immediately truncated} (\textit{completely overwritten}) before new data is introduced. If it does not exist, a new file is generated.
+      As seen throughout all previous examples, the built-in \textcode{print()} function is the primary method of producing simple output in Python. Formally, \textcode{print(*objects, sep, end)} writes its arguments to standard output, converting each to a string via \textcode{str()} before transmission. Multiple objects may be passed as positional arguments and are concatenated in the output, separated by the \textcode{sep} character which defaults to a single space. The \textcode{end} parameter specifies the character appended after the final object, defaulting to a newline \textcode{'\textbackslash n'}.
 
-        \item \textcode{'a'} / \textbf{append}: Opens a file for writing but \textbf{preserves existing data} by positioning the stream at the very end of the document. Any newly transmitted data is appended to the conclusion of the file. If the file does not exist, a new one is created.
+      \begin{pyconsole}
 
-        \item \textcode{'x'} / \textbf{exclusive creation}: Opens a file strictly for writing, functioning as a safeguard against data loss. \textbf{The file must not exist prior to execution}; if it does, a \textcode{FileExistsError} is raised, intentionally aborting the operation.
+        print('Hello', 'World') # default sep and end
+        print('Hello', 'World', sep=', ') # custom separator
+        print('Loading', end='...\n') # custom end character
+        print('score:', 42, sep='', end='\n') # no separator
 
-      \end{itemize}
+      \end{pyconsole}
+      \pcon{Writing output to standard output using \textcode{print()}}{code:print}
 
-      If working with binary files, simply append \textcode{'b'} to the end: \textcode{'rb'}, \textcode{'wb'}, \textcode{'ab'}, \textcode{'xb'}
+      For inspecting complex nested data structures, the standard library provides \textcode{pprint.pprint()} (\textit{pretty print}), which formats the output across multiple indented lines rather than collapsing everything onto a single line as \textcode{print()} does. It is particularly useful when debugging deeply nested dictionaries or lists where standard \textcode{print()} output becomes difficult to parse visually.
 
-      \item \textbf{Process}: Transmitting data through the stream via read or write operations.
+      \begin{pyconsole}
+        from pprint import pprint
 
-      \item \textbf{Close}: Severing the connection to flush internal memory.
+        data = {'user': 'Alice', 'scores': [95, 87, 92], 'meta': {'age': 20, 'city': 'Seoul'}}
 
-    \end{enumerate}
+        print(data)
+        pprint(data)
 
-    Modern Python development heavily relies on the \textcode{with} statement, which acts as a context manager. This structure guarantees that the file stream is \textbf{automatically and safely closed once the nested block of code finishes execution}, even if an unexpected exception is raised during the processing phase.
+      \end{pyconsole}
+      \pcon{Comparison of \textcode{print()} and \textcode{pprint()} output for a nested dictionary}{code:pprint}
 
-    \begin{pyconsole}
+    \textit{Note that the indented multi-line formatting produced by} \textcode{pprint()} \textit{cannot be reproduced within the static} \textcode{pyconsole} \textit{environment, thus the output in \autoref{code:pprint} does not output as intended}
 
-      with open("sensor_data.txt", "w") as file_stream:
-          _ = file_stream.write("timestamp: 001, status: active\n")
-          _ = file_stream.write("timestamp: 002, status: active\n")
-          # file stream is automatically closed upon exiting this block
+    \end{core}
 
-      with open("sensor_data.txt", "r") as file_stream:
-          content = file_stream.read()
-          print(content)
+  \subsection{File I/O}
 
-    \end{pyconsole}
-    \pcon{File opening and closing through \textcode{with} statement}{code:file_io}
+    \begin{core}{Files}
 
-  \end{core}
+      A \textbf{file} is a continuous, one-dimensional \textbf{stream} of data---either plain text characters or raw binary bytes---that an application can sequentially read from or write to during execution.
+
+    \end{core}
+
+    \begin{core}{File Input/Output}
+
+      To interact with a file, a program must request a \textbf{file object} from the operating system. This object acts as a temporary communication bridge between the application's volatile memory and the persistent storage drive. The fundamental lifecycle of programmatic File I/O strictly adheres to three sequential phases.
+
+      \begin{enumerate}
+
+        \item \textbf{Open}: Establishing the stream connection and declaring the intended access mode.
+
+        \begin{itemize}
+
+          \item \textcode{'r'} / \textbf{read}: Opens a file exclusively for reading, positioning the stream at the beginning of the document. If the specified file does not exist, the runtime raises a \textcode{FileNotFoundError}.
+
+          \item \textcode{'w'} / \textbf{write}: If the file already exists, its \textbf{existing contents are immediately truncated} (\textit{completely overwritten}) before new data is introduced. If it does not exist, a new file is generated.
+
+          \item \textcode{'a'} / \textbf{append}: Opens a file for writing but \textbf{preserves existing data} by positioning the stream at the very end of the document. Any newly transmitted data is appended to the conclusion of the file. If the file does not exist, a new one is created.
+
+          \item \textcode{'x'} / \textbf{exclusive creation}: Opens a file strictly for writing, functioning as a safeguard against data loss. \textbf{The file must not exist prior to execution}; if it does, a \textcode{FileExistsError} is raised, intentionally aborting the operation.
+
+        \end{itemize}
+
+        If working with binary files, simply append \textcode{'b'} to the end: \textcode{'rb'}, \textcode{'wb'}, \textcode{'ab'}, \textcode{'xb'}
+
+        \item \textbf{Process}: Transmitting data through the stream via read or write operations.
+
+        \item \textbf{Close}: Severing the connection to flush internal memory.
+
+      \end{enumerate}
+
+      Modern Python development heavily relies on the \textcode{with} statement, which acts as a context manager. This structure guarantees that the file stream is \textbf{automatically and safely closed once the nested block of code finishes execution}, even if an unexpected exception is raised during the processing phase.
+
+      \begin{pyconsole}
+
+        with open("sensor_data.txt", "w") as file_stream:
+            _ = file_stream.write("timestamp: 001, status: active\n")
+            _ = file_stream.write("timestamp: 002, status: active\n")
+            # file stream is automatically closed upon exiting this block
+
+        with open("sensor_data.txt", "r") as file_stream:
+            content = file_stream.read()
+            print(content)
+
+      \end{pyconsole}
+      \pcon{File opening and closing through \textcode{with} statement}{code:file_io}
+
+    \end{core}
 
   \subsection{Pickling (\textit{pickle})}
 
@@ -2642,7 +2694,7 @@
 
     \end{core}
 
-    \begin{core}[label=core:stdinouterr]{Standard I/O Streams}
+    \begin{core}[label=core:stdinouterr]{Input/Output Streams}
 
       The attributes \textcode{sys.stdin}, \textcode{sys.stdout}, and \textcode{sys.stderr} expose the file-like objects through which the interpreter manages standard input, standard output, and standard error streams, respectively. The built-in \textcode{print()} function, for instance, operates as a high-level wrapper around \textcode{sys.stdout.write()}, automatically appending a newline character and accepting additional formatting arguments that the raw stream interface does not provide.
 
@@ -3110,132 +3162,263 @@
 
     \end{core}
 
-\section{Virtual Environments \& Package Management}
+\section{The Python Ecosystem}
 
-  \begin{core}{Virtual Environment}
-
-  \end{core}
-
-  \subsection{Package Management}
-
-    \begin{core}{PyPI}
-
-    \end{core}
-
-    \begin{core}{Anaconda}
-
-    \end{core}
-
-\section{Third-Party Libraries}
   \begin{core}[label=core:third_lib]{Third-Party Libraries}
+
+    Python's \textbf{standard library} (\textit{\autoref{core:standard_library}}), while extensive, is deliberately general-purpose. The broader Python ecosystem supplements it with a vast collection of \textbf{third-party libraries}---packages developed and maintained outside of the standard library, distributed through centralized \textbf{package registries} (\textit{\autoref{core:pack_reg}}) and installable on demand. These libraries constitute the primary means by which Python is extended for scientific and engineering work.
+
   \end{core}
 
-  \subsection{Data Science and Analysis}
-    numpy        % https://numpy.org/doc/stable/reference/
-    pandas       % https://pandas.pydata.org/docs/reference/index.html
-    % polars       % https://docs.pola.rs/api/python/stable/reference/
-    % pyarrow      % https://arrow.apache.org/docs/python/api.html
-    % xarray       % https://docs.xarray.dev/en/stable/api.html
+  \begin{core}{Virtual Environments}
 
-  \subsection{Statistical Modelling and Machine Learning}
-    scikit-learn    % https://scikit-learn.org/1.5/api/index.html
-    statsmodels     % https://www.statsmodels.org/stable/api.html
-    scipy           % https://docs.scipy.org/doc/scipy/reference/
-    % xgboost         % https://xgboost.readthedocs.io/en/stable/python/python_api.html
-    % lightgbm        % https://lightgbm.readthedocs.io/en/latest/pythonapi/lightgbm.html
-    % catboost        % https://catboost.ai/en/docs/concepts/python-reference_catboost
-    % imbalanced-learn % https://imbalanced-learn.org/stable/references/index.html
-    % optuna          % https://optuna.readthedocs.io/en/stable/reference/index.html
+    When multiple Python projects share a single global interpreter and location for all of its third-party libraries, \textbf{dependency conflicts} are inevitable. Each project may require different versions of the same package---for instance, one project may depend on \textcode{numpy==1.24} while another requires \textcode{numpy==2.0}---yet only one version can occupy the global package directory at any given time. Attempting to satisfy the requirements of multiple projects simultaneously produces a state colloquially termed \textbf{dependency hell}.
 
-  \subsection{Data Visualisation}
-    matplotlib      % https://matplotlib.org/stable/api/index.html
-    seaborn         % https://seaborn.pydata.org/api.html
-    plotly          % https://plotly.com/python-api-reference/
-    % bokeh           % https://docs.bokeh.org/en/latest/docs/reference.html
-    % altair          % https://altair-viz.github.io/user_guide/api.html
-    % plotnine        % https://plotnine.org/reference/
+    A \textbf{virtual environment} resolves this by providing each project with its own \textbf{isolated} Python environment, complete with its \textbf{own interpreter and package directory}, entirely separate from the system Python and all other environments. Dependencies installed within one environment are invisible to all others, and conflicting version requirements across projects are trivially satisfied since each environment maintains its own independent package set.
 
-  \subsection{Web and Network Communication}
-    requests        % https://requests.readthedocs.io/en/latest/
-    httpx           % https://www.python-httpx.org/api/
-    urllib3         % https://urllib3.readthedocs.io/en/stable/reference/
-    websockets      % https://websockets.readthedocs.io/en/stable/reference/
-    % aiohttp         % https://docs.aiohttp.org/en/stable/
+  \end{core}
 
-  \subsection{Web Scraping and Parsing}
-    beautifulsoup4  % https://www.crummy.com/software/BeautifulSoup/bs4/doc/
-    selenium        % https://selenium-python.readthedocs.io/api.html
-    % scrapy          % https://docs.scrapy.org/en/latest/index.html
-    % playwright      % https://playwright.dev/python/docs/api/class-playwright
-    % lxml            % https://lxml.de/apidoc/
+  \subsection{Package Registries}
 
-  \subsection{Web Frameworks and APIs}
-    django          % https://docs.djangoproject.com/en/stable/ref/
-    flask           % https://flask.palletsprojects.com/en/stable/api/
-    % fastapi         % https://fastapi.tiangolo.com/reference/
-    % starlette       % https://www.starlette.io/
-    % pydantic        % https://docs.pydantic.dev/latest/api/
+    \begin{core}[label=core:pack_reg]{Package Registries}
 
-  \subsection{Database and Storage}
-    sqlite3         % https://docs.python.org/3/library/sqlite3.html  (stdlib)
-    % sqlalchemy      % https://docs.sqlalchemy.org/en/20/reference/
-    % psycopg2        % https://www.psycopg.org/docs/module.html
-    % pymongo         % https://pymongo.readthedocs.io/en/stable/api/
-    % redis           % https://redis-py.readthedocs.io/en/stable/
+      A \textbf{package registry} is a centralised repository that indexes, stores, and distributes versioned software packages, allowing package managers to resolve, download, and install dependencies on demand.
 
-  \subsection{Parallel and Distributed Computing}
-    multiprocessing % https://docs.python.org/3/library/multiprocessing.html  (stdlib)
-    % concurrent.futures % https://docs.python.org/3/library/concurrent.futures.html  (stdlib)
-    % joblib          % https://joblib.readthedocs.io/en/stable/
-    % dask            % https://docs.dask.org/en/stable/
-    % ray             % https://docs.ray.io/en/latest/ray-core/api/
+    \end{core}
 
-  \subsection{Interactive Computing}
-    IPython.display % https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html
-    % ipywidgets      % https://ipywidgets.readthedocs.io/en/stable/
-    % nbformat        % https://nbformat.readthedocs.io/en/latest/
+    \begin{core}[label=core:pypi]{Python Package Index (PyPI)}
 
-  % \subsection{Deep Learning}
-  %   torch           % https://pytorch.org/docs/stable/index.html
-  %   torch.nn        % https://pytorch.org/docs/stable/nn.html
-  %   torch.optim     % https://pytorch.org/docs/stable/optim.html
-  %   torchvision     % https://pytorch.org/vision/stable/index.html
-  %   tensorflow      % https://www.tensorflow.org/api_docs/python/tf
-  %   keras           % https://keras.io/api/
-  %   lightning       % https://lightning.ai/docs/pytorch/stable/api/pytorch_lightning.html
+      The \textbf{Python Package Index (PyPI)} is the official public package registry for the Python ecosystem, hosted at \href{https://pypi.org/}{\texttt{pypi.org}} and maintained by the \textbf{Python Software Foundation (PSF)}, the non-profit organization that oversees Python itself. It serves as the standard source from which package managers (\textit{\autoref{core:pack_man}}) resolve and download third-party libraries. Any Python developer may publish packages to PyPI, making it the largest and most comprehensive repository of Python software, hosting hundreds of thousands of packages spanning virtually every domain of application.
 
-  % \subsection{Natural Language Processing}
-  %   nltk            % https://www.nltk.org/api/nltk.html
-  %   spacy           % https://spacy.io/api
-  %   transformers    % https://huggingface.co/docs/transformers/index
-  %   gensim          % https://radimrehurek.com/gensim/apiref.html
-  %   sentence-transformers % https://sbert.net/docs/package_reference/
+    \end{core}
 
-  % \subsection{File and Data Formats}
-  %   openpyxl        % https://openpyxl.readthedocs.io/en/stable/
-  %   xlrd            % https://xlrd.readthedocs.io/en/latest/
-  %   PyPDF2          % https://pypdf2.readthedocs.io/en/latest/
-  %   pillow          % https://pillow.readthedocs.io/en/stable/reference/
-  %   imageio         % https://imageio.readthedocs.io/en/stable/reference/
-  %   h5py            % https://docs.h5py.org/en/stable/
-  %   pyyaml          % https://pyyaml.org/wiki/PyYAMLDocumentation
-  %   toml            % https://toml.io/en/
+    \begin{core}[label=core:conda_channels]{Conda Channels (defaults \& conda-forge)}
 
+      \textbf{Conda} maintains its own package ecosystem entirely separate from PyPI, distributed through \textbf{channels}---remote repositories from which the \textbf{conda package manager} (\textit{\autoref{core:conda}}) resolves and retrieves packages. Unlike PyPI packages, conda packages are compiled and repackaged for specific platforms and may bundle native non-Python binaries such as CUDA toolkits and BLAS libraries---system-level dependencies that lie outside the scope of what PyPI can distribute.
 
-  % \subsection{Testing and Quality Assurance}
-  %   pytest          % https://docs.pytest.org/en/stable/reference/
-  %   unittest        % https://docs.python.org/3/library/unittest.html  (stdlib)
-  %   hypothesis      % https://hypothesis.readthedocs.io/en/latest/
-  %   mypy            % https://mypy.readthedocs.io/en/stable/
-  %   ruff            % https://docs.astral.sh/ruff/
+      The two primary channels are \textcode{defaults}, maintained by \href{https://anaconda.org/}{Anaconda Inc.} and subject to commercial licensing restrictions for large organisations, and \textcode{conda-forge}, a community-maintained channel that is more comprehensive, more frequently updated, and carries no licensing restrictions. These channels are made accessible through one of three conda distributions.
 
-  % \subsection{DevOps, CLI, and Utilities}
-  %   click           % https://click.palletsprojects.com/en/stable/api/
-  %   argparse        % https://docs.python.org/3/library/argparse.html  (stdlib)
-  %   rich            % https://rich.readthedocs.io/en/stable/
-  %   tqdm            % https://tqdm.github.io/docs/tqdm/
-  %   loguru          % https://loguru.readthedocs.io/en/stable/api/
-  %   dotenv          % https://saurabh-kumar.com/python-dotenv/reference/
-  %   schedule        % https://schedule.readthedocs.io/en/stable/
+      \begin{itemize}
+        
+        \item \textbf{Anaconda}: a full distribution bundling over 300 packages and defaulting to \textcode{defaults}.
+
+        \item \textbf{Miniconda}: a minimal distribution shipping only conda and Python, also defaulting to \textcode{defaults}.
+
+        \item \textbf{Miniforge}: a minimal distribution maintained by the conda-forge community that uses \textcode{conda-forge}. 
+
+      \end{itemize}
+
+      For most use cases, Miniforge is the recommended distribution, as it provides a lean installation with access to the more comprehensive and openly licensed \textcode{conda-forge} channel.
+
+    \end{core}
+
+  \subsection{Package \& Environment Management}
+
+    \begin{core}[label=core:pack_man]{Package Managers}
+
+      A \textbf{package manager} is a tool that automates the installation and removal of software packages into a virtual environment from a package registry, tracking version constraints and dependencies to ensure a consistent and conflict-free installation.
+
+    \end{core}
+
+    \begin{core}{pip}
+
+      \textcode{pip} is the default package installer for Python and ships as \textbf{part of the standard Python distribution}. It resolves and installs packages from \textbf{PyPI} (\textit{\autoref{core:pypi}}) into the currently active environment, and is invoked with \textcode{pip install <package>}. While straightforward, \textcode{pip} does not natively manage virtual environments, does not produce lockfiles, and its dependency resolver can be slow on complex dependency graphs. 
+
+      In practice, \textcode{pip} is typically paired with \textcode{venv} for environment management and a \textcode{requirements.txt} file for dependency pinning, though this combination lacks the reproducibility guarantees of more modern tooling such as \textcode{conda} (\textit{\autoref{core:conda}}) or \textcode{uv} (\textit{\autoref{core:uv}}).
+
+    \end{core}
+
+    \begin{core}[label=core:conda]{conda}
+
+      \textcode{conda} is both a package manager and an environment manager, capable of installing packages from \textbf{conda channels} (\textit{\autoref{core:conda_channels}}) as well as managing isolated environments with independent Python interpreters. Its primary distinction from \textcode{pip} is its ability to install and manage \textbf{non-Python native dependencies}---compiled C, C++, and CUDA libraries---making it the standard tool for scientific computing and GPU-accelerated machine learning workflows where the full dependency stack \textbf{extends below the Python layer}.
+
+      Conda environments are \textbf{managed centrally} rather than per-project, residing in a designated \textcode{envs/} directory and activated by name via the CLI. 
+
+    \end{core}
+
+    \begin{core}[label=core:uv]{uv}
+
+      \textcode{uv} is a modern Python package and project manager developed by Astral, implemented in Rust for performance. It consolidates the responsibilities of \textcode{pip}, \textcode{venv}, and \textcode{pip-tools} into a single unified tool, resolving and installing packages from \textbf{PyPI} (\textit{\autoref{core:pypi}}) while also providing virtual environment creation, Python version management, and lockfile generation. Dependency resolution and installation are substantially faster than \textcode{pip}, owing to a parallel resolver and an efficient local cache that deduplicates packages across projects.
+
+      \textcode{uv} adopts a \textbf{project-centric model} in which a \textcode{.venv/} directory is maintained at the project root and all operations---adding dependencies, running scripts, and synchronising environments---are expressed through \textcode{uv} subcommands rather than direct invocations of \textcode{python} or \textcode{pip}. Direct dependencies are declared in \textcode{pyproject.toml} and the full resolved dependency graph is recorded in \textcode{uv.lock}, ensuring reproducible environments across machines.
+
+      For pure Python work, \textcode{uv} is the recommended tool. Workflows with heavy native non-Python dependencies---most commonly GPU-accelerated machine learning projects---remain the domain of \textcode{conda}. In practice, however, this distinction is less relevant on macOS, as the operating system already ships with the native libraries that packages such as \textcode{numpy} (\textit{\autoref{core:numpy}}) and \textcode{scipy} (\textit{\autoref{core:scipy}}) depend on, and macOS does not support CUDA at all. The advantage of \textcode{conda} over \textcode{uv} is instead most significant on Linux, which remains the dominant platform for large-scale GPU machine learning work.
+
+    \end{core}
+
+  \subsection{Core Third-Party Libraries}
+
+    \subsubsection{Data Science and Analysis}
+
+      \begin{core}[label=core:numpy]{numpy}
+        % https://numpy.org/doc/stable/reference/
+      \end{core}
+
+      \begin{core}[label=core:pandas]{pandas}
+        % https://pandas.pydata.org/docs/reference/index.html
+      \end{core}
+
+      % polars       % https://docs.pola.rs/api/python/stable/reference/
+      % pyarrow      % https://arrow.apache.org/docs/python/api.html
+      % xarray       % https://docs.xarray.dev/en/stable/api.html
+
+    \subsubsection{Statistical Modelling and Machine Learning}
+
+      \begin{core}[label=core:scipy]{scipy}
+        % https://docs.scipy.org/doc/scipy/reference/
+      \end{core}
+
+      \begin{core}[label=core:sklearn]{scikit-learn}
+        % https://scikit-learn.org/1.5/api/index.html
+      \end{core}
+
+      \begin{core}[label=core:statsmodels]{statsmodels}
+        % https://www.statsmodels.org/stable/api.html
+      \end{core}
+
+      % xgboost         % https://xgboost.readthedocs.io/en/stable/python/python_api.html
+      % lightgbm        % https://lightgbm.readthedocs.io/en/latest/pythonapi/lightgbm.html
+      % catboost        % https://catboost.ai/en/docs/concepts/python-reference_catboost
+      % imbalanced-learn % https://imbalanced-learn.org/stable/references/index.html
+      % optuna          % https://optuna.readthedocs.io/en/stable/reference/index.html
+
+    \subsubsection{Data Visualisation}
+
+      \begin{core}[label=core:matplotlib]{matplotlib}
+        % https://matplotlib.org/stable/api/index.html
+      \end{core}
+
+      \begin{core}[label=core:seaborn]{seaborn}
+        % https://seaborn.pydata.org/api.html
+      \end{core}
+
+      \begin{core}[label=core:plotly]{plotly}
+        % https://plotly.com/python-api-reference/
+      \end{core}
+
+      % bokeh           % https://docs.bokeh.org/en/latest/docs/reference.html
+      % altair          % https://altair-viz.github.io/user_guide/api.html
+      % plotnine        % https://plotnine.org/reference/
+
+    \subsubsection{Web and Network Communication}
+
+      \begin{core}[label=core:requests]{requests}
+        % https://requests.readthedocs.io/en/latest/
+      \end{core}
+
+      \begin{core}[label=core:httpx]{httpx}
+        % https://www.python-httpx.org/api/
+      \end{core}
+
+      \begin{core}[label=core:urllib3]{urllib3}
+        % https://urllib3.readthedocs.io/en/stable/reference/
+      \end{core}
+
+      \begin{core}[label=core:websockets]{websockets}
+        % https://websockets.readthedocs.io/en/stable/reference/
+      \end{core}
+
+      % aiohttp         % https://docs.aiohttp.org/en/stable/
+
+    \subsubsection{Web Scraping and Parsing}
+
+      \begin{core}[label=core:bs4]{beautifulsoup4}
+        % https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+      \end{core}
+
+      \begin{core}[label=core:selenium]{selenium}
+        % https://selenium-python.readthedocs.io/api.html
+      \end{core}
+
+      % scrapy          % https://docs.scrapy.org/en/latest/index.html
+      % playwright      % https://playwright.dev/python/docs/api/class-playwright
+      % lxml            % https://lxml.de/apidoc/
+
+    \subsubsection{Web Frameworks and APIs}
+
+      \begin{core}[label=core:django]{django}
+        % https://docs.djangoproject.com/en/stable/ref/
+      \end{core}
+
+      \begin{core}[label=core:flask]{flask}
+        % https://flask.palletsprojects.com/en/stable/api/
+      \end{core}
+
+      % fastapi         % https://fastapi.tiangolo.com/reference/
+      % starlette       % https://www.starlette.io/
+      % pydantic        % https://docs.pydantic.dev/latest/api/
+
+    \subsubsection{Database and Storage}
+
+      \begin{core}[label=core:sqlite3]{sqlite3}
+        % https://docs.python.org/3/library/sqlite3.html  (stdlib)
+      \end{core}
+
+      % sqlalchemy      % https://docs.sqlalchemy.org/en/20/reference/
+      % psycopg2        % https://www.psycopg.org/docs/module.html
+      % pymongo         % https://pymongo.readthedocs.io/en/stable/api/
+      % redis           % https://redis-py.readthedocs.io/en/stable/
+
+    \subsubsection{Parallel and Distributed Computing}
+
+      \begin{core}[label=core:multiprocessing]{multiprocessing}
+        % https://docs.python.org/3/library/multiprocessing.html  (stdlib)
+      \end{core}
+
+      % concurrent.futures % https://docs.python.org/3/library/concurrent.futures.html  (stdlib)
+      % joblib          % https://joblib.readthedocs.io/en/stable/
+      % dask            % https://docs.dask.org/en/stable/
+      % ray             % https://docs.ray.io/en/latest/ray-core/api/
+
+    \subsubsection{Interactive Computing}
+
+      \begin{core}[label=core:ipython]{IPython.display}
+        % https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html
+      \end{core}
+
+      % ipywidgets      % https://ipywidgets.readthedocs.io/en/stable/
+      % nbformat        % https://nbformat.readthedocs.io/en/latest/
+
+    % \subsubsection{Deep Learning}
+    %   torch           % https://pytorch.org/docs/stable/index.html
+    %   torch.nn        % https://pytorch.org/docs/stable/nn.html
+    %   torch.optim     % https://pytorch.org/docs/stable/optim.html
+    %   torchvision     % https://pytorch.org/vision/stable/index.html
+    %   tensorflow      % https://www.tensorflow.org/api_docs/python/tf
+    %   keras           % https://keras.io/api/
+    %   lightning       % https://lightning.ai/docs/pytorch/stable/api/pytorch_lightning.html
+
+    % \subsubsection{Natural Language Processing}
+    %   nltk            % https://www.nltk.org/api/nltk.html
+    %   spacy           % https://spacy.io/api
+    %   transformers    % https://huggingface.co/docs/transformers/index
+    %   gensim          % https://radimrehurek.com/gensim/apiref.html
+    %   sentence-transformers % https://sbert.net/docs/package_reference/
+
+    % \subsubsection{File and Data Formats}
+    %   openpyxl        % https://openpyxl.readthedocs.io/en/stable/
+    %   xlrd            % https://xlrd.readthedocs.io/en/latest/
+    %   PyPDF2          % https://pypdf2.readthedocs.io/en/latest/
+    %   pillow          % https://pillow.readthedocs.io/en/stable/reference/
+    %   imageio         % https://imageio.readthedocs.io/en/stable/reference/
+    %   h5py            % https://docs.h5py.org/en/stable/
+    %   pyyaml          % https://pyyaml.org/wiki/PyYAMLDocumentation
+    %   toml            % https://toml.io/en/
+
+    % \subsubsection{Testing and Quality Assurance}
+    %   pytest          % https://docs.pytest.org/en/stable/reference/
+    %   unittest        % https://docs.python.org/3/library/unittest.html  (stdlib)
+    %   hypothesis      % https://hypothesis.readthedocs.io/en/latest/
+    %   mypy            % https://mypy.readthedocs.io/en/stable/
+    %   ruff            % https://docs.astral.sh/ruff/
+
+    % \subsubsection{DevOps, CLI, and Utilities}
+    %   click           % https://click.palletsprojects.com/en/stable/api/
+    %   argparse        % https://docs.python.org/3/library/argparse.html  (stdlib)
+    %   rich            % https://rich.readthedocs.io/en/stable/
+    %   tqdm            % https://tqdm.github.io/docs/tqdm/
+    %   loguru          % https://loguru.readthedocs.io/en/stable/api/
+    %   dotenv          % https://saurabh-kumar.com/python-dotenv/reference/
+    %   schedule        % https://schedule.readthedocs.io/en/stable/
   
 \end{document}

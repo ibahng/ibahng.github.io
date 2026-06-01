@@ -767,18 +767,39 @@
 
         apply_discount(-50.0, 0.2) # This will immediately trigger an AssertionError
 
-=>PYTHONTEX#pycon#default#default#83#console#####1630#
+=>PYTHONTEX#pycon#default#default#83#console#####1600#
 
-      with open("sensor_data.txt", "w") as file_stream:
-          _ = file_stream.write("timestamp: 001, status: active\n")
-          _ = file_stream.write("timestamp: 002, status: active\n")
-          # file stream is automatically closed upon exiting this block
+        # name = input('Enter your name: ')
+        # age = int(input('Enter your age: '))
+        # print(f'Hello {name}, you are {age} years old.')
 
-      with open("sensor_data.txt", "r") as file_stream:
-          content = file_stream.read()
-          print(content)
+=>PYTHONTEX#pycon#default#default#84#console#####1617#
 
-=>PYTHONTEX#pycon#default#default#84#console#####1664#
+        print('Hello', 'World') # default sep and end
+        print('Hello', 'World', sep=', ') # custom separator
+        print('Loading', end='...\n') # custom end character
+        print('score:', 42, sep='', end='\n') # no separator
+
+=>PYTHONTEX#pycon#default#default#85#console#####1629#
+        from pprint import pprint
+
+        data = {'user': 'Alice', 'scores': [95, 87, 92], 'meta': {'age': 20, 'city': 'Seoul'}}
+
+        print(data)
+        pprint(data)
+
+=>PYTHONTEX#pycon#default#default#86#console#####1682#
+
+        with open("sensor_data.txt", "w") as file_stream:
+            _ = file_stream.write("timestamp: 001, status: active\n")
+            _ = file_stream.write("timestamp: 002, status: active\n")
+            # file stream is automatically closed upon exiting this block
+
+        with open("sensor_data.txt", "r") as file_stream:
+            content = file_stream.read()
+            print(content)
+
+=>PYTHONTEX#pycon#default#default#87#console#####1716#
 
         import pickle
 
@@ -797,7 +818,7 @@
         print(f"Data Type: {type(retrieved_data)}")
         print(f"Content: {retrieved_data}")
 
-=>PYTHONTEX#pycon#default#default#85#console#####1704#
+=>PYTHONTEX#pycon#default#default#88#console#####1756#
 
           import json
 
@@ -809,7 +830,7 @@
           with open('data.json', 'w') as fp: # Python object -> json file
               json.dump(data, fp)
 
-=>PYTHONTEX#pycon#default#default#86#console#####1721#
+=>PYTHONTEX#pycon#default#default#89#console#####1773#
 
           import json
 
@@ -823,14 +844,14 @@
 
           print(data_from_file)
 
-=>PYTHONTEX#pycon#default#default#87#console#####1756#
+=>PYTHONTEX#pycon#default#default#90#console#####1808#
 
           import xml.etree.ElementTree as ET
 
           tree = ET.parse('inventory.xml')
           print(type(tree))
 
-=>PYTHONTEX#pycon#default#default#88#console#####1770#
+=>PYTHONTEX#pycon#default#default#91#console#####1822#
 
             import xml.etree.ElementTree as ET
             tree = ET.parse('inventory.xml')
@@ -838,7 +859,7 @@
             root = tree.getroot()
             print(root.tag)
 
-=>PYTHONTEX#pycon#default#default#89#console#####1793#
+=>PYTHONTEX#pycon#default#default#92#console#####1845#
 
           import xml.etree.ElementTree as ET
 
@@ -848,7 +869,7 @@
           print(type(root))
           print(root.tag)
 
-=>PYTHONTEX#pycon#default#default#90#console#####1814#
+=>PYTHONTEX#pycon#default#default#93#console#####1866#
 
             import xml.etree.ElementTree as ET
 
@@ -868,7 +889,7 @@
             all_items = root.findall('item') # retrieving a list of ALL matching child elements
             print([item.text for item in all_items])
 
-=>PYTHONTEX#pycon#default#default#91#console#####1888#
+=>PYTHONTEX#pycon#default#default#94#console#####1940#
 
         import re
         string = "Take 1 up One 23 idea. One idea 45 at a time"
@@ -876,7 +897,7 @@
         result = re.search(r'O\w',string)
         print(result.group())
 
-=>PYTHONTEX#pycon#default#default#92#console#####1901#
+=>PYTHONTEX#pycon#default#default#95#console#####1953#
 
         import re
         string = "Take 1 up One 23 idea. One idea 45 at a time"
@@ -884,7 +905,7 @@
         result = re.findall(r'O\w\w',string)
         print(result)
 
-=>PYTHONTEX#pycon#default#default#93#console#####1914#
+=>PYTHONTEX#pycon#default#default#96#console#####1966#
 
         import re
         string = "Take 1 up One 23 idea. One idea 45 at a time"
@@ -892,7 +913,7 @@
         result = re.match('T\w\w',string)
         print(result.group())
 
-=>PYTHONTEX#pycon#default#default#94#console#####1927#
+=>PYTHONTEX#pycon#default#default#97#console#####1979#
 
         import re
         string = "Take 1 up One 23 idea. One idea 45 at a time"
@@ -900,7 +921,7 @@
         result = re.sub(r'One','Two',string)
         print(result)
 
-=>PYTHONTEX#pycon#default#default#95#console#####1940#
+=>PYTHONTEX#pycon#default#default#98#console#####1992#
 
         import re
         string = "Take 1 up One 23 idea. One idea 45 at a time"
@@ -908,7 +929,7 @@
         result = re.split(r'\d+',string)
         print(result)
 
-=>PYTHONTEX#pycon#default#default#96#console#####1963#
+=>PYTHONTEX#pycon#default#default#99#console#####2015#
 
         import re
         string = "Take 1 up One 23 idea.One idea 45 at a Time"
@@ -919,7 +940,7 @@
         result = re.findall(r'O\w{1,2}',string) #{m,n} m minimum, n maximum repetitions
         print(result)
 
-=>PYTHONTEX#pycon#default#default#97#console#####1979#
+=>PYTHONTEX#pycon#default#default#100#console#####2031#
 
         import re
         string = "Take 1 up One 23 idea.One idea 45 at a Time"
@@ -933,7 +954,7 @@
         result = re.findall(r'O\w?',string) #? zero or one repetitions
         print(result)
 
-=>PYTHONTEX#pycon#default#default#98#console#####2010#
+=>PYTHONTEX#pycon#default#default#101#console#####2062#
 
         import re
         string = "I live .. like cats oh yeah"
@@ -945,7 +966,7 @@
 
         print(result.group())
 
-=>PYTHONTEX#pycon#default#default#99#console#####2027#
+=>PYTHONTEX#pycon#default#default#102#console#####2079#
 
         import re
         string = "I live .. like cats oh yeah"
@@ -956,7 +977,7 @@
         result = re.search(r'...h$',string) # end
         print(result.group())
 
-=>PYTHONTEX#pycon#default#default#100#console#####2043#
+=>PYTHONTEX#pycon#default#default#103#console#####2095#
 
         import re
         string = "I live .. like cats oh yeah"
@@ -967,7 +988,7 @@
         result = re.search(r'[^I li]',string)
         print(result.group())
 
-=>PYTHONTEX#pycon#default#default#101#console#####2059#
+=>PYTHONTEX#pycon#default#default#104#console#####2111#
 
         import re
         string = "I live .. like cats oh yeah"
@@ -975,7 +996,7 @@
         result = re.search(r'(cats|dogs)',string) #(R|S) specifies multiple regular expressions to match; either R OR S
         print(result.group())
 
-=>PYTHONTEX#pycon#default#default#102#console#####2087#
+=>PYTHONTEX#pycon#default#default#105#console#####2139#
 
       import threading
 
@@ -984,7 +1005,7 @@
       if threading.current_thread() == threading.main_thread():
           print('Main Thread')
 
-=>PYTHONTEX#pycon#default#default#103#console#####2107#
+=>PYTHONTEX#pycon#default#default#106#console#####2159#
 
           import threading
 
@@ -1003,7 +1024,7 @@
           t.join()
           print("displayNumbers function finished")
 
-=>PYTHONTEX#pycon#default#default#104#console#####2141#
+=>PYTHONTEX#pycon#default#default#107#console#####2193#
 
         import threading
         from time import sleep # the sleep function simply makes the program wait
@@ -1027,7 +1048,7 @@
         t1.join()
         t2.join()
 
-=>PYTHONTEX#pycon#default#default#105#console#####2176#
+=>PYTHONTEX#pycon#default#default#108#console#####2228#
 
         import threading
         import time
@@ -1063,7 +1084,7 @@
         t1.join()
         t2.join()
 
-=>PYTHONTEX#pycon#default#default#106#console#####2225#
+=>PYTHONTEX#pycon#default#default#109#console#####2277#
 
         import threading
 
@@ -1096,7 +1117,7 @@
         t2.join()
         t3.join()
 
-=>PYTHONTEX#pycon#default#default#107#console#####2269#
+=>PYTHONTEX#pycon#default#default#110#console#####2321#
 
         import threading
         import time
@@ -1134,7 +1155,7 @@
         t1.join()
         t2.join()
 
-=>PYTHONTEX#pycon#default#default#108#console#####2337#
+=>PYTHONTEX#pycon#default#default#111#console#####2389#
 
         import random
         import time
@@ -1163,7 +1184,7 @@
         t1.join()
         t2.join()
 
-=>PYTHONTEX#pycon#default#default#109#console#####2377#
+=>PYTHONTEX#pycon#default#default#112#console#####2429#
 
         import queue
 
@@ -1193,7 +1214,7 @@
         while not pq.empty():
             print(pq.get()[1], end=' ') #insert the index to choose only the name in the prioritized order
 
-=>PYTHONTEX#pycon#default#default#110#console#####2420#
+=>PYTHONTEX#pycon#default#default#113#console#####2472#
 
         import threading
         import time
@@ -1216,7 +1237,7 @@
         t2.start()
         t2.join() # only the non-daemon thread is joined; once t2 finishes, t1 is killed automatically
 
-=>PYTHONTEX#pycon#default#default#111#console#####2466#
+=>PYTHONTEX#pycon#default#default#114#console#####2518#
 
         import os
         print(os.getcwd())
@@ -1227,12 +1248,12 @@
         os.chdir('python') # returning to python directory
         print(os.getcwd())
 
-=>PYTHONTEX#pycon#default#default#112#console#####2482#
+=>PYTHONTEX#pycon#default#default#115#console#####2534#
 
         import os
         print(os.listdir())
 
-=>PYTHONTEX#pycon#default#default#113#console#####2496#
+=>PYTHONTEX#pycon#default#default#116#console#####2548#
 
         import os
         import shutil
@@ -1264,7 +1285,7 @@
 
         os.chdir('..') # moving back to python/
 
-=>PYTHONTEX#pycon#default#default#114#console#####2539#
+=>PYTHONTEX#pycon#default#default#117#console#####2591#
 
         import os
 
@@ -1272,17 +1293,17 @@
 
         print(os.getenv('NONEXISTENT_EV', 'default_path'))
 
-=>PYTHONTEX#pycon#default#default#115#console#####2567#
+=>PYTHONTEX#pycon#default#default#118#console#####2619#
 
         import subprocess
         print(subprocess.run(['echo', 'Hello from the subshell!'])) # returncode of 0 means success
 
-=>PYTHONTEX#pycon#default#default#116#console#####2581#
+=>PYTHONTEX#pycon#default#default#119#console#####2633#
 
         import subprocess
         print(subprocess.run(['echo', 'Captured output data'], capture_output=True, text=True))
 
-=>PYTHONTEX#pycon#default#default#117#console#####2595#
+=>PYTHONTEX#pycon#default#default#120#console#####2647#
 
         import subprocess
 
@@ -1290,7 +1311,7 @@
 
         subprocess.run(['python', '-c', 'import sys; sys.exit(1)'], check=True, capture_output=True, text=True)
 
-=>PYTHONTEX#pycon#default#default#118#console#####2620#
+=>PYTHONTEX#pycon#default#default#121#console#####2672#
 
         import sys
 
@@ -1299,7 +1320,7 @@
         print(sys.platform)
         print(sys.executable)
 
-=>PYTHONTEX#pycon#default#default#119#console#####2649#
+=>PYTHONTEX#pycon#default#default#122#console#####2701#
 
         import sys
 
@@ -1309,7 +1330,7 @@
         # emitting an error message that bypasses standard output redirection
         sys.stderr.write("Warning: Configuration file missing.\n")
 
-=>PYTHONTEX#pycon#default#default#120#console#####2669#
+=>PYTHONTEX#pycon#default#default#123#console#####2721#
 
         import sys
 
@@ -1331,7 +1352,7 @@
         with open('err.txt', 'r') as f:
             print(f.read())
 
-=>PYTHONTEX#pycon#default#default#121#console#####2716#
+=>PYTHONTEX#pycon#default#default#124#console#####2768#
 
         import glob
         import os
@@ -1344,7 +1365,7 @@
         pkl_files2 = glob.glob('**/*.pkl', recursive=True) # retrieve all .pkl files spanning a nested directory structure
         print(txt_files2)
 
-=>PYTHONTEX#pycon#default#default#122#console#####2738#
+=>PYTHONTEX#pycon#default#default#125#console#####2790#
 
         import glob
 
@@ -1354,7 +1375,7 @@
         for filepath in csv_iterator: # consuming the iterator sequentially without bulk memory allocation
             print(f"Processing: {filepath}") # nothing is outputed because no CSV files exit in the CWD
 
-=>PYTHONTEX#pycon#default#default#123#console#####2779#
+=>PYTHONTEX#pycon#default#default#126#console#####2831#
 
         import random
 
@@ -1370,7 +1391,7 @@
         for i in range(3):
             print(random.randrange(1,12,2))
 
-=>PYTHONTEX#pycon#default#default#124#console#####2816#
+=>PYTHONTEX#pycon#default#default#127#console#####2868#
 
         import random
 
@@ -1385,7 +1406,7 @@
         random.shuffle(seq)
         print(seq)
 
-=>PYTHONTEX#pycon#default#default#125#console#####2842#
+=>PYTHONTEX#pycon#default#default#128#console#####2894#
 
         import random
 
@@ -1401,7 +1422,7 @@
 
         print([random.randint(1, 100) for _ in range(5)]) # sequence B
 
-=>PYTHONTEX#pycon#default#default#126#console#####2875#
+=>PYTHONTEX#pycon#default#default#129#console#####2927#
 
         import math
 
@@ -1410,7 +1431,7 @@
         print(math.inf)   # floating-point positive infinity
         print(math.nan)   # Not a Number (NaN)
 
-=>PYTHONTEX#pycon#default#default#127#console#####2893#
+=>PYTHONTEX#pycon#default#default#130#console#####2945#
 
         import math
 
@@ -1440,7 +1461,7 @@
         print(math.comb(10, 3))      # n choose k
         print(math.perm(10, 3))      # ordered arrangements of k from n
 
-=>PYTHONTEX#pycon#default#default#128#console#####2974#
+=>PYTHONTEX#pycon#default#default#131#console#####3026#
 
         from datetime import date
 
@@ -1454,7 +1475,7 @@
         print(d.isoformat())          # '2026-05-29'
         print(d.strftime("%d %B %Y")) # '29 May 2026'
 
-=>PYTHONTEX#pycon#default#default#129#console#####2999#
+=>PYTHONTEX#pycon#default#default#132#console#####3051#
 
         from datetime import time
         t = time(14, 30, 0)             # construct a specific time
@@ -1466,7 +1487,7 @@
         print(t.isoformat())            # '14:30:00'
         print(t.strftime("%H:%M:%S"))   # '14:30:00'
 
-=>PYTHONTEX#pycon#default#default#130#console#####3022#
+=>PYTHONTEX#pycon#default#default#133#console#####3074#
 
         from datetime import datetime
         now = datetime.now()                              # current local date and time
@@ -1478,7 +1499,7 @@
         print(dt.strftime("%Y-%m-%d %H:%M"))              # '2026-05-29 14:30'
         print(datetime.strptime("29/05/2026","%d/%m/%Y")) # parsing string to datetime
 
-=>PYTHONTEX#pycon#default#default#131#console#####3045#
+=>PYTHONTEX#pycon#default#default#134#console#####3097#
 
         from datetime import date, datetime, timedelta
         delta = timedelta(days=7, hours=3)
@@ -1493,7 +1514,7 @@
         print(diff.days)              # 148
         print(diff.total_seconds())   # 12787200.0
 
-=>PYTHONTEX#pycon#default#default#132#console#####3095#
+=>PYTHONTEX#pycon#default#default#135#console#####3147#
 
         import time
         start_time = time.perf_counter()

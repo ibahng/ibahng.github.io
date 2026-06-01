@@ -1,2 +1,7 @@
 \hfuzz=10000pt % ignore overfull hbox badness warnings below this limit
 \hbadness=10000 % suppress underfull hbox warnings
+
+\newcommand{\extref}[3]{%
+    \edef\targeturl{#1.pdf\#nameddest=#2}%
+    \href{\targeturl}{#3}%
+}
