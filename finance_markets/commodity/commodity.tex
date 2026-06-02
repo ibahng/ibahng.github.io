@@ -15,7 +15,7 @@
 % \externaldocument[for-]{../forex/forex}[https://ibahng.github.io/finance_markets/forex/forex.pdf]
 % \externaldocument[fnd-]{../fundamental_analysis/fundamental_analysis}[https://ibahng.github.io/finance_markets/fundamental_analysis/fundamental_analysis.pdf]
 % \externaldocument[mac-]{../macroeconomics/macroeconomics}[https://ibahng.github.io/finance_markets/macroeconomics/macroeconomics.pdf]
-% \externaldocument[mic-]{../microeconomics/microeconomics}[https://ibahng.github.io/finance_markets/microeconomics/microeconomics.pdf]
+\externaldocument[mic-]{../microeconomics/microeconomics}[https://ibahng.github.io/finance_markets/microeconomics/microeconomics.pdf]
 % \externaldocument[tec-]{../technical_analysis/technical_analysis}[https://ibahng.github.io/finance_markets/technical_analysis/technical_analysis.pdf]
 % \externaldocument[val-]{../valuation/valuation}[https://ibahng.github.io/finance_markets/valuation/valuation.pdf]
 % \externaldocument[com-]{../commodity/commodity}[https://ibahng.github.io/finance_markets/commodity/commodity.pdf]
@@ -28,46 +28,47 @@
 
   \begin{core}{Commodity Markets}
 
-    % ------------------------------------------------------------------------------------------------------------------------
-    % The commodity market is a tangible market. With commodities being such an integral part of our lives, Any major price disruptions in the raw materials filter down to the everyday products we use.
-    % A commodity is classified as a raw material used to make goods.
-    % EX. Wheat is the commodity, bread is the manufactured end product
+    Commodity markets deal primarily in \textbf{physical, tangible assets} that serve as \textbf{foundational inputs} for global economic production. Because these raw materials form the base of the manufacturing supply chain, significant price volatility or supply disruptions in primary commodities inevitably cascade down to consumer-end products. \textit{For instance, while wheat represents the underlying commodity traded in financial markets, commercial bread serves as the final manufactured consumer good.}
 
-    % Today, tradable commodities fall into the following categories:
-    % * Energy (oil, gas, coal)
-    % * Metal (base, ferrous, precious)
-    % * Agriculture (grains and oil seeds, softs, livestock)
+    Modern tradable commodities are systematically classified into three primary sectors.
+
+    \begin{itemize}
+
+      \item \textbf{Energy} (\textit{\autoref{sec:energy}}): Primary fuel resources, including crude oil, natural gas, and coal.
+
+      \item \textbf{Metals} (\textit{\autoref{sec:metal}}): Industrial and mineral ores, spanning base, ferrous, and precious varieties.
+
+      \item \textbf{Agriculture} (\textit{\autoref{sec:agriculture}}): Cultivated assets, comprising grains, oilseeds, soft commodities, and livestock.
+
+    \end{itemize}
 
   \end{core}
-
+  
   \begin{core}{Historical Development of Commodity Trading}
 
-    % ------------------------------------------------------------------------------------------------------------------------
-    % Commodity trading pre-dates the first stock and bonds by a few millennia; thousands of years ago in Mesopotamia and Japan.
+    Commodity trading represents one of the oldest forms of economic commerce, predating the development of equity and fixed-income markets by several millennia, with historical origins extending back to ancient Mesopotamia.
 
-    % A forward negotiation between two individuals in exchange of a set amount of a commodity on a set date is known as an Over the Counter contract (OTC).
+    Early transactions functioned as forward negotiations between individual counterparties to exchange a specific quantity of a commodity at a designated future date---a mechanism known today as an \textbf{over-the-counter (OTC)} contract.
 
-    % Disagreements over what constitutes a satisfactory delivery was a common occurrence. This eventually led to the need for standardization and as such, futures trading was born:
-    % * 1710 Japan, Dojima Rice Exchange
-    % * 1977 Europe, London Metals Exchange (LME)
+    However, persistent disagreements regarding quality standards and delivery terms eventually drove the market toward formal standardization, giving birth to centralized futures trading. Early global milestones in this institutional evolution include the \textbf{Dojima Rice Exchange in Japan} (\textit{1697}) and, subsequently, the \textbf{Chicago Board of Trade (CBOT)} (\textit{1848}).
 
-    % First US exchange was the Chicago Board of Trade (CBOT) established in the early 19th century.
-    % it utilized and still utilizes the open outcry system ("the pit"); most trades except for the LME has gone digital.
+    Historically, these centralized marketplaces---along with the subsequent establishment of the \textbf{London Metal Exchange (LME) in Europe} (\textit{1877})---relied on a physical \textbf{open-outcry} system, a traditional framework where floor brokers executed transactions face-to-face within trading pits through synchronized shouting and hand signals.
+
+    In the modern era, however, commodity execution has almost entirely transitioned to electronic platforms. As a result of this widespread digital shift, the LME remains unique as one of the final global venues to preserve its legacy physical trading floor.
 
   \end{core}
 
-  \begin{core}{Basic Supply \& Demand} % add a external reference to macroecon
+  \begin{core}{Basic Supply \& Demand}
 
-    % Basic economic principles of supply and demand typically drive the commodities markets.
-    % Commodity storage plays a vital economic role because it helps to dampen volatility and bring markets back into balance.
-    % Rarely is a commodity produced where it is consumed; over 90% of the world's trade is transported via sea (other being pipeline, trucks, rail and planes).
-    % Transportation costs can be significant and will impact where commodities go.
+    Commodity markets are fundamentally governed by the core economic principles of \textbf{supply and demand} (\textit{\autoref{mic-sec:sup_dem}}). Within this framework, physical storage serves a critical stabilizing function, dampening price volatility and restoring market equilibrium during structural imbalances, such as a sudden supply shock.
+
+    Because production centers are rarely geographically aligned with primary consumption hubs, logistics play a defining role in market dynamics. Over 90\% of global commodity trade volume is transported via \textbf{maritime freight}, with the remainder distributed via pipelines, rail, trucking, and aviation. Consequently, transportation costs represent a significant economic variable that heavily influences trade routes and ultimate market destinations.
 
   \end{core}
 
   \begin{core}{Data Challenges}
 
-    % Data needed is vast and not always readily available. Each country reports at varying degrees of frequency, breadth, and accuracy. As such, much goes into estimating these values.
+    Comprehensive market analysis requires \textbf{vast datasets that are frequently difficult to acquire}. Because sovereign nations report data with varying degrees of frequency, scope, and statistical accuracy, market analysts must dedicate substantial effort to modeling and estimating these baseline values.
 
   \end{core}
 
@@ -75,58 +76,93 @@
 
   \subsection{Market Structure \& Price}
 
-    \begin{core}{Market Structure}
+    \begin{core}{Physical Pricing and OTC Structure}
 
-      % ------------------------------------------------------------------------------------------------------------------------
-      % Many factors are taken into consideration when determining the price of a commodity. Variations of quality, grade, and location must all be taken into consideration.
+      Commodity valuation requires the \textbf{simultaneous evaluation of multiple physical variables}, where variations in quality, grade, and geographic location heavily influence spot pricing.
 
-      % For oil, hundreds of types of crude are traded worldwide and so the handful of futures contracts that exist are not always suitable for those wanting to purchase physical oil. With this, commodity trading remains a largely bilateral business, bringing buyers and sellers together in over-the-counter (OTC) deals.
+      In the oil sector, for example, \textbf{hundreds of distinct crude grades} are traded globally, meaning the limited selection of standardized futures contracts \textbf{cannot always accommodate the precise needs of physical market participants}. Consequently, physical commodity commerce remains predominantly structured as a \textbf{bilateral business}, directly connecting buyers and sellers via customized OTC transactions. \textit{This contrasts with exchange-based markets, where standardized contracts enable multilateral participation among a large number of buyers and sellers but offer substantially less flexibility in contract design.}
 
-      % ------------------------------------------------------------------------------------------------------------------------
-      % With all this to consider, how does the market determine reference prices?
-      % Price Reporting Agencies such as Platts and Argus provide price assessments for a wide range of spot and derivative oil contracts.
-      % These assessments provide transparency and most physical OTC transactions are set at an agreed differential to a Platts or Argus benchmark.
+    \end{core}
 
-      % There is no singular global market price for crude. Instead, regional markets exist each with their own benchmarks. Under normal market conditions the price differentials between each regional market is limited. If an arbitrage becomes too great, the supply and demand pressures adjust price differentials again as they are exploited.
-      % With hundreds of crude grades that exist, there is not a financial future for every grade. As such, traders can use benchmarks to also hedge the risk and exposure on OTC contracts.
+    \begin{core}{Reference Pricing and Benchmarking}
 
-      % ------------------------------------------------------------------------------------------------------------------------
-      % * Producers, consumers, and traders of physical oil can use the financial benchmarks to hedge risks and exposures on OTC contracts. Price reporting agencies like Platts and Argus provide a price assessment for a wide range of oil types and contracts
-      % * The main reasons why commodity trading happens are:
-      %   * Safe haven during economic uncertainty
-      %   * Inflation hedging
-      %   * Diversification of portfolio
-      %   * Speculation
-      % * Like any other financial market, market sentiment can impact price. This phenomenon has become more pronounced with the increasing financialization of the commodities markets, as more people trade benchmark crude oils
+      To establish reliable baseline values amid this operational complexity, the market relies on specialized \textbf{Price Reporting Agencies (PRAs)} such as \href{https://www.spglobal.com/energy/en}{\textbf{S\&P Global Platts}} or \href{https://www.argusmedia.com/en}{\textbf{Argus Media}}, which publish independent price assessments across a broad spectrum of spot and derivative contracts. These assessments provide critical transparency into the market, allowing the majority of physical OTC transactions to be executed at an agreed price differential relative to these recognized benchmarks.
+
+      Furthermore, because \textbf{standardized financial futures do not exist for every unique physical grade}, market participants rely on these benchmarks as pricing proxies to manage asset exposure. In practice, a physical OTC agreement for a niche commodity is structured around a pricing formula pegged directly to a dominant benchmark, adjusted by an agreed-upon \textbf{quality} or \textbf{location spread}.
+
+      Once the physical transaction is linked to the benchmark, the producer or consumer can execute an equal and opposite position in the financial futures market. This strategy creates a dual-market balancing mechanism: any subsequent loss in physical revenue caused by fluctuating spot prices is offset by a corresponding gain in the futures account, and vice versa. Ultimately, while this mechanism requires participants to \textbf{forgo the potential upside of favorable price movements}, it \textbf{secures operational certainty by locking in baseline profit margins}.
+
+      \begin{enumerate}
+
+        \item \textbf{Producer Hedging Against Brent Price Fall}
+
+        A producer selling a discounted crude grade can contractually peg their physical sales price to Brent minus \$3.00 per barrel while simultaneously shorting Brent financial futures at \$75.00. If the market declines, the reduced revenue from the physical delivery at \$62.00 is precisely counterbalanced by a \$10.00 gain in the short position, thereby securing the targeted net effective return of \$72.00 per barrel.
+
+        \item \textbf{Refiner Hedging Against Brent Price Rise}
+
+        Conversely, a refiner purchasing a discounted crude grade can contractually peg their physical acquisition price to Brent minus \$3.00 per barrel while simultaneously executing a long position in Brent financial futures at \$75.00. If the market rallies, the increased procurement cost from the physical delivery at \$82.00 is precisely counterbalanced by a \$10.00 gain in the long position, thereby securing the targeted net effective purchase cost of \$72.00 per barrel.
+
+      \end{enumerate}
+
+    \end{core}
+
+    \begin{core}{Regional Markets and Arbitrage Dynamics}
+
+      Crude oil does not trade at a singular, unified global price, operating instead through decentralized regional markets that rely on \textbf{localized benchmarks}. Under standard market conditions, the price differentials between these geographic boundaries remain fundamentally constrained; whenever localized imbalances widen these spreads beyond baseline transport costs, market participants exploit the resulting \textbf{arbitrage}, shifting physical supply and demand pressures until \textbf{price differentials realign}.
+
+    \end{core}
+
+    \begin{core}{Investment Drivers and Market Financialization}
+
+      Participation in commodities markets is structurally motivated by a discrete set of investment objectives.
+
+      \begin{itemize}
+
+        \item \textbf{Capital preservation} as a safe haven during periods of broader macroeconomic uncertainty
+
+        \item \textbf{Hedging} against inflationary pressures on real asset values
+
+        \item \textbf{Portfolio diversification} through exposure to asset classes exhibiting low correlation with traditional securities
+
+        \item Direct \textbf{speculative positioning} on commodity price movements.
+
+      \end{itemize}
+
+      Like traditional financial assets, commodity spot prices are heavily responsive to shifts in broader market sentiment. This behavioral dynamic has become significantly more pronounced alongside the progressive \textbf{financialization of commodity markets}, as a growing volume of non-physical participants actively trade contracts.
 
     \end{core}
 
     \begin{core}{Price Drivers}
 
-      Weather \& Natural Disasters
-      % ------------------------------------------------------------------------------------------------------------------------
-      % * Mother Nature
-      %   * EX. UK gas prices rose as heating demand increased during a cold wave
+      The market valuation of primary commodities is dictated by a diverse array of structural, environmental, and institutional drivers.
 
-      Geopolitical Events
-      % ------------------------------------------------------------------------------------------------------------------------
-      % * Trade War
-      %   * As no country is completely self-sufficient, each country relies heavily on both commodity imports and exports. Any large disruption of supply and demand to any key importing or exporting country can have adverse effects on the global economy.
-      %   * EX. China-US trade war 2018
-      % * Saudi Attacks
-      %   * On Sept 14, 2019, two major oil facilities in Saudi Arabia were attacked, causing them to shut down, knocking out approximately 5% of global supply at the time
+      \begin{enumerate}
 
-      Policy \& Regulation
-      % ------------------------------------------------------------------------------------------------------------------------
-      % * Policy
-      %   * Some policies can increase demands in certain types of commodities that can also affect profits of commodity refining firms depending on if their equipment limits them or not
-      %   * EX. International Maritime Organization mandates all vessels required to burn fuels with 0.5% sulfur or less
+        \item \textbf{Weather \& Natural Disasters}
 
-      Demand Elasticity
-      % ------------------------------------------------------------------------------------------------------------------------
-      % Demand tends to be more inelastic as people consider commodities a necessity. The economic slow-down will have an impact but slowly. There are exceptions however.
-      % Coronavirus quickly crippled a third of global demand for fuel and other such commodities.
-      % During this time, the market entered a "super contango" (the opposite being "backwardation"); meaning the spot price of oil was trading dramatically below the futures price.
+        Environmental conditions and severe weather anomalies exert direct, immediate shocks on regional commodity supply and demand. 
+
+        \textit{For instance, an unseasonal cold wave in the United Kingdom can rapidly escalate residential heating requirements, triggering a sharp increase in regional natural gas prices due to the sudden demand surge.}
+
+        \item \textbf{Geopolitical Events}
+
+        Because no sovereign nation is entirely self-sufficient, global economic stability depends heavily on an interconnected network of commodity imports and exports. Consequently, any significant disruption to supply or demand dynamics within key trading nations can precipitate adverse cascading effects throughout the global economy.
+
+        \textit{This is perfectly exemplified by the surge in crude oil prices stemming from the 2026 Iran-US conflict.}
+
+        \item \textbf{Policy \& Regulation}
+
+        Regulatory mandates and institutional policies frequently reshape demand configurations, directly affecting the profitability of refining and processing firms based on their specific technological and equipment constraints. 
+
+        \textit{A prominent example is the International Maritime Organization (IMO) regulation mandating that all marine vessels utilize fuel with a sulfur content of 0.5\% or less, which rapidly altered refinery margins globally by shifting demand toward low-sulfur distillates.}
+
+        \item \textbf{Demand Elasticity}
+
+        Given that primary commodities function as essential societal \textbf{necessities}, aggregate consumer demand tends to be \textbf{relatively price-inelastic in the short term}, meaning that broader economic slowdowns typically manifest as \textbf{gradual, lagging shifts} rather than immediate disruptions. 
+
+        There are, however, extreme exceptions to this trend. The outbreak of the \textbf{COVID-19 pandemic} rapidly decimated nearly one-third of global fuel demand. This unprecedented collapse in near-term consumption forced the crude oil market into an extreme \textbf{super contango}, where immediate physical spot prices traded at a dramatic discount relative to longer-dated futures contracts.
+
+      \end{enumerate}
 
     \end{core}
 
@@ -241,6 +277,7 @@
     % * Speculation can be carried out using different instruments from mutual funds or ETFs for retail investors, to indices for large asset managers, and futures for commodity trading advisors (CTAs)
 
 \section{Energy Markets}
+  \label{sec:energy}
 
   \subsection{Crude Oil Fundamentals}
 
@@ -361,9 +398,11 @@
 
     \end{core}
 
-% \section{Metal Markets}
+\section{Metal Markets}
+  \label{sec:metal}
 
-% \section{Agricultural Markets}
+\section{Agricultural Markets}
+  \label{sec:agriculture}
 
 \end{document}
 

@@ -1195,7 +1195,8 @@
         lq.put(50)
         while not lq.empty(): # this is another function to specify an empty queue
             print(lq.get(), end=' ')
-        print()
+
+
 
         pq = queue.PriorityQueue() #in order
         pq.put(400)
@@ -1204,7 +1205,8 @@
         pq.put(50)
         while not pq.empty():
             print(pq.get(), end=' ')
-        print()
+
+
 
         pq = queue.PriorityQueue()
         pq.put((400,'John')) # if the item in the queue is a str, then make a tuple with an int in the first index and it will use that number to define the order
@@ -1214,7 +1216,7 @@
         while not pq.empty():
             print(pq.get()[1], end=' ') #insert the index to choose only the name in the prioritized order
 
-=>PYTHONTEX#pycon#default#default#113#console#####2472#
+=>PYTHONTEX#pycon#default#default#113#console#####2474#
 
         import threading
         import time
@@ -1237,7 +1239,7 @@
         t2.start()
         t2.join() # only the non-daemon thread is joined; once t2 finishes, t1 is killed automatically
 
-=>PYTHONTEX#pycon#default#default#114#console#####2518#
+=>PYTHONTEX#pycon#default#default#114#console#####2520#
 
         import os
         print(os.getcwd())
@@ -1248,12 +1250,12 @@
         os.chdir('python') # returning to python directory
         print(os.getcwd())
 
-=>PYTHONTEX#pycon#default#default#115#console#####2534#
+=>PYTHONTEX#pycon#default#default#115#console#####2536#
 
         import os
         print(os.listdir())
 
-=>PYTHONTEX#pycon#default#default#116#console#####2548#
+=>PYTHONTEX#pycon#default#default#116#console#####2550#
 
         import os
         import shutil
@@ -1285,7 +1287,7 @@
 
         os.chdir('..') # moving back to python/
 
-=>PYTHONTEX#pycon#default#default#117#console#####2591#
+=>PYTHONTEX#pycon#default#default#117#console#####2593#
 
         import os
 
@@ -1293,25 +1295,25 @@
 
         print(os.getenv('NONEXISTENT_EV', 'default_path'))
 
-=>PYTHONTEX#pycon#default#default#118#console#####2619#
+=>PYTHONTEX#pycon#default#default#118#console#####2621#
 
         import subprocess
         print(subprocess.run(['echo', 'Hello from the subshell!'])) # returncode of 0 means success
 
-=>PYTHONTEX#pycon#default#default#119#console#####2633#
+=>PYTHONTEX#pycon#default#default#119#console#####2635#
 
         import subprocess
         print(subprocess.run(['echo', 'Captured output data'], capture_output=True, text=True))
 
-=>PYTHONTEX#pycon#default#default#120#console#####2647#
+=>PYTHONTEX#pycon#default#default#120#console#####2649#
 
         import subprocess
 
-        subprocess.run(['python', '-c', 'import sys; sys.exit(1)'], capture_output=True, text=True) # intentionally exits with an error, no CalledProcessError
+        subprocess.run(['uv', 'run', '-c', 'import sys; sys.exit(1)'], capture_output=True, text=True) # intentionally exits with an error, no CalledProcessError
 
-        subprocess.run(['python', '-c', 'import sys; sys.exit(1)'], check=True, capture_output=True, text=True)
+        subprocess.run(['uv', 'run', '-c', 'import sys; sys.exit(1)'], check=True, capture_output=True, text=True)
 
-=>PYTHONTEX#pycon#default#default#121#console#####2672#
+=>PYTHONTEX#pycon#default#default#121#console#####2674#
 
         import sys
 
@@ -1320,7 +1322,7 @@
         print(sys.platform)
         print(sys.executable)
 
-=>PYTHONTEX#pycon#default#default#122#console#####2701#
+=>PYTHONTEX#pycon#default#default#122#console#####2703#
 
         import sys
 
@@ -1330,7 +1332,7 @@
         # emitting an error message that bypasses standard output redirection
         sys.stderr.write("Warning: Configuration file missing.\n")
 
-=>PYTHONTEX#pycon#default#default#123#console#####2721#
+=>PYTHONTEX#pycon#default#default#123#console#####2723#
 
         import sys
 
@@ -1352,7 +1354,7 @@
         with open('err.txt', 'r') as f:
             print(f.read())
 
-=>PYTHONTEX#pycon#default#default#124#console#####2768#
+=>PYTHONTEX#pycon#default#default#124#console#####2770#
 
         import glob
         import os
@@ -1363,9 +1365,9 @@
         print(pkl_files1)
 
         pkl_files2 = glob.glob('**/*.pkl', recursive=True) # retrieve all .pkl files spanning a nested directory structure
-        print(txt_files2)
+        print(pkl_files2)
 
-=>PYTHONTEX#pycon#default#default#125#console#####2790#
+=>PYTHONTEX#pycon#default#default#125#console#####2792#
 
         import glob
 
@@ -1375,7 +1377,7 @@
         for filepath in csv_iterator: # consuming the iterator sequentially without bulk memory allocation
             print(f"Processing: {filepath}") # nothing is outputed because no CSV files exit in the CWD
 
-=>PYTHONTEX#pycon#default#default#126#console#####2831#
+=>PYTHONTEX#pycon#default#default#126#console#####2833#
 
         import random
 
@@ -1391,7 +1393,7 @@
         for i in range(3):
             print(random.randrange(1,12,2))
 
-=>PYTHONTEX#pycon#default#default#127#console#####2868#
+=>PYTHONTEX#pycon#default#default#127#console#####2870#
 
         import random
 
@@ -1406,7 +1408,7 @@
         random.shuffle(seq)
         print(seq)
 
-=>PYTHONTEX#pycon#default#default#128#console#####2894#
+=>PYTHONTEX#pycon#default#default#128#console#####2896#
 
         import random
 
@@ -1422,7 +1424,7 @@
 
         print([random.randint(1, 100) for _ in range(5)]) # sequence B
 
-=>PYTHONTEX#pycon#default#default#129#console#####2927#
+=>PYTHONTEX#pycon#default#default#129#console#####2929#
 
         import math
 
@@ -1431,7 +1433,7 @@
         print(math.inf)   # floating-point positive infinity
         print(math.nan)   # Not a Number (NaN)
 
-=>PYTHONTEX#pycon#default#default#130#console#####2945#
+=>PYTHONTEX#pycon#default#default#130#console#####2947#
 
         import math
 
@@ -1461,7 +1463,7 @@
         print(math.comb(10, 3))      # n choose k
         print(math.perm(10, 3))      # ordered arrangements of k from n
 
-=>PYTHONTEX#pycon#default#default#131#console#####3026#
+=>PYTHONTEX#pycon#default#default#131#console#####3028#
 
         from datetime import date
 
@@ -1475,7 +1477,7 @@
         print(d.isoformat())          # '2026-05-29'
         print(d.strftime("%d %B %Y")) # '29 May 2026'
 
-=>PYTHONTEX#pycon#default#default#132#console#####3051#
+=>PYTHONTEX#pycon#default#default#132#console#####3053#
 
         from datetime import time
         t = time(14, 30, 0)             # construct a specific time
@@ -1487,7 +1489,7 @@
         print(t.isoformat())            # '14:30:00'
         print(t.strftime("%H:%M:%S"))   # '14:30:00'
 
-=>PYTHONTEX#pycon#default#default#133#console#####3074#
+=>PYTHONTEX#pycon#default#default#133#console#####3076#
 
         from datetime import datetime
         now = datetime.now()                              # current local date and time
@@ -1499,7 +1501,7 @@
         print(dt.strftime("%Y-%m-%d %H:%M"))              # '2026-05-29 14:30'
         print(datetime.strptime("29/05/2026","%d/%m/%Y")) # parsing string to datetime
 
-=>PYTHONTEX#pycon#default#default#134#console#####3097#
+=>PYTHONTEX#pycon#default#default#134#console#####3099#
 
         from datetime import date, datetime, timedelta
         delta = timedelta(days=7, hours=3)
@@ -1514,7 +1516,7 @@
         print(diff.days)              # 148
         print(diff.total_seconds())   # 12787200.0
 
-=>PYTHONTEX#pycon#default#default#135#console#####3147#
+=>PYTHONTEX#pycon#default#default#135#console#####3149#
 
         import time
         start_time = time.perf_counter()
@@ -1526,6 +1528,32 @@
         end_time = time.perf_counter()
 
         print(end_time - start_time) # execution time in seconds
+
+=>PYTHONTEX#pycon#default#default#136#console#####3259#
+
+          import numpy as np
+
+          a = np.array([1, 2, 3, 4, 5]) # creating arrays
+          b = np.array([10, 20, 30, 40, 50])
+          print(type(a))
+
+          # vectorized operations — no loops needed
+          print(a + b)
+          print(a * 2)
+          print(np.sqrt(a))
+
+          matrix = np.array([ # 2D array (matrix)
+              [1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]
+          ])
+          print(type(matrix))
+
+          print(matrix.shape)
+          print(matrix[1, 2]) # row 1, col 2
+          print(matrix[:, 1]) # entire second column
+          print(matrix.mean()) # 5.0
+          print(matrix.sum(axis=0)) # sum down each column
 
 =>PYTHONTEX:SETTINGS#
 version=0.18

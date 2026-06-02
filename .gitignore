@@ -11,6 +11,9 @@ test.pdf
 *.synctex.gz
 *.toc
 *.synctex(busy)
+uv.lock
+.python-version
+pyproject.toml
 
 
 

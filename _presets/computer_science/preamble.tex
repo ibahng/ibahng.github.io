@@ -5,3 +5,37 @@
 \input{../../_presets/_general/code}
 \input{../../_presets/_general/other}
 
+\usepackage[gobble=auto]{pythontex}
+
+\renewcommand{\theFancyVerbLine}{\small\arabic{FancyVerbLine}}
+
+\BeforeBeginEnvironment{pyconsole}{\vspace{0.5em}}
+
+\fvset{breaklines=true, breakanywhere=true}
+
+\setpythontexfv{
+  fontsize=\fontsize{9}{10}\selectfont, 
+  fontfamily=tt,                        
+  frame=single,                         
+  rulecolor=\color{codeframecolor},     
+  % fillcolor=\color{codebgcolor},             
+  numbers=left,                         
+  numbersep=0.5em,
+  xleftmargin=1em
+}
+
+\DeclareFloatingEnvironment[
+  fileext=loc,
+  listname={List of Codes},
+  name=Code,
+  placement=H
+]{codeblock}
+
+\newcommand{\pcon}[2]{
+  \vspace{-0.4em}
+  \begin{codeblock}
+    \caption{#1}
+    \label{#2}
+  \end{codeblock}
+  \vspace{-1.8em}
+}

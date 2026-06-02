@@ -12,7 +12,7 @@
 \input{../../_presets/_general/startup}
 
 \section{Introduction to Python}
-
+ 
   \begin{core}{Python 3.0}
 
     Following several major releases over preceding decades (\textit{Python 0.9.0 in February 1991, Python 1.0 in January 1994, Python 2.0 in October 2000}), Python 3.0 was released in December 2008 and has since evolved through incremental updates to Python 3.14.5 as of May 10, 2026.
@@ -1043,7 +1043,7 @@
 
   % \end{core}
 
-  \section{Modules, Packages, \& The Standard Library}
+\section{Modules, Packages, \& The Standard Library}
   \label{sec:modules_packages}
 
   \begin{core}{Modules}
@@ -2437,7 +2437,8 @@
         lq.put(50)
         while not lq.empty(): # this is another function to specify an empty queue
             print(lq.get(), end=' ')
-        print()
+
+
 
         pq = queue.PriorityQueue() #in order
         pq.put(400)
@@ -2446,7 +2447,8 @@
         pq.put(50)
         while not pq.empty():
             print(pq.get(), end=' ')
-        print()
+
+
 
         pq = queue.PriorityQueue()
         pq.put((400,'John')) # if the item in the queue is a str, then make a tuple with an int in the first index and it will use that number to define the order
@@ -2648,9 +2650,9 @@
 
         import subprocess
 
-        subprocess.run(['python', '-c', 'import sys; sys.exit(1)'], capture_output=True, text=True) # intentionally exits with an error, no CalledProcessError
+        subprocess.run(['uv', 'run', '-c', 'import sys; sys.exit(1)'], capture_output=True, text=True) # intentionally exits with an error, no CalledProcessError
 
-        subprocess.run(['python', '-c', 'import sys; sys.exit(1)'], check=True, capture_output=True, text=True)
+        subprocess.run(['uv', 'run', '-c', 'import sys; sys.exit(1)'], check=True, capture_output=True, text=True)
 
       \end{pyconsole}
       \pcon{Handling execution failures using \textcode{check=True}}{code:subprocess_check}
@@ -2776,7 +2778,7 @@
         print(pkl_files1)
 
         pkl_files2 = glob.glob('**/*.pkl', recursive=True) # retrieve all .pkl files spanning a nested directory structure
-        print(txt_files2)
+        print(pkl_files2)
 
       \end{pyconsole}
       \pcon{Extracting file paths using shell-style wildcard patterns via \textcode{glob.glob()}}{code:glob_glob}
@@ -3251,7 +3253,40 @@
     \subsubsection{Data Science and Analysis}
 
       \begin{core}[label=core:numpy]{numpy}
-        % https://numpy.org/doc/stable/reference/
+
+        \href{https://numpy.org/doc/stable/reference/}{\textcode{numpy}} is the foundational numerical computing library for Python, providing support for large, multi-dimensional arrays and matrices alongside a collection of functions for operating on them. At its core is the \textcode{ndarray} object---an efficient, fixed-type, contiguous block of memory that enables vectorized operations \textbf{orders of magnitude faster than equivalent pure Python implementations}, as operations are dispatched to pre-compiled C routines rather than interpreted at the Python level.
+
+        \begin{pyconsole}
+
+          import numpy as np
+
+          a = np.array([1, 2, 3, 4, 5]) # creating arrays
+          b = np.array([10, 20, 30, 40, 50])
+          print(type(a))
+
+          # vectorized operations — no loops needed
+          print(a + b)
+          print(a * 2)
+          print(np.sqrt(a))
+
+          matrix = np.array([ # 2D array (matrix)
+              [1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]
+          ])
+          print(type(matrix))
+
+          print(matrix.shape)
+          print(matrix[1, 2]) # row 1, col 2
+          print(matrix[:, 1]) # entire second column
+          print(matrix.mean()) # 5.0
+          print(matrix.sum(axis=0)) # sum down each column
+
+        \end{pyconsole}
+        \pcon{caption}{code:numpy}
+
+        \textcode{numpy} serves as a core dependency for nearly all other the scientific third-party libraries. \textcode{pandas} (\textit{\autoref{core:pandas}}), \textcode{scipy} (\textit{\autoref{core:scipy}}), and \textcode{scikit-learn} (\textit{\autoref{core:sklearn}}) are all built directly on top of \textcode{numpy} arrays, making familiarity with \textcode{numpy} a prerequisite for effective use of the broader data science stack.
+
       \end{core}
 
       \begin{core}[label=core:pandas]{pandas}
@@ -3420,5 +3455,5 @@
     %   loguru          % https://loguru.readthedocs.io/en/stable/api/
     %   dotenv          % https://saurabh-kumar.com/python-dotenv/reference/
     %   schedule        % https://schedule.readthedocs.io/en/stable/
-  
+
 \end{document}
