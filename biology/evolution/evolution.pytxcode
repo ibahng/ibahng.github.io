@@ -1,6 +1,6 @@
 =>PYTHONTEX:SETTINGS#
 version=0.18
-outputdir=pythontex-files-org_chem
+outputdir=pythontex-files-evolution
 workingdir=.
 workingdirset=false
 gobble=auto
