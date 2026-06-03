@@ -1463,7 +1463,7 @@
         print(math.comb(10, 3))      # n choose k
         print(math.perm(10, 3))      # ordered arrangements of k from n
 
-=>PYTHONTEX#pycon#default#default#131#console#####3028#
+=>PYTHONTEX#pycon#default#default#131#console#####3029#
 
         from datetime import date
 
@@ -1477,7 +1477,7 @@
         print(d.isoformat())          # '2026-05-29'
         print(d.strftime("%d %B %Y")) # '29 May 2026'
 
-=>PYTHONTEX#pycon#default#default#132#console#####3053#
+=>PYTHONTEX#pycon#default#default#132#console#####3054#
 
         from datetime import time
         t = time(14, 30, 0)             # construct a specific time
@@ -1489,7 +1489,7 @@
         print(t.isoformat())            # '14:30:00'
         print(t.strftime("%H:%M:%S"))   # '14:30:00'
 
-=>PYTHONTEX#pycon#default#default#133#console#####3076#
+=>PYTHONTEX#pycon#default#default#133#console#####3077#
 
         from datetime import datetime
         now = datetime.now()                              # current local date and time
@@ -1501,7 +1501,7 @@
         print(dt.strftime("%Y-%m-%d %H:%M"))              # '2026-05-29 14:30'
         print(datetime.strptime("29/05/2026","%d/%m/%Y")) # parsing string to datetime
 
-=>PYTHONTEX#pycon#default#default#134#console#####3099#
+=>PYTHONTEX#pycon#default#default#134#console#####3100#
 
         from datetime import date, datetime, timedelta
         delta = timedelta(days=7, hours=3)
@@ -1516,7 +1516,7 @@
         print(diff.days)              # 148
         print(diff.total_seconds())   # 12787200.0
 
-=>PYTHONTEX#pycon#default#default#135#console#####3149#
+=>PYTHONTEX#pycon#default#default#135#console#####3150#
 
         import time
         start_time = time.perf_counter()
@@ -1529,7 +1529,7 @@
 
         print(end_time - start_time) # execution time in seconds
 
-=>PYTHONTEX#pycon#default#default#136#console#####3259#
+=>PYTHONTEX#pycon#default#default#136#console#####3260#
 
           import numpy as np
 
@@ -1554,6 +1554,32 @@
           print(matrix[:, 1]) # entire second column
           print(matrix.mean()) # 5.0
           print(matrix.sum(axis=0)) # sum down each column
+
+=>PYTHONTEX#pycon#default#default#137#console#####3297#
+
+          import pandas as pd
+
+          df = pd.DataFrame({ # creating a DataFrame
+              "name":   ["Alice", "Bob", "Carol"],
+              "age":    [25, 30, 35],
+              "salary": [70000, 90000, 85000]
+          })
+
+          print(type(df))
+          print(df.shape)
+          print(df.dtypes)
+
+          # column selection and filtering
+          print(df["age"])         # Series
+          print(df[df["age"] > 25])  # boolean indexing
+          print(df.loc[0, "name"]) # label-based indexing
+          print(df.iloc[1, 2])     # positional indexing
+
+          # vectorized operations — no loops needed
+          df["bonus"] = df["salary"] * 0.10
+          print(df["salary"].mean())
+          print(df["salary"].sum())
+          print(df.describe())
 
 =>PYTHONTEX:SETTINGS#
 version=0.18

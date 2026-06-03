@@ -1669,7 +1669,7 @@
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{t2}\PYG{o}{.}\PYG{n}{start}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+go}{Producing}
 \PYG{g+go}{Produced}
-\PYG{g+go}{Consume Data: 46}
+\PYG{g+go}{Consume Data: 39}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{t1}\PYG{o}{.}\PYG{n}{join}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+go}{Ready to consume}
 \PYG{g+go}{Producing}
@@ -1779,7 +1779,6 @@
 \PYG{g+go}{[\PYGZsq{}test\PYGZus{}dir\PYGZsq{}]}
 
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{os}\PYG{o}{.}\PYG{n}{rename}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{test\PYGZus{}dir}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{renamed\PYGZus{}dir}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} renaming sandbox/test\PYGZus{}dir/ to sandbox/renamed\PYGZus{}dir/}
-\PYG{g+go}{Daemon running...}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{os}\PYG{o}{.}\PYG{n}{listdir}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{.}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} seeing the contents of sandbox/}
 \PYG{g+go}{[\PYGZsq{}renamed\PYGZus{}dir\PYGZsq{}]}
 
@@ -1818,6 +1817,7 @@
 \begin{pytx@SaveVerbatim}[commandchars=\\\{\}]{pytx@pycon@default@default@118}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{subprocess}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{subprocess}\PYG{o}{.}\PYG{n}{run}\PYG{p}{(}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{echo}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Hello from the subshell!}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} returncode of 0 means success}
+\PYG{g+go}{Daemon running...}
 \PYG{g+go}{CompletedProcess(args=[\PYGZsq{}echo\PYGZsq{}, \PYGZsq{}Hello from the subshell!\PYGZsq{}], returncode=0)}
 \end{pytx@SaveVerbatim}
 
@@ -1929,27 +1929,27 @@
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{:}
 \PYG{g+gp}{... }    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{random}\PYG{o}{.}\PYG{n}{random}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
 \PYG{g+gp}{... }
-\PYG{g+go}{0.8660577013945966}
-\PYG{g+go}{0.7624399372881444}
-\PYG{g+go}{0.5953714803636079}
+\PYG{g+go}{0.06703207079546747}
+\PYG{g+go}{0.6021744385096649}
+\PYG{g+go}{0.4060466733069782}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{:}
 \PYG{g+gp}{... }    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{random}\PYG{o}{.}\PYG{n}{randint}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{50}\PYG{p}{)}\PYG{p}{)}
 \PYG{g+gp}{... }
-\PYG{g+go}{30}
-\PYG{g+go}{4}
-\PYG{g+go}{10}
+\PYG{g+go}{2}
+\PYG{g+go}{9}
+\PYG{g+go}{20}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{:}
 \PYG{g+gp}{... }    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{random}\PYG{o}{.}\PYG{n}{uniform}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{50}\PYG{p}{)}\PYG{p}{)}
 \PYG{g+gp}{... }
-\PYG{g+go}{44.643478810579715}
-\PYG{g+go}{8.69297022127826}
-\PYG{g+go}{3.2638630172311354}
+\PYG{g+go}{27.165423691278544}
+\PYG{g+go}{32.93936963660495}
+\PYG{g+go}{5.240763683989456}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{:}
 \PYG{g+gp}{... }    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{random}\PYG{o}{.}\PYG{n}{randrange}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{12}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{)}
 \PYG{g+gp}{... }
-\PYG{g+go}{1}
-\PYG{g+go}{7}
 \PYG{g+go}{5}
+\PYG{g+go}{5}
+\PYG{g+go}{11}
 \end{pytx@SaveVerbatim}
 
 \begin{pytx@SaveVerbatim}[commandchars=\\\{\}]{pytx@pycon@default@default@127}
@@ -1958,17 +1958,17 @@
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{seq} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{alpha}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{beta}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{gamma}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{delta}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{epsilon}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
 
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{random}\PYG{o}{.}\PYG{n}{choice}\PYG{p}{(}\PYG{n}{seq}\PYG{p}{)}\PYG{p}{)}
-\PYG{g+go}{delta}
+\PYG{g+go}{epsilon}
 
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{random}\PYG{o}{.}\PYG{n}{choices}\PYG{p}{(}\PYG{n}{seq}\PYG{p}{,} \PYG{n}{k}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{)}
-\PYG{g+go}{[\PYGZsq{}delta\PYGZsq{}, \PYGZsq{}epsilon\PYGZsq{}, \PYGZsq{}alpha\PYGZsq{}]}
+\PYG{g+go}{[\PYGZsq{}epsilon\PYGZsq{}, \PYGZsq{}beta\PYGZsq{}, \PYGZsq{}gamma\PYGZsq{}]}
 
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{random}\PYG{o}{.}\PYG{n}{sample}\PYG{p}{(}\PYG{n}{seq}\PYG{p}{,} \PYG{n}{k}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{)}
-\PYG{g+go}{[\PYGZsq{}beta\PYGZsq{}, \PYGZsq{}alpha\PYGZsq{}, \PYGZsq{}epsilon\PYGZsq{}]}
+\PYG{g+go}{[\PYGZsq{}beta\PYGZsq{}, \PYGZsq{}delta\PYGZsq{}, \PYGZsq{}gamma\PYGZsq{}]}
 
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{random}\PYG{o}{.}\PYG{n}{shuffle}\PYG{p}{(}\PYG{n}{seq}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{seq}\PYG{p}{)}
-\PYG{g+go}{[\PYGZsq{}beta\PYGZsq{}, \PYGZsq{}gamma\PYGZsq{}, \PYGZsq{}delta\PYGZsq{}, \PYGZsq{}epsilon\PYGZsq{}, \PYGZsq{}alpha\PYGZsq{}]}
+\PYG{g+go}{[\PYGZsq{}alpha\PYGZsq{}, \PYGZsq{}beta\PYGZsq{}, \PYGZsq{}delta\PYGZsq{}, \PYGZsq{}gamma\PYGZsq{}, \PYGZsq{}epsilon\PYGZsq{}]}
 \end{pytx@SaveVerbatim}
 
 \begin{pytx@SaveVerbatim}[commandchars=\\\{\}]{pytx@pycon@default@default@128}
@@ -2109,9 +2109,9 @@
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{delta} \PYG{o}{=} \PYG{n}{timedelta}\PYG{p}{(}\PYG{n}{days}\PYG{o}{=}\PYG{l+m+mi}{7}\PYG{p}{,} \PYG{n}{hours}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{)}
 
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{date}\PYG{o}{.}\PYG{n}{today}\PYG{p}{(}\PYG{p}{)} \PYG{o}{+} \PYG{n}{delta}\PYG{p}{)}   \PYG{c+c1}{\PYGZsh{} one week and 3 hours from today}
-\PYG{g+go}{2026\PYGZhy{}06\PYGZhy{}09}
+\PYG{g+go}{2026\PYGZhy{}06\PYGZhy{}10}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{date}\PYG{o}{.}\PYG{n}{today}\PYG{p}{(}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{delta}\PYG{p}{)}   \PYG{c+c1}{\PYGZsh{} one week and 3 hours prior to today}
-\PYG{g+go}{2026\PYGZhy{}05\PYGZhy{}26}
+\PYG{g+go}{2026\PYGZhy{}05\PYGZhy{}27}
 
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{d1} \PYG{o}{=} \PYG{n}{datetime}\PYG{p}{(}\PYG{l+m+mi}{2026}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{d2} \PYG{o}{=} \PYG{n}{datetime}\PYG{p}{(}\PYG{l+m+mi}{2026}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{29}\PYG{p}{)}
@@ -2128,15 +2128,15 @@
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{start\PYGZus{}time} \PYG{o}{=} \PYG{n}{time}\PYG{o}{.}\PYG{n}{perf\PYGZus{}counter}\PYG{p}{(}\PYG{p}{)}
 
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{time}\PYG{o}{.}\PYG{n}{time}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} seconds elapsed since the Unix epoch}
-\PYG{g+go}{1780384796.548809}
+\PYG{g+go}{1780491735.992739}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{time}\PYG{o}{.}\PYG{n}{ctime}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} human\PYGZhy{}readable representation of current time}
-\PYG{g+go}{Tue Jun  2 16:19:56 2026}
+\PYG{g+go}{Wed Jun  3 22:02:15 2026}
 
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{time}\PYG{o}{.}\PYG{n}{sleep}\PYG{p}{(}\PYG{l+m+mf}{0.1}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} suspend execution for 0.1 seconds}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{end\PYGZus{}time} \PYG{o}{=} \PYG{n}{time}\PYG{o}{.}\PYG{n}{perf\PYGZus{}counter}\PYG{p}{(}\PYG{p}{)}
 
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{end\PYGZus{}time} \PYG{o}{\PYGZhy{}} \PYG{n}{start\PYGZus{}time}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} execution time in seconds}
-\PYG{g+go}{0.10461733292322606}
+\PYG{g+go}{0.1046072089811787}
 \end{pytx@SaveVerbatim}
 
 \begin{pytx@SaveVerbatim}[commandchars=\\\{\}]{pytx@pycon@default@default@136}
@@ -2173,5 +2173,57 @@
 \PYG{g+go}{5.0}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{matrix}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} sum down each column}
 \PYG{g+go}{[12 15 18]}
+\end{pytx@SaveVerbatim}
+
+\begin{pytx@SaveVerbatim}[commandchars=\\\{\}]{pytx@pycon@default@default@137}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{pandas}\PYG{+w}{ }\PYG{k}{as}\PYG{+w}{ }\PYG{n+nn}{pd}
+
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{df} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{DataFrame}\PYG{p}{(}\PYG{p}{\PYGZob{}} \PYG{c+c1}{\PYGZsh{} creating a DataFrame}
+\PYG{g+gp}{... }    \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{name}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:}   \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Alice}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Bob}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Carol}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+\PYG{g+gp}{... }    \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{age}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:}    \PYG{p}{[}\PYG{l+m+mi}{25}\PYG{p}{,} \PYG{l+m+mi}{30}\PYG{p}{,} \PYG{l+m+mi}{35}\PYG{p}{]}\PYG{p}{,}
+\PYG{g+gp}{... }    \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{salary}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:} \PYG{p}{[}\PYG{l+m+mi}{70000}\PYG{p}{,} \PYG{l+m+mi}{90000}\PYG{p}{,} \PYG{l+m+mi}{85000}\PYG{p}{]}
+\PYG{g+gp}{... }\PYG{p}{\PYGZcb{}}\PYG{p}{)}
+
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n+nb}{type}\PYG{p}{(}\PYG{n}{df}\PYG{p}{)}\PYG{p}{)}
+\PYG{g+go}{\PYGZlt{}class \PYGZsq{}pandas.DataFrame\PYGZsq{}\PYGZgt{}}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{df}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{)}
+\PYG{g+go}{(3, 3)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{df}\PYG{o}{.}\PYG{n}{dtypes}\PYG{p}{)}
+\PYG{g+go}{name        str}
+\PYG{g+go}{age       int64}
+\PYG{g+go}{salary    int64}
+\PYG{g+go}{dtype: object}
+
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{c+c1}{\PYGZsh{} column selection and filtering}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{df}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{age}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]}\PYG{p}{)}         \PYG{c+c1}{\PYGZsh{} Series}
+\PYG{g+go}{0    25}
+\PYG{g+go}{1    30}
+\PYG{g+go}{2    35}
+\PYG{g+go}{Name: age, dtype: int64}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{df}\PYG{p}{[}\PYG{n}{df}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{age}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{25}\PYG{p}{]}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} boolean indexing}
+\PYG{g+go}{    name  age  salary}
+\PYG{g+go}{1    Bob   30   90000}
+\PYG{g+go}{2  Carol   35   85000}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{df}\PYG{o}{.}\PYG{n}{loc}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{name}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} label\PYGZhy{}based indexing}
+\PYG{g+go}{Alice}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{df}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{)}     \PYG{c+c1}{\PYGZsh{} positional indexing}
+\PYG{g+go}{90000}
+
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{c+c1}{\PYGZsh{} vectorized operations — no loops needed}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{df}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{bonus}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{df}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{salary}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]} \PYG{o}{*} \PYG{l+m+mf}{0.10}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{df}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{salary}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\PYG{g+go}{81666.66666666667}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{df}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{salary}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\PYG{g+go}{245000}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{df}\PYG{o}{.}\PYG{n}{describe}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\PYG{g+go}{        age        salary        bonus}
+\PYG{g+go}{count   3.0      3.000000     3.000000}
+\PYG{g+go}{mean   30.0  81666.666667  8166.666667}
+\PYG{g+go}{std     5.0  10408.329997  1040.833000}
+\PYG{g+go}{min    25.0  70000.000000  7000.000000}
+\PYG{g+go}{25\PYGZpc{}    27.5  77500.000000  7750.000000}
+\PYG{g+go}{50\PYGZpc{}    30.0  85000.000000  8500.000000}
+\PYG{g+go}{75\PYGZpc{}    32.5  87500.000000  8750.000000}
+\PYG{g+go}{max    35.0  90000.000000  9000.000000}
 \end{pytx@SaveVerbatim}
 
