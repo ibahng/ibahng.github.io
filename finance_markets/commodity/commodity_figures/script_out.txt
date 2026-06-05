@@ -1,2 +1,2 @@
-<class 'pandas.DataFrame'>
-CL=F plot successfully saved.
+DFF plot successfully saved.
+hello world
