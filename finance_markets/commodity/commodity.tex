@@ -12,7 +12,7 @@
 % \externaldocument[der-]{../derivatives/derivatives}[https://ibahng.github.io/finance_markets/derivatives/derivatives.pdf]
 % \externaldocument[equ-]{../equity/equity}[https://ibahng.github.io/finance_markets/equity/equity.pdf]
 % \externaldocument[fix-]{../fixed_income/fixed_income}[https://ibahng.github.io/finance_markets/fixed_income/fixed_income.pdf]
-\externaldocument[for-]{../forex/forex}[https://ibahng.github.io/finance_markets/forex/forex.pdf]
+% \externaldocument[for-]{../forex/forex}[https://ibahng.github.io/finance_markets/forex/forex.pdf]
 % \externaldocument[fnd-]{../fundamental_analysis/fundamental_analysis}[https://ibahng.github.io/finance_markets/fundamental_analysis/fundamental_analysis.pdf]
 % \externaldocument[mac-]{../macroeconomics/macroeconomics}[https://ibahng.github.io/finance_markets/macroeconomics/macroeconomics.pdf]
 \externaldocument[mic-]{../microeconomics/microeconomics}[https://ibahng.github.io/finance_markets/microeconomics/microeconomics.pdf]
@@ -80,9 +80,19 @@
 
       Commodity valuation requires the \textbf{simultaneous evaluation of multiple physical variables}, where variations in quality, grade, and geographic location heavily influence spot pricing.
 
-      \myfig{0.65}{commodity_figures/crude_grade}{Basic crude grade spectrum}{fig:crude_grade}
+      \myfig{0.55}{commodity_figures/crude_grade}{Basic crude grade spectrum}{fig:crude_grade}
 
       In the oil sector, for example, \textbf{hundreds of distinct crude grades} are traded globally, meaning the limited selection of standardized futures contracts \textbf{cannot always accommodate the precise needs of physical market participants}. Consequently, physical commodity commerce remains predominantly structured as a \textbf{bilateral business}, directly connecting buyers and sellers via customized OTC transactions. \textit{This contrasts with exchange-based markets, where standardized contracts enable multilateral participation among a large number of buyers and sellers but offer substantially less flexibility in contract design.}
+
+    \end{core}
+
+    \begin{core}{Clearing Houses and Counterparty Risk}
+
+      Within \href{https://ibahng.github.io/finance_markets/derivatives/derivatives.pdf}{derivative} and commodity markets, a \textbf{clearing house} functions as a specialized \textbf{central counterparty (CCP)} explicitly designed to eliminate systemic counterparty credit risk. Upon the execution of a trade, the clearing house employs a legal mechanism known as \textbf{novation}, interposing itself between the original transacting parties. Through this process, the clearing house becomes the designated buyer to every seller and the seller to every buyer, structurally \textbf{guaranteeing the fulfillment of the contract even in the event of a participant's default}.
+
+      \myfig{0.5}{commodity_figures/cme}{The CME Group; \textit{the primary derivatives marketplace in the United States, also functions as a central counterparty clearinghouse for futures and options contracts traded across its exchanges}}{fig:cme}
+
+      To prudently manage this massive assumption of systemic risk, clearing houses enforce a rigorous \textbf{collateral framework}. Market participants are required to post an initial margin as a baseline security deposit, and active positions are marked-to-market daily, necessitating variation margin adjustments to continuously settle real-time price fluctuations. This system is critical in highly leveraged and volatile asset classes, as it ensures liquidity and protects the broader financial system from cascading failures.
 
     \end{core}
 
@@ -168,13 +178,13 @@
 
         Because no sovereign nation is entirely self-sufficient, global economic stability depends heavily on an interconnected network of commodity imports and exports. Consequently, any significant disruption to supply or demand dynamics within key trading nations can precipitate adverse cascading effects throughout the global economy.
 
-        \myfig{1}{commodity_figures/CL=F_plot3}{Crude oil price response to escalating tensions associated with the U.S.-Israel-Iran conflict in March 2026}{fig:geopol_event}
-
         \textit{This is perfectly exemplified by the surge in crude oil prices stemming from the 2026 Iran-U.S.-Israel conflict (\autoref{fig:geopol_event}).}
 
         \item \textbf{Policy \& Regulation}
 
         Regulatory mandates and institutional policies frequently reshape demand configurations, directly affecting the profitability of refining and processing firms based on their specific technological and equipment constraints. 
+
+        \myfig{1}{commodity_figures/CL=F_plot3}{Crude oil price response to escalating tensions associated with the U.S.-Israel-Iran conflict in March 2026}{fig:geopol_event}
 
         \textit{A prominent example is the International Maritime Organization (IMO) regulation mandating that all marine vessels utilize fuel with a sulfur content of 0.5\% or less, which rapidly altered refinery margins globally by shifting demand toward low-sulfur distillates.}
 
@@ -195,9 +205,9 @@
 
       While physical supply and demand fundamentals remain foundational drivers of commodity valuation, broader market sentiment also exerts a significant influence on asset prices. This dynamic has intensified over the past few decades due to the progressive \textbf{financialization of the global oil market}, characterized by a substantial influx of non-traditional market participants actively trading energy derivatives.
 
-      \myfig{1}{commodity_figures/CL=F_plot1}{Crude oil future spot from Aug 2003 to Sep 2011}{fig:clf1}
-
       A prominent economic perspective suggests that the dramatic surge in oil prices between 2003 and 2008 (\textit{\autoref{fig:clf1}}) cannot be fully accounted for by physical supply and demand dynamics alone. Instead, this appreciation was heavily facilitated by the rapid financialization of oil futures markets---where trading volumes increased 20- to 30-fold and capital allocations expanded from less than \$10 billion to \$450 billion by April 2011---effectively transitioning these physical asset marketplaces into highly financialized arenas.
+
+      \myfig{1}{commodity_figures/CL=F_plot1}{Crude oil future spot from Aug 2003 to Sep 2011}{fig:clf1}
 
     \end{core}
 
@@ -256,15 +266,17 @@
 
       As of June 2026, the global commodity intermediation landscape is highly consolidated, dominated by two principal groups of multinational trading conglomerates.
 
-      \myfig{0.6}{commodity_figures/glencore}{Glencore mining operations}{fig:glencore}
+      \sbs{0.4}{
+        \begin{itemize}
 
-      \begin{itemize}
+          \item \textbf{Energy \& Metals Merchants}: \href{https://www.glencore.com/}{Glencore} (\texttt{GLEN}), \href{https://www.vitol.com/}{Vitol} (\textit{private}), \href{https://www.trafigura.com/}{Trafigura} (\textit{private}), \href{https://gunvorgroup.com/}{Gunvor} (\textit{private}), \href{https://mercuria.com/}{Mercuria} (\textit{private}), \href{https://www.kochinc.com/}{Koch} (\textit{private})
 
-        \item \textbf{Energy \& Metals Merchants}: \href{https://www.glencore.com/}{Glencore} (\texttt{GLEN}), \href{https://www.vitol.com/}{Vitol} (\textit{private}), \href{https://www.trafigura.com/}{Trafigura} (\textit{private}), \href{https://gunvorgroup.com/}{Gunvor} (\textit{private}), \href{https://mercuria.com/}{Mercuria} (\textit{private}), \href{https://www.kochinc.com/}{Koch} (\textit{private})
+          \item \textbf{Agricultural Conglomerates}---collectively known as the \textbf{``ABCD''} participants: \href{https://www.adm-asia.com/}{Archer-Daniels-Midland} (\texttt{ADM}), \href{https://www.adm.com/}{Bunge} (\texttt{BG}), \href{https://www.cargill.com/}{Cargill} (\textit{private}), the \href{https://www.ldc.com/}{Louis Dreyfus Company} (\textit{private})
 
-        \item \textbf{Agricultural Conglomerates}---collectively known as the \textbf{``ABCD''} participants: \href{https://www.adm-asia.com/}{Archer-Daniels-Midland} (\texttt{ADM}), \href{https://www.adm.com/}{Bunge} (\texttt{BG}), \href{https://www.cargill.com/}{Cargill} (\textit{private}), the \href{https://www.ldc.com/}{Louis Dreyfus Company} (\textit{private})
-
-      \end{itemize}
+        \end{itemize}
+      }{
+        \myfig{0.95}{commodity_figures/glencore}{Glencore mining operations}{fig:glencore}
+      }
 
     \end{core}
 
@@ -282,6 +294,8 @@
 
     \begin{core}{Speculator vs Investor}
 
+      While both speculators and investors inject necessary capital into the market, they are distinguished by fundamentally different operational profiles as shown in \autoref{tab:speculator_vs_investor}. Speculators typically maintain short-term transactional horizons with high trading frequencies and exhibit a high risk appetite, primarily utilizing derivative instruments such as futures, options, and structured products. In contrast, investors adopt long-term capital allocation strategies with low transaction frequencies and a more conservative risk tolerance, generally gaining exposure via collective investment vehicles like ETFs and mutual funds.
+
       \begin{table}[H]
         \centering
         \begin{tabular}{lll}
@@ -297,8 +311,6 @@
         \caption{Key distinctions between speculators and investors}
         \label{tab:speculator_vs_investor}
       \end{table}
-
-      While both speculators and investors inject necessary capital into the market, they are distinguished by fundamentally different operational profiles as shown in \autoref{tab:speculator_vs_investor}. Speculators typically maintain short-term transactional horizons with high trading frequencies and exhibit a high risk appetite, primarily utilizing derivative instruments such as futures, options, and structured products. In contrast, investors adopt long-term capital allocation strategies with low transaction frequencies and a more conservative risk tolerance, generally gaining exposure via collective investment vehicles like ETFs and mutual funds.
 
     \end{core}
 
@@ -317,7 +329,7 @@
 
       \textbf{Crude oil} is oil extracted from the ground in its \textbf{unprocessed state} that must undergo refining before it can be used commercially. The refinery process converts raw crude into a range of usable petroleum products, including diesel, jet fuel, and gasoline.
 
-      \myfig{0.6}{commodity_figures/refinery}{Oil refinery}{fig:refinery}
+      \myfig{0.55}{commodity_figures/refinery}{Oil refinery}{fig:refinery}
 
       Refineries differ in both the specific mix or "recipe" of different crude oils they are capable of processing---collectively referred to as the \textbf{crude slate}---and the range of end products they can produce. More sophisticated refinery configurations can extract a greater number of refined products from a given barrel of crude. The profit generated from this conversion process is known as the \textbf{refinery margin}.
 
@@ -339,24 +351,24 @@
 
         \end{itemize}
 
-        Beyond these primary metrics, a comprehensive chemical assay evaluates secondary physical traits such as \textbf{Total Acid Number (TAN)}, \textbf{heavy metal content}, \textbf{pour point}, \textbf{carbon residue}, \textbf{nitrogen content}, and \textbf{kinematic viscosity}. While it is important to remember that these characteristics heavily influence overall market value and refining logistics, a detailed exploration of them falls outside the scope of these notes for now.
+        Beyond these primary metrics, a comprehensive chemical assay evaluates secondary physical traits such as \textbf{Total Acid Number (TAN)}, \textbf{heavy metal content}, \textbf{pour point}, \textbf{carbon residue}, \textbf{nitrogen content}, and \textbf{kinematic viscosity}. While it is important to remember that these characteristics heavily influence overall market value and refining logistics, a detailed exploration falls outside the scope of these notes.
 
       \end{core}
 
       \begin{core}{Crude Oil Types}
 
-        As outlined in \autoref{core:api_sulfur}, crude oil produced across different fields varies considerably in its physical characteristics. Trading each of these streams individually would render global oil markets fragmented and operationally inefficient. To address this, the market has converged on a small number of benchmark crude grades---principally \textbf{Brent} (\textit{\autoref{core:brent}}), \textbf{WTI} (\textit{\autoref{core:wti}}), and \textbf{Dubai/Oman} (\textit{\autoref{core:oman}})---which serve as reference prices against which the vast majority of other crude streams are priced. By concentrating liquidity around these benchmarks, the market achieves the standardization and price transparency necessary for efficient global trade.
+        As outlined in \autoref{core:api_sulfur}, crude oil produced across different fields varies considerably in its physical characteristics. Trading each stream individually would render global oil markets fragmented and operationally inefficient. To address this, the market has converged on a small number of benchmark crude grades---principally \textbf{Brent} (\textit{\autoref{core:brent}}), \textbf{WTI} (\textit{\autoref{core:wti}}), and \textbf{Dubai/Oman} (\textit{\autoref{core:oman}})---which serve as reference prices against which the vast majority of other crude streams are priced. Concentrating liquidity around these benchmarks achieves the standardization necessary for efficient global trade.
 
       \end{core}
 
       \begin{core}[label=core:brent]{Brent}
 
-        \sbs{0.5}{
+        \sbs{0.55}{
           Originating from extraction infrastructure across the \textbf{North Sea}, \textbf{Brent Crude} is technically a combination of several regional grades collectively known as the \textbf{BFOET blend} (\textit{Brent, Forties, Oseberg, Ekofisk, and Troll}). Classified as a \textbf{light, sweet} oil, it possesses a low density and minimal sulfur content, making it highly efficient for refining into premium transportation fuels.
 
           Due to being produced at offshore marine platforms, Brent is inherently a waterborne commodity, granting it exceptional \textbf{logistical flexibility for immediate global export}. This unparalleled market liquidity cements its role as the foremost global benchmark, effectively dictating the baseline valuation for approximately \textbf{60\% to 70\% of all internationally traded seaborne crude oil}.
         }{
-          \myfig{0.9}{commodity_figures/north_sea}{North sea}{fig:north_sea}
+          \myfig{0.84}{commodity_figures/north_sea}{North sea}{fig:north_sea}
         }
 
       \end{core}
@@ -413,11 +425,11 @@
 
       The \textbf{Organization of the Petroleum Exporting Countries (OPEC)}---an initial coalition of Iran, Iraq, Kuwait, Saudi Arabia, and Venezuela---was established in September 14, 1960 during the \textbf{Baghdad conference} in Iraq with the primary objective of safeguarding sovereign revenues during the monopolistic reign of the Seven Sisters.
 
-      \myfig{0.55}{commodity_figures/bag_conf}{Baghdad conference on September 14, 1960}{fig:bag_conf}
-
       In its early years, OPEC members sought to emulate the pricing practices of the oil majors by setting prices directly; this approach was subsequently replaced by market-based mechanisms, whereby member states influence prices indirectly through the adjustment of production levels.
 
       In the decades following its establishment, OPEC expanded its membership in response to key global events. These developments are discussed in detail in \autoref{sec:oil_history}.
+
+      \myfig{0.5}{commodity_figures/bag_conf}{Baghdad conference on September 14, 1960}{fig:bag_conf}
 
     \end{core}
 
@@ -425,7 +437,7 @@
 
       At the height of its influence, OPEC controlled approximately half of global crude oil production and held roughly 80\% of the world's proven reserves. Given the characteristically low price elasticity of demand for oil, this concentration of supply afforded the organization a substantial degree of market power.
 
-      In response to the economic and geopolitical risks posed by this dependency, many consumer nations established \textbf{Strategic Petroleum Reserves (SPRs)}---government-controlled stockpiles of crude oil maintained to provide a buffer against supply disruptions and to safeguard national energy security. \textit{Japan's SPR was shown in \autoref{fig:japan_or}}.
+      In response to the risks posed by this dependency, many consumer nations established \textbf{Strategic Petroleum Reserves (SPRs)}---government-controlled stockpiles of crude oil maintained to provide a buffer against supply disruptions and to safeguard national energy security. \textit{Japan's SPR was shown in \autoref{fig:japan_or}}.
 
     \end{core}
 
@@ -438,7 +450,7 @@
 
         In 1973, Arab oil-producing nations initiated an \textbf{export embargo} against the United States and its allies in retaliation for their military support of Israel during the \textbf{Yom Kippur War}. Concurrently, OPEC implemented \textbf{broader production cuts}, which caused \textbf{global oil prices to quadruple} rapidly.
 
-        \myfig{1}{commodity_figures/embargo}{Crude oil prices from Feb 1971 to Mar 1977; \textit{1973 price spike due to the Arab oil embargo and broader production cuts}}{fig:embargo}
+        \myfig{0.85}{commodity_figures/embargo}{Crude oil prices from Feb 1971 to Mar 1977; \textit{1973 price spike due to the Arab oil embargo and broader production cuts}}{fig:embargo}
 
         While this unprecedented price surge initially generated massive revenue to OPEC member states, it catalyzed profound structural shifts that \textbf{ultimately led to severe demand destruction}. The price shock incentivized immediate countermeasures across major economies.
 
@@ -450,11 +462,11 @@
 
         The Iranian Revolution in 1979 caused a severe disruption to the global oil supply as Iran's production and exports plummeted. This unexpected supply shock triggered a panic in the oil markets, leading to a rapid doubling of prices and significantly exacerbating the energy crisis of the 1970s. 
 
-        \myfig{0.85}{commodity_figures/revolution}{Crude oil prices from May 1976 to Jul 1982; \textit{1979 price spike due to Iranian revolution}}{fig:revolution}
+        \myfig{1}{commodity_figures/revolution}{Crude oil prices from May 1976 to Jul 1982; \textit{1979 price spike due to Iranian revolution}}{fig:revolution}
 
         The macroeconomic consequences were severe, pushing the global economy into a period of deep \textbf{stagflation}---a damaging combination of high inflation and stagnant economic growth. In the U.S., inflation reached double digits, prompting Federal Reserve Chairman Paul Volcker to intervene drastically in what became known as the \textbf{Volcker Shock}. By aggressively raising interest rates to unprecedented levels (\textit{peaking near 20 percent in 1981 as shown in \autoref{fig:volcker}}), Volcker successfully halted runaway inflation, but at the cost of triggering a harsh global recession. This resulting economic downturn ultimately crushed global demand for crude oil, setting the stage for the massive \textbf{price slump of the 1980s} (\textit{\autoref{core:price_slump}}).
 
-        \myfig{0.95}{commodity_figures/DFF_plot1}{Federal funds rate from 1975 to 1984; \textit{roughly 20\% interest rates set by Federal Reserve Chairman Paul Volcker in response to the stagflation triggered by negative oil supply shock due to the Iranian Revolution of 1979}}{fig:volcker}
+        \myfig{1}{commodity_figures/DFF_plot1}{Federal funds rate from 1975 to 1984; \textit{roughly 20\% interest rates set by Federal Reserve Chairman Paul Volcker in response to the stagflation triggered by negative oil supply shock due to the Iranian Revolution of 1979}}{fig:volcker}
 
       \end{core}
 
@@ -506,7 +518,7 @@
 
         In August 1990, reeling from massive debts incurred during the Iran-Iraq War, Saddam Hussein ordered the Iraqi military to invade neighboring Kuwait. This prompted the United Nations to impose a \textbf{strict trade embargo}, abruptly removing approximately 4.3 million barrels per day of combined crude output from the global market. The subsequent supply disruption \textbf{triggered immediate market panic}, causing global oil prices to more than double by October. 
 
-        \myfig{0.9}{commodity_figures/gulf_war}{Crude oil prices from Jan 1981 to Sep 1991; \textit{1990 price spike and plummet due to Gulf War and subsequent additional crude production by Saudi Aramco}}{fig:gulf_war}
+        \myfig{1}{commodity_figures/gulf_war}{Crude oil prices from Jan 1981 to Sep 1991; \textit{1990 price spike and plummet due to Gulf War and subsequent additional crude production by Saudi Aramco}}{fig:gulf_war}
 
         However, unlike the prolonged energy crises of the 1970s, this \textbf{price spike was remarkably short-lived}. To mitigate the macroeconomic fallout and cover the massive supply deficit, Saudi Aramco (\textit{a member of the New Seven Sisters mentioned in \autoref{core:seven_sisters}}) rapidly mobilized their spare capacity, significantly surging daily production. This decisive supply intervention, combined with the coordinated release of \textbf{strategic petroleum reserves} (\textit{\autoref{core:spr}}) by industrialized consumer nations and the swift military resolution of the conflict via \textbf{Operation Desert Storm}, successfully calmed the markets and drove oil prices back down to pre-invasion levels by early 1991.
 
@@ -514,13 +526,13 @@
 
       \end{core}
 
-      \begin{core}{Asian Economic Crisis (1997)}
+      \begin{core}[label=core:aec]{Asian Financial Crisis (1997)}
 
-        The Asian Financial Crisis of 1997 was triggered by the conversion of the Baht to float by the Thailand government, which consequently made foreign investors aggressively pull money out of the entire Asian market, realizing that Indonesia, South Korea, and Malaysia shared the same structural flaws as Thailand. This severely curtailed economic growth in the region, leading to a sharp decrease in the growth of global oil demand.
+        The \textbf{Asian Financial Crisis} of 1997 was triggered by the conversion of the Baht to float by the Thailand government, which consequently made foreign investors aggressively pull money out of the entire Asian market, realizing that Indonesia, South Korea, and Malaysia shared the same structural flaws as Thailand. This severely curtailed economic growth in the region, leading to a sharp decrease in the growth of global oil demand.
 
         Just as the crisis was unfolding in late 1997, OPEC held a ministerial \textbf{meeting in Jakarta}. Completely underestimating the severity and global reach of the Asian crisis, OPEC actually \textbf{agreed to increase its production quotas by 10\%} to capture what they believed was still a growing market.
 
-        \myfig{0.9}{commodity_figures/aec}{Crude oil prices from Mar 1990 to Feb 2007; \textit{1997 V-shaped price pattern due to the Asian Economic Crisis and subsequent production and IMF corrections}}{fig:aec}
+        \myfig{1}{commodity_figures/aec}{Crude oil prices from Mar 1990 to Feb 2007; \textit{1997 V-shaped price pattern due to the Asian Economic Crisis and subsequent production and IMF corrections}}{fig:aec}
 
         Following the price collapse to roughly \$10 per barrel in late 1998, a swift response led to a market rebound. Recognizing their quota miscalculation, OPEC executed an emergency reversal in early 1999 by collaborating with major non-OPEC producers to implement global \textbf{production cuts by over two million barrels per day}. Concurrently, the affected Asian economies underwent severe but effective \textbf{IMF restructuring} programs. These mandated structural banking reforms and massive currency devaluations transformed the affected nations into highly competitive export engines, sparking a rapid V-shaped oil price pattern (\textit{\autoref{fig:aec}}). 
 
@@ -538,7 +550,7 @@
 
         However, this temporary macroeconomic downturn masked a fundamental structural shift: China's official accession to the \textbf{World Trade Organization (WTO)}---an intergovernmental organization that regulates and facilitates international trade---in late 2001.
 
-        \myfig{0.63}{commodity_figures/china_wto}{Signing ceremony for China's formal accession into the World Trade Organization}{fig:china_wto}
+        \myfig{0.7}{commodity_figures/china_wto}{Signing ceremony for China's formal accession into the World Trade Organization}{fig:china_wto}
 
         China's subsequent industrial expansion provided a vital \textbf{demand floor during the Western recession}. As global economies recovered, \textbf{export-driven consumption} from China and other emerging markets ignited a massive commodity supercycle (\textit{eventually ended by the global financial crisis in 2008 as covered in \autoref{core:great_crash}}). The ensuing price escalation incentivized a new era of capital-intensive exploration and extraction activities.
 
@@ -548,7 +560,7 @@
 
         The \textbf{2008 global financial crisis}, triggered by the bursting of the \textbf{U.S. housing bubble}, caused a severe contraction in economic activity and a corresponding collapse in oil demand, driving prices from a record high of \$147 per barrel down to roughly \$32 per barrel in mere months.
 
-        \myfig{0.95}{commodity_figures/great_crash}{Crude oil future spot from Aug 2003 to Sep 2011; \textit{oil price plummets in mid 2008 due to the financial crisis}}{fig:great_crash}
+        \myfig{1}{commodity_figures/great_crash}{Crude oil future spot from Aug 2003 to Sep 2011; \textit{oil price plummets in mid 2008 due to the financial crisis}}{fig:great_crash}
 
         To prevent a prolonged depression, global central banks implemented unprecedented monetary interventions, including \textbf{Zero Interest Rate Policies} and \textbf{Quantitative Easing}, while nations like China deployed massive fiscal stimulus aimed at heavy infrastructure. Concurrently, \textbf{OPEC cut production} to drain excess inventory. 
 
@@ -572,7 +584,7 @@
 
         Commencing in late 2010, the \textbf{Arab Spring} was a widespread series of \textbf{anti-authoritarian uprisings} across the Middle East and North Africa, fundamentally driven by pervasive economic stagnation, political disenfranchisement, and acute food price shocks.
 
-        \myfig{0.9}{commodity_figures/CL=F_plot5}{Crude oil future spot from Jan 2009 to Jan 2016; \textit{elevated crude price levels from 2011 to mid 2014 is due to the Arab Spring uprisings}}{fig:arab_spring}
+        \myfig{1}{commodity_figures/CL=F_plot5}{Crude oil future spot from Jan 2009 to Jan 2016; \textit{elevated crude price levels from 2011 to mid 2014 is due to the Arab Spring uprisings}}{fig:arab_spring}
 
         In the context of global energy markets, this severe regional instability introduced a substantial \textbf{geopolitical risk premium}. The most immediate physical supply disruption occurred during the \textbf{first Libyan civil war} in 2011, which abruptly removed approximately 1.5 million barrels per day of premium light, sweet crude from the global market. This distinct supply shock, compounded by pervasive fears that the political contagion might \textbf{destabilize major Gulf state producers}, drove global oil prices back above \$100 per barrel.
 
@@ -600,7 +612,7 @@
 
         Interpreting Russia's refusal as a strategic betrayal, Saudi Arabia immediately pivoted from a policy of price stabilization to \textbf{market share maximization}. Within 48 hours of the collapsed negotiations, Riyadh (\textit{the capital of Saudi Arabia}) aggressively slashed its crude export prices across all major global markets, offering the deepest discount rates seen in decades. Simultaneously, Saudi Aramco announced a deliberate expansion of its output, drawing on its spare capacity to \textbf{push production to a maximum} of over 12 million barrels per day.
 
-        \myfig{0.95}{commodity_figures/CL=F_plot6}{Crude oil future spot from Jan 2019 to Jan 2023; \textit{crude prices dip in early 2020 due to the positive supply shock from the Saudi-Russia price war and diminished demand due to the pandemic}}{fig:pandemic}
+        \myfig{1}{commodity_figures/CL=F_plot6}{Crude oil future spot from Jan 2019 to Jan 2023; \textit{crude prices dip in early 2020 due to the positive supply shock from the Saudi-Russia price war and diminished demand due to the pandemic}}{fig:pandemic}
 
         This punitive retaliation was explicitly designed to flood the global market, crash crude prices, and inflict acute financial distress on the Russian economy and higher-cost U.S. shale operators. The resulting price war unfolded at the same time as global oil demand was collapsing due to the COVID-19 pandemic---a combination of shocks that gave rise to severe market dislocations, most notably the \textbf{May 2020 WTI futures contract} incident discussed in \textit{\autoref{core:speculation}}.
 
@@ -610,11 +622,11 @@
 
         The 2022 Russian invasion of Ukraine fundamentally ruptured global energy markets, weaponizing petroleum flows and prompting unprecedented \textbf{Western sanctions}, including seaborne embargoes and a price cap mechanism implemented by the G7, an alliance of seven major advanced economies (\textit{Canada, France, Germany, Italy, Japan, the United Kingdom, and the United States}).
 
-        \myfig{0.95}{commodity_figures/CL=F_plot7}{Crude oil future spot from Jan 2021 to Jan 2024; \textit{crude prices spike in early 2022 due to the supply disruption caused by the Russian invasion of Ukraine}}{fig:ukraine}
-
         Consequently, global trade routes underwent a massive structural realignment; Russia was forced to reroute its heavily discounted crude eastward to Asian markets utilizing a \textbf{shadow fleet}, while Europe severed its historical dependence on Moscow by rapidly \textbf{pivoting to U.S. crude and liquefied natural gas (LNG)}. This permanent logistical shift cemented American energy dominance and simultaneously deepened Russia's strategic reliance on the OPEC+ cartel to sustain its economically isolated war effort through coordinated price stabilization.
 
         \textit{As of June 5, 2026, this war is still ongoing.}
+
+        \myfig{0.95}{commodity_figures/CL=F_plot7}{Crude oil future spot from Jan 2021 to Jan 2024; \textit{crude prices spike in early 2022 due to the supply disruption caused by the Russian invasion of Ukraine}}{fig:ukraine}
 
       \end{core}
 
@@ -622,9 +634,9 @@
 
         The 2026 Strait of Hormuz crisis commenced in late February following U.S. and Israeli airstrikes on Iran, prompting Tehran to retaliate by effectively closing the critical maritime chokepoint on February 28. This closure triggered an unprecedented scale of disruption, as the strait historically facilitated roughly 20\% of global oil trade. The conflict removed approximately 14\% of projected global supply from the market and severely threatening energy-dependent Asian economies.
 
-        The most immediate consequence for global oil markets was a sharp upward spike in crude prices. In response, the \textbf{International Energy Agency (IEA)} coordinated an emergency \href{https://www.iea.org/news/iea-member-countries-to-carry-out-largest-ever-oil-stock-release-amid-market-disruptions-from-middle-east-conflict}{release of 400 million barrels} from member country reserves---the largest such intervention in the organization's history. Beyond the crude market, the crisis exerted significant upward pressure on the prices of heavier refined products, and is widely regarded as a key contributor to the sharp acceleration in consumer price inflation, with the U.S. CPI rising on a year-over-year basis from 2.4\% in February to 3.8\% in April.
-
         \myfig{0.95}{commodity_figures/CL=F_plot8}{Crude oil future spot from Jan 2024 to Jun 2026; \textit{crude prices spike in February 2026 due to the Israel-Iran-U.S. conflict and the consequent closing of the Strait of Hormuz}}{fig:strait}
+
+        The most immediate consequence for global oil markets was a sharp upward spike in crude prices. In response, the \textbf{International Energy Agency (IEA)} coordinated an emergency \href{https://www.iea.org/news/iea-member-countries-to-carry-out-largest-ever-oil-stock-release-amid-market-disruptions-from-middle-east-conflict}{release of 400 million barrels} from member country reserves---the largest such intervention in the organization's history. Beyond the crude market, the crisis exerted significant upward pressure on the prices of heavier refined products, and is widely regarded as a key contributor to the sharp acceleration in consumer price inflation, with the U.S. CPI rising on a year-over-year basis from 2.4\% in February to 3.8\% in April.
 
         \textit{As of June 5th, 2026, the conflict remains ongoing, although negotiations toward a ceasefire and a broader peace agreement are actively underway.}
 

@@ -4,7 +4,6 @@
 \title{Python}
 \date{\today}
 \author{Ingyu Bahng}
-
 \input{../../_presets/computer_science/preamble}
 
 \begin{document}
@@ -1589,6 +1588,10 @@
 
     \end{core}
 
+  \subsection{Unit Testing (\textit{unittest})}
+
+    \textit{In Progress.}
+
 \section{Input/Output \& Data Handling}
 
   \subsection{Standard I/O}
@@ -1892,6 +1895,10 @@
 
     \end{core}
 
+  \subsection{Structured Query Language (\textit{sqlite3})}
+
+    \textit{In Progress.}
+
 \section{Regular Expression (\textit{re})}
   \label{sec:regex}
 
@@ -2123,385 +2130,395 @@
 
   \end{core}
 
-\section{Threading (\textit{threading})}
-  \label{sec:threading}
+\section{Concurrency \& Parallelism}
 
-  \begin{core}{Threading \& Global Interpreter Lock (GIL)}
+  \subsection{Threading (\textit{threading})}
+    \label{sec:threading}
 
-    While, in theory, threading allows for simultaneous execution of code, threading specifically in Python works slightly differently due to a mechanism called the \textbf{Global Interpreter Lock (GIL)}. The GIL is a safety mechanism built into CPython (\textit{\autoref{core:cpython}}) that acts as a master lock on Python's memory and thus prevents multiple threads from executing exactly simultaneously. As a consequence, the \textcode{threading} module does not necessarily allow different code executions to progress in true parallel, but rather rapidly passes the single GIL back and forth between threads, often yielding the lock during a thread's \textbf{downtime} (\textit{periods of waiting for external operations, such as network requests, file I/O, or user input}).
+    \begin{core}{Threading \& Global Interpreter Lock (GIL)}
 
-  \end{core}
+      While, in theory, threading allows for simultaneous execution of code, threading specifically in Python works slightly differently due to a mechanism called the \textbf{Global Interpreter Lock (GIL)}. The GIL is a safety mechanism built into CPython (\textit{\autoref{core:cpython}}) that acts as a master lock on Python's memory and thus prevents multiple threads from executing exactly simultaneously. As a consequence, the \textcode{threading} module does not necessarily allow different code executions to progress in true parallel, but rather rapidly passes the single GIL back and forth between threads, often yielding the lock during a thread's \textbf{downtime} (\textit{periods of waiting for external operations, such as network requests, file I/O, or user input}).
 
-  \begin{core}{Main Thread}
+    \end{core}
 
-    The main thread that is always running is called the \textcode{MainThread}, which can be retrieved through the \textcode{threading} module.
+    \begin{core}{Main Thread}
 
-    \begin{pyconsole}
+      The main thread that is always running is called the \textcode{MainThread}, which can be retrieved through the \textcode{threading} module.
 
-      import threading
+      \begin{pyconsole}
 
-      print('Current thread that is running: {}'.format(threading.current_thread().name))
+        import threading
 
-      if threading.current_thread() == threading.main_thread():
-          print('Main Thread')
+        print('Current thread that is running: {}'.format(threading.current_thread().name))
 
-    \end{pyconsole}
-    \pcon{\textcode{MainThread} confirmation}{code:main_thread}
+        if threading.current_thread() == threading.main_thread():
+            print('Main Thread')
 
-  \end{core}
+      \end{pyconsole}
+      \pcon{\textcode{MainThread} confirmation}{code:main_thread}
 
-  \subsection{Threading Methods}
+    \end{core}
 
-    \begin{core}[label=core:threading_function]{Threading Through Functions}
+    \subsubsection{Threading Methods}
 
-      Threading in its most elementary form is invoked by passing a callable into the \textcode{Thread} object, which instantiates a new thread of execution. The \textcode{Thread} constructor accepts two principal parameters: \textcode{target}, which holds a reference to the function object in its non-invoked state, and \textcode{args}, which supplies the positional arguments to that function as a \textbf{tuple}.
+      \begin{core}[label=core:threading_function]{Threading Through Functions}
+
+        Threading in its most elementary form is invoked by passing a callable into the \textcode{Thread} object, which instantiates a new thread of execution. The \textcode{Thread} constructor accepts two principal parameters: \textcode{target}, which holds a reference to the function object in its non-invoked state, and \textcode{args}, which supplies the positional arguments to that function as a \textbf{tuple}.
+
+          \begin{pyconsole}
+
+            import threading
+
+            def displayNumbers(count):
+                i = 0
+                print(threading.current_thread().name) 
+                while i <= count:
+                    print(i)
+                    i += 1
+
+            print(threading.current_thread().name)
+
+            # notice the args value below is a tuple
+            t = threading.Thread(target=displayNumbers, args = (5,), name = 'displayNumbersThread') 
+            t.start()
+            t.join()
+            print("displayNumbers function finished")
+
+          \end{pyconsole}
+          \pcon{Simple threading via a function}{code:threading_function}
+
+        As demonstrated above, the thread object \textcode{t} is dispatched via the \textcode{.start()} method, which schedules the thread for execution and returns immediately, allowing the main thread to continue concurrently. It is important to distinguish \textcode{.start()} from the lower-level \textcode{.run()} method: whereas \textcode{.start()} delegates execution to a newly spawned OS-level thread, \textcode{.run()} invokes the target callable directly on the \textit{calling} thread, producing strictly \textbf{sequential rather than concurrent behaviour}.
+
+        The \textcode{.join()} method causes the main thread to halt until \textcode{t} has completed execution, thereby synchronising the two threads before control advances to subsequent statements. In this example, the main thread is suspended until \textcode{displayNumbers} returns, after which the final print statement is reached.
+
+        Finally, observe that invoking \textcode{threading.current\_thread().name} from within \textcode{t}'s execution context yields \textcode{displayNumbersThread}, reflecting the identifier supplied via the \textcode{name} parameter at construction time. This illustrates that each \textcode{Thread} instance maintains its own execution context, including thread-local identity metadata accessible at runtime.
+
+      \end{core}
+
+      \begin{core}{Threading Through Class Methods}
+
+        Analogously to the function-based approach demonstrated in \autoref{core:threading_function}, threads may equally be dispatched by targeting instance methods of a class.
+
+        \begin{pyconsole}
+
+          import threading
+          from time import sleep # the sleep function simply makes the program wait
+
+          class MyThread:
+              def displayNumbers(self):
+                  i = 0
+                  print(threading.current_thread().name)
+                  while i <= 3:
+                      print(i)
+                      i+=1
+
+          obj = MyThread()
+
+          t1 = threading.Thread(target=obj.displayNumbers,name='displayNumbers1')
+          t1.start()
+          sleep(0.5)
+
+          t2 = threading.Thread(target=obj.displayNumbers,name='displayNumbers2')
+          t2.start()
+          t1.join()
+          t2.join()
+
+        \end{pyconsole}
+        \pcon{Multi-threading via a class method}{code:threading_class}
+
+        The \textcode{sleep(0.5)} calls serve to introduce a deliberate delay between the dispatch of \textcode{t1} and \textcode{t2}, imposing an approximate execution ordering. In their absence, the relative scheduling of the two threads is delegated entirely to the Python thread scheduler, which provides no ordering guarantees---the threads may interweave arbitrarily or execute in an effectively simultaneous fashion depending on the underlying system load.
+
+      \end{core}
+
+      \begin{core}{Common Producer/Consumer Pattern}
+
+        The producer-consumer pattern is one of the most canonical demonstrations of multi-threaded coordination, wherein two threads operate concurrently on a shared resource.
+
+        \begin{pyconsole}
+
+          import threading
+          import time
+
+          class Producer:
+              def __init__(self):
+                  self.products = []
+                  self.ordersplaced = False
+              def produce(self):
+                  for i in range(1,5):
+                      self.products.append('Product'+str(i))
+                      time.sleep(1)
+                      print('Item Added')
+                  self.ordersplaced = True
+
+          class Consumer:
+              def __init__(self,prod):
+                  self.prod = prod
+              def consume(self):
+                  while self.prod.ordersplaced == False:
+                      print("Waiting for the orders")
+                      time.sleep(0.4)
+                  print('Orders Shipped {}'.format(self.prod.products))
+
+          p = Producer()
+          c = Consumer(p)
+
+          t1 = threading.Thread(target = p.produce)
+          t2 = threading.Thread(target = c.consume)
+
+          t1.start()
+          t2.start()
+          t1.join()
+          t2.join()
+
+        \end{pyconsole}
+        \pcon{Multi-threading consumer \& producer pattern}{code:consumer_producer}
+
+        As illustrated in \autoref{code:consumer_producer}, the consumer thread \textcode{t2} continuously polls the shared \textcode{ordersplaced} flag within a busy-wait loop, deferring execution of the shipment statement until the flag evaluates to \textcode{True}. This state transition is driven by the producer thread \textcode{t1}, which iteratively populates the product list via its \textcode{for} loop before setting \textcode{ordersplaced = True} upon completion.
+
+      \end{core}
+
+    \subsubsection{Locks}
+
+      \begin{core}[label=core:locks]{Locks}
+
+        When multiple threads access a shared resource concurrently, conditions may arise in which overlapping operations produce inconsistent or corrupted state. To prevent this, Python's \textcode{threading} module provides the \textcode{Lock()} class, which enforces \textbf{mutual exclusion} by ensuring that at most one thread may execute a designated critical section at any given time.
 
         \begin{pyconsole}
 
           import threading
 
-          def displayNumbers(count):
-              i = 0
-              print(threading.current_thread().name) 
-              while i <= count:
-                  print(i)
-                  i += 1
+          class BookMyBus:
+              def __init__(self,availableSeats):
+                  self.availableSeats = availableSeats
+                  self.l = threading.Lock()
+              def buy(self,seatsRequested):
+                  self.l.acquire() #starting the locked environment
+                  print('Total seats available: {}'.format(self.availableSeats))
+                  if(self.availableSeats>=seatsRequested):
+                      print('Confirming a seat')
+                      print('Processing the payment')
+                      print('Printing the Ticket')
+                      self.availableSeats-=seatsRequested
+                  else:
+                      print('Sorry. No seats available')
+                  self.l.release() #ending the locked environment
 
-          print(threading.current_thread().name)
+          obj = BookMyBus(10)
 
-          # notice the args value below is a tuple
-          t = threading.Thread(target=displayNumbers, args = (5,), name = 'displayNumbersThread') 
-          t.start()
-          t.join()
-          print("displayNumbers function finished")
+          t1 = threading.Thread(target=obj.buy,args=(3,))
+          t2 = threading.Thread(target=obj.buy,args=(4,))
+          t3 = threading.Thread(target=obj.buy,args=(4,))
+
+          t1.start()
+          t2.start()
+          t3.start()
+          t1.join()
+          t2.join()
+          t3.join()
 
         \end{pyconsole}
-        \pcon{Simple threading via a function}{code:threading_function}
+        \pcon{Threading locks enforcing mutual exclusion}{code:locks}
 
-      As demonstrated above, the thread object \textcode{t} is dispatched via the \textcode{.start()} method, which schedules the thread for execution and returns immediately, allowing the main thread to continue concurrently. It is important to distinguish \textcode{.start()} from the lower-level \textcode{.run()} method: whereas \textcode{.start()} delegates execution to a newly spawned OS-level thread, \textcode{.run()} invokes the target callable directly on the \textit{calling} thread, producing strictly \textbf{sequential rather than concurrent behaviour}.
+        The critical section---the entirity of the \textcode{buy} method---is surrounded by paired calls to \textcode{.acquire()} and \textcode{.release()}. When a thread invokes \textcode{.acquire()}, it attempts to take ownership of the lock: if the lock is currently unheld, the thread acquires it and proceeds into the critical section; if another thread already holds the lock, the calling thread blocks until the lock is relinquished. Once the protected operations are complete, \textcode{.release()} surrenders ownership of the lock, allowing the next waiting thread to acquire it and enter the critical section in turn.
 
-      The \textcode{.join()} method causes the main thread to halt until \textcode{t} has completed execution, thereby synchronising the two threads before control advances to subsequent statements. In this example, the main thread is suspended until \textcode{displayNumbers} returns, after which the final print statement is reached.
+      \end{core}
 
-      Finally, observe that invoking \textcode{threading.current\_thread().name} from within \textcode{t}'s execution context yields \textcode{displayNumbersThread}, reflecting the identifier supplied via the \textcode{name} parameter at construction time. This illustrates that each \textcode{Thread} instance maintains its own execution context, including thread-local identity metadata accessible at runtime.
+      \begin{core}{Thread Synchronisation}
 
-    \end{core}
+        \textbf{Thread synchronisation} (\textit{communication}) is facilitated through the \textcode{Condition} class and its associated methods, \textcode{wait()} and \textcode{notify()}; these methods must be invoked within a locked context in order to prevent data corruption.
 
-    \begin{core}{Threading Through Class Methods}
+        \begin{pyconsole}
 
-      Analogously to the function-based approach demonstrated in \autoref{core:threading_function}, threads may equally be dispatched by targeting instance methods of a class.
+          import threading
+          import time
 
-      \begin{pyconsole}
+          class Producer:
+              def __init__(self):
+                  self.products = []
+                  self.c = threading.Condition() # the Condition class already has the lock method in-built into it, thus you don't need to invoke a separate lock method
+              def produce(self):
+                  self.c.acquire() # locked environment setting through the Condition class
+                  for i in range(1,5):
+                      self.products.append('Product'+str(i))
+                      time.sleep(1)
+                      print('Item Added: Product' + str(i))
+                  self.c.notify() # where the program ends and notifies the consumer
+                  self.c.release()
 
-        import threading
-        from time import sleep # the sleep function simply makes the program wait
+          class Consumer:
+              def __init__(self,prod):
+                  self.prod = prod
+              def consume(self):
+                  self.prod.c.acquire()
+                  self.prod.c.wait() 
+                  self.prod.c.release()
+                  print('Orders Shipped: {}'.format(self.prod.products))
+          p = Producer()
+          c = Consumer(p)
 
-        class MyThread:
-            def displayNumbers(self):
-                i = 0
-                print(threading.current_thread().name)
-                while i <= 3:
-                    print(i)
-                    i+=1
+          t1 = threading.Thread(target = p.produce)
+          t2 = threading.Thread(target = c.consume)
 
-        obj = MyThread()
+          t1.start()
+          t2.start()
 
-        t1 = threading.Thread(target=obj.displayNumbers,name='displayNumbers1')
-        t1.start()
-        sleep(0.5)
+          t1.join()
+          t2.join()
 
-        t2 = threading.Thread(target=obj.displayNumbers,name='displayNumbers2')
-        t2.start()
-        t1.join()
-        t2.join()
+        \end{pyconsole}
+        \pcon{Threading using the \textcode{Condition} class}{code:threading_condition}
 
-      \end{pyconsole}
-      \pcon{Multi-threading via a class method}{code:threading_class}
+        Consider the scenario in which the Python runtime schedules the \textcode{t2} thread (\textit{consumer thread}) first; upon entering \textcode{consume()}, it acquires the lock and immediately finds the product list empty, as the producer has not yet executed. This results in a deadlock: the lock remains held within the \textcode{consume()} block, preventing the \textcode{produce()} function from acquiring it, since both threads contend over the same underlying \textcode{Condition} instance \textcode{self.c} and \textcode{self.prod.c}.
 
-      The \textcode{sleep(0.5)} calls serve to introduce a deliberate delay between the dispatch of \textcode{t1} and \textcode{t2}, imposing an approximate execution ordering. In their absence, the relative scheduling of the two threads is delegated entirely to the Python thread scheduler, which provides no ordering guarantees---the threads may interweave arbitrarily or execute in an effectively simultaneous fashion depending on the underlying system load.
+        To prevent the above deadlock scenario, the \textcode{wait()} method---as seen in \autoref{code:threading_condition}---performs three critical operations.
 
-    \end{core}
+        \begin{enumerate}[label=(\arabic*)]
 
-    \begin{core}{Common Producer/Consumer Pattern}
+          \item It \textbf{automically releases the lock} held within the \textcode{acquire()} / \textcode{release()} block of the \textcode{consume()} function, returning it to the general pool so that the producer thread may acquire it.
 
-      The producer-consumer pattern is one of the most canonical demonstrations of multi-threaded coordination, wherein two threads operate concurrently on a shared resource.
+          \item It suspends the calling thread and places it into an internal waiting queue managed by the \textcode{Condition} object.
 
-      \begin{pyconsole}
+          \item It remains suspended in the waiting queue until explicitly signalled by a call to \textcode{notify()}.
 
-        import threading
-        import time
+        \end{enumerate}
 
-        class Producer:
-            def __init__(self):
-                self.products = []
-                self.ordersplaced = False
-            def produce(self):
-                for i in range(1,5):
-                    self.products.append('Product'+str(i))
-                    time.sleep(1)
-                    print('Item Added')
-                self.ordersplaced = True
+        Once the lock is released back to the pool, the scheduler grants it to the \textcode{t1} thread (\textit{producer thread}), which enters \textcode{produce()}, populates the product list, and completes its work. Prior to calling \textcode{release()}, the producer invokes \textcode{notify()}, which promotes the consumer thread \textcode{t2} from the waiting queue back to a runnable state, subsequently allowing it to acquire the lock and correctly print the shipped orders.
 
-        class Consumer:
-            def __init__(self,prod):
-                self.prod = prod
-            def consume(self):
-                while self.prod.ordersplaced == False:
-                    print("Waiting for the orders")
-                    time.sleep(0.4)
-                print('Orders Shipped {}'.format(self.prod.products))
+        In summary, the \textcode{wait()}--\textcode{notify()} mechanism is a tool designed explicitly to handle unpredictable scheduling order arising from \textbf{race conditions} (\textit{the Free-For-All race}), and to enforce a correct, deterministic execution sequence across cooperating threads.
 
-        p = Producer()
-        c = Consumer(p)
+      \end{core}
+      
+    \subsubsection{Queuing (\textit{queue})}
+      \label{sec:queue}
 
-        t1 = threading.Thread(target = p.produce)
-        t2 = threading.Thread(target = c.consume)
+      \begin{core}{Queuing}
 
-        t1.start()
-        t2.start()
-        t1.join()
-        t2.join()
+        The \textcode{queue} module provides a thread-safe mechanism for passing objects between threads, offering a simpler and more robust alternative implementation of the producer-consumer pattern with locks (\textit{\autoref{core:locks}}).
 
-      \end{pyconsole}
-      \pcon{Multi-threading consumer \& producer pattern}{code:consumer_producer}
+        \begin{pyconsole}
 
-      As illustrated in \autoref{code:consumer_producer}, the consumer thread \textcode{t2} continuously polls the shared \textcode{ordersplaced} flag within a busy-wait loop, deferring execution of the shipment statement until the flag evaluates to \textcode{True}. This state transition is driven by the producer thread \textcode{t1}, which iteratively populates the product list via its \textcode{for} loop before setting \textcode{ordersplaced = True} upon completion.
+          import random
+          import time
+          import queue
+          import threading
 
-    \end{core}
+          def producer(q):
+              for _ in range(2):
+                  print('Producing')
+                  q.put(random.randint(1,50)) #putting the random integer into a queue
+                  print('Produced')
+                  time.sleep(0.5)
 
-  \subsection{Locks}
+          def consumer(q):
+              for _ in range(2):
+                  print('Ready to consume')
+                  print('Consume Data: {}'.format(q.get())) #returning the queued integer
+                  time.sleep(0.5)
 
-    \begin{core}[label=core:locks]{Locks}
+          q = queue.Queue()
+          t1 = threading.Thread(target=consumer,args=(q,))
+          t2 = threading.Thread(target=producer,args=(q,))
 
-      When multiple threads access a shared resource concurrently, conditions may arise in which overlapping operations produce inconsistent or corrupted state. To prevent this, Python's \textcode{threading} module provides the \textcode{Lock()} class, which enforces \textbf{mutual exclusion} by ensuring that at most one thread may execute a designated critical section at any given time.
+          t1.start()
+          t2.start()
+          t1.join()
+          t2.join()
 
-      \begin{pyconsole}
+        \end{pyconsole}
+        \pcon{Queueing using \textcode{Queue()}}{code:queue}
 
-        import threading
+        As illustrated in \autoref{code:queue}, the \textcode{Queue()} class internally manages all requisite locking, ensuring that concurrent \textcode{put()} and \textcode{get()} operations across multiple threads remain free from race conditions and data corruption. Specifically, the \textcode{put()} method enqueues the random integer generated by \textcode{producer()} into the shared \textcode{q} object, while the \textcode{get()} method dequeues and returns the first item in FIFO order for consumption by \textcode{consumer()}, which outputs the retrieved value via a \textcode{print} statement.
 
-        class BookMyBus:
-            def __init__(self,availableSeats):
-                self.availableSeats = availableSeats
-                self.l = threading.Lock()
-            def buy(self,seatsRequested):
-                self.l.acquire() #starting the locked environment
-                print('Total seats available: {}'.format(self.availableSeats))
-                if(self.availableSeats>=seatsRequested):
-                    print('Confirming a seat')
-                    print('Processing the payment')
-                    print('Printing the Ticket')
-                    self.availableSeats-=seatsRequested
-                else:
-                    print('Sorry. No seats available')
-                self.l.release() #ending the locked environment
+      \end{core}
 
-        obj = BookMyBus(10)
+      \begin{core}{Alternative Queue Ordering}
 
-        t1 = threading.Thread(target=obj.buy,args=(3,))
-        t2 = threading.Thread(target=obj.buy,args=(4,))
-        t3 = threading.Thread(target=obj.buy,args=(4,))
+        Beyond the default FIFO ordering, the \textcode{queue} module exposes alternative queue classes that govern the order in which elements are dequeued, providing developers with flexible retrieval strategies suited to different scheduling requirements.
 
-        t1.start()
-        t2.start()
-        t3.start()
-        t1.join()
-        t2.join()
-        t3.join()
+        \begin{pyconsole}
 
-      \end{pyconsole}
-      \pcon{Threading locks enforcing mutual exclusion}{code:locks}
+          import queue
 
-      The critical section---the entirity of the \textcode{buy} method---is surrounded by paired calls to \textcode{.acquire()} and \textcode{.release()}. When a thread invokes \textcode{.acquire()}, it attempts to take ownership of the lock: if the lock is currently unheld, the thread acquires it and proceeds into the critical section; if another thread already holds the lock, the calling thread blocks until the lock is relinquished. Once the protected operations are complete, \textcode{.release()} surrenders ownership of the lock, allowing the next waiting thread to acquire it and enter the critical section in turn.
+          lq = queue.LifoQueue() # last in first out
+          lq.put(400)
+          lq.put(100)
+          lq.put(500)
+          lq.put(50)
+          while not lq.empty(): # this is another function to specify an empty queue
+              print(lq.get(), end=' ')
 
-    \end{core}
 
-    \begin{core}{Thread Synchronisation}
 
-      \textbf{Thread synchronisation} (\textit{communication}) is facilitated through the \textcode{Condition} class and its associated methods, \textcode{wait()} and \textcode{notify()}; these methods must be invoked within a locked context in order to prevent data corruption.
+          pq = queue.PriorityQueue() #in order
+          pq.put(400)
+          pq.put(100)
+          pq.put(500)
+          pq.put(50)
+          while not pq.empty():
+              print(pq.get(), end=' ')
 
-      \begin{pyconsole}
 
-        import threading
-        import time
 
-        class Producer:
-            def __init__(self):
-                self.products = []
-                self.c = threading.Condition() # the Condition class already has the lock method in-built into it, thus you don't need to invoke a separate lock method
-            def produce(self):
-                self.c.acquire() # locked environment setting through the Condition class
-                for i in range(1,5):
-                    self.products.append('Product'+str(i))
-                    time.sleep(1)
-                    print('Item Added: Product' + str(i))
-                self.c.notify() # where the program ends and notifies the consumer
-                self.c.release()
+          pq = queue.PriorityQueue()
+          pq.put((400,'John')) # if the item in the queue is a str, then make a tuple with an int in the first index and it will use that number to define the order
+          pq.put((100,'Bob'))
+          pq.put((500,'Ahmed'))
+          pq.put((50,'Bharath'))
+          while not pq.empty():
+              print(pq.get()[1], end=' ') #insert the index to choose only the name in the prioritized order
 
-        class Consumer:
-            def __init__(self,prod):
-                self.prod = prod
-            def consume(self):
-                self.prod.c.acquire()
-                self.prod.c.wait() 
-                self.prod.c.release()
-                print('Orders Shipped: {}'.format(self.prod.products))
-        p = Producer()
-        c = Consumer(p)
+        \end{pyconsole}
+        \pcon{Custom queue ordering}{code:queue_order}
 
-        t1 = threading.Thread(target = p.produce)
-        t2 = threading.Thread(target = c.consume)
+        As demonstrated in \autoref{code:queue_order}, the \textcode{LifoQueue} class implements a last-in, first-out retrieval policy, whereby the most recently enqueued element is always dequeued first. The \textcode{PriorityQueue} class, by contrast, dequeues elements in ascending order of their priority value; when the enqueued items are non-numeric, a tuple of the form \textcode{(priority, item)} may be supplied, whereupon the queue uses the integer at index zero to determine the retrieval order, with only the associated item at index one being extracted for use.
 
-        t1.start()
-        t2.start()
+      \end{core}
 
-        t1.join()
-        t2.join()
+    \subsubsection{Daemon Threads}
 
-      \end{pyconsole}
-      \pcon{Threading using the \textcode{Condition} class}{code:threading_condition}
+      \begin{core}{Daemon Threads}
 
-      Consider the scenario in which the Python runtime schedules the \textcode{t2} thread (\textit{consumer thread}) first; upon entering \textcode{consume()}, it acquires the lock and immediately finds the product list empty, as the producer has not yet executed. This results in a deadlock: the lock remains held within the \textcode{consume()} block, preventing the \textcode{produce()} function from acquiring it, since both threads contend over the same underlying \textcode{Condition} instance \textcode{self.c} and \textcode{self.prod.c}.
+        A \textbf{daemon thread} is a thread that runs silently in the background and is automatically terminated by the Python runtime as soon as all non-daemon threads have completed execution. Unlike standard threads, daemon threads are not awaited by the interpreter upon program exit, meaning any work they have not yet completed is abandoned without notice when the main thread finishes.
 
-      To prevent the above deadlock scenario, the \textcode{wait()} method---as seen in \autoref{code:threading_condition}---performs three critical operations.
+        \begin{pyconsole}
 
-      \begin{enumerate}[label=(\arabic*)]
+          import threading
+          import time
 
-        \item It \textbf{automically releases the lock} held within the \textcode{acquire()} / \textcode{release()} block of the \textcode{consume()} function, returning it to the general pool so that the producer thread may acquire it.
+          stop_event = threading.Event()
 
-        \item It suspends the calling thread and places it into an internal waiting queue managed by the \textcode{Condition} object.
+          def background_task():
+              while not stop_event.is_set():
+                  print('Daemon running...')
+                  time.sleep(0.5)
 
-        \item It remains suspended in the waiting queue until explicitly signalled by a call to \textcode{notify()}.
+          def main_task():
+              for i in range(3):
+                  print('Main thread working: step {}'.format(i))
+                  time.sleep(1)
 
-      \end{enumerate}
+          t1 = threading.Thread(target=background_task, daemon=True)
+          t2 = threading.Thread(target=main_task)
 
-      Once the lock is released back to the pool, the scheduler grants it to the \textcode{t1} thread (\textit{producer thread}), which enters \textcode{produce()}, populates the product list, and completes its work. Prior to calling \textcode{release()}, the producer invokes \textcode{notify()}, which promotes the consumer thread \textcode{t2} from the waiting queue back to a runnable state, subsequently allowing it to acquire the lock and correctly print the shipped orders.
+          t1.start()
+          t2.start()
+          t2.join() # only the non-daemon thread is joined; once t2 finishes, t1 is killed automatically
 
-      In summary, the \textcode{wait()}--\textcode{notify()} mechanism is a tool designed explicitly to handle unpredictable scheduling order arising from \textbf{race conditions} (\textit{the Free-For-All race}), and to enforce a correct, deterministic execution sequence across cooperating threads.
+          stop_event.set()
+          t1.join()
 
-    \end{core}
-    
-  \subsection{Queuing (\textit{queue})}
-    \label{sec:queue}
+        \end{pyconsole}
+        \pcon{Daemon thread termination behaviour}{code:daemon_thread}
 
-    \begin{core}{Queuing}
+        As illustrated in \autoref{code:daemon_thread}, the daemon flag is set via the \textcode{.daemon} attribute prior to invoking \textcode{start()}; assigning it thereafter raises a \textcode{RuntimeError}. Once the non-daemon thread \textcode{t2} completes its iteration and \textcode{join()} returns, the Python runtime terminates the process entirely, forcibly halting the daemon thread \textcode{t1} regardless of its current state within the \textcode{while} loop.
 
-      The \textcode{queue} module provides a thread-safe mechanism for passing objects between threads, offering a simpler and more robust alternative implementation of the producer-consumer pattern with locks (\textit{\autoref{core:locks}}).
+        It is worth noting that daemon threads are deliberately not joined, as doing so would block the main thread indefinitely given their non-terminating nature. This distinguishes them from standard threads, where \textcode{join()} is used to ensure orderly completion.
 
-      \begin{pyconsole}
+      \end{core}
 
-        import random
-        import time
-        import queue
-        import threading
+  \subsection{Multiprocessing (\textit{multiprocessing})}
 
-        def producer(q):
-            for _ in range(2):
-                print('Producing')
-                q.put(random.randint(1,50)) #putting the random integer into a queue
-                print('Produced')
-                time.sleep(0.5)
-
-        def consumer(q):
-            for _ in range(2):
-                print('Ready to consume')
-                print('Consume Data: {}'.format(q.get())) #returning the queued integer
-                time.sleep(0.5)
-
-        q = queue.Queue()
-        t1 = threading.Thread(target=consumer,args=(q,))
-        t2 = threading.Thread(target=producer,args=(q,))
-
-        t1.start()
-        t2.start()
-        t1.join()
-        t2.join()
-
-      \end{pyconsole}
-      \pcon{Queueing using \textcode{Queue()}}{code:queue}
-
-      As illustrated in \autoref{code:queue}, the \textcode{Queue()} class internally manages all requisite locking, ensuring that concurrent \textcode{put()} and \textcode{get()} operations across multiple threads remain free from race conditions and data corruption. Specifically, the \textcode{put()} method enqueues the random integer generated by \textcode{producer()} into the shared \textcode{q} object, while the \textcode{get()} method dequeues and returns the first item in FIFO order for consumption by \textcode{consumer()}, which outputs the retrieved value via a \textcode{print} statement.
-
-    \end{core}
-
-    \begin{core}{Alternative Queue Ordering}
-
-      Beyond the default FIFO ordering, the \textcode{queue} module exposes alternative queue classes that govern the order in which elements are dequeued, providing developers with flexible retrieval strategies suited to different scheduling requirements.
-
-      \begin{pyconsole}
-
-        import queue
-
-        lq = queue.LifoQueue() # last in first out
-        lq.put(400)
-        lq.put(100)
-        lq.put(500)
-        lq.put(50)
-        while not lq.empty(): # this is another function to specify an empty queue
-            print(lq.get(), end=' ')
-
-
-
-        pq = queue.PriorityQueue() #in order
-        pq.put(400)
-        pq.put(100)
-        pq.put(500)
-        pq.put(50)
-        while not pq.empty():
-            print(pq.get(), end=' ')
-
-
-
-        pq = queue.PriorityQueue()
-        pq.put((400,'John')) # if the item in the queue is a str, then make a tuple with an int in the first index and it will use that number to define the order
-        pq.put((100,'Bob'))
-        pq.put((500,'Ahmed'))
-        pq.put((50,'Bharath'))
-        while not pq.empty():
-            print(pq.get()[1], end=' ') #insert the index to choose only the name in the prioritized order
-
-      \end{pyconsole}
-      \pcon{Custom queue ordering}{code:queue_order}
-
-      As demonstrated in \autoref{code:queue_order}, the \textcode{LifoQueue} class implements a last-in, first-out retrieval policy, whereby the most recently enqueued element is always dequeued first. The \textcode{PriorityQueue} class, by contrast, dequeues elements in ascending order of their priority value; when the enqueued items are non-numeric, a tuple of the form \textcode{(priority, item)} may be supplied, whereupon the queue uses the integer at index zero to determine the retrieval order, with only the associated item at index one being extracted for use.
-
-    \end{core}
-
-  \subsection{Daemon Threads}
-
-    \begin{core}{Daemon Threads}
-
-      A \textbf{daemon thread} is a thread that runs silently in the background and is automatically terminated by the Python runtime as soon as all non-daemon threads have completed execution. Unlike standard threads, daemon threads are not awaited by the interpreter upon program exit, meaning any work they have not yet completed is abandoned without notice when the main thread finishes.
-
-      \begin{pyconsole}
-
-        import threading
-        import time
-
-        def background_task():
-            while True:
-                print('Daemon running...')
-                time.sleep(0.5)
-
-        def main_task():
-            for i in range(3):
-                print('Main thread working: step {}'.format(i))
-                time.sleep(1)
-
-        t1 = threading.Thread(target=background_task)
-        t1.daemon = True # designates t1 as a daemon thread
-        t2 = threading.Thread(target=main_task)
-
-        t1.start()
-        t2.start()
-        t2.join() # only the non-daemon thread is joined; once t2 finishes, t1 is killed automatically
-
-      \end{pyconsole}
-      \pcon{Daemon thread termination behaviour}{code:daemon_thread}
-
-      As illustrated in \autoref{code:daemon_thread}, the daemon flag is set via the \textcode{.daemon} attribute prior to invoking \textcode{start()}; assigning it thereafter raises a \textcode{RuntimeError}. Once the non-daemon thread \textcode{t2} completes its iteration and \textcode{join()} returns, the Python runtime terminates the process entirely, forcibly halting the daemon thread \textcode{t1} regardless of its current state within the \textcode{while} loop.
-
-      It is worth noting that daemon threads are deliberately not joined, as doing so would block the main thread indefinitely given their non-terminating nature. This distinguishes them from standard threads, where \textcode{join()} is used to ensure orderly completion.
-
-    \end{core}
+    \textit{In Progress.}
 
 \section{Operating System Interface}
 
@@ -2803,6 +2820,10 @@
       \pcon{Generating an iterator for memory-efficient path traversal using \textcode{glob.iglob()}}{code:glob_iglob}
 
     \end{core}
+
+  \subsection{Command Line Parsing (\textit{argparse})}
+
+    \textit{In Progress.}
 
 \section{Standard Mathematical Utilities}
 
@@ -3165,7 +3186,7 @@
 
     \end{core}
 
-\section{The Python Ecosystem}
+\section{Packages \& Environment Management}
 
   \begin{core}[label=core:third_lib]{Third-Party Libraries}
 
@@ -3245,13 +3266,15 @@
 
       \textcode{uv} adopts a \textbf{project-centric model} in which a \textcode{.venv/} directory is maintained at the project root and all operations---adding dependencies, running scripts, and synchronising environments---are expressed through \textcode{uv} subcommands rather than direct invocations of \textcode{python} or \textcode{pip}. Direct dependencies are declared in \textcode{pyproject.toml} and the full resolved dependency graph is recorded in \textcode{uv.lock}, ensuring reproducible environments across machines.
 
-      For pure Python work, \textcode{uv} is the recommended tool. Workflows with heavy native non-Python dependencies---most commonly GPU-accelerated machine learning projects---remain the domain of \textcode{conda}. In practice, however, this distinction is less relevant on macOS, as the operating system already ships with the native libraries that packages such as \textcode{numpy} (\textit{\autoref{core:numpy}}) and \textcode{scipy} (\textit{\autoref{core:scipy}}) depend on, and macOS does not support CUDA at all. The advantage of \textcode{conda} over \textcode{uv} is instead most significant on Linux, which remains the dominant platform for large-scale GPU machine learning work.
+      For pure Python work, \textcode{uv} is the recommended tool. Workflows with heavy native non-Python dependencies---most commonly GPU-accelerated machine learning projects---remain the domain of \textcode{conda}. In practice, however, this distinction is less relevant on macOS, as the operating system already ships with the native libraries that packages such as \textcode{numpy} (\textit{\autoref{core:numpy}}) depend on, and macOS does not support CUDA at all. The advantage of \textcode{conda} over \textcode{uv} is instead most significant on Linux, which remains the dominant platform for large-scale GPU machine learning work.
 
     \end{core}
 
-  \subsection{Core Third-Party Libraries}
+\section{Core Third-Party Libraries}
 
-    \subsubsection{Data Science and Analysis}
+  \subsection{Data Science and Analysis}
+
+    \subsubsection{numpy}
 
       \begin{core}[label=core:numpy]{numpy}
 
@@ -3286,9 +3309,11 @@
         \end{pyconsole}
         \pcon{\textcode{numpy} demonstration}{code:numpy}
 
-        \textcode{numpy} serves as a core dependency for nearly all other the scientific third-party libraries. \textcode{pandas} (\textit{\autoref{core:pandas}}), \textcode{scipy} (\textit{\autoref{core:scipy}}), and \textcode{scikit-learn} (\textit{\autoref{core:sklearn}}) are all built directly on top of \textcode{numpy} arrays, making familiarity with \textcode{numpy} a prerequisite for effective use of the broader data science stack.
+        \textcode{numpy} serves as a core dependency for nearly all other the scientific third-party libraries. \textcode{pandas} (\textit{\autoref{core:pandas}}), \textcode{scipy} (\textit{REFERENCE PLACEHOLDER}), and \textcode{scikit-learn} (\textit{REFERENCE PLACEHOLDER}) are all built directly on top of \textcode{numpy} arrays, making familiarity with \textcode{numpy} a prerequisite for effective use of the broader data science stack.
 
       \end{core}
+
+    \subsubsection{pandas}
 
       \begin{core}[label=core:pandas]{pandas}
 
@@ -3323,171 +3348,133 @@
         \end{pyconsole}
         \pcon{\textcode{pandas} demonstration}{code:pandas}
 
-        \textcode{pandas} serves as the primary data wrangling layer within the Python data science stack, handling ingestion, cleaning, reshaping, and aggregation of structured datasets before downstream consumption. \textcode{matplotlib} (\textit{\autoref{core:matplotlib}}), \textcode{scikit-learn} (\textit{\autoref{core:sklearn}}), and \textcode{statsmodels} (\textit{\autoref{core:statsmodels}}) all accept \textcode{DataFrame} objects as direct inputs, making proficiency with \textcode{pandas} a practical prerequisite for effective data analysis and modelling workflows.
+        \textcode{pandas} serves as the primary data wrangling layer within the Python data science stack, handling ingestion, cleaning, reshaping, and aggregation of structured datasets before downstream consumption. \textcode{matplotlib} (\textit{\autoref{core:matplotlib}}), \textcode{scikit-learn} (\textit{REFERENCE PLACEHOLDER}), and \textcode{statsmodels} (\textit{REFERENCE PLACEHOLDER}) all accept \textcode{DataFrame} objects as direct inputs, making proficiency with \textcode{pandas} a practical prerequisite for effective data analysis and modelling workflows.
 
       \end{core}
 
-      % polars       % https://docs.pola.rs/api/python/stable/reference/
-      % pyarrow      % https://arrow.apache.org/docs/python/api.html
-      % xarray       % https://docs.xarray.dev/en/stable/api.html
+    % \subsubsection{xarray}
 
-    \subsubsection{Statistical Modelling and Machine Learning}
+  \subsection{Data Visualisation}
 
-      \begin{core}[label=core:scipy]{scipy}
-        % https://docs.scipy.org/doc/scipy/reference/
-      \end{core}
-
-      \begin{core}[label=core:sklearn]{scikit-learn}
-        % https://scikit-learn.org/1.5/api/index.html
-      \end{core}
-
-      \begin{core}[label=core:statsmodels]{statsmodels}
-        % https://www.statsmodels.org/stable/api.html
-      \end{core}
-
-      % xgboost         % https://xgboost.readthedocs.io/en/stable/python/python_api.html
-      % lightgbm        % https://lightgbm.readthedocs.io/en/latest/pythonapi/lightgbm.html
-      % catboost        % https://catboost.ai/en/docs/concepts/python-reference_catboost
-      % imbalanced-learn % https://imbalanced-learn.org/stable/references/index.html
-      % optuna          % https://optuna.readthedocs.io/en/stable/reference/index.html
-
-    \subsubsection{Data Visualisation}
+    \subsubsection{matplotlib}
 
       \begin{core}[label=core:matplotlib]{matplotlib}
-        % https://matplotlib.org/stable/api/index.html
+
+        \href{https://matplotlib.org/stable/api/index.html}{\textcode{matplotlib}} is the foundational plotting library for Python, providing a comprehensive interface for producing static, animated, and interactive visualisations. Its \textcode{pyplot} submodule exposes a state-based API modelled on MATLAB, while the underlying object-oriented interface offers precise control over every element of a figure — from axes and tick formatters to colormaps and legend placement.
+
+        \begin{pyconsole}
+
+          import matplotlib.pyplot as plt
+          import numpy as np
+
+          x = np.linspace(0, 2 * np.pi, 200)
+
+          # object-oriented interface
+          fig, axes = plt.subplots(1, 2, figsize=(10, 4))
+
+          # line plot
+          axes[0].plot(x, np.sin(x), label=r"$\sin(x)$", linewidth=1.4)
+          axes[0].plot(x, np.cos(x), label=r"$\cos(x)$", linewidth=1.4)
+          axes[0].set_title("Trigonometric functions")
+          axes[0].set_xlabel("x")
+          axes[0].set_ylabel("y")
+          axes[0].legend()
+          axes[0].grid(True, linewidth=0.4)
+
+          # histogram
+          data = np.random.randn(1000)
+          axes[1].hist(data, bins=30, edgecolor="white", linewidth=0.4)
+          axes[1].set_title("Normal distribution")
+          axes[1].set_xlabel("Value")
+          axes[1].set_ylabel("Frequency")
+
+          fig.tight_layout()
+          plt.savefig("python_figures/matplotlib_demo.png", bbox_inches="tight")
+
+        \end{pyconsole}
+        \pcon{\textcode{matplotlib} demonstration}{code:matplotlib}
+
+        \myfig{1}{python_figures/matplotlib_demo}{\textcode{matplotlib\_demo.png}}{fig:mpl_demo}
+
+        \textcode{matplotlib} serves as the primary visualisation layer within the Python data science stack. \textcode{pandas} (\textit{\autoref{core:pandas}}) \textcode{DataFrame} and \textcode{Series} objects expose a \textcode{.plot()} method that delegates directly to \textcode{matplotlib}, while higher-level libraries such as \textcode{seaborn} and \textcode{plotly} build on top of it to provide more specialised or interactive chart types. Figures can be exported to a wide range of formats including \texttt{PDF}, \texttt{PNG}, and \texttt{SVG}, making \textcode{matplotlib} well-suited for producing publication-quality graphics.
+
       \end{core}
 
-      \begin{core}[label=core:seaborn]{seaborn}
-        % https://seaborn.pydata.org/api.html
-      \end{core}
+    % \subsubsection{seaborn}
+    % \subsubsection{plotly}
 
-      \begin{core}[label=core:plotly]{plotly}
-        % https://plotly.com/python-api-reference/
-      \end{core}
+  \subsection{Web and Network Communication}
 
-      % bokeh           % https://docs.bokeh.org/en/latest/docs/reference.html
-      % altair          % https://altair-viz.github.io/user_guide/api.html
-      % plotnine        % https://plotnine.org/reference/
+    \subsubsection{requests}
 
-    \subsubsection{Web and Network Communication}
+      \textit{In Progress.}
 
-      \begin{core}[label=core:requests]{requests}
-        % https://requests.readthedocs.io/en/latest/
-      \end{core}
+    % \subsubsection{urllib3}
+    % \subsubsection{websockets}
+    % \subsubsection{httpx}
 
-      \begin{core}[label=core:httpx]{httpx}
-        % https://www.python-httpx.org/api/
-      \end{core}
+  % \subsection{Database and Storage}
+  %   \subsubsection{sqlalchemy}
+  %   \subsubsection{pymongo}
 
-      \begin{core}[label=core:urllib3]{urllib3}
-        % https://urllib3.readthedocs.io/en/stable/reference/
-      \end{core}
+  % \subsection{Interactive Computing}
+  %   \subsubsection{IPython.display}
+  %   \subsubsection{ipywidgets}
+  %   \subsubsection{nbformat}
 
-      \begin{core}[label=core:websockets]{websockets}
-        % https://websockets.readthedocs.io/en/stable/reference/
-      \end{core}
+  % \subsection{Statistical Modelling and Machine Learning}
+  %   \subsubsection{scipy}
+  %   \subsubsection{scikit-learn}
+  %   \subsubsection{statsmodels}
 
-      % aiohttp         % https://docs.aiohttp.org/en/stable/
+  % \subsection{Web Scraping and Parsing}
+  %   \subsubsection{beautifulsoup4}
+  %   \subsubsection{selenium}
+  %   \subsubsection{scrapy}
+  %   \subsubsection{lxml}
 
-    \subsubsection{Web Scraping and Parsing}
+  % \subsection{Web Frameworks and APIs}
+  %   \subsubsection{django}
+  %   \subsubsection{flask}
+  %   \subsubsection{fastapi}
+  %   \subsubsection{pydantic}
 
-      \begin{core}[label=core:bs4]{beautifulsoup4}
-        % https://www.crummy.com/software/BeautifulSoup/bs4/doc/
-      \end{core}
+  % \subsection{Deep Learning}
+  %   \subsubsection{torch} torch.nn torch.optim
+  %   \subsubsection{torchvision}
+  %   \subsubsection{tensorflow}
+  %   \subsubsection{keras}
+  %   \subsubsection{lightning}
 
-      \begin{core}[label=core:selenium]{selenium}
-        % https://selenium-python.readthedocs.io/api.html
-      \end{core}
+  % \subsection{Natural Language Processing}
+  %   \subsubsection{nltk}
+  %   \subsubsection{spacy}
+  %   \subsubsection{transformers}
+  %   \subsubsection{gensim}
+  %   \subsubsection{sentence-transformers}
 
-      % scrapy          % https://docs.scrapy.org/en/latest/index.html
-      % playwright      % https://playwright.dev/python/docs/api/class-playwright
-      % lxml            % https://lxml.de/apidoc/
+  % \subsection{File and Data Formats}
+  %   \subsubsection{pillow}
+  %   \subsubsection{PyPDF2}
+  %   \subsubsection{pyyaml}
+      %   \subsubsection{openpyxl}
+      %   \subsubsection{xlrd}
+      %   \subsubsection{imageio}
+      %   \subsubsection{h5py}
+      %   \subsubsection{toml}
 
-    \subsubsection{Web Frameworks and APIs}
+  % \subsection{Testing and Quality Assurance}
+  %   \subsubsection{pytest}
+  %   \subsubsection{hypothesis}
+  %   \subsubsection{mypy}
+  %   \subsubsection{ruff}
 
-      \begin{core}[label=core:django]{django}
-        % https://docs.djangoproject.com/en/stable/ref/
-      \end{core}
-
-      \begin{core}[label=core:flask]{flask}
-        % https://flask.palletsprojects.com/en/stable/api/
-      \end{core}
-
-      % fastapi         % https://fastapi.tiangolo.com/reference/
-      % starlette       % https://www.starlette.io/
-      % pydantic        % https://docs.pydantic.dev/latest/api/
-
-    \subsubsection{Database and Storage}
-
-      \begin{core}[label=core:sqlite3]{sqlite3}
-        % https://docs.python.org/3/library/sqlite3.html  (stdlib)
-      \end{core}
-
-      % sqlalchemy      % https://docs.sqlalchemy.org/en/20/reference/
-      % psycopg2        % https://www.psycopg.org/docs/module.html
-      % pymongo         % https://pymongo.readthedocs.io/en/stable/api/
-      % redis           % https://redis-py.readthedocs.io/en/stable/
-
-    \subsubsection{Parallel and Distributed Computing}
-
-      \begin{core}[label=core:multiprocessing]{multiprocessing}
-        % https://docs.python.org/3/library/multiprocessing.html  (stdlib)
-      \end{core}
-
-      % concurrent.futures % https://docs.python.org/3/library/concurrent.futures.html  (stdlib)
-      % joblib          % https://joblib.readthedocs.io/en/stable/
-      % dask            % https://docs.dask.org/en/stable/
-      % ray             % https://docs.ray.io/en/latest/ray-core/api/
-
-    \subsubsection{Interactive Computing}
-
-      \begin{core}[label=core:ipython]{IPython.display}
-        % https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html
-      \end{core}
-
-      % ipywidgets      % https://ipywidgets.readthedocs.io/en/stable/
-      % nbformat        % https://nbformat.readthedocs.io/en/latest/
-
-    % \subsubsection{Deep Learning}
-    %   torch           % https://pytorch.org/docs/stable/index.html
-    %   torch.nn        % https://pytorch.org/docs/stable/nn.html
-    %   torch.optim     % https://pytorch.org/docs/stable/optim.html
-    %   torchvision     % https://pytorch.org/vision/stable/index.html
-    %   tensorflow      % https://www.tensorflow.org/api_docs/python/tf
-    %   keras           % https://keras.io/api/
-    %   lightning       % https://lightning.ai/docs/pytorch/stable/api/pytorch_lightning.html
-
-    % \subsubsection{Natural Language Processing}
-    %   nltk            % https://www.nltk.org/api/nltk.html
-    %   spacy           % https://spacy.io/api
-    %   transformers    % https://huggingface.co/docs/transformers/index
-    %   gensim          % https://radimrehurek.com/gensim/apiref.html
-    %   sentence-transformers % https://sbert.net/docs/package_reference/
-
-    % \subsubsection{File and Data Formats}
-    %   openpyxl        % https://openpyxl.readthedocs.io/en/stable/
-    %   xlrd            % https://xlrd.readthedocs.io/en/latest/
-    %   PyPDF2          % https://pypdf2.readthedocs.io/en/latest/
-    %   pillow          % https://pillow.readthedocs.io/en/stable/reference/
-    %   imageio         % https://imageio.readthedocs.io/en/stable/reference/
-    %   h5py            % https://docs.h5py.org/en/stable/
-    %   pyyaml          % https://pyyaml.org/wiki/PyYAMLDocumentation
-    %   toml            % https://toml.io/en/
-
-    % \subsubsection{Testing and Quality Assurance}
-    %   pytest          % https://docs.pytest.org/en/stable/reference/
-    %   unittest        % https://docs.python.org/3/library/unittest.html  (stdlib)
-    %   hypothesis      % https://hypothesis.readthedocs.io/en/latest/
-    %   mypy            % https://mypy.readthedocs.io/en/stable/
-    %   ruff            % https://docs.astral.sh/ruff/
-
-    % \subsubsection{DevOps, CLI, and Utilities}
-    %   click           % https://click.palletsprojects.com/en/stable/api/
-    %   argparse        % https://docs.python.org/3/library/argparse.html  (stdlib)
-    %   rich            % https://rich.readthedocs.io/en/stable/
-    %   tqdm            % https://tqdm.github.io/docs/tqdm/
-    %   loguru          % https://loguru.readthedocs.io/en/stable/api/
-    %   dotenv          % https://saurabh-kumar.com/python-dotenv/reference/
-    %   schedule        % https://schedule.readthedocs.io/en/stable/
+  % \subsection{DevOps, CLI, and Utilities}
+  %   \subsubsection{tqdm}
+  %   \subsubsection{click}
+  %   \subsubsection{rich}
+  %   \subsubsection{loguru}
+  %   \subsubsection{dotenv}
+  %   \subsubsection{schedule}
 
 \end{document}

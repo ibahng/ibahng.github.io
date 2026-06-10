@@ -8,13 +8,13 @@
 \input{../../_presets/finance_markets/preamble}
 
 % \externaldocument[acc-]{../accounting/accounting}[https://ibahng.github.io/finance_markets/accounting/accounting.pdf]
-% \externaldocument[com-]{../commodity/commodity}[https://ibahng.github.io/finance_markets/commodity/commodity.pdf]
+\externaldocument[com-]{../commodity/commodity}[https://ibahng.github.io/finance_markets/commodity/commodity.pdf]
 % \externaldocument[cor-]{../corporate_finance/corporate_finance}[https://ibahng.github.io/finance_markets/corporate_finance/corporate_finance.pdf]
 % \externaldocument[der-]{../derivatives/derivatives}[https://ibahng.github.io/finance_markets/derivatives/derivatives.pdf]
 % \externaldocument[equ-]{../equity/equity}[https://ibahng.github.io/finance_markets/equity/equity.pdf]
 % \externaldocument[fix-]{../fixed_income/fixed_income}[https://ibahng.github.io/finance_markets/fixed_income/fixed_income.pdf]
 % \externaldocument[fnd-]{../fundamental_analysis/fundamental_analysis}[https://ibahng.github.io/finance_markets/fundamental_analysis/fundamental_analysis.pdf]
-% \externaldocument[mac-]{../macroeconomics/macroeconomics}[https://ibahng.github.io/finance_markets/macroeconomics/macroeconomics.pdf]
+\externaldocument[mac-]{../macroeconomics/macroeconomics}[https://ibahng.github.io/finance_markets/macroeconomics/macroeconomics.pdf]
 % \externaldocument[mic-]{../microeconomics/microeconomics}[https://ibahng.github.io/finance_markets/microeconomics/microeconomics.pdf]
 % \externaldocument[tec-]{../technical_analysis/technical_analysis}[https://ibahng.github.io/finance_markets/technical_analysis/technical_analysis.pdf]
 % \externaldocument[val-]{../valuation/valuation}[https://ibahng.github.io/finance_markets/valuation/valuation.pdf]
@@ -26,179 +26,216 @@
 
 \section{Market Foundation}
 
-  \subsection{Historical Developments}
+  \subsection{Gold as Currency}
 
     \begin{core}{Gold as Currency}
 
-      % Gold is valuable primarily because it cannot be replicated at the whim
-      % of governments.
+      The \textbf{inherent value of gold} is primarily derived from its \textbf{natural scarcity} and the fact that it \textbf{cannot be artificially reproduced or arbitrarily expanded} by government mandate. This inability to be freely printed has historically allowed gold to retain its long-term value, establishing it as a robust \textbf{hedge against inflation} and a \textbf{reliable store of wealth} during periods of broader financial instability. 
 
-      % Gold's scarcity and inability to be freely printed have helped it
-      % retain long-term value
+      \myfig{0.95}{forex_figures/GC=F_plot1}{Gold spot from Jan 2010 to Jan 2014; \textit{gold prices rise during the Eurozone soverign debt crisis}}{fig:euro_debt}
 
-      % Gold is commonly viewed as:
-      %     - An inflation hedge
-      %     - A store of value during financial crises
-
-      % Example:
-      %     - Gold reached historic highs during the Greek debt crisis of 2012
-
-      % Since 1971:
-      %     - Gold has generally been a better store of value than paper currency
-
-    \end{core}
-
-    \begin{core}{Bretton Woods Agreement}
-
-      % At the wake of the "Bretton Woods Agreement," all allies agreed to lock
-      % their currencies to the US dollar, which was in turn convertible to gold
-      % (The Gold Standard).
-
-      % As the US economy stagnated during the Vietnam War, President Nixon
-      % suspended this gold convertibility, beginning the modern fiat currency
-      % regime.
-
-      % 1971 marked the dawn of the modern fiat currency market
-
-    \end{core}
-
-    \begin{core}{Petrodollar}
-
-      TBD
+      For instance, amidst the severe economic uncertainty of the \textbf{Eurozone soverign debt crisis} (\textit{\autoref{core:euro_debt}}) from 2010 to 2012, gold valuations surged to historic highs as investors sought safe-haven assets (\textit{\autoref{fig:euro_debt}}). Consequently, since the widespread abandonment of direct gold convertibility due to the \textbf{Nixon Shock in 1971} (\textit{\autoref{core:nixon_shock}}), the precious metal has generally proven to be a more resilient long-term store of value compared to traditional fiat paper currencies.
 
     \end{core}
 
   \subsection{Market Mechanics}
-    
+
     \begin{core}{Market Mechanics}
 
-      % Today, more than $5 trillion is transacted each day in the FOREX market.
-      % Over $5 trillion of currencies are traded every day
+      The \textbf{foreign exchange market} is the most actively traded financial market globally, transacting over \$5 trillion in currencies daily. Unlike equities, which rely on centralized exchanges, the vast majority of spot currency trading occurs within a decentralized, \textbf{Over-The-Counter (OTC)} market. This decentralized structure is underpinned by an interbank network of major financial institutions, enabling the market to \textbf{operate continuously throughout the business week} by transitioning liquidity seamlessly across major financial hubs across different timezones from \textbf{Tokyo} to \textbf{London} and finally to \textbf{New York}.
 
-      % The currency market operates 24 hours a day during the business week:
-      %     Tokyo → London → New York
+      The primary participants in these transactions include \textbf{institutional investors}, \textbf{multinational corporations}, and \textbf{private travelers}. Furthermore, the \textbf{United States dollar (USD)} serves as the world's principal reserve currency, participating in approximately \textbf{85\% of all global foreign exchange volume}.
 
-      % The majority of currency transactions are conducted by:
-      %     - Financial investors (institutional investors)
-      %     - Corporations
-      %     - Travellers/tourists
+      \pgfig{
+        % Styles
+        \tikzset{
+          session/.style={draw=#1!60, fill=#1!20, rounded corners=2pt},
+          axis line/.style={->, thick},
+        }
 
-      % Approximately 85% of all FX volumes involve the US dollar.
-      % The US dollar is the world's reserve currency and the most heavily
-      % traded currency
+        % Parameters
+        \def\axislen{14}
+        \def\blockh{0.6}
+        \def\sep{0.9}
+
+        % UTC axis (top)
+        \draw[axis line] (0,4.2) -- (14.2,4.2) node[right, font=\small] {};
+        \node[font=\normalsize] at (7, 5.1) {UTC Time};
+
+        % UTC tick labels: 10 11 12a 1 2 3 4 5 6 7 8 9 10 11 12p 1 2 3 4 5 6 7 8 9
+        \foreach \x/\l in {
+          0/10, 0.6/11, 1.2/12a, 1.8/1, 2.4/2, 3.0/3, 3.6/4, 4.2/5, 4.8/6,
+          5.4/7, 6.0/8, 6.6/9, 7.2/10, 7.8/11, 8.4/12p, 9.0/1, 9.6/2,
+          10.2/3, 10.8/4, 11.4/5, 12.0/6, 12.6/7, 13.2/8, 13.8/9
+        }{
+          \draw (\x, 4.2) -- (\x, 4.35);
+          \node[font=\footnotesize, above] at (\x, 4.35) {\l};
+        }
+
+        % EST axis (bottom)
+        \draw[axis line] (0,0.3) -- (14.2,0.3) node[right, font=\small] {};
+        \node[font=\normalsize] at (7, -0.5) {EST Time};
+
+        % EST tick labels: 5 6 7 8 9 10 11 12a 1 2 3 4 5 6 7 8 9 10 11 12p 1 2 3 4
+        \foreach \x/\l in {
+          0/5, 0.6/6, 1.2/7, 1.8/8, 2.4/9, 3.0/10, 3.6/11, 4.2/12a, 4.8/1,
+          5.4/2, 6.0/3, 6.6/4, 7.2/5, 7.8/6, 8.4/7, 9.0/8, 9.6/9,
+          10.2/10, 10.8/11, 11.4/12p, 12.0/1, 12.6/2, 13.2/3, 13.8/4
+        }{
+          \draw (\x, 0.3) -- (\x, 0.15);
+          \node[font=\footnotesize, below] at (\x, 0.15) {\l};
+        }
+
+        % Session blocks (y positions staggered)
+        % Sydney: UTC 10pm - 7am → x=0 to x=5.4
+        \draw[session=blue] (0, 0.55+3*\sep) rectangle (5.4, 0.55+3*\sep+\blockh)
+          node[midway, font=\small\bfseries] {Sydney Session};
+
+        % Tokyo: UTC 11pm - 8am → x=0.6 to x=6.0
+        \draw[session=blue] (1.2, 0.55+2*\sep) rectangle (6.6, 0.55+2*\sep+\blockh)
+          node[midway, font=\small\bfseries] {Tokyo Session};
+
+        % London: UTC 7am - 4pm → x=5.4 to x=10.8
+        \draw[session=blue] (5.4, 0.55+1*\sep) rectangle (11.4, 0.55+1*\sep+\blockh)
+          node[midway, font=\small\bfseries] {London Session};
+
+        % New York: UTC 12pm - 9pm → x=8.4 to x=14.0
+        \draw[session=blue] (9.0, 0.55+0*\sep) rectangle (14.0, 0.55+0*\sep+\blockh)
+          node[midway, font=\small\bfseries] {New York Session};
+      }{FOREX Trading Sessions by UTC and EST Time}{fig:forex_sessions}{1}
 
     \end{core}
 
     \begin{core}{Triangular Arbitrage}
 
-      % This process keeps the currency matrix coordinated and prevents traders
-      % from profiting off pricing inconsistencies between currencies.
+      \textbf{Triangular arbitrage} is an institutional trading strategy designed to exploit pricing inefficiencies among three distinct currencies within the forex market. In a perfectly efficient market, the cross-exchange rates of any three currencies maintain strict equilibrium, preventing the possibility of \textbf{risk-free profit}. However, transient discrepancies occasionally arise due to market volatility, liquidity imbalances, or latency in price updates.
 
-      % When converting from one low-volume currency to another:
-      %     - Investors often transact through the US dollar
+      The mechanics of a triangular arbitrage execution involve three rapid, sequential transactions.
+
+      \begin{enumerate}[label=(\arabic*)]
+
+        \item Initially convert a base currency into a second currency.
+
+        \item Subsequently trade that second currency for a third (\textit{the cross currency}).
+
+        \item Ultimately convert the third currency back into the original base. 
+
+      \end{enumerate}
+
+      \pgfig{
+        \tikzset{
+          axis line/.style={->, ultra thick, shorten >=6pt, shorten <=6pt},
+        }
+        % Triangle vertices
+        \coordinate (top)   at (4, 6);
+        \coordinate (left)  at (0, 0);
+        \coordinate (right) at (8, 0);
+        % Filled triangle
+        \draw[fill=blue!15, draw=blue!40, thick] (top) -- (right) -- (left) -- cycle;
+        % Arrows along edges
+        \draw[axis line] (top)   -- (right); % top to right
+        \draw[axis line] (right) -- (left);  % right to left (bottom)
+        \draw[axis line] (left)  -- (top);   % left to top
+        % Top label (final amount)
+        \node[above, align=center, font=\small] at (top) {
+          Final amount: \\
+          \$1{,}001{,}373 $-$ \$1{,}000{,}000 $=$ \$1{,}373
+        };
+        % Right edge label (step 1)
+        \node[right, align=left, font=\small] at (6.5, 3.2) {
+          1.\ Sell dollars for euros: \\
+          \$1 million $\times$ 0.8631 \\
+          $=$ \euro{}863{,}100
+        };
+        % Bottom label (step 2)
+        \node[below, align=center, font=\small] at (4, 0) {
+          2.\ Sell euros for pounds: \\
+          \euro{}863{,}100 $\div$ 1.4600 \\
+          $=$ \pounds{}591{,}164.40
+        };
+        % Left edge label (step 3)
+        \node[left, align=right, font=\small] at (1.5, 3.2) {
+          3.\ Sell pounds for dollars: \\
+          \pounds{}591{,}164.40 $\times$ 1.6939 \\
+          $=$ \$1{,}001{,}373
+        };
+      }{Triangular arbitrage using theoretical exchange rates between USD, EUR, and GBP}{fig:triangular_arbitrage}{1.0}
+
+      As shown in \autoref{fig:triangular_arbitrage}, an institution might transact from USD to EUR, EUR to GBP, and finally GBP back to USD. If the market's quoted cross rate diverges from the implied rate dictated by the primary pairs, a mispricing exists. By executing this circuit, an arbitrageur realizes a theoretical risk-free profit, as the near-instantaneous nature of the transactions effectively eliminates exposure to directional market movements.
+
+      In contemporary markets, these anomalies are almost exclusively identified and exploited within milliseconds by \textbf{high-frequency trading (HFT) algorithms} deployed by major financial institutions. The rapid influx of trading volume required to execute the arbitrage inherently corrects the discrepancy, instantaneously driving the currency matrix back into fundamental equilibrium and closing the arbitrage window. In practice, exploiting triangular arbitrage is impossible for retail investors.
 
     \end{core}
 
-    \begin{core}{Pegged vs Floating Currencies}
+  \subsection{Pegged vs Floating Currencies}
 
-      % PEGGED
-        % These are currencies that are linked, or pegged, to another country's
-        % currency value.
+    Currencies are generally classified under two primary exchange rate regimes: pegged and floating. 
 
-        % Example:
-        %     - Hong Kong dollar (HKD) is pegged to the US dollar (USD)
+    \begin{core}{Pegged Currencies \& Foreign Exchange Reserves}
 
-        % Several countries peg their currencies to other currencies
-        % Locked exchange rates are government aspirations, not guarantees
+      \textbf{Pegged currencies} are deliberately linked to the value of another nation's currency, such as the Hong Kong dollar (HKD) being formally tied to the USD. However, these locked rates represent \textbf{governmental policy objectives rather than absolute guarantees}. To defend these pegs, central banks actively manage \textbf{foreign exchange (FX) reserves}, manipulating localized supply and demand to stabilize the currency's valuation around the target rate. 
 
-        % One of the key mechanisms governments use to maintain currency pegs is
-        % foreign exchange (FX) reserves:
-        %     - Reserve cash used to manipulate the supply and demand of a currency
-        %     - This helps stabilize or maintain its value
+      \begin{itemize}
 
-        % Once a pegged currency fails to maintain its peg:
-        %     - Any unpaid foreign debt becomes exceedingly difficult to repay
+        \item When \textbf{open market forces exert downward pressure on the domestic currency}, the central bank intervenes by \textbf{selling its foreign reserve assets to purchase its own currency}. This intervention absorbs excess domestic supply and elevates the currency's value back to the pegged rate. 
 
-      % FLOATING
-        % These are currencies that are not pegged and fluctuate freely in the
-        % global currency market.
+        \item If the \textbf{domestic currency appreciates beyond the targeted threshold}, the central bank will \textbf{sell its own currency to acquire foreign reserves}, thereby increasing domestic supply to systematically suppress the valuation. 
 
-        % Exchange rates are expressed in terms of how much of one currency is
-        % needed to purchase another currency.
+      \end{itemize}
 
-        % Floating currencies move relative to one another in a currency matrix
+      If a central bank ultimately \textbf{depletes its reserves} defending against sustained downward pressure and the peg collapses---a scenario notably demonstrated by Thailand during the \textbf{1997 Asian Financial Crisis} (\textit{\autoref{core:afc}})---servicing foreign-denominated debt becomes substantially more burdensome for the domestic economy.
+
+    \end{core}
+
+    \begin{core}{Floating Currencies}
+
+      \textbf{Floating currencies} are not rigidly tethered; their values \textbf{fluctuate freely} as determined by \textbf{open market dynamics}. Under this regime, exchange rates are strictly relative, quantifying the purchasing power of one currency exclusively in terms of another as they move dynamically within the global currency matrix.
 
     \end{core}
 
 \section{Currency Valuation}
 
-  \begin{core}{Measuring Currency Strength}
+  \begin{core}{Trade-Weighted Baskets}
 
-    % Currency value is relative, not absolute
+    \textbf{Currency valuation} is \textbf{inherently relative} rather than absolute; a single bilateral exchange rate only reflects the dynamic between two specific nations, which can easily obscure broader macroeconomic trends. If you look at a single currency pair, like USD/JPY, and you see the exchange rate rising, you are only seeing a relative shift. It is impossible to tell from that single pair alone whether the US Dollar is getting universally stronger, or if the Japanese Yen is just getting universally weaker.
 
-    % Overall strength or weakness of a currency is determined using
-    % "trade-weighted baskets":
-    %     - Indices that calculate the aggregate value of one currency against
-    %       its major trading partners
-    %     - Larger trading partners are weighted more heavily
+    To accurately gauge a currency's overarching strength or weakness on the global stage, economists utilize \textbf{trade-weighted baskets}. These indices calculate a currency's \textbf{aggregate value} relative to a curated basket of its major trading partners, with \textbf{weightings proportionally assigned based on bilateral trade volumes}. 
 
-    % Trade-weighted baskets measure overall currency strength and weakness
+    \myfig{1}{forex_figures/DX-Y.NYB_plot1}{The U.S. Dollar Index from Jan 2010 to June 2026}{fig:dxy}
+
+    For example, the widely referenced \textbf{U.S. Dollar Index (DXY)} measures the dollar against a basket of six major currencies---the Euro, Japanese Yen, British Pound, Canadian Dollar, Swedish Krona, and Swiss Franc---assigning the heaviest mathematical weighting to the Euro due to the massive volume of transatlantic trade. Consequently, an increase in a trade-weighted index indicates that the domestic currency is broadly appreciating and gaining real purchasing power across the international market, rather than simply fluctuating against an isolated, single counterpart as we have seen with the first USD/JPY scenario.
 
   \end{core}
 
-  \begin{core}{Law of One Price}
+  \begin{core}{Law of One Price \& Purchasing Power Parity}
 
-    % In the long run:
-    %     - Identical goods and services should cost the same regardless of
-    %       where they are sold
+    Over an extended time horizon, currency valuation is \textit{theoretically} anchored by the \textbf{Law of One Price}, an economic principle positing that frictionless arbitrage should dictate that identical goods command an equivalent cost globally. \textit{For instance, if an identical ounce of gold costs \$2,000 in New York but the equivalent of \$1,900 in London, traders will instantly purchase the gold in London and sell it in New York to capture the risk-free profit. This simultaneous action creates massive buying pressure that drives the London price up, and massive selling pressure that drives the New York price down, until the prices meet in the middle and the gap is eliminated.}
 
-    % In the long run, the "Law of One Price" influences currency values
+    When scaled to evaluate an entire economy's standardized consumer basket, this concept expands into \textbf{Purchasing Power Parity (PPP)}. Economists utilize PPP to determine whether a currency is fundamentally overvalued or undervalued relative to its peers, a dynamic that ultimately drives long-term exchange rate equilibrium. This underlying mechanism closely mirrors the concept of \textbf{real interest rate parity} (\textit{\autoref{mac-core:rirp}}), which argues that the frictionless movement of capital across borders should similarly equalize real interest rates globally as investors arbitrage away yield differences.
+
+    However, while PPP provides a reliable \textbf{long-term dynamic equilibrium} on currency values, it is an \textbf{ineffective predictor of short-term volatility} due to real-world market frictions that prevent perfect arbitrage, such as transportation costs, government tariffs, and the economic prevalence of non-tradable goods and services.
 
   \end{core}
 
   \begin{core}{Primary Drivers of Currency Value}
 
-    % Three Main Drivers of Currency Value:
-    % 1. Surprise changes in interest rates
-    % 2. Surprise changes in inflation
-    % 3. Surprise changes in trade
+    In the short term, currency volatility is primarily led by unanticipated shifts in three macroeconomic variables.
 
-    % In the short run, three major drivers are:
-    %     1. Surprise changes in interest rates
-    %     2. Surprise changes in inflation
-    %     3. Surprise changes in trade
+    \begin{enumerate}
 
-    % --- Changes in Interest Rates ---
+      \item \textbf{Interest Rates} 
 
-      % All else being equal:
-      %     - Surprise increases in interest rates generally strengthen a
-      %       currency
+      Assuming all else remains equal, unexpected increases in domestic interest rates typically lead to currency appreciation. Conversely, when a central bank unexpectedly reduces rates, domestic government bond yields decline, rendering the region less attractive to global capital and subsequently weakening demand for the local currency. 
 
-      % When a central bank unexpectedly decreases interest rates:
-      %     - Government bond yields fall
-      %     - Global investment becomes less attractive
-      %     - Demand for that country's currency decreases
-      %     - The currency typically weakens
+      \item \textbf{Inflation Metrics}
 
-    % --- Changes in Inflation ---
+      Inflation also plays a critical role, governed by standard supply and demand mechanics.Inflation also plays a critical role, governed by standard supply and demand mechanics. When a nation's monetary supply expands at an accelerated rate relative to that of its trading partners, it exerts upward pressure on domestic price levels, thereby eroding the currency's purchasing power and rendering it comparatively less attractive to foreign investors and capital holders.
 
-      % The law of supply and demand applies to money:
-      %     - Excess money supply contributes to inflation
+      \item \textbf{Trade Balanaces}
 
-      % When the money supply of one currency expands more rapidly than another:
-      %     - The first currency generally depreciates relative to the second
+      International trade flows heavily dictate currency demand. Robust export activity tends to appreciate a domestic currency because foreign purchasers must acquire the exporter's currency to settle transactions. In contrast, heavy reliance on imports exerts downward pressure, depreciating the importing nation's currency through the inverse mechanism.
 
-    % --- Changes in Trade ---
-
-      % Exports:
-      %     - Lead to currency appreciation
-      %     - Foreign buyers must exchange their currency for the exporter's
-      %       currency
-      %     - This increases demand for the home currency
-
-      % Imports:
-      %     - Tend to depreciate the importing country's currency
-      %     - The opposite mechanism applies
+    \end{enumerate}
 
   \end{core}
 
@@ -206,51 +243,49 @@
 
   \begin{core}{Central Banks}
 
-    % Interest rate expectations and inflation expectations are strongly
-    % influenced by central bankers through monetary policy and rate-setting
-    % agendas.
+    \textbf{Central banks} exert profound influence over global currency markets by actively managing \textbf{monetary policy} (\textit{\autoref{mac-core:monetary}}) to shape \textbf{forward-looking} interest rate and inflation expectations. The predominant mandate of modern central banking is to maintain price stability by guarding against excessive inflation and, less frequently, deflationary spirals. Across most industrialized nations, \textbf{central banks target an annualized inflation rate of approximately 2\%}, as maintaining a low but positive rate of inflation is broadly considered optimal for sustaining economic expansion. Furthermore, inflation targeting relies heavily on \textbf{psychological management}: once anticipations of rising prices become entrenched in consumer behavior, they are exceptionally difficult to reverse as described in \autoref{core:inflationary_cycle} and \autoref{core:deflationary_cycle}.
 
-    % Central bankers strongly influence currency markets
-
-    % The principal goal of central banks is to guard against inflation
-    % (and, more rarely, deflation).
-
-    % Typical inflation target:
-    %     - Approximately 2%
-
-    % The standard inflation target for industrialized nations is around 2%
-
-    % Low but positive inflation is generally considered beneficial for
-    % economic growth.
-
-    % Inflation targeting is partly psychological:
-    %     - Once expectations of rising prices become ingrained, they are
-    %       difficult to reverse
+    \myfig{0.55}{forex_figures/fed_reserve}{The Federal Reserve; \textit{the central bank for the United States}}{fig:fed_reserve}
 
   \end{core}
 
-  \begin{core}{Inflationary Cycle}
+  \begin{core}[label=core:inflationary_cycle]{Inflationary Cycle}
 
-    % Sometimes central banks must take extreme measures to break an
-    % inflationary cycle:
-    %     - Rising wages lead to rising prices
-    %     - Rising prices lead to demands for even higher wages
+    In certain macroeconomic environments, central banks are forced to implement aggressive policy interventions to disrupt an \textbf{entrenched inflationary cycle}. This phenomenon occurs when persistent price increases compel labor forces to demand higher compensation; consequently, corporations raise prices to offset elevated wage expenditures, thereby sustaining a \textbf{self-reinforcing loop of inflation}.
 
-    % Workers expect price increases -> Demand for higher pay -> Companies raise wages -> companies lift prices -> CYCLE
+    \pgfig{
+      % Nodes
+      \node[draw, rectangle] (A) at (0, 2)  {Workers expect price increases};
+      \node[draw, rectangle] (B) at (3.5, 0)  {Demand for higher pay};
+      \node[draw, rectangle] (C) at (0, -2) {Companies raise wages};
+      \node[draw, rectangle] (D) at (-3.5, 0) {Companies lift prices};
 
-    % Inflation can create a vicious cycle of wage and price increases
+      % Arrows
+      \draw[->, >=latex, line width=1pt] (A) -- (B);
+      \draw[->, >=latex, line width=1pt] (B) -- (C);
+      \draw[->, >=latex, line width=1pt] (C) -- (D);
+      \draw[->, >=latex, line width=1pt] (D) -- (A);
+    }{Inflationary wage-price spiral}{fig:inflationary_cycle}{0.9}
 
   \end{core}
 
-  \begin{core}{Deflationary Cycle}
+  \begin{core}[label=core:deflationary_cycle]{Deflationary Cycle}
 
-    % Deflation can also become self-reinforcing:
-    %     - Consumers delay purchases expecting lower future prices
-    %     - Reduced demand leads to layoffs and slower economic activity
+    \textbf{Deflationary cyules} present an equally hazardous, \textbf{self-reinforcing} economic threat. As general price levels decline, rational consumers increasingly defer discretionary purchases in anticipation of further price reductions. This subsequent contraction in aggregate demand suppresses corporate revenues, ultimately forcing businesses to reduce operating costs through mass layoffs and thus severely stifling broader economic activity.
 
-    % Prices decline -> consumers defer purchases to await lower prices -> company revenues decline -> companies let go of workers to cut costs -> CYCLE
+    \pgfig{
+      % Nodes
+      \node[draw, rectangle] (A) at (0, 2)   {Prices Decline};
+      \node[draw, rectangle, align=center] (B) at (3.5, 0)  {Consumers defer \\ purchases to await \\ lower prices};
+      \node[draw, rectangle, align=center] (C) at (0, -2)  {Company \\ Revenues Decline};
+      \node[draw, rectangle, align=center] (D) at (-3.5, 0) {Companies let go of \\ workers to cut costs};
 
-    % Deflation can create a vicious cycle of delayed spending and layoffs
+      % Arrows
+      \draw[->, >=latex, line width=1pt] (A) -- (B);
+      \draw[->, >=latex, line width=1pt] (B) -- (C);
+      \draw[->, >=latex, line width=1pt] (C) -- (D);
+      \draw[->, >=latex, line width=1pt] (D) -- (A);
+    }{The deflationary spiral}{fig:deflationary-spiral}{0.9}
 
   \end{core}
 
@@ -258,61 +293,253 @@
 
   \begin{core}{Impact of Currency Movements}
 
-    % Currency movements can significantly impact:
-    %     - Investment returns
-    %     - Corporate financial planning
+    Exchange rate fluctuations introduce significant volatility into international investment returns and multinational corporate financial planning. For instance, consider a hypothetical investment in the Japanese equity market throughout 2013 as an investor initially holding capital in USD. While the underlying Japanese index, the TOPIX, experienced a robust localized appreciation of 46\%, the Japanese yen simultaneously depreciated from 86.75 to 105.26 against the USD. Consequently, a \$1 million capital allocation originating in USD would have realized a \textbf{heavily diluted net return} of approximately 21\%, as the severe depreciation of the underlying operational currency offset the broader equity capital gains. 
+    The following is a step by step calculation of the scenario presented.
 
-    % Currency movements can significantly affect corporations and investors
+    The investor begins with an initial capital allocation and prevailing spot rate.
+    \[
+      C_{\text{USD}} = 1{,}000{,}000 \ \text{USD} \qquad S_0 = 86.75 \ \text{JPY/USD}
+    \]
+    \[
+      C_{\text{JPY}} = C_{\text{USD}} \times S_0 = 1{,}000{,}000 \times 86.75 = 86{,}750{,}000 \ \text{JPY}
+    \]
 
-    % Example:
-    %     TOPIX (Japanese stock index):
-    %         888.51 → 1301.29 in 2013
+    The TOPIX index appreciates over the investment horizon.
+    \[
+      r_{\text{TOPIX}} = 46\% = 0.46
+    \]
+    \[
+      C_{\text{JPY}}' = C_{\text{JPY}} \times (1 + r_{\text{TOPIX}}) = 86{,}750{,}000 \times 1.46 = 126{,}655{,}000 \ \text{JPY}
+    \]
 
-    %     Yen per US dollar:
-    %         86.75 → 105.26 in 2013
-    %         (The yen weakened against the dollar)
+    The yen has since depreciated to a new terminal spot rate, which used to reconvert to USD.
+    \[
+      S_1 = 105.26 \ \text{JPY/USD}
+    \]
+    \[
+      C_{\text{USD}}' = \frac{C_{\text{JPY}}'}{S_1} = \frac{126{,}655{,}000}{105.26} \approx \$1{,}203{,}047
+    \]
 
-    % Suppose you invested:
-    %     - $1 million USD into TOPIX
-    %     - Equivalent to approximately 87 million yen
+    The net USD return is therefore substantially diluted ($20.3\%$) relative to the local equity gain ($46\%$).
+    \[
+      r_{\text{net}} = \frac{C_{\text{USD}}' - C_{\text{USD}}}{C_{\text{USD}}} = \frac{1{,}203{,}047 - 1{,}000{,}000}{1{,}000{,}000} \approx 20.3\%
+    \]
 
-    % By the end of 2013:
-    %     - TOPIX increased by 46%
-    %     - However, your return in USD terms was only about 21%
-    %     - This occurred because the yen weakened relative to the dollar
+    This result generalises to the following currency-adjusted return formula.
+    \[
+      r_{\text{net}} = (1 + r_{\text{local}})\times \frac{S_0}{S_1} - 1
+    \]
 
   \end{core}
 
   \begin{core}{Hedging Strategies}
 
-    % Investors can lock in currency exposure for long periods using the
-    % currency forward market.
+    To mitigate foreign exchange risks, institutional investors and multinational corporations frequently utilize the \textbf{currency forward market}. A \textbf{forward contract} functions as a legally binding agreement to lock in a specific exchange rate today for a transaction that will occur on a designated date in the future. Market participants execute these agreements for two distinct reasons.
 
-    % Historical volatility and exchange-rate forecasts help assess risk
+    \begin{itemize}
 
-    % Forward agreements allow investors to hedge or speculate on currencies
+      \item \textbf{Corporations} use them as insurance to strategically hedge operational costs and secure their future budgets.
 
-    % Example:
-    %     Spot price:
-    %         $1.36 per euro
+      \item \textbf{Investment funds} use them to systematically speculate on directional currency movements. 
 
-    %     10-year forward offer:
-    %         $1.52 per euro
+    \end{itemize}
 
-    % Interpretation:
-    %     - The market expects the dollar to weaken against the euro
-    %     - You benefit if the actual exchange rate exceeds $1.52 per euro
-    %       after 10 years
-    %     - This allows you to purchase euros at a cheaper predetermined rate
+    For example, if the current spot price (\textit{for immediate delivery}) is \$1.36 per euro, but a ten-year forward rate is priced at \$1.52 per euro, this premium indicates a strong market consensus that the USD will depreciate relative to the EUR over that decade. An investor executing this forward contract secures the legal right---and \textbf{obligation}---to acquire euros at the \$1.52 threshold ten years later. 
+
+    \begin{enumerate}
+
+      \item If the actual \textbf{open market exchange rate climbs to \$1.70 per euro} after a decade, the contract becomes \textbf{highly profitable}, as the investor can purchase euros at the cheaper predetermined rate. 
+
+      \item Conversely, if the market was wrong and \textbf{the euro depreciates to \$1.20}, the investor is still obligated to purchase euros at the locked-in \$1.52 rate, resulting in a \textbf{financial loss} relative to the open market.
+
+    \end{enumerate}
 
   \end{core}
 
 \section{Historical Events}
 
-  \begin{core}[label=core:aec]{Asian Economic Crisis (1997)}
+  \subsection{Bretton Woods}
 
-  \end{core}
-  
+    \begin{core}{Bretton Woods Agreement (1944)}
+
+      \sbs{0.45}{
+        Prior to 1944, the global monetary system historically relied on the \textbf{gold standard}, in which national currencies were pegged to a specific quantity of gold. Following World War II, however, the global gold supply grew too slowly to support the anticipated economic expansion. Furthermore, the United States had accumulated roughly 70\% of the world's monetary gold, leaving European nations with insufficient reserves to back their domestic currencies.
+
+        To address these imbalances, delegates from the Allied nations convened in 1944 to establish the \textbf{Bretton Woods system}, a landmark agreement that designated the \textbf{United States dollar as the primary global reserve currency}, pegging it directly to gold at \$35 per ounce.
+      }{
+        \myfig{0.95}{forex_figures/bretton_woods}{Bretton Woods conference on July 1944}{fig:bretton}
+      }
+
+      In turn, participating nations agreed to peg their respective currencies to the dollar, establishing a stable, fixed exchange rate environment designed to facilitate international trade and promote global economic recovery.
+
+    \end{core}
+
+  \subsection{Post-Nixon Shock}
+
+    \begin{core}[label=core:nixon_shock]{Nixon Shock (1971)}
+
+      \sbs{0.4}{
+        The Bretton Woods system effectively collapsed in 1971 through a series of unilateral economic policy changes collectively known as the \textbf{Nixon Shock}. During the late 1960s, the United States entered a period of \textbf{severe inflation} driven by the simultaneous pursuit of deficit spending on the Vietnam War and expansive domestic social programs under President Lyndon B. Johnson. This aggressive \textbf{fiscal policy} (\textit{\autoref{mac-core:fiscal}}), combined with a rapidly increasing \textbf{money supply} (\textit{\autoref{mac-core:mmarket}}), progressively eroded the purchasing power of the dollar and produced substantial trade deficits.
+      }{
+        \myfig{0.78}{forex_figures/nixon}{President Richard Nixon addressing the nation about the suspension of the dollar's convertibility to gold}{fig:nixon_shock}
+      }
+      
+      Facing this resulting domestic inflation and a severe depletion of physical gold reserves due to mounting foreign dollar holdings, the United States government formally \textbf{suspended the direct convertibility of the dollar into gold}. This pivotal decision severed the definitive link between precious metals and the global monetary system, thereby transitioning international finance into the \textbf{modern era of free-floating, fiat-based exchange rates governed by market forces}.
+
+    \end{core}
+
+    \begin{core}{Smithsonian Agreement \& The Modern Foreign Exchange Market (1973)}
+
+      Instead of letting currencies float freely right away, world leaders met at the Smithsonian Institution in December 1971 to save the fixed-rate system through the \textbf{Smithsonian Agreement}.
+
+      \myfig{0.55}{forex_figures/smithsonian}{Rinaldo Ossola, deputy governor of the Bank of Italy (\textit{left}) chats with John Connally (\textit{right}), U.S. Treasury Secretary and chairman of the meeting at the Smithsonian Institution in December 1971}{fig:smithsonian}
+
+      In March 1973, following an intense speculative panic that rendered central bank interventions ineffective, major European nations and Japan permanently abandoned their fixed currency pegs to the U.S. dollar, precipitating the \textbf{collapse of the Smithsonian Agreement}. This pivotal institutional shift formally transitioned currency valuation from a administratively mandated framework to a free-market, thereby establishing the foundation of the decentralized foreign exchange market that exists today.
+
+    \end{core}
+
+    \begin{core}{The Petrodollar System (1974)}
+
+      Following the collapse of the gold standard, the United States secured the dollar's global dominance by establishing the \textbf{petrodollar system}. Through a historic 1974 bilateral agreement with Saudi Arabia---which eventually expanded to all OPEC nations---the U.S. exchanged military protection and arms for a \textbf{mandate that global oil exports be transacted exclusively in U.S. dollars}.
+
+      \myfig{0.56}{forex_figures/petrodollar}{US President Nixon and King Faisal of the Kingdom of Saudi Arabia, after inking the petrodollar deal in June 1974}{fig:petrodollar}
+
+      This framework guaranteed an \textbf{artificial, perpetual global demand for the currency}, as all industrialized nations required dollars to purchase energy. The resulting surplus oil revenues were then systematically channeled back into the U.S. financial system through "\textbf{petrodollar recycling}"---primarily via the purchase of U.S. Treasury bonds---effectively subsidizing American government debt and cementing the dollar as the anchor of global liquidity.
+
+    \end{core}
+
+  \subsection{Late 20th Century Crises}
+
+    \begin{core}{Plaza and Louvre Accords (1985--1987)}
+
+      \sbs{0.5}{
+        In 1985, the G-5 nations established the \textbf{Plaza Accord} to address a heavily overvalued U.S. dollar, which had emerged following a period of high domestic interest rates and was severely hindering American manufacturing exports. This joint agreement required participating countries to actively intervene in global currency markets by \textbf{collectively selling dollars to lower its value} against the Japanese yen and the German Deutsche Mark. The primary goal of this coordinated macroeconomic effort was to engineer a controlled depreciation of the currency, thereby stabilizing international trade and reducing the massive U.S. trade deficit.
+      }{
+        \myfig{0.95}{forex_figures/plaza}{The Plaza Accord in 1985}{fig:plaza}
+      }
+
+      While the intervention was successful, the resulting depreciation was so rapid and steep---with the dollar losing roughly half its value against the yen and mark over two years---that it raised concerns about a potential collapse of the U.S. currency and the risk of imported inflation. In response, the major economies reconvened in 1987 to sign the \textbf{Louvre Accord}. This follow-up agreement was designed to halt the dollar's continued decline by informally establishing target exchange rate ranges. By committing to coordinate their domestic monetary policies and intervene to \textbf{support the dollar}, the participating nations sought to stabilize international exchange rates and restore predictability to the global markets.
+
+      \myfig{0.95}{forex_figures/DX-Y.NYB_plot2}{The U.S. Dollar Index from Feb 1985 to Jan 1990}{fig:plaza_plot}
+
+    \end{core}
+
+    \begin{core}{Black Wednesday (1992)}
+
+      In 1990, the United Kingdom formally entered the \textbf{European Exchange Rate Mechanism (ERM)}, a precursor to the Euro designed to foster monetary stability across Europe by pegging member currencies to one another---most critically, to the German Deutsche Mark. Under this arrangement, the UK committed to maintaining the pound's value within a rigidly defined band. By 1992, however, a \textbf{divergence in macroeconomic conditions between the UK and Germany} rendered this commitment increasingly unmaintable. The UK was in a severe recession, necessitating lower interest rates to stimulate domestic growth. Germany, conversely, was experiencing the considerable fiscal pressures of reunification after the collapse of the Berlin Wall, prompting aggressive interest rate hikes in order to contain inflation. Bound by its ERM obligations, the UK was compelled to maintain elevated interest rates in order to defend the pound's peg, thereby further suppressing an already fragile economy and leaving the \textbf{pound structurally overvalued}.
+
+      Institutional currency speculators---most notably \textbf{George Soros}---identified this vulnerability and recognized that the UK government could not indefinitely sustain the economic costs of defending an overvalued peg. Acting on this conviction, Soros and other market participants began accumulating substantial short positions in sterling, committing billions in capital to the bet that a devaluation or forced withdrawal was inevitable.
+
+      On September 16, 1992---the date that would become known as \textbf{Black Wednesday}---the Bank of England mounted a determined defence of the pound's ERM peg, deploying billions in foreign currency reserves to purchase sterling and \textbf{artificially sustain demand}. In a final and extraordinary measure, the government escalated the base interest rate from 10\% to 12\%, and subsequently to 15\% within a single trading day.
+
+      \myfig{0.85}{forex_figures/bwed}{UK Pound Sterling to the German Deutsche Mark from Sep 1988 to Nov 1993; \textit{the pound sterling value plummetted following the selling pressure of the market and institutional traders, namely George Soros}}{fig:black_wednesday}
+
+      The intervention proved insufficient. Speculative selling pressure overwhelmed the capacity of official support mechanisms, and by the close of trading, the British government was compelled to concede defeat. The pound was withdrawn from the ERM and allowed to float freely, upon which its value depreciated sharply and immediately.
+
+    \end{core}
+
+    \begin{core}{Mexican Peso Crisis (1994)}
+
+      In the early 1990s, Mexico was an investor darling. It had just signed the \textbf{North American Free Trade Agreement (NAFTA)}---a trilateral treaty that eliminated most tariffs and trade barriers among the United States, Canada, and Mexico---inflation was down, and the country was modernizing. The Mexican government pegged the peso to the U.S. dollar to signal stability. To fund its spending, the government issued short-term, dollar-linked bonds called \textbf{Tesobonos}.
+
+      The \textbf{Mexican Peso Crisis}, also known as the "\textit{Tequila Crisis}", was triggered in late 1994 when severe domestic political instability---marked by a violent peasant uprising in Chiapas and the assassination of the leading presidential candidate, Luis Donaldo Colosio---and rising U.S. interest rates (\textit{which made U.S. bonds more attractive than Mexican assets}) forced the Mexican government to suddenly devalue the peso. 
+
+      This unexpected move instantly shattered foreign investor confidence, particularly because Mexico had accumulated massive amounts of the dollar-linked \textit{Tesobonos} debt that it could no longer repay. The resulting panic fueled massive capital flight, which completely depleted the nation's foreign exchange reserves and brought the country to the brink of a sovereign default. 
+
+      \myfig{0.8}{forex_figures/mex_peso}{Mexican Peso Crisis of 1994; \textit{peso value plummets following political instability, namely the Chiapas uprising}}{fig:mex_peso}
+
+      To prevent a global financial meltdown, U.S. President Bill Clinton put together an international bailout package in early 1995. While the bailout saved Mexico from default, the country endured a brutal recession, widespread bank failures, and years of economic hardship.
+
+    \end{core}
+
+    \begin{core}[label=core:afc]{Asian Financial Crisis (1997--1998)}
+
+      During the early to mid-1990s, the export-driven economies of Southeast Asia and South Korea, collectively celebrated as the "\textit{Asian Tigers}," experienced large capital inflows. To attract international investors, these nations maintained pegs tied closely to the USD, eliminating perceived foreign exchange risk. This environment fueled an aggressive, debt-reliant expansion, as local banks and conglomerates borrowed heavily in cheap, unhedged dollar-denominated short-term debt to fund speculative real estate and industrial projects.
+
+      The \textbf{Asian Financial Crisis} was triggered in July 1997 when a strengthening USD and cooling regional export growth began exposing these vulnerabilities. Currency speculators, recognizing that the local property bubbles were cracking, launched massive short-selling attacks against the Thai baht. After depleting its foreign exchange reserves in an attempt to defend the currency's floor, the Bank of Thailand was forced to abandon its currency pegs on July 2, 1997, causing the baht to float freely and immediately plummet.
+
+      The unpegging of the baht triggered a rapid, systemic financial contagion that instantly swept across Malaysia, Indonesia, and South Korea. As panicked foreign capital fled the region, local currencies collapsed, causing the real value of the private sector's dollar-denominated debts to double overnight. This sudden balance-sheet shock forced widespread corporate bankruptcies, paralyzed banking sectors, and brought multiple nations to the absolute brink of sovereign default.
+
+      \myfig{0.5}{forex_figures/asian_crisis}{The Asian Financial Crisis of 1997--1998; \textit{abrupt collapse of fixed exchange rate pegs triggers widespread regional currency depreciation, capital flight, and recession}}{fig:asian_crisis}
+
+      To stabilize the international financial architecture, the \textbf{International Monetary Fund (IMF)} engineered massive, multi-billion dollar emergency bailout packages for Thailand, Indonesia, and South Korea. However, these emergency funds were conditional on harsh measures, forcing governments to sharply raise interest rates, slash public spending, and shut down insolvent financial institutions. While these interventions eventually stabilized exchange rates, the painful adjustments plunged the region into a severe economic depression characterized by high unemployment, social unrest, and profound political transformation.
+
+    \end{core}
+
+    \begin{core}{Russian Ruble Crisis \& LTCM Collapse (1998)}
+
+      In the late 1990s, the Russian Federation faced economic strain driven the \textbf{Asian financial Crisis} and the consequent decline in global oil prices (\textit{\autoref{com-core:aec}}). To finance its persistent fiscal deficits and stabilize the economy, the Russian government relied heavily on high-yield, short-term domestic treasury bills known as \textbf{GKOs}. Despite significant financial backing from the IMF, structural tax collection issues and a weak banking sector left the nation increasingly vulnerable to speculative pressure on the ruble.
+
+      The \textbf{Russian Ruble Crisis} erupted on August 17, 1998, when the government and the Central Bank of Russia unexpectedly declared a 90-day pause on foreign debt payments, defaulted on its domestic GKO obligations, and abandoned the ruble's trading band. This unprecedented sovereign default by a nuclear power shocked international markets, causing the ruble to plummet in value and severely fracturing investor confidence across all emerging markets.
+
+      The sudden default triggered a severe global liquidity freeze and a violent, historical "\textit{flight to quality}", where investors scrambled out of all high-yield assets into ultra-safe U.S. Treasuries. This historic divergence in asset prices directly precipitated the near-collapse of \textbf{Long-Term Capital Management (LTCM)}, a massive American hedge fund. LTCM had utilized extreme leverage to execute arbitrage strategies that \textbf{bet on the convergence of global bond spreads}; when markets diverged instead, the fund incurred catastrophic losses that threatened the entire Wall Street financial infrastructure.
+
+      \myfig{0.8}{forex_figures/ltcm}{Long-Term Capital Management performance against S\&P 500 index growth; \textit{collapse due to losses incurred indirectly from the Russian Ruble Crisis}}{fig:ltcm}
+
+      To avert an imminent systemic failure of the broader U.S. financial system, the Federal Reserve Bank of New York intervened in September 1998 and orchestrated a private rescue package funded by a collection of fourteen major Wall Street banks and brokerage firms. While this stabilization effort prevented an chaotic unwinding of LTCM's massive positions, the dual crisis underscored the profound systemic risks that highly leveraged quantitative trading strategies pose to global financial stability.
+
+    \end{core}
+
+  \subsection{The Euro Era}
+
+    \begin{core}[label=core:euro_intro]{The Euro \& European Central Bank (1999)}
+
+      \sbs{0.4}{
+        The single currency initiative was officially formalized under the 1992 \textbf{Maastricht Treaty}, which established strict fiscal convergence criteria regarding inflation, national deficits, and debt-to-GDP ratios for aspiring member states. On January 1, 1999, the European Union launched the \textbf{euro} as an electronic accounting currency across 11 founding nations (\textit{Austria, Belgium, Finland, France, Germany, Ireland, Italy, Luxembourg, Netherlands, Portugal, Spain}). 
+      }{
+        \myfig{0.8}{forex_figures/maastricht}{The Maastricht Treaty of 1992 at the Netherlands}{fig:maastricht}
+      }
+
+      This milestone permanently locked the legacy exchange rates of participating currencies and consolidated regional monetary policy under the newly established \textbf{European Central Bank (ECB)} in Frankfurt, Germany, effectively \textbf{stripping member states of independent monetary policies}.
+
+      The integration process was completed on January 1, 2002, when \textbf{physical euro banknotes and coins entered public circulation} in what was the largest logistical cash conversion in financial history. This rollout \textbf{completely retired national currencies} like the French franc and German Deutsche Mark, removing cross-border transaction costs and maximizing price transparency. However, it created a unique economic architecture: a \textbf{monetary union} sharing a centralized central bank, but lacking a unified \textbf{fiscal union} to govern collective taxation and spending.
+
+
+    \end{core}
+
+    \begin{core}[label=core:euro_debt]{Greek Sovereign Debt Crisis (2010)}
+
+      The structural vulnerabilities of the Eurozone were fully exposed in the wake of the \textbf{2008 global financial crisis} (\textit{\autoref{core:global_crisis}}), manifesting as a sovereign debt crisis centered on Greece. Prior to the crash, Greece had exploited the collective creditworthiness of the Eurozone to borrow heavily at artificially low interest rates. When the credit cycle turned in 2010, the country found itself encumbered with acute budget deficits and an unserviceable debt burden. Having ceded monetary sovereignty to the ECB, Greece was unable to unilaterally reduce interest rates to stimulate growth or devalue its currency to restore export competitiveness.
+
+      \myfig{1}{forex_figures/greek}{Greek sovereign bond yields from 2000 to 2022; \textit{the spikes in yields represent the skyrocketing market risk premiums during the bailouts of 2010, 2012, and 2015}}{fig:greek_crisis}
+
+      The crisis exposed the systemic dangers of a monetary union lacking fiscal integration, as the threat of a Greek sovereign default generated severe contagion risks across European banking institutions. Containment required \textbf{a \euro110 billion coordinated bailout} from the \textbf{Troika}---the IMF, ECB, and the European Commission---conditional upon the implementation of stringent austerity measures, including deep spending cuts and tax increases, which subsequently induced a severe domestic recession.
+
+      A \textbf{second bailout} of approximately \euro130 billion was negotiated in 2012 after the initial programme failed to restore solvency. It was accompanied by a landmark \textbf{private sector involvement (PSI)} agreement---the largest sovereign debt restructuring in history at the time---under which private creditors accepted a nominal haircut of approximately 50\% on their Greek bond holdings. An intensified conditionality framework imposed further structural reforms, privatisation commitments, and Troika-monitored fiscal targets. Despite the scale of intervention, Greek GDP contracted by over 25\% between 2008 and 2013 and unemployment peaked at approximately 27\%, prompting substantial debate over the design and consequences of the adjustment programme.
+
+      A \textbf{third and final bailout} of \euro86 billion was agreed in August 2015 under the European Stability Mechanism (ESM), amid acute political turbulence that elevated the prospect of \textbf{Grexit} (\textit{a Greek exit from the Eurozone}) to the centre of international financial discourse. The crisis was driven by the January 2015 election of the anti-austerity Syriza political party, whose refusal to accept creditor demands led to the imposition of capital controls and the temporary closure of Greek banks. The government then called a snap referendum, in which voters clearly rejected the creditors' proposed terms. Despite this, the Greek government backed down and accepted a third programme that was widely seen as harsher than the deal that had been put to voters.
+
+    \end{core}
+
+  \subsection{Modern Era}
+
+    \begin{core}[label=core:global_crisis]{Global Financial Crisis (2008--2009)}
+
+      Sparked by the catastrophic collapse of the United States subprime mortgage market, the Global Financial Crisis severely disrupted international credit networks and triggered a severe global recession. In response, major central banks coordinated unprecedented monetary interventions, including aggressive interest rate reductions and massive quantitative easing programs, to restore systemic liquidity and stabilize failing financial institutions.
+
+    \end{core}
+
+    \begin{core}{Swiss Franc Shock (2015)}
+
+      In January 2015, the Swiss National Bank unexpectedly abandoned its three-year policy of capping the value of the Swiss franc against the euro. This sudden policy reversal caused the currency to appreciate violently within minutes, inflicting massive instantaneous losses on leveraged retail traders, institutional funds, and foreign exchange brokerages worldwide.
+
+    \end{core}
+
+    \begin{core}{Brexit (2016)}
+
+      The unexpected outcome of the 2016 United Kingdom referendum to exit the European Union injected profound political and economic uncertainty into global markets. In the immediate aftermath, the British pound suffered a historic, precipitous depreciation against major peers, reflecting severe market anxiety regarding the structural risks to the UK's future trade relations and regulatory autonomy.
+
+    \end{core}
+
+    \begin{core}{USD Surge (2022)}
+
+      Facing multi-decade high domestic inflation, the United States Federal Reserve initiated an aggressive cycle of interest rate hikes in 2022. This rapid tightening of monetary policy, combined with a broader market flight to safety amid geopolitical instability in Eastern Europe, drove massive capital inflows into the United States, propelling the dollar to historic, two-decade highs against most major global currencies.
+
+    \end{core}
+
+% modern currency pegs
+% financial regulatory institutions
+
 \end{document}
 
 

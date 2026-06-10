@@ -1669,12 +1669,12 @@
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{t2}\PYG{o}{.}\PYG{n}{start}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+go}{Producing}
 \PYG{g+go}{Produced}
-\PYG{g+go}{Consume Data: 39}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{t1}\PYG{o}{.}\PYG{n}{join}\PYG{p}{(}\PYG{p}{)}
-\PYG{g+go}{Ready to consume}
+\PYG{g+go}{Consume Data: 25}
 \PYG{g+go}{Producing}
 \PYG{g+go}{Produced}
-\PYG{g+go}{Consume Data: 34}
+\PYG{g+go}{Ready to consume}
+\PYG{g+go}{Consume Data: 10}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{t2}\PYG{o}{.}\PYG{n}{join}\PYG{p}{(}\PYG{p}{)}
 \end{pytx@SaveVerbatim}
 
@@ -1716,8 +1716,10 @@
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{threading}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{time}
 
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{stop\PYGZus{}event} \PYG{o}{=} \PYG{n}{threading}\PYG{o}{.}\PYG{n}{Event}\PYG{p}{(}\PYG{p}{)}
+
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k}{def}\PYG{+w}{ }\PYG{n+nf}{background\PYGZus{}task}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
-\PYG{g+gp}{... }    \PYG{k}{while} \PYG{k+kc}{True}\PYG{p}{:}
+\PYG{g+gp}{... }    \PYG{k}{while} \PYG{o+ow}{not} \PYG{n}{stop\PYGZus{}event}\PYG{o}{.}\PYG{n}{is\PYGZus{}set}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
 \PYG{g+gp}{... }        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Daemon running...}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
 \PYG{g+gp}{... }        \PYG{n}{time}\PYG{o}{.}\PYG{n}{sleep}\PYG{p}{(}\PYG{l+m+mf}{0.5}\PYG{p}{)}
 \PYG{g+gp}{... }
@@ -1726,8 +1728,7 @@
 \PYG{g+gp}{... }        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Main thread working: step }\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{p}{)}
 \PYG{g+gp}{... }        \PYG{n}{time}\PYG{o}{.}\PYG{n}{sleep}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}
 \PYG{g+gp}{... }
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{t1} \PYG{o}{=} \PYG{n}{threading}\PYG{o}{.}\PYG{n}{Thread}\PYG{p}{(}\PYG{n}{target}\PYG{o}{=}\PYG{n}{background\PYGZus{}task}\PYG{p}{)}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{t1}\PYG{o}{.}\PYG{n}{daemon} \PYG{o}{=} \PYG{k+kc}{True} \PYG{c+c1}{\PYGZsh{} designates t1 as a daemon thread}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{t1} \PYG{o}{=} \PYG{n}{threading}\PYG{o}{.}\PYG{n}{Thread}\PYG{p}{(}\PYG{n}{target}\PYG{o}{=}\PYG{n}{background\PYGZus{}task}\PYG{p}{,} \PYG{n}{daemon}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{t2} \PYG{o}{=} \PYG{n}{threading}\PYG{o}{.}\PYG{n}{Thread}\PYG{p}{(}\PYG{n}{target}\PYG{o}{=}\PYG{n}{main\PYGZus{}task}\PYG{p}{)}
 
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{t1}\PYG{o}{.}\PYG{n}{start}\PYG{p}{(}\PYG{p}{)}
@@ -1742,6 +1743,9 @@
 \PYG{g+go}{Main thread working: step 2}
 \PYG{g+go}{Daemon running...}
 \PYG{g+go}{Daemon running...}
+
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{stop\PYGZus{}event}\PYG{o}{.}\PYG{n}{set}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{t1}\PYG{o}{.}\PYG{n}{join}\PYG{p}{(}\PYG{p}{)}
 \end{pytx@SaveVerbatim}
 
 \begin{pytx@SaveVerbatim}[commandchars=\\\{\}]{pytx@pycon@default@default@114}
@@ -1761,7 +1765,7 @@
 \begin{pytx@SaveVerbatim}[commandchars=\\\{\}]{pytx@pycon@default@default@115}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{os}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{os}\PYG{o}{.}\PYG{n}{listdir}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
-\PYG{g+go}{[\PYGZsq{}python.synctex.gz\PYGZsq{}, \PYGZsq{}out.txt\PYGZsq{}, \PYGZsq{}math\PYGZus{}utils.py\PYGZsq{}, \PYGZsq{}python.pdf\PYGZsq{}, \PYGZsq{}inventory.xml\PYGZsq{}, \PYGZsq{}pythontex\PYGZhy{}files\PYGZhy{}python\PYGZsq{}, \PYGZsq{}python.tex\PYGZsq{}, \PYGZsq{}python.fdb\PYGZus{}latexmk\PYGZsq{}, \PYGZsq{}python.toc\PYGZsq{}, \PYGZsq{}session.pkl\PYGZsq{}, \PYGZsq{}python.out\PYGZsq{}, \PYGZsq{}\PYGZus{}\PYGZus{}pycache\PYGZus{}\PYGZus{}\PYGZsq{}, \PYGZsq{}err.txt\PYGZsq{}, \PYGZsq{}data.json\PYGZsq{}, \PYGZsq{}sandbox\PYGZsq{}, \PYGZsq{}python.pytxcode\PYGZsq{}, \PYGZsq{}sensor\PYGZus{}data.txt\PYGZsq{}, \PYGZsq{}python.fls\PYGZsq{}, \PYGZsq{}python.log\PYGZsq{}, \PYGZsq{}python.aux\PYGZsq{}]}
+\PYG{g+go}{[\PYGZsq{}out.txt\PYGZsq{}, \PYGZsq{}math\PYGZus{}utils.py\PYGZsq{}, \PYGZsq{}python.pdf\PYGZsq{}, \PYGZsq{}inventory.xml\PYGZsq{}, \PYGZsq{}pythontex\PYGZhy{}files\PYGZhy{}python\PYGZsq{}, \PYGZsq{}python.tex\PYGZsq{}, \PYGZsq{}python.toc\PYGZsq{}, \PYGZsq{}session.pkl\PYGZsq{}, \PYGZsq{}python\PYGZus{}figures\PYGZsq{}, \PYGZsq{}python.out\PYGZsq{}, \PYGZsq{}\PYGZus{}\PYGZus{}pycache\PYGZus{}\PYGZus{}\PYGZsq{}, \PYGZsq{}err.txt\PYGZsq{}, \PYGZsq{}data.json\PYGZsq{}, \PYGZsq{}sandbox\PYGZsq{}, \PYGZsq{}python.pytxcode\PYGZsq{}, \PYGZsq{}sensor\PYGZus{}data.txt\PYGZsq{}, \PYGZsq{}python.log\PYGZsq{}, \PYGZsq{}python.aux\PYGZsq{}]}
 \end{pytx@SaveVerbatim}
 
 \begin{pytx@SaveVerbatim}[commandchars=\\\{\}]{pytx@pycon@default@default@116}
@@ -1817,7 +1821,6 @@
 \begin{pytx@SaveVerbatim}[commandchars=\\\{\}]{pytx@pycon@default@default@118}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{subprocess}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{subprocess}\PYG{o}{.}\PYG{n}{run}\PYG{p}{(}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{echo}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Hello from the subshell!}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} returncode of 0 means success}
-\PYG{g+go}{Daemon running...}
 \PYG{g+go}{CompletedProcess(args=[\PYGZsq{}echo\PYGZsq{}, \PYGZsq{}Hello from the subshell!\PYGZsq{}], returncode=0)}
 \end{pytx@SaveVerbatim}
 
@@ -1908,7 +1911,7 @@
 
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{pkl\PYGZus{}files2} \PYG{o}{=} \PYG{n}{glob}\PYG{o}{.}\PYG{n}{glob}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{**/*.pkl}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{recursive}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} retrieve all .pkl files spanning a nested directory structure}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{pkl\PYGZus{}files2}\PYG{p}{)}
-\PYG{g+go}{[\PYGZsq{}session.pkl\PYGZsq{}, \PYGZsq{}pythontex\PYGZhy{}files\PYGZhy{}python/pythontex\PYGZus{}data.pkl\PYGZsq{}]}
+\PYG{g+go}{[\PYGZsq{}session.pkl\PYGZsq{}]}
 \end{pytx@SaveVerbatim}
 
 \begin{pytx@SaveVerbatim}[commandchars=\\\{\}]{pytx@pycon@default@default@125}
@@ -1929,27 +1932,27 @@
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{:}
 \PYG{g+gp}{... }    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{random}\PYG{o}{.}\PYG{n}{random}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
 \PYG{g+gp}{... }
-\PYG{g+go}{0.06703207079546747}
-\PYG{g+go}{0.6021744385096649}
-\PYG{g+go}{0.4060466733069782}
+\PYG{g+go}{0.19374931564297027}
+\PYG{g+go}{0.4190388103229148}
+\PYG{g+go}{0.4981776672312749}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{:}
 \PYG{g+gp}{... }    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{random}\PYG{o}{.}\PYG{n}{randint}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{50}\PYG{p}{)}\PYG{p}{)}
 \PYG{g+gp}{... }
-\PYG{g+go}{2}
-\PYG{g+go}{9}
-\PYG{g+go}{20}
+\PYG{g+go}{25}
+\PYG{g+go}{43}
+\PYG{g+go}{8}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{:}
 \PYG{g+gp}{... }    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{random}\PYG{o}{.}\PYG{n}{uniform}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{50}\PYG{p}{)}\PYG{p}{)}
 \PYG{g+gp}{... }
-\PYG{g+go}{27.165423691278544}
-\PYG{g+go}{32.93936963660495}
-\PYG{g+go}{5.240763683989456}
+\PYG{g+go}{44.795448459971006}
+\PYG{g+go}{43.16083745746729}
+\PYG{g+go}{34.58645663032953}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{:}
 \PYG{g+gp}{... }    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{random}\PYG{o}{.}\PYG{n}{randrange}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{12}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{)}
 \PYG{g+gp}{... }
-\PYG{g+go}{5}
-\PYG{g+go}{5}
 \PYG{g+go}{11}
+\PYG{g+go}{9}
+\PYG{g+go}{9}
 \end{pytx@SaveVerbatim}
 
 \begin{pytx@SaveVerbatim}[commandchars=\\\{\}]{pytx@pycon@default@default@127}
@@ -1958,17 +1961,17 @@
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{seq} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{alpha}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{beta}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{gamma}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{delta}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{epsilon}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
 
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{random}\PYG{o}{.}\PYG{n}{choice}\PYG{p}{(}\PYG{n}{seq}\PYG{p}{)}\PYG{p}{)}
-\PYG{g+go}{epsilon}
+\PYG{g+go}{gamma}
 
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{random}\PYG{o}{.}\PYG{n}{choices}\PYG{p}{(}\PYG{n}{seq}\PYG{p}{,} \PYG{n}{k}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{)}
-\PYG{g+go}{[\PYGZsq{}epsilon\PYGZsq{}, \PYGZsq{}beta\PYGZsq{}, \PYGZsq{}gamma\PYGZsq{}]}
+\PYG{g+go}{[\PYGZsq{}alpha\PYGZsq{}, \PYGZsq{}gamma\PYGZsq{}, \PYGZsq{}delta\PYGZsq{}]}
 
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{random}\PYG{o}{.}\PYG{n}{sample}\PYG{p}{(}\PYG{n}{seq}\PYG{p}{,} \PYG{n}{k}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{)}
-\PYG{g+go}{[\PYGZsq{}beta\PYGZsq{}, \PYGZsq{}delta\PYGZsq{}, \PYGZsq{}gamma\PYGZsq{}]}
+\PYG{g+go}{[\PYGZsq{}alpha\PYGZsq{}, \PYGZsq{}delta\PYGZsq{}, \PYGZsq{}beta\PYGZsq{}]}
 
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{random}\PYG{o}{.}\PYG{n}{shuffle}\PYG{p}{(}\PYG{n}{seq}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{seq}\PYG{p}{)}
-\PYG{g+go}{[\PYGZsq{}alpha\PYGZsq{}, \PYGZsq{}beta\PYGZsq{}, \PYGZsq{}delta\PYGZsq{}, \PYGZsq{}gamma\PYGZsq{}, \PYGZsq{}epsilon\PYGZsq{}]}
+\PYG{g+go}{[\PYGZsq{}epsilon\PYGZsq{}, \PYGZsq{}alpha\PYGZsq{}, \PYGZsq{}beta\PYGZsq{}, \PYGZsq{}delta\PYGZsq{}, \PYGZsq{}gamma\PYGZsq{}]}
 \end{pytx@SaveVerbatim}
 
 \begin{pytx@SaveVerbatim}[commandchars=\\\{\}]{pytx@pycon@default@default@128}
@@ -2109,9 +2112,9 @@
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{delta} \PYG{o}{=} \PYG{n}{timedelta}\PYG{p}{(}\PYG{n}{days}\PYG{o}{=}\PYG{l+m+mi}{7}\PYG{p}{,} \PYG{n}{hours}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{)}
 
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{date}\PYG{o}{.}\PYG{n}{today}\PYG{p}{(}\PYG{p}{)} \PYG{o}{+} \PYG{n}{delta}\PYG{p}{)}   \PYG{c+c1}{\PYGZsh{} one week and 3 hours from today}
-\PYG{g+go}{2026\PYGZhy{}06\PYGZhy{}10}
+\PYG{g+go}{2026\PYGZhy{}06\PYGZhy{}14}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{date}\PYG{o}{.}\PYG{n}{today}\PYG{p}{(}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{delta}\PYG{p}{)}   \PYG{c+c1}{\PYGZsh{} one week and 3 hours prior to today}
-\PYG{g+go}{2026\PYGZhy{}05\PYGZhy{}27}
+\PYG{g+go}{2026\PYGZhy{}05\PYGZhy{}31}
 
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{d1} \PYG{o}{=} \PYG{n}{datetime}\PYG{p}{(}\PYG{l+m+mi}{2026}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{d2} \PYG{o}{=} \PYG{n}{datetime}\PYG{p}{(}\PYG{l+m+mi}{2026}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{29}\PYG{p}{)}
@@ -2128,15 +2131,15 @@
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{start\PYGZus{}time} \PYG{o}{=} \PYG{n}{time}\PYG{o}{.}\PYG{n}{perf\PYGZus{}counter}\PYG{p}{(}\PYG{p}{)}
 
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{time}\PYG{o}{.}\PYG{n}{time}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} seconds elapsed since the Unix epoch}
-\PYG{g+go}{1780491735.992739}
+\PYG{g+go}{1780819969.6832361}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{time}\PYG{o}{.}\PYG{n}{ctime}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} human\PYGZhy{}readable representation of current time}
-\PYG{g+go}{Wed Jun  3 22:02:15 2026}
+\PYG{g+go}{Sun Jun  7 17:12:49 2026}
 
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{time}\PYG{o}{.}\PYG{n}{sleep}\PYG{p}{(}\PYG{l+m+mf}{0.1}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} suspend execution for 0.1 seconds}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{end\PYGZus{}time} \PYG{o}{=} \PYG{n}{time}\PYG{o}{.}\PYG{n}{perf\PYGZus{}counter}\PYG{p}{(}\PYG{p}{)}
 
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{end\PYGZus{}time} \PYG{o}{\PYGZhy{}} \PYG{n}{start\PYGZus{}time}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} execution time in seconds}
-\PYG{g+go}{0.1046072089811787}
+\PYG{g+go}{0.10276650000014342}
 \end{pytx@SaveVerbatim}
 
 \begin{pytx@SaveVerbatim}[commandchars=\\\{\}]{pytx@pycon@default@default@136}
@@ -2225,5 +2228,52 @@
 \PYG{g+go}{50\PYGZpc{}    30.0  85000.000000  8500.000000}
 \PYG{g+go}{75\PYGZpc{}    32.5  87500.000000  8750.000000}
 \PYG{g+go}{max    35.0  90000.000000  9000.000000}
+\end{pytx@SaveVerbatim}
+
+\begin{pytx@SaveVerbatim}[commandchars=\\\{\}]{pytx@pycon@default@default@138}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot}\PYG{+w}{ }\PYG{k}{as}\PYG{+w}{ }\PYG{n+nn}{plt}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{numpy}\PYG{+w}{ }\PYG{k}{as}\PYG{+w}{ }\PYG{n+nn}{np}
+
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{x} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{pi}\PYG{p}{,} \PYG{l+m+mi}{200}\PYG{p}{)}
+
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{c+c1}{\PYGZsh{} object\PYGZhy{}oriented interface}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{fig}\PYG{p}{,} \PYG{n}{axes} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{c+c1}{\PYGZsh{} line plot}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sin}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+sa}{r}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{\PYGZdl{}}\PYG{l+s+s2}{\PYGZbs{}}\PYG{l+s+s2}{sin(x)\PYGZdl{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{linewidth}\PYG{o}{=}\PYG{l+m+mf}{1.4}\PYG{p}{)}
+\PYG{g+go}{[\PYGZlt{}matplotlib.lines.Line2D object at 0x1137abed0\PYGZgt{}]}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{np}\PYG{o}{.}\PYG{n}{cos}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+sa}{r}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{\PYGZdl{}}\PYG{l+s+s2}{\PYGZbs{}}\PYG{l+s+s2}{cos(x)\PYGZdl{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{linewidth}\PYG{o}{=}\PYG{l+m+mf}{1.4}\PYG{p}{)}
+\PYG{g+go}{[\PYGZlt{}matplotlib.lines.Line2D object at 0x1137e4050\PYGZgt{}]}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Trigonometric functions}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{g+go}{Text(0.5, 1.0, \PYGZsq{}Trigonometric functions\PYGZsq{})}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{x}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{g+go}{Text(0.5, 0, \PYGZsq{}x\PYGZsq{})}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{y}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{g+go}{Text(0, 0.5, \PYGZsq{}y\PYGZsq{})}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+go}{\PYGZlt{}matplotlib.legend.Legend object at 0x10eea7770\PYGZgt{}}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{linewidth}\PYG{o}{=}\PYG{l+m+mf}{0.4}\PYG{p}{)}
+
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{c+c1}{\PYGZsh{} histogram}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{data} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{randn}\PYG{p}{(}\PYG{l+m+mi}{1000}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{hist}\PYG{p}{(}\PYG{n}{data}\PYG{p}{,} \PYG{n}{bins}\PYG{o}{=}\PYG{l+m+mi}{30}\PYG{p}{,} \PYG{n}{edgecolor}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{white}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{linewidth}\PYG{o}{=}\PYG{l+m+mf}{0.4}\PYG{p}{)}
+\PYG{g+go}{(array([ 1.,  0.,  0.,  2.,  5., 15., 10., 17., 24., 30., 44., 57., 68.,}
+\PYG{g+go}{       58., 70., 72., 75., 69., 71., 74., 68., 47., 44., 31., 14., 12.,}
+\PYG{g+go}{        7.,  4.,  8.,  3.]), array([\PYGZhy{}3.3422736 , \PYGZhy{}3.13827821, \PYGZhy{}2.93428282, \PYGZhy{}2.73028743, \PYGZhy{}2.52629204,}
+\PYG{g+go}{       \PYGZhy{}2.32229665, \PYGZhy{}2.11830126, \PYGZhy{}1.91430586, \PYGZhy{}1.71031047, \PYGZhy{}1.50631508,}
+\PYG{g+go}{       \PYGZhy{}1.30231969, \PYGZhy{}1.0983243 , \PYGZhy{}0.89432891, \PYGZhy{}0.69033352, \PYGZhy{}0.48633813,}
+\PYG{g+go}{       \PYGZhy{}0.28234274, \PYGZhy{}0.07834735,  0.12564804,  0.32964343,  0.53363882,}
+\PYG{g+go}{        0.73763421,  0.9416296 ,  1.14562499,  1.34962038,  1.55361577,}
+\PYG{g+go}{        1.75761117,  1.96160656,  2.16560195,  2.36959734,  2.57359273,}
+\PYG{g+go}{        2.77758812]), \PYGZlt{}BarContainer object of 30 artists\PYGZgt{})}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Normal distribution}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{g+go}{Text(0.5, 1.0, \PYGZsq{}Normal distribution\PYGZsq{})}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Value}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{g+go}{Text(0.5, 0, \PYGZsq{}Value\PYGZsq{})}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{axes}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Frequency}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{g+go}{Text(0, 0.5, \PYGZsq{}Frequency\PYGZsq{})}
+
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{fig}\PYG{o}{.}\PYG{n}{tight\PYGZus{}layout}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{plt}\PYG{o}{.}\PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{python\PYGZus{}figures/matplotlib\PYGZus{}demo.png}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{bbox\PYGZus{}inches}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{tight}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
 \end{pytx@SaveVerbatim}
 
