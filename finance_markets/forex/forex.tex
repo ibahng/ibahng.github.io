@@ -193,6 +193,12 @@
 
     \end{core}
 
+    \begin{core}{Modern Currency Pegs}
+
+      \textit{In Progres.}
+
+    \end{core}
+
 \section{Currency Valuation}
 
   \begin{core}{Trade-Weighted Baskets}
@@ -325,11 +331,6 @@
       r_{\text{net}} = \frac{C_{\text{USD}}' - C_{\text{USD}}}{C_{\text{USD}}} = \frac{1{,}203{,}047 - 1{,}000{,}000}{1{,}000{,}000} \approx 20.3\%
     \]
 
-    This result generalises to the following currency-adjusted return formula.
-    \[
-      r_{\text{net}} = (1 + r_{\text{local}})\times \frac{S_0}{S_1} - 1
-    \]
-
   \end{core}
 
   \begin{core}{Hedging Strategies}
@@ -356,19 +357,27 @@
 
   \end{core}
 
+\section{Currency Trading Strategies}
+
+  \begin{core}{Carry Trade}
+
+    % yen carry trade
+
+    \textit{In Progress.}
+
+  \end{core}
+
 \section{Historical Events}
 
   \subsection{Bretton Woods}
 
     \begin{core}{Bretton Woods Agreement (1944)}
 
-      \sbs{0.45}{
-        Prior to 1944, the global monetary system historically relied on the \textbf{gold standard}, in which national currencies were pegged to a specific quantity of gold. Following World War II, however, the global gold supply grew too slowly to support the anticipated economic expansion. Furthermore, the United States had accumulated roughly 70\% of the world's monetary gold, leaving European nations with insufficient reserves to back their domestic currencies.
+      Prior to 1944, the global monetary system historically relied on the \textbf{gold standard}, in which national currencies were pegged to a specific quantity of gold. Following World War II, however, the global gold supply grew too slowly to support the anticipated economic expansion. Furthermore, the United States had accumulated roughly 70\% of the world's monetary gold, leaving European nations with insufficient reserves to back their domestic currencies.
 
-        To address these imbalances, delegates from the Allied nations convened in 1944 to establish the \textbf{Bretton Woods system}, a landmark agreement that designated the \textbf{United States dollar as the primary global reserve currency}, pegging it directly to gold at \$35 per ounce.
-      }{
-        \myfig{0.95}{forex_figures/bretton_woods}{Bretton Woods conference on July 1944}{fig:bretton}
-      }
+      To address these imbalances, delegates from the Allied nations convened in 1944 to establish the \textbf{Bretton Woods system}, a landmark agreement that designated the \textbf{United States dollar as the primary global reserve currency}, pegging it directly to gold at \$35 per ounce.
+
+      \myfig{0.5}{forex_figures/bretton_woods}{Bretton Woods conference on July 1944}{fig:bretton}
 
       In turn, participating nations agreed to peg their respective currencies to the dollar, establishing a stable, fixed exchange rate environment designed to facilitate international trade and promote global economic recovery.
 
@@ -378,11 +387,9 @@
 
     \begin{core}[label=core:nixon_shock]{Nixon Shock (1971)}
 
-      \sbs{0.4}{
-        The Bretton Woods system effectively collapsed in 1971 through a series of unilateral economic policy changes collectively known as the \textbf{Nixon Shock}. During the late 1960s, the United States entered a period of \textbf{severe inflation} driven by the simultaneous pursuit of deficit spending on the Vietnam War and expansive domestic social programs under President Lyndon B. Johnson. This aggressive \textbf{fiscal policy} (\textit{\autoref{mac-core:fiscal}}), combined with a rapidly increasing \textbf{money supply} (\textit{\autoref{mac-core:mmarket}}), progressively eroded the purchasing power of the dollar and produced substantial trade deficits.
-      }{
-        \myfig{0.78}{forex_figures/nixon}{President Richard Nixon addressing the nation about the suspension of the dollar's convertibility to gold}{fig:nixon_shock}
-      }
+      The Bretton Woods system effectively collapsed in 1971 through a series of unilateral economic policy changes collectively known as the \textbf{Nixon Shock}. During the late 1960s, the United States entered a period of \textbf{severe inflation} driven by the simultaneous pursuit of deficit spending on the Vietnam War and expansive domestic social programs under President Lyndon B. Johnson. This aggressive \textbf{fiscal policy} (\textit{\autoref{mac-core:fiscal}}), combined with a rapidly increasing \textbf{money supply} (\textit{\autoref{mac-core:mmarket}}), progressively eroded the purchasing power of the dollar and produced substantial trade deficits.
+
+      \myfig{0.45}{forex_figures/nixon}{President Richard Nixon addressing the nation about the suspension of the dollar's convertibility to gold}{fig:nixon_shock}
       
       Facing this resulting domestic inflation and a severe depletion of physical gold reserves due to mounting foreign dollar holdings, the United States government formally \textbf{suspended the direct convertibility of the dollar into gold}. This pivotal decision severed the definitive link between precious metals and the global monetary system, thereby transitioning international finance into the \textbf{modern era of free-floating, fiat-based exchange rates governed by market forces}.
 
@@ -392,7 +399,7 @@
 
       Instead of letting currencies float freely right away, world leaders met at the Smithsonian Institution in December 1971 to save the fixed-rate system through the \textbf{Smithsonian Agreement}.
 
-      \myfig{0.55}{forex_figures/smithsonian}{Rinaldo Ossola, deputy governor of the Bank of Italy (\textit{left}) chats with John Connally (\textit{right}), U.S. Treasury Secretary and chairman of the meeting at the Smithsonian Institution in December 1971}{fig:smithsonian}
+      \myfig{0.5}{forex_figures/smithsonian}{Rinaldo Ossola, deputy governor of the Bank of Italy (\textit{left}) chats with John Connally (\textit{right}), U.S. Treasury Secretary and chairman of the meeting at the Smithsonian Institution in December 1971}{fig:smithsonian}
 
       In March 1973, following an intense speculative panic that rendered central bank interventions ineffective, major European nations and Japan permanently abandoned their fixed currency pegs to the U.S. dollar, precipitating the \textbf{collapse of the Smithsonian Agreement}. This pivotal institutional shift formally transitioned currency valuation from a administratively mandated framework to a free-market, thereby establishing the foundation of the decentralized foreign exchange market that exists today.
 
@@ -515,30 +522,47 @@
 
     \begin{core}[label=core:global_crisis]{Global Financial Crisis (2008--2009)}
 
-      Sparked by the catastrophic collapse of the United States subprime mortgage market, the Global Financial Crisis severely disrupted international credit networks and triggered a severe global recession. In response, major central banks coordinated unprecedented monetary interventions, including aggressive interest rate reductions and massive quantitative easing programs, to restore systemic liquidity and stabilize failing financial institutions.
+      Sparked by the collapse of the U.S. \textbf{subprime mortgage market}, the 2008 \textbf{Global Financial Crisis} triggered a sudden repricing of risk across global markets (\textit{\autoref{core:euro_debt}}). Within foreign exchange markets, the initial shockwave manifested as a massive unwind of the \textbf{carry trade}, as investors who had borrowed in low-interest currencies---such as the \textbf{JPY} and \textbf{CHF}---to fund high-yielding asset purchases rapidly liquidated their positions, driving aggressive appreciation in both currencies as investors simultaneously attempted to exit their positions.
+
+      Despite the crisis originating within its own borders, the \textbf{USD surged dramatically} as global deleveraging exposed an \textbf{acute structural dollar shortage}, with European and Asian banks scrambling to secure USD liquidity to meet dollar-denominated liabilities. To prevent a complete freeze of international money markets, the Federal Reserve established emergency bilateral \textbf{currency swap lines} with major foreign central banks, effectively acting as lender of last resort to the global financial system. These swap lines, initially conceived as a temporary crisis measure, were subsequently made permanent and remain a standing feature of the international monetary architecture to this day.
+
+      \myfig{1}{forex_figures/DX-Y.NYB_plot3}{The U.S. Dollar Index from Jan 2007 to Jan 2010; \textit{the USD appreciates following the exposure of structural dollar shortage by the global financial crisis}}{fig:global_crisis}
+
+      In the aftermath, major central banks---led by the Fed, the ECB, and the BoE---coordinated unprecedented monetary interventions. Policy rates were slashed to the zero lower bound under \textbf{ZIRP}, directly eliminating the cross-currency interest rate differentials upon which carry trade strategies depend, while simultaneous \textbf{Quantitative Easing (QE)} programmes suppressed long-term yields through large-scale asset purchases and exerted downward pressure on the dollar by dramatically expanding its supply. Together, these measures fundamentally altered the foreign exchange ecosystem.
 
     \end{core}
 
-    \begin{core}{Swiss Franc Shock (2015)}
+    \begin{core}[label=core:swiss_shock]{Swiss Franc Shock (2015)}
 
-      In January 2015, the Swiss National Bank unexpectedly abandoned its three-year policy of capping the value of the Swiss franc against the euro. This sudden policy reversal caused the currency to appreciate violently within minutes, inflicting massive instantaneous losses on leveraged retail traders, institutional funds, and foreign exchange brokerages worldwide.
+      In September 2011, amid safe-haven capital inflows driven by the \textbf{European sovereign debt crisis} (\textit{\autoref{core:euro_debt}}), the \textbf{Swiss National Bank (SNB)} imposed an exchange rate floor of \textbf{1.20 francs per euro (EUR/CHF)} to prevent franc appreciation from undermining its export economy. For over three years, the SNB defended this floor by printing francs to accumulate foreign reserves, pledging to enforce the peg "\textit{with the utmost determination}".
 
-    \end{core}
+      On \textbf{January 15, 2015}, the SNB \textbf{abruptly abandoned the peg} without warning. Facing the ECB's imminent Quantitative Easing announcement---which threatened to make defending the floor prohibitively costly---the SNB reversed course, triggering one of the most violent dislocations in modern currency markets. EUR/CHF collapsed from 1.20 to an intraday low near 0.85 within minutes, an instantaneous franc appreciation of approximately 30\%.
 
-    \begin{core}{Brexit (2016)}
+      \myfig{1}{forex_figures/EURCHF=X_plot1}{Francs per euro exchange rate from Jul 2014 to Jun 2015; \textit{sudden rate plummet stems from the abrupt Swiss National Bank announcement abandoning the 1.20 peg it maintin priorly}}{fig:swiss_shock}
 
-      The unexpected outcome of the 2016 United Kingdom referendum to exit the European Union injected profound political and economic uncertainty into global markets. In the immediate aftermath, the British pound suffered a historic, precipitous depreciation against major peers, reflecting severe market anxiety regarding the structural risks to the UK's future trade relations and regulatory autonomy.
-
-    \end{core}
-
-    \begin{core}{USD Surge (2022)}
-
-      Facing multi-decade high domestic inflation, the United States Federal Reserve initiated an aggressive cycle of interest rate hikes in 2022. This rapid tightening of monetary policy, combined with a broader market flight to safety amid geopolitical instability in Eastern Europe, drove massive capital inflows into the United States, propelling the dollar to historic, two-decade highs against most major global currencies.
+      The move instantly \textbf{destabilized market infrastructure}. Major banks suspended pricing systems, eliminating liquidity entirely, while the price gap rendered millions of stop-loss orders unexecutable. Overleveraged retail traders and hedge funds suffered losses exceeding their account balances. The episode bankrupted several retail currency brokerages, inflicted severe losses on major banks, and prompted regulators to permanently reduce maximum leverage limits---underscoring the systemic risk of central bank-enforced artificial price floors.
 
     \end{core}
 
-% modern currency pegs
-% financial regulatory institutions
+    \begin{core}[label=core:brexit]{Brexit (2016)}
+
+      On \textbf{June 23, 2016}, the UK shocked global markets by voting to leave the EU. Because financial markets, polling data, and betting markets had overwhelmingly priced in a "Remain" victory, the "Leave" outcome triggered an immediate, violent repricing of UK assets. As results materialized during the Asian session on June 24, the \textbf{British pound (GBP)} suffered its most precipitous single-day collapse in post-Bretton Woods history, with GBP/USD plunging from roughly 1.50 to below 1.33 within hours---a depreciation of over 10\%.
+
+      \myfig{1}{forex_figures/GBPUSD=X_plot1}{Dollars per pound exchange rate from Jan 2016 to Dec 2016; \textit{the pound value plummeted following Brexit}}{fig:brexit}
+
+      This collapse marked a fundamental regime shift, stripping the pound of its status as a stable reserve currency and imposing a structural \textbf{Brexit premium} to compensate investors for the political and economic uncertainty ahead. Markets swiftly discounted the anticipated loss of financial passporting rights, disruption to European supply chains, and the complexity of renegotiating trade arrangements.
+
+    \end{core}
+
+    \begin{core}[label=core:usd_surge]{USD Surge (2022)}
+
+      In 2022, with domestic inflation peaking at 9.1\% YoY, the \textbf{Federal Reserve} abandoned its pandemic-era accommodation and embarked on one of the most aggressive tightening cycles in its history, raising the federal funds rate by 425 basis points within a single calendar year---dramatically widening interest rate differentials in favor of the U.S.
+
+      \myfig{1}{forex_figures/DX-Y.NYB_plot4}{The U.S. Dollar Index from Jan 2021 to Jan 2024}{fig:usd_surge}
+
+      Concurrently, the \textbf{Russia-Ukraine war} triggered an energy crisis and a global flight to safety, funneling capital into US Treasuries and amplifying dollar strength. The resulting appreciation exposed stark central bank divergence: in Europe, soaring natural gas prices and stagflation fears dragged the EUR below parity with the dollar for the first time in twenty years, while the BoJ refusal to abandon its near-zero \textbf{Yield Curve Control (YCC)} policy sent the JPY to 32-year lows beyond 150, forcing direct Ministry of Finance intervention. By late September 2022, the \textbf{US Dollar Index (DXY)} surged past 114.
+
+    \end{core}
 
 \end{document}
 

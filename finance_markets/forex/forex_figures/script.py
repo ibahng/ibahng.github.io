@@ -9,13 +9,13 @@ if FRED_API_KEY == "error":
 
 main = markets.yfdata(
         ticker = 'DX-Y.NYB',
-        start = '1985-02-01',
-        end = '1990-01-01',
+        start = '2021-01-01',
+        end = '2024-12-01',
         interval = '1d',
         )
 
 main.plot(
-        count = '2',
+        count = '4',
         labels = 'y'
         )
 
