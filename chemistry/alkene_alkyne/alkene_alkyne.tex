@@ -14,7 +14,7 @@
 % \externaldocument[con-]{../conj_sys/conj_sys}[https://ibahng.github.io/chemistry/conj_sys/conj_sys.pdf]
 % \externaldocument[eth-]{../ethers/ethers}[https://ibahng.github.io/chemistry/ethers/ethers.pdf]
 % \externaldocument[gen-]{../gen_chem/gen_chem}[https://ibahng.github.io/chemistry/gen_chem/gen_chem.pdf]
-% \externaldocument[org-]{../org_chem/org_chem}[https://ibahng.github.io/chemistry/org_chem/org_chem.pdf]
+\externaldocument[org-]{../org_chem/org_chem}[https://ibahng.github.io/chemistry/org_chem/org_chem.pdf]
 % \externaldocument[qua-]{../quantization/quantization}[https://ibahng.github.io/chemistry/quantization/quantization.pdf]
 % \externaldocument[the-]{../thermodynamics/thermodynamics}[https://ibahng.github.io/chemistry/thermodynamics/thermodynamics.pdf]
 % \externaldocument[alk-]{../alkene_alkyne/alkene_alkyne}[https://ibahng.github.io/chemistry/alkene_alkyne/alkene_alkyne.pdf]
@@ -28,59 +28,254 @@
 
   \begin{core}{Alkene Orbital Structure}
 
-    The orbital structure of an alkene double bond is a combination of a σ bond and a π bond. Compared to the alkane single bond length of roughly $1.5\,A$, the alkene double bond is shorter at approximately $1.3\,A$.
+    The orbital structure of an alkene double bond arises from the combination of a σ bond and a π bond. This additional π overlap results in a shorter bond length relative to an alkane single bond: whereas a typical C--C single bond measures roughly $1.5\,A$, the C=C double bond is contracted to approximately $1.3\,A$.
 
-    \myfig{0.8}{alkene_alkyne_figures/alkene_sigma_pi}{caption}{fig:ph1}
+    \myfig{1}{alkene_alkyne_figures/alkene_sigma_pi}{Alkene σ (\textit{left}) and π (\textit{right}) bonding orbitals}{fig:ph1}
 
   \end{core}
 
   \begin{core}{Alkene Bond Strength}
 
-    The π bond of an alkane is relatively weaker than the its partner σ bond because its corresponding antibonding π$^*$ orbital sits closer to the bonding π orbital than the antibonding σ$^*$ orbital with the σ bonding orbital. As a result, breaking an alkene π bond takes roughly $65\,kcal\,mol^{-1}$ whereas the σ bond $108\,kcal\,mol^{-1}$.
+    The π bond of an alkene is relatively weaker than its partner σ bond because the antibonding π$^*$ orbital sits closer in energy to the bonding π orbital than the antibonding σ$^*$ orbital sits to the bonding σ orbital. As a result, breaking an alkene π bond requires roughly $65\,kcal\,mol^{-1}$, whereas breaking the σ bond requires $108\,kcal\,mol^{-1}$.
 
-    \myfig{0.5}{alkene_alkyne_figures/alkene_mo_diagram}{caption}{fig:ph2}
+    \mofig{
+      \AO[seven](3cm){s}{2.25;}
+      \AO[four](3cm){s}{1.5;}
+      \AO[five](3cm){s}{0.75}
+      \AO[eight](3cm){s}{0}
+      \node[right] at (seven.east) {σ$^*$};
+      \node[right] at (four.east)  {π$^*$};
+      \node[right] at (five.east)  {π};
+      \node[right] at (eight.east) {σ};
+      \EnergyAxis[title=E]
+    }{Molecular bonding orbitals levels of σ, π, π$^*$, and σ$^*$ in an alkene double bond; \textit{notice that the distance between π and π$^*$ is less than that of σ and σ$^*$}}{fig:ph2}{1}
 
-    When compared with alkanes, the typical alkane σ C--C bond strength is roughly $88\,kcal\,mol^{-1}$. Notice that the alkene σ bond is stronger than the alkane σ bond because the alkene σ bond uses $sp^2$ hybridized orbitals compared to the $sp^3$ orbitals of alkanes, as shown in FIGURE REFERENCE. This higher s orbital characteristic---specifically 33\% vs 25\%, respectively---means greater bond strength \ce{e^-}s are pulled in closer relative to p orbitals.
+    By comparison, the typical alkane $\sigma$ C--C bond strength is roughly $88\,kcal\,mol^{-1}$. The alkene σ bond is therefore stronger than the alkane σ bond, since the alkene σ bond is formed from $sp^2$ hybridized orbitals rather than the $sp^3$ orbitals used in alkanes. This \textbf{greater s-orbital character}---33\% versus 25\%, respectively---corresponds to greater bond strength, as the bonding \ce{e^-}s are held closer to the nucleus relative to p orbitals.
 
-    \myfig{0.5}{alkene_alkyne_figures/alkene_bond_strength}{this may have to be made again}{fig:ph3}
+    Consequently, when comparing the $pK_a$ values of the substituent hydrogens on alkenes and alkanes, alkenes exhibit lower $pK_a$ values than alkanes.
 
-    Thus in the context of the $pK_a$ values of substituent hydrogens of alkenes and alkanes, the alkenes show lower values compared to that of alkanes.
+    \reactionfig{
+      \scheme{
+        \raisebox{-1cm}{
+          \chemname{
+            \chemfig{
+              [:0]H
+              -[:45]C
+              (-[:135]H)
+              =[:0]C
+              (-[:45]H)
+              -[:-45,,,,Red]\textcolor{Red}{H}
+            }
+          }{$pK_a \approx 44$}
+        }
+        \qquad \qquad \qquad
+        \chemname{
+          \chemfig{
+            [:0]H
+            -[:0]C
+            (-[:90]H)
+            (-[:-90]H)
+            -[:0]C
+            (-[:90]H)
+            (-[:-90,,,,Red]\textcolor{Red}{H})
+            -[:0]H
+          }
+        }{$pK_a \approx 50$}
+      }
+    }{Ethene (\textit{left}) vs ethane (\textit{right}) $pK_a$ values}{fig:ph3extra}{0.9}
 
-    <chemfig of ethene and ethane with pKa>
+    In principle, then, the reaction between methyllithium and an alkene below will proceed to a product-favoring equilibrium, since the alkene is more acidic (\textit{better able to release a proton}) than the alkane.
 
-    Therefore, in principle, the following reaction between methyllithium and an alkene will reach a product favoring equilibrium because the alkene is more acidic (\textit{able to relaase a proton better}) than the alkane.
+    \reactionfig{
+      \scheme{
+        \chemfig{
+          [:0]C
+          (-[:-135]H)
+          (-[:135]R)
+          =[:0]C
+          (-[:45]H)
+          -[:-45]H
+        }
+        \+
+        \chemfig{
+          \ce{CH3Li}
+        }
+        \arrow{<->>}
+        \chemfig{
+          [:0]RCH
+          =[:0]C
+          (-[:45]H)
+          -[:-45]Li
+        }
+        \+
+        \chemfig{
+          \ce{CH4}
+        }
+      }
+    }{Methyllithium reaction showcasing alkene favoring equilibrium due to $pK_a$ differences}{fig:ph4}{0.9}
 
-    \myfig{0.5}{alkene_alkyne_figures/methyllithium}{caption}{fig:ph4}
+    In practice, however, the reaction shown in \autoref{fig:ph4} faces regio- and stereoselectivity issues, since the remaining substituent hydrogens may dissociate equally or more favorably than the one depicted. To overcome these problems, chemists instead employ the formation of \textbf{organometallics} (\textit{\autoref{alc-core:organometallics}}).
 
-    However, in practice, the reaction in FIGURE REFERENCE will face regio- and stereoselectivity issues because the other substitutent hydrogens can equally or more favorably dissociate compared to the one shown. In practice, chemists utilize the formation of \textbf{organometallics} (\textit{\autoref{alc-core:organometallics}}) to overcome these problems.
-
-    \myfig{0.5}{alkene_alkyne_figures/orgmet}{caption}{fig:ph5}
+    \doublereactionfig{
+      \scheme{
+        \chemfig{
+          [:0]\ce{CH2}
+          =[:0]C
+          (-[:45]H)
+          -[:-45]Br
+        }
+        \+
+        \chemfig{
+          \ce{Li}
+        }
+        \arrow{->}
+        \chemfig{
+          [:0]\ce{CH2}
+          =[:0]C
+          (-[:45]H)
+          -[:-45]Li
+        }
+      }
+    }{
+      \scheme{
+        \chemfig{
+          [:0]C
+          (-[:-135]H)
+          (-[:135]R)
+          =[:0]C
+          (-[:45]H)
+          -[:-45]Br
+        }
+        \+
+        \chemfig{
+          \ce{Mg}
+        }
+        \arrow{->}
+        \chemfig{
+          [:0]C
+          (-[:-135]H)
+          (-[:135]R)
+          =[:0]C
+          (-[:45]H)
+          -[:-45]MgBr
+        }
+      }
+    }{Methyllithium reaction showcasing alkene favoring equilibrium due to $pK_a$ differences}{fig:ph5}{0.9}
 
   \end{core}
 
   \begin{core}{Relative Stability of Alkenes}
 
-    Consider the \textbf{heat of hydrogenation (ΔH$_{\text{hydrogenation}}$)} of following butene isomers to butane.
+    Consider the \textbf{heat of hydrogenation (ΔH$_{\text{hydrogenation}}$)} of the following butene isomers upon conversion to butane.
 
-    \myfig{0.5}{alkene_alkyne_figures/butene_to_butane}{caption}{fig:ph6}
+    \triplereactionfig{
+      \scheme{
+        \chemfig{
+          [:0]
+          -[:30]
+          -[:-30]
+          =[:30]
+        }
+        \+
+        \chemfig{
+          \ce{H2}
+        }
+        \arrow{->[cat.]}
+        \chemfig{
+          [:0]
+          -[:30]
+          -[:-30]
+          -[:30]
+        }
+        \qquad
+        $ΔH = -30.3\,\text{kcal}\,\text{mol}^{-1}$
+      }
+    }{
+      \scheme{
+        \chemfig{
+          [:0]
+          -[:45]
+          =[:0]
+          -[:-45]
+        }
+        \+
+        \chemfig{
+          \ce{H2}
+        }
+        \arrow{->[cat.]}
+        \chemfig{
+          [:0]
+          -[:30]
+          -[:-30]
+          -[:30]
+        }
+        \qquad
+        $ΔH = -29.6\,\text{kcal}\,\text{mol}^{-1}$
+      }
+    }{
+      \scheme{
+        \chemfig{
+          [:0]
+          (-[:-135])
+          =[:0]
+          -[:45]
+        }
+        \+
+        \chemfig{
+          \ce{H2}
+        }
+        \arrow{->[cat.]}
+        \chemfig{
+          [:0]
+          -[:30]
+          -[:-30]
+          -[:30]
+        }
+        \qquad
+        $ΔH = -27.6\,\text{kcal}\,\text{mol}^{-1}$
+      }
+    }{Butane isomer conversions to butane}{fig:ph6}{0.8}
 
-    The relative greater stability of internal over terminal double bonds and trans over cis substituents arise from two reasons.
+    The greater relative stability of internal double bonds over terminal ones, and of trans over cis substituents, arises from two factors.
 
     \begin{enumerate}
 
-      \item \textbf{Hyperconjugation} allows the temporary charge imbalance arising from the transitionary state to be better distributed by neighboring molecular orbitals in the internal double bond butene compared to the terminal counterpart.
+      \item \textbf{Hyperconjugation} allows the temporary charge imbalance arising in the transition state to be better distributed among neighboring orbitals in the internal bond butene than in its terminal counterpart.
 
-      \myfig{0.5}{alkene_alkyne_figures/butane_hyperconjugation}{caption}{fig:ph7}
+      \item \textbf{Steric hindrance} between the cis methyl groups increases the relative instability of the cis butene compared to its trans counterpart.
 
-      \item \textbf{Steric hinderance} between the cis methyl groups increase the relative instability of the butene compared to the trans counterpart.
-
-      \myfig{0.5}{alkene_alkyne_figures/butane_steric}{caption}{fig:ph8}
+      \reactionfig{
+        \scheme{
+          \chemname{
+            \chemfig{
+              [:0]C
+              (<:[:135]H)
+              (<[:-135]\textcolor{Red}{\textbf{\ce{H3C}}})
+              =[:0]C
+              (<:[:45]H)
+              (<[:-45]\textcolor{Red}{\textbf{\ce{CH3}}})
+            }
+          }{cis}
+          \qquad \qquad \qquad
+          \chemname{
+            \chemfig{
+              [:0]C
+              (<:[:135]H)
+              (<[:-135]\textcolor{Red}{\textbf{\ce{H3C}}})
+              =[:0]C
+              (<:[:45]\textcolor{Red}{\textbf{\ce{CH3}}})
+              (<[:-45]H)
+            }
+          }{trans}
+        }
+      }{Steric hinderance between methyl groups of cis (\textit{left}) vs trans (\textit{right}) butene; \textit{more steric exists between methyl groups of cis butene because of closer methyl group proximity}}{fig:ph8}{0.8}
 
     \end{enumerate}
 
-    Thus the general order of alkene stability acts as follows.
-
-    \myfig{0.5}{alkene_alkyne_figures/order}{caption}{fig:ph9}
+    The general order of alkene stability thus follows as shown below.
+    \[
+      \ce{CH2=CH2} \quad < \quad \ce{RCH=CH2} \quad < \quad \ce{RCH=CHR}_{\text{cis}} \quad < \quad \ce{RCH=CHR}_{\text{trans}} \quad < \quad \ce{RCH=CR2} \quad < \quad \ce{R2C=CR2}
+    \]
 
   \end{core}
 
@@ -96,53 +291,502 @@
 
         Consider an E2 reaction \textbf{with a small base} on the following RX alkane.
 
-        \myfig{0.5}{alkene_alkyne_figures/e2_small}{caption}{fig:ph10}
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              [:0]\ce{H3C}
+              -[:0]C
+              (-[:90]H)
+              (-[:-90]H)
+              -[:0]C
+              (-[:90]\ce{CH3})
+              (-[:-90]X)
+              -[:0]\ce{CH3}
+            }
+            \arrow{->[\text{Small Base}]}
+            \chemname{
+              \chemfig{
+                [:0]C
+                (-[:135]\ce{H3C})
+                (-[:-135]H)
+                =[:0]C
+                (-[:45]\ce{CH3})
+                (-[:-45]\ce{CH3})
+              }
+            }{70\%; \textit{more stable}}
+            \+
+            \chemname{
+              \chemfig{
+                [:0]\ce{H3C}
+                -[:0]C
+                (-[:90]H)
+                (-[:-90]H)
+                -[:0]C
+                (=[:45]\ce{CH2})
+                (-[:-45]\ce{CH3})
+              }
+            }{30\%; \textit{less stable}}
+          }
+        }{E2 reaction on a haloalkane using a small base}{fig:ph10}{0.9}
 
-        Notice the favoring of the internal double bond alkene compared to the terminal version because the advantages of hyperoconjugation win over the minimal effects of steric hinderance due ot the use of a small base. In contrast, an E2 reaction \textbf{using large base} (\textit{BELOW FIGURE REFERENCE}) favors the terminal version because steric hinderance exerts a comparatively larger influence on transition state stability enough to override to hyperconjugation favorability of the internal double bond product.
+        Notice that the internal double bond alkene is favored over the terminal version, since the advantages of hyperconjugation outweigh the minimal steric hindrance associated with a small base. In contrast, an E2 reaction \textbf{using a large base} (\textit{\autoref{fig:ph11}}) favors the terminal version, since steric hindrance exerts a comparatively larger influence on transition state stability, sufficient to override the hyperconjugative favorability of the internal double bond product.
 
-        \myfig{0.5}{alkene_alkyne_figures/e2_large}{caption}{fig:ph11}
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              [:0]\ce{H3C}
+              -[:0]C
+              (-[:90]H)
+              (-[:-90]H)
+              -[:0]C
+              (-[:90]\ce{CH3})
+              (-[:-90]X)
+              -[:0]\ce{CH3}
+            }
+            \arrow{->[\text{Large Base}]}
+            \chemname{
+              \chemfig{
+                [:0]C
+                (-[:135]\ce{H3C})
+                (-[:-135]H)
+                =[:0]C
+                (-[:45]\ce{CH3})
+                (-[:-45]\ce{CH3})
+              }
+            }{27\%}
+            \+
+            \chemname{
+              \chemfig{
+                [:0]\ce{H3C}
+                -[:0]C
+                (-[:90]H)
+                (-[:-90]H)
+                -[:0]C
+                (=[:45]\ce{CH2})
+                (-[:-45]\ce{CH3})
+              }
+            }{73\%}
+          }
+        }{E2 reaction on a haloalkane using a large base}{fig:ph11}{0.9}
 
-        This phenomenon is termed the \textbf{Saytzev Rule}, which states that non-bulky bases lead to more stable internal double bonds. The corresponding energy diagrams of the two reactions are shown below to visually depict the energy levels of the reaction pariticpants throughotu the reaction.
+        This phenomenon is termed the \textbf{Saytzev Rule}, which states that non-bulky bases lead to the more stable internal double bond product. The corresponding energy diagrams of the two reactions are shown below to depict the energy levels of the reaction participants throughout the reaction.
 
-        \myfig{0.5}{alkene_alkyne_figures/e2_energy_dia}{caption}{fig:ph12}
+        \doublepgfig{
+          \begin{axis}[
+            width=6cm,
+            height=6cm,
+            xmin=0, xmax=10,
+            ymin=0, ymax=10,
+            xtick=\empty,
+            ytick=\empty,
+            xticklabels=\empty,
+            yticklabels=\empty, 
+            xtick style={draw=none},
+            ytick style={draw=none},
+            ylabel={Energy},
+            axis line style={thick},
+            \axispresetstwo
+          ]
+
+            \node at (axis cs:5,9.3) {\textbf{Small Base}};
+
+            \addplot[blue,smooth,domain=2:8,samples=100] {-0.27495*(x-4.69694)^2 + 7};
+            \addplot[red,smooth,domain=2:8,samples=100] {-0.28886054*(x-4.27877538)^2 + 6.5};
+
+            \draw[blue] (axis cs:0.5,5) -- (axis cs:2,5);
+            \draw[blue] (axis cs:8,4) -- (axis cs:9.5,4)
+                node[right] {Terminal};
+            \draw[red] (axis cs:8,2.5) -- (axis cs:9.5,2.5)
+                node[right] {Internal};
+
+          \end{axis} 
+        }{
+          \begin{axis}[
+            width=6cm,
+            height=6cm,
+            xmin=0, xmax=10,
+            ymin=0, ymax=10,
+            xtick=\empty,
+            ytick=\empty,
+            xticklabels=\empty,
+            yticklabels=\empty, 
+            xtick style={draw=none},
+            ytick style={draw=none},
+            ylabel={Energy},
+            axis line style={thick},
+            \axispresetstwo
+          ]
+
+            \node at (axis cs:5,9.3) {\textbf{Large Base}};
+
+            \addplot[blue,smooth,domain=2:8,samples=100] {-0.27495*(x-4.69694)^2 + 7};
+            \addplot[red,smooth,domain=2:8,samples=100] {-0.48528*(x-4.48528)^2 + 8};
+
+            \draw[blue] (axis cs:0.5,5) -- (axis cs:2,5);
+            \draw[blue] (axis cs:8,4) -- (axis cs:9.5,4)
+                node[right] {Terminal};
+            \draw[red] (axis cs:8,2) -- (axis cs:9.5,2)
+                node[right] {Internal};
+
+          \end{axis} 
+        }{Energy diagrams of haloalkane elimination reactions producing alkenes; [Small Base] \textit{lower energy transition state (red) favors formation of more stable product}; [Large Base] \textit{with a large base, the lower energy transition state (blue) now favors foramation of less stable product}}{fig:ph12}{1}
 
         \item \textbf{Stereoselectivity}
 
-        The presence of \textbf{multiple stereoisomers}---specifically among the formed internal double bond alkenes when utilizing E2 reactions with small bases---is something a chemist must also consider. Although the E2 reaction is stereoselective, favoring the more stable trans isomers over the sterically hindered cis isomers, the relationship is not absolute (\textit{some vis isomers do form}).
+        The presence of \textbf{multiple stereoisomers}---particularly among the internal double bond alkenes formed via E2 reactions with small bases---is another factor a chemist must consider. Although the E2 reaction is stereoselective, favoring the more stable trans isomers over the sterically hindered cis isomers, this preference is not absolute (\textit{some cis isomers do form}).
 
-        \myfig{0.5}{alkene_alkyne_figures/isomer}{}{fig:ph13}
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              [:0]
+              -[:30]
+              -[:-30]
+              -[:30]
+              (-[:90]Br)
+              -[:-30]
+            }
+            \arrow{->[\ce{-OCH3}][\ce{CH3OH}; \textit{small base}]}
+            \chemname{
+              \chemfig{
+              [:0]
+              -[:30]
+              -[:-30]
+              =[:30]
+              -[:-30]
+              }
+            }{\textcolor{Red}{51\%}; \textit{most stable}}
+            \+
+            \chemname{
+              \chemfig{
+                [:0]
+                (
+                -[:135]
+                -[:180]
+                )
+                =[:0]
+                -[:45]
+              }
+            }{18\%}
+            \+
+            \chemname{
+              \chemfig{
+              [:0]
+              -[:30]
+              -[:-30]
+              -[:30]
+              =[:-30]
+              }
+            }{31\%}
+          }
+        }{Alkene product mixture from E2 elimination of 2-bromo-pentane}{fig:ph13}{0.8}
 
         \item \textbf{Other Factors}
 
-        Other factors such as preferable precursor confirmations, namely rotamers, play a role as well.
+        Other factors, such as preferable precursor conformations---namely rotamers---play a role as well.
 
-        \myfig{0.5}{alkene_alkyne_figures/rotamer}{}{fig:ph14}
+        \myfig{0.5}{alkene_alkyne_figures/rotamer}{Precursor conformations of 2-bromo-pentane; \textit{the left rotamer conformation is more favorable because the ethyl and methyl substitutents are anti to one another whereas the right conformation is unfavorable due to the steric hinderence cause by the gauche positioning of the ethyl and methyl groups}}{fig:ph14}
 
       \end{enumerate}
 
       Keep in mind that elimination is also \textbf{stereospecific} as shown in the following figure.
 
-      \myfig{0.5}{alkene_alkyne_figures/stereospecific}{}{fig:ph15}
+      \doublereactionfig{
+        \scheme{
+          \chemname{
+            \chemfig{
+              [:0]
+              (-[:135]\textcolor{Blue}{H})
+              (<[:-135])
+              (
+              <:[:-165,,,,Red]
+              -[:165,,,,Red]
+              )
+              -[:0]
+              (<:[:45]H)
+              (<[:15,,,,Red])
+              (-[:-45]\textcolor{Green}{Br})
+            }
+          }{RR}
+          \qquad \text{OR} \qquad
+          \chemname{
+            \chemfig{
+              [:0]
+              (<[:135])
+              (
+              <:[:165,,,,Red]
+              -[:-165,,,,Red]
+              )
+              (-[:-135]\textcolor{Blue}{H})
+              -[:0]
+              (-[:45]\textcolor{Green}{Br})
+              (<[:-15,,,,Red])
+              (<:[:-45]H)
+            }
+          }{SS}
+          \arrow{->[Base][-\textcolor{Blue}{H}\textcolor{Green}{Br}]}
+          \chemfig{
+            [:0]
+            (
+            <:[:135,,,,Red]
+            -[:180,,,,Red]
+            )
+            (<[:-135])
+            =[:0]
+            (<[:-45,,,,Red])
+            (<:[:45]H)
+          }
+        }
+      }{
+        \scheme{
+          \chemname{
+            \chemfig{
+              [:0]
+              (-[:135]\textcolor{Blue}{H})
+              (
+              <[:-135,,,,Red]
+              -[:-165,,,,Red]
+              )
+              (<:[:-165])
+              -[:0]
+              (<:[:45]H)
+              (<[:15,,,,Red])
+              (-[:-45]\textcolor{Green}{Br})
+            }
+          }{SR}
+          \qquad \text{OR} \qquad
+          \chemname{
+            \chemfig{
+              [:0]
+              (
+              <[:135,,,,Red]
+              -[:165,,,,Red]
+              )
+              (<:[:165])
+              (-[:-135]\textcolor{Blue}{H})
+              -[:0]
+              (-[:45]\textcolor{Green}{Br})
+              (<[:-15,,,,Red])
+              (<:[:-45]H)
+            }
+          }{RS}
+          \arrow{->[Base][-\textcolor{Blue}{H}\textcolor{Green}{Br}]}
+          \chemfig{
+            [:0]
+            (<:[:135])
+            (
+            <[:-135,,,,Red]
+            -[:-180,,,,Red]
+            )
+            =[:0]
+            (<[:-45,,,,Red])
+            (<:[:45]H)
+          }
+        }
+      }{Stereospecificity of HX elimination}{fig:15}{0.8}
 
     \end{core}
 
     \begin{core}[label=core:alkene_roh]{Alkenes from ROH By Dehydration}
 
-      Alkenes can also be synthesized from exposing alcohols to acids and subsequently removing the resulting \ce{H2O} byproducts through dehydration. 
+      Alkenes can also be synthesized by exposing alcohols to acids and subsequently removing the resulting \ce{H2O} byproduct through dehydration.
 
-      \myfig{0.5}{alkene_alkyne_figures/dehydration}{}{fig:ph16}
+      \reactionfig{
+        \scheme{
+          \chemfig{
+            [:0]
+            -[:0]C
+            (-[:90])
+            (-[:-90,,,,Red]\textcolor{Blue}{H})
+            -[:0,,,,Red]C
+            (-[:90])
+            (-[:-90,,,,Green]\textcolor{Green}{OH})
+            -[:0]
+          }
+          \arrow{->[Acid, Δ][Dehydration]}
+          \chemfig{
+            [:0]C
+            (-[:135])
+            (-[:-135])
+            =[:0,,,,Red]C
+            (-[:45])
+            (-[:-45])
+          }
+          \+
+          \chemfig{
+            \textcolor{Blue}{H}\textcolor{Green}{OH}
+          }
+        }
+      }{Formation of an alkene via alcohol dehydration}{fig:ph16}{0.9}
 
       The mechanism behind the reaction---using sulfuric acid and ethanol as an example---is as follows.
 
-      \myfig{0.5}{alkene_alkyne_figures/sulf_mechanism}{}{fig:ph17}
+      \reactionfig{
+        \scheme{
+          \chemfig{
+            \ce{CH3CH2}\textcolor{Red}{O}H
+          }
+          \+
+          \chemfig{
+            \textcolor{Blue}{\ce{H+}}
+          }
+          \arrow{<->}
+          \chemfig{
+            [:0]\ce{CH2}
+            (-[@{bond1}:-90]@{hydrogen}\textcolor{Blue}{H})
+            -[@{bond2}:0]\ce{CH2}
+            -[:0,,,,Green]\textcolor{Green}{\pcharge{110}{O}}
+            (-[:45,,,,Green]\textcolor{Green}{H})
+            (-[:-45,,,,Green]\textcolor{Green}{H})
+          }
+          \+
+          \chemfig{
+            @{base}\textcolor{Red}{\ce{HSO4-}}
+          }
+          \arrow{->[170$^\circ$C]}
+          \chemfig{
+            [:0]\ce{CH2}
+            =[:0]\ce{CH2}
+          }
+          \+
+          \chemfig{
+            \ce{H2O}
+          }
+          \+
+          \chemfig{
+            \ce{H2SO4}
+          }
+        }
+        \chemmovearrow{
+          \reactionfigarrow{bond1}{-10}{bond2}{-80}{Red}
+          \reactionfigarrow{base}{-100}{hydrogen}{-30}{Red}
+        }
+      }{Alcohol dehydration example using \ce{H2SO4} and ethanol; \ce{HSO4-} unusually acts as a base in this scenario}{fig:ph17}{0.9}
 
-      Due to the effects of steric hinderance and hyperconjugation, the usage of E1 or E2 and resulting stereoisomer product ratio differs across R$_{\text{primary}}$, R$_{\text{secondary}}$, and R$_{\text{tertiary}}$.
+      Due to the effects of steric hindrance and hyperconjugation, the use of E1 versus E2 and the resulting stereoisomer product ratio differ across R$_{\text{primary}}$, R$_{\text{secondary}}$, and R$_{\text{tertiary}}$.
 
-      \myfig{0.5}{alkene_alkyne_figures/hyperconj_pri}{}{fig:ph18}
+      \triplereactionfig{
+        \scheme{
+          \chemname{
+            \raisebox{-1cm}{
+              \chemfig{
+                [:0]
+                -[:30]
+                -[:-30]OH
+              }
+            }
+          }{Primary}
+          \qquad \qquad
+          \arrow{->[conc. \ce{H2SO4}, 170$^\circ$C][-HOH, \textbf{E2}]}
+          \qquad \qquad
+          \chemfig{
+            [:0]
+            =[:0]
+          }
+        }
+      }{
+        \scheme{
+          \chemname{
+            \raisebox{-1cm}{
+              \chemfig{
+                [:0]
+                -[:30]
+                (-[:90]OH)
+                -[:-30]
+                -[:30]
+              }
+            }
+          }{Secondary}
+          \qquad \qquad
+          \arrow{->[50\% \ce{H2SO4}, 100$^\circ$C][-HOH, \textbf{E1}]}
+          \qquad \qquad
+          \chemname{
+            \raisebox{-1cm}{
+              \chemfig{
+                [:0]
+                -[:30]
+                =[:-30]
+                -[:30]
+              }
+            }
+          }{80\%}
+          \+
+          \chemname{
+            \raisebox{-1cm}{
+              \chemfig{
+                [:0]
+                =[:30]
+                -[:-30]
+                -[:30]
+              }
+            }
+          }{\textit{trace}}
+        }
+      }{
+        \scheme{
+          \chemname{
+            \chemfig{
+              [:0]
+              -[:0]
+              (-[:90])
+              (-[:-90])
+              -[:0]OH
+            }
+          }{Tertiary}
+          \qquad \qquad
+          \arrow{->[Dilute \ce{H2SO4}, 50$^\circ$C][-HOH, \textbf{E1}]}
+          \qquad \qquad
+          \chemfig{
+            [:0]
+            =[:0]
+            (-[:45])
+            (-[:-45])
+          }
+        }
+      }{Alkene product ratios from alcohol dehydration across R$_{\text{primary}}$, R$_{\text{secondary}}$, and R$_{\text{tertiary}}$}{fig:ph18}{0.9}
 
-      A huge limitation to this is the formation of a \textbf{carbocation transition state}, which opens the door to \textbf{unintended rearrangement pathways} such as \textbf{hydride} (\textit{\autoref{alc-core:hydride_shift}}) or \textbf{alkyl shifts} (\textit{\autoref{alc-core:alkyl_shift}}) if possible. As a result, this alkene synthesis pathway has limited utility in practice.
+      A major limitation of this approach is the formation of a \textbf{carbocation transition state}, which opens the door to \textbf{unintended rearrangement pathways} such as \textbf{hydride} (\textit{\autoref{alc-core:hydride_shift}}) or \textbf{alkyl shifts} (\textit{\autoref{alc-core:alkyl_shift}}) where possible. As a result, this alkene synthesis pathway has limited utility in practice.
 
-      \myfig{0.5}{alkene_alkyne_figures/carbocation_issue}{}{fig:ph19}
+      \reactionfig{
+        \scheme{
+          \chemfig{
+            [:0]
+            -[:30]
+            (-[:90])
+            -[:-30]
+            -[:30]
+            (-[:90]OH)
+            -[:-30]
+          }
+          \arrow{->[\ce{H2SO4}, Δ][-HOH]}
+          \chemname{
+            \raisebox{-1cm}{
+              \chemfig{
+                [:0]
+                -[:30]
+                (-[:90])
+                =[:-30]
+                -[:30]
+                -[:-30]
+              }
+            }
+          }{54\%}
+          \+
+          \chemname{
+            \raisebox{-1cm}{
+              \chemfig{
+                [:0]
+                -[:30]
+                (-[:90])
+                -[:-30]
+                =[:30]
+                -[:-30]
+              }
+            }
+          }{8\%}
+          \+
+          \text{other isomers}
+        }
+      }{Product mixtures from alcohol dehydration due to hydride shifts}{fig:ph19}{0.9}
 
     \end{core}
 
