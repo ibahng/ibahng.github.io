@@ -794,13 +794,69 @@
 
     \begin{core}{Alkene Addition Reactions}
 
-      Alkenes are the fundamental building blocks for organic synthesis and the preparation of polymer materials. Their defining feature is the \textbf{unsaturated π bond}, which reactions through \textbf{addition reactions}, wherein the π bond is broken and a diatomic or compound molecule is added across the relevant carbon atoms of the former alkene.
+      Alkenes serve as fundamental building blocks for organic synthesis and the preparation of polymer materials. Their defining feature, the \textbf{unsaturated π bond}, reacts through \textbf{addition reactions}, in which the π bond is broken and a diatomic or compound molecule is added across the relevant carbons of the former alkene.
 
-      \myfig{0.5}{alkene_alkyne_figures/alkene_addition_outline}{}{fig:ph20}
+      \reactionfig{
+        \scheme{
+          \chemfig{
+            [:0]C
+            (-[:135])
+            (-[:-135])
+            =[:0]C
+            (-[:45])
+            (-[:-45])
+          }
+          \+
+          \chemfig{
+            [:0]A
+            -[:0]B
+          }
+          \arrow{->}
+          \chemfig{
+            [:0]
+            -[:0]C
+            (-[:90])
+            (-[:-90]A)
+            -[:0]C
+            (-[:90])
+            (-[:-90]B)
+            -[:0]
+          }
+        }
+      }{Outline alkene addition reaction; \textit{this reaction is usually exothermic}}{fig:ph20}{0.9}
 
-      Generally speaking, alkene addition reactions are $ΔH^{\circ} < 0$, however since the nature of the reaction is a combination reaction wherein two reactant molecules form a single product molecule, $ΔS^{\circ} < 0$, making it entropically unfavorable. In most reactions, the enthalpic favorability overrides the magnitude of entropic unfavorability. However, in some reactions or at high temperatures, the ΔG$^{\circ}$ turns positive, making these addition reactions thermodynamically unfavorable.
+      Generally speaking, alkene addition reactions exhibit $ΔH^{\circ} < 0$; however, because the reaction is a combination reaction in which two reactant molecules form a single product molecule, $ΔS^{\circ} < 0$, rendering it \textbf{entropically unfavorable}. In most cases, the enthalpic favorability outweighs the magnitude of entropic unfavorability. In some reactions, however, or at sufficiently high temperatures, $ΔG^{\circ}$ becomes positive, rendering these addition reactions thermodynamically unfavorable.
 
-      \myfig{0.5}{alkene_alkyne_figures/ethane_addition}{}{fig:ph21}
+      \reactionfig{
+        \scheme{
+          \chemfig{
+            [:0]C
+            (-[:135]H)
+            (-[:-135]H)
+            =[:0,,,,Red]C
+            (-[:45]H)
+            (-[:-45]H)
+          }
+          \+
+          \chemfig{
+            [:0]\textcolor{Blue}{H}
+            -[:0,,,,Red]\textcolor{Red}{OH}
+          }
+          \arrow{->}
+          \chemfig{
+            [:0]
+            -[:0]C
+            (-[:90])
+            (-[:-90,,,,Red]\textcolor{Blue}{H})
+            -[:0]C
+            (-[:90])
+            (-[:-90,,,,Red]\textcolor{Red}{OH})
+            -[:0]
+          }
+          \qquad
+          \text{$δh = -44.3\,kj\,mol^{-1}$}
+        }
+      }{Alkene hydration reaction; \textit{the reaction is enthalpically favorable ($ΔH^{\circ} = -44.3\,kJ\,mol^{-1}$) but entropically unfavorable in standard conditions, thus the Gibb Free Energy is much lower ($ΔG^{\circ} = -6.1\,kJ\,mol^{-1}$)}}{fig:ph21}{0.9}
 
     \end{core}
     
@@ -808,13 +864,88 @@
 
       \begin{core}[label=core:hydrogenation]{Catalytic Hydrogenation}
 
-        \textbf{Catalytic hydrogenation} refers to the addition of \ce{H2} to an alkene, effectively removing the alkene double bond and converting the target molecule into an alkane if the double bond in question was the only one. This process alone would require enormous amounts of pressure and extreme temperatures to occur, however \textbf{catalysts}---such as Pd/C or \ce{PtO2}---enable a mechanism with lower E$_{\text{a}}$ that chemists frequently use.
+        \textbf{Catalytic hydrogenation} refers to the addition of \ce{H2} to an alkene, effectively removing the alkene double bond and converting the target molecule into an alkane if that was the only double bond present. On its own, this process would require enormous pressure and extreme temperatures to proceed; however, \textbf{catalysts}---such as Pd/C or \ce{PtO2}---enable an alternative mechanism with a lower E$_{\text{a}}$ that chemists frequently employ.
 
-        \myfig{0.5}{alkene_alkyne_figures/cata_hydro}{}{fig:ph22}
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              [:0]C
+              (-[:135])
+              (-[:-135])
+              =[:0]C
+              (-[:45])
+              (-[:-45])
+            }
+            \+
+            \chemfig{
+              [:0]H
+              -[:0]H
+            }
+            \qquad
+            \qquad
+            \arrow{->[\textcolor{Red}{Pd/C or \ce{PtO2}}]}
+            \qquad
+            \chemfig{
+              [:0]
+              -[:0]C
+              (-[:90])
+              (-[:-90]H)
+              -[:0]C
+              (-[:90])
+              (-[:-90]H)
+              -[:0]
+            }
+          }
+        }{Catalytic hydrogenation reaction outline}{fig:ph22}{0.9}
 
-        It's also important to note that the hydrogens are \textbf{stereospecifically} added to the \textbf{same side (syn)} of the target double bond. As a result, the outputed product mixutre will be \textbf{racemic}.
+        It is also important to note that the hydrogens are added \textbf{stereospecifically} to the \textbf{same side (syn)} of the target double bond. As a result, the resulting product mixture is \textbf{racemic}.
 
-        \myfig{0.5}{alkene_alkyne_figures/cata_hydro2}{}{fig:ph23}
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              *6(--
+              (
+              -[:-30]
+              -[:30]
+              )
+              =
+              (
+              -[:30]
+              )
+              ---)
+            }
+            \+
+            \chemfig{
+              \textcolor{Blue}{\ce{H2}}
+            }
+            \arrow{->[catalyst]}
+            \chemfig{
+              *6(--\textcolor{Red}{R}
+              (
+              <:[:-30]
+              -[:30]
+              )
+              (<[:-90,,,,Red]H)
+              -\textcolor{Red}{S}
+              (<:[:30])
+              (<[:90,,,,Red]H)
+              ---)
+            }
+            \+
+            \chemfig{
+              *6(--\textcolor{Red}{S}
+              (
+              <[:-30]
+              -[:30]
+              )
+              (<:[:-90,,,,Red]H)
+              -\textcolor{Red}{R}
+              (<[:30])
+              (<:[:90,,,,Red]H)
+              ---)
+            }
+          }
+        }{Stereospecific catalytic hydrogenation of asymmetrical cyclohexane leading to racemic product mixture; \textit{notice that the hydrogen addition is always syn}}{fig:ph23}{0.9}
 
       \end{core}
 
@@ -822,21 +953,121 @@
 
       \begin{core}{Eletrophilic Additions}
 
-        Because the π bond is \textbf{\ce{e^-} rich}, it readily \textbf{reacts with a polar reagent A$^{\text{δ}^+}$--B$^{\text{δ}^-}$}, where the partially positive end A$^{\text{δ}^+}$ is drawn to the \ce{e^-} rich double bond.
+        Because the π bond is \textbf{\ce{e^-} rich}, it readily \textbf{reacts with a given polar reagent A$^{\text{δ}^+}$--B$^{\text{δ}^-}$}, in which the partially positive end A$^{\text{δ}^+}$ is drawn toward the \ce{e^-}-rich double bond.
 
-        In the scenario where A$^{\text{δ}^+}$ is a \ce{H+}, the reaction that ensues is simply the reverse of an E1.
+        In the case where A$^{\text{δ}^+}$ is \ce{H+}, the ensuing reaction is simply the reverse of an E1.
 
-        \myfig{0.5}{alkene_alkyne_figures/elec_add}{indicate anti and syn stereoisomers in caption}{fig:ph24}
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              [:0]@{proton}\textcolor{Blue}{\ce{H+}}
+            }
+            \+
+            \chemfig{
+              [:0]C
+              (-[:135])
+              (-[:-135])
+              =[@{bond}:0]C
+              (-[:45])
+              (-[:-45])
+            }
+            \arrow{->}
+            \chemfig{
+              [:0]
+              -[:0]C
+              (-[:90,,,,Red]\textcolor{Blue}{H})
+              (-[:-90])
+              -[:0]@{carbon}\textcolor{Blue}{\pcharge{125}{C}}
+              (<[:45])
+              (<:[:-45])
+            }
+            \arrow{->[
+              \chemfig{
+                @{baseup}\textcolor{Red}{\ce{B-}}
+              }
+            ][
+              \chemfig{
+                @{basedown}\textcolor{Red}{\ce{B-}}
+              }
+            ]}
+            \chemname{
+              \chemfig{
+                [:0]
+                -[:0]C
+                (-[:90,,,,Red]\textcolor{Blue}{H})
+                (-[:-90])
+                -[:0]C
+                (-[:90,,,,Red]\textcolor{Red}{B})
+                (-[:-90])
+                -[:0]
+              }
+            }{syn}
+            \+
+            \chemname{
+              \chemfig{
+                [:0]
+                -[:0]C
+                (-[:90,,,,Red]\textcolor{Blue}{H})
+                (-[:-90])
+                -[:0]C
+                (-[:90])
+                (-[:-90,,,,Red]\textcolor{Red}{B})
+                -[:0]
+              }
+            }{cis}
+          }
+          \chemmovearrow{
+            \reactionfigarrow{bond}{100}{proton}{80}{Red}
+            \reactionfigarrow{baseup}{100}{carbon}{80}{Red}
+            \reactionfigarrow{basedown}{-100}{carbon}{-80}{Red}
+          }
+        }{Outline electrophilic addition of alkene reactions; \textit{mind that the syn and cis versions have two possible arrangement as shown by the absence of dashed and wedged bonds}}{fig:ph24}{0.85}
 
       \end{core}
 
       \begin{core}[label=core:hydrohalogenation]{Hydrohalogenation}
   
-        \textbf{Hydrohalogenation} is a type of electrophilic addition wherein a \textbf{HX is added} to the alkene double bond where X is a halogen.
+        \textbf{Hydrohalogenation} is a type of electrophilic addition in which \textbf{HX is added} to the alkene double bond, where X is a halogen.
 
-        \myfig{0.5}{alkene_alkyne_figures/hydrohalo}{}{fig:ph25}
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              *6(---
+              (
+              -[:30]
+              =[:-30]
+              )
+              ---)
+            }
+            \arrow{->[\textcolor{Blue}{H}\textcolor{Red}{Br}]}
+            \chemfig{
+              *6(---
+              (
+              -[:30]
+              (-[:90,,,,Red]\textcolor{Red}{Br})
+              -[:-30]
+              -[:30,,,,Red]\textcolor{Blue}{H}
+              )
+              ---)
+            }
+            \qquad \qquad
+            \chemfig{
+              [:0]
+              -[:30]
+              =[:-30]
+            }
+            \arrow{->[\textcolor{Blue}{H}\textcolor{Red}{Cl}]}
+            \chemfig{
+              [:0]
+              -[:30]
+              (-[:90,,,,Red]\textcolor{Red}{Cl})
+              -[:-30]
+              -[:30,,,,Red]\textcolor{Blue}{H}
+            }
+          }
+        }{Hydrobromination (\textit{left}) and hydrochlorination (\textit{right})}{fig:ph25}{0.75}
 
-        Notice that the \ce{H+} adds to the \textbf{less substituted} carbon because it results in a more substituted carbocation in the other carbon, favoring $\text{tertiary} > \text{secondary} > \text{primary}$ carbocation formation. This phenomenon is called \textbf{Markovnikov's Rule} and the following energy diagram for the different stereospecific pathways depicts the stability of the different transition states nicely.
+        Notice that \ce{H+} adds to the \textbf{less substituted} carbon, since doing so results in a more substituted carbocation at the other carbon, favoring carbocation formation in the order $\text{tertiary} > \text{secondary} > \text{primary}$. This phenomenon is called \textbf{Markovnikov's Rule}, and the energy diagram below for the different stereospecific pathways illustrates the relative stability of the corresponding transition states.
 
         \myfig{0.5}{alkene_alkyne_figures/hydrohalo2}{}{fig:ph26}
 
@@ -844,19 +1075,23 @@
 
       \begin{core}[label=core:mark_hydra]{Markovnikov Hydration}
 
-        \textbf{Markovnikov hydration} is refers to the conversion of an alkene to an alcohol through the \textbf{addition of \ce{H2O}} in the presence of an acid catalyst---the reverse of the alkene synthesis reaction covered in \autoref{core:alkene_roh}.
+        % \textbf{Markovnikov hydration} is refers to the conversion of an alkene to an alcohol through the \textbf{addition of \ce{H2O}} in the presence of an acid catalyst---the reverse of the alkene synthesis reaction covered in \autoref{core:alkene_roh}.
+        \textbf{Markovnikov hydration} refers to the conversion of an alkene to an alcohol through the \textbf{addition of \ce{H2O}} in the presence of an acid catalyst---the reverse of the alkene synthesis reaction covered in \autoref{core:alkene_roh}.
 
         \myfig{0.5}{alkene_alkyne_figures/mark_hydra}{}{fig:ph27}
 
-        The underlying mechanism to the reaction is shown in the following. Notice how the \ce{H+} is regenerated by the end of the reaction.
+        % The underlying mechanism to the reaction is shown in the following. Notice how the \ce{H+} is regenerated by the end of the reaction.
+        The underlying mechanism of the reaction is shown below. Notice that \ce{H+} is regenerated by the end of the reaction.
 
         \myfig{0.5}{alkene_alkyne_figures/mark_hydra2}{}{fig:ph28}
 
-        There are, however, bound to be a mixture of alkenes, transient intermediaries, and alcohols because Markovnikov hydration is at dynamic equilibrium with the pathway previously covered in \autoref{core:alkene_roh}. Because the temporary presence of a carbocation introduces hydride shifts, catalytic \ce{H+} will turn a single alkene species into a slurry of stereoisomeric alkenes, with ratios determined by relative thermodynamic stabilties primarily based on steric hinderance and hyperconjugation.
+        % There are, however, bound to be a mixture of alkenes, transient intermediaries, and alcohols because Markovnikov hydration is at dynamic equilibrium with the pathway previously covered in \autoref{core:alkene_roh}. Because the temporary presence of a carbocation introduces hydride shifts, catalytic \ce{H+} will turn a single alkene species into a slurry of stereoisomeric alkenes, with ratios determined by relative thermodynamic stabilties primarily based on steric hinderance and hyperconjugation.
+        A mixture of alkenes, transient intermediates, and alcohols is nonetheless bound to form, since Markovnikov hydration exists in dynamic equilibrium with the pathway previously covered in \autoref{core:alkene_roh}. Because the temporary presence of a carbocation introduces hydride shifts, catalytic \ce{H+} converts a single alkene species into a mixture of stereoisomeric alkenes, with product ratios determined by relative thermodynamic stability, governed primarily by steric hindrance and hyperconjugation.
 
         \myfig{0.5}{alkene_alkyne_figures/mark_hydra3}{}{fig:ph29}
 
-        The full mechanism of equilibrium between an alcohol and its corresponding alkene products is shown in the follwing chemical equation using butanol/butene as an example.
+        % The full mechanism of equilibrium between an alcohol and its corresponding alkene products is shown in the follwing chemical equation using butanol/butene as an example.
+        The complete equilibrium mechanism between an alcohol and its corresponding alkene products is shown in the following chemical equation, using butanol/butene as an example.
 
         \myfig{0.5}{alkene_alkyne_figures/mark_hydra4}{caption includes: leads to the rapid equilibrium of three alkene products}{fig:ph30}
 
@@ -864,21 +1099,26 @@
 
       \begin{core}[label=core:halogenation]{Halogenation}
 
-        \textbf{Halogenation} is the addition of a diatomic halogen molecule \ce{X2} to an alkene double bond. In contrast to the addition of HX (\textit{\autoref{core:hydrohalogenation}})---which is inherently polarized due to the electronegativity differences---\ce{X2} is not polarized inherently, but rather \textbf{gets polarized during its apporach to the \ce{e^-} rich alkene double bond}.
+        % \textbf{Halogenation} is the addition of a diatomic halogen molecule \ce{X2} to an alkene double bond. In contrast to the addition of HX (\textit{\autoref{core:hydrohalogenation}})---which is inherently polarized due to the electronegativity differences---\ce{X2} is not polarized inherently, but rather \textbf{gets polarized during its apporach to the \ce{e^-} rich alkene double bond}.
+        \textbf{Halogenation} is the addition of a diatomic halogen molecule \ce{X2} to an alkene double bond. In contrast to the addition of HX (\textit{\autoref{core:hydrohalogenation}}), which is inherently polarized due to electronegativity differences, \ce{X2} is not inherently polarized but rather \textbf{becomes polarized as it approaches the \ce{e^-}-rich alkene double bond}.
 
         \myfig{0.5}{alkene_alkyne_figures/halo}{}{fig:ph31}
 
-        The underlying mechanism is shown in the following figure.
+        % The underlying mechanism is shown in the following figure.
+        The underlying mechanism is shown in the figure below.
 
         \myfig{0.5}{alkene_alkyne_figures/halo2}{}{fig:ph32}
 
-        Notice the formation of a halonium ring because the alternative carbocation state will want to distribute the burden of its positive charge. Because the second attack to the bridged halonium exclusively occurs to the backside of the first halogen attack, halogenation is \textbf{stereospecifically anti (not syn)}. Likewise, if the second attack has thermodynamically equal possibility of attack either backside carbon---meaning that the inital alkene was perfectly \textbf{symmetrical}---the ensuing products will be an \textbf{racemic mixture}.
+        % Notice the formation of a halonium ring because the alternative carbocation state will want to distribute the burden of its positive charge. Because the second attack to the bridged halonium exclusively occurs to the backside of the first halogen attack, halogenation is \textbf{stereospecifically anti (not syn)}. Likewise, if the second attack has thermodynamically equal possibility of attack either backside carbon---meaning that the inital alkene was perfectly \textbf{symmetrical}---the ensuing products will be an \textbf{racemic mixture}.
+        Notice the formation of a halonium ring, since the alternative carbocation state would otherwise bear the full burden of its positive charge. Because the second attack on the bridged halonium ion occurs exclusively at the backside of the first halogen attack, halogenation is \textbf{stereospecifically anti (not syn)}. Likewise, if the second attack is thermodynamically equally likely to occur at either backside carbon---meaning the initial alkene was perfectly \textbf{symmetrical}---the resulting products form a \textbf{racemic mixture}.
 
-        If the initial alkene is \textbf{asymmetrical}, the halonium ion intermediate is actually highly distorted, wherein the bond between the halogen and more substituted carbon is \textbf{longer}. Likewise, as the halogen pulls more \ce{e^-} density towards itself the more substituted carbon is able possess a greater δ$^+$ due to hyperconjugation. As a result, thehalonium ring transition state \textbf{already has a high degree of carbocation} behavior and thus mimics more of a \sno attack characteristic although the backside attack is \snt by definition because of its exclusively anti result. Consequently, the backside nucleophilic attack occurs at the more substituted carbon, an interaction wherein the impact of charge is greater than steric hinderance on regioselectivity.
+        % If the initial alkene is \textbf{asymmetrical}, the halonium ion intermediate is actually highly distorted, wherein the bond between the halogen and more substituted carbon is \textbf{longer}. Likewise, as the halogen pulls more \ce{e^-} density towards itself the more substituted carbon is able possess a greater δ$^+$ due to hyperconjugation. As a result, thehalonium ring transition state \textbf{already has a high degree of carbocation} behavior and thus mimics more of a \sno attack characteristic although the backside attack is \snt by definition because of its exclusively anti result. Consequently, the backside nucleophilic attack occurs at the more substituted carbon, an interaction wherein the impact of charge is greater than steric hinderance on regioselectivity.
+        If the initial alkene is \textbf{asymmetrical}, however, the halonium ion intermediate becomes highly distorted, such that the bond between the halogen and the more substituted carbon is \textbf{longer}. Likewise, as the halogen draws more \ce{e^-} density toward itself, the more substituted carbon develops a greater δ$^+$ due to hyperconjugation. As a result, the halonium ring transition state \textbf{already exhibits a high degree of carbocation} character and thus more closely resembles \sno-type behavior, even though the backside attack is \snt by definition due to its exclusively anti outcome. Consequently, the backside nucleophilic attack occurs at the more substituted carbon, an interaction in which the influence of charge outweighs steric hindrance in determining regioselectivity.
 
         \myfig{0.5}{alkene_alkyne_figures/halo3}{}{fig:ph33}
 
-        On a different note, the intermediary halonium ring ions can also be intercepted by other nucleophiles such as \ce{HOH} (\textit{FIG REFERENCE ABOVE}) or \ce{ROH} (\textit{FIG REFERENCE BELOW}).
+        % On a different note, the intermediary halonium ring ions can also be intercepted by other nucleophiles such as \ce{HOH} (\textit{FIG REFERENCE ABOVE}) or \ce{ROH} (\textit{FIG REFERENCE BELOW}).
+        Separately, the intermediate halonium ring ions can also be intercepted by other nucleophiles, such as \ce{HOH} (\textit{FIG REFERENCE ABOVE}) or \ce{ROH} (\textit{FIG REFERENCE BELOW}).
 
         \myfig{0.5}{alkene_alkyne_figures/halo4}{}{fig:ph34}
 
@@ -886,9 +1126,11 @@
 
       \begin{core}[label=core:alkene_oxymercuration]{Oxymercuration--Demercuration}
 
-        \textbf{Oxymercuration--demercuration} is effectively the same as the \textbf{Markovnikov hydration} (\textit{\autoref{core:mark_hydra}}) process wherein a \ce{H2O} is added to remove an alkene double bond. However, oxymercuration--demercuration \textbf{avoids carbocation} formation, which prevents the unintended rearranged product alcohols and produces a purer product mix.
+        % \textbf{Oxymercuration--demercuration} is effectively the same as the \textbf{Markovnikov hydration} (\textit{\autoref{core:mark_hydra}}) process wherein a \ce{H2O} is added to remove an alkene double bond. However, oxymercuration--demercuration \textbf{avoids carbocation} formation, which prevents the unintended rearranged product alcohols and produces a purer product mix.
+        \textbf{Oxymercuration--demercuration} is effectively equivalent to the \textbf{Markovnikov hydration} process (\textit{\autoref{core:mark_hydra}}), in which \ce{H2O} is added to remove an alkene double bond. However, oxymercuration--demercuration \textbf{avoids carbocation} formation, which prevents unintended rearranged alcohol products and yields a purer product mixture.
 
-        The process utlizes mercury (II) acetate and sodium borohydride in a two step chemical process to achieve its \ce{H2O} addition.
+        % The process utlizes mercury (II) acetate and sodium borohydride in a two step chemical process to achieve its \ce{H2O} addition.
+        The process employs mercury(II) acetate and sodium borohydride in a two-step sequence to achieve \ce{H2O} addition.
 
         \myfig{0.5}{alkene_alkyne_figures/oxdemerc}{}{fig:ph35}
 
@@ -898,19 +1140,23 @@
 
           \item \textbf{Oxymercuration} 
 
-          Similar to the \textbf{alkene halogenation} (\textit{\autoref{core:halogenation}}) process, the large mercury atom forms a bridged, unevenly distributed mercurinium ion rather than a full carbocation, forcing the subsequent \ce{H2O} attack to strictly occur at the more substituted carbon.
+          % Similar to the \textbf{alkene halogenation} (\textit{\autoref{core:halogenation}}) process, the large mercury atom forms a bridged, unevenly distributed mercurinium ion rather than a full carbocation, forcing the subsequent \ce{H2O} attack to strictly occur at the more substituted carbon.
+          Similar to the \textbf{alkene halogenation} process (\textit{\autoref{core:halogenation}}), the large mercury atom forms a bridged, unevenly distributed mercurinium ion rather than a full carbocation, forcing the subsequent \ce{H2O} attack to occur strictly at the more substituted carbon.
 
           \item \textbf{Demercuration}
 
-          Afterwards, the \ce{NaBH4} acts as a reducing agent that cleaves the C--Hg bondand replaces it with a simple hydrogen atom.
+          % Afterwards, the \ce{NaBH4} acts as a reducing agent that cleaves the C--Hg bondand replaces it with a simple hydrogen atom.
+          Afterward, \ce{NaBH4} acts as a reducing agent that cleaves the C--Hg bond and replaces it with a hydrogen atom.
 
         \end{enumerate}
 
-        Likewise, the usage of \ce{ROH} allows the addition of a \ce{-OR} group just as how a \ce{-OH} was added by \ce{H2O}.
+        % Likewise, the usage of \ce{ROH} allows the addition of a \ce{-OR} group just as how a \ce{-OH} was added by \ce{H2O}.
+        Likewise, the use of \ce{ROH} allows for the addition of an \ce{-OR} group, just as \ce{H2O} adds a \ce{-OH} group.
 
         \myfig{0.5}{alkene_alkyne_figures/oxdemerc2}{}{fig:ph36}
 
-        When compared to Markovnikov hydration (\textit{\autoref{core:mark_hydra}}), oxymercuration--demercuration is the preferred method used by chemists in order to convert an alkene to an alcohol due to the purity of the resulting product mix.
+        % When compared to Markovnikov hydration (\textit{\autoref{core:mark_hydra}}), oxymercuration--demercuration is the preferred method used by chemists in order to convert an alkene to an alcohol due to the purity of the resulting product mix.
+        When compared to Markovnikov hydration (\textit{\autoref{core:mark_hydra}}), oxymercuration--demercuration is the method preferred by chemists for converting an alkene to an alcohol, owing to the purity of the resulting product mixture.
 
         \myfig{0.5}{alkene_alkyne_figures/oxdemerc3}{}{fig:ph37}
 
@@ -1398,4 +1644,3 @@
       \end{core}
   
 \end{document}
-
