@@ -26,7 +26,7 @@
 \section{Alkenes}
   \label{sec:alkenes}
 
-  \begin{core}{Alkene Orbital Structure}
+  \begin{core}[label=core:alkene_orbital]{Alkene Orbital Structure}
 
     The orbital structure of an alkene double bond arises from the combination of a σ bond and a π bond. This additional π overlap results in a shorter bond length relative to an alkane single bond: whereas a typical C--C single bond measures roughly $1.5\,A$, the C=C double bond is contracted to approximately $1.3\,A$.
 
@@ -2878,58 +2878,175 @@
 
   \begin{core}{Alkyne Orbital Structure}
 
-    % ORIGINAL: An alkyne triple bond is composed of two perpendicular π bonds and a conjoined sp hybrid σ bond.
-    An alkyne triple bond consists of two mutually perpendicular π bonds together with a single sp-hybridized σ bond.
-
-    \myfig{0.5}{alkene_alkyne_figures/alkyne}{}{fig:ph68}
+    \sbs{0.5}{
+      An alkyne triple bond consists of two mutually perpendicular π bonds together with a single sp hybridized σ bond. 
+      The additional π overlap over an alkene orbital structure (\textit{\autoref{core:alkene_orbital}}) results in an even shorter bond length: whereas the previously covered alkene double bond measures roughly as $1.3\,A$, the \ce{C#C} triple bond measures at roughly $1.2\,A$.
+    }{
+      \myfig{0.9}{alkene_alkyne_figures/alkyne}{Alkyne triple bond orbital structure}{fig:ph68}
+    }
 
   \end{core}
 
   \begin{core}{Triple Bond Strength}
 
-    % ORIGINAL: Ethyne releases a massive $-311\,\text{kcal}\,\text{mol}^{-1}$ of heat when combusted. Compared to ethane (\ce{CH3CH3})---which releases $-373\text{ kcal/mol}$---ethyne releases a proportionally greater amount of energy on a per carbon basis because you don't have to spend extra energy to break the 4 additional C--H bonds in ethane.
-    Combustion of ethyne releases a substantial $-311\,\text{kcal}\,\text{mol}^{-1}$ of heat. Compared to ethane (\ce{CH3CH3}), which releases $-373\,\text{kcal/mol}$, ethyne releases proportionally more energy per carbon, since none of that energy must first be spent breaking the four additional C--H bonds present in ethane.
+    Combustion of ethyne (\ce{HC#CH}) releases a substantial $-311\,\text{kcal}\,\text{mol}^{-1}$ of heat. Compared to ethane (\ce{CH3CH3}), which releases $-373\,\text{kcal}\,\text{mol}^{-1}$, ethyne releases proportionally more energy per carbon, since none of that energy must first be spent breaking the four additional C--H bonds present in ethane.
 
     \bce{\ce{HC#CH + 2.5O2 -> 2CO2 + H2O}\hspace{5mm}$ΔH^{\circ} = -311\,\text{kcal}\,\text{mol}^{-1}$}
 
     \bce{\ce{CH3CH3 + 3.5O2 -> 2CO2 + 3H2O}\hspace{5mm}$ΔH^{\circ} = -373\,\text{kcal}\,\text{mol}^{-1}$}
 
-    % ORIGINAL: Due to the higher level of strain alkyne π bonds exist under, the full hydrogenation of the two alkyne π bonds releases more energy than that of two alkene π bonds (\textit{which would be roughly $-60\,\text{kcal}\,\text{mol}^{-1}$})
-    Because alkyne π bonds exist under a higher degree of strain, complete hydrogenation of both alkyne π bonds releases more energy than hydrogenation of two analogous alkene π bonds would (\textit{which would release roughly $-60\,\text{kcal}\,\text{mol}^{-1}$})
+    Because alkyne π bonds exist under a higher degree of strain, complete hydrogenation of both alkyne π bonds releases more energy than hydrogenation of two analogous alkene π bonds would, which is roughly $-60\,\text{kcal}\,\text{mol}^{-1}$. Notice that both terminal and internal alkyne triple bond hydrogenation have $ΔH^{\circ} < -60\,\text{kcal}\,\text{mol}^{-1}$.
 
     \bce{(\textit{terminal}) \ce{CH3CH2C#CH + 2H2 ->[catalyst][] CH3CH2CH2CH3}\hspace{5mm}$ΔH^{\circ} = -69.9\,\text{kcal}\,\text{mol}^{-1}$}
 
     \bce{(\textit{internal}) \ce{CH3C#CCH3 + 2H2 ->[catalyst][] CH3CH2CH2CH3}\hspace{5mm}$ΔH^{\circ} = -65.1\,\text{kcal}\,\text{mol}^{-1}$}
 
-    % ORIGINAL: Notice the differences in net energy release due to the greater stability of the internal triple bond over the terminal version because of hyperconjugation.
-    Note the difference in net energy release: the internal triple bond is more stable than the terminal one owing to greater hyperconjugative stabilization.
+    Note the difference in net energy release: the internal triple bond is more stable than the terminal one owing to greater hyperconjugative stabilization, thus the internal scenario consumes more energy in order to break the same bonds, hence the lesser energy release compared to the terminal scenario.
 
   \end{core}
 
   \begin{core}[label=core:alkyne_acidity]{Relative Acidity of Alkynes}
 
-    % ORIGINAL: In general hydrocarbons (alkanes and alkenes), the $\text{C–H}$ bond is considered completely non-acidic. However, terminal alkyne C--H bonds defy this rule when treated with a sufficiently strong base, wherein the terminal \ce{H+} can be plucked off.
-    In typical hydrocarbons (alkanes and alkenes), the C--H bond is considered essentially non-acidic. Terminal alkyne C--H bonds, however, defy this generalization: when treated with a sufficiently strong base, the terminal \ce{H+} can be removed.
+    In typical hydrocarbons (\textit{alkanes and alkenes}), the C--H bond is considered essentially non-acidic. Terminal alkyne C--H bonds, however, defy this generalization: when treated with a sufficiently strong base, the terminal \ce{H+} can be removed.
 
-    \bce{\ce{RC#C-H + B- -> R-C#C- + HB}\hspace{5mm}$pK_a = 25$}
+    \reactionfig{
+      \scheme{
+        \chemfig{
+          [:0]R
+          -[:0]C
+          ~[:0]C
+          -[:0]H
+        }
+        \+
+        \chemfig{
+          \ce{B-}
+        }
+        \arrow{->}
+        \chemfig{
+          [:0]R
+          -[:0]C
+          ~[:0]\ncharge{45}{C}
+        }
+        \+
+        \chemfig{
+          \ce{HB}
+        }
+        \qquad
+        \text{$pK_a = 25$}
+      }
+    }{Alkyne terminal proton donation in the presence of a sufficiently strong base}{fig:ph68extra}{0.9}
+    \[
+      \underset{\text{p}K_a \approx 50}{\ce{H3C-CH3}} \qquad < \qquad \underset{\text{p}K_a \approx 44}{\ce{H2C=CH2}} \qquad < \qquad \underset{\text{p}K_a \approx 25}{\ce{HC#CH}}
+    \]
 
-    \myfig{0.5}{alkene_alkyne_figures/alkyne2}{}{fig:ph69}
+    This acidic trend is explained by the \textbf{greater s character of the relevant hybrid orbital}. Because an s orbital is spherical and lies much closer to the positively charged carbon nucleus than a directional, elongated p orbital, the lone pair of electrons left behind after deprotonation is held very close to that nucleus. This electrostatic proximity stabilizes the negative charge substantially, making the corresponding alkynyl conjugate base comparatively more stable.
 
-    % ORIGINAL: The above acidic trend is explained by the greater s orbital characteristics of the corresponding orbital hybridization. Since an s-orbital is spherical and sits much closer to the positively charged carbon nucleus than a directional, elongated $p$-orbital,the lone pair of electrons left behind after deprotonation is held very close to the positive nucleus. This electrostatic proximity stabilizes the negative charge immensely.making the corresponding alkyne conjugate base comparatively more stable.
-    This acidic trend is explained by the greater s-character of the relevant hybrid orbital. Because an s orbital is spherical and lies much closer to the positively charged carbon nucleus than a directional, elongated p orbital, the lone pair of electrons left behind after deprotonation is held very close to that nucleus. This electrostatic proximity stabilizes the negative charge substantially, making the corresponding alkynyl conjugate base comparatively more stable.
-
-    % ORIGINAL: Using this alkyne acidity, chemists are able to execute the following example applications
     Chemists exploit this acidity in the following example applications.
 
     \begin{enumerate}
 
       \item \textbf{Organolithium Reagents} 
 
-      \myfig{0.5}{alkene_alkyne_figures/alkyne3}{}{fig:ph70}
+      \doublereactionfig{
+        \scheme{
+          \chemname{
+            \raisebox{-1.5cm}{
+              \chemfig{
+                [:0]
+                -[:30]
+                -[:-30]
+                ~[:-30]
+                -[:-30]\textcolor{Blue}{H}
+              }
+            }
+          }{$pK_a = 25$}
+          \raisebox{-2cm}{
+            \+
+            \chemfig{
+              [:0]
+              -[:30]
+              -[:-30]
+              -[:30]
+              -[:-30]Li
+            }
+          }
+          \arrow{<->>}
+        }
+      }{
+        \scheme{
+          \chembrackets{
+            \chemfig{
+              [:0]
+              -[:30]
+              -[:-30]
+              ~[:-30]
+              -[:-30]Li
+            }
+          }
+          \arrow{<->}
+          \raisebox{-1.5cm}{
+            \chembrackets{
+              \chemfig{
+                [:0]
+                -[:30]
+                -[:-30]
+                ~[:-30]\ncharge{45}{C}
+              }
+              \qquad
+              \chemfig{
+                \ce{Li+}
+              }
+            }
+            \+
+          }
+          \chemname{
+            \raisebox{-1.5cm}{
+              \chemfig{
+                [:0]
+                -[:30]
+                -[:-30]
+                -[:30]
+              }
+            }
+          }{$pK_a = 50$}
+        }
+      }{Alkyne acidity and organolithium reagents}{fig:ph70}{0.85}
 
       \item \textbf{Sodium Amide (\ce{NaNH2})}
 
-      \myfig{0.5}{alkene_alkyne_figures/alkyne4}{}{fig:ph71}
+      \reactionfig{
+        \scheme{
+          \chemfig{
+            [:0]\textcolor{Blue}{H}
+            -[:0]
+            ~[:0]
+            -[:0]\textcolor{Blue}{H}
+          }
+          \arrow{<->>[\ce{NaNH2}]}
+          \chemfig{
+            [:0]\textcolor{Blue}{H}
+            -[:0]
+            ~[:0]\textcolor{Red}{\ce{C-}}
+          }
+          \;
+          \chemfig{
+            \textcolor{Blue}{\ce{Na+}}
+          }
+          \arrow{<->>[\ce{NaNH2}]}
+          \chemfig{
+            \textcolor{Blue}{\ce{Na+}}
+          }
+          \;
+          \chemfig{
+            [:0]\textcolor{Red}{\ce{C-}}
+            ~[:0]\textcolor{Red}{\ce{C-}}
+          }
+          \;
+          \chemfig{
+            \textcolor{Blue}{\ce{Na+}}
+          }
+        }
+      }{Alkyne acidity and sodium amide}{fig:ph71}{0.9}
 
     \end{enumerate}
 
@@ -2939,46 +3056,316 @@
 
     \begin{core}{Elimination E2 From Dihaloalkanes}
 
-      % ORIGINAL: Performing E2 elimination twice on dihaloalkenes with adjacent halogen substitutents allows for alkyne formation.
       Performing E2 elimination twice on a dihaloalkane bearing adjacent halogen substituents allows for alkyne formation.
+      
+      \reactionfig{
+        \scheme{
+          \chemfig{
+            [:0]
+            -[:0]C
+            (-[:90,,,,Green]\textcolor{Green}{X})
+            (-[:-90,,,,Red]\textcolor{Blue}{H})
+            -[:0]C
+            (-[:90,,,,Green]\textcolor{Green}{X})
+            (-[:-90,,,,Red]\textcolor{Blue}{H})
+            -[:0]
+          }
+          \arrow{->[\textcolor{Red}{-B}][-\textcolor{Blue}{H}\textcolor{Green}{X}]}
+          \chemfig{
+            [:0]C
+            (-[:135,,,,Red]\textcolor{Blue}{H})
+            (-[:-135])
+            =[:0]C
+            (-[:45])
+            (-[:-45,,,,Green]\textcolor{Green}{X})
+          }
+          \arrow{->[\textcolor{Red}{-B}][-\textcolor{Blue}{H}\textcolor{Green}{X}]}
+          \chemfig{
+            [:0]
+            -[:0]C
+            ~[:0]C
+            -[:0]
+          }
+        }
+      }{Synthesis of alkyne through double E2 elimination}{fig:ph72}{0.9}
 
-      \myfig{0.5}{alkene_alkyne_figures/alkyne_e2}{}{fig:ph72}
-
-      % ORIGINAL: Here is a specific example utlizing \ce{NaNH2} as the base, which has to go through an extra aqueous work up step due the acidity of terminal alkynes (\textit{\autoref{core:alkyne_acidity}}) in the presence of sodium amide \ce{NaNH2}.
       The example below uses \ce{NaNH2} as the base and requires an additional aqueous workup step, owing to the acidity of terminal alkynes (\textit{\autoref{core:alkyne_acidity}}) in the presence of sodium amide.
 
-      \myfig{0.5}{alkene_alkyne_figures/alkyne_e22}{}{fig:ph73}
+      \reactionfig{
+        \scheme{
+          \chemfig{
+            [:0]
+            -[:30]
+            -[:-30]
+            -[:30]
+            -[:-30]
+            (-[:-90]Br)
+            -[:30]
+            -[:-30]Br
+          }
+          \arrow{->[\ce{NaCH2}]}
+          \chemfig{
+            [:0]
+            -[:30]
+            -[:-30]
+            -[:30]
+            -[:-30]
+            ~[:-30]
+            -[:-30]Na
+          }
+          \qquad
+          \arrow{->[\ce{H+}, \ce{H2O}]}
+          \quad
+          \chemfig{
+            [:0]
+            -[:30]
+            -[:-30]
+            -[:30]
+            -[:-30]
+            ~[:-30]
+          }
+          \;
+          $75\%$
+        }
+      }{Synthesis of alkyne through double E2 elimination from \ce{NaNH2}}{fig:ph73}{0.75}
 
     \end{core}
 
     \begin{core}{Alkylation of Alkynyl Metals}
 
-      % ORIGINAL: Terminal alkynes can be converted into powerful nucleophiles via deprotonation with strong bases, enabling C--C bond formation through substitution pathways that follow strict \snt rules. 
       Terminal alkynes can be converted into powerful nucleophiles by deprotonation with strong bases, enabling C--C bond formation through substitution pathways that follow strict \snt mechanistic rules.
 
-      \myfig{0.5}{alkene_alkyne_figures/alkylation}{}{fig:ph74}
+      \reactionfig{
+        \scheme{
+          \chemfig{
+            *6(---
+            (
+            -[:30]
+            ~[:30]
+            )
+            ---)
+          }
+          \qquad
+          \arrow{->[
+            \footnotesize
+            \chemfig{
+              [:0]
+              -[:30]
+              -[:-30]
+              -[:30]
+              -[:-30]Li
+            }
+          ][\textcolor{Red}{THF}]}
+          \qquad
+          \chemfig{
+            [:0,,,,Red]*6(---
+            (
+            -[:30]
+            ~[:30]
+            -[:30]Li
+            )
+            ---)
+          }
+          \arrow{->[
+            \footnotesize
+            \chemfig{
+              [:0,,,,Blue]
+              -[:30]
+              -[:-30]
+              -[:30]\textcolor{Green}{I}
+            }
+          ][Δ]}
+          \qquad
+          \chemfig{
+            [:0,,,,Red]*6(---
+            (
+            -[:30]
+            ~[:30]
+            -[:30,,,,Blue]
+            -[:-30,,,,Blue]
+            -[:30,,,,Blue]
+            )
+            ---)
+          }
+        }
+      }{Strong base induced terminal alkyne nucleophilicity}{fig:ph74}{0.75}
 
-      % ORIGINAL: The synthetic utility of alkynyl metals relies on $R_{\text{prim}}$ halides or oxacyclopropanes (\textit{epoxides}) as electrophilic substrates to minimize competing E2 elimination side-reactions. When utilizing unsymmetrical epoxides, the acetylide nucleophile regioselectively attacks the less sterically hindered carbon atom.
-      The synthetic utility of alkynyl metals depends on the use of primary ($R_{\text{prim}}$) halides or oxacyclopropanes (\textit{epoxides}) as electrophilic substrates, which minimizes competing E2 elimination side reactions. With unsymmetrical epoxides, the acetylide nucleophile attacks regioselectively at the less sterically hindered carbon.
+      The synthetic utility of alkynyl metals depends on the use of primary ($R_{\text{prim}}$) halides or oxacyclopropanes (\textit{epoxides}) as electrophilic substrates, which minimizes competing E2 elimination side reactions. With asymmetrical epoxides, the acetylide nucleophile attacks regioselectively at the less sterically hindered carbon.
 
-      \myfig{0.5}{alkene_alkyne_figures/alkylation2}{}{fig:ph75}
+      \doublereactionfig{
+        \scheme{
+          \chemfig{
+            [:0]
+            -[:30]
+            -[:-30]
+            -[:30]
+            ~[:30]
+          }
+          \+
+          \chemfig{
+            [:0]
+            -[:30]
+            -[:-30]
+            -[:30]
+            -[:-30]Li
+          }
+          \arrow{->}
+        }
+      }{
+        \scheme{
+          \chemfig{
+            [:0]
+            -[:30]
+            -[:-30]
+            -[:30]
+            ~[:30]
+            -[@{bond1}:30]Li
+          }
+          \qquad \qquad \qquad
+          \arrow{->[
+            \footnotesize
+            \chemfig{
+              [:0]@{carbon}
+              (-[@{bond2}:60]@{oxygen}\textcolor{White}{O})
+              -[:0]
+              (-[:120]O)
+              -[:-30]\ce{CH3}
+            }
+          ]}
+          \quad
+          \chemfig{
+            [:0]
+            -[:30]
+            -[:-30]
+            -[:30]
+            ~[:30]
+            -[:30]
+            -[:-30]
+            (-[:-90])
+            -[:30]OH
+          }
+        }
+        \chemmovearrow{
+          \reactionfigarrow{bond1}{90}{carbon}{135}{Red}
+          \reactionfigarrow{bond2}{135}{oxygen}{100}{Red}
+        }
+      }{Terminal alkyne nucleophilicity in the presence of an oxacyclopropane}{fig:ph75}{0.8}
 
-      % ORIGINAL: The following are various examples using this mechanism.
       Below are several examples that employ this mechanism.
 
       \begin{enumerate}
 
         \item \textbf{Carbonyl Addition with Grignard} 
 
-        \myfig{0.5}{alkene_alkyne_figures/alkylation3}{}{fig:ph76}
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              [:0]
+              -[:30]
+              -[:-30]
+              -[:30]
+              ~[:30]
+            }
+            \+
+            \chemfig{
+              \ce{CH3MgCl}
+            }
+            \arrow{->}
+            \chemfig{
+              [:0]
+              -[:30]
+              -[:-30]
+              -[:30]
+              ~[:30]
+              -[:30]MgCl
+            }
+            \arrow{->[\ce{CH2=O}]}
+            \chemfig{
+              [:0]
+              -[:30]
+              -[:-30]
+              -[:30]
+              ~[:30]
+              -[:30]
+              -[:-30]OH
+            }
+          }
+        }{Carbonyl addition with grignard reagent}{fig:ph76}{0.75}
 
         \item \textbf{Epoxide Opening with Lithium Acetylide}
 
-        \myfig{0.5}{alkene_alkyne_figures/alkylation4}{}{fig:ph77}
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              [:0]
+              ~[:0]
+            }
+            \+
+            \chemfig{
+              \ce{LiNH2}
+            }
+            \arrow{->}
+            \chemfig{
+              [:0]
+              ~[:0]
+              -[:0]Li
+            }
+            \arrow{->[
+              \chemfig{
+                [:30]*3(-O--)
+              }
+            ]}
+            \chemfig{
+              [:0]
+              ~[:0]
+              -[:0]
+              -[:-30]
+              -[:30]OH
+            }
+          }
+        }{Epoxide opening with lithium acetylide}{fig:ph77}{0.9}
 
         \item \textbf{Double Grignard Addition of Acetaldehyde}
 
-        \myfig{0.5}{alkene_alkyne_figures/alkylation5}{}{fig:ph78}
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              [:0]
+              ~[:0]
+            }
+            \+
+            \chemfig{
+              \ce{2CH3MgBr}
+            }
+            \arrow{->}
+            \chemfig{
+              [:0]\ce{BrMg}
+              -[:0]
+              ~[:0]
+              -[:0]\ce{MgBr}
+            }
+            \qquad
+            \arrow{->[
+              \footnotesize
+              \chemfig{
+                [:0]\ce{CH3}
+                -[:0]CH
+                (=[:90]O)
+              }
+            ]}
+            \qquad
+            \chemfig{
+              [:0]
+              (-[:135]HO)
+              (-[:-135])
+              -[:0]
+              ~[:0]
+              -[:0]
+              (-[:45]OH)
+              (-[:-45])
+            }
+          }
+        }{Double grignard addition of acetaldehyde}{fig:ph78}{0.85}
 
       \end{enumerate}
 
@@ -2990,51 +3377,244 @@
 
       \begin{core}{Complete Hydrogenation}
 
-        % ORIGINAL: The complete hydrogenation of an alkyne triple bond (\textit{addition of \ce{2H2}}) progresses similarly alkene hydrogenation (\textit{\autoref{core:hydrogenation}}), utilizing a catalyst like Pt to help lower the E$_\text{a}$ of the reaction. The resulting product is an alkane.
         Complete hydrogenation of an alkyne triple bond (\textit{the addition of \ce{2H2}}) proceeds analogously to alkene hydrogenation (\textit{\autoref{core:hydrogenation}}), employing a catalyst such as Pt to lower the reaction's activation energy ($E_\text{a}$). The resulting product is an alkane.
 
-        \myfig{0.5}{alkene_alkyne_figures/complete_hydro}{}{fig:ph79}
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              [:0]
+              -[:-30]
+              -[:30]
+              -[:-30]
+              ~[:-30]
+              -[:-30]
+              -[:30]
+              -[:-30]
+            }
+            \arrow{->[\ce{H2}, Pt][100\%]}
+            \chemfig{
+              [:0]
+              -[:30]
+              -[:-30]
+              -[:30]
+              -[:-30]
+              -[:30]
+              -[:-30]
+              -[:30]
+            }
+          }
+        }{Complete hydrogenation of an alkyne}{fig:ph79}{0.9}
 
       \end{core}
 
       \begin{core}{Partial Hydrogenation}
   
-        % ORIGINAL: Partial hydrogenation refers to the addition of only one \ce{H2} wherein only one of the two π bonds are removed, resulting in either cis or trans product from a syn and anti addition, respectively.
         Partial hydrogenation refers to the addition of only one equivalent of \ce{H2}, removing only one of the two π bonds and yielding either a cis or trans product depending on whether the addition is syn or anti, respectively.
 
         \begin{itemize}
 
           \item \textbf{Lindler's Catalyst (Syn Addition)} 
 
-          \myfig{0.5}{alkene_alkyne_figures/lindlers}{}{fig:ph80}
+          \reactionfig{
+            \scheme{
+              \chemfig{
+                [:0]
+                -[:-30]
+                -[:30]
+                -[:-30]
+                ~[:-30]
+                -[:-30]
+                -[:30]
+              }
+              \arrow{->[\textcolor{Blue}{\ce{H2}}, Lindler][100\%]}
+              \chemfig{
+                [:0]
+                -[:30]
+                -[:-30]
+                -[:30]
+                (-[:120,,,,Blue]\textcolor{Blue}{H})
+                =[:0]
+                (-[:60,,,,Blue]\textcolor{Blue}{H})
+                -[:-30]
+                -[:30]
+              }
+            }
+          }{Partial syn hydrogenation of an alkyene with "poisoned" Lindler's catalyst producing cis-3-heptene}{fig:ph80}{0.9}
 
-          % ORIGINAL: A syn addition and subsequent cis product requires the usage of a "\textit{poisoned}" \textbf{Lindlar's catalyst}.
           A syn addition, and the resulting cis product, requires the use of a "\textit{poisoned}" \textbf{Lindlar's catalyst}.
 
           \item \textbf{Sodium Reduction (Anti Addition)} 
 
-          \myfig{0.5}{alkene_alkyne_figures/sodium_red}{}{fig:ph81}
+          \reactionfig{
+            \scheme{
+              \chemfig{
+                [:0]
+                -[:-30]
+                -[:30]
+                -[:-30]
+                ~[:-30]
+                -[:-30]
+                -[:30]
+              }
+              \raisebox{-1cm}{
+                \+
+                \chemfig{
+                  \ce{Na}
+                }
+              }
+              \qquad
+              \arrow{->[\ce{NH3} liq.][86\%]}
+              \chemfig{
+                [:0]
+                -[:30]
+                -[:-30]
+                -[:30]
+                (-[:120,,,,Blue]\textcolor{Blue}{H})
+                =[:0]
+                (-[:-60,,,,Blue]\textcolor{Blue}{H})
+                -[:30]
+                -[:-30]
+              }
+            }
+          }{Partial anti hydrogenation of an alkyen with sodium reduction producing trans-3-heptene}{fig:ph81}{0.9}
 
-          % ORIGINAL: The underlying mechanism for the above reduction through sodium is shown below.
           The underlying mechanism for this sodium-mediated reduction is shown below.
 
           \begin{enumerate}[label=(\arabic*)]
 
-            \item \textbf{\ce{e^-} Transfer}
+            \item \textbf{First \ce{e^-} Transfer}
 
-            \myfig{0.5}{alkene_alkyne_figures/sodium1}{}{fig:ph82}
+            \reactionfig{
+              \scheme{
+                \chemfig{
+                  [:0]@{carbon}RC
+                  ~[:0]CR
+                }
+                \arrow{->[
+                  \chemfig{
+                    @{na}\cdot Na
+                  }
+                ]}
+                \chemfig{
+                  \ce{Na+}
+                }
+                \+
+                \chemfig{
+                  [:0]\charge{135:4pt=\:}{C}
+                  (-[:-135]R)
+                  =[:0]\charge{-45:4pt=$\cdot$}{C}
+                  (-[:45]R)
+                }
+              }
+              \chemmovearrow{
+                \reactionfigarrow{na}{135}{carbon}{45}{Green}
+              }
+            }{Sodium reduction first \ce{e^-} transfer; \textit{R groups adopt trans like geometry to minimize steric repulsion}}{fig:ph82}{0.9}
 
             \item \textbf{First Protonation}
 
-            \myfig{0.5}{alkene_alkyne_figures/sodium2}{}{fig:ph83}
+            \reactionfig{
+              \scheme{
+                \chemfig{
+                  [:0]@{carbon}\charge{135:4pt=\:}{C}
+                  (-[:-135]R)
+                  =[:0]\charge{-45:4pt=$\cdot$}{C}
+                  (-[:45]R)
+                }
+                \qquad \qquad
+                \arrow{->[
+                  \chemfig{
+                    [:0]@{hydrogen}\textcolor{Blue}{H}
+                    -[@{bond}:0]@{nitrogen}\ce{NH2}
+                  }
+                ]}
+                \chemfig{
+                  [:0]C
+                  (-[:135]\textcolor{Blue}{H})
+                  (-[:-135]R)
+                  =[:0]\charge{-45:4pt=$\cdot$}{C}
+                  (-[:45]R)
+                }
+                \+
+                \chemfig{
+                  \ce{^-NH2}
+                }
+              }
+              \chemmovearrow{
+                \reactionfigarrow{carbon}{60}{hydrogen}{135}{Red}
+                \reactionfigarrow{bond}{100}{nitrogen}{80}{Red}
+              }
+            }{Sodium reduction first protonation}{fig:ph83}{0.9}
 
             \item \textbf{Second \ce{e^-} Transfer}
 
-            \myfig{0.5}{alkene_alkyne_figures/sodium3}{}{fig:ph84}
+            \reactionfig{
+              \scheme{
+                \chemfig{
+                  [:0]C
+                  (-[:135]\textcolor{Blue}{H})
+                  (-[:-135]R)
+                  =[:0]@{carbon}\charge{-45:4pt=$\cdot$}{C}
+                  (-[:45]R)
+                }
+                \arrow{->[
+                  \chemfig{
+                    @{na}\cdot Na
+                  }
+                ]}
+                \chemfig{
+                  \ce{Na+}
+                }
+                \+
+                \chemfig{
+                  [:0]C
+                  (-[:135]\textcolor{Blue}{H})
+                  (-[:-135]R)
+                  =[:0]\charge{-45:4pt=\:}{C}
+                  (-[:45]R)
+                }
+              }
+              \chemmovearrow{
+                \reactionfigarrow{na}{180}{carbon}{-30}{Green}
+              }
+            }{Sodium reduction second \ce{e^-} transfer}{fig:ph84}{0.9}
 
             \item \textbf{Second Protonation}
 
-            \myfig{0.5}{alkene_alkyne_figures/sodium4}{}{fig:ph85}
+            \reactionfig{
+              \scheme{
+                \chemfig{
+                  [:0]C
+                  (-[:135]\textcolor{Blue}{H})
+                  (-[:-135]R)
+                  =[:0]@{carbon}\charge{-45:4pt=\:}{C}
+                  (-[:45]R)
+                }
+                \qquad \qquad
+                \arrow{->[
+                  \chemfig{
+                    [:0]@{hydrogen}\textcolor{Blue}{H}
+                    -[@{bond}:0]@{nitrogen}\ce{NH2}
+                  }
+                ]}
+                \chemfig{
+                  [:0]C
+                  (-[:135]\textcolor{Blue}{H})
+                  (-[:-135]R)
+                  =[:0]C
+                  (-[:-45]\textcolor{Blue}{H})
+                  (-[:45]R)
+                }
+                \+
+                \chemfig{
+                  \ce{^-NH2}
+                }
+              }
+              \chemmovearrow{
+                \reactionfigarrow{carbon}{-30}{hydrogen}{-135}{Red}
+                \reactionfigarrow{bond}{100}{nitrogen}{80}{Red}
+              }
+            }{Sodium reduction second protonation}{fig:ph85}{0.9}
 
           \end{enumerate}
 
@@ -3046,42 +3626,249 @@
 
       \begin{core}[label=core:hx_anti_addition]{\ce{HX} Anti Addition}
 
-        % ORIGINAL: The \textbf{addition of HX} to an alkyne mix converts the triple bond to a \textbf{geminal} (\textit{same side}) dihaloalkane.
         Addition of \textbf{HX} to an alkyne converts the triple bond into a \textbf{geminal} (\textit{same-carbon}) dihaloalkane.
 
-        \myfig{0.5}{alkene_alkyne_figures/alkyne_hx}{}{fig:ph86}
+        \triplereactionfig{
+          \scheme{
+            \text{(Internal Alkynes)}
+            \qquad
+            \chemfig{
+              @{proton}\textcolor{Blue}{\ce{H+}}
+            }
+            \+
+            \chemfig{
+              [:0]R
+              -[:0]
+              ~[@{tbond}:0]
+              -[:0]R
+            }
+            \arrow{->}
+            \chemfig{
+              [:0]C
+              (-[:135]R)
+              (-[:-135,,,,Red]\textcolor{Blue}{H})
+              =[:0]\textcolor{Blue}{\pcharge{90}{C}}
+              -[:0]R
+            }
+            \qquad
+            \arrow{->[\textcolor{Red}{\ce{X-}}][
+              \shortstack{
+                Anti to \textcolor{Blue}{H}; \\
+                pushes R trans
+              }
+            ]}
+          }
+          \chemmovearrow{
+            \reactionfigarrow{tbond}{-120}{proton}{-30}{Red}
+          }
+        }{
+          \scheme{
+            \chemfig{
+              [:0]C
+              (-[:135]R)
+              (-[:-135,,,,Red]\textcolor{Blue}{H})
+              =[:0]C
+              (-[:45,,,,Red]\textcolor{Red}{X})
+              (-[:-45]R)
+            }
+            \qquad \qquad
+            \arrow{->[\textcolor{Blue}{\ce{H+}}][\textcolor{Red}{"Markovnikov"}]}
+            \qquad
+            \chemfig{
+              [:0]RC\textcolor{Blue}{\ce{H2}}
+              -[:0]@{carbon}\textcolor{Blue}{\pcharge{120}{C}}
+              (-[:45,,,,Red]\textcolor{Red}{\ce{X-}})
+              (-[:-45]R)
+            }
+            \arrow{->[
+              \chemfig{
+                @{halide}\textcolor{Red}{\ce{X-}}
+              }
+            ]}
+            \chemfig{
+              [:0]RC\textcolor{Blue}{\ce{H2}}
+              -[:0]C
+              (-[:90,,,,Red]\textcolor{Red}{X})
+              (-[:-90,,,,Red]\textcolor{Red}{X})
+              -[:0]R
+            }
+          }
+          \chemmovearrow{
+            \reactionfigarrow{halide}{-90}{carbon}{-120}{Red}
+          }
+        }{
+          \scheme{
+            \text{(Terminal Alkynes)}
+            \qquad
+            \chemfig{
+              [:0]RC
+              ~[:0]CH
+            }
+            \arrow{->[HX]}
+            \chemfig{
+              [:0]C
+              (-[:135]X)
+              (-[:-135]R)
+              =[:0]C
+              (-[:45]H)
+              (-[:-45]H)
+            }
+            \arrow{->[HX]}
+            \chemfig{
+              [:0]R
+              -[:0]C
+              (-[:90]X)
+              (-[:-90]X)
+              =[:0]C
+              (-[:90]H)
+              (-[:-90]H)
+              -[:0]H
+            }
+          }
+        }{Double Markovnikov HX addition to alkynes resulting in geminal halides}{fig:ph86}{0.9}
 
-        % ORIGINAL: It's important to notice that the first HX addition is always exceuted in the anti configuration because of steric hinderance. 
         It is important to note that the first HX addition always proceeds in the anti configuration, owing to steric hindrance.
 
-        % ORIGINAL: Additionally, although FIGURE REFERENCE categorizes this HX addition process into internal and terminal alkyne categories, it's much simpler to understand that the ensuing transition states of the reaction favor carbocation formation on the more substituted carbon (\textit{or Markovnikov's rule}). Because of this tendency, the second HX addition will bind the second \ce{H+} to the same first \ce{H+} receiving carbon because the alternative carbon is better substittued by the presence of a halogen substitutent from the first HX addition. 
-        Additionally, although FIGURE REFERENCE categorizes this HX addition process by internal and terminal alkyne substrates, it is simpler to recognize that the relevant transition states favor carbocation formation at the more substituted carbon (\textit{i.e., Markovnikov's rule}). Because of this tendency, the second HX addition delivers its proton to the same carbon that received the first proton, since the other carbon is already more substituted by the halogen installed in the first addition.
+        Additionally, although \autoref{fig:ph86} categorizes this HX addition process by internal and terminal alkyne substrates, it is simpler to recognize that the relevant transition states favor carbocation formation at the more substituted carbon (\textit{i.e., Markovnikov's rule}). Because of this tendency, the second HX addition delivers its proton to the same carbon that received the first proton, since the other carbon is already more substituted by the halogen installed in the first addition.
 
-        % ORIGINAL: Here are some real reactions, showcasing alkyene HX anti additions.
         Below are several real reactions illustrating alkyne HX anti additions.
 
         \begin{enumerate}
 
           \item \textbf{Symmetrical Internal Alkyne}
 
-          \myfig{0.5}{alkene_alkyne_figures/alkyne_hx2}{}{fig:ph87}
+          \reactionfig{
+            \scheme{
+              \chemfig{
+                [:0]
+                -[:30]
+                -[:-30]
+                ~[:-30]
+                -[:-30]
+                -[:30]
+              }
+              \arrow{->[HBr]}
+              \chemfig{
+                [:0]
+                -[:30]
+                -[:-30]
+                -[:30]
+                (-[:60]Br)
+                (-[:120]Br)
+                -[:-30]
+                -[:30]
+              }
+            }
+          }{Symmetrical internal alkyne HX anti addition}{fig:ph87}{0.9}
 
           \item \textbf{Asymmetrical Internal Alkyne}
 
-          \myfig{0.5}{alkene_alkyne_figures/alkyne_hx3}{}{fig:ph88}
+          \reactionfig{
+            \scheme{
+              \chemfig{
+                [:0]
+                -[:30]
+                -[:-30]
+                ~[:-30]
+                -[:-30]
+              }
+              \arrow{->[HI]}
+              \chemfig{
+                [:0]
+                -[:30]
+                -[:-30]
+                -[:30]
+                (-[:60]I)
+                (-[:120]I)
+                -[:-30]
+              }
+              \+
+              \chemfig{
+                [:0]
+                -[:30]
+                -[:-30]
+                (-[:-60]I)
+                (-[:-120]I)
+                -[:30]
+                -[:-30]
+              }
+            }
+          }{Asymmetrical internal alkyne HX anti addition}{fig:ph88}{0.9}
 
-          % ORIGINAL: Here because the degree of hyperconjugation between the bonded R groups do not have a large difference, mixtures ensure although the PRODUCT NAME most likely is more favored.
-          Here, because the degree of hyperconjugation between the two R groups does not differ greatly, a mixture of products ensues, although PRODUCT NAME is the more favored outcome.
+          Here, because the degree of hyperconjugation between the two R groups does not differ greatly, a mixture of products ensues, although 2,2-diiodo-methane is the more favored outcome.
 
           \item \textbf{Terminal Alkyne}
 
-          \myfig{0.5}{alkene_alkyne_figures/alkyne_hx4}{}{fig:ph89}
+          \reactionfig{
+            \scheme{
+              \chemfig{
+                *6(---
+                (
+                -[:30]
+                ~[:30]
+                )
+                ---)
+              }
+              \arrow{->[HCl]}
+              \chemfig{
+                *6(---
+                (
+                -[:30]
+                (-[:60]Cl)
+                (-[:120]Cl)
+                -[:-30]
+                )
+                ---)
+              }
+            }
+          }{Terminal alkyne HX anti addition}{fig:ph89}{0.9}
 
           \item \textbf{Synthetic Application (Vicinal to Geminal)}
 
-          \myfig{0.5}{alkene_alkyne_figures/alkyne_hx5}{}{fig:ph90}
+          \reactionfig{
+            \scheme{
+              \chemfig{
+                [:0]
+                -[:30]
+                -[:-30]
+                =[:30]
+              }
+              \arrow{->[\ce{Br2}]}
+              \chemname{
+                \raisebox{-1.5cm}{
+                  \chemfig{
+                    [:0]
+                    -[:30]
+                    -[:-30]
+                    (-[:-90]Br)
+                    -[:30]
+                    -[:-30]Br
+                  }
+                }
+              }{Vicinal}
+              \arrow{->[\ce{NaNH2}][\ce{NH3}]}
+              \chemfig{
+                [:0]
+                -[:30]
+                -[:-30]
+                ~[:-30]
+              }
+              \arrow{->[HBr]}
+              \chemname{
+                \raisebox{-1.5cm}{
+                  \chemfig{
+                    [:0]
+                    -[:30]
+                    -[:-30]
+                    (-[:-60]Br)
+                    (-[:-120]Br)
+                    -[:30]
+                  }
+                }
+              }{Geminal}
+            }
+          }{Alkene derived vicinal dihaloalkane to geminal dihaloalkane conversion}{fig:ph90}{0.85}
 
-          % ORIGINAL: The first step of the chemical reaction of above is alkene halogenation, covered in \autoref{core:halogenation}.
           The first step of the reaction above is alkene halogenation, covered in \autoref{core:halogenation}.
 
         \end{enumerate}
@@ -3090,37 +3877,293 @@
 
       \begin{core}[label=core:xx_anti_addition]{\ce{X2} Anti Addition}
 
-        % ORIGINAL: Alkyne halogenation \textbf{adds \ce{X2}} to an alkyne triple bond, resulting in the addition of four halogens (\textit{two to each triple bond carbon}) via a transient ring state. The mechanism for these additions an anti arrangement and is effectively alkene halogenation (\textit{\autoref{core:halogenation}}) occuring twice in a row.
         Alkyne halogenation \textbf{adds \ce{X2}} across the triple bond, ultimately installing four halogen atoms (\textit{two on each former triple-bond carbon}) via a transient cyclic halonium intermediate. The mechanism proceeds with an anti addition and is effectively alkene halogenation (\textit{\autoref{core:halogenation}}) occurring twice in succession.
 
-        \myfig{0.5}{alkene_alkyne_figures/alkyne_xx}{}{fig:ph91}
+        \doublereactionfig{
+          \scheme{
+            \chemfig{
+              *5(--
+              (
+              -[:0]
+              ~[:0]
+              -[:0]\ce{CH3}
+              )
+              ---)
+            }
+            \arrow{->[\textcolor{Blue}{\ce{Br2}}]}
+            \chemfig{
+              [:30]*5(--
+              (
+              -[:30]
+              (-[:60]\textcolor{White}{Br})
+              =[:0]@{carbon}
+              (-[@{bond}:120]@{bromine1}\textcolor{Blue}{\pcharge{135}{Br}})
+              -[:-30]\ce{CH3}
+              -[:-120,,,,White]@{bromine2}\textcolor{Blue}{\ce{Br-}}
+              )
+              ---)
+            }
+            \arrow{->}
+          }
+          \chemmovearrow{
+            \reactionfigarrow{bond}{40}{bromine1}{50}{Red}
+            \reactionfigarrow{bromine2}{120}{carbon}{-110}{Red}
+          }
+        }{
+          \scheme{
+            \chemfig{
+              [:30]*5(--
+              (
+              -[:30]
+              (-[:150]\textcolor{Blue}{Br})
+              =[:0]
+              (-[:-45]\textcolor{Blue}{Br})
+              -[:45]\ce{CH3}
+              )
+              ---)
+            }
+            \arrow{->[\textcolor{Blue}{\ce{Br2}}]}
+            \chemfig{
+              [:30]*5(--
+              (
+              -[:30]
+              (-[:60]\textcolor{Blue}{Br})
+              (-[:120]\textcolor{Blue}{Br})
+              -[:-30]
+              (-[:-60]\textcolor{Blue}{Br})
+              (-[:-120]\textcolor{Blue}{Br})
+              -[:30]
+              )
+              ---)
+            }
+          }
+        }{Anti \ce{Br2} addition to an alkyne}{fig:ph91}{0.9}
 
       \end{core}
 
       \begin{core}[label=core:merc_mark_hydra]{Mercury Catalyzed Markovnikov Hydration}
 
-        % ORIGINAL: The treatment of an alkyne with catalytic \ce{HgSO4} (\textit{previously seen in \autoref{core:alkene_oxymercuration}}) and \ce{H2O} leads to an unstable enol intermedate in a Markovnikov manner. The subsuquent \textbf{taurtomerization} of this enol with catalytic \ce{H+} or \ce{^{-}OH} leads to the formation of a ketone, regardless of whether the alkyne triple bond is terminal or internal (\textit{because the \ce{^{-}OH} group is attached to the more substituted carbon.}).
         Treating an alkyne with catalytic \ce{HgSO4} (\textit{previously seen in \autoref{core:alkene_oxymercuration}}) and \ce{H2O} produces an unstable enol intermediate via Markovnikov addition. Subsequent \textbf{tautomerization} of this enol, catalyzed by \ce{H+} or \ce{^{-}OH}, yields a ketone regardless of whether the alkyne is terminal or internal (\textit{since the \ce{-OH} group is installed on the more substituted carbon}).
 
-        \myfig{0.5}{alkene_alkyne_figures/taut}{}{fig:ph92}
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              [:0]RC
+              ~[:0]CR
+            }
+            \qquad \qquad
+            \arrow{->[cat. \ce{HgSO4}][
+              \shortstack{
+                \ce{H2O} \\
+                \textit{No \ce{NaBH4}} \\
+                \textit{needed}
+              }
+            ]}
+            \qquad
+            \chembrackets{
+              \chemfig{
+                [:0]C
+                (-[:135]\textcolor{Blue}{H})
+                (-[:-135]R)
+                =[:0]C
+                (-[:45]R)
+                (-[:-45,,,,Red]\textcolor{Red}{OH})
+              }
+            }
+            \qquad \qquad
+            \arrow{->[\textcolor{Red}{Tautomerization}][
+              \shortstack{
+                \textcolor{Blue}{\ce{H+}} or \textcolor{Red}{\ce{^-OH}} \\
+                catalyzed
+              }
+            ]}
+            \qquad
+            \chemfig{
+              [:0]R
+              -[:0]C
+              (-[:90]\textcolor{Blue}{H})
+              (-[:-90]\textcolor{Red}{H})
+              -[:0]C
+              (=[:90]O)
+              -[:0]R
+            }
+          }
+        }{Mercury catalyzed Markovnikov hydration}{fig:ph92}{0.9}
 
-        % ORIGINAL: The underlying mechanism of \textbf{taurtomerization}---both \ce{H+} and \ce{^{-}OH} pathways---is shown below.
-        The underlying mechanism of \textbf{tautomerization}---for both the \ce{H+}- and \ce{^{-}OH}-catalyzed pathways---is shown below.
+        The underlying mechanism of \textbf{tautomerization}---for both the \ce{H+} and \ce{^{-}OH} catalyzed pathways---is shown below.
 
-        \myfig{0.5}{alkene_alkyne_figures/taut2}{}{fig:ph93}
+        \doublereactionfig{
+          \scheme{
+            \chemfig{
+              [:0]C
+              (-[:135]H)
+              (-[:-135]R)
+              =[@{dbond}:0]C
+              (-[:45]R)
+              (-[:-45]OH)
+            }
+            \arrow{->[
+              \chemfig{
+                @{proton}\textcolor{Blue}{\ce{H+}}
+              }
+            ]}
+            \chembrackets{
+              \chemfig{
+                [:0]\ce{RCH2}
+                -[:0]\textcolor{Blue}{\pcharge{120}{C}}
+                (-[:45]R)
+                (-[:-45,,,,Red]\textcolor{Red}{OH})
+              }
+            }
+            \arrow{<->}
+            \chembrackets{
+              \chemfig{
+                [:0]\ce{RCH2}
+                -[:0]@{carbon}C
+                (-[:45]R)
+                (
+                =[:-45,,,,Red]@{oxygen}\pcharge{90}{O}
+                -[@{bond}:30]\textcolor{Blue}{H}
+                )
+              }
+            }
+            \arrow{->[][-\textcolor{Blue}{\ce{H+}}]}
+            \chemfig{
+              [:0]\ce{RCH2}
+              -[:0]C
+              (=[:90]O)
+              -[:0]R
+            }
+          }
+          \chemmovearrow{
+            \reactionfigarrow{bond}{-30}{oxygen}{-80}{Red}
+            \reactionfigarrow{dbond}{-80}{proton}{180}{Red}
+          }
+        }{
+          \scheme{
+            \chemfig{
+              [:0]C
+              (-[:135]H)
+              (-[:-135]R)
+              =[:0]C
+              (-[:45]R)
+              (-[:-45]@{hydrogen}O\textcolor{Blue}{H})
+            }
+            \arrow{->[
+              \chemfig{
+                @{hydroxyl}\textcolor{Red}{\ce{^-OH}}
+              }
+            ]}
+            \chembrackets{
+              \chemfig{
+                [:0]@{carbon}C
+                (-[:135]H)
+                (-[:-135]R)
+                =[@{dbond}:0]C
+                (-[:45]R)
+                (-[@{bond}:-45,,,,Red]@{oxygen}\textcolor{Red}{\ce{O-}})
+              }
+            }
+            \arrow{<->}
+            \chembrackets{
+              \chemfig{
+                [:0]@{carbon2}\textcolor{Red}{\ce{C-}}
+                (-[:135]H)
+                (-[:-135]R)
+                -[:0]C
+                (-[:45]R)
+                (=[:-45]O)
+              }
+            }
+            \quad
+            \arrow{->[
+              \chemfig{
+                @{proton}\textcolor{Blue}{\ce{H+}}
+              }
+            ][(from \textcolor{Blue}{H}-OH)]}
+            \qquad
+            \chemfig{
+              [:0]\ce{RCH2}
+              -[:0]C
+              (=[:90]O)
+              -[:0]R
+            }
+          }
+          \chemmovearrow{
+            \reactionfigarrow{hydroxyl}{-100}{hydrogen}{30}{Red}
+            \reactionfigarrow{dbond}{80}{carbon}{100}{Red}
+            \reactionfigarrow{oxygen}{30}{bond}{60}{Red}
+            \reactionfigarrow{proton}{100}{carbon2}{80}{Red}
+          }
+        }{Tautomerization mechanism through \ce{H+} (\textit{top}) and \ce{^-OH} (\textit{bottom})}{fig:ph93}{0.75}
 
-        % ORIGINAL: Here are also some practical use cases in the laboratory.
         Below are several practical laboratory applications.
 
         \begin{enumerate}
 
           \item \textbf{Asymmetrical Internal Alkyne}
 
-          \myfig{0.5}{alkene_alkyne_figures/taut3}{}{fig:ph94}
+          \reactionfig{
+            \scheme{
+              \chemfig{
+                [:0]
+                -[:30]
+                -[:-30]
+                -[:30]
+                ~[:30]
+                -[:30]
+              }
+              \qquad \qquad
+              \arrow{->[\ce{H2SO4}, \ce{H2}\textcolor{Red}{O}, \ce{HgSO4}]}
+              \qquad
+              \chemfig{
+                [:0]
+                -[:30]
+                -[:-30]
+                -[:30]
+                (=[:90]O)
+                -[:-30]
+                -[:30]
+              }
+              \+
+              \chemfig{
+                [:0]
+                -[:30]
+                -[:-30]
+                -[:30]
+                -[:-30]
+                (=[:-90]O)
+                -[:30]
+              }
+            }
+          }{Mercury catalyzed Markovnikov hydration on an asymmetrical internal alkyne; \textit{both products are formed at a 50:50 ratio}}{fig:ph94}{0.8}
 
           \item \textbf{Terminal Alkyne}
 
-          \myfig{0.5}{alkene_alkyne_figures/taut4}{}{fig:ph95}
+          \reactionfig{
+            \scheme{
+              \chemfig{
+                [:0]RC
+                ~[:0]CH
+              }
+              \qquad
+              \arrow{->[cat. \ce{HgSO4}][\ce{H2O}]}
+              \qquad
+              \chemfig{
+                [:0]C
+                (-[:135]HO)
+                (-[:-135]R)
+                =[:0]\ce{CH2}
+              }
+              \arrow{->}
+              \chemfig{
+                [:0]R
+                -[:0]C
+                (=[:90]O)
+                -[:0]\ce{CH3}
+              }
+            }
+          }{Mercury catalyzed Markovnikov hydration on a terminal alkyne; \textit{reaction results in a methyl ketone}}{fig:ph95}{0.9}
 
         \end{enumerate}
         
@@ -3128,37 +4171,244 @@
 
       \begin{core}{Radical Hydrobromination}
 
-        % ORIGINAL: \textbf{Radical hydrobromination} in alkynes is the \textbf{single addition of \ce{HBr}} through the formation of radical species with the assistance of \ce{ROOR}. The reaction follows the same mechanism covered in the alkene version of this electrophilic addition, covered in \autoref{core:alkene_radical_hbr}, however leads to the formation of product mixes due to the possible rotation along the resultingly formed double bond.
         In alkynes, \textbf{radical hydrobromination} is the \textbf{single addition of HBr} via a peroxide-generated (\ce{ROOR}) radical mechanism. The reaction follows the same mechanism described for the alkene version of this electrophilic addition (\textit{\autoref{core:alkene_radical_hbr}}), but yields a mixture of products owing to free rotation about the newly formed double bond.
 
-        \myfig{0.5}{alkene_alkyne_figures/alkyne_radhal}{}{fig:ph96}
+        \doublereactionfig{
+          \scheme{
+            \chemfig{
+              [:0]
+              -[:30]
+              -[:-30]
+              (-[:-90])
+              -[:30]
+              -[:-30]
+              ~[:-30]
+            }
+            \arrow{->[HBr][ROOR]}
+            \chembrackets{
+              \chemfig{
+                [:0]
+                -[:30]
+                -[:-30]
+                (-[:-90])
+                -[:30]
+                -[:-30]\textcolor{Blue}{\charge{-120:4pt=$\cdot$}{}}
+                =[:0]
+                -[:30]Br
+              }
+            }
+            \arrow{<->}
+            \chembrackets{
+              \chemfig{
+                [:0]
+                -[:0]
+                -[:45]
+                (-[:135])
+                -[:0]
+                -[:45]\textcolor{Blue}{\charge{120:4pt=$\cdot$}{}}
+                =[:0]
+                -[:45]Br
+              }
+            }
+          }
+        }{
+          \scheme{
+            \arrow{->[HBr][-Br$\cdot$]}
+            \chemfig{
+              [:0]
+              -[:30]
+              -[:-30]
+              (-[:-90])
+              -[:30]
+              -[:-30]
+              (-[:-90,,,,Blue]\textcolor{Blue}{H})
+              =[:30]
+              -[:90,,,,Blue]\textcolor{Blue}{Br}
+            }
+            \+
+            \chemfig{
+              [:0]
+              -[:0]
+              -[:45]
+              (-[:135])
+              -[:0]
+              -[:45]
+              (-[:135,,,,Blue]\textcolor{Blue}{H})
+              =[:0]
+              -[:45,,,,Blue]\textcolor{Blue}{Br}
+            }
+          }
+        }{Radical hydrobromination}{fig:ph96}{0.7}
 
-        % ORIGINAL: Unlike the additions we've seen in \ce{HX} anti addition (\textit{\autoref{core:hx_anti_addition}}) and \ce{X2} anti addition (\textit{\autoref{core:xx_anti_addition}}), this reaction does not nessecarily undergo a second iteration to convert the resulting alkene further into an alkane form. This is because the mechanism requires the presence of an \ce{e^-} dense π bond, which the resulting bromine-attached alkene does not satisfy because bromine is highly electronegative, pulling \ce{e^-} density away from the double bond (\textit{a clean alkene does not experience this}). As a result, because the starting alkyne is significantly more reactive than the bromoalkene product, the radicals will preferentially consume all the remaining alkyne before even attempting to touch the bromoalkene intermediate.
-        Unlike the additions seen in \ce{HX} anti addition (\textit{\autoref{core:hx_anti_addition}}) and \ce{X2} anti addition (\textit{\autoref{core:xx_anti_addition}}), this reaction does not necessarily proceed through a second iteration to further convert the resulting alkene into an alkane. This is because the mechanism requires an electron-rich π bond, a condition the resulting bromoalkene fails to meet: the highly electronegative bromine substituent withdraws electron density from the double bond (\textit{a condition that does not affect an unsubstituted alkene}). Consequently, because the starting alkyne is considerably more reactive than the bromoalkene product, the radicals preferentially consume all remaining alkyne before reacting further with the bromoalkene intermediate.
+        Unlike the additions seen in \ce{HX} anti addition (\textit{\autoref{core:hx_anti_addition}}) and \ce{X2} anti addition (\textit{\autoref{core:xx_anti_addition}}), this reaction does not necessarily proceed through a second iteration to further convert the resulting alkene into an alkane. This is because the mechanism requires an electron-rich π bond, a condition the resulting bromoalkene fails to meet: the highly electronegative bromine substituent withdraws \ce{e^-} density from the double bond (\textit{a condition that does not affect an unsubstituted alkene}). Consequently, because the starting alkyne is considerably more reactive than the bromoalkene product, the radicals preferentially consume all remaining alkyne before reacting further with the bromoalkene intermediate.
 
-        % ORIGINAL: If one exposes alkynes to an excess of \ce{HBr} and peroxides, however, a second radical addtion can occur, which follows the same Markovnikov stability rules to form a \textbf{geminal dihaloalkane}, the same product of \ce{HX} anti addition (\textit{\autoref{core:hx_anti_addition}}), making the extra peroxide use unnessecary if the orignal intention was to form a geminal dihaloalkane.
         If, however, alkynes are exposed to an excess of \ce{HBr} and peroxides, a second radical addition can occur, governed by the same regiochemical stability considerations, to form a \textbf{geminal dihaloalkane}---the same product obtained from \ce{HX} anti addition (\textit{\autoref{core:hx_anti_addition}}). This makes the additional peroxide unnecessary if the original goal was simply to form a geminal dihaloalkane.
 
       \end{core}
 
       \begin{core}{Hydroboration-Oxidation}
 
-        % ORIGINAL: Alkyne \textbf{hydroboration-oxidation} utilizes a \ce{R2BH} (\textit{R is a bulky group such as cyclohexyl}) to ensure the hydroboration of only one π bond. \textit{Recall that alkene hydroboration-oxidation (\autoref{core:alkene_hydro_oxi}) utilized simply \ce{BH3} because there is only one π bond to begin with.} The mechanism follows the same process as the alkene version of this reaction (\textit{\autoref{core:alkene_hydro_oxi}}) and effectively accomplishes an anti-Markovnikov hydration.
         Alkyne \textbf{hydroboration-oxidation} employs a bulky borane such as \ce{R2BH} (\textit{where R is a bulky group, e.g., cyclohexyl}) to ensure that only one π bond undergoes hydroboration. \textit{Recall that alkene hydroboration-oxidation (\autoref{core:alkene_hydro_oxi}) simply uses \ce{BH3}, since there is only a single π bond to begin with.} The mechanism otherwise follows the same process as the alkene version of this reaction (\textit{\autoref{core:alkene_hydro_oxi}}) and effectively achieves an anti-Markovnikov hydration.
 
-        \myfig{0.5}{alkene_alkyne_figures/hybroox}{exclude the taut step here}{fig:ph97}
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              [:0]RC
+              ~[:0]CH
+            }
+            \+
+            \chemfig{
+              [:0]\textcolor{Blue}{B}
+              (-[:135]R)
+              (-[:-135]R)
+              -[:0,,,,Blue]\textcolor{Blue}{H}
+            }
+            \arrow{->}
+            \chemfig{
+              [:0]C
+              (-[:135]R)
+              (-[:-135]\textcolor{Blue}{H})
+              =[:0]C
+              (-[:45]H)
+              (-[:-45]\textcolor{Blue}{B}\ce{R2})
+            }
+            \qquad
+            \arrow{->[\ce{H2O2}, \ce{^-OH}]}
+            \qquad
+            \chembrackets{
+              \chemfig{
+                [:0]C
+                (-[:135]R)
+                (-[:-135]H)
+                =[:0]C
+                (-[:45]H)
+                (-[:-45]OH)
+              }
+            }
+          }
+        }{Hydroboration-oxidation}{fig:ph97}{0.9}
 
-        % ORIGINAL: The resulting alkenol can subsequently be put through previously covered processes like taurtomerization to be convereted into an aldehyde.
         The resulting enol can then be carried through the previously covered tautomerization process to be converted into an aldehyde.
 
-        \myfig{0.5}{alkene_alkyne_figures/hybroox}{only the taut step here}{fig:ph98}
+        \reactionfig{
+          \scheme{
+            \chembrackets{
+              \chemfig{
+                [:0]C
+                (-[:135]R)
+                (-[:-135]H)
+                =[:0]C
+                (-[:45]H)
+                (-[:-45]OH)
+              }
+            }
+            \qquad \qquad
+            \arrow{->[taurtomerization]}
+            \qquad
+            \chemfig{
+              [:0]R
+              (-[:90]H)
+              (-[:-90]H)
+              -[:0]C
+              (=[:45]O)
+              (-[:-45]H)
+            }
+          }
+        }{Tautomerization}{fig:ph98}{0.9}
 
-        % ORIGINAL: The following is a direct comparison with \textbf{mercury catalyzed Markovnikov hydration} (\textit{\autoref{core:merc_mark_hydra}}), which has a similar but distinct outcome resulting in a ketone rather than an aldehyde.
         The figure below offers a direct comparison with \textbf{mercury-catalyzed Markovnikov hydration} (\textit{\autoref{core:merc_mark_hydra}}), which proceeds similarly but yields a ketone rather than an aldehyde.
 
-        \myfig{0.5}{alkene_alkyne_figures/hybroox2}{}{fig:ph99}
+        \triplereactionfig{
+          \scheme{
+            \chemfig{
+              [:0]
+              -[:30]
+              (-[:90])
+              -[:-30]
+              -[:30]
+              ~[:30]
+            }
+            \qquad \qquad
+            \arrow{->[
+              \shortstack{
+                1. \ce{HBR2} \\
+                2. \ce{H2O2}, -OH
+              }
+            ]}
+            \qquad
+            \chemfig{
+              [:0]
+              -[:30]
+              (-[:90])
+              -[:-30]
+              -[:30]
+              -[:-30]
+              (=[:-90]O)
+              -[:30]
+            }
+          }
+        }{
+          \scheme{
+            \chemfig{
+              [:0]
+              -[:30]
+              (-[:90])
+              -[:-30]
+              -[:30]
+              ~[:30]
+            }
+            \qquad \qquad
+            \arrow{->[
+              \shortstack{
+                1. cat. \ce{HgSO4} \\
+                2. \ce{H2O}
+              }
+            ]}
+            \qquad
+            \chemfig{
+              [:0]
+              -[:30]
+              (-[:90])
+              -[:-30]
+              -[:30]
+              (=[:90]O)
+              -[:-30]
+            }
+          }
+        }{
+          \scheme{
+            \chemfig{
+              [:0]R
+              -[:0]
+              ~[:0]
+              -[:0]R'
+            }
+            \qquad \qquad
+            \arrow{->[
+              \shortstack{
+                1. \ce{R2BH} \\
+                2. \ce{H2O2}, -OH
+              }
+            ]}
+            \qquad
+            \chemfig{
+              [:0]R
+              -[:30]
+              (=[:90]O)
+              -[:-30]
+              -[:30]R'
+            }
+            \+
+            \chemfig{
+              [:0]R
+              -[:30]
+              -[:-30]
+              (=[:-90]O)
+              -[:30]R'
+            }
+          }
+        }{Hydroboration-oxidation (\textit{top, bottom}) vs mercury catalyzed Markovnikov hydration (\textit{middle})}{fig:ph99}{0.9}
 
-        % ORIGINAL: In an internal alkyne scenario, mixtures ensue when the degrees of substitution in the triple bond carbons don't have a large difference (\textit{although the slightly less substituted side will be favored in the context of final carbonyl positioning}).
         For internal alkynes, a mixture of products results when the two triple-bond carbons do not differ greatly in substitution (\textit{although the carbonyl will preferentially form on the slightly less substituted carbon}).
 
       \end{core}
