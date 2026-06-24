@@ -1,7 +1,7 @@
 \documentclass[10pt]{article}
 \usepackage{titling}
 
-\title{Alkanes, Alkenes, and Alkynes}
+\title{Alkenes \& Alkynes}
 \date{\today}
 \author{Ingyu Bahng}
 
@@ -14,7 +14,7 @@
 % \externaldocument[con-]{../conj_sys/conj_sys}[https://ibahng.github.io/chemistry/conj_sys/conj_sys.pdf]
 % \externaldocument[eth-]{../ethers/ethers}[https://ibahng.github.io/chemistry/ethers/ethers.pdf]
 % \externaldocument[gen-]{../gen_chem/gen_chem}[https://ibahng.github.io/chemistry/gen_chem/gen_chem.pdf]
-\externaldocument[org-]{../org_chem/org_chem}[https://ibahng.github.io/chemistry/org_chem/org_chem.pdf]
+% \externaldocument[org-]{../org_chem/org_chem}[https://ibahng.github.io/chemistry/org_chem/org_chem.pdf]
 % \externaldocument[qua-]{../quantization/quantization}[https://ibahng.github.io/chemistry/quantization/quantization.pdf]
 % \externaldocument[the-]{../thermodynamics/thermodynamics}[https://ibahng.github.io/chemistry/thermodynamics/thermodynamics.pdf]
 % \externaldocument[alk-]{../alkene_alkyne/alkene_alkyne}[https://ibahng.github.io/chemistry/alkene_alkyne/alkene_alkyne.pdf]
@@ -234,7 +234,7 @@
         \qquad
         $ΔH = -27.6\,\text{kcal}\,\text{mol}^{-1}$
       }
-    }{Butane isomer conversions to butane}{fig:ph6}{0.8}
+    }{Butene isomer conversions to butane}{fig:ph6}{0.8}
 
     The greater relative stability of internal double bonds over terminal ones, and of trans over cis substituents, arises from two factors.
 
@@ -268,7 +268,7 @@
             }
           }{trans}
         }
-      }{Steric hinderance between methyl groups of cis (\textit{left}) vs trans (\textit{right}) butene; \textit{more steric exists between methyl groups of cis butene because of closer methyl group proximity}}{fig:ph8}{0.8}
+      }{Steric hindrance between methyl groups of cis (\textit{left}) vs trans (\textit{right}) butene; \textit{more steric hindrance exists between methyl groups of cis butene because of closer methyl group proximity}}{fig:ph8}{0.8}
 
     \end{enumerate}
 
@@ -429,7 +429,7 @@
                 node[right] {Internal};
 
           \end{axis} 
-        }{Energy diagrams of haloalkane elimination reactions producing alkenes; [Small Base] \textit{lower energy transition state (red) favors formation of more stable product}; [Large Base] \textit{with a large base, the lower energy transition state (blue) now favors foramation of less stable product}}{fig:ph12}{1}
+        }{Energy diagrams of haloalkane elimination reactions producing alkenes; [Small Base] \textit{lower energy transition state (red) favors formation of more stable product}; [Large Base] \textit{with a large base, the lower energy transition state (blue) now favors formation of less stable product}}{fig:ph12}{1}
 
         \item \textbf{Stereoselectivity}
 
@@ -484,7 +484,7 @@
 
         Other factors, such as preferable precursor conformations---namely rotamers---play a role as well.
 
-        \myfig{0.5}{alkene_alkyne_figures/rotamer}{Precursor conformations of 2-bromo-pentane; \textit{the left rotamer conformation is more favorable because the ethyl and methyl substitutents are anti to one another whereas the right conformation is unfavorable due to the steric hinderence cause by the gauche positioning of the ethyl and methyl groups}}{fig:ph14}
+        \myfig{0.5}{alkene_alkyne_figures/rotamer}{Precursor conformations of 2-bromo-pentane; \textit{the left rotamer conformation is more favorable because the ethyl and methyl substituents are anti to one another whereas the right conformation is unfavorable due to the steric hindrance caused by the gauche positioning of the ethyl and methyl groups}}{fig:ph14}
 
       \end{enumerate}
 
@@ -492,37 +492,33 @@
 
       \doublereactionfig{
         \scheme{
-          \chemname{
-            \chemfig{
-              [:0]
-              (-[:135]\textcolor{Blue}{H})
-              (<[:-135])
-              (
-              <:[:-165,,,,Red]
-              -[:165,,,,Red]
-              )
-              -[:0]
-              (<:[:45]H)
-              (<[:15,,,,Red])
-              (-[:-45]\textcolor{Green}{Br})
-            }
-          }{RR}
+          \chemfig{
+            [:0]\charge{-45:4pt=$\text{R}$}{}
+            (-[:135]\textcolor{Blue}{H})
+            (<[:-135])
+            (
+            <:[:-165,,,,Red]
+            -[:165,,,,Red]
+            )
+            -[:0]\charge{-135:4pt=$\text{R}$}{}
+            (<:[:45]H)
+            (<[:15,,,,Red])
+            (-[:-45]\textcolor{Green}{Br})
+          }
           \qquad \text{OR} \qquad
-          \chemname{
-            \chemfig{
-              [:0]
-              (<[:135])
-              (
-              <:[:165,,,,Red]
-              -[:-165,,,,Red]
-              )
-              (-[:-135]\textcolor{Blue}{H})
-              -[:0]
-              (-[:45]\textcolor{Green}{Br})
-              (<[:-15,,,,Red])
-              (<:[:-45]H)
-            }
-          }{SS}
+          \chemfig{
+            [:0]\charge{-45:4pt=$\text{S}$}{}
+            (<[:135])
+            (
+            <:[:165,,,,Red]
+            -[:-165,,,,Red]
+            )
+            (-[:-135]\textcolor{Blue}{H})
+            -[:0]\charge{-135:4pt=$\text{S}$}{}
+            (-[:45]\textcolor{Green}{Br})
+            (<[:-15,,,,Red])
+            (<:[:-45]H)
+          }
           \arrow{->[Base][-\textcolor{Blue}{H}\textcolor{Green}{Br}]}
           \chemfig{
             [:0]
@@ -538,37 +534,33 @@
         }
       }{
         \scheme{
-          \chemname{
-            \chemfig{
-              [:0]
-              (-[:135]\textcolor{Blue}{H})
-              (
-              <[:-135,,,,Red]
-              -[:-165,,,,Red]
-              )
-              (<:[:-165])
-              -[:0]
-              (<:[:45]H)
-              (<[:15,,,,Red])
-              (-[:-45]\textcolor{Green}{Br})
-            }
-          }{SR}
+          \chemfig{
+            [:0]\charge{-45:4pt=$\text{S}$}{}
+            (-[:135]\textcolor{Blue}{H})
+            (
+            <[:-135,,,,Red]
+            -[:-165,,,,Red]
+            )
+            (<:[:-165])
+            -[:0]\charge{-135:4pt=$\text{R}$}{}
+            (<:[:45]H)
+            (<[:15,,,,Red])
+            (-[:-45]\textcolor{Green}{Br})
+          }
           \qquad \text{OR} \qquad
-          \chemname{
-            \chemfig{
-              [:0]
-              (
-              <[:135,,,,Red]
-              -[:165,,,,Red]
-              )
-              (<:[:165])
-              (-[:-135]\textcolor{Blue}{H})
-              -[:0]
-              (-[:45]\textcolor{Green}{Br})
-              (<[:-15,,,,Red])
-              (<:[:-45]H)
-            }
-          }{RS}
+          \chemfig{
+            [:0]\charge{-45:4pt=$\text{R}$}{}
+            (
+            <[:135,,,,Red]
+            -[:165,,,,Red]
+            )
+            (<:[:165])
+            (-[:-135]\textcolor{Blue}{H})
+            -[:0]\charge{-135:4pt=$\text{S}$}{}
+            (-[:45]\textcolor{Green}{Br})
+            (<[:-15,,,,Red])
+            (<:[:-45]H)
+          }
           \arrow{->[Base][-\textcolor{Blue}{H}\textcolor{Green}{Br}]}
           \chemfig{
             [:0]
@@ -709,7 +701,9 @@
               }
             }
           }{80\%}
-          \+
+          \raisebox{-1cm}{
+            \+
+          }
           \chemname{
             \raisebox{-1cm}{
               \chemfig{
@@ -854,9 +848,9 @@
             -[:0]
           }
           \qquad
-          \text{$δh = -44.3\,kj\,mol^{-1}$}
+          \text{$ΔH = -44.3\,kJ\,mol^{-1}$}
         }
-      }{Alkene hydration reaction; \textit{the reaction is enthalpically favorable ($ΔH^{\circ} = -44.3\,kJ\,mol^{-1}$) but entropically unfavorable in standard conditions, thus the Gibb Free Energy is much lower ($ΔG^{\circ} = -6.1\,kJ\,mol^{-1}$)}}{fig:ph21}{0.9}
+      }{Alkene hydration reaction; \textit{the reaction is enthalpically favorable ($ΔH^{\circ} = -44.3\,kJ\,mol^{-1}$) but entropically unfavorable in standard conditions, thus the Gibbs Free Energy is much lower ($ΔG^{\circ} = -6.1\,kJ\,mol^{-1}$)}}{fig:ph21}{0.9}
 
     \end{core}
     
@@ -920,26 +914,26 @@
             }
             \arrow{->[catalyst]}
             \chemfig{
-              *6(--\textcolor{Red}{R}
+              *6(--\charge{135:4pt=$\text{R}$}{}
               (
               <:[:-30]
               -[:30]
               )
               (<[:-90,,,,Red]H)
-              -\textcolor{Red}{S}
+              -\charge{-135:4pt=$\text{S}$}{}
               (<:[:30])
               (<[:90,,,,Red]H)
               ---)
             }
             \+
             \chemfig{
-              *6(--\textcolor{Red}{S}
+              *6(--\charge{135:4pt=$\text{S}$}{}
               (
               <[:-30]
               -[:30]
               )
               (<:[:-90,,,,Red]H)
-              -\textcolor{Red}{R}
+              -\charge{-135:4pt=$\text{R}$}{}
               (<[:30])
               (<:[:90,,,,Red]H)
               ---)
@@ -951,7 +945,7 @@
 
     \subsubsection{Electrophilic Additions}
 
-      \begin{core}{Eletrophilic Additions}
+      \begin{core}{Electrophilic Additions}
 
         Because the π bond is \textbf{\ce{e^-} rich}, it readily \textbf{reacts with a given polar reagent A$^{\text{δ}^+}$--B$^{\text{δ}^-}$}, in which the partially positive end A$^{\text{δ}^+}$ is drawn toward the \ce{e^-}-rich double bond.
 
@@ -1021,7 +1015,7 @@
             \reactionfigarrow{baseup}{100}{carbon}{80}{Red}
             \reactionfigarrow{basedown}{-100}{carbon}{-80}{Red}
           }
-        }{Outline electrophilic addition of alkene reactions; \textit{mind that the syn and cis versions have two possible arrangement as shown by the absence of dashed and wedged bonds}}{fig:ph24}{0.85}
+        }{Outline reaction of alkene electrophilic addition; \textit{mind that the syn and cis versions have two possible arrangement as shown by the absence of dashed and wedged bonds}}{fig:ph24}{0.85}
 
       \end{core}
 
@@ -1050,19 +1044,23 @@
               )
               ---)
             }
-            \qquad \qquad
-            \chemfig{
-              [:0]
-              -[:30]
-              =[:-30]
+            \qquad \qquad \qquad
+            \raisebox{1cm}{
+              \chemfig{
+                [:0]
+                -[:30]
+                =[:-30]
+              }
             }
             \arrow{->[\textcolor{Blue}{H}\textcolor{Red}{Cl}]}
-            \chemfig{
-              [:0]
-              -[:30]
-              (-[:90,,,,Red]\textcolor{Red}{Cl})
-              -[:-30]
-              -[:30,,,,Red]\textcolor{Blue}{H}
+            \raisebox{0.5cm}{
+              \chemfig{
+                [:0]
+                -[:30]
+                (-[:90,,,,Red]\textcolor{Red}{Cl})
+                -[:-30]
+                -[:30,,,,Red]\textcolor{Blue}{H}
+              }
             }
           }
         }{Hydrobromination (\textit{left}) and hydrochlorination (\textit{right})}{fig:ph25}{0.75}
@@ -1156,7 +1154,7 @@
             \reactionfigarrow{water}{100}{carbon}{-30}{Red}
             \reactionfigarrow{bond2}{30}{oxygen}{10}{Red}
           }
-        }{Markovnikove hydration mechanism; \textit{\ce{H+} is consumed and regenerated at the start and end of the reaction process}}{fig:ph28}{0.9}
+        }{Markovnikov hydration mechanism; \textit{\ce{H+} is consumed and regenerated at the start and end of the reaction process}}{fig:ph28}{0.9}
 
         A mixture of alkenes, transient intermediates, and alcohols is nonetheless bound to form, since Markovnikov hydration exists in dynamic equilibrium with the pathway previously covered in \autoref{core:alkene_roh}. Because the temporary presence of a carbocation introduces hydride shifts, catalytic \ce{H+} converts a single alkene species into a mixture of stereoisomeric alkenes, with product ratios determined by relative thermodynamic stability, governed primarily by steric hindrance and hyperconjugation.
 
@@ -1273,7 +1271,7 @@
               -[:45]
             }
           }
-        }{Equilibrium of the Markovnikov hydration reaction; \textit{fast deprotonation-reprotonation-deprotonation leads to rapid equilibration of three alkeen products}}{fig:ph30}{0.9}
+        }{Equilibrium of the Markovnikov hydration reaction; \textit{fast deprotonation-reprotonation-deprotonation leads to rapid equilibration of three alkene products}}{fig:ph30}{0.9}
 
       \end{core}
 
@@ -1303,7 +1301,8 @@
               (<:[:60])
             }
           }
-        }{Outline alkene halogenation reaction; \textit{notice that \ce{X2} gets polarized during approach to alkene}}{fig:ph31}{0.9}
+        }{Outline alkene halogenation reaction; \textit{notice that \ce{X2} gets polarized during approach to alkene}}{fig:ph31}{0.7}
+        \vspace{-0.4cm}
 
         The underlying mechanism is shown in the figure below.
 
@@ -1359,7 +1358,8 @@
             \reactionfigarrow{br3}{-100}{carbon1}{-90}{Red}
             \reactionfigarrow{br3}{-100}{carbon2}{-90}{Red}
           }
-        }{Halogenation (\textit{bromination}) of alkenes mechanism}{fig:ph32}{0.9}
+        }{Halogenation (\textit{bromination}) of alkenes mechanism}{fig:ph32}{0.7}
+        \vspace{-0.4cm}
 
         Notice the formation of a halonium ring, since the alternative carbocation state would otherwise bear the full burden of its positive charge. Because the second attack on the bridged halonium ion occurs exclusively at the backside of the first halogen attack, halogenation is \textbf{stereospecifically anti (not syn)}. Likewise, if the second attack is thermodynamically equally likely to occur at either backside carbon---meaning the initial alkene was perfectly \textbf{symmetrical}---the resulting products form a \textbf{racemic mixture}.
 
@@ -1409,7 +1409,8 @@
           \chemmovearrow{
             \reactionfigarrow{oh}{-135}{carbon}{-80}{Red}
           }
-        }{Backside attack of halonium ring ion by \ce{H2O}; \textit{notice that the more substituted carbon possess a greater partial positive charge relative to the adjacent carbon}}{fig:ph33}{0.9}
+        }{Backside attack of halonium ring ion by \ce{H2O}; \textit{notice that the more substituted carbon possess a greater partial positive charge relative to the adjacent carbon}}{fig:ph33}{0.7}
+        \vspace{-0.4cm}
 
         Separately, the intermediate halonium ring ions can also be intercepted by other nucleophiles, such as \ce{HOH} (\textit{\autoref{fig:ph33}}) or \ce{ROH} (\textit{\autoref{fig:ph34}}).
 
@@ -1456,7 +1457,7 @@
             \reactionfigarrow{oh}{100}{carbon}{70}{Red}
             \reactionfigarrow{bond}{-135}{cl}{-110}{Red}
           }
-        }{Backside attack of halonium ring ion by \ce{ROH}; \textit{this reaction forms haloethers}}{fig:ph34}{0.9}
+        }{Backside attack of halonium ring ion by \ce{ROH}; \textit{this reaction forms haloethers}}{fig:ph34}{0.7}
 
       \end{core}
 
@@ -1488,7 +1489,7 @@
               ---)
             }
           }
-        }{Oxymercuration--demercuration chemical reaction}{fig:ph35}{0.9}
+        }{Oxymercuration--demercuration chemical reaction}{fig:ph35}{0.75}
 
         \begin{enumerate}[label=(\arabic*)]
 
@@ -1498,7 +1499,7 @@
 
           \item \textbf{Demercuration}
 
-          Afterward, \ce{NaBH4} acts as a reducing agent that cleaves the C--Hg bond and replaces it with a hydrogen atom.
+          Afterward, \ce{NaBH4} acts as a reducing agent that cleaves the C--Hg bond and replaces it with a hydrogen.
 
         \end{enumerate}
 
@@ -1526,9 +1527,9 @@
               ---)
             }
           }
-        }{Oxymercuration--demercuration chemical reaction using ROH}{fig:ph36}{0.9}
+        }{Oxymercuration--demercuration chemical reaction using ROH}{fig:ph36}{0.75}
 
-        When compared to Markovnikov hydration (\textit{\autoref{core:mark_hydra}}), oxymercuration--demercuration is the method preferred by chemists for converting an alkene to an alcohol, owing to the purity of the resulting product mixture.
+        When compared to Markovnikov hydration (\textit{\autoref{core:mark_hydra}}), oxymercuration--demercuration is the preferred method preferred for converting an alkene to an alcohol, owing to the purity of the resulting product mixture.
 
         \doublereactionfig{
           \scheme{
@@ -1568,6 +1569,7 @@
             }{30\%; 3-Hexanol (\textit{rearranged})}
           }
         }{
+          \vspace{-0.3cm}
           \scheme{
             \chemfig{
               [:0]
@@ -1597,7 +1599,7 @@
               }
             }{95\%}
           }
-        }{Markovnikov hydration (\textit{top}) vs oxymercuration--demercuration (\textit{bottom}); \textit{the latter method allows for a much purer product mixture compared to the former}}{fig:ph37}{0.8}
+        }{Markovnikov hydration (\textit{top}) vs oxymercuration--demercuration (\textit{bottom}); \textit{the latter method allows for a much purer product mixture compared to the former}}{fig:ph37}{0.75}
 
       \end{core}
 
@@ -1657,12 +1659,13 @@
                 (-[:90])
                 -[:-30]
                 -[:30]
-                -[:-30]B
-                (-[:45]R) 
-                (-[:-45]R) 
+                -[:-30]
+                -[:30]B
+                (-[:90]R) 
+                (-[:-30]R) 
               }
             }
-          }{Hydroboration of terminal alkene; \textit{mind that the R groups in the product is the same is the one fully displayed alkyl substituent}; \textit{notice that the boron attaches to the less hindered end of the terminal alkene double bond}}{fig:ph39}{0.9}
+          }{Hydroboration of terminal alkene; \textit{mind that the R groups in the product is the same is the one fully displayed alkyl substituent}; \textit{notice that the boron attaches to the less hindered end of the terminal alkene double bond}}{fig:ph39}{0.8}
 
           \begin{itemize}
 
@@ -1670,13 +1673,35 @@
 
             As the \ce{e^-} rich π bond of the alkene attacks the empty, unhybridized p orbital of boron, the two alkene carbons do not share the resulting electronic burden equally. The carbon \textbf{not} forming the C--B bond progressively loses electron density, developing a partial positive charge ($\delta^+$) in the transition state. Consequently, when the less substituted carbon forms the C--B bond, the more substituted carbon is left to stabilize this developing charge through hyperconjugation, yielding a more stable transition state than the alternative regiochemical outcome.
 
-            <need to make figure>
+            \reactionfig{
+              \scheme{
+                \chembrackets{
+                  \chemfig{
+                    [:0]C
+                    (
+                    -[@{one}:-90,,,,dotted]B
+                    (-[:-90]\textcolor{White}{H})
+                    (-[:-120]H)
+                    -[@{sbond}:0]H
+                    )
+                    (<:[:135])
+                    (<[:-150])
+                    =[@{dbond}:0]\charge{100:4pt=$\scriptstyle δ+$}{C}
+                    (-[@{two}:-90,,,,dotted]H)
+                    (<:[:45])
+                    (<[:-45])
+                  }
+                }
+              }
+              \chemmovearrow{
+                \reactionfigarrow{dbond}{-80}{one}{-10}{Red}
+                \reactionfigarrow{sbond}{100}{two}{170}{Red}
+              }
+            }{Hydroboration transition state}{fig:ph39two}{0.9}
 
             \item \textbf{Bond Polarization}
 
             A second, more subtle factor is the inherent electronegativity difference between boron ($\approx 2.0$) and hydrogen ($\approx 2.1$), which polarizes the B--H bond such that boron carries a slight positive charge ($\delta^+$) and hydrogen a slight negative charge ($\delta^-$). Consequently, the slightly electropositive boron preferentially pairs with the \ce{e^-} rich attack from the less substituted alkene carbon, while the slightly electronegative hydrogen preferentially pairs with the developing partial positive charge on the more substituted alkene carbon.
-
-            <need to make figure>
 
           \end{itemize}
 
@@ -1748,7 +1773,7 @@
                 -[:0]@{oxygen2}\textcolor{Blue}{O}
                 -[@{bond2}:0,,,,Green]@{oxygen3}\textcolor{Green}{OH}
               }
-              \arrow{->[][\textcolor{Green}{\ce{-HO-}}]}
+              \arrow{->[][\textcolor{Green}{\ce{^-HO-}}]}
               \chemfig{
                 [:0]\textcolor{Blue}{B}
                 (-[:180]R)
@@ -1772,7 +1797,7 @@
 
         \end{enumerate}
 
-        This overall transformation is often termed \textbf{anti-Markovnikov hydration}, since it adds a molecule of \ce{H2O} across the alkene but places the \ce{-OH} group on the less substituted π-bond carbon rather than the more substituted one.
+        This transformation is often termed \textbf{anti-Markovnikov hydration}, since it adds a molecule of \ce{H2O} across the alkene but places the \ce{-OH} group on the less (\textit{rather than more}) substituted π-bond carbon.
 
       \end{core}
 
@@ -1795,7 +1820,7 @@
             \qquad
             \chemfig{
               [:0,,,,Blue]\textcolor{Blue}{H}
-              -[:0]\textcolor{Blue}{C}
+              -[:0]\textcolor{Blue}{\charge{-45:4pt=\:}{C}}
               -[:45]\textcolor{Blue}{H}
             }
           }
@@ -1841,7 +1866,7 @@
             }
           }{Methylene from diazomethane}{fig:ph44}{1}
 
-          Note that this reaction is essentially irreversible: the exceptional stability of the resulting \ce{N2} drives the reaction forward, cleanly liberating highly reactive methylene.
+          Note that this reaction is essentially \textbf{irreversible}: the exceptional stability of the resulting \ce{N2} drives the reaction forward, cleanly liberating highly reactive methylene.
 
           \item \textbf{Dichlorocarbene from chloroform}
 
@@ -1923,7 +1948,7 @@
               \arrow{<->}
               \chembrackets{
                 \chemfig{
-                  [:0] \charge{-45:4pt=$\scriptstyle\text{:}$}{\ce{C-}}
+                  [:0] \charge{-45:4pt=\:}{\ce{C-}}
                   (-[:45]H)
                   (-[:135]H)
                   (-[@{bond}:-135]@{iodine}I)
@@ -2034,7 +2059,7 @@
                 }
               }{70\%}
             }
-          }{Examples of methylene formation from diazomethane occuring simultaneously with its addition to an alkene}{fig:ph48}{0.76}
+          }{Examples of methylene formation from diazomethane occurring simultaneously with its addition to an alkene}{fig:ph48}{0.76}
 
           \item \textbf{Dichlorocarbene from chloroform}
 
@@ -2074,7 +2099,7 @@
                 (<:[:-110]H)
               }
             }
-          }{Dichlorocarbene formation from chloroform occuring simultaneously with its addition to an alkene; \textit{mind that this reaction is always in syn configuration}}{fig:ph49}{0.9}
+          }{Dichlorocarbene formation from chloroform occurring simultaneously with its addition to an alkene; \textit{mind that this reaction is always in syn configuration}}{fig:ph49}{0.9}
 
           \item \textbf{Simmons-Smith reagent}
 
@@ -2110,7 +2135,7 @@
                 (<[:-60]H)
               }
             }
-          }{Simmons-Smith reagent formation occuring simultaneously with its addition to an alkene}{fig:ph50}{0.9}
+          }{Simmons-Smith reagent formation occurring simultaneously with its addition to an alkene}{fig:ph50}{0.9}
 
         \end{enumerate}
 
@@ -2216,7 +2241,7 @@
               -[:0]\textcolor{Red}{O}\textcolor{Blue}{H}
             }
           }
-        }{Peroxycarboxylic acid axidation of an alkene}{fig:ph52}{0.9} 
+        }{Peroxycarboxylic acid oxidation of an alkene}{fig:ph52}{0.9} 
 
         The underlying mechanism, which is \textbf{concerted}, proceeds as follows.
 
@@ -2267,7 +2292,7 @@
             \reactionfigarrow{five}{180}{six}{0}{Red}
             \reactionfigarrow{seven}{180}{eight}{30}{Red}
           }
-        }{Mechanism of peroxycarboxylic accid addition to alkenes}{fig:ph53}{0.9} 
+        }{Mechanism of peroxycarboxylic acid addition to alkenes}{fig:ph53}{0.9} 
 
         It is also important to note that the \textbf{rate of oxacyclopropanation increases with alkyl substitution}, since greater hyperconjugation allows for a greater degree of \ce{e^-} donation from the alkene's π orbital.
 
@@ -2403,7 +2428,7 @@
                 (<[:10]\ce{CH3})
               }
             }
-          }{Anti-dihydroxylation of alkenes through oxacyclopropanation; \textit{notice that the end product is mseo, meaning it has two or more chiral centers}}{fig:ph56}{0.9}
+          }{Anti-dihydroxylation of alkenes through oxacyclopropanation; \textit{notice that the end product is meso, meaning it has two or more chiral centers}}{fig:ph56}{0.9}
 
         \end{enumerate}
 
@@ -2664,7 +2689,7 @@
                 -[:30]H
               }
             }
-          }{Ozonolysis reduction through catalytic hydrogenation; \textit{this reaction yields a cycloalkene ring opening}}{fig:ph63}{0.9}
+          }{Ozonolysis reduction through catalytic hydrogenation; \textit{this reaction yields a cycloalkene ring opening}}{fig:ph63}{0.8}
 
           \item \textbf{Dimethyl Sulfide (DMS; \ce{(CH3)2S})}
 
@@ -2694,7 +2719,7 @@
                 ---)
               }
             }
-          }{Ozonolysis reduction through dimethyl sulfide (DMS); \textit{this reaction yields a "clipped off" carbon atom}}{fig:ph64}{0.9}
+          }{Ozonolysis reduction through dimethyl sulfide (DMS); \textit{this reaction yields a "clipped off" carbon atom}}{fig:ph64}{0.8}
 
         \end{enumerate}
 
@@ -2798,7 +2823,7 @@
               \reactionfigarrow{bond}{100}{oxygen}{30}{Green}
               \reactionfigarrow{bond}{80}{bromine}{80}{Green}
             }
-          }{Initiation steps of radical hydrobromination; \textit{the formation of the radical Br$\cdot$ begins the reaction}}{fig:ph66}{1.2}
+          }{Initiation steps of radical hydrobromination; \textit{the formation of the radical Br$\cdot$ begins the reaction}}{fig:ph66}{0.9}
 
           \item \textbf{Propagation Steps}
 
@@ -2880,9 +2905,10 @@
 
     \sbs{0.5}{
       An alkyne triple bond consists of two mutually perpendicular π bonds together with a single sp hybridized σ bond. 
-      The additional π overlap over an alkene orbital structure (\textit{\autoref{core:alkene_orbital}}) results in an even shorter bond length: whereas the previously covered alkene double bond measures roughly as $1.3\,A$, the \ce{C#C} triple bond measures at roughly $1.2\,A$.
+
+      The additional π overlap over an alkene orbital structure (\textit{\autoref{core:alkene_orbital}}) results in an even shorter bond length: whereas the previously covered alkene double bond measures roughly as $1.3\,A$, the alkyne triple bond measures at roughly $1.2\,A$.
     }{
-      \myfig{0.9}{alkene_alkyne_figures/alkyne}{Alkyne triple bond orbital structure}{fig:ph68}
+      \myfig{0.8}{alkene_alkyne_figures/alkyne}{Alkyne triple bond orbital structure}{fig:ph68}
     }
 
   \end{core}
@@ -2895,7 +2921,7 @@
 
     \bce{\ce{CH3CH3 + 3.5O2 -> 2CO2 + 3H2O}\hspace{5mm}$ΔH^{\circ} = -373\,\text{kcal}\,\text{mol}^{-1}$}
 
-    Because alkyne π bonds exist under a higher degree of strain, complete hydrogenation of both alkyne π bonds releases more energy than hydrogenation of two analogous alkene π bonds would, which is roughly $-60\,\text{kcal}\,\text{mol}^{-1}$. Notice that both terminal and internal alkyne triple bond hydrogenation have $ΔH^{\circ} < -60\,\text{kcal}\,\text{mol}^{-1}$.
+    Because alkyne π bonds exist under a higher degree of strain, complete hydrogenation of both alkyne π bonds releases more energy than hydrogenation of two analogous alkene π bonds would, which is roughly $-60\,\text{kcal}\,\text{mol}^{-1}$. Notice that both terminal and internal hydrogenation have $ΔH^{\circ} < -60\,\text{kcal}\,\text{mol}^{-1}$.
 
     \bce{(\textit{terminal}) \ce{CH3CH2C#CH + 2H2 ->[catalyst][] CH3CH2CH2CH3}\hspace{5mm}$ΔH^{\circ} = -69.9\,\text{kcal}\,\text{mol}^{-1}$}
 
@@ -2935,15 +2961,51 @@
         \text{$pK_a = 25$}
       }
     }{Alkyne terminal proton donation in the presence of a sufficiently strong base}{fig:ph68extra}{0.9}
+    \vspace{-0.6cm}
     \[
       \underset{\text{p}K_a \approx 50}{\ce{H3C-CH3}} \qquad < \qquad \underset{\text{p}K_a \approx 44}{\ce{H2C=CH2}} \qquad < \qquad \underset{\text{p}K_a \approx 25}{\ce{HC#CH}}
     \]
 
-    This acidic trend is explained by the \textbf{greater s character of the relevant hybrid orbital}. Because an s orbital is spherical and lies much closer to the positively charged carbon nucleus than a directional, elongated p orbital, the lone pair of electrons left behind after deprotonation is held very close to that nucleus. This electrostatic proximity stabilizes the negative charge substantially, making the corresponding alkynyl conjugate base comparatively more stable.
-
-    Chemists exploit this acidity in the following example applications.
+    This acidic trend is explained by the \textbf{greater s character of the relevant hybrid orbital}. Because an s orbital is spherical and lies much closer to the positively charged carbon nucleus than a directional, elongated p orbital, the lone pair of electrons left behind after deprotonation is held very close to that nucleus. This electrostatic proximity stabilizes the negative charge substantially, making the corresponding alkynyl conjugate base comparatively more stable. Chemists exploit this acidity in the following example applications.
 
     \begin{enumerate}
+
+      \item \textbf{Sodium Amide (\ce{NaNH2})}
+
+      \reactionfig{
+        \scheme{
+          \chemfig{
+            [:0]\textcolor{Blue}{H}
+            -[:0]
+            ~[:0]
+            -[:0]\textcolor{Blue}{H}
+          }
+          \arrow{<->>[\ce{NaNH2}][\ce{-NH3}]}
+          \chemfig{
+            [:0]\textcolor{Blue}{H}
+            -[:0]
+            ~[:0]\textcolor{Red}{\ce{C-}}
+          }
+          \;
+          \chemfig{
+            \textcolor{Blue}{\ce{Na+}}
+          }
+          \arrow{<->>[\ce{NaNH2}][\ce{-NH3}]}
+          \chemfig{
+            \textcolor{Blue}{\ce{Na+}}
+          }
+          \;
+          \chemfig{
+            [:0]\textcolor{Red}{\ce{C-}}
+            ~[:0]\textcolor{Red}{\ce{C-}}
+          }
+          \;
+          \chemfig{
+            \textcolor{Blue}{\ce{Na+}}
+          }
+        }
+      }{Alkyne acidity and sodium amide}{fig:ph71}{0.8}
+      \vspace{-0.3cm}
 
       \item \textbf{Organolithium Reagents} 
 
@@ -2973,6 +3035,7 @@
           \arrow{<->>}
         }
       }{
+        \vspace{-0.6cm}
         \scheme{
           \chembrackets{
             \chemfig{
@@ -3010,43 +3073,7 @@
             }
           }{$pK_a = 50$}
         }
-      }{Alkyne acidity and organolithium reagents}{fig:ph70}{0.85}
-
-      \item \textbf{Sodium Amide (\ce{NaNH2})}
-
-      \reactionfig{
-        \scheme{
-          \chemfig{
-            [:0]\textcolor{Blue}{H}
-            -[:0]
-            ~[:0]
-            -[:0]\textcolor{Blue}{H}
-          }
-          \arrow{<->>[\ce{NaNH2}]}
-          \chemfig{
-            [:0]\textcolor{Blue}{H}
-            -[:0]
-            ~[:0]\textcolor{Red}{\ce{C-}}
-          }
-          \;
-          \chemfig{
-            \textcolor{Blue}{\ce{Na+}}
-          }
-          \arrow{<->>[\ce{NaNH2}]}
-          \chemfig{
-            \textcolor{Blue}{\ce{Na+}}
-          }
-          \;
-          \chemfig{
-            [:0]\textcolor{Red}{\ce{C-}}
-            ~[:0]\textcolor{Red}{\ce{C-}}
-          }
-          \;
-          \chemfig{
-            \textcolor{Blue}{\ce{Na+}}
-          }
-        }
-      }{Alkyne acidity and sodium amide}{fig:ph71}{0.9}
+      }{Alkyne acidity and organolithium reagents}{fig:ph70}{0.75}
 
     \end{enumerate}
 
@@ -3073,11 +3100,11 @@
           \arrow{->[\textcolor{Red}{-B}][-\textcolor{Blue}{H}\textcolor{Green}{X}]}
           \chemfig{
             [:0]C
-            (-[:135,,,,Red]\textcolor{Blue}{H})
+            (-[:135,,,,Green]\textcolor{Green}{X})
             (-[:-135])
             =[:0]C
             (-[:45])
-            (-[:-45,,,,Green]\textcolor{Green}{X})
+            (-[:-45,,,,Red]\textcolor{Blue}{H})
           }
           \arrow{->[\textcolor{Red}{-B}][-\textcolor{Blue}{H}\textcolor{Green}{X}]}
           \chemfig{
@@ -3087,7 +3114,8 @@
             -[:0]
           }
         }
-      }{Synthesis of alkyne through double E2 elimination}{fig:ph72}{0.9}
+      }{Synthesis of alkyne through double E2 elimination}{fig:ph72}{0.8}
+      \vspace{-0.4cm}
 
       The example below uses \ce{NaNH2} as the base and requires an additional aqueous workup step, owing to the acidity of terminal alkynes (\textit{\autoref{core:alkyne_acidity}}) in the presence of sodium amide.
 
@@ -3103,7 +3131,7 @@
             -[:30]
             -[:-30]Br
           }
-          \arrow{->[\ce{NaCH2}]}
+          \arrow{->[\ce{NaNH2}]}
           \chemfig{
             [:0]
             -[:30]
@@ -3189,8 +3217,9 @@
           }
         }
       }{Strong base induced terminal alkyne nucleophilicity}{fig:ph74}{0.75}
+      \vspace{-0.4cm}
 
-      The synthetic utility of alkynyl metals depends on the use of primary ($R_{\text{prim}}$) halides or oxacyclopropanes (\textit{epoxides}) as electrophilic substrates, which minimizes competing E2 elimination side reactions. With asymmetrical epoxides, the acetylide nucleophile attacks regioselectively at the less sterically hindered carbon.
+      The synthetic utility of alkynyl metals depends on the use of primary ($R_{\text{prim}}$) halides or oxacyclopropanes (\textit{epoxides}) as electrophiles, which minimizes competing E2 elimination side reactions. With asymmetrical epoxides, the acetylide nucleophile attacks regioselectively at the less sterically hindered carbon.
 
       \doublereactionfig{
         \scheme{
@@ -3413,7 +3442,7 @@
 
         \begin{itemize}
 
-          \item \textbf{Lindler's Catalyst (Syn Addition)} 
+          \item \textbf{Lindlar's Catalyst (Syn Addition)} 
 
           \reactionfig{
             \scheme{
@@ -3426,7 +3455,7 @@
                 -[:-30]
                 -[:30]
               }
-              \arrow{->[\textcolor{Blue}{\ce{H2}}, Lindler][100\%]}
+              \arrow{->[\textcolor{Blue}{\ce{H2}}, Lindlar][100\%]}
               \chemfig{
                 [:0]
                 -[:30]
@@ -3439,7 +3468,7 @@
                 -[:30]
               }
             }
-          }{Partial syn hydrogenation of an alkyene with "poisoned" Lindler's catalyst producing cis-3-heptene}{fig:ph80}{0.9}
+          }{Partial syn hydrogenation of an alkyne with "poisoned" Lindlar's catalyst producing cis-3-heptene}{fig:ph80}{0.9}
 
           A syn addition, and the resulting cis product, requires the use of a "\textit{poisoned}" \textbf{Lindlar's catalyst}.
 
@@ -3476,7 +3505,7 @@
                 -[:-30]
               }
             }
-          }{Partial anti hydrogenation of an alkyen with sodium reduction producing trans-3-heptene}{fig:ph81}{0.9}
+          }{Partial anti hydrogenation of an alkyne with sodium reduction producing trans-3-heptene}{fig:ph81}{0.9}
 
           The underlying mechanism for this sodium-mediated reduction is shown below.
 
@@ -3675,7 +3704,10 @@
             \arrow{->[\textcolor{Blue}{\ce{H+}}][\textcolor{Red}{"Markovnikov"}]}
             \qquad
             \chemfig{
-              [:0]RC\textcolor{Blue}{\ce{H2}}
+              [:0]R
+              -[:0]C
+              (-[:90,,,,Red]\textcolor{Blue}{H})
+              (-[:-90,,,,Red]\textcolor{Blue}{H})
               -[:0]@{carbon}\textcolor{Blue}{\pcharge{120}{C}}
               (-[:45,,,,Red]\textcolor{Red}{\ce{X-}})
               (-[:-45]R)
@@ -3686,7 +3718,10 @@
               }
             ]}
             \chemfig{
-              [:0]RC\textcolor{Blue}{\ce{H2}}
+              [:0]R
+              -[:0]C
+              (-[:90,,,,Red]\textcolor{Blue}{H})
+              (-[:-90,,,,Red]\textcolor{Blue}{H})
               -[:0]C
               (-[:90,,,,Red]\textcolor{Red}{X})
               (-[:-90,,,,Red]\textcolor{Red}{X})
@@ -3725,7 +3760,8 @@
               -[:0]H
             }
           }
-        }{Double Markovnikov HX addition to alkynes resulting in geminal halides}{fig:ph86}{0.9}
+        }{Double Markovnikov HX addition to alkynes resulting in geminal halides}{fig:ph86}{0.8}
+        \vspace{-0.4cm}
 
         It is important to note that the first HX addition always proceeds in the anti configuration, owing to steric hindrance.
 
@@ -3793,9 +3829,7 @@
                 -[:-30]
               }
             }
-          }{Asymmetrical internal alkyne HX anti addition}{fig:ph88}{0.9}
-
-          Here, because the degree of hyperconjugation between the two R groups does not differ greatly, a mixture of products ensues, although 2,2-diiodo-methane is the more favored outcome.
+          }{Asymmetrical internal alkyne HX anti addition; \textit{this reaction results in a 50:50 mixture of products}}{fig:ph88}{0.9}
 
           \item \textbf{Terminal Alkyne}
 
@@ -3867,9 +3901,7 @@
                 }
               }{Geminal}
             }
-          }{Alkene derived vicinal dihaloalkane to geminal dihaloalkane conversion}{fig:ph90}{0.85}
-
-          The first step of the reaction above is alkene halogenation, covered in \autoref{core:halogenation}.
+          }{Alkene derived vicinal dihaloalkane to geminal dihaloalkane conversion; \textit{the first step of the above reaction is alkene halogenation, covered in \autoref{core:halogenation}}}{fig:ph90}{0.85}
 
         \end{enumerate}
 
@@ -4303,10 +4335,11 @@
               }
             }
             \qquad \qquad
-            \arrow{->[taurtomerization]}
+            \arrow{->[tautomerization]}
             \qquad
             \chemfig{
               [:0]R
+              -[:0]C
               (-[:90]H)
               (-[:-90]H)
               -[:0]C
@@ -4344,7 +4377,7 @@
               -[:30]
               -[:-30]
               (=[:-90]O)
-              -[:30]
+              -[:30]H
             }
           }
         }{
@@ -4407,9 +4440,7 @@
               -[:30]R'
             }
           }
-        }{Hydroboration-oxidation (\textit{top, bottom}) vs mercury catalyzed Markovnikov hydration (\textit{middle})}{fig:ph99}{0.9}
-
-        For internal alkynes, a mixture of products results when the two triple-bond carbons do not differ greatly in substitution (\textit{although the carbonyl will preferentially form on the slightly less substituted carbon}).
+        }{Hydroboration-oxidation (\textit{top, bottom}) vs mercury catalyzed Markovnikov hydration (\textit{middle}); \textit{internal alkynes (bottom) result in a mixture of products}}{fig:ph99}{0.9}
 
       \end{core}
   
