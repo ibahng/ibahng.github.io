@@ -12,9 +12,9 @@
 % \externaldocument[cor-]{../corporate_finance/corporate_finance}[https://ibahng.github.io/finance_markets/corporate_finance/corporate_finance.pdf]
 % \externaldocument[der-]{../derivatives/derivatives}[https://ibahng.github.io/finance_markets/derivatives/derivatives.pdf]
 % \externaldocument[equ-]{../equity/equity}[https://ibahng.github.io/finance_markets/equity/equity.pdf]
-% \externaldocument[for-]{../forex/forex}[https://ibahng.github.io/finance_markets/forex/forex.pdf]
+\externaldocument[for-]{../forex/forex}[https://ibahng.github.io/finance_markets/forex/forex.pdf]
 % \externaldocument[fnd-]{../fundamental_analysis/fundamental_analysis}[https://ibahng.github.io/finance_markets/fundamental_analysis/fundamental_analysis.pdf]
-% \externaldocument[mac-]{../macroeconomics/macroeconomics}[https://ibahng.github.io/finance_markets/macroeconomics/macroeconomics.pdf]
+\externaldocument[mac-]{../macroeconomics/macroeconomics}[https://ibahng.github.io/finance_markets/macroeconomics/macroeconomics.pdf]
 % \externaldocument[mic-]{../microeconomics/microeconomics}[https://ibahng.github.io/finance_markets/microeconomics/microeconomics.pdf]
 % \externaldocument[tec-]{../technical_analysis/technical_analysis}[https://ibahng.github.io/finance_markets/technical_analysis/technical_analysis.pdf]
 % \externaldocument[val-]{../valuation/valuation}[https://ibahng.github.io/finance_markets/valuation/valuation.pdf]
@@ -26,357 +26,582 @@
 
 \section{Market Foundation}
 
-  \subsection{The Global Bond Market}
+  \begin{core}{Market Size \& Composition}
 
-    \begin{core}{Market Size \& Composition}
+    The fixed-income market represents \textbf{the largest financial market globally}. The total value of outstanding debt worldwide sits at approximately \$143 trillion, comfortably surpassing both global equity market capitalization and annualized global GDP.
 
-      % The fixed-income market is the largest market in the world. At the end of 2016, there were over $101T worth of traded bonds in existence worldwide.
-      % GDP was $79T at the time.
-      % World stock market was $65T.
-      The fixed-income market represents the largest financial market globally. By the end of 2016, the total value of traded bonds worldwide exceeded \$101 trillion, surpassing both global GDP (\$79 trillion) and total global equity market capitalization (\$65 trillion). 
+    This vast market comprises millions of distinct individual securities tracking unique CUSIP or ISIN lines (\textit{unique alphanumerical identifiers}). In terms of unique lines of debt, the \textbf{municipal bond market} represents the most fragmented sector with roughly 1 million to 1.5 million distinct outstanding issues. In terms of global market value, \textbf{sovereign debt} accounts for the single largest segment, followed by \textbf{corporate bonds} and structured securitizations. 
 
-      % There are 2.1M government and corporate bonds in existence (adds up to $101T).
-      % Corporate bonds compose 1.6M of the 2.1M bonds outstanding.
-      % There is a greater diversity in corporate bonds, and like the US government, a single corporation can also issue a vast array of bonds.
-      This vast market comprised approximately 2.1 million distinct government and corporate bonds. Corporate bonds accounted for the majority, with roughly 1.6 million outstanding issues, reflecting the immense diversity of corporate debt instruments. 
+    The United States fixed-income market is the deep core of this global ecosystem, with total outstanding debt exceeding \$50 trillion. Within this, the \textbf{U.S. Treasury market} is the most liquid and heavily traded sector, with over \$27 trillion outstanding. The unparalleled scale, depth, and structural liquidity of the US Treasury market serve as the drivers of the U.S. dollar's central role as the \textbf{global reserve currency} (\textit{\autoref{for-core:pegged_reserves}}).
 
-      % The US treasury had 1086 actively traded bonds and bills outstanding (accounting for $14T).
-      % The US bond market plays a crucial role in global finance.
-      % US corporate bonds account for $8T of the market (the 2nd largest segment).
-      % The US bond market's relative size is one of the main reasons for dollar centricity in the currency market.
-      The United States Treasury market, while consisting of only 1,086 actively traded bonds and bills, represented \$14 trillion in value. Furthermore, the US corporate bond sector constituted the second-largest segment at \$8 trillion. The sheer scale and liquidity of the US bond market are primary drivers of the US dollar's central role in global currency markets.
+  \end{core}
 
-    \end{core}
+  \begin{core}{Historical Development}
 
-    \begin{core}{Historical Development}
+    The modern bond market, much like the foreign exchange market, is a relatively recent development. Its expansion was primarily driven by \textbf{interest rate liberalization} and \textbf{the dismantling of capital controls} following World War II---triggered namely by the \textbf{Nixon Shock} (\textit{\autoref{for-core:nixon_shock}})---which greatly facilitated sovereign borrowing.
 
-      % The bond market is relatively recent like the FX market, born out of:
-      % * IR liberalization
-      % * Removal of capital controls after WWII, making it easier for governments to borrow
+    Historically, governments primarily issued debt to finance extraordinary expenses such as \textbf{wars and domestic infrastructure}. However, the rise of the \textbf{modern welfare state} has fundamentally shifted this dynamic. As developed nations expanded public services, including healthcare, education, and social safety nets, government spending as a proportion of GDP increased significantly, leading to a corresponding structural reliance on debt financing.
 
-      % Governments used to raise money for a few cases such as war and justice. But with the advent of the welfare state and social safety net, government spending as a proportion of GDP has risen steeply as advanced nations now pay more for healthcare, education, and other public services.
+  \end{core}
 
-      The modern bond market, much like the foreign exchange market, is a relatively recent development. Its expansion was primarily driven by interest rate liberalization and the dismantling of capital controls following World War II, which greatly facilitated sovereign borrowing. Historically, governments primarily issued debt to finance extraordinary expenses such as wars and the administration of justice. However, the rise of the modern welfare state has fundamentally shifted this dynamic. As developed nations expanded public services, including healthcare, education, and social safety nets, government spending as a proportion of GDP increased significantly, leading to a corresponding structural reliance on debt financing.
+  \begin{core}{US Treasuries \& Foreign Nations}
 
-    \end{core}
+    Following the \textbf{Nixon Shock} (\textit{\autoref{for-core:nixon_shock}}) and the subsequent transition to floating exchange rates in 1971, many nations were compelled to accumulate substantial \textbf{foreign exchange reserves} (\textit{\autoref{for-core:pegged_reserves}}) to defend their currency pegs. Additionally, central banks frequently \textbf{purchase U.S. government bonds}, selling their domestic currencies in the process, to deliberately weaken their own exchange rates to support export economies. 
 
-    \begin{core}{US Treasuries \& Foreign Nations}
+    \textbf{U.S. Treasuries} (\textit{U.S. government bonds}) serve as a globally preferred, secure asset due to the following advantages.
 
-      % Since currencies floated freely since 1971, many countries, have been forced to accumulate war chests of FX reserves to defend their pegs.
-      % Other countries sell their own currencies to buy US government bonds in order to weaken their currency.
+    \begin{enumerate}
 
-      % US treasuries are used as a safe and easily accessible place to park their money:
-      % * Strong reputation for creditworthiness
-      % * Right to tax citizens and corporations of the wealthiest country on earth
-      % * Privilege of being able to print the world's reserve currency
-      % * US bonds are the most liquid tradable assets on earth
-      % * The FX market is US dollar centric
+      \item The unparalleled \textbf{creditworthiness} of the US government
 
-      % Investors also use US treasury bonds as a safe haven. During times of financial turmoil and crisis, investors bought US bonds, bringing bond yields down.
-      % **Bond price and yields hold an inverse relationship**
+      \item Its \textbf{taxation authority} over the world's wealthiest economy
 
-      Following the transition to floating exchange rates in 1971, many nations were compelled to accumulate substantial foreign exchange reserves to defend their currency pegs. Additionally, central banks frequently purchase US government bonds, selling their domestic currencies in the process, to deliberately weaken their own exchange rates to support export economies. US Treasuries serve as a globally preferred, secure asset due to several distinct advantages: the unparalleled creditworthiness of the US government, its taxation authority over the world's wealthiest economy, the unique privilege of issuing the primary global reserve currency, and the unmatched liquidity of the US bond market. Consequently, during periods of financial instability, investors instinctively seek refuge in US Treasuries. This surge in demand drives bond prices upward, which concurrently forces bond yields downward, reflecting the fundamental inverse relationship between bond prices and yields.
+      \item The unique privilege of issuing the \textbf{primary global reserve currency}
 
-    \end{core}
+      \item The unmatched \textbf{liquidity} of the US bond market
 
-    \begin{core}{Corporate Bond Market}
+    \end{enumerate}
 
-      % Why do companies borrow in the corporate bond market?
-      % In most countries, a discrepancy in tax treatment means that debt repayments lower a company's tax bill by reducing pre-tax profits through interest payments.
-      % Companies can borrow money for longer terms from the bond market than from banks, which are not typically keen on making long term loans to corporations.
+    Consequently, during periods of financial instability, investors instinctively \textbf{seek refuge in U.S. Treasuries}. 
 
-      Corporations primarily access the bond market for debt financing due to favorable tax treatments and term structures. In most tax jurisdictions, interest payments on debt are tax-deductible, effectively reducing a firm's taxable income and lowering its overall tax burden. Furthermore, the corporate bond market provides access to long-term financing that is generally unavailable through traditional commercial banks, which tend to prefer issuing shorter-term business loans.
+  \end{core}
 
-    \end{core}
+  \begin{core}{Corporate Bond Market}
 
-  \subsection{Bond Mechanics}
+    Corporations primarily access the bond market for debt financing due to favorable tax treatments and term structures. 
+
+    \begin{enumerate}
+
+      \item \textbf{Tax Advantage}: In most tax jurisdictions, \textbf{interest payments on debt are tax-deductible}, effectively reducing a firm's taxable income and lowering its overall tax burden. 
+
+      \item \textbf{Term Structures}: The corporate bond market provides access to long-term financing that is \textbf{generally unavailable through commercial banks}, which tend to prefer issuing shorter-term business loans.
+
+    \end{enumerate}
+
+  \end{core}
+
+\section{Bond Structure \& Mechanics}
+
+  \subsection{Bond Fundamentals}
 
     \begin{core}{Bond Structure}
 
-      % Bonds are IOU notes promising to pay regular fixed amount payments (coupons) and a large payment at maturation (principal); this is fixed income.
+      Fundamentally, bonds are promissory notes that obligate the issuer to make regular, fixed interest payments, known as \textbf{coupons}, to the holder. Upon \textbf{maturation}, the issuer is also required to return the initial borrowing amount, referred to as the \textbf{principal}. This predictable stream of cash flows is the defining characteristic of a fixed-income instrument. 
 
-      Fundamentally, bonds are promissory notes that obligate the issuer to make regular, fixed interest payments, known as coupons, to the holder. Upon maturation, the issuer is also required to return the initial borrowing amount, referred to as the principal. This predictable stream of cash flows is the defining characteristic of a fixed-income instrument.
+      \textbf{Example.} \textit{Consider a bond with \textbf{face value} (principal) $F = \$1{,}000$, an annual \textbf{coupon rate} of $c = 5\%$, and a \textbf{maturity} of $n = 3$ years, with coupons paid annually. The annual coupon payment is}
+      \[
+        C = c \cdot F = 0.05 \times 1000 = \$50.
+      \]
 
-    \end{core}
+      \textit{The bond's promised cash-flow stream to the holder is therefore}
+      \[
+        \underbrace{\$50}_{t=1} \quad \underbrace{\$50}_{t=2} \quad \underbrace{\$50 + \$1000}_{t=3},
+      \]
 
-    \begin{core}{Bond Yields}
-
-      % Bond Yields are similar to APR on a credit card.
-      % The main input to the calculation of yield is the price of the bond (which fluctuates).
-      % Fixed income ≠ fixed yield.
-      % The remaining repayments and the floating bond price are used to calculate the yield.
-      % Yields make the diversity of the 2.1 million bonds in the market.
-
-      % A bond yield is simply the equivalent interest rate on a bank account that would provide an identical end amount given that the coupon payments are deposited into this bank account upon receiving.
-
-      % Bond yields are nothing more than advertised deposit rates; the difference is that bond yields fluctuate as the price of the bond moves.
-
-      A bond's yield can be conceptualized as being similar to the annual percentage rate (APR) on a loan or an advertised deposit rate for a savings account. However, while the income generated by a bond is fixed, its yield is not. The primary variable in calculating a bond's yield is its current market price, which fluctuates continuously based on market conditions. Therefore, the yield represents the equivalent interest rate a theoretical bank account would need to offer to produce an identical final return, assuming all coupon payments are deposited immediately upon receipt.
-
-    \end{core}
-
-    \begin{core}{Price-Yield Relationship}
-
-      % Generally speaking, the lower the agreed purchase price for a bond, the greater the APR, or yield, as a smaller up-front sum results in the same fixed amount repayments down the road.
-      % EX. Perpetual bond is a bond whose principal is never repaid → yield and price are a perfect mirror image.
-
-      % New Lenders   | New Borrowers
-      % --------------|--------------
-      % High Yields   | Good / Bad
-      % Low Yields    | Bad / Good
-
-      % *Servicing a debt refers to sustaining one's existing amount of borrowing by paying coupons.
-
-      A fundamental principle of fixed-income markets is the inverse relationship between a bond's purchase price and its yield. If an investor pays a lower up-front price for a set of fixed future cash flows, the effective rate of return, or yield, naturally increases. This dynamic is perfectly illustrated by a perpetual bond—an instrument whose principal is never repaid—where price and yield operate as exact mirror images. Consequently, high market yields are advantageous for prospective lenders but detrimental to new borrowers, whereas low yields benefit new borrowers at the expense of lenders. In this context, servicing debt simply refers to the ongoing cost of maintaining existing borrowing obligations through regular coupon payments.
+      \textit{where the final payment at $t = 3$ includes both the last coupon and the return of the principal. In general, for a bond with face value $F$, coupon rate $c$, and maturity $n$, the cash flow at time $t$ is}
+      \[
+        CF_t =
+        \begin{cases}
+          C = cF, & t = 1, 2, \dots, n-1 \\
+          C + F, & t = n.
+        \end{cases}
+      \]
 
     \end{core}
 
-\section{Valuation Framework}
+    \begin{core}{Price \& Face Value}
 
-  \subsection{Credit Analysis}
+      The fundamental distinction between a bond's face value and its market price lies in structural permanence versus macroeconomic volatility across different stages of a security's lifecycle.
 
-    \begin{core}{Credit Overview}
+      \begin{enumerate}
 
-      % Bond prices today reflect beliefs on repayment likelihood tomorrow. The assumption when calculating yield, however, is that the income is truly fixed, that the full repayment amounts promised will materialize. Therefore, notwithstanding your fears about the solvency of the borrower, when it comes to calculating the yield, you assume that you will get the same cash for a lower price.
+        \item \textbf{Face value} or \textbf{par value} represents the \textbf{static}, contractual dollar amount assigned to the bond at its creation. It serves the following two immutable functions.
 
-      % When bond investors (lenders) begin to doubt the creditworthiness of a borrower, yields move sharply upwards.
+        \begin{itemize}
 
-      % If the market believes that the government may have trouble paying money back, the price of the bond will be lower and, therefore, the yield higher. This makes future borrowing more expensive for this government. In this way, the bond market instills fiscal discipline in governments.
+          \item Dictating the absolute \textbf{principal} repayment guaranteed to the investor at maturity
 
-      Current bond prices fundamentally reflect market expectations regarding the likelihood of future repayment. However, the standard mathematical calculation of yield assumes that the promised cash flows will materialize completely. Therefore, when market participants begin to doubt a borrower's solvency, they demand a lower initial price for the bond to compensate for the elevated risk. Because the nominal cash flows remain unchanged, this drop in price mathematically results in a sharply higher yield. For sovereign debt, if investors suspect a government may struggle to meet its obligations, the resulting decline in bond prices and subsequent spike in yields significantly increases the cost of future borrowing. Through this mechanism, the bond market actively imposes fiscal discipline on sovereign nations.
+          \item Acting as the baseline figure upon which periodic \textbf{coupon} payments are mathematically calculated. 
 
-    \end{core} 
+        \end{itemize}
 
-    \begin{core}{Sovereign Credit Risk Metrics}
+        Importantly, the face value of a bond remains \textbf{entirely insulated from market volatility}
 
-      % To keep tabs on a government's creditworthiness, investors commonly look at three metrics:
+        \item \textbf{Market Price} represents the fluid, fluctuating economic value at which the bond is actually exchanged between counterparties. Its behavior diverges across two distinct market phases:
 
-      % 1. Debt/GDP
+        \begin{itemize}
+
+          \item \textbf{Primary Market}
+
+          At issuance, the market price is established to match the clearing \textbf{yield} (\textit{\autoref{core:yields}}) demanded by investors. While the borrowing entity targets a fixed cash amount, the primary market price may be structured at par, a premium, or a discount, forcing the issuer to \textbf{dynamically scale the total face value} delivered to clear the transaction.
+
+          \textbf{Example.} \textit{Suppose an issuer wants to raise exactly \$10{,}000{,}000 and plans to issue 10-year bonds with a \textbf{5\% coupon}. If investors currently \textbf{demand a clearing yield of 6\%} for this risk profile, the bonds must be \textbf{priced at a discount to par} to compensate buyers for the gap between the 5\% coupon and the 6\% required yield. Suppose this clearing yield implies a price of \$92 per \$100 face value. To raise the targeted \$10{,}000{,}000 in proceeds, the issuer must scale up the total face value issued:}
+          \[
+            \text{Face value issued} = \frac{\text{Target proceeds}}{\text{Price} / 100} = \frac{\$10{,}000{,}000}{0.92} \approx \$10{,}869{,}565.
+          \]
+
+          \textit{The issuer therefore commits to repaying approximately \$10.87 million at maturity, plus 5\% coupons on that larger face amount, even though it only received \$10 million up front—the cost of issuing below par.}
+
+          This dynamic illustrates a broader \textbf{disciplining mechanism} (\textit{\autoref{core:creditworthiness}}) within debt markets: when investors perceive a borrowing entity as riskier than the terms it is offering would suggest, they will collectively demand a yield discount, thereby raising the issuer's cost of capital. This diminished borrowing efficiency, in turn, incentivizes the issuer to avoid risky behavior, since maintaining favorable terms in future debt issuances depends on preserving investor confidence
+
+          \item \textbf{Secondary Market}
+
+          Post-issuance, the bond \textbf{trades freely} between investors, and its market price fluctuates continuously. As the macro environment changes, the market price \textbf{deviates from par to align the bond's fixed cash flows with current market yields}.
+
+          \textbf{Example.} \textit{Consider a 5-year bond issued at par at a \$1{,}000 face value with a 4\% annual coupon, so it pays \$40 per year. Suppose market interest rates then rise to 6\%. Investors will no longer pay \$1{,}000 for a bond yielding only 4\%, so the price must fall until the bond's fixed \$40 coupons plus principal repayment offer an effective 6\% return. This pushes the price downwards.}
+          \[
+            P \approx \$40 \times \left(\frac{1 - (1.06)^{-5}}{0.06}\right) + \$1{,}000 \times (1.06)^{-5} \approx \$915.75.
+          \]
+
+        \end{itemize}
+
+      \end{enumerate}
+
+    \end{core}
+
+    \begin{core}[label=core:yields]{Bond Yields}
+
+      A bond's yield represents the annualized economic return generated for an investor based on its cash flow streams and prevailing market value. While coupon rates remain static, yields fluctuate inversely with secondary market prices.
+
+      \begin{enumerate}
+
+        \item \textbf{Current yield} 
+
+        Current yield provides a \textbf{static snapshot of annual cash income} relative to the bond's immediate purchase price.
+        \[
+          \text{Current Yield} = \frac{C}{P}
+        \]
+
+        Where C is the annual coupon payment and P is the current secondary market price.
+
+        \item \textbf{Yield to Maturity}
+
+        Yield to Maturity (YTM) is the definitive institutional metric representing the total \textbf{internal rate of return (IRR)} an investor earns by purchasing the bond at its current market price and holding it until its final maturity date. It assumes that all periodic cash flows are successfully reinvested at that same constant rate.
+        \[
+          P = \sum_{t=1}^{n} \frac{C}{(1 + \text{YTM})^t} + \frac{F}{(1 + \text{YTM})^n}
+        \]
+
+        Where F is the nominal face value and n is the total compounding periods to maturity. 
+
+      \end{enumerate}
       
-        % As a rule of thumb, the higher a government's debt burden in proportion to its GDP, the riskier its bonds. For higher risk, investors will demand a higher return in the form of an elevated yield. There is, however, no general rule on when bond yields will spike. Japan is one of the most heavily indebted nations in the world, yet it has one of the lowest government bond yields.
+      Whenever financial news networks, websites, or terminal databases (\textit{such as Bloomberg}) quote a bond's "\textit{headline yield}" (\textit{e.g., "The 10-Year US Treasury yield rose to 4.25\%"}), they are exclusively referencing the YTM figure. 
 
-        % When debt is repaid, this payment does not include itself in GDP; the original spending of money brought from this debt is when GDP increases.
+      \textbf{Example.} \textit{Consider a 10-year corporate bond with a face value of $\$1,000$ and a fixed $6.00\%$ annual coupon ($C = \$60$). Due to macro interest rate shifts, it trades on the secondary market at a discount price of $\$880$.}
+      \[
+        \text{Current Yield} = \frac{\$60}{\$880} = 6.82\%
+      \]
+      
+      \textit{To calculate the YTM, we solve for the discount rate that equates the present value of the cash flows to the market price.}
+      \[
+        \$880 = \sum_{t=1}^{10} \frac{\$60}{(1 + \text{YTM})^t} + \frac{\$1,000}{(1 + \text{YTM})^{10}}
+      \]
 
-      % 2. Deficit/GDP
-
-        % Negative deficits means that the governments are spending more money than they are bringing in through taxation, relying on the bond market to finance their deficit.
-        % The higher the deficit, the higher the interest payments go up as a proportion of the government budget.
-        % Again, there is no hard/fast rule on the % deficit that will make investors bail.
-
-      % 3. Repayment Schedule (Rolling Over Debt)
-
-        % Borrowing over the short term attracts a lower annual interest rate because it lowers risk for the lender. This is tempting because it lowers interest payments.
-        % EX. governments may theoretically repay debt by issuing new debt (rolling over debt).
-        % The downside of taking advantage of low interest short-term debt is that lenders can pull the rug and suddenly demand very high yields.
-        % By borrowing in the short-term, and refinancing the debt on a regular basis, the US government takes advantage of the lower interest rates available for short-term borrowers. US isn't afraid of investors pulling the rug because of its strong creditworthiness.
-
-      To assess sovereign creditworthiness, investors primarily evaluate three macroeconomic metrics. First, the Debt-to-GDP ratio serves as a general indicator of leverage; typically, a higher proportional debt burden implies greater default risk, prompting investors to demand elevated yields. However, this is not an absolute rule, as evidenced by Japan, which maintains exceptionally low borrowing costs despite holding one of the highest debt burdens globally. Second, the Deficit-to-GDP ratio highlights the extent to which a government's expenditures exceed its tax revenues. Persistent deficits require continuous financing through the bond market, subsequently increasing the proportion of the national budget consumed by debt interest payments. Finally, a nation's repayment schedule, or its strategy for rolling over debt, is scrutinized. While issuing short-term debt is attractive due to lower associated interest rates, it exposes the borrower to refinancing risk—the danger that lenders may suddenly demand significantly higher yields. Due to its robust credit profile, the US government is uniquely positioned to exploit the cost advantages of short-term borrowing and continuous refinancing without substantial fear of abrupt lender withdrawal.
-
-    \end{core}
-
-    \begin{core}{Credit Risk Indicators}
-
-      % Credit Ratings
-      % Ratings agencies give bonds a rating ranging from AAA to D.
-
-      % With corporate bonds, ratings higher than BBB- or at BBB- are called "investment grade"; BB+ and below are called "non-investment grade" AKA "junk bonds".
-
-      % Keep in mind that the track record for credit rating agencies is decidedly patchier for corporate bonds that it is for government bonds.
-
-      % Credit Default Swaps (CDSs)
-      % CDSs are like insurance on bonds going bust.
-
-      % CDSs often provide a more timely warning of impending default than ratings. This is b/c they are "real-time readings based on traded instruments. The higher the CDS spread, the higher the risk.
-
-      Market participants rely on several formal and market-implied indicators to gauge credit risk. Credit rating agencies assign letter grades to bond issues, ranging from AAA down to D. Within the corporate sector, bonds rated BBB- and above are classified as "investment grade," whereas those rated BB+ and below are categorized as "non-investment grade" or colloquially as "junk bonds." It is widely noted that the historical performance of these agencies has been less reliable for corporate issuances compared to sovereign debt. Alternatively, Credit Default Swaps (CDS) function as a form of market-traded insurance against bond defaults. Because they are actively traded instruments, CDS spreads provide a real-time assessment of credit risk that frequently serves as a more timely early warning indicator than static agency ratings. Simply put, a wider CDS spread denotes higher perceived market risk.
+      \[
+        \text{YTM} = 7.79\%
+      \]
+      
+      \textit{The YTM captures an \textbf{additional return premium} over the current yield ( $7.79\% > 6.82\%$ ) because it factors in the compounding annualized capital gain of $\$120$ ($\$1,000 - \$880$) guaranteed to accrue to the investor over the remaining 10-year lifespan.}
 
     \end{core}
 
-  \subsection{Macroeconomic Drivers}
+    \begin{core}[label=core:price_yield]{Price-Yield Relationship}
 
-    \begin{core}{Macroeconomic Drivers}
+      A fundamental principle of fixed-income markets is the \textbf{inverse relationship between a bond's purchase price and its yield}, as shown by the equations and example present in \autoref{core:yields}. If an investor pays a lower up-front price for a set of fixed future cash flows, the effective rate of return, or \textbf{yield}, naturally increases.
 
-      % Overview
-      % ------------------------------------------------------------------------------------------------------------------------
-      % The other major driver of bond valuation is the macroeconomic environment:
-      % * Short-Term Interest Rate
-      % * Inflation
+      \begin{table}[H]
+        \centering
+        \begin{tabular}{lcc}
+          \hline
+          \hline
+          & \textbf{New Lenders} & \textbf{New Borrowers} \\
+          \hline
+          \textbf{High Yields} & Good & Bad \\
+          \textbf{Low Yields}  & Bad  & Good \\
+          \hline
+        \end{tabular}
+        \caption{Effect of yield levels on new lenders versus new borrowers}
+        \label{tab:yield-impact}
+      \end{table}
 
-      % Short-Term Interest Rates
-      % ------------------------------------------------------------------------------------------------------------------------
-      % Short-term interest rates directly affect the yields of the bond market.
-
-      % Non-US Government treasury bonds must always check their prices/yield with US treasury bonds; The US is the most creditworthy, thus all other bonds w/ the same details as US bonds must always be cheaper (thus higher yield) b/c of the added risk.
-
-      % This yield competition phenomenon is simply price competition masked by the jargon of the bond market.
-
-      % Inflation
-      % ------------------------------------------------------------------------------------------------------------------------
-      % Inflation will erode the purchasing power of a bond's coupon and principal payments, thus with higher inflation, bond yields increase as people demand lower prices for the same nominal returns.
-      % Bond yields are called nominal and not real. You do not adjust the yield calculation for inflation.
-
-      % Summary
-      % ------------------------------------------------------------------------------------------------------------------------
-      % * As repayments to bondholders are fixed, inflation will corrode the purchasing power of fixed bond repayments, sending yields up.
-      % * As US government bond yields serve as benchmarks for all investments, yields on other bonds tend to move with them.
-
-      Beyond creditworthiness, bond valuations are profoundly influenced by macroeconomic factors, specifically short-term interest rates and inflation expectations. Short-term interest rates exert a direct and immediate effect on broader market yields. In the sovereign space, non-US government bonds invariably price themselves relative to US Treasuries. Because the United States is generally perceived as the most creditworthy sovereign borrower, bonds issued by other nations must offer a lower price—and consequently a higher yield—to compensate investors for the additional inherent risk. This dynamic is essentially basic price competition expressed through the terminology of yield. Furthermore, inflation is a critical driver of bond markets. Because bond payments are fixed, inflation steadily erodes the future purchasing power of both coupon and principal disbursements. In response to rising inflation, investors demand lower initial purchase prices for the same nominal cash flows, driving yields upward. It is crucial to recognize that quoted bond yields are nominal figures and do not inherently adjust for inflation. Ultimately, because US government yields serve as the foundational benchmark for global investments, yield movements across international developed markets tend to be highly correlated.
+      Consequently, high market yields are advantageous for prospective lenders but detrimental to new borrowers, whereas low yields benefit new borrowers at the expense of lenders (\textit{\autoref{tab:yield-impact}}).
 
     \end{core}
 
-\section{Monetary Policy \& Market Dynamics}
+    \begin{core}[label=core:bond_duration]{Bond Duration*}
 
-  \subsection{Central Banking}
+      \textbf{Duration} measures a bond's sensitivity to changes in interest rates, expressed conceptually as a weighted-average time until the holder receives the bond's cash flows. While intuitively similar to a bond's time to maturity, duration also accounts for the relative weight and timing of each individual coupon payment, making it a more precise gauge of interest rate risk than maturity alone. Several formulations of duration exist---most notably \textbf{Macaulay duration}, which calculates this weighted-average time \textbf{directly in years}---but these time-based measures see limited use in practice. The dominant measure used throughout industry is instead \textbf{modified duration}, which converts Macaulay duration into a direct estimate of price sensitivity to interest rate changes.
 
-    % How do governments set short-term bond yields, that is, how they attempt to nudge the economy towards slow, steady growth?
+      Formally, for a bond with cash flows $CF_t$ at times $t = 1, \dots, n$, yield $y$, and compounding periods per year $k$, modified duration is given by
+      \[
+        D_{\text{Mod}} = \frac{1}{1 + \dfrac{y}{k}} \cdot \frac{\displaystyle\sum_{t=1}^{n} \dfrac{t \cdot CF_t}{(1+y)^t}}{P},
+        \qquad \text{where } P = \sum_{t=1}^{n} \frac{CF_t}{(1+y)^t},
+      \]
 
-    \begin{core}{Central Bank Mandates}
+      This expression can be broken down into its constituent components for clarity. The price $P$ is simply the bond's total present value, as established in \autoref{core:yields}. The numerator of the right-hand fraction follows the same construction, but weights each cash flow by its corresponding time period, yielding a quantity expressed in units of $\$\,\text{year}^{-1}$. Dividing this quantity by the price $P$ produces the \textbf{Macaulay duration}, which represents the \textbf{time-weighted balance point of all cash flows generated by the bond}.
 
-      % Inflation is psychological and is most prevalent during wartime when governments print large amounts of money to fund the war.
-      % Delation is also psychological and bad for the economy because consumers keep delaying purchase in response to constant price decreases.
+      \textit{If a bond's Macaulay duration is calculated to be 7.5, this indicates that, on a time-weighted basis, the balance point of the bond's present-value cash flows lies 7.5 years into the future.}
 
-      % Bond markets are ravaged by inflation which became a major issue for economies in the 1970s.
+      The factor $(1+\dfrac{y}{k})^{-1}$ serves as a scaling adjustment that converts the Macaulay duration value into the \textbf{modified duration} figure. Recall that modified duration estimates a bond's price sensitivity to changes in interest rates. When interest rates rise, the present value of a bond's cash flows is affected more severely if the bulk of those flows lie far in the future---that is, when Macaulay duration is high or yield is low. Conversely, when yield is high and cash flows are effectively weighted toward the nearer term, interest rate changes exert a comparatively muted effect on price, since the present value of near-term cash flows is less sensitive to discounting.
 
-      % *High inflation will erode the price of bonds and send yields up.
+      A higher compounding frequency $k$ similarly reduces price sensitivity, as more frequent receipt of coupon payments shifts a portion of the bond's cash flows earlier in time, thereby diminishing the extent to which interest rate movements erode the real return of those cash flows.
 
-      Central banks actively intervene in money markets to steer economies toward stable, sustainable growth, managing two primary psychological extremes: inflation and deflation. Inflation, which often historically spikes during wartime due to excessive monetary expansion, severely erodes the real value of fixed-income assets, as notably witnessed during the economic turbulence of the 1970s. Conversely, deflation is equally destructive, as anticipating consistently falling prices incentivizes consumers to indefinitely delay spending, which stalls economic activity. Central banks must therefore carefully balance these forces, operating with the understanding that unchecked inflation will inevitably drive bond prices down and corresponding yields up.
+      \textit{For instance, a semi-annual coupon schedule means that the bondholder receives half of the annualized coupon six months earlier than under an annual schedule, holding all other factors constant.}
 
-    \end{core}
+      In summary, modified duration directly approximates the percentage change in a bond's price resulting from a small change in yield.
+      \[
+        \frac{\Delta P}{P} \approx -D_{\text{Mod}} \times \Delta y.
+      \]
 
-    \begin{core}{Inflation Measures}
+      This relationship makes modified duration the more practically useful metric for risk management, as it translates an abstract time-weighted average into an \textbf{actionable estimate of price volatility}---precisely why it, rather than Macaulay duration, is the figure quoted and used in practice.
 
-      % Central Banks use three main statistics to gauge the economies' inflation:
-      % * GDP deflator
-      % * CPI stat
-      % * PCE stat (PCE strips out volatile costs of food and energy, allowing for a more trustworthy representation of consumer consumption)
+      \textbf{Example.} \textit{Consider two bonds, each trading at par with a 4\% annual coupon and annual compounding ($k=1$), differing only in maturity.}
 
-      % However since these statistics only look at the past and CPI forecasts are only so accurate, investors usually look at TIPS to gauge inflation.
+      \begin{enumerate}
 
-      To assess current inflationary pressures, central banks rely on three primary statistical metrics: the GDP deflator, the Consumer Price Index (CPI), and the Personal Consumption Expenditures (PCE) price index. The PCE is particularly favored by policymakers because it isolates the core inflation trend by stripping out highly volatile food and energy costs. However, because these indices are inherently backward-looking indicators, bond market investors primarily look to specific traded financial instruments to gauge real-time, forward-looking inflation expectations.
+        \item \textbf{Short-Term Bond (2-Year Maturity)}
 
-    \end{core}
+        \textit{With cash flows of \$40 at $t=1$ and \$1{,}040 at $t=2$, this bond's modified duration is}
+        \[
+          D_{\text{Mod}} \approx 1.89.
+        \]
 
-    \begin{core}{Treasury Inflation Proteced Securities (TIPS)}
+        \textit{A 1\% rise in yield ($\Delta y = 0.01$) implies an approximate price decline of}
+        \[
+          \frac{\Delta P}{P} \approx -1.89 \times 0.01 = -1.89\%.
+        \]
 
-      % Treasury Inflation Protected Securities (TIPS)
-      % ------------------------------------------------------------------------------------------------------------------------
-      % Instead of having "fixed-income" payments to the lender, TIPS compensate the lender in the event of inflation, using CPI as a guide.
-      % By comparing the price of TIPS and non-inflation protected bonds, investors can glean inflation expectations. Higher inflation → higher demand for TIPS relative to normal bonds → greater difference in yields.
+        \item \textbf{Long-Term Bond (30-Year Maturity)}
 
-      Treasury Inflation-Protected Securities (TIPS) are explicitly designed to shield lenders from purchasing power erosion by adjusting their principal and coupon payments in accordance with changes in the CPI. By analyzing the pricing differential between TIPS and standard, non-protected Treasury bonds of the exact same maturity, market participants can precisely extract the market's implied inflation expectations. When inflation forecasts rise, investor demand for TIPS increases relative to standard bonds, causing the yield spread between the two assets to widen.
+        \textit{With the same 4\% coupon but cash flows extending over 30 years, this bond's modified duration is substantially higher:}
+        \[
+          D_{\text{Mod}} \approx 17.29.
+        \]
 
-    \end{core}
+        \textit{For the same 1\% rise in yield, the price decline is far more severe:}
+        \[
+          \frac{\Delta P}{P} \approx -17.29 \times 0.01 = -17.29\%.
+        \]
 
-    \begin{core}{Output Gap}
+      \end{enumerate}
 
-      % Output Gap
-      % ------------------------------------------------------------------------------------------------------------------------
-      % The output gap is the difference between an economy's potential output and its actual output.
-      % When the economy is tight—the actual output is higher than the potential—it is a frequent sign of inflation, while slackness frequently coincides with deflation.
-
-      % Output Gap% = (actual output $B - potential output $B) / potential output $B
-
-      % Once the central bankers have pored over all manner of inflation statistics, examined the output gap, and studied other data sources, they decide whether to cool the porridge, heat the porridge, or do nothing.
-
-      The output gap represents the macroeconomic difference between an economy's actual production and its theoretical potential output. When an economy operates "tightly"—meaning actual output exceeds potential capacity—it frequently signals impending inflation. Conversely, economic "slack" generally coincides with deflationary pressures. Central bankers synthesize data on the output gap alongside traditional inflation metrics to formulate monetary policy, determining whether it is necessary to cool an overheating economy, stimulate a stagnant one, or maintain current interest rates.
-
-    \end{core}
-
-    \begin{core}{Policy Toolkit}
-
-      % Policy Toolkit
-      % ------------------------------------------------------------------------------------------------------------------------
-      % Short-Term Interest Rates
-      % When short-term interest rates go up, it becomes more attractive to deposit cash, dissuading consumption/investment, lowering the actual output, and bring inflation down (which coincides w/ tight output).
-      % The short term interest rate decision set by the Federal Open Market Committee 8 times a year are tremendous news as the US bond yields are influenced by it.
-
-      % Forward Guidance & Statements
-      % Small difference in past and recent FOMC statements can hint at a shift in bond yield indirectly.
-
-      % Short-term interest rate estimates:
-      % The futures and options market allows us to determine the probability of certain future FOMC decisions.
-
-      The primary mechanism central banks use to influence the economy is the adjustment of short-term interest rates. By raising these rates, central banks make holding cash deposits more attractive, which systematically dissuades consumer borrowing and corporate investment. This reduction in aggregate demand lowers actual economic output and effectively suppresses inflation. In the United States, the Federal Open Market Committee (FOMC) determines this pivotal rate eight times a year, generating immense market impact as it directly calibrates US bond yields. Beyond immediate rate changes, the FOMC heavily relies on "forward guidance"—carefully crafted policy statements where minute linguistic shifts signal future interest rate trajectories. Market participants actively price these expectations into the futures and options markets, allowing analysts to derive clear probabilities regarding upcoming monetary policy decisions.
+      Despite both bonds sharing an identical coupon rate, the long-term bond's price is roughly nine times more sensitive to the same yield change---illustrating precisely why duration, not coupon rate alone, governs a bond's exposure to interest rate risk.
 
     \end{core}
 
   \subsection{The Yield Curve}
 
-    \begin{core}{Yield Curve}
+    \begin{core}[label=core:yield_curve]{Yield Curve}
 
-      % The yield curve for most countries show a positive sloping curve with higher yields given the longer term bonds due to the higher risk added with greater chance of inaccuracy in inflation predictions.
+      The \textbf{yield curve} visually represents the cost of borrowing across various maturation horizons and serves as a fundamental barometer for the global economy. Under normal conditions, yields rise in tandem with maturation---manifesting as an upward-sloping curve---owing to the differing risk profiles inherent to varying terms.
 
-      % The difference between the yield on the longer maturity bonds and shorter-maturity bonds is called the "term premium".
+      \myfig{1}{fixed_income_figures/yield_curve}{U.S. Treasury yield curve on June 23, 2026; plot from \href{https://www.investing.com/rates-bonds/usa-government-bonds}{\texttt{investing.com}}}{fig:yield_curve}
 
-      % The yield curve represents the cost of borrowing and, therefore, it reverberates throughout the markets and the world economy.
-      % When the Fed alters the left-hand end of the yield curve—short-term interest rate—it affects prices and yields of the whole $101T bond market.
+      \begin{enumerate}
 
-      % * The yield curve represents the cost of borrowing for various loan lengths.
-      % * Yield curves are naturally upward sloping due to elevated risk of long-term lending.
-      % * Corporate bonds are priced using a spread off the government yield curve so the yield curve indirectly regulates company funding.
-      % * Consumer borrowing for big ticket items is priced off the yield curve.
-      % * Yields of developed economics are correlated, which means that the overall movement in yields has a global impact.
-      % * The far left of the yield curve is the overnight interest rate set by the central bank.
-      % * The far right of the yield curve is driven primarily by inflation expectations.
-      % * While the left-hand end of the yield curve is locked, the right hand end float freely.
-      % * A steep yield curve signals improving times.
-      % * A flat yield curve signals worsening times.
-      % * An inverted yield curve often precedes a recession.
+        \item \textbf{Short Term Bond Yields (\textit{Left})}
 
-      The yield curve visually represents the cost of borrowing across various maturation horizons and serves as a fundamental barometer for the global economy. Under normal conditions, the curve slopes upward, reflecting the "term premium"—the additional yield demanded by investors to compensate for the elevated risks and inflation uncertainties inherent in locking up capital for extended periods. The far-left segment of the curve is rigidly tethered to the overnight interest rate established by the central bank. Consequently, when the Federal Reserve adjusts this rate, the effects cascade across the entire \$101 trillion fixed-income market. In contrast, the far-right segment of the curve floats freely, driven predominantly by aggregate market inflation expectations. Because corporate debt and consumer loans are priced as a spread above the sovereign yield curve, its movements dictate global borrowing costs. Furthermore, the curve's shape provides vital economic signaling: a steepening curve typically indicates anticipation of robust economic growth, a flattening curve suggests deteriorating conditions, and an inverted yield curve is historically recognized as a reliable precursor to an economic recession.
+        The far-left segment of the curve is \textbf{rigidly tethered} to the \textbf{overnight interest rate} established by the central bank (\textit{\autoref{mac-core:ffr}}). Because a short-term bond's coupon payments and principal repayment occur within a narrow, near-term window, the cumulative impact of inflation on its real return is comparatively limited---there is simply insufficient time for inflation to meaningfully erode the value of cash flows that are largely fixed and imminent. Consequently, the \textbf{central bank's policy rate}, rather than inflation expectations, is the \textbf{dominant determinant of short-term yields}, and when the Federal Reserve adjusts this rate, the effects cascade across the entire \$101 trillion fixed-income market.
+
+        \item \textbf{Long Term Bond Yields (\textit{Right})}
+
+        In contrast, the far-right segment of the curve \textbf{floats freely}, driven predominantly by aggregate market inflation expectations. Because a long-term bond commits the holder to receiving fixed coupon payments many years into the future, sustained \textbf{inflation erodes the real value of those distant cash flows} far more severely than it does for a short-term instrument---the longer the horizon, the greater the magnitude of potential erosion.
+
+        To compensate for this elevated \textbf{exposure to inflation} and the greater \textbf{uncertanty inherent in projecting economic conditions} over an extended horizon, investors demand a \textbf{term premium}, referring to the additional yield required to hold longer-dated bonds.
+
+      \end{enumerate}
 
     \end{core}
 
-    \begin{core}{Market Impacts}
+    \begin{core}{Yield Curve Shapes}
 
-      % Corporate Impact
+      The \textbf{yield curve's shape} is tracked closely by market participants, as it reflects the market's collective expectations regarding inflation, economic growth, and central bank monetary policy. There are three primary shapes the yield curve can assume, alongside one crucial transitional phase.
 
-        % Almost all corporate investments are multiyear, thus medium or long-term borrowing is used to match the project's duration.
-        % Facing the same risks of short term interest rate hikes and inflation (both of which will dent bond prices for the lender), corporations must also face the fact that they are typically less creditworthy than governments, thus they must typically provide higher yields for the bonds of the same maturity.
-        % This difference in yield between the treasury bonds and corporate bonds is called "the spread".
-        % Corporate yield curves typically move in cohesion with government yield curve increases and decreases. Thus the spread stays relatively the same although overall yields either spiked or hiked (governments use this as a regulator for economic growth and inflation).
-        % The gap between all US government 10-year bond yield and all corporate investment-grade 10 year bond yield is called the "corporate spread".
-        % * When the corporate spread increases (widening, cheapening, steepening)
-        % * When the corporate spread decreases (tightening, richening, flattening)
+      \myfig{1}{fixed_income_figures/yield_shape}{Different yield curve shapes}{fig:yield_shape}
 
-      % Consumer Impact
+      \begin{enumerate}
 
-        % US 30-year mortgage rates are priced off of government 10 year bond yields as the spread between these figures are typically consistent.
-        % Government bond yields therefore influence the affordability of homes and activity in the housing market (a large GDP portion).
+        \item \textbf{The Normal Yield Curve (Yellow)}
 
-      % Global Impact
+        A normal yield curve slopes upward from left to right, such that long-term bonds offer higher yields than short-term bonds due to the reasons discussed in \autoref{core:yield_curve}. This shape generally signals a healthy, growing economy. 
 
-        % 10 year bond yields of several advanced economies are strongly correlated, thus they are stimulated/depressed in sync.
+        \item \textbf{The Inverted Yield Curve {Blue}}
 
-      The dynamics of the government yield curve exert profound impacts across all sectors of the economy. In the corporate sector, firms typically match the duration of their liabilities with their multi-year capital investments by issuing medium to long-term bonds. Because corporations possess inherently lower creditworthiness than sovereign issuers, their debt commands a higher yield. The structural difference between a corporate bond's yield and a maturity-matched government bond is known as the "spread." As central banks manipulate the foundational government yield curve, corporate yields generally move in tandem, maintaining relatively stable spreads. However, fluctuations in the specific "corporate spread"—the yield gap between a 10-year US Treasury and a 10-year investment-grade corporate bond—reflect shifting market risk appetite, with expansions termed "widening" or "steepening" and contractions termed "tightening" or "flattening." These market dynamics directly affect consumers, as key lending instruments like the 30-year US mortgage rate are tightly anchored to 10-year government bond yields, heavily influencing broader housing market activity. Additionally, due to the highly integrated nature of global finance, benchmark 10-year sovereign yields across advanced economies remain strongly correlated, moving synchronously in response to overarching macroeconomic trends.
+        An inverted yield curve occurs when short-term interest rates exceed long-term interest rates---a highly unusual and unnatural state for fixed-income markets, and historically the most reliable \textbf{recession predictor} in macroeconomics. 
 
-    \end{core}
+        This inversion typically arises when the central bank raises \textbf{short-term rates aggressively to combat inflation}, causing short-term yields to spike. Consequently, investor pessimism about future growth prospects due to contractionary rate hikes cause a rush to purchase long-term bonds to lock in higher yields before yields drop further. This \textbf{demand surge drives long-term bond prices upward} and their corresponding yields downward, ultimately inverting the curve.
 
-    \begin{core}{Yield Curve Dynamics}
+        Relatedly, the resulting decline in expected inflation causes the \textbf{term premium embedded in long-term yields to narrow}, as diminished inflation expectations reduce the degree to which future bond cash flows are anticipated to be eroded in real terms.
 
-      % The Yield Curve in Motion
-      % US government bond yields and, therefore, prices are principally driven by short-term interest rates and inflation. Creditworthiness is a non-issue, as we saw. Investors can therefore make profitable trades by correctly predicting the Fed's next move and inflation.
-      % The left hand end of the yield curve is set by the Fed's short-term interest rate decisions. It moves when the Fed changes the rate at the FOMC meeting.
+        \item \textbf{The Flat Yield Curve (Orange)}
 
-      % The Fed funds target rate moves in tandem with the left-hand end of the yield curve.
-      % The left hand end of the yield curve is simply the Fed Funds Target Rate.
+        A flat yield curve emerges when \textbf{little difference} exists between short-term yields (\textit{e.g., 2-year}) and long-term yields (\textit{e.g., 10- or 30-year}). This shape is typically \textbf{transitional}, appearing as the economy shifts between expansion and slowdown, or vice versa. A flat curve signals profound \textbf{market uncertainty}, as investors remain divided on whether inflation will persist or whether the central bank will soon be compelled to cut rates---causing yields across all maturities to temporarily converge.
 
-      % The right hand end of the yield curve is influenced majorly by ingrained inflation expectations.
+        \item \textbf{The Steep Yield Curve (Black)}
 
-      % When inflation rises, the right hand side of the yield curve is free to move through the natural supply and demand of bond investors while the left hand side is tethered to the Fed Fund Target Rate.
+        A steep yield curve represents an \textbf{exaggerated version of the normal curve}, in which the gap between short-term and long-term rates widens dramatically. This shape typically emerges at the lowest point of a recession, as the economy prepares to recover. The central bank, having cut \textbf{short term rates to near zero} to stimulate growth, depresses the left side of the curve, while long term investors---anticipating a substantial wave of forthcoming economic growth and inflation---demand correspondingly higher long-term yields.
 
-      The structural dynamics of the US Treasury yield curve are principally driven by short-term interest rates and forward-looking inflation expectations, as sovereign credit risk is effectively considered negligible. This environment allows astute investors to position themselves based on forecasts of the Federal Reserve's policy shifts and broader inflationary trends. The left-hand anchor of the yield curve acts in lockstep with the Federal Funds Target Rate, shifting discretely based on formal FOMC decisions. Conversely, the right-hand tail of the curve is unanchored, freely oscillating according to the natural supply and demand forces exerted by bond investors reacting to ingrained inflation expectations. Therefore, as inflation forecasts shift, the long end of the curve actively re-prices while the short end remains strictly tethered to prevailing central bank policy.
+      \end{enumerate}
 
     \end{core}
 
-    \begin{core}{Economic Signals}
+    \begin{core}[label=core:market_impact]{Market Impacts}
 
-      % 2003 Dotcom bust recovery
-      % The Fed might need to rein in inflation and preemptively lift short-term interest rates. With expected hikes, bond investors did not want to lose money by holding bonds (raised long-term yields resulted). Steep yield curves are a sign of an accelerating economy.
-      % Short-term interest rates finally rose and investors aggressively bought long-term bonds in expectation of a slowing economy and currently high rates.
-      % This drove long-term bond yields down resulting in an inverted yield curve a common precursor to an economic downturn.
+      The dynamics of the government yield curve exert profound impacts across all sectors of the economy, propagating outward from sovereign debt markets to corporate financing, consumer borrowing, and the broader global financial system.
 
-      The predictive power of the yield curve is well-documented in modern economic history, such as during the recovery phase following the early 2000s dot-com contraction. As economic activity initially accelerated, market participants anticipated that the Federal Reserve would preemptively hike short-term interest rates to curb emerging inflation. Fearing that rising rates would erode bond values, investors aggressively sold off long-dated bonds, driving long-term yields higher and creating a steeply sloping yield curve—a classic hallmark of an accelerating economy. Subsequently, as the central bank actually executed these short-term rate hikes, the economic outlook shifted. Anticipating that higher borrowing costs would inevitably constrain growth and cool the economy, investors rushed back into the safety of long-term bonds to lock in the elevated yields. This surge in demand drove long-term yields back down, ultimately forcing long-term rates below short-term rates. This phenomenon resulted in an inverted yield curve, serving as a quintessential leading indicator for an impending economic downturn.
+      \begin{enumerate}
+
+        \item \textbf{Corporate Impact}
+
+        In the corporate sector, firms typically issue medium- to long-term bonds to match the duration of their liabilities. Because corporations possess inherently \textbf{lower creditworthiness than their corresponding sovereign issuers}, their debt commands a higher yield. The structural difference between a corporate bond's yield and a maturity-matched government bond is known as the \textbf{spread}. As central banks manipulate the foundational government yield curve, \textbf{corporate yields generally move in tandem}, maintaining relatively stable spreads---though the spread itself may widen or narrow independently of this if the issuer's underlying creditworthiness shifts, since improving or deteriorating financial health directly alters the risk premium investors demand to hold that corporate issuer's debt.
+
+        \textbf{Example.} \textit{Suppose the 10-year US Treasury yield is currently 4.00\%, and a 10-year investment-grade corporate bond trades at a spread of 150 basis points (1.50\%) above it. The corporate bond's yield is therefore}
+        \[
+          \text{Corporate Yield} = \underbrace{4.00\%}_{\text{Treasury}} + \underbrace{1.50\%}_{\text{Spread}} = 5.50\%.
+        \]
+
+        \textit{Now suppose the Federal Reserve cuts rates, and the 10-year Treasury yield falls to 3.50\%. If investor risk appetite remains stable, the corporate spread holds at 150 basis points, and the corporate yield falls in tandem to}
+        \[
+          5.50\% \rightarrow \underbrace{3.50\%}_{\text{Treasury}} + \underbrace{1.50\%}_{\text{Spread}} = 5.00\%.
+        \]
+
+        \textit{However, if instead investors grow concerned about a looming recession and corporate default risk, the spread may \textbf{widen} to 250 basis points even as the Treasury yield falls, since deteriorating risk appetite pushes investors to demand greater compensation for holding corporate debt relative to "risk-free" government bonds.}
+        \[
+          \text{Corporate Yield} = 3.50\% + 2.50\% = 6.00\%.
+        \]
+
+        \item \textbf{Consumer Impact}
+
+        Fixed income market dynamics directly affect consumers as well, as key lending instruments such as the 30-year US mortgage rate remain tightly \textbf{anchored} to 10-year government bond yields, exerting a substantial influence on broader housing market activity. \textit{This mirrors the mechanism by which corporate bond yields are anchored to their corresponding sovereign bond yields via the spread.}
+
+        \item \textbf{Global Impact}
+
+        Furthermore, owing to the highly integrated nature of global financial markets, benchmark 10-year sovereign yields across advanced economies remain \textbf{strongly correlated}, moving synchronously in response to overarching macroeconomic trends.
+
+        In theory, if all other factors were held equal, the country with the highest creditworthiness should command the lowest yields, with all other sovereign yields trading at a premium above it. In practice, however, the US Treasury market occupies this benchmark role not because the US holds the highest formal creditworthiness---several advanced economies, in fact, carry cleaner credit ratings---but rather because of its unmatched market depth, liquidity, and reserve-currency status, which sustain persistent safe-haven demand regardless of underlying fiscal conditions. Consequently, divergences in business cycles, inflation trajectories, and monetary policy stances across countries mean that observed yield differentials rarely align purely with relative creditworthiness.
+
+        \textit{Japan illustrates this divergence well: as of June 27, 2026, its 10-year government bond yields 2.613\%, compared to 4.372\% for the 10-year U.S. Treasury---despite Japan carrying a lower formal credit rating (A) than the U.S. (AA). This gap is suppressed not by superior Japanese creditworthiness, but rather by domestic monetary policy.}
+
+      \end{enumerate}
+
+    \end{core}
+
+\section{Valuation Drivers \& Policy}
+
+  \subsection{Credit Analysis}
+
+    \begin{core}[label=core:creditworthiness]{Creditworthiness}
+
+      Current bond prices fundamentally reflect market expectations regarding the \textbf{likelihood of future repayment}. However, the standard mathematical calculation of yield (\textit{\autoref{core:yields}}) assumes that the promised cash flows \textbf{will} materialize completely. Therefore, when market participants begin to doubt a borrower's solvency, they demand a lower initial price for the bond to compensate for the elevated risk, resulting in a sharply higher yield.
+
+    \end{core} 
+
+    \begin{core}{Sovereign Credit Risk Metrics}
+
+      If investors suspect a government may struggle to meet its obligations, the resulting decline in bond prices and subsequent spike in yields significantly increases the cost of future borrowing. Through this mechanism, the bond market \textbf{actively imposes fiscal discipline} on sovereign nations.
+
+      To assess sovereign creditworthiness, investors primarily evaluate three macroeconomic metrics.
+
+      \begin{enumerate}
+
+        \item \textbf{Debt to GDP} 
+
+        The Debt-to-GDP ratio serves as a general indicator of leverage; typically, a \textbf{higher proportional debt burden implies greater default risk}, prompting investors to demand elevated yields. However, this is \textbf{not an absolute rule}, as evidenced by Japan, which maintains exceptionally low borrowing costs despite holding one of the highest debt burdens globally, sitting at \href{https://www.fitchratings.com/research/sovereigns/fitch-affirms-japan-at-a-outlook-stable-19-01-2026}{around 200\%}. 
+
+        \item \textbf{Deficit to GDP}
+
+        The Deficit-to-GDP ratio highlights the extent to which a government's \textbf{expenditures exceed its tax revenues}. Persistent deficits \textbf{require continuous financing through the bond market}, subsequently increasing the proportion of the national budget consumed by debt interest payments. 
+
+        \item \textbf{Repayment Schedule}
+
+        A nation's repayment schedule, or its strategy for \textbf{rolling over debt}, is scrutinized. While issuing short-term debt is attractive due to \textbf{lower associated interest rates} (\textit{short term bond yield generally sit lower than its longer term counterparties}), it exposes the borrower to \textbf{refinancing risk}---the danger that lenders may suddenly demand significantly higher yields.
+
+        Due to its robust credit profile, the \textbf{U.S. government is uniquely positioned} to exploit the cost advantages of short-term borrowing and continuous refinancing without substantial fear of abrupt lender withdrawal.
+
+      \end{enumerate}
+
+    \end{core}
+
+    \begin{core}{Credit Risk Indicators}
+
+      Market participants rely on several formal and market-implied indicators to gauge credit risk. 
+
+      \begin{enumerate}
+
+        \item \textbf{Credit Ratings} 
+
+        Credit rating agencies---such as Moody's, Fitch, and S\&P Global Ratings---assign \textbf{letter grades} to nearly all bond issues, using a general grading spectrum ranging from AAA down to D. 
+
+        Within the corporate sector, bonds rated BBB- and above are classified as \textbf{investment grade}, whereas those rated BB+ and below are categorized as \textbf{non-investment grade} or colloquially as \textbf{junk bonds}. However, it's important to keep in mind that the historical performance of these agencies has been \textbf{less reliable} for corporate issuances compared to sovereign debt.
+
+        \item \textbf{Credit Default Swaps}
+
+        Alternatively, Credit Default Swaps (CDS) function as a form of \textbf{market-traded insurance against bond defaults}. Because they are actively traded instruments, CDS spreads provide a \textbf{real-time market assessment of credit risk} that frequently serves as a more timely early warning indicator than static agency ratings. Simply put, a wider CDS spread denotes higher perceived market risk.
+
+      \end{enumerate}
+
+    \end{core}
+
+  \subsection{Short-Term Interest Rates}
+
+    \begin{core}{Short-Term Interest Rates}
+
+      Short-term interest rates exert a direct and immediate effect on broader market yields. In the sovereign space, \textbf{non-US government bonds invariably price themselves relative to U.S. Treasuries}. Because the U.S. is generally perceived as the most creditworthy sovereign borrower, bonds issued by other nations must offer a lower price---and consequently a higher yield---to compensate investors for the additional inherent risk. This dynamic is essentially basic price competition expressed through the terminology of yield. \textit{However, as discussed in \autoref{core:market_impact}, this rule does not hold definitively.}
+
+    \end{core}
+
+    \begin{core}{Output Gap}
+
+      The \textbf{output gap} represents the macroeconomic difference between an economy's actual production and its theoretical potential output. When an economy operates \textbf{tightly}---meaning actual output exceeds potential capacity---it frequently \textbf{signals impending inflation}. Conversely, economic \textbf{slack} generally coincides with deflationary pressures. 
+      \[
+        \text{Output Gap (\%)} = \frac{Y_{\text{actual}} - Y_{\text{potential}}}{Y_{\text{potential}}} \times 100
+      \]
+
+      Central bankers synthesize data on the output gap alongside traditional inflation metrics to formulate \textbf{monetary policy}, determining whether it is necessary to cool an overheating economy, stimulate a stagnant one, or maintain current interest rates.
+
+      \textit{A more complete discussion of output gaps, economic cycles, and monetary policy is present in \href{https://ibahng.github.io/finance_markets/macroeconomics/macroeconomics.pdf}{Macroeconomics}}.
+
+    \end{core}
+
+  \subsection{Inflation}
+
+    \begin{core}{Inflation}
+
+      Inflation is a critical driver of bond markets. Because bond payments are fixed, inflation steadily \textbf{erodes the discounted value of both coupon and principal payments}. In response to rising inflation, investors demand lower initial purchase prices for the same nominal cash flows, driving yields upward. It is crucial to recognize that \textbf{quoted bond yields are nominal figures} and do not inherently adjust for inflation. 
+
+      To assess current inflationary pressures, central banks rely on three primary statistical metrics: the \textbf{GDP deflator}, the \textbf{Consumer Price Index (CPI)}, and the \textbf{Personal Consumption Expenditures (PCE)} index. The PCE is particularly favored by policymakers because it \textbf{isolates the core inflation trend by stripping out highly volatile food and energy costs}.
+
+      \textit{A more complete discussion of inflation and its measures is present in \autoref{mac-sec:inflation}.}
+
+    \end{core}
+
+    \begin{core}{Treasury Inflation Proteced Securities}
+
+      Because such indices are inherently \textbf{backward-looking}, bond market investors instead turn to specific traded financial instruments \textbf{to derive real-time, forward-looking inflation expectations}.
+
+      \textbf{Treasury Inflation Protected Securities (TIPS)} are explicitly designed to protect lenders against the erosion of purchasing power by adjusting both principal and coupon payments in accordance with movements in the \textbf{CPI} (\textit{\autoref{mac-core:price_indices}}). By examining the \textbf{yield differential} between TIPS and conventional, non-protected Treasury bonds of identical maturity, market participants can derive the market's \textbf{implied inflation expectations} with considerable precision. As inflation forecasts rise, demand for TIPS increases relative to that for standard bonds, causing the yield spread between the two instruments to widen accordingly.
+
+      \textbf{Example.} \textit{Suppose one wishes to determine what the market expects inflation to average over the following decade. Consulting the benchmark fixed-income quotes on a financial terminal yields the following figures.}
+
+      \begin{itemize}
+
+        \item 10-Year Nominal Treasury Yield: $4.25\%$
+
+        \item 10-Year TIPS Yield (Real Yield): $1.90\%$
+
+      \end{itemize}
+
+      \textit{Subtracting the real yield from the nominal yield yields the breakeven inflation rate:}
+      \[
+        \text{Breakeven Inflation Rate} = 4.25\% - 1.90\% = 2.35\%
+      \]
+
+      This spread indicates that fixed-income participants anticipate the Consumer Price Index (CPI) will average $2.35\%$ annually over the next decade, and it represents the precise financial threshold governing an investor's choice of where to allocate capital.
+
+      \begin{itemize}
+
+        \item \textbf{The Neutral Line}: Should the CPI average exactly $2.35\%$ over the next 10 years, both instruments will yield identical economic returns, such that the \textbf{investor breaks even regardless of choice}.
+
+        \item \textbf{The Inflation Outperformance Strategy}: If one anticipates that inflation will instead average $3.00\%$, the \textbf{TIPS bond is the preferable holding}. Because realized inflation exceeds the breakeven rate, the principal adjustments embedded in TIPS will generate a superior total return.
+
+        \item \textbf{The Deflation/Cooling Strategy}: If one expects inflation to fall to $1.50\%$, the \textbf{Nominal Treasury becomes the preferable holding}. Conventional fixed yields outperform inflation protected instruments whenever realized price growth falls short of the initial market spread.
+
+      \end{itemize}
+
+    \end{core}
+
+  \subsection{Monetary Policy}
+
+    \begin{core}{Central Bank Mandates}
+
+      \textbf{Central banks}---such as the \textbf{Federal Reserve} for the U.S.---actively intervene in money markets to steer economies toward stable, sustainable growth, managing two primary psychological extremes.
+
+      \begin{itemize}
+
+        \item \textbf{Inflation}, which often historically spikes during wartime due to excessive monetary expansion, severely erodes the real value of fixed-income assets, as notably witnessed during the economic turbulence of the 1970s (CORE REFERENCE). 
+
+        \item Conversely, \textbf{deflation} is equally destructive, as anticipating consistently falling prices incentivizes consumers to indefinitely delay spending, which stalls economic activity. 
+
+      \end{itemize}
+
+      Central banks must therefore carefully balance these forces, operating with the understanding that unchecked inflation will inevitably drive bond prices down and corresponding yields up.
+
+    \end{core}
+
+    \begin{core}{Policy Toolkit}
+
+
+      The primary mechanism through which central banks influence the broader economy is the adjustment of \textbf{short-term interest rates}, as discussed in \autoref{core:yield_curve}. By raising these rates, central banks render the holding of cash deposits more attractive, which systematically discourages consumer borrowing and corporate investment alike. This contraction in aggregate demand depresses actual economic output and, in turn, suppresses inflationary pressure and tilts the yield curve to be more downward sloping. In the United States, the \textbf{Federal Open Market Committee (FOMC)} sets this pivotal rate---termed the \textbf{Federal Funds Rate} (\textit{\autoref{mac-core:ffr}})---eight times annually, an event of considerable market consequence given its direct bearing on U.S. bond yields.
+
+      Beyond immediate rate adjustments, the FOMC relies heavily on \textbf{forward guidance}---carefully crafted policy statements in which subtle linguistic shifts signal the likely trajectory of future interest rates. This guidance is further substantiated by the official \textbf{FOMC meeting minutes}, released approximately three weeks after each meeting, which furnish a detailed account of the committee's deliberations and thereby offer market participants additional insight into the reasoning underlying its decisions. Market participants \textbf{incorporate these expectations into the pricing of securities}.
+
+    \end{core}
+
+\section{Historical Events}
+
+  \begin{core}{The Volcker Disinflation (1979--1982)}
+      % Newly appointed Fed Chair Paul Volcker confronted entrenched double-digit inflation by aggressively raising short-term rates.
+      % The Fed funds rate spiked above 19%, briefly making short-term yields exceed long-term yields---a severe yield curve inversion.
+      % This deliberate tightening triggered a sharp double-dip recession in the early 1980s but ultimately broke the back of runaway inflation.
+      % The episode established the modern precedent that central banks must be willing to inflict short-term economic pain to preserve long-term price stability.
+      Upon his appointment as Federal Reserve Chair in 1979, Paul Volcker confronted entrenched double-digit inflation by pursuing an unprecedentedly aggressive tightening of short-term interest rates, ultimately pushing the federal funds rate above 19 percent. This deliberate and severe tightening produced one of the most extreme yield curve inversions in modern history, as short-term rates climbed well above long-term yields, and precipitated a sharp double-dip recession in the early 1980s. Despite the substantial near-term economic cost, the episode succeeded in breaking the back of runaway inflation, and established the modern precedent that central banks must be willing to inflict deliberate short-term pain to preserve long-term price stability and anchor inflation expectations.
+  \end{core}
+
+  \begin{core}{The 1994 "Great Bond Massacre"}
+      % Heading into 1994, the Fed funds rate sat at a low 3%, and investors had grown complacent, heavily leveraged in long-duration carry trades.
+      % An unexpected Fed hike in February caught markets off guard, and was followed by five more hikes over the year, ultimately doubling the rate to 5.5%.
+      % Long-term Treasury yields spiked sharply---the 30-year yield rose from roughly 6\% to nearly 8\%---inflicting outsized losses on duration-sensitive portfolios.
+      % The crisis illustrated how leveraged, duration-heavy positioning can amplify even modest policy surprises into severe, system-wide losses.
+      Entering 1994, the federal funds rate stood at a historically low 3 percent, and investors had grown complacent, heavily leveraging long-duration "carry trade" positions that profited from the wide spread between low short-term borrowing costs and higher long-term bond yields. An unexpected rate hike in February caught markets entirely off guard, and was followed by five additional hikes over the course of the year, ultimately more than doubling the federal funds rate to 5.5 percent by November. The surprise tightening triggered a sharp, sustained spike in long-term Treasury yields---the 30-year yield climbing from roughly 6 percent to nearly 8 percent---inflicting losses exceeding \$1.5 trillion globally, disproportionately concentrated in long-duration, heavily leveraged portfolios. The episode, subsequently dubbed the "Great Bond Massacre," illustrated how leveraged positioning concentrated in high-duration assets can transform even a modest policy surprise into severe, system-wide losses, foreshadowing the duration-sensitivity concepts addressed in \autoref{core:bond_duration}.
+  \end{core}
+
+  \begin{core}{2003 Dotcom Bust Recovery}
+
+    % 2003 Dotcom bust recovery
+    % The Fed might need to rein in inflation and preemptively lift short-term interest rates. With expected hikes, bond investors did not want to lose money by holding bonds (raised long-term yields resulted). Steep yield curves are a sign of an accelerating economy.
+    % Short-term interest rates finally rose and investors aggressively bought long-term bonds in expectation of a slowing economy and currently high rates.
+    % This drove long-term bond yields down resulting in an inverted yield curve a common precursor to an economic downturn.
+    The predictive power of the yield curve is well-documented in modern economic history, such as during the recovery phase following the early 2000s dot-com contraction. As economic activity initially accelerated, market participants anticipated that the Federal Reserve would preemptively hike short-term interest rates to curb emerging inflation. Fearing that rising rates would erode bond values, investors aggressively sold off long-dated bonds, driving long-term yields higher and creating a \textbf{steeply sloping yield curve}. Subsequently, as the central bank actually executed these short-term rate hikes, the economic outlook shifted. Anticipating that higher borrowing costs would inevitably constrain growth and cool the economy, investors rushed back into the safety of long-term bonds to lock in the elevated yields. This surge in demand drove long-term yields back down, ultimately forcing long-term rates below short-term rates. This phenomenon resulted in an inverted yield curve, serving as a quintessential leading indicator for an impending economic downturn.
+
+  \end{core}
+
+  \begin{core}{2008 Global Financial Crisis}
+
+    % Leading up to 2008, the Fed kept rates low, fueling a housing credit boom.
+    % As the housing bubble burst, defaults spiked and credit markets froze, with investors fleeing risk assets for safety.
+    % This flight to safety crashed Treasury yields across the curve while corporate spreads widened dramatically.
+    % The Fed responded by slashing short-term rates to near-zero and later launching quantitative easing (QE) to suppress long-term yields directly.
+    In the years preceding 2008, persistently low policy rates fueled a sustained expansion of mortgage credit, ultimately inflating a substantial housing bubble. As widespread mortgage defaults triggered the collapse of this bubble, credit markets seized, and investors fled risk assets en masse in favor of safety. This flight to safety drove U.S. Treasury yields sharply lower across the entire curve, even as corporate spreads widened dramatically---reflecting acute concern over corporate solvency amid the broader credit freeze. In response, the Federal Reserve cut short-term rates to near-zero and subsequently introduced \textbf{quantitative easing (QE)}, a novel policy tool involving large-scale purchases of long-term Treasury and mortgage-backed securities, designed to directly suppress long-term yields once conventional rate cuts had been exhausted.
+
+  \end{core}
+
+  \begin{core}{2013 Taper Tantrum}
+
+    % In 2013, the Fed signaled it would begin tapering (slowing) its QE bond purchases.
+    % This caused investors to anticipate higher future yields and reduced future demand for bonds.
+    % Long-term Treasury yields spiked sharply in a short period despite no actual change in policy yet.
+    % This illustrated how market expectations of future central bank action can move yields independently of present action.
+    In mid-2013, the Federal Reserve signaled its intention to begin tapering---gradually slowing---its ongoing quantitative easing purchases. Although no actual policy change had yet occurred, market participants immediately revised their expectations of future bond demand downward, anticipating that reduced central bank purchases would allow yields to rise. This shift in expectations alone triggered a sharp, rapid spike in long-term Treasury yields, an episode subsequently termed the \textbf{"taper tantrum."} The event illustrated a crucial principle of fixed-income markets: yields respond not only to a central bank's present actions, but also---and often more violently---to shifts in market expectations regarding future policy.
+
+  \end{core}
+
+  \begin{core}{2020 COVID-19 Crash}
+
+    % The onset of the pandemic triggered a violent flight to safety, initially crashing yields across the curve.
+    % Simultaneously, a brief liquidity crunch caused even safe Treasuries to become difficult to sell, an unusual anomaly.
+    % The Fed intervened aggressively, cutting rates to zero and launching unprecedented QE purchases across asset classes.
+    % This restored market function and pushed yields to historic lows as the economy entered a deep but short-lived contraction.
+    The onset of the COVID-19 pandemic in early 2020 triggered an immediate and violent flight to safety, initially crashing Treasury yields to historic lows across the entire curve. Paradoxically, this period also produced a brief but severe liquidity crunch in which even ostensibly safe Treasury securities became difficult to sell at reasonable prices---an unusual market dysfunction reflecting indiscriminate, system-wide deleveraging rather than any actual deterioration in credit quality. The Federal Reserve responded with unprecedented speed and scale, cutting short-term rates to near-zero and launching expanded quantitative easing purchases spanning Treasuries, mortgage-backed securities, and even corporate debt for the first time. These interventions restored orderly market function and held yields near record lows throughout the ensuing recession, which, despite its severity, proved historically brief.
+
+  \end{core}
+
+  \begin{core}{2022--2023 Inflation Shock and Rate Hike Cycle}
+
+    % Post-pandemic stimulus and supply chain disruptions caused inflation to surge to multi-decade highs.
+    % The Fed responded with one of the most aggressive rate hike cycles in modern history, rapidly raising short-term rates.
+    % Short-term yields rose faster than long-term yields, as long-term yields incorporated only moderate inflation expectations.
+    % This produced one of the most extreme yield curve inversions in decades, widely interpreted as a recession warning signal.
+    The combination of extensive pandemic-era fiscal stimulus and persistent global supply chain disruptions propelled inflation to multi-decade highs throughout 2021 and 2022. In response, the Federal Reserve undertook one of the most aggressive rate hike cycles in modern history, rapidly raising short-term rates to combat entrenched price pressures. Because long-term yields incorporated only moderate expectations of sustained inflation, short-term rates rose considerably faster than their long-term counterparts, producing one of the most extreme yield curve inversions in decades. Consistent with historical precedent, this inversion was widely interpreted across markets as a leading recessionary signal, prompting extensive debate over whether the central bank could engineer a "soft landing"---taming inflation without precipitating a severe economic contraction.
 
     \end{core}
 
