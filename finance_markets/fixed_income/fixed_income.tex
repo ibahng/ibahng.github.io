@@ -8,7 +8,7 @@
 \input{../../_presets/finance_markets/preamble}
 
 % \externaldocument[acc-]{../accounting/accounting}[https://ibahng.github.io/finance_markets/accounting/accounting.pdf]
-% \externaldocument[com-]{../commodity/commodity}[https://ibahng.github.io/finance_markets/commodity/commodity.pdf]
+\externaldocument[com-]{../commodity/commodity}[https://ibahng.github.io/finance_markets/commodity/commodity.pdf]
 % \externaldocument[cor-]{../corporate_finance/corporate_finance}[https://ibahng.github.io/finance_markets/corporate_finance/corporate_finance.pdf]
 % \externaldocument[der-]{../derivatives/derivatives}[https://ibahng.github.io/finance_markets/derivatives/derivatives.pdf]
 % \externaldocument[equ-]{../equity/equity}[https://ibahng.github.io/finance_markets/equity/equity.pdf]
@@ -313,7 +313,7 @@
 
     \end{core}
 
-    \begin{core}{Yield Curve Shapes}
+    \begin{core}[label=core:yield_shape]{Yield Curve Shapes}
 
       The \textbf{yield curve's shape} is tracked closely by market participants, as it reflects the market's collective expectations regarding inflation, economic growth, and central bank monetary policy. There are three primary shapes the yield curve can assume, alongside one crucial transitional phase.
 
@@ -530,7 +530,6 @@
 
     \begin{core}{Policy Toolkit}
 
-
       The primary mechanism through which central banks influence the broader economy is the adjustment of \textbf{short-term interest rates}, as discussed in \autoref{core:yield_curve}. By raising these rates, central banks render the holding of cash deposits more attractive, which systematically discourages consumer borrowing and corporate investment alike. This contraction in aggregate demand depresses actual economic output and, in turn, suppresses inflationary pressure and tilts the yield curve to be more downward sloping. In the United States, the \textbf{Federal Open Market Committee (FOMC)} sets this pivotal rate---termed the \textbf{Federal Funds Rate} (\textit{\autoref{mac-core:ffr}})---eight times annually, an event of considerable market consequence given its direct bearing on U.S. bond yields.
 
       Beyond immediate rate adjustments, the FOMC relies heavily on \textbf{forward guidance}---carefully crafted policy statements in which subtle linguistic shifts signal the likely trajectory of future interest rates. This guidance is further substantiated by the official \textbf{FOMC meeting minutes}, released approximately three weeks after each meeting, which furnish a detailed account of the committee's deliberations and thereby offer market participants additional insight into the reasoning underlying its decisions. Market participants \textbf{incorporate these expectations into the pricing of securities}.
@@ -540,22 +539,44 @@
 \section{Historical Events}
 
   \begin{core}{The Volcker Disinflation (1979--1982)}
-      % Newly appointed Fed Chair Paul Volcker confronted entrenched double-digit inflation by aggressively raising short-term rates.
-      % The Fed funds rate spiked above 19%, briefly making short-term yields exceed long-term yields---a severe yield curve inversion.
-      % This deliberate tightening triggered a sharp double-dip recession in the early 1980s but ultimately broke the back of runaway inflation.
-      % The episode established the modern precedent that central banks must be willing to inflict short-term economic pain to preserve long-term price stability.
-      Upon his appointment as Federal Reserve Chair in 1979, Paul Volcker confronted entrenched double-digit inflation by pursuing an unprecedentedly aggressive tightening of short-term interest rates, ultimately pushing the federal funds rate above 19 percent. This deliberate and severe tightening produced one of the most extreme yield curve inversions in modern history, as short-term rates climbed well above long-term yields, and precipitated a sharp double-dip recession in the early 1980s. Despite the substantial near-term economic cost, the episode succeeded in breaking the back of runaway inflation, and established the modern precedent that central banks must be willing to inflict deliberate short-term pain to preserve long-term price stability and anchor inflation expectations.
+
+    Upon his appointment as Federal Reserve Chair in 1979, Paul Volcker confronted entrenched double-digit inflation---following the 1973 (\textit{\autoref{com-core:oil_embargo}}) and 1979 (\textit{\autoref{com-core:volcker}}) oil shocks---by pursuing an aggressive rate hikes, ultimately pushing the \textbf{Federal Funds Rate above 19\%}. This deliberate and severe tightening produced one of the \textbf{most extreme yield curve inversions} in modern history, as short term rates climbed well above long term yields, and precipitated a sharp double dip recession in the early 1980s. 
+
+    \myfig{0.8}{fixed_income_figures/volcker_yield}{Yield curve transformation from 1979 to 1982; \textit{severe yield curve inversion resulted from large interest rate hokes from Fed Chair Paul Volcker}}{fig:volcker_yield}
+
+    Despite the substantial near-term economic cost, the rate hike succeeded in breaking runaway inflation, and established the precedent that central banks must be \textbf{willing to inflict deliberate short-term pain to preserve long-term price stability}.
+
   \end{core}
 
-  \begin{core}{The 1994 "Great Bond Massacre"}
-      % Heading into 1994, the Fed funds rate sat at a low 3%, and investors had grown complacent, heavily leveraged in long-duration carry trades.
-      % An unexpected Fed hike in February caught markets off guard, and was followed by five more hikes over the year, ultimately doubling the rate to 5.5%.
-      % Long-term Treasury yields spiked sharply---the 30-year yield rose from roughly 6\% to nearly 8\%---inflicting outsized losses on duration-sensitive portfolios.
-      % The crisis illustrated how leveraged, duration-heavy positioning can amplify even modest policy surprises into severe, system-wide losses.
-      Entering 1994, the federal funds rate stood at a historically low 3 percent, and investors had grown complacent, heavily leveraging long-duration "carry trade" positions that profited from the wide spread between low short-term borrowing costs and higher long-term bond yields. An unexpected rate hike in February caught markets entirely off guard, and was followed by five additional hikes over the course of the year, ultimately more than doubling the federal funds rate to 5.5 percent by November. The surprise tightening triggered a sharp, sustained spike in long-term Treasury yields---the 30-year yield climbing from roughly 6 percent to nearly 8 percent---inflicting losses exceeding \$1.5 trillion globally, disproportionately concentrated in long-duration, heavily leveraged portfolios. The episode, subsequently dubbed the "Great Bond Massacre," illustrated how leveraged positioning concentrated in high-duration assets can transform even a modest policy surprise into severe, system-wide losses, foreshadowing the duration-sensitivity concepts addressed in \autoref{core:bond_duration}.
+  \begin{core}{The Great Bond Massacre (1994)}
+
+    Entering 1994, the federal funds rate stood at a historically low 3\%, and investors had grown complacent, heavily leveraging long-duration \textbf{carry trade} positions that profited from the spread between low short-term borrowing costs and higher long-term yields. An unexpected February rate hike caught markets off guard and was followed by five more over the year, more than \textbf{doubling the Federal Funds Rate to 5.5\% by November}.
+
+    The surprise tightening triggered a sharp spike in long-term Treasury yields---the 30-year yield climbing from roughly 6\% to nearly 8\%---inflicting losses exceeding \$1.5 trillion globally, concentrated in long-duration, leveraged portfolios. The episode, dubbed the \textbf{Great Bond Massacre}, illustrated how leveraged positioning in high-duration assets can turn a modest policy surprise into severe losses, per the duration-sensitivity concepts in \autoref{core:bond_duration}.
+
+    This pattern of rising long-term yields in response to rate hikes appears to \textbf{contradict} the yield suppression scenario in \autoref{core:yield_shape}, wherein tight policy signals lower inflation and flattens or inverts the curve. In 1994, however, this standard pattern \textbf{diverged entirely}: rate hikes instead triggered a synchronized spike across the whole curve, driven by the following mechanisms.
+
+    \begin{enumerate}
+
+      \item \textbf{The Information Shock}
+
+      Markets had grown complacent, assuming inflation was fully extinguished. The sudden hike led investors to infer the Fed was responding to \textbf{hidden inflationary risks} they had failed to price in, prompting an immediate upward revision in long-term inflation expectations and a higher demanded inflation premium.
+
+      \item \textbf{The Leverage Trap and Margin Calls}
+
+      Institutional desks had built extensive \textbf{carry trade} positions through 1993. As short-term borrowing costs rose, thin profit margins evaporated while long-term asset values declined, prompting lenders to issue immediate \textbf{margin calls}. The resulting forced liquidation of long-term Treasuries overwhelmed organic demand, depressing prices and driving yields sharply upward.
+
+      \item \textbf{Mortgage Extension Risk and Portfolio Hedging}
+
+      A large share of the long-term fixed-income market was concentrated in \textbf{mortgage-backed securities (MBS)}. As rates rose, refinancing and relocation activity stalled, lengthening expected mortgage pool lifespans and introducing severe \textbf{extension risk}---converting short- to medium-duration portfolios into long-duration ones almost overnight. To restore mandated risk limits, institutions sold substantial 10- and 30-year Treasury holdings, further intensifying the long-end yield rise.
+
+    \end{enumerate}
+
+    \textit{This interest rate hike was also among the contributing factors underlying the \textbf{Mexican Peso Crisis} (\autoref{for-core:peso_crisis}).}
+
   \end{core}
 
-  \begin{core}{2003 Dotcom Bust Recovery}
+  \begin{core}{Dotcom Bust Recovery (2003)}
 
     % 2003 Dotcom bust recovery
     % The Fed might need to rein in inflation and preemptively lift short-term interest rates. With expected hikes, bond investors did not want to lose money by holding bonds (raised long-term yields resulted). Steep yield curves are a sign of an accelerating economy.
@@ -565,7 +586,7 @@
 
   \end{core}
 
-  \begin{core}{2008 Global Financial Crisis}
+  \begin{core}{Global Financial Crisis (2008)}
 
     % Leading up to 2008, the Fed kept rates low, fueling a housing credit boom.
     % As the housing bubble burst, defaults spiked and credit markets froze, with investors fleeing risk assets for safety.
@@ -575,7 +596,7 @@
 
   \end{core}
 
-  \begin{core}{2013 Taper Tantrum}
+  \begin{core}{Taper Tantrum (2013)}
 
     % In 2013, the Fed signaled it would begin tapering (slowing) its QE bond purchases.
     % This caused investors to anticipate higher future yields and reduced future demand for bonds.
@@ -585,7 +606,7 @@
 
   \end{core}
 
-  \begin{core}{2020 COVID-19 Crash}
+  \begin{core}{Pandemic Crash (2020)}
 
     % The onset of the pandemic triggered a violent flight to safety, initially crashing yields across the curve.
     % Simultaneously, a brief liquidity crunch caused even safe Treasuries to become difficult to sell, an unusual anomaly.
@@ -595,7 +616,7 @@
 
   \end{core}
 
-  \begin{core}{2022--2023 Inflation Shock and Rate Hike Cycle}
+  \begin{core}{Inflation Shock and Rate Hike Cycle (2022--2023)}
 
     % Post-pandemic stimulus and supply chain disruptions caused inflation to surge to multi-decade highs.
     % The Fed responded with one of the most aggressive rate hike cycles in modern history, rapidly raising short-term rates.
@@ -603,7 +624,7 @@
     % This produced one of the most extreme yield curve inversions in decades, widely interpreted as a recession warning signal.
     The combination of extensive pandemic-era fiscal stimulus and persistent global supply chain disruptions propelled inflation to multi-decade highs throughout 2021 and 2022. In response, the Federal Reserve undertook one of the most aggressive rate hike cycles in modern history, rapidly raising short-term rates to combat entrenched price pressures. Because long-term yields incorporated only moderate expectations of sustained inflation, short-term rates rose considerably faster than their long-term counterparts, producing one of the most extreme yield curve inversions in decades. Consistent with historical precedent, this inversion was widely interpreted across markets as a leading recessionary signal, prompting extensive debate over whether the central bank could engineer a "soft landing"---taming inflation without precipitating a severe economic contraction.
 
-    \end{core}
+  \end{core}
 
 \end{document}
 
