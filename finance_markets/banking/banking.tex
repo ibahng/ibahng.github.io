@@ -24,35 +24,221 @@
 
 \input{../../_presets/_general/startup}
 
-\section{First Section}
+\section{Global Payment Systems \& Messaging Infrastructure}
 
-SWIFT
-  MT103
-  MT799
-  MT110
-  maybe go through the entire MT id logic and organization
-  ISO?
-CHIPS
-UETR
+  \begin{core}{SWIFT}
 
-Family Offices
-  SFOs
-  MFOs
+    % Society for Worldwide Interbank Financial Telecommunications (SWIFT)
+    %   MT103
+    %   MT799
+    %   MT110
+    %   maybe go through the entire MT id logic and organization
+    % 
+    % UETR (Unique End-to-End Transaction Reference)
 
-RICO
-DOJ/SDNY - this may not be directly related to banking
-OFAC
-FinCEN
-Quinn Emanual
+    The Society for Worldwide Interbank Financial Telecommunications (SWIFT) operates as a secure, standardized global financial messaging network connecting over 11,000 financial institutions. SWIFT uses structured Message Type (MT) codes grouped by functional categories (1 to 9), such as Category 1 for customer payments (\textbf{MT103} for single customer credit transfers, \textbf{MT110} for advice of a cheque) and Category 7 for trade finance and guarantees (\textbf{MT799} for free-format bank-to-bank text messages). To ensure end-to-end auditability and real-time visibility across correspondent banking networks, every transaction string is permanently appended with a 36-character \textbf{Unique End-to-End Transaction Reference (UETR)}, preventing routing friction and enabling instant payment tracking.
 
-United States - FRB, CFPB, OCC
-  Daily USD settlement capacity cuts and expansions (OCC)
-United Kingdom - FCA, PRA*
-Hong Kong - HKMA, HKPF CCB
-South Africa - SARB, FCSA
+  \end{core}
 
-Nostro/Vostro Accounts
-Direct transfers vs intermediary bank participation
+  \begin{core}{ISO 20022}
+
+    ISO 20022 represents the modern global standard for financial messaging, transitioning from legacy, character-restricted SWIFT MT text lines to rich, structural XML-based MX schemas. By introducing highly structured, granular, and uniform data elements, ISO 20022 dramatically reduces false positives in automated compliance screening, allows for the transmission of extensive remittance information within a single payment, and enables cross-border interoperability among various real-time gross settlement (RTGS) systems worldwide.
+
+  \end{core}
+
+  \begin{core}{CHIPS}
+
+    % CHIPS (Clearing House Interbank Payments System)
+
+    The Clearing House Interbank Payments System (CHIPS) serves as the primary, privately owned clearing and settlement engine for large-value domestic and international USD transactions, facilitating approximately 95\% of global correspondent banking dollar liquidity. Unlike real-time gross settlement systems like Fedwire, CHIPS utilizes a sophisticated, multilateral continuous netting algorithm that matches and clears offsetting payments throughout the day, allowing participant banks to settle trillions of dollars in aggregate transactions using only a small fraction of actual funding reserves.
+
+  \end{core}
+
+\section{Correspondent Banking Mechanics}
+
+  \subsection{Account Relationships}
+
+    \begin{core}{Nostro \& Vostro Accounts}
+
+      Nostro and Vostro accounts form the essential bilateral ledger framework required to execute international correspondent banking transactions. From the perspective of a domestic institution, a \textbf{Nostro account} ("our money held by you") is a foreign-currency cash balance maintained on deposit at a correspondent bank abroad, whereas a \textbf{Vostro account} ("your money held by us") is a domestic-currency ledger balance maintained on behalf of a foreign counterparty bank to clear local financial transactions.
+
+    \end{core}
+
+  \subsection{Transaction Routing}
+
+    \begin{core}{Intermediary Bank Participation}
+
+      Intermediary bank participation occurs when the originating bank and the ultimate receiving bank share no direct correspondent relationship or matching Nostro/Vostro agreements. In these scenarios, the payment must be sequentially routed through one or more transit or correspondent banks that act as credit bridges, with each intermediary bank executing internal ledger transfers, subtracting specialized transaction fees, and forwarding the messaging string until it reaches the target jurisdiction.
+
+    \end{core}
+
+    \begin{core}{Direct Transfer}
+
+      A direct transfer takes place when the sending bank maintains an established, active Nostro account with the receiving bank, or vice versa. This direct account architecture completely eliminates the processing delays, variable transaction fees, and operational routing errors associated with multi-hop correspondent transit, allowing for the instantaneous debiting and crediting of reciprocal accounts across a clean ledger connection.
+
+    \end{core}
+
+\section{Regulatory Frameworks}
+
+  \begin{core}{Twin Peaks Framework}
+
+    The Twin Peaks framework is a structural model of financial regulation that splits oversight responsibilities between two distinct, specialized authorities. One "peak" focuses exclusively on prudential regulation—ensuring the financial solvency, capitalization, and macro-stability of systemic institutions—while the second "peak" targets market conduct, consumer protection, and business transparency, mitigating structural conflicts of interest inherent in consolidated single-regulator models.
+
+  \end{core}
+
+  \subsection{United States}
+
+    \begin{core}{Federal Reserve Bank (FRB)}
+
+      The Federal Reserve Board (FRB) operates as the apex monetary authority and systemic banking regulator in the United States. In addition to conducting macroprudential policy via interest rate setting and open-market operations, the Fed acts as the lender of last resort through the discount window, oversees systemically important financial institutions (SIFIs), and directly supervises state-chartered member commercial banks.
+
+    \end{core}
+
+    \begin{core}{Office of Comptroller of the Currency (OCC)}
+
+      % Daily USD settlement capacity cuts and expansions (OCC)
+
+      The Office of the Comptroller of the Currency (OCC) is an independent bureau within the U.S. Department of the Treasury responsible for charting, regulating, and supervising all national banks and federal savings associations. The OCC manages microprudential risk profiles, enforcing compliance mandates and adjusting individual bank caps regarding \textbf{daily USD settlement capacity cuts and expansions} based on an institution's balance-sheet health and intraday liquidity clearing risks.
+
+    \end{core}
+
+    \begin{core}{Consumer Financial Protection Bureau (CFPB)}
+
+      The Consumer Financial Protection Bureau (CFPB) is an independent regulatory body tasked with policing consumer-facing activities across the financial sector. The bureau monitors retail banking operations, mortgage lending practices, credit reporting agencies, and debt collectors to enforce anti-predatory mandates and ensure consumer financial markets remain fair, transparent, and non-discriminatory.
+
+    \end{core}
+
+    \begin{core}{Financial Crimes Enforcement Network (FinCEN)}
+
+      The Financial Crimes Enforcement Network (FinCEN) serves as the United States' primary financial intelligence unit under the Department of the Treasury. FinCEN collects, analyzes, and disseminates transaction intelligence generated by financial institutions—including Suspicious Activity Reports (SARs) and Currency Transaction Reports (CTRs)—to combat systemic money laundering, terrorist financing, and illicit international tax evasion networks.
+
+    \end{core}
+
+    \begin{core}{Office of Foreign Assets Control (OFAC)}
+
+      The Office of Foreign Assets Control (OFAC) is an administrative enforcement agency within the U.S. Department of the Treasury that administers and enforces economic and trade sanctions based on U.S. foreign policy and national security goals. OFAC publishes highly sensitive compliance lists, such as the Specially Designated Nationals (SDN) list, forcing global banking institutions utilizing the USD clearing network to block or freeze transactions involving targeted foreign regimes, terrorists, and international criminal syndicates.
+
+    \end{core}
+
+  \subsection{Hong Kong}
+
+    \begin{core}{Hong Kong Monetary Authority (HKMA)}
+
+      The Hong Kong Monetary Authority (HKMA) operates as the de facto central bank and primary financial regulator of Hong Kong. The HKMA is responsible for maintaining currency stability through the management of the Linked Exchange Rate System, supervising banking institutions to ensure structural solvency, and defending the operational integrity of Hong Kong's multi-currency financial infrastructure.
+
+    \end{core}
+
+    \begin{core}{Hong Kong Police Force Commercial Crime Bureau (HKPF CCB)}
+
+      The Commercial Crime Bureau (HKPF CCB) is a specialized investigative arm of the Hong Kong Police Force tasked with combating sophisticated white-collar financial crimes. The CCB targets large-scale corporate fraud, counterfeit currencies, systemic money laundering syndicates, and technology-driven financial scams, collaborating directly with local banking compliance officers and international law enforcement networks.
+
+    \end{core}
+
+  \subsection{South Africa}
+
+    \begin{core}{South African Reserve Bank (SARB)}
+
+      The South African Reserve Bank (SARB) functions as the central bank of the Republic of South Africa, acting as the prudential supervisor within the nation’s formal Twin Peaks regulatory model. The SARB is legally mandated to achieve price stability via inflation targeting, manage national foreign exchange reserves, and oversee the clearing and settlement operations of the national payment system.
+
+    \end{core}
+
+    \begin{core}{Financial Sector Conduct Authority (FSCA)}
+
+      The Financial Sector Conduct Authority (FSCA) acts as the market conduct regulator in South Africa’s Twin Peaks framework. Operating independently from the SARB, the FSCA oversees the business practices of financial institutions, investment funds, and market intermediaries, ensuring fair treatment of financial customers, promoting market efficiency, and reducing systemic financial crime.
+
+    \end{core}
+
+  \subsection{United Kingdom}
+
+    \begin{core}{Financial Conduct Authority (FCA)}
+
+      The Financial Conduct Authority (FCA) operates as the independent conduct regulator for financial services firms and financial markets across the United Kingdom. The FCA enforces rules regarding corporate governance, treating customers fairly, and market abuse, with structural authority to fine institutions, reverse toxic transactions, and remove professional financial licenses.
+
+    \end{core}
+
+    \begin{core}{Prudential Regulation Authority (PRA)}
+
+      The Prudential Regulation Authority (PRA), structured as a subsidiary arm of the Bank of England, serves as the prudential supervisor within the UK's financial system. The PRA establishes capital and liquidity adequacy frameworks for banks, building societies, credit unions, and systemic insurance firms, focusing entirely on preventing individual firm insolvencies from cascading into broader macroeconomic contagion.
+
+    \end{core}
+
+  \subsection{Criminal Enforcement \& Litigation}
+
+    \begin{core}{Racketeer Influenced and Corrupt Organizations Act (RICO)}
+
+      The Racketeer Influenced and Corrupt Organizations Act (RICO) is a powerful federal statute designed to prosecute systemic criminal enterprises, heavily leveraged by U.S. authorities against institutional financial networks. In the context of banking, RICO allows prosecutors to hold senior executives and corporate entities civilly and criminally liable for patterns of racketeering activity, including bank fraud, mail and wire fraud, or structured international money laundering, bypassing individual transactional barriers.
+
+    \end{core}
+
+    \begin{core}{Southern District of New York Department of Justice (SDNY DOJ)}
+
+      The U.S. Attorney's Office for the Southern District of New York (SDNY), working alongside the Department of Justice, is the preeminent prosecutorial entity for global white-collar financial crime. Due to its jurisdiction over Wall Street and major international dollar clearing engines, the SDNY spearheads high-profile criminal prosecutions involving complex market manipulation, sovereign cross-border sanctions violations, corporate fraud, and multi-jurisdictional banking corruption.
+
+    \end{core}
+
+    \begin{core}{Quinn Emanuel Urquhart \& Sullivan}
+
+      Quinn Emanuel Urquhart \& Sullivan is an elite, global business litigation law firm famous for its specialization in high-stakes white-collar financial disputes, asset recovery, and complex banking defense. The firm frequently represents sovereign governments, major banking entities, and asset managers in multi-billion-dollar litigation involving structural financial products, derivatives failures, counterparty defaults, and extensive regulatory enforcement actions.
+
+    \end{core}
+
+\section{Private Wealth}
+
+  \subsection{Family Offices}
+
+    \begin{core}{Single-Family Offices (SFOs)}
+
+      A Single-Family Office (SFO) is a private wealth management entity dedicated entirely to overseeing the investment portfolios, legal compliance, tax optimization, and generational estate planning of a single ultra-high-net-worth lineage. SFOs maintain strict internal operational privacy, customizing risk tolerance models and capital allocations to preserve and transition dynastic wealth across generations.
+
+    \end{core}
+
+    \begin{core}{Multi-Family Offices (MFOs)}
+
+      A Multi-Family Office (MFO) manages the aggregated wealth, estate planning, and philanthropic assets of multiple unrelated ultra-high-net-worth families. MFOs operate on a commercialized basis, pooling capital and operational resources across clients to achieve significant cost efficiencies, gain institutional access to exclusive private equity deals, and distribute expensive overhead costs.
+
+    \end{core}
+
+\section{Chronology of Major Systemic Banking Crises \& Institutional Shocks}
+
+  \subsection{Systemic Willful Blindness \& Balance Sheet Fractures}
+
+    \begin{core}{The Herstatt Risk Precedent (1974)}
+
+      % On June 26, 1974, German regulators forced Bankhaus Herstatt into sudden liquidation at the close of the European business day. Because of the time-zone differential, Herstatt had already received Deutsche Marks from its international counterparties in Frankfurt, but its operations were suspended before it could execute the reciprocal USD payments to New York via the correspondent network. This historic default gave birth to the concept of \textbf{Herstatt Risk} (cross-currency settlement risk). The ensuing panic across global payment corridors forced central banks to establish the Basel Committee on Banking Supervision to implement coordinated, international capital requirements and real-time settlement safety standards.
+
+    \end{core}
+
+    \begin{core}{The BNP Paribas Fund Freezes (2007)}
+
+      % On August 9, 2007, French banking conglomerate BNP Paribas abruptly suspended redemptions on three of its asset-backed investment funds, explicitly stating it could no longer calculate their net asset value because liquidity in the U.S. subprime mortgage market had completely dried up. This event marks the official structural launch of the Great Financial Crisis. The sudden announcement triggered a global interbank credit freeze; realizing that toxic structured credit was buried invisibly on balance sheets, banks stopped lending to one another overnight, forcing the Federal Reserve and the European Central Bank to flood the plumbing with emergency liquidity injections.
+
+    \end{core}
+
+    \begin{core}{The HSBC Anti-Money Laundering Incident (2012)}
+
+      % In 2012, a sweeping U.S. Senate investigation and subsequent Department of Justice prosecution revealed that global banking giant HSBC had practiced extreme, systematic \textbf{willful blindness} within its internal compliance frameworks. To capture high-margin transaction volumes, senior leadership under-resourced its AML divisions, allowing billions of dollars from violent Mexican drug cartels to enter the domestic USD clearing system. Furthermore, affiliates engaged in deliberate \textbf{sanctions stripping}—covertly deleting originator details from SWIFT messaging lines to intentionally bypass OFAC filters blocking transactions for sanctioned nations like Iran. To avert a catastrophic systemic bankruptcy, the DOJ utilized a Deferred Prosecution Agreement and a record \$1.92 billion fine, permanently transforming global compliance architecture into a rigid, highly bureaucratic mandate.
+
+    \end{core}
+
+    \begin{core}{The Digital Bank Run on Silicon Valley Bank (2023)}
+
+      % Silicon Valley Bank (SVB) collapsed due to unhedged duration risk exacerbated by modern mobile communication infrastructure. During the 2020--2021 tech boom, SVB parked an influx of start-up deposits into long-term, fixed-rate U.S. Treasuries; when the Fed aggressively hiked rates, the market value of these bonds plummeted, trapping SVB with massive unrealized losses. Forced to liquidate its portfolio at a loss to satisfy deposit outflows, the bank's financial vulnerability leaked online. Venture capitalists quickly coordinated a hyper-accelerated digital bank run via social media and mobile apps, pulling \$42 billion in a single day and forcing an emergency regulatory shutdown.
+
+    \end{core}
+
+  \subsection{Deliberate Institutional Fraud \& Criminal Enterprises}
+
+    \begin{core}{The Criminal Enterprise of BCCI (1991)}
+
+      % The Bank of Credit and Commerce International (BCCI) collapsed in 1991 following a synchronized multi-jurisdictional regulatory raid that exposed it as a massive, fraudulent enterprise. Operating across fluid, loosely regulated offshore havens, BCCI systematically bypassed sovereign financial supervision to facilitate multi-billion-dollar money laundering networks for drug cartels, rogue intelligence agencies, and illegal arms traffickers. The systemic opacity of the bank's ledger demonstrated the severe vulnerabilities inherent in fragmented, uncoordinated international oversight, accelerating the creation of cross-border financial intelligence units like FinCEN.
+
+    \end{core}
+
+    \begin{core}{The Global LIBOR Manipulation Conspiracy (2012)}
+
+      % The London Interbank Offered Rate (LIBOR) scandal exposed a massive, multi-year criminal conspiracy among a cartel of the world's largest financial institutions—including Barclays, UBS, and Deutsche Bank—to deliberately rig the world's baseline interest rate. Throughout the 2000s, derivative traders and treasury desks actively colluded to submit false, coordinated borrowing costs to the British Bankers' Association. This artificial manipulation was executed both to generate immense profits on internal interest-rate swap portfolios and to falsely project financial strength during credit crunches, ultimately impacting the pricing of hundreds of trillions of dollars in global consumer mortgages, corporate loans, and derivatives contracts.
+
+    \end{core}
 
 \end{document}
 
