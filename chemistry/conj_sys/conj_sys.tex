@@ -8,7 +8,7 @@
 \input{../../_presets/chemistry/preamble}
 
 % \externaldocument[alc-]{../alcohols/alcohols}[https://ibahng.github.io/chemistry/alcohols/alcohols.pdf]
-% \externaldocument[alk-]{../alkene_alkyne/alkene_alkyne}[https://ibahng.github.io/chemistry/alkene_alkyne/alkene_alkyne.pdf]
+\externaldocument[alk-]{../alkene_alkyne/alkene_alkyne}[https://ibahng.github.io/chemistry/alkene_alkyne/alkene_alkyne.pdf]
 % \externaldocument[app-]{../app_chem/app_chem}[https://ibahng.github.io/chemistry/app_chem/app_chem.pdf]
 % \externaldocument[cen-]{../carb_enol/carb_enol}[https://ibahng.github.io/chemistry/carb_enol/carb_enol.pdf]
 % \externaldocument[cde-]{../carbox_deri/carbox_deri}[https://ibahng.github.io/chemistry/carbox_deri/carbox_deri.pdf]
@@ -23,6 +23,912 @@
 
 \input{../../_presets/_general/startup}
 
-\section{Introduction}
+\section{Conjugated Systems} % lessons 1-3
+
+  \subsection{Organic Acids \& Bases Review}
+
+    \begin{core}[label=core:general_acidity]{General Organic Compound Acidity}
+
+      Committing the following pK$_\text{a}$ values to memory as a baseline reference is essential, as they serve as structural anchors from which the acidities of related but distinct compounds can be systematically estimated by comparing functional group similarities, electron-withdrawing effects, and resonance stabilization of the conjugate base.
+
+      \begin{table}[H]
+        \centering
+        \begin{tabular}{>{\raggedright\arraybackslash}p{1.9cm}cc >{\raggedright\arraybackslash}p{1.9cm}cc}
+          \hline
+          \hline
+          \textbf{Compound} & \textbf{pK$_\text{a}$} & \textbf{Structure} &
+          \textbf{Compound} & \textbf{pK$_\text{a}$} & \textbf{Structure} \\
+          \hline
+          \rule{0pt}{5ex}{\small Alkane} &
+          {\small 50} &
+          \scalebox{0.75}{
+            \scheme{\chemfig[atom sep=2em]{
+                [:0]\textcolor{Red}{H}
+                -[:30,,,,Red]
+                -[:-30]
+                -[:30]
+                -[:-30]
+            }}
+          } &
+          {\small Ammonium} &
+          {\small 10} &
+          \scalebox{0.75}{
+            \scheme{\chemfig[atom sep=2em]{
+                [:0]\textcolor{Red}{H}
+                -[:0,,,,Red]\pcharge{135}{N}
+                (-[:45]R)
+                (-[:-45]R)
+                -[:0]R
+            }}
+          }
+          \\[4ex]
+
+          {\small Alkene} &
+          {\small 45} &
+          \scalebox{0.75}{
+            \scheme{\chemfig[atom sep=2em]{
+                [:0]\textcolor{Red}{H}
+                -[:30,,,,Red]
+                =[:-30]
+                -[:30]
+                -[:-30]
+            }}
+          } &
+          {\small $\alpha$ to Two Carbonyls} &
+          {\small 10} &
+          \scalebox{0.75}{
+            \scheme{\chemfig[atom sep=2em]{
+                [:0]R
+                -[:30]
+                (=[:90]O)
+                -[:-30]
+                (-[:-90,,,,Red]\textcolor{Red}{H})
+                -[:30]
+                (=[:90]O)
+                -[:-30]R
+            }}
+          }
+          \\[4ex]
+
+          {\small Allylic} &
+          {\small 40} &
+          \scalebox{0.75}{
+            \scheme{\chemfig[atom sep=2em]{
+                [:0]\textcolor{Red}{H}
+                -[:30,,,,Red]
+                -[:-30]
+                =[:30]
+                -[:-30]
+                -[:30]
+            }}
+          } &
+          {\small Carboxylic Acid} &
+          {\small 5} &
+          \scalebox{0.75}{
+            \scheme{\chemfig[atom sep=2em]{
+                [:0]\textcolor{Red}{H}
+                -[:-30,,,,Red]O
+                -[:30]
+                (=[:90]O)
+                -[:-30]R
+            }}
+          }
+          \\[4ex]
+
+          {\small Amine} &
+          {\small 35} &
+          \scalebox{0.75}{
+            \scheme{\chemfig[atom sep=2em]{
+                [:0]\textcolor{Red}{H}
+                -[:0,,,,Red]N
+                (-[:45]R)
+                (-[:-45]R)
+            }}
+          } &
+          {\small Oxonium} &
+          {\small 0} &
+          \scalebox{0.75}{
+            \scheme{\chemfig[atom sep=2em]{
+                [:0]\textcolor{Red}{H}
+                -[:0,,,,Red]\pcharge{135}{O}
+                (-[:45]R)
+                (-[:-45]R)
+            }}
+          }
+          \\[4ex]
+
+          {\small Alkyne} &
+          {\small 25} &
+          \scalebox{0.75}{
+            \scheme{\chemfig[atom sep=2em]{
+                [:0]\textcolor{Red}{H}
+                -[:0,,,,Red]C
+                ~[:0]C
+                -[:0]R
+            }}
+          } &
+          {\small Trifluoro Acetic Acid} &
+          {\small 0} &
+          \scalebox{0.75}{
+            \scheme{\chemfig[atom sep=2em]{
+                [:0]\textcolor{Red}{H}
+                -[:-30,,,,Red]O
+                -[:30]
+                (=[:90]O)
+                -[:-30]\ce{CF3}
+            }}
+          }
+          \\[4ex]
+
+          {\small $\alpha$ to an Ester} &
+          {\small 25} &
+          \scalebox{0.75}{
+            \scheme{\chemfig[atom sep=2em]{
+                [:0]R
+                -[:-30]
+                (-[:-90,,,,Red]\textcolor{Red}{H})
+                -[:30]
+                (=[:90]O)
+                -[:-30]OR
+            }}
+          } &
+          {\small Hydrohalic Acid} &
+          {\small <0} &
+          \scalebox{0.75}{
+            \scheme{\chemfig[atom sep=2em]{
+                [:0]\textcolor{Red}{H}
+                -[:0,,,,Red]X
+            }}
+          }
+          \\[4ex]
+
+          {\small $\alpha$ to a Ketone or Aldehyde} &
+          {\small 20} &
+          \scalebox{0.75}{
+            \scheme{\chemfig[atom sep=2em]{
+                [:0]R
+                -[:-30]
+                (-[:-90,,,,Red]\textcolor{Red}{H})
+                -[:30]
+                (=[:90]O)
+                -[:-30]R
+            }}
+          } &
+          {\small Sulfuric Acid} &
+          {\small <0} &
+          \scalebox{0.75}{
+            \scheme{\chemfig[atom sep=2em]{
+                [:0]\textcolor{Red}{H}
+                -[:0,,,,Red]\ce{OSO3H}
+            }}
+          }
+          \\[4ex]
+
+          {\small Alcohol (ROH)} &
+          {\small 15} &
+          \scalebox{0.75}{
+            \scheme{\chemfig[atom sep=2em]{
+                [:0]\textcolor{Red}{H}
+                -[:0,,,,Red]OR
+            }}
+          } &
+          {\small Toluenesulfonic Acid} &
+          {\small <0} &
+          \scalebox{0.75}{
+            \scheme{\chemfig[atom sep=2em]{
+                [:0]\textcolor{Red}{H}
+                -[:0,,,,Red]O
+                -[:0]S
+                (=[:90]O)
+                (=[:-90]O)
+                -[:0]*6(-=-
+                (-[:0]\ce{CH3})
+                =-=-)
+            }}
+          }
+          \\[4ex]
+
+          {\small Phenol (PhOH)} &
+          {\small 10} &
+          \scalebox{0.75}{
+            \scheme{\chemfig[atom sep=2em]{
+                [:0]\textcolor{Red}{H}
+                -[:0,,,,Red]O
+                -[:0]*6(-=-=-=-)
+            }}
+          } &
+          & &
+          \\[4ex]
+
+          \hline
+        \end{tabular}
+        \caption{Common acids and their pK$_\text{a}$ values, ordered from least to most acidic}
+        \label{tab:pka_table}
+      \end{table}
+
+    \end{core}
+
+    \begin{core}{Acidity of Alkanes, Alkenes, and Alkynes}
+
+      Let's take a look at the pK$_\text{a}$s of alkanes, alkenes, and alkynes. 
+
+      alkane > alkene > alkyne % do this better
+
+      We can explain the observed pattern by going through the following factors
+
+      \begin{enumerate}
+
+        \item \textbf{Electronegativity of atom attached to the acidic H}
+
+        This doesn't explain it because they are all carbons, so there is no difference
+
+        \item \textbf{Inductive Effect}
+
+        This also doesn't explain it because only CHs exist nearby
+
+        \item \textbf{Resonance}
+
+        Resonance is not possible, so no explaination
+
+        \item \textbf{Charge}
+
+        All neutral, so no explaination
+
+        \item \textbf{Hybridization}
+
+        There is a difference here, it is sp3 vs sp2 vs sp. The resulting lone pair \ce{e^-}s on the relevant carbons as a result of dehydrogenation is stabilized best by the sp hybridized orbital because the higher percentage s characteristic allows \ce{e^-}s to be held closer to the nucleus.
+
+      \end{enumerate}
+
+      If you cannot explain acidity with the acid structure itself, then you look at conjugat bases
+
+      <figure of the conjugate bases>
+
+      Which is LEAST basic? alkyne conjugate base is the weakest conjugate base because the lone pair is least reactive and most stabilized. Why? -> \ce{e^-}s are gathered more to the opposite side of the bond so it attracts less \ce{H+} in comparison to alkanes and alkenes. An energy digram is shown below to easy visual comparison
+
+      <figure of energy diagram>
+      caption: lone pair in C(sp) orbital is most stabilized, thus least basic; increased s character of sp oirbital increases probability of \ce{e^-}s beign closer to the positive charge of the nucleus
+
+    \end{core}
+
+    \begin{core}{K$_\text{eq}$ and pK$_\text{a}$s}
+
+      Any given acid base chemical reaction has a Keq = 10(conj Acid pka - acid pka). Thus based on the pK$_\text{a}$ values given in \autoref{tab:pka_table}, we can determine the Keq of any given acid and base reaction to a reasonable level of accuracy as shown in the following examples
+
+      \begin{enumerate}
+
+        \item \textbf{chemical equation name placeholder} 
+
+        <figure>
+
+        \item \textbf{chemical equation name placeholder} 
+
+        <figure>
+
+        \item \textbf{chemical equation name placeholder} 
+
+        <figure>
+
+        \item \textbf{chemical equation name placeholder} 
+
+        <figure>
+
+      \end{enumerate}
+
+      Furthermore, pK$_\text{a}$ values can also be predicted based on the reference pK$_\text{a}$s from \autoref{tab:pka_table}, as shown in the following examples.
+
+      \begin{enumerate}
+
+        \item \textbf{placeholder} 
+
+        <figure>
+
+        explaination
+
+        \item \textbf{placeholder} 
+
+        <figure>
+
+        explaination
+
+      \end{enumerate}
+
+    \end{core}
+
+  \subsection{Allylic Systems}
+
+    \begin{core}{Allylic Carbons}
+
+      Allylic carbons refere to sp3 hybridized carbons attached to a CC double bond. An allylic H refers to the those that are attached to allylic carbons.
+
+      <figure>
+
+    \end{core}
+
+    \begin{core}{Allylic System Resonance}
+
+      An allylic hydrogen is even more acidic than an alkyne hydrogen due to resonance spreading out negative charge within the resulting allylic anion (making it a weaker base as a consequence).
+
+      <figure of the 2 reaction at the beginning showcasing the reaction within amine and then also the reaction below of resonance at the bottom of the same column in the rough notes>
+
+      Just as how negative charge (\textit{filled octets}) is stabilized by resonance in allylic structures, radicals and positive charge (\textit{unfulled octets}) are also stabilized by the same mechanism.
+
+      <figure>
+
+      The important thing to know is that if a lone pair can do resonance, it is in the p orbital. % emphasize this point more
+
+    \end{core}
+
+    \begin{core}{Allylic System Bond Dissociation Energy}
+
+      As a consequence of resonance induced stabilization, the bond dissociation energies of different hydrogens within an alkene follow a predictable pattern.
+
+      <triple reaction figure>
+
+      Above, the 3 $^\circ$ carbon radical is lower in energy than the 3 $^\circ$ carbon because of hyperocnjugation between the radical carbon and neighboring σ bonds. The allylic, on the other hand, although it receives less hypderconjugation as a 2 $^\circ$ carbon, it is able to performa resonance, making its bond dissociation consume the least amount of energy.
+
+      <energy diagram figure>
+
+      This leads to a chemical consequences that play large roles in practice. Take a look at the reaction below for exmaple.
+
+      <double reaction fig> explain things via the caption
+
+    \end{core}
+
+    \begin{core}{Allylic System Molecular Orbital Structure}
+
+      The relevant molecular orbitals of allylic structures are the p orbitals, which have the following energy levels in the comparative context of sp and sp2 hybridized carbons as shown below. Nitice that the energy level of sp2 orbitals sits higher than that of sp orbitals.
+
+      <figure of sp vs sp2 orbtial energy levels>
+
+      The orbital structure on a skeletal diagram backbone would look like the following.
+
+      <figure>
+      caption: σ bond orbitals overlap along internuclear axis (handshake) whereas π bond orbitals overlap above and below internuclear axes. All cabons are sp2 hybridized
+
+      In the context of the entire allylic p orbital system, the energy diagram presents a unique 3 level pattern, going from bonding to non-bonding to anti-bonding.
+
+      <p orbital system figure>
+
+      The resulting HOMO-LUMOs of the allylic anion, radical, and cation types are as a result different.
+
+      <figure>
+
+      This is particularly relevent in the context of the \textbf{frontier MO theory}, which states that the nucleophile HOMO interacts with the electrophilic LUMO.
+
+      <figure>
+
+    \end{core}
+
+  \subsection{Conjugated π Systems}
+
+    \begin{core}{Conjugated π System Stability}
+
+      A conjugated pi system refers to network of adjacent allylic stuctures that allow for resonance across a greater number of carbons. For instance, take a look at the hydrogenation enthalpies of the following alkenes.
+
+      <5 reactions figure>
+
+      Compound 5 is more stabilized than predicted based on intuitive addition of constituent enthalpies because of the ability of conjugated π systems to better stabilize excess or lacking charge.
+
+      <energy digram figure>
+
+      When we look closer into the orbital energy diagrams of these conjugated π systems like we have done in REFERENCE TO 3 PI SYSTEM, we find that the conjugated π system orbtial energy levels sit in a an overall larger range but possesses smaller stepwise increases in energy, thus the HOMO LUMO gap is comparaitively smaller compared to the non conjugated πsystem alkenes.
+
+      <pi orbtial energy diagram figure>
+      caption: source of stability in a conjugated π system are the lowest π MO \ce{e^-}s
+
+      The rules are the following.
+
+      \begin{enumerate}
+
+        \item As onjugation increases (more p orbitals in a row), the energy gap between π MOs get smaller
+
+        \item As conjugation increases, the lowest energy π MO gets lower in energy and the highest energy π MO goes higher in energy
+
+      \end{enumerate}
+
+      It's important to know that every high energy intermediate needs to be as stabilized as possible and that resonance from conjugated π systems trump stability originating from hyperconjugation.
+      \[
+        \text{resonance} > 3^\circ > 2^\circ > 2^\circ
+      \]
+
+      This has particularly large consequences in the different reactions covered within \href{https://ibahng.github.io/chemistry/alkene_alkyne/alkene_alkyne.pdf}{Alkenes \& Alkynes} because many electrophilic additions progress in a Markovnikov or anti-Markovnikov manner, which takes into consideration intermediate state stability. Examples include alkene hydrohalogenation (\textit{\autoref{alk-core:hydrohalogenation}}), which progresses in a Markovnikov manner, and hydroboration-oxidation (\textit{\autoref{alk-core:alkene_hydro_oxi}}), which progresses in an anti-Markovnikov matter.
+
+    \end{core}
+
+    Using our learned knowledge of conjugated π system stability, lets look at two examples.
+
+    \begin{core}[label=core:chlorination_example]{Chlorination of Conjugated Cycloalkene}
+
+      Our goal is to predict all of the products of the following reaction, including stereoisomers.
+
+      <figure of reaction>
+
+      First, we map out the chloronium intermediates.
+
+      <figure>
+
+      Use resonance to determine which carbon of halonium to attack with weak nucleophilic ROH.
+
+      <figure>
+      caption: tertiary "σ bond resonance" vs 2$^\circ$ and allylic
+
+      Because the allylic side is more stable, the electrophilic carbons exist in two locations within the system
+
+      <figure>
+      caption: the top resonance contributer is the Cl
+
+      Thus three possible attacks exist, giving us three distinct stereoisomeric products.
+
+      \begin{enumerate}
+
+        \item \textbf{attack name placeholder} 
+
+        <figure>
+
+        \item \textbf{attack name placeholder} 
+
+        <figure>
+
+        \item \textbf{attack name placeholder} 
+
+        <figure>
+
+      \end{enumerate}
+
+    \end{core}
+
+    \begin{core}{Radical Bromination of Terminal Alkene}
+
+      The radical bromination of a terminal alkene works in a similar manner to the reaction shown in \autoref{core:chlorination_example}, wherein resonance creates the possibility of multiple different types of attacks and consequently three distinct products.
+
+      We first create \ce{Br2} through N-Bromo-succinmide, which allows for the production of \textbf{monobrominated products}. Realize that adding pure \ce{Br2} to react with alkenes results in dihalogenation as mapped out in \autoref{alk-core:halogenation}.
+
+      <figure> 
+      caption: slow release of \ce{Br2} to avoid alkene adding \ce{Br2} directly
+
+      After the spontaneous dissociation of \ce{Br2} into radical bromine atoms, the first propagation occurs, exposing a radical in the original alkene compound.
+
+      <figure of prop 1>
+
+      This radical alkene and the remaining bromine radical can carry out a second propagation interaction in three different manners.
+
+      \begin{enumerate}
+
+        \item \textbf{propagation placeholder}
+
+        <figure>
+
+        \item \textbf{propagation placeholder}
+
+        <figure>
+
+        \item \textbf{propagation placeholder}
+
+        <figure>
+
+      \end{enumerate}
+
+      To finalize, the full reaction looks like this.
+
+      <figure of full simplified reaction>
+
+    \end{core}
+
+\section{Diel Alder Reactions} % lessons 4-5
+
+  \begin{core}{Cycloadditions}
+
+    Cycloadditions refer to 2 seperate π systems reacting to form a new ring. There is no nucleophile nor an electrophile in this interaction.
+
+    We have already seen cycloadditions in two different reactions within \href{https://ibahng.github.io/chemistry/alkene_alkyne/alkene_alkyne.pdf}{Alkenes \& Alkynes}.
+
+    \begin{enumerate}
+
+      \item \textbf{Ozonolysis} (\textit{\autoref{alk-core:ozonolysis}})
+
+      <figure>
+
+      \item \textbf{\ce{OsO4} Syn-Dihydroxylation} (\textit{\autoref{alk-core:osmium_hydrox}})
+
+      <figure>
+
+    \end{enumerate}
+
+  \end{core}
+
+  \begin{core}{Diel Alder Reactions}
+
+    Diel alder reactions are a type of cycloaddition that combines a minimum 4π diene wiht a minimum 2π dienophile to form a cyclohexane.
+
+    <figure>
+
+    As such, diene and dienophile pairings that possess larger conjugated π systems than the stated minimums of 4π and 2π, respectively, can produce a massive diversity of stereoisomeric products
+
+    <figure>
+
+  \end{core}
+
+  \begin{core}{Orbitals of Diel Alder Reactions}
+
+    In diel alder reactions, π systems approach each other in a vertical manner to allows π systems to generate new σ overlaps
+
+    <figure>
+    caption: p orbitals overlap to form σ interactions
+
+    Let's take a look at the energy diagrams of the repective conjugated π systems of the diene and dienophile.
+
+    <figure>
+
+    An important observation can be made in the context of which energy levels interact with which: HOMO of one reagent interacts with the LUMO of the other reagent.
+
+    <figure showing the two different homo lumo overlaps in diel alder reaction>
+
+  \end{core}
+
+  \begin{core}{Diel Alder Stereochemistry}
+
+    We can also categorize diel alder reactions by the different possible stereochemical approaches of the reagents.
+
+    \begin{enumerate}
+
+      \item \textbf{Top} and \textbf{bottom} diel alder reactions simply refer to when the dienophile approaches the diene from the \textbf{top} or \textbf{bottom}, respectively.
+
+      <figure>
+
+      \item \textbf{Endo} and \textbf{exo} distinctions refer to when the sterics of the dienophile are pointed \textbf{towards} or \textbf{away from} the corresponding diene
+
+      <figure>
+
+      Keep in mind that the bonds pointing towards the diene get flipped around the dienophile double bond in the direction opposite from where the diene approaches.
+
+      <figure>
+
+    \end{enumerate}
+
+    As practice, consider the following diel alder reaction in which we need to predict all diel alder nondimer products.
+
+    <figure>
+
+    Two possible constant isomers can form from the two different dienophile positionings that can occur.
+
+    <figure of the products>
+    caption: easier to think of the dienophile being flipped along a centered horizontal axis to produce the right product
+
+    And for each of these reactions, four different stereochemical approaches---endo top, endo bottom, exo top, exo bottom---exist.
+
+    % review the lecture recording
+
+    \begin{enumerate}
+
+      \item \textbf{Isomer 1} 
+
+      \begin{itemize}
+
+        \item \textbf{endo top}
+
+        \item \textbf{endo bottom}
+
+        \item \textbf{exo top}
+
+        \item \textbf{exo bottom}
+
+      \end{itemize}
+
+      \item \textbf{Isomer 2} 
+
+      \begin{itemize}
+
+        \item \textbf{endo top}
+
+        \item \textbf{endo bottom}
+
+        \item \textbf{exo top}
+
+        \item \textbf{exo bottom}
+
+      \end{itemize}
+
+    \end{enumerate}
+
+  \end{core}
+
+  \subsection{Rates of Diel Alder Reactions}
+
+    \begin{core}{Diene Orientation}
+
+      Diel alder reactions are more favorable when the resulting ring has minimal strain. The \textbf{s-cis} diene orientation does this better than the \textbf{s-trans} orientation as shown below. \textit{The s in s-cis and s-trans stands for specifically along single bond as clarification because conventionally cis and trans in the context of alkenes look at the double bond as the reference bond.}
+
+      <figure of s-cis and s-trans>
+      caption: a ring needs to be at least 8 atoms large to accommodate a trans π bond
+
+      Take the following dienes for instance.
+
+      <figure> 
+
+      The relative diel alder reaction rates is $\text{C} > \text{A} > \text{B}$. C reigns superior because its structure restricts rotation along the relevant single bond, preventing any rearrangement to an s-trans arrangement. A and B, on the other hand, both can rotate along the relevant single bond, however B favors the s-trans arrangement because the s-cis arangement has a comparatively higher level of steric hinderance between the alkenyl substituents to the relevant single bond.
+
+    \end{core}
+
+    \begin{core}{Secondary Orbital Overlap}
+
+      Under certain scenarios, orbitials not directly responsible for new bond formation between the diene and dienophile can undergo a secondary overlap to lower the overall E$_\text{a}$. Take a look at the following diel alder interaction between two cyclopentenes.
+
+      <figure>
+
+      It's important to keep in mind that although favorable mixing of secondary orbital overlaps in the transition state will help stabilize that transition state, sterics still does not favor the endo approach. As a result, ambigiuous diene dienophile pairs will usually need to undergo experiments to see which effect is more impartant in each case.
+
+    \end{core}
+
+    \begin{core}{Electronic Effects}
+
+      Diel alder reactions progress faster when the energies of the interacting orbitals are closer to one another. In other words, the small the HOMO-LUMO gap between reacting molecules, the faster the rate. This usually occurs when more conjugation occurs.
+
+      However, while more conjugation typically shrinks the HOMO-LUMO gap and speeds up a reaction, it also alters the wave topology (\textit{the layout of the nodes}). If the orbital with the ideal energy gap happens to place a node on an essential bonding atom, that orbital becomes useless for the reaction, forcing the system to use a higher-energy, slower pathway. Symmetry and overlap must always be satisfied before energy gaps even matter.
+
+      <figure>
+      caption: The left reagents actually go faster despite the small π3-π$^*$ gap of the right reagents because π3 is not favorable because there is a node of the atom that needs ot make a new σ bond
+
+    \end{core}
+
+    \begin{core}{Groundstate Destabilization}
+
+      Given that two sets of reagents that are similar will have similar transition states leading to the \textbf{same} product, the reactant pair in which the ground states of the initial diene and dienophile start at a higher energy levels (\textit{due to something such as steric hinderance}) will have a faster diel alder reaction rate. Take the following diene dineophile pairs leading to the same product for instance.
+
+      <figure>
+
+      The energy level for the right diene dineophile pair possesses a greater level of steric hinderance between the isobutyl substituents wihtin the diene, placing it at a higher energy level relative to the left diene dienophile pair.
+
+      <figure>
+
+      As shown in the energy diagram above, the E$_\text{a}$ is much lower for the more unstable reactant pair and thus progresses at a much faster rate because the total ΔH is lower.
+
+    \end{core}
+
+\section{Aromaticity \& Aromatic Substitution} % lessons 6-9
+
+  \subsection{Aromatic Compounds}
+
+    \begin{core}{Aromatic Compounds}
+
+      Name originates from these compounds' nice scent, but now it is a strictly structural definition covered in \autoref{core:aromaticity_rules}.
+
+      While not limited to the base benzene structure, the extent of these notes will mostly refer to base benzene compounds such as the following.
+
+      <figure>
+
+    \end{core}
+
+    \begin{core}{Aromatic Compound Stereochemistry}
+
+      Additional substituent positioning to the the root aromatic compounds shown in FIG REFERENCE can be specified through the ortho, meta, and para keywords.
+
+      <figure>
+
+      The compound naming scheme follows a structure of \textit{realtion-sub-root}. Take a look at the following examples.
+
+      <figure or ortho-nitro-aniline and para-sulfonate-tolvene and the three other examples>
+
+    \end{core}
+
+    \begin{core}{Reactivity of Aromatic Compounds}
+
+      Aromatic compounds are less reactive than predicted. For instance while a simple cyclohexene reacts with mCPBA to form a secondary ester ring, no reaction occurs when benzene and 3 mCPBA are mixed together.
+
+      <figure>
+
+      Similarly, a portion of the predicted energy drop during the hydrogenation of benzene is eliminated due to aromatic stabilization.
+
+      <figure>
+
+      In order to explain this, let's look at a top down view of the benzene molecular orbital diagram.
+
+      <figure>
+
+      explaination % take a look at lecture recording
+
+    \end{core}
+
+    \begin{core}{Aromatic Compound Molecular Diagrams}
+
+      The \textbf{Frost Diagram} is a method to quickly predict π molecular orbital energy levels for a cyclic conjugated system, following the following steps.
+
+      \begin{enumerate}[label=(\arabic*)]
+
+        \item Compound must have acyclic array of p orbitals 
+
+        \item Draw shape pointed down
+
+        \item Draw a circle around the shape 
+
+        \item Intersections are energy levels
+
+        \item Middle of circle is nonbonding
+
+        \item Add \ce{e^-}s
+
+      \end{enumerate}
+
+      Here are the respective orbital digram examples for a pentene anion and a heptene cation. Benzene has already been shown in FIG REFERENCE ABOVE.
+
+      \begin{enumerate}
+
+        \item \textbf{Pentene Anion}
+
+        <figure>
+
+        \item \textbf{Heptene Cation}
+
+        <figure>
+
+      \end{enumerate}
+
+    \end{core}
+
+    \begin{core}[label=core:aromaticity_rules]{Aromaticity Rules}
+
+      In order to a compound to be considered aromatic, it must follow a strict set of rules.
+
+      \begin{enumerate}[label=(\arabic*)]
+
+        \item Cyclic array of p orbitals
+
+        \item \ce{e^-} count in cyclic array fulfills the equation of $4n+2$, where $n$ is an integer (0, 1, 2, 3, 4, \ldots).
+
+        \textit{An \ce{e^-} count that fulfills the equation of $4n$ where $n$ is an integer is much more reactive than predicted and is termed \textbf{anti-aromatic}}
+
+      \end{enumerate}
+
+      If the above criteria are not met, the compound is considered \textbf{nonaromatic}, such as the cyclohexene shown below.
+
+      <figure>
+
+      As practice, take a look at the follow two examples.
+
+      \begin{enumerate}
+
+        \item \textbf{Pentene Anion} 
+
+        <figure>
+
+        This is a cyclic array of p orbitals and the \ce{e^-} count is 6, which fulfills the $4n+2$ expression. Thus this compound is \textbf{considered aromatic}.
+
+        \item \textbf{Pentene Cation}
+
+        <figure>
+
+        This compound is also a cyclic array of \ce{e^-}s but its electron count is 4 which does not fulfill the expression $4n+2$ but rather $4n$. Thus this compound is considered \textbf{anti-aromatic}. 
+
+        Notice that the corresponding molecular orbital diagram results in two unpair \ce{e^-}s, making it reactive.
+
+        <figure>
+
+      \end{enumerate}
+
+    \end{core}
+
+    \begin{core}{Aromatic Contributors}
+
+      An \textbf{aromatic contributor} refers to a resonance structure of a molecule that possesses a fully conjugated, cyclic, planar π system satisfying the $4n+2$ π \ce{e^-} count, even if the dominant or lowest-energy Lewis structure doesn't immediately look aromatic. Take the following molecule for instance.
+
+      <figure of the base non aromatic state to the left and the contributer state to the right>
+
+      Notice that while the base state is nonaromatic by definition because the conjugated π orbtial system is not cyclic, an alternative state accessed through resonance is aromatic, making it an aromatic contributor.
+
+    \end{core}
+
+  \subsection{Electrophilic Aromatic Substitution}
+
+    % take a closer look at the notes at the beginning of lecture 7
+
+    \begin{core}[label=core:eas_general]{Electrophilic Aromatic Substitution}
+
+      \textbf{Electrophilic aromatic substitution (EAS)} refers to a reaction wherein an aromatic ring acts as a nucleophile. This reaction type follows the following general mechanism.
+
+      <figure of general mechanism>
+
+    \end{core}
+
+    \subsubsection{Reaction Types}
+
+      \begin{core}{Halogenation}
+
+        \textbf{EAS halogenation} effectively attaches a single halogen to an aromatic ring, generating the corresponding hydrohalogen as a byproduct. The general mechanism utilizes a \textbf{Lewis acid} (\textit{any chemical species capable of accepting a pair of electrons}) as shown below.
+
+        <figure of general mechanism>
+
+        Analogously, here are examples showcasing chlorination and bromination of benzene.
+
+        \begin{enumerate}
+
+          \item \textbf{Chlorination of Benzene} 
+
+          <figure>
+
+          \item \textbf{Bromination of Benzene} 
+
+          <figure>
+
+        \end{enumerate}
+
+      \end{core}
+
+      \begin{core}{Nitration}
+
+        \textbf{Nitration} effectively attaches an \ce{NO2} nitro group onto an aromatic ring, acting primarily as a synthetic stepping stone in practice. First, let's look at the generation of an \ce{NO2+} electrophile through the exposure of nitric acid to sulfuric acid.
+
+        <figure>
+
+        With this in mind, the general nitration mechanism to a benzene follows the outline reaction mapped out in \autoref{core:eas_general}.
+
+        <figure>
+
+      \end{core}
+
+      \begin{core}{Sulfonation}
+
+      \end{core}
+
+      \begin{core}{Alkylation}
+
+      \end{core}
+
+      \begin{core}{Acylation}
+
+      \end{core}
+
+    \subsubsection{Directing Groups}
+
+      \begin{core}{Directing Groups}
+
+      \end{core}
+
+      \begin{core}{Inductive O/P Directors}
+
+      \end{core}
+
+      \begin{core}{Inductive M Directors}
+
+      \end{core}
+
+      \begin{core}{Resonance O/P Directors}
+
+      \end{core}
+
+      \begin{core}{Resonance M Directors}
+
+      \end{core}
+
+      \begin{core}{Halogens as Directing Groups}
+
+      \end{core}
+
+    \subsubsection{Aromatic Substituent Manipulations}
+
+      \begin{core}{Reduction of Acyl Ketone}
+
+      \end{core}
+
+      \begin{core}{Nitro Reduction}
+
+      \end{core}
+
+      \begin{core}{Diazotization of Aniline}
+
+      \end{core}
+
+  \subsection{Nucleophilic Aromatic Substitution}
+
+    \begin{core}{Nucleophilic Aromatic Substitution}
+
+    \end{core}
+
+    \begin{core}{Diazonium Chem}
+
+    \end{core}
+
+    \begin{core}{Addition/Elimination}
+
+    \end{core}
 
 \end{document}
