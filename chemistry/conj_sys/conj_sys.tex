@@ -818,6 +818,7 @@
     \end{core}
 
   \subsection{Electrophilic Aromatic Substitution}
+    \label{sec:eas}
 
     % take a closer look at the notes at the beginning of lecture 7
 
@@ -830,8 +831,9 @@
     \end{core}
 
     \subsubsection{Reaction Types}
+      \label{sec:eas_types}
 
-      \begin{core}{Halogenation}
+      \begin{core}[label=core:eas_halogenation]{Halogenation}
 
         \textbf{EAS halogenation} effectively attaches a single halogen to an aromatic ring, generating the corresponding hydrohalogen as a byproduct. The general mechanism utilizes a \textbf{Lewis acid} (\textit{any chemical species capable of accepting a pair of electrons}) as shown below.
 
@@ -867,13 +869,77 @@
 
       \begin{core}{Sulfonation}
 
+        \textbf{Sulfonation} entails the attachment of a \ce{SO3H} group onto an aromatic ring. The first step is a reaction between two \ce{H2SO4} molecules, a consequence of one of the reagents being \textbf{fumming \ce{H2SO4}}.
+
+        <figure>
+
+        Then follows the same general EAS reaction mechanism covered in \autoref{core:eas_general}.
+
+        <figure>
+
       \end{core}
 
-      \begin{core}{Alkylation}
+      \begin{core}[label=core:alkylation]{Alkylation}
+
+        \textbf{Alkylation} is the process of adding an alkyl group onto an aromatic structure. In order for an alkane to become electrophilic, it must undergo a prepatory conversion to a carbocation state through the following reaction.
+
+        \begin{enumerate}
+
+          \item \textbf{placeholder} 
+
+          <figure>
+
+          This reaction is similar to the initial reaction shown in the chlorination pathway within \autoref{core:eas_halogenation}.
+
+          \item \textbf{placeholder} 
+
+          <BF3 figure>
+
+          \item \textbf{placeholder} 
+
+          <figure>
+
+          \item \textbf{placeholder} 
+
+          <figure>
+
+        \end{enumerate}
+
+        In certain instances, carbocation rearrangements can occur when the directly resulting carbocation is unstable.
+
+        <figure + mechanism>
+
+        Subsequently, these carbocation alkanes then proceed to perform EAS to aromatic structures.
+
+        <figure>
+
+        In the specific case above showcasing carbocation rearrangement of a cyclobutane to a cyclopentane, we can prevent rearrangement via a stepwise reaction pathway of \textbf{acylation} (\textit{\autoref{core:acylation}}) and then reduction with \ce{Zn(Hg)} and \ce{HCl}.
+
+        \begin{enumerate}
+
+          \item \textbf{Acylation} 
+
+          <figure>
+
+          \item \textbf{Reduction}
+
+          <figure>
+
+          \item 
+
+        \end{enumerate}
 
       \end{core}
 
-      \begin{core}{Acylation}
+      \begin{core}[label=core:acylation]{Acylation}
+
+        \textbf{Acylation} is the process of adding an acyl halide compound to an aromatic structure. We first need to make the acyl halide electrophilic through a lewis acid as shown in the following general reaction outline.
+
+        <figure of general acyl halid with lewis acid>
+
+        The resulting \ce{RCO+} molecule can then perform EAS with an aromatic ring. A full reaction using real compounds is shown below.
+
+        <figure of full reaction with FeCl3>
 
       \end{core}
 
@@ -881,39 +947,164 @@
 
       \begin{core}{Directing Groups}
 
+        So far, we have covered simply the EAS reaction types in \autoref{sec:eas_types} namely using benzene as our sole relevent aromatic structure. However, in scneraios where the aromatic ring is asymmetrical, chemists need a method to determine which carbon they want the EAS to occur on. Now we introduce \textbf{directing groups}, functional groups already attached to a benzene ring that dictate where (O, M, P) a new incoming electrophile will land. 
+
+        <figure of the different directions on a benzene
+
+
+        A summary table is provided below, but visit each Core Concept for a more detailed look into each directing group type.
+
+        \begin{table}[H]
+          \centering
+          \begin{tabular}{>{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{5cm}}
+            \hline
+            \hline
+            \textbf{Directing Group Type} & \textbf{Examples} & \textbf{Description} \\
+            \hline
+            {\small (1) Inductive \textcolor{Yellow}{O}/\textcolor{Blue}{P} Director} &
+            {\small $R = $ alkyl $[\text{Me}, \text{Et}, i\text{Pr}, \text{\ldots}]$} &
+            {\small Alkyl groups donate electron density inductively, directing substitution to the ortho and para positions.} \\[3ex]
+
+            {\small (2) Inductive \textcolor{Orange}{M} Director} &
+            {\small $R = $ carbon w/ EN atoms $[$\ce{CCl3}, \ce{CF3}, \ldots$]$} &
+            {\small Carbons bearing electronegative atoms withdraw electron density inductively, directing substitution to the meta position.} \\[3ex]
+
+            {\small (3) Resonance \textcolor{Yellow}{O}/\textcolor{Blue}{P} Director} &
+            {\small i) $R$ has lone pair adjacent to ring: $[\ce{OMe}, \ce{SR}, \ce{NMe2}]$ \newline ii) $R$ = carbon w/ π system: [alkene, alkyne, benzene]} &
+            {\small Substituents that donate electron density via resonance into the ring direct substitution to the ortho and para positions.} \\[3ex]
+
+            {\small (4) Resonance \textcolor{Orange}{M} Director} &
+            {\small $[\ce{C=O}, \ce{C#N}, \ce{NO2}]$} &
+            {\small Substituents that withdraw electron density via resonance from the ring accept electron density and direct substitution to the meta position.} \\[3ex]
+            \hline
+          \end{tabular}
+          \caption{Classification of electrophilic aromatic substitution directing groups}
+          \label{tab:directing_groups}
+        \end{table}
+
       \end{core}
 
       \begin{core}{Inductive O/P Directors}
+
+        \textbf{Inductive O/P directors} are substituents that direct any EAS to the O and P positions within an aromatic ring.
+
+        <figure of first general reaction>
+
+        The substituents are generally alkyls, and the mechanism behind why they favor O/P over M positioning is due to the general stability of the different resonance structures that occur in each positioning scenario.
+
+        <triple figure>
+
+        As shown above, while nearly all of the different possible resonance structures place the transient carbocation charge on a 2$^\circ$ allylic position, O/P positioning allows for a 3$^\circ$ allylic carbocation position within 1 out of 3 resonance structures for each whereas M positioning does not. As such the energy levels of the resulting carbocation intermediaries follow the general ordering shown in the energy diagram below.
+
+        <energy diagram figure>
 
       \end{core}
 
       \begin{core}{Inductive M Directors}
 
+        \textbf{Inductive M directors} are substituents that direct any EAS to the M position within an aromatic ring. The substituents are carbons bearing highly electronegative atoms, making the carbon highly partially positive.
+
+        <figure>
+
+        The M position is favored because the O/P 3$^\circ$ allylic carbocation resonance structures have possess extra unstable repulsion between the carbocation and the partial positive carbon within the substituent. The M positioning, on the other hand, possess for a resonance structure that allows for maximal distance between the positive substituent carbon and the carbocation charge on teh opposite side fo the aromatic ring.
+
+        <figure>
+
+        Consequently, the resulting energy levels put O/P positioning energy above that of M positioning.
+
+        <energy diagram figure>
+
       \end{core}
 
       \begin{core}{Resonance O/P Directors}
 
+        \textbf{Resonance O/P directors} are substituents that direct any EAS to the O and P positions within an aromatic ring through donating \ce{e^-} density. For instance, phenol possess resonance structures that place a carboanion negative charge on exclusivly the O and P positions.
+
+        <figure>
+
+        These types of substiuents specifcally need to be lone pair adjacent to the aromatic ring. Another substituent type that allows for \ce{e^-} donation is carbon with conjugated π systems. Take the following aleken for instance.
+
+        <figure>
+
+        Notice that the primary carbocation is able to form because it is allylic.
+
+        \textit{Here is a side note regarding the method by which inductive directors induce favorability of EAS positioning in comparison to resonance directors -> resonance directors affect the nucleophilicity capabilities of the relevant positions whereas the inductive versions manipulate favorability through transition state stability.}
+
       \end{core}
 
-      \begin{core}{Resonance M Directors}
+      \begin{core}[label=core:rm_director]{Resonance M Directors}
+
+        \textbf{Resonance M directors} are substituents that direct any EAS to the M position within an aromatic ring through withdrawing \ce{e^-} density. For instance, carbonyl substituents have the ability to withdraw \ce{e^-} density in a manner that results in subsequent resonance structures to place a carbocation positive charge on the O/P positions, making these locations effectively less nucleophilic and the P psoition relatively more nucleophilic.
+
+        <figure>
+
+        As a result, when an electrophile approaches the transient aromatic ring, the nucleophilic attack occurs most favorably from the M position rather than the O/P position.
+
+        <figure>
 
       \end{core}
 
       \begin{core}{Halogens as Directing Groups}
 
+        Halogens can also act as directing groups, and based on data, they act as O/P directors. To understand the underlying basis of this observation, let's analyze monohalobenzene in the context of the inductive effect and resonance.
+
+        <figure>
+
+        \begin{enumerate}
+
+          \item \textbf{Inductive Effect} 
+
+          <figure>
+
+          Under an O/P directing EAS interaction, inductive analysis would actually discourage O/P directing becaus the subsequent carbocation transition state places a carbocation that already has lowered \ce{e^-} density even lower by residing next to the highly electronegative halogen atom. As a result, the dipole moment created destabilizaes the structure.
+
+          \item \textbf{Resonance}
+
+          <figure>
+
+          Resonance, on the other hand, allows the halogen to donate \ce{e^-} density in order to fill all octet requirements throughout the entire molecule, which favors the O/P directing EAS interaction.
+
+        \end{enumerate}
+
+        Although these two effects contradict one another, we can confidently say that the effects of resonance trump the inductive effect because real data in practice results in the O/P directing as favored.
+
       \end{core}
 
     \subsubsection{Aromatic Substituent Manipulations}
 
-      \begin{core}{Reduction of Acyl Ketone}
+      \begin{core}[label=core:reduction_acyl]{Reduction of Acyl Ketone}
+
+        The reduction of an acyl ketone is a reduction reaction that was previously used in \autoref{core:alkylation} to replace a carbonyl oxygen with two hydrogen bonds.
+
+        <figure>
+
+        \textit{No mechanism is provided for this reaction.}
 
       \end{core}
 
-      \begin{core}{Nitro Reduction}
+      \begin{core}[label=core:red_nitrobenzene]{Nitrobenzene Reduction to Aniline}
+
+        The reduction of nitrobenzene work similarly to the reduction of acyl ketone (\textit{\autoref{core:reduction_acyl}}) wherein oxygens are replaced by hydrogens. This reaction uses the same reactants to carry this replacement out.
+
+        <figure>
+
+        \textit{No mechanism is provided for this reaction.}
 
       \end{core}
 
       \begin{core}{Diazotization of Aniline}
+
+        The diazotization of aniline is a potential subsequent reaction to nitrobenzene reduction as the product of the latter is the reactant of the former.
+
+        <figure>
+
+        The reaction mechanism occurs as follows, first starting with the conversion of \ce{NO2-} to a nitrosyl cation.
+
+        <figure>
+
+        The highly reactive nitrozyl cation then goes onto intereact with the aniline in the following manner to produce \textbf{aryl diazonium}.
+
+        <figure>
 
       \end{core}
 
@@ -921,13 +1112,96 @@
 
     \begin{core}{Nucleophilic Aromatic Substitution}
 
+      \textbf{Nucleophilic aromatic substitution (NAS or S$_\text{N}$Ar)} is an interaction in which the aromatic ring is the electrophile. NAS comes in two "flavors": \textbf{diazonium} (\textit{\autoref{core:diazonium_chem}}) or \textbf{addition/elimination} (\textit{\autoref{core:add_elim}}) chemistry.
+
+      \textit{Recall that in electrophilic aromatic substitution (\autoref{sec:eas}), the aromatic ring is the nucleophile.}
+
     \end{core}
 
-    \begin{core}{Diazonium Chem}
+    \begin{core}[label=core:diazonium_chem]{Diazonium Chemistry}
+
+      Diazonium chemistry begins by \ce{N2} leaving a phenyldiazonium molecule---via breaking the bond between the σ C(sp$^2$)--N(sp) bond---to produce a carbocation possessing benzene ring and an extermely stable \ce{N2} gas moleucle. 
+
+      <figure>
+
+      It's important to notice that resonance is not possible in this specific carbocation state because the orbtial that is empty is the C(sp$^2$) orbtial. We would need an unbalanced p orbital for resonance to occur. As a result, this phenyl cation is highly reactive and hungry for any nearby nucleophile to help stabilize its positive charge.
+
+      <figure>
+
+      As shown above, nearly all covered nucleophiles work in this interaction \textbf{with the exception of grignards and lithiates}. \textit{The reasoning behind this will not be covered in the scope of these notes.}
+
+      Combining this diazonium chemistry with previously learned reactions, chemists can effectively attach nearly any nucleophile to a benzene molecule using the following reaction pathway.
+
+      <figure>
+      caption: reference the core concepts for the reactions within the caption
 
     \end{core}
 
-    \begin{core}{Addition/Elimination}
+    \begin{core}[label=core:add_elim]{Addition/Elimination}
+
+      The NAS \textbf{addition/elimination} reaction occurs in the following general manner.
+
+      <figure>
+
+      Recall that we have seen resonance acceptors in resonance M directors (\textit{\autoref{core:rm_director}}), however, the these resonance acceptors are not for the purpose of directing meta in the context of NAS chemistry. Their main purpose is to be able to accept \ce{e^-} density after the nucleophile attack the carbon with the leaving group.
+
+      Additionally, this reaction requires a strong nucleophiles because it ultimately needs to break aromaticity as shown in the mechanism below. It should be noted that this step---the addition---is consequently the rate determining step.
+
+      <figure>
+
+      As the mechanism showcases, the reaction is simply a relay of \ce{e^-} density to the resonance acceptor, which then bounces back the \ce{e^-} density in order to kick out the leaving group in the end. However, since the outcome of this interaction is ultimately the same as that of an \snt reaction, one may wonder why \snt is not a viable pathway.
+
+      Revisiting the \snt mechanism, recall that, in the lense of molecular orbitals, the nucleophile interacts with the σ$^*$ anti-bonding orbital between the electrophile and leaving group in order to kick out the leaving group and create a bond simultaneously via a backside attack.
+
+      <figure>
+
+      In the aromatic ring scenario, this nessecary σ$^*$ interaction is extremely unlikely due to the physcial barrier to entry because of the ring itself.
+
+      In the context of the frontier molecular orbital theory, the π$^*$ orbital is lower in energy than σ$^*$, making it the LUMO and a much more accessible orbital to interact with, which is what happens in addition/elimination, the favorable pathway.
+
+      Lets go through two examples.
+
+      \begin{enumerate}
+
+        \item \textbf{Example 1: Predicting Major Kinetic Product} 
+
+        Consider the following reaction consisting to two possible leaving groups F and Cl with a \ce{NO2} resonance acceptor.
+
+        <figure>
+
+        Both addition/elimination pathways are possible as shown below, ultimately leading to two distinct products. 
+
+        <figure>
+
+        Since the nucleophile is held constant across both reaction pathways, the ability of the nucleophile to break aromaticity is not a factor. Instead, it is the greater dipole moment created by the more electronegative fluorine over the chlorine. Due to the greater partial positive charge of the fluorine carbon, \ce{MeO-} favors attacking that carbon because it its more electrophilic. Thus the reaction favors the substitution of the F over the Cl.
+
+        <figure>
+
+        \item \textbf{Example 2: Predicting Product of NAS Chemistry}
+
+        Consider the following addition/elimination reaction below.
+
+        <figure>
+
+        In this case, simply only one of the leaving group substitutions work to donate \ce{e^-} density into the resonance acceptor and the other doesn't.
+
+        <figure>
+
+        Thus the exclusive reaction outcome maps out as follows.
+
+        <figure>
+
+        \item \textbf{Example 3: Predicting Starting Material}
+
+        Consider having to determine the starting aromatic compound to the following products based on the given nucleophile.
+
+        <figure>
+
+        Because we see two \ce{Cl-} and two \ce{H3N^+R} on the product side, we know that the addition/elimination has occured twice. Luckily the product quite literally has the nucleophile placed directly on center connected to the aromatic ring system via two bonds on the nitrogen. Based on this, we can reasonably predict the starting material to have had these two bond substituted.
+
+        <figure>
+
+      \end{enumerate}
 
     \end{core}
 
