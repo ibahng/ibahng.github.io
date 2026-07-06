@@ -26,33 +26,114 @@
 
 \section{Global Payment Systems \& Messaging Infrastructure}
 
-  \begin{core}{SWIFT}
+  \subsection{Society for Worldwide Interbank Financial Telecommunications}
 
-    % Society for Worldwide Interbank Financial Telecommunications (SWIFT)
-    %   MT103
-    %   MT799
-    %   MT110
-    %   maybe go through the entire MT id logic and organization
-    % 
-    % UETR (Unique End-to-End Transaction Reference)
+    \begin{core}{Society for Worldwide Interbank Financial Telecommunications}
 
-    The Society for Worldwide Interbank Financial Telecommunications (SWIFT) operates as a secure, standardized global financial messaging network connecting over 11,000 financial institutions. SWIFT uses structured Message Type (MT) codes grouped by functional categories (1 to 9), such as Category 1 for customer payments (\textbf{MT103} for single customer credit transfers, \textbf{MT110} for advice of a cheque) and Category 7 for trade finance and guarantees (\textbf{MT799} for free-format bank-to-bank text messages). To ensure end-to-end auditability and real-time visibility across correspondent banking networks, every transaction string is permanently appended with a 36-character \textbf{Unique End-to-End Transaction Reference (UETR)}, preventing routing friction and enabling instant payment tracking.
+      % Society for Worldwide Interbank Financial Telecommunications (SWIFT)
+      %   MT103
+      %   MT799
+      %   MT110
+      %   maybe go through the entire MT id logic and organization
+      % 
+      % UETR (Unique End-to-End Transaction Reference)
 
-  \end{core}
+      % The Society for Worldwide Interbank Financial Telecommunications (SWIFT) operates as a secure, standardized global financial messaging network connecting over 11,000 financial institutions. SWIFT uses structured Message Type (MT) codes grouped by functional categories (1 to 9), such as Category 1 for customer payments (\textbf{MT103} for single customer credit transfers, \textbf{MT110} for advice of a cheque) and Category 7 for trade finance and guarantees (\textbf{MT799} for free-format bank-to-bank text messages). To ensure end-to-end auditability and real-time visibility across correspondent banking networks, every transaction string is permanently appended with a 36-character \textbf{Unique End-to-End Transaction Reference (UETR)}, preventing routing friction and enabling instant payment tracking.
 
-  \begin{core}{ISO 20022}
+      The \href{https://www.swift.com/}{\textbf{Society for Worldwide Interbank Financial Telecommunication (SWIFT)}} serves as the foundational communication layer for global banking. It is a critical distinction that SWIFT operates strictly as a \textbf{secure messaging network}; it transmits standardized instructions (\textit{payment orders}) between counterparties, while actual cash settlement is processed down the line through correspondent banking networks. 
 
-    ISO 20022 represents the modern global standard for financial messaging, transitioning from legacy, character-restricted SWIFT MT text lines to rich, structural XML-based MX schemas. By introducing highly structured, granular, and uniform data elements, ISO 20022 dramatically reduces false positives in automated compliance screening, allows for the transmission of extensive remittance information within a single payment, and enables cross-border interoperability among various real-time gross settlement (RTGS) systems worldwide.
+    \end{core}
 
-  \end{core}
+    \begin{core}{Business Identifier Codes}
 
-  \begin{core}{CHIPS}
+      The \textbf{Business Identifier Code (BIC)}---also referred to as a \textbf{SWIFT code}---is an 8- to 11-character alphanumeric string that uniquely identifies a financial or non-financial institution globally. The code is structured into four distinct components to parse geographic and operational details during cross-border routing.
 
-    % CHIPS (Clearing House Interbank Payments System)
+      \[
+        \underbrace{\texttt{BBBB}}_{\text{Bank Code}}\quad \underbrace{\texttt{CC}}_{\text{Country Code}}\quad \underbrace{\texttt{LL}}_{\text{Location Code}}\quad \underbrace{\texttt{BBB}}_{\text{Branch Code}}
+      \]
 
-    The Clearing House Interbank Payments System (CHIPS) serves as the primary, privately owned clearing and settlement engine for large-value domestic and international USD transactions, facilitating approximately 95\% of global correspondent banking dollar liquidity. Unlike real-time gross settlement systems like Fedwire, CHIPS utilizes a sophisticated, multilateral continuous netting algorithm that matches and clears offsetting payments throughout the day, allowing participant banks to settle trillions of dollars in aggregate transactions using only a small fraction of actual funding reserves.
+      \begin{table}[H]
+        \centering
+        \begin{tabular}{p{2.5cm}>{\raggedright\arraybackslash}p{6.5cm}p{3.0cm}}
+          \hline
+          \textbf{Component} & \textbf{Functional Significance} & \textbf{Examples} \\ 
+          \hline
+          \textbf{Bank Code} & Unique identifier for the \textbf{primary financial institution} or corporate entity. Must consist entirely of alphabetical letters. & CHAS, CITI, KOEX, DEUT, BOFA, WFBI \\
+          \textbf{Country Code} & Denotes the \textbf{home nation} of the institution's primary operating license using \textbf{standard ISO 3166-1 alpha-2 codes}. & KR, US, CH, CN, FR, GB, JP \\
+          \textbf{Location Code} & Identifies the \textbf{specific city, state, or operational hub}. Can be \textbf{letters or digits}; if the second character is a `2', it typically designates a test or sandbox environment. & FF, NY, SE, 2L \\
+          \textbf{Branch Code} & \textbf{Optional modifier} identifying a precise physical branch or office. If absent, the standard 8-character code assumes a default primary office, often padded with `XXX'. & 500, XXX \\
+          \hline
+        \end{tabular}
+        \caption{Business identifier code components}
+        \label{tab:bic}
+      \end{table}
 
-  \end{core}
+    \end{core}
+
+    \begin{core}{Message Types}
+
+      Traditional SWIFT messages are structured as highly formatted text-based \textbf{Message Type (MT)} strings, parsed using a three-digit numerical sequence. The first digit---the hundreds place---categorizes the primary transaction sector or asset class involved in the message exchange (\textit{\autoref{tab:swift_mt}}). Sub-categories (\textit{the tens and units places}) further drill down into the specific function of the message, such as initiation, confirmation, or structural notifications.
+
+      However, the contemporary financial infrastructure is transitioning to the XML-based \textbf{ISO 20022 (MX) format} (\textit{\autoref{core:iso_tt}}), allowing for richer data blocks, granular tracking, and more robust compliance screening.
+
+      \begin{table}[H]
+        \centering
+        \begin{tabular}{cll}
+          \hline
+          \textbf{Category} & \textbf{Functional Area} \\
+          \hline
+          \textbf{MT 1XX} & Customer Payments \& Cheques \\
+          \textbf{MT 2XX} & Financial Institution Transfers \\
+          \textbf{MT 3XX} & Treasury Markets (FX \& Derivatives) \\
+          \textbf{MT 4XX} & Collection \& Cash Letters \\
+          \textbf{MT 5XX} & Securities Markets \\
+          \textbf{MT 6XX} & Precious Metals \& Commodities \\
+          \textbf{MT 7XX} & Documentary Credits \& Guarantees \\
+          \textbf{MT 8XX} & Travellers Cheques \\
+          \textbf{MT 9XX} & Cash Management \& Status \\
+          \hline
+        \end{tabular}
+        \caption{Message type broad categories}
+        \label{tab:swift_mt}
+      \end{table}
+
+      Among these message types, a small subset is of particular relevance to retail customer actions.
+
+      \begin{enumerate}
+
+        \item \textbf{MT103: Single Customer Credit Transfer}
+
+        Used to instruct the transfer of funds from a customer's account at one bank to a beneficiary's account at another, typically for cross-border retail and commercial payments; it remains the most widely used SWIFT message type for individual credit transfers.
+
+        \item \textbf{MT110: Advice of Cheque}
+
+        Sent by the drawer bank to the drawee bank to notify it that a cheque has been issued, providing details such as the cheque number, amount, and payee, allowing the receiving bank to verify the instrument upon presentation.
+
+        \item \textbf{MT101: Request for Transfer} % change to MT110
+
+        Allows a corporate or retail customer to instruct their bank to execute one or more payment transfers on their behalf, often used for centralized treasury operations or bulk payment requests.
+
+      \end{enumerate}
+
+    \end{core}
+
+  \subsection{ISO 20022}
+
+    \begin{core}[label=core:iso_tt]{ISO 20022}
+
+      ISO 20022 represents the modern global standard for financial messaging, transitioning from legacy, character-restricted SWIFT MT text lines to rich, structural XML-based MX schemas. By introducing highly structured, granular, and uniform data elements, ISO 20022 dramatically reduces false positives in automated compliance screening, allows for the transmission of extensive remittance information within a single payment, and enables cross-border interoperability among various real-time gross settlement (RTGS) systems worldwide.
+
+    \end{core}
+
+  \subsection{Clearing Houses}
+
+    \begin{core}{CHIPS}
+
+      % CHIPS (Clearing House Interbank Payments System)
+
+      The Clearing House Interbank Payments System (CHIPS) serves as the primary, privately owned clearing and settlement engine for large-value domestic and international USD transactions, facilitating approximately 95\% of global correspondent banking dollar liquidity. Unlike real-time gross settlement systems like Fedwire, CHIPS utilizes a sophisticated, multilateral continuous netting algorithm that matches and clears offsetting payments throughout the day, allowing participant banks to settle trillions of dollars in aggregate transactions using only a small fraction of actual funding reserves.
+
+    \end{core}
 
 \section{Correspondent Banking Mechanics}
 
