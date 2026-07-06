@@ -568,7 +568,7 @@
               }
             }{$20 >$ pK$_\text{a} > 5$}
           }
-        }{Amine like α to carbonyl}{fig:ph8a}{0.9}
+        }{Amine like α to carbonyl}{fig:ph8a}{0.8}
 
         The above molecule has a higher pK$_\text{a}$ than a carboxylic acid (pK$_\text{a} = 5$), since nitrogen is less electronegative than oxygen, but a lower pK$_\text{a}$ than a proton α to a carbonyl group (pK$_\text{a} = 20$), since nitrogen is more electronegative than carbon.
 
@@ -592,9 +592,9 @@
               }
             }{$20 >$ pK$_\text{a} > 10$}
           }
-        }{α to carbonyl group and allylic}{fig:ph9a}{0.9}
+        }{α to carbonyl group and allylic}{fig:ph9a}{0.8}
 
-        Here, the above molecule has a higher pK$_\text{a}$ than a proton α to two carbonyl groups (pK$_\text{a} = 10$), but a lower pK$_\text{a}$ than one α to a single carbonyl group (pK$_\text{a} = 20$), since it is additionally allylic.
+        Here, The above molecule has a higher pK$_\text{a}$ than a proton α to two carbonyl groups (pK$_\text{a} = 10$), but a lower pK$_\text{a}$ than one α to a single carbonyl group (pK$_\text{a} = 20$), since it is additionally allylic.
 
       \end{enumerate}
 
@@ -604,246 +604,579 @@
 
     \begin{core}{Allylic Carbons}
 
-      Allylic carbons refere to sp3 hybridized carbons attached to a CC double bond. An allylic H refers to the those that are attached to allylic carbons.
+      \textbf{Allylic carbons} are sp$^3$ hybridized carbons directly attached to a C=C double bond, and an \textbf{allylic hydrogen} is one bonded to such a carbon.
 
       \reactionfig{
         \scheme{
           \chemfig{
             [:0]
+            -[:-30]\textcolor{Red}{C}
+            (-[:-90]\textcolor{Blue}{H})
+            (-[:150]\textcolor{Blue}{H})
+            (-[:-150]\textcolor{Blue}{H})
             -[:30]
+            =[:-30]
+            -[:30]\textcolor{Red}{C}
+            (-[:-30]\textcolor{Blue}{H})
+            (-[:90]\textcolor{Blue}{H})
+            (-[:30]\textcolor{Blue}{H})
           }
         }
-      }{manual figure}{fig:ph10a}{0.9}
+      }{Allylic carbons (\textit{red}) and allylic hydrogens (\textit{blue})}{fig:ph10a}{0.8}
 
     \end{core}
 
     \begin{core}{Allylic System Resonance}
 
-      An allylic hydrogen is even more acidic than an alkyne hydrogen due to resonance spreading out negative charge within the resulting allylic anion (making it a weaker base as a consequence).
+      An allylic hydrogen exhibits greater acidity than an both alkane and alkyne hydrogens, as resonance delocalizes the negative charge across the resulting allylic anion, thereby rendering the anion a comparatively weaker base.
 
-      \myfig{0.75}{conj_sys_figures/allylic_resonance}{combine with also the reaction below of resonance at the bottom of the same column L2.1 in the rough notes}{fig:ph11}
-
+      \vspace{-1cm}
       \doublereactionfig{
         \scheme{
-          \chemfig{
-            [:0]
-            -[:30]
+          \chemname{
+            \raisebox{-2cm}{
+              \chemfig{
+                [:0]
+                -[:30]
+                -[:-30]@{carbon1}
+                -[@{bond1}:30]@{hydrogen1}H
+              }
+            }
+          }{pK$_\text{a} \approx 50$}
+          \raisebox{-2cm}{
+            \+
+            \chemfig[atom sep=2em]{
+              [:0]@{nitrogen}\ncharge{90}{N}
+              (
+              -[:-30]
+              (-[:-70])
+              -[:10]
+              )
+              (
+              -[:-150]
+              (-[:-110])
+              -[:-190]
+              )
+            }
           }
-          \+
-          \chemfig{
-            [:0]
-            -[:30]
+          \qquad \qquad
+          \arrow{<<->[][$\text{K}_\text{eq} = 10^{(35-50)}$]}
+          \qquad
+          \chemname{
+            \raisebox{-2cm}{
+              \chemfig[atom sep=2em]{
+                [:0]N
+                (-[:90]H)
+                (
+                -[:-30]
+                (-[:-70])
+                -[:10]
+                )
+                (
+                -[:-150]
+                (-[:-110])
+                -[:-190]
+                )
+              }
+            }
+          }{pK$_\text{a} \approx 35$}
+          \raisebox{-2cm}{
+            \+
+            \chemfig{
+              [:0]
+              -[:30]
+              -[:-30]\ncharge{45}{}
+            }
           }
-          \arrow{<<->[][placeholder]}
-          \chemfig{
-            [:0]
-            -[:30]
-          }
-          \+
-          \chemfig{
-            [:0]
-            -[:30]
-          }
+        }
+        \chemmovearrow{
+          \reactionfigarrow{bond1}{-45}{carbon1}{-90}{Red}
+          \reactionfigarrow{nitrogen}{135}{hydrogen1}{45}{Red}
         }
       }{
         \scheme{
-          \chemfig{
-            [:0]
-            -[:30]
+          \chemname{
+            \raisebox{-2cm}{
+              \chemfig{
+                [:0]
+                =[:30]
+                -[:-30]@{carbon1}
+                -[@{bond1}:30]@{hydrogen1}H
+              }
+            }
+          }{pK$_\text{a} \approx 40$}
+          \raisebox{-2cm}{
+            \+
+            \chemfig[atom sep=2em]{
+              [:0]@{nitrogen}\ncharge{90}{N}
+              (
+              -[:-30]
+              (-[:-70])
+              -[:10]
+              )
+              (
+              -[:-150]
+              (-[:-110])
+              -[:-190]
+              )
+            }
           }
-          \+
-          \chemfig{
-            [:0]
-            -[:30]
+          \qquad \qquad
+          \arrow{<<->[][$\text{K}_\text{eq} = 10^{(35-40)}$]}
+          \qquad
+          \chemname{
+            \raisebox{-2cm}{
+              \chemfig[atom sep=2em]{
+                [:0]N
+                (-[:90]H)
+                (
+                -[:-30]
+                (-[:-70])
+                -[:10]
+                )
+                (
+                -[:-150]
+                (-[:-110])
+                -[:-190]
+                )
+              }
+            }
+          }{pK$_\text{a} \approx 35$}
+          \raisebox{-2cm}{
+            \+
+            \chemfig{
+              [:0]@{carbon2}
+              =[@{dbond}:30]
+              -[@{bond2}:-30]@{negative}\ncharge{-90}{}
+            }
           }
-          \arrow{<<->[][placeholder]}
+          \arrow{<->}
           \chemfig{
-            [:0]
+            [:0]\ncharge{-90}{}
             -[:30]
-          }
-          \+
-          \chemfig{
-            [:0]
-            -[:30]
+            =[:-30]
           }
         }
-      }{caption}{fig:ph11a}{0.9}
+        \chemmovearrow{
+          \reactionfigarrow{bond1}{-45}{carbon1}{-90}{Red}
+          \reactionfigarrow{nitrogen}{135}{hydrogen1}{45}{Red}
+          \reactionfigarrow{negative}{30}{bond2}{60}{Red}
+          \reactionfigarrow{dbond}{120}{carbon2}{150}{Red}
+        }
+      }{K$_\text{eq}$s of alkane (\textit{top}) vs allylic (\textit{bottom}) hydrogens; \textit{the K$_\text{eq}$ of the allylic scenario is much more forward favoring because it is abel to better stablize the negative anion state charge}}{fig:ph11a}{0.72}
+      \vspace{-0.5cm}
 
-      Just as how negative charge (\textit{filled octets}) is stabilized by resonance in allylic structures, radicals and positive charge (\textit{unfulled octets}) are also stabilized by the same mechanism.
-
-      \myfig{0.5}{conj_sys_figures/allylic_res}{}{fig:ph12}
+      Just as negative charge (\textit{filled octets}) is stabilized by resonance within allylic structures, radicals and positive charge (\textit{unfilled octets}) are stabilized through this same resonance mechanism.
 
       \triplereactionfig{
         \scheme{
           \chemfig{
-            [:0]
-            -[:30]
+            [:0]@{carbon2}
+            =[@{dbond}:30]
+            -[@{bond2}:-30]@{negative}\ncharge{-90}{}
           }
           \arrow{<->}
           \chemfig{
-            [:0]
+            [:0]\ncharge{-90}{}
             -[:30]
+            =[:-30]
           }
+        }
+        \chemmovearrow{
+          \reactionfigarrow{negative}{30}{bond2}{60}{Red}
+          \reactionfigarrow{dbond}{120}{carbon2}{150}{Red}
+        }
+      }{
+        \scheme{
+          \chemfig{
+            [:0]@{carbon2}
+            =[@{dbond}:30]
+            -[@{bond2}:-30]@{negative}\charge{-90:4pt=\LARGE$\cdot$}{}
+          }
+          \arrow{<->}
+          \chemfig{
+            [:0]\charge{-90:4pt=\LARGE$\cdot$}{}
+            -[:30]
+            =[:-30]
+          }
+        }
+        \chemmovearrow{
+          \reactionfigarrow{negative}{30}{bond2}{60}{Green}
+          \reactionfigarrow{dbond}{120}{carbon2}{150}{Green}
+          \reactionfigarrow{dbond}{90}{bond2}{60}{Green}
         }
       }{
         \scheme{
           \chemfig{
             [:0]
-            -[:30]
+            =[@{dbond}:30]
+            -[@{bond2}:-30]\pcharge{-90}{}
           }
           \arrow{<->}
           \chemfig{
-            [:0]
+            [:0]\pcharge{-90}{}
             -[:30]
+            =[:-30]
           }
         }
-      }{
-        \scheme{
-          \chemfig{
-            [:0]
-            -[:30]
-          }
-          \arrow{<->}
-          \chemfig{
-            [:0]
-            -[:30]
-          }
+        \chemmovearrow{
+          \reactionfigarrow{dbond}{120}{bond2}{60}{Red}
         }
-      }{caption}{fig:ph12a}{0.9}
+      }{Filled octets (\textit{top}), radicals (\textit{middle}), and unfilled octets (\textit{bottom})}{fig:ph12a}{0.72}
+      \vspace{-0.5cm}
 
-      The important thing to know is that if a lone pair can do resonance, it is in the p orbital. % emphasize this point more
+      Critically, \textbf{any lone pair capable of participating in resonance must reside in a p orbital}.
 
     \end{core}
 
     \begin{core}{Allylic System Bond Dissociation Energy}
 
-      As a consequence of resonance induced stabilization, the bond dissociation energies of different hydrogens within an alkene follow a predictable pattern.
+      As a consequence of resonance-induced stabilization, the bond dissociation energies of distinct hydrogens within an alkene follow a predictable trend.
 
-      \myfig{0.75}{conj_sys_figures/allylic_bonddis}{indicate that the radical in the bottom reaction is able to perform resonance}{fig:ph13}
-
+      \vspace{-0.15cm}
       \triplereactionfig{
         \scheme{
-          \chemfig{
+          \text{(1$^\circ$ CH)}
+          \qquad
+          \chemfig[atom sep=2em]{
             [:0]
+            =[:30]
+            -[:-30]
             -[:30]
+            (-[:90])
+            -[:-30]@{carbon}
+            -[@{bond}:30,,,,Orange]@{hydrogen}\textcolor{Orange}{H}
           }
-          \arrow{->[placeholder]}
-          \chemfig{
+          \qquad \qquad
+          \arrow{->[$+101$]}
+          \qquad
+          \chemfig[atom sep=2em]{
             [:0]
+            =[:30]
+            -[:-30]
             -[:30]
+            (-[:90])
+            -[:-30]\textcolor{Orange}{\charge{-90:4pt=\LARGE$\cdot$}{}}
           }
           \+
           \chemfig{
-            [:0]
-            -[:30]
+            [:0]\textcolor{Orange}{H\cdot}
           }
+        }
+        \chemmovearrow{
+          \reactionfigarrow{bond}{-45}{hydrogen}{-30}{Green}
+          \reactionfigarrow{bond}{90}{carbon}{-150}{Green}
         }
       }{
         \scheme{
-          \chemfig{
+          \text{(3$^\circ$ CH)}
+          \qquad
+          \chemfig[atom sep=2em]{
             [:0]
-            -[:30]
+            =[:30]
+            -[:-30]
+            -[:30]@{carbon}
+            (-[:90])
+            (-[@{bond}:30,,,,Orange]@{hydrogen}\textcolor{Orange}{H})
+            -[:-30]
           }
-          \arrow{->[placeholder]}
-          \chemfig{
+          \qquad \qquad
+          \arrow{->[$+96.5$]}
+          \qquad
+          \chemfig[atom sep=2em]{
             [:0]
-            -[:30]
+            =[:30]
+            -[:-30]
+            -[:30]\textcolor{Orange}{\charge{-90:4pt=\LARGE$\cdot$}{}}
+            (-[:90])
+            -[:-30]
           }
           \+
           \chemfig{
-            [:0]
-            -[:30]
+            [:0]\textcolor{Orange}{H\cdot}
           }
+        }
+        \chemmovearrow{
+          \reactionfigarrow{bond}{100}{hydrogen}{80}{Green}
+          \reactionfigarrow{bond}{-60}{carbon}{-90}{Green}
         }
       }{
         \scheme{
-          \chemfig{
+          \text{(2$^\circ$ CH \& Allylic)}
+          \qquad
+          \chemfig[atom sep=2em]{
             [:0]
+            =[:30]
+            -[:-30]@{carbon}
+            (-[@{bond}:-90,,,,Orange]@{hydrogen}\textcolor{Orange}{H})
             -[:30]
+            (-[:90])
+            -[:-30]
           }
-          \arrow{->[placeholder]}
-          \chemfig{
+          \qquad \qquad
+          \arrow{->[$+87$]}
+          \qquad
+          \chemfig[atom sep=2em]{
             [:0]
+            =[:30]
+            -[:-30]\textcolor{Orange}{\charge{90:4pt=\LARGE$\cdot$}{}}
             -[:30]
+            (-[:90])
+            -[:-30]
           }
           \+
           \chemfig{
-            [:0]
-            -[:30]
+            [:0]\textcolor{Orange}{H\cdot}
           }
         }
-      }{caption}{fig:ph13a}{0.9}
+        \chemmovearrow{
+          \reactionfigarrow{bond}{10}{hydrogen}{-10}{Green}
+          \reactionfigarrow{bond}{-170}{carbon}{120}{Green}
+        }
+      }{Primary (\textit{top}), tertiary (\textit{middle}), and secondary \& allylic (\textit{bottom}) hydrogen bond dissociation energies within the same alkene; \textit{secondary allylic hydrogen bond takes least energy to break due to resonance-induced stabilization}}{fig:ph13a}{0.72}
 
-      Above, the 3 $^\circ$ carbon radical is lower in energy than the 3 $^\circ$ carbon because of hyperocnjugation between the radical carbon and neighboring σ bonds. The allylic, on the other hand, although it receives less hypderconjugation as a 2 $^\circ$ carbon, it is able to performa resonance, making its bond dissociation consume the least amount of energy.
+      Above, the 3$^\circ$ carbon radical is lower in energy than the 1$^\circ$ carbon radical as a result of hyperconjugation between the radical carbon and neighboring $\sigma$ bonds. The allylic radical, by contrast, receives comparatively less hyperconjugative stabilization as a 2$^\circ$ carbon, yet is stabilized through resonance, causing its corresponding bond dissociation to require the least energy of the three.
 
-      \myfig{0.65}{conj_sys_figures/allylic_energydia}{}{fig:ph14}
+      \pgfig{
+        \draw[->] (0,0) -- (0,3.2);
+        \node[] at (-0.4,1.6) {$E$};
 
-      % \pgfig{
-      % }{caption}{fig:ph14a}{0.9}
+        % --- sp3 panel ---
+        \begin{scope}[xshift=1cm]
+          \draw[black] (0.2,2.5) -- (1.2,2.5);
+          \draw[black,->] (0.7,0.5) -- (0.7,2.4);
+          \node at (0.7,0.3) {1$^\circ$ rad};
+          \node at (0.3,1.45) {101};
+        \end{scope}
 
-      This leads to a chemical consequences that play large roles in practice. Take a look at the reaction below for exmaple.
+        % --- sp2 panel ---
+        \begin{scope}[xshift=3cm]
+          \draw[black] (0.2,2.0) -- (1.2,2.0);
+          \draw[black,->] (0.7,0.5) -- (0.7,1.9);
+          \node at (0.7,0.3) {3$^\circ$ rad};
+          \node at (0.3,1.2) {96.5};
+        \end{scope}
 
-      \myfig{0.85}{conj_sys_figures/allylic_reaction_example}{explain what is happening via caption}{fig:ph15}
+        % --- sp panel ---
+        \begin{scope}[xshift=5cm]
+          \draw[black] (0.2,1.5) -- (1.2,1.5);
+          \draw[black,->] (0.7,0.5) -- (0.7,1.4);
+          \node at (0.7,0.3) {2$^\circ$ allylic rad};
+          \node at (0.3,0.95) {87};
+        \end{scope}
+      }{Energy diagram of \autoref{fig:ph13a}}{fig:ph14a}{0.95}
+
+      This differential stabilization gives rise to chemical consequences that play a substantial role in practice, as illustrated by the reaction below.
 
       \doublereactionfig{
         \scheme{
           \chemfig{
             [:0]
             -[:30]
+            -[:-30]
+            -[@{bond}:30]@{ots}OTs
           }
           \+
           \chemfig{
-            [:0]
-            -[:30]
+            \ce{MeOH}
           }
-          \arrow{->[][]}
-          \chemfig{
-            [:0]
-            -[:30]
-          }
+          \arrow{->[MeOH][Δ]}
+          \text{No Reaction; \textit{\textcolor{Red}{primary carbocation generation}}}
+        }
+        \chemmovearrow{
+          \reactionfigarrow{bond}{-80}{ots}{-50}{dash pattern= on 2pt off 2pt,Red}
         }
       }{
-        \scheme{ % find out how to do downwards arrows and such
+        \scheme{
           \chemfig{
             [:0]
-            -[:30]
+            =[:30]
+            -[:-30]
+            -[@{bond}:30]@{ots}OTs
           }
+          \+
+          \chemfig{
+            \ce{MeOH}
+          }
+          \arrow(aa--bb){->[MeOH][Δ]}
+          \chemfig{
+            [:0]
+            =[:30]
+            -[:-30]
+            -[:30]OMe
+          }
+          \+
+          \ce{TsO-}
+          \+
+          \ce{MeOH2+}
+          \arrow(@aa--cc)[-90,1.2]
+          \chemfig[atom sep=2em]{
+            [:0]
+            =[:30]
+            -[:-30]@{positive}\pcharge{-90}{}
+          }
+          \+
+          \ce{TsO-}
+          \arrow(@cc--dd){->[
+            \chemfig{
+              @{meoh}\ce{MeOH}
+            }
+          ][]}[0]
+          \chemfig[atom sep=2em]{
+            [:0]
+            =[:30]
+            -[:-30]
+            -[:30]@{oxygen}\pcharge{-90}{O}
+            (-[@{bond2}:90]@{hydrogen}H)
+            -[:-30]Me
+          }
+          \+
+          \chemfig{
+            @{meoh2}\ce{MeOH}
+          }
+          \arrow(@dd--@bb)
         }
-      }{caption}{fig:ph15a}{0.9}
+        \chemmovearrow{
+          \reactionfigarrow{bond}{-80}{ots}{-50}{Red}
+          \reactionfigarrow{meoh}{150}{positive}{60}{Red}
+          \reactionfigarrow{meoh2}{100}{hydrogen}{30}{Red}
+          \reactionfigarrow{bond2}{15}{oxygen}{0}{Red}
+        }
+      }{Non-allylic (\textit{top}) vs allylic (\textit{bottom}) leaving group primary carbocation formation viability; \textit{a primary carbocation can form in the bottom reaction because the cation is additionally allylic}; \textit{Ts stands for a tosyl group, a common chemical group used in organic sythesis}}{fig:ph15a}{0.9}
 
     \end{core}
 
     \begin{core}{Allylic System Molecular Orbital Structure}
 
-      The relevant molecular orbitals of allylic structures are the p orbitals, which have the following energy levels in the comparative context of sp and sp2 hybridized carbons as shown below. Nitice that the energy level of sp2 orbitals sits higher than that of sp orbitals.
+      The molecular orbitals \textbf{relevant to allylic structures are the p orbitals}, whose energy levels can be compared in the context of sp- and sp$^2$-hybridized carbons, as shown below. Notably, the energy level of sp$^2$ orbitals lies higher than that of sp orbitals.
 
-      \myfig{0.7}{conj_sys_figures/sp_spt}{}{fig:ph16}
+      \pgfig{
+        \node at (0.6,2.5) {sp};
+        \draw[->] (0,0) -- (0,2.2);
+        \node at (-0.4,1.1) {$E$};
 
-      % \pgfig{
-      % }{caption}{fig:ph16a}{0.9}
+        \draw (0.2,1.7) -- (0.5,1.7);
+        \draw (0.6,1.7) -- (0.9,1.7);
+        \node at (1.2,1.7) {p};
 
-      The orbital structure on a skeletal diagram backbone would look like the following.
+        \draw (0.2,0.6) -- (0.5,0.6);
+        \draw (0.6,0.6) -- (0.9,0.6);
+        \node at (1.2,0.6) {sp};
+        \draw[dashed] (1.6,0.6) -- (6.3,0.6);
 
-      \myfig{0.7}{conj_sys_figures/orbital_skeleton}{σ bond orbitals overlap along internuclear axis (handshake) whereas π bond orbitals overlap above and below internuclear axes. All cabons are sp2 hybridized}{fig:ph17}
+        \begin{scope}[xshift=5cm]
+          \node at (0.6,2.5) {sp$^2$};
+          \draw[->] (0,0) -- (0,2.2);
+          \node at (-0.4,1.1) {$E$};
 
-      % \pgfig{
-      % }{caption}{fig:ph17a}{0.9}
+          \draw (0.2,1.7) -- (0.5,1.7);
+          \node at (0.8,1.7) {p};
 
-      In the context of the entire allylic p orbital system, the energy diagram presents a unique 3 level pattern, going from bonding to non-bonding to anti-bonding.
+          \draw (0.2,1.0) -- (0.5,1.0);
+          \draw (0.6,1.0) -- (0.9,1.0);
+          \draw (1.0,1.0) -- (1.3,1.0);
+          \node at (1.6,1.0) {sp$^2$};
+        \end{scope}
+      }{Orbital energy level diagrams for sp and sp$^2$ hybridization}{fig:ph16a}{0.95}
 
-      \myfig{0.75}{conj_sys_figures/allylic_orbital}{}{fig:ph18}
+      Superimposed on a skeletal diagram backbone, this orbital structure appears as follows.
 
-      % \pgfig{
-      % }{caption}{fig:ph18a}{0.9}
+      \pgfig{
+        \node (mol) {
+          \chemfig{
+            [:0]
+            (<:[:150]H)
+            (<[:-120]H)
+            -[:15]
+            -[:-15]\charge{-20:8pt=$\scriptstyle\ominus$}{}\charge{75:20pt=\:}{}
+            (<:[:30]H)
+            (<[:-60]H)
+          }
+        };
 
-      The resulting HOMO-LUMOs of the allylic anion, radical, and cation types are as a result different.
+        % middle
+        \draw[blue, rotate=0] (0,1.15) ellipse (0.2cm and 0.6cm);
+        \draw[blue, rotate=0] (0,-0.25) ellipse (0.2cm and 0.6cm);
 
-      \myfig{0.75}{conj_sys_figures/allylic_homolumo}{}{fig:ph19}
+        % right
+        \draw[blue, rotate=-15] (0.95,1.15) ellipse (0.2cm and 0.6cm);
+        \draw[blue, rotate=-15] (0.95,-0.25) ellipse (0.2cm and 0.6cm);
 
-      % \pgfig{
-      % }{caption}{fig:ph19a}{0.9}
+        % left
+        \draw[blue, rotate=15] (-0.95,1.15) ellipse (0.2cm and 0.6cm);
+        \draw[blue, rotate=15] (-0.95,-0.25) ellipse (0.2cm and 0.6cm);
+      }{σ bond orbitals overlap along internuclear axis (handshake) whereas π bond orbitals overlap above and below internuclear axes. All cabons are sp2 hybridized}{fig:ph17a}{0.9}
 
-      This is particularly relevent in the context of the \textbf{frontier MO theory}, which states that the nucleophile HOMO interacts with the electrophilic LUMO.
+      Considered as a whole, the allylic p-orbital system produces an energy diagram with a distinctive three-level pattern, progressing from bonding to non-bonding to anti-bonding.
+
+      \myfig{0.55}{conj_sys_figures/allylic_orbital}{Energy diagram of allylic p-orbital system}{fig:ph18}
+
+      Consequently, the HOMO and LUMO assignments differ among the allylic anion, radical, and cation.
+
+      \pgfig{
+        % ================= Energy axis =================
+        \draw[thick,-{Latex}] (-1.5,-0.5) -- (-1.5,4.5) node[above]{}; 
+        \node[rotate=0] at (-2.1,2) {$E$};
+        % ================= Column 1: Allyl anion (4 e-) =================
+        \begin{scope}[shift={(0,0)}]
+          % skeleton placeholder
+          \node at (0.6,4.3) {
+            \chemfig[atom sep=2em]{
+              [:0]
+              =[:30]
+              -[:-30]\ncharge{-90}{}
+            }
+          };
+          % pi levels (halved width: 0 to 0.6)
+          \draw[thick] (0,3) -- (0.6,3); \node[right] at (0.6,3) {π3};
+          \node[orange] at (1.6,3) {LUMO};
+          \draw[thick] (0,1.8) -- (0.6,1.8); \node[right] at (0.6,1.8) {π2};
+          \node[orange] at (1.6,1.8) {HOMO};
+          \draw[thick] (0,0.6) -- (0.6,0.6); \node[right] at (0.6,0.6) {π1};
+          % electrons
+          \draw[Blue,-{Latex}] (0.15,1.5) -- (0.15,2.1);
+          \draw[Blue,-{Latex}] (0.45,2.1) -- (0.45,1.5);
+          \draw[Blue,-{Latex}] (0.15,0.3) -- (0.15,0.9);
+          \draw[Blue,-{Latex}] (0.45,0.9) -- (0.45,0.3);
+        \end{scope}
+        % ================= Column 2: Allyl radical (3 e-) =================
+        \begin{scope}[shift={(4,0)}]
+          \node at (0.6,4.3) {
+            \chemfig[atom sep=2em]{
+              [:0]
+              =[:30]
+              -[:-30]\charge{-90:4pt=$\cdot$}{}
+            }
+          };
+          \draw[thick] (0,3) -- (0.6,3); \node[right] at (0.6,3) {π3};
+          \node[orange] at (1.6,3) {LUMO};
+          \draw[thick] (0,1.8) -- (0.6,1.8); \node[right] at (0.6,1.8) {π2};
+          \node[orange] at (1.6,1.8) {HOMO};
+          \draw[thick] (0,0.6) -- (0.6,0.6); \node[right] at (0.6,0.6) {π1};
+          \draw[Blue,-{Latex}] (0.3,1.5) -- (0.3,2.1);
+          \draw[Blue,-{Latex}] (0.15,0.3) -- (0.15,0.9);
+          \draw[Blue,-{Latex}] (0.45,0.9) -- (0.45,0.3);
+        \end{scope}
+        % ================= Column 3: Allyl cation (2 e-) =================
+        \begin{scope}[shift={(8,0)}]
+          \node at (0.6,4.3) {
+            \chemfig[atom sep=2em]{
+              [:0]
+              =[:30]
+              -[:-30]\pcharge{-90}{}
+            }
+          };
+          \draw[thick] (0,3) -- (0.6,3); \node[right] at (0.6,3) {π3};
+          \draw[thick] (0,1.8) -- (0.6,1.8); \node[right] at (0.6,1.8) {π2};
+          \node[orange] at (1.6,1.8) {LUMO};
+          \draw[thick] (0,0.6) -- (0.6,0.6); \node[right] at (0.6,0.6) {π1};
+          \node[orange] at (1.6,0.6) {HOMO};
+          \draw[Blue,-{Latex}] (0.15,0.3) -- (0.15,0.9);
+          \draw[Blue,-{Latex}] (0.45,0.9) -- (0.45,0.3);
+        \end{scope}
+      }{Molecular orbital diagrams for the allyl anion, radical, and cation, showing the filling of π1, π2, and π3 with 4, 3, and 2 π \ce{e^-}s respectively, along with HOMO LUMO assignments}{fig:ph20a}{0.9}
+
+      This distinction is particularly relevant in the context of \textbf{frontier molecular orbital theory}, which holds that the HOMO of a nucleophile interacts with the LUMO of an electrophile (\textit{or vice versa}) as explored in the context of diel alder reaction in UNCOMMENT AT END %\autoref{core:da_orbitals}.
 
     \end{core}
 
@@ -1529,7 +1862,7 @@
 
 %   \end{core}
 
-%   \begin{core}{Orbitals of Diel Alder Reactions}
+%   \begin{core}[label=core:da_orbitals]{Orbitals of Diel Alder Reactions}
 
 %     In diel alder reactions, π systems approach each other in a vertical manner to allows π systems to generate new σ overlaps
 
