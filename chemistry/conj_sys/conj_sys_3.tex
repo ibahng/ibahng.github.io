@@ -1,0 +1,2006 @@
+% \section{Aromaticity \& Aromatic Substitution} % lessons 6-9
+
+%   \subsection{Aromatic Compounds}
+
+%     \begin{core}{Aromatic Compounds}
+
+%       Name originates from these compounds' nice scent, but now it is a strictly structural definition covered in \autoref{core:aromaticity_rules}.
+
+%       While not limited to the base benzene structure, the extent of these notes will mostly refer to base benzene compounds such as the following.
+
+%       \myfig{0.65}{conj_sys_figures/aromatic_rings}{}{fig:ph57}
+
+%       \doublereactionfig{
+%         \scheme{
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \qquad \qquad
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \qquad \qquad
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \qquad \qquad
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%         }
+%       }{
+%         \scheme{
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \qquad \qquad
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \qquad \qquad
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%         }
+%       }{caption}{fig:ph57a}{0.9}
+
+%     \end{core}
+
+%     \begin{core}{Aromatic Compound Stereochemistry}
+
+%       Additional substituent positioning to the the root aromatic compounds shown in FIG REFERENCE can be specified through the ortho, meta, and para keywords.
+
+%       \myfig{0.3}{conj_sys_figures/ring_relation}{}{fig:ph58}
+
+%       \reactionfig{
+%         \scheme{
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%         }
+%       }{caption}{fig:ph58a}{0.9}
+
+%       The compound naming scheme follows a structure of \textit{realtion-sub-root}. Take a look at the following examples.
+
+%       \myfig{0.5}{conj_sys_figures/ring_relation_example}{dont for get to add the three other examples}{fig:ph59}
+
+%       \reactionfig{
+%         \scheme{
+%           \chemname{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }{placholder}
+%           \qquad \qquad
+%           \chemname{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }{placholder}
+%           \qquad \qquad
+%           \chemname{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }{placholder}
+%           \qquad \qquad
+%           \chemname{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }{placholder}
+%           \qquad \qquad
+%           \chemname{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }{placholder}
+%         }
+%       }{caption}{fig:ph59a}{0.9}
+
+%     \end{core}
+
+%     \begin{core}{Reactivity of Aromatic Compounds}
+
+%       Aromatic compounds are less reactive than predicted. For instance while a simple cyclohexene reacts with mCPBA to form a secondary ester ring, no reaction occurs when benzene and 3 mCPBA are mixed together.
+
+%       \myfig{0.5}{conj_sys_figures/ring_ur}{}{fig:ph60}
+
+%       \doublereactionfig{
+%         \scheme{
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \+
+%           \chemfig{
+%             \text{mCPBA}
+%           }
+%           \arrow{->}
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \+
+%           \chemfig{
+%             \text{mCBA}
+%           }
+%         }
+%       }{
+%         \scheme{
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \+
+%           \chemfig{
+%             \text{mCPBA}
+%           }
+%           \arrow{->}
+%           \chemfig{
+%             \text{No Reactions}
+%           }
+%         }
+%       }{caption}{fig:ph60a}{0.9}
+
+%       Similarly, a portion of the predicted energy drop during the hydrogenation of benzene is eliminated due to aromatic stabilization.
+
+%       \myfig{0.5}{conj_sys_figures/ring_stable}{}{fig:ph61}
+
+%       % \pgfig{
+%       % }{caption}{fig:ph61a}{0.9}
+
+%       In order to explain this, let's look at a top down view of the benzene molecular orbital diagram.
+
+%       \myfig{0.5}{conj_sys_figures/benzene_frost}{}{fig:ph62}
+
+%       % \pgfig{
+%       % }{caption}{fig:ph62a}{0.9}
+
+%       explaination % take a look at lecture recording
+
+%     \end{core}
+
+%     \begin{core}{Aromatic Compound Molecular Diagrams}
+
+%       The \textbf{Frost Diagram} is a method to quickly predict π molecular orbital energy levels for a cyclic conjugated system, following the following steps.
+
+%       \begin{enumerate}[label=(\arabic*)]
+
+%         \item Compound must have acyclic array of p orbitals 
+
+%         \item Draw shape pointed down
+
+%         \item Draw a circle around the shape 
+
+%         \item Intersections are energy levels
+
+%         \item Middle of circle is nonbonding
+
+%         \item Add \ce{e^-}s
+
+%       \end{enumerate}
+
+%       Here are the respective orbital digram examples for a pentene anion and a heptene cation. Benzene has already been shown in FIG REFERENCE ABOVE.
+
+%       \begin{enumerate}
+
+%         \item \textbf{Pentene Anion}
+
+%         \myfig{0.5}{conj_sys_figures/pentene_frost}{}{fig:ph63}
+
+%         % \pgfig{
+%         % }{caption}{fig:ph63a}{0.9}
+
+%         \item \textbf{Heptene Cation}
+
+%         \myfig{0.5}{conj_sys_figures/heptene_frost}{}{fig:ph64}
+
+%         % \pgfig{
+%         % }{caption}{fig:ph64a}{0.9}
+
+%       \end{enumerate}
+
+%     \end{core}
+
+%     \begin{core}[label=core:aromaticity_rules]{Aromaticity Rules}
+
+%       In order to a compound to be considered aromatic, it must follow a strict set of rules.
+
+%       \begin{enumerate}[label=(\arabic*)]
+
+%         \item Cyclic array of p orbitals
+
+%         \item \ce{e^-} count in cyclic array fulfills the equation of $4n+2$, where $n$ is an integer (0, 1, 2, 3, 4, \ldots).
+
+%         \textit{An \ce{e^-} count that fulfills the equation of $4n$ where $n$ is an integer is much more reactive than predicted and is termed \textbf{anti-aromatic}}
+
+%       \end{enumerate}
+
+%       If the above criteria are not met, the compound is considered \textbf{nonaromatic}, such as the cyclohexene shown below.
+
+%       \myfig{0.5}{conj_sys_figures/nonaromatic_cyclohexene}{}{fig:ph65}
+
+%       \reactionfig{
+%         \scheme{
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%         }
+%       }{caption}{fig:ph65a}{0.9}
+
+%       As practice, take a look at the follow two examples.
+
+%       \begin{enumerate}
+
+%         \item \textbf{Pentene Anion} 
+
+%         \myfig{0.5}{conj_sys_figures/pentene_anion}{}{fig:ph66}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph66a}{0.9}
+
+%         This is a cyclic array of p orbitals and the \ce{e^-} count is 6, which fulfills the $4n+2$ expression. Thus this compound is \textbf{considered aromatic}.
+
+%         \item \textbf{Pentene Cation}
+
+%         \myfig{0.5}{conj_sys_figures/pentene_cation}{}{fig:ph67}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph67a}{0.9}
+
+%         This compound is also a cyclic array of \ce{e^-}s but its electron count is 4 which does not fulfill the expression $4n+2$ but rather $4n$. Thus this compound is considered \textbf{anti-aromatic}. 
+
+%         Notice that the corresponding molecular orbital diagram results in two unpair \ce{e^-}s, making it reactive.
+
+%         % \pgfig{
+%         % }{energy diagram in previous rough figure}{fig:ph68a}{0.9}
+
+%       \end{enumerate}
+
+%     \end{core}
+
+%     \begin{core}{Aromatic Contributors}
+
+%       An \textbf{aromatic contributor} refers to a resonance structure of a molecule that possesses a fully conjugated, cyclic, planar π system satisfying the $4n+2$ π \ce{e^-} count, even if the dominant or lowest-energy Lewis structure doesn't immediately look aromatic. Take the following molecule for instance.
+
+%       \myfig{0.5}{conj_sys_figures/aromatic_contributor}{figure of the base non aromatic state to the left and the contributer state to the right}{fig:ph69}
+
+%       \reactionfig{
+%         \scheme{
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \arrow{<->}
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%         }
+%       }{caption}{fig:ph69a}{0.9}
+
+%       Notice that while the base state is nonaromatic by definition because the conjugated π orbtial system is not cyclic, an alternative state accessed through resonance is aromatic, making it an aromatic contributor.
+
+%     \end{core}
+
+%   \subsection{Electrophilic Aromatic Substitution}
+%     \label{sec:eas}
+
+%     % take a closer look at the notes at the beginning of lecture 7
+
+%     \begin{core}[label=core:eas_general]{Electrophilic Aromatic Substitution}
+
+%       \textbf{Electrophilic aromatic substitution (EAS)} refers to a reaction wherein an aromatic ring acts as a nucleophile. This reaction type follows the following general mechanism.
+
+%       \myfig{0.5}{conj_sys_figures/eas_general}{}{fig:ph70}
+
+%       \reactionfig{
+%         \scheme{
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \arrow{->}
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \qquad
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \arrow{->}
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \arrow{->}
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \+
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \+
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%         }
+%       }{caption}{fig:ph70a}{0.9}
+
+%     \end{core}
+
+%     \subsubsection{Reaction Types}
+%       \label{sec:eas_types}
+
+%       \begin{core}[label=core:eas_halogenation]{Halogenation}
+
+%         \textbf{EAS halogenation} effectively attaches a single halogen to an aromatic ring, generating the corresponding hydrohalogen as a byproduct. The general mechanism utilizes a \textbf{Lewis acid} (\textit{any chemical species capable of accepting a pair of electrons}) as shown below.
+
+%         \myfig{0.5}{conj_sys_figures/eas_halogenation_general}{}{fig:ph71}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \qquad \qquad
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph71a}{0.9}
+
+%         Analogously, here are examples showcasing chlorination and bromination of benzene.
+
+%         \begin{enumerate}
+
+%           \item \textbf{Chlorination of Benzene} 
+
+%           \myfig{0.5}{conj_sys_figures/eas_chlorination}{}{fig:ph72}
+
+%           \doublereactionfig{
+%             \scheme{
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \+
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \arrow{->}
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \arrow{->}
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \+
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%             }
+%           }{
+%             \scheme{
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \+
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \arrow{->[placeholder][]}
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \+
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \arrow{->}
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \+
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%             }
+%           }{caption}{fig:ph72a}{0.9}
+
+%           \item \textbf{Bromination of Benzene} 
+
+%           \myfig{0.5}{conj_sys_figures/eas_bromination}{}{fig:ph73}
+
+%           \doublereactionfig{
+%             \scheme{
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \+
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \arrow{->}
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \arrow{->}
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \+
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%             }
+%           }{
+%             \scheme{
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \+
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \arrow{->[placeholder][]}
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \+
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \arrow{->}
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \+
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%             }
+%           }{caption}{fig:ph73a}{0.9}
+
+%         \end{enumerate}
+
+%       \end{core}
+
+%       \begin{core}{Nitration}
+
+%         \textbf{Nitration} effectively attaches an \ce{NO2} nitro group onto an aromatic ring, acting primarily as a synthetic stepping stone in practice. First, let's look at the generation of an \ce{NO2+} electrophile through the exposure of nitric acid to sulfuric acid.
+
+%         \myfig{0.8}{conj_sys_figures/eas_nitration_one}{}{fig:ph74}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph74a}{0.9}
+
+%         With this in mind, the general nitration mechanism to a benzene follows the outline reaction mapped out in \autoref{core:eas_general}.
+
+%         \myfig{0.8}{conj_sys_figures/eas_nitration_two}{}{fig:ph75}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph75a}{0.9}
+
+%       \end{core}
+
+%       \begin{core}{Sulfonation}
+
+%         \textbf{Sulfonation} entails the attachment of a \ce{SO3H} group onto an aromatic ring. The first step is a reaction between two \ce{H2SO4} molecules, a consequence of one of the reagents being \textbf{fumming \ce{H2SO4}}.
+
+%         \myfig{0.8}{conj_sys_figures/fumming_sa}{}{fig:ph76}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph76a}{0.9}
+
+%         Then follows the same general EAS reaction mechanism covered in \autoref{core:eas_general}.
+
+%         \myfig{0.8}{conj_sys_figures/sulfonation}{}{fig:ph77}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->[][]}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph77a}{0.9}
+
+%       \end{core}
+
+%       \begin{core}[label=core:alkylation]{Alkylation}
+
+%         \textbf{Alkylation} is the process of adding an alkyl group onto an aromatic structure. In order for an alkane to become electrophilic, it must undergo a prepatory conversion to a carbocation state through the following reaction.
+
+%         \begin{enumerate}
+
+%           \item \textbf{placeholder} 
+
+%           \myfig{0.8}{conj_sys_figures/ak_1}{}{fig:ph78}
+
+%           \reactionfig{
+%             \scheme{
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \+
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \arrow{->}
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \arrow{->}
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \+
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%             }
+%           }{caption}{fig:ph78a}{0.9}
+
+%           This reaction is similar to the initial reaction shown in the chlorination pathway within \autoref{core:eas_halogenation}.
+
+%           \item \textbf{placeholder} 
+
+%           \myfig{0.8}{conj_sys_figures/ak_2}{}{fig:ph79}
+
+%           \reactionfig{
+%             \scheme{
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \+
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \arrow{->}
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \arrow{->}
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%             }
+%           }{caption}{fig:ph79a}{0.9}
+
+%           \item \textbf{placeholder} 
+
+%           \myfig{0.8}{conj_sys_figures/ak_3}{}{fig:ph80}
+
+%           \reactionfig{
+%             \scheme{
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \+
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \arrow{->}
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \arrow{->}
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \+
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%             }
+%           }{caption}{fig:ph80a}{0.9}
+
+%           \item \textbf{placeholder} 
+
+%           \myfig{0.8}{conj_sys_figures/ak_4}{}{fig:ph81}
+
+%           \reactionfig{
+%             \scheme{
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \+
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \arrow{->}
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%             }
+%           }{caption}{fig:ph81a}{0.9}
+
+%         \end{enumerate}
+
+%         In certain instances, carbocation rearrangements can occur when the directly resulting carbocation is unstable.
+
+%         \myfig{0.8}{conj_sys_figures/carbocation_rr}{}{fig:ph82}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph82a}{0.9}
+
+%         Subsequently, these carbocation alkanes then proceed to perform EAS to aromatic structures.
+
+%         \myfig{0.8}{conj_sys_figures/carbocation_reaction}{}{fig:ph83}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph83a}{0.9}
+
+%         In the specific case above showcasing carbocation rearrangement of a cyclobutane to a cyclopentane, we can prevent rearrangement via a stepwise reaction pathway of \textbf{acylation} (\textit{\autoref{core:acylation}}) and then reduction with \ce{Zn(Hg)} and \ce{HCl}.
+
+%         \begin{enumerate}
+
+%           \item \textbf{Acylation} 
+
+%           \myfig{0.8}{conj_sys_figures/ak_acy}{}{fig:ph84}
+
+%           \reactionfig{
+%             \scheme{
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \+
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \arrow{->}
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%             }
+%           }{caption}{fig:ph84a}{0.9}
+
+%           \item \textbf{Reduction}
+
+%           \myfig{0.8}{conj_sys_figures/ak_red}{}{fig:ph85}
+
+%           \reactionfig{
+%             \scheme{
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \arrow{->[]}
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%             }
+%           }{caption}{fig:ph85a}{0.9}
+
+%         \end{enumerate}
+
+%       \end{core}
+
+%       \begin{core}[label=core:acylation]{Acylation}
+
+%         \textbf{Acylation} is the process of adding an acyl halide compound to an aromatic structure. We first need to make the acyl halide electrophilic through a lewis acid as shown in the following general reaction outline.
+
+%         \myfig{0.8}{conj_sys_figures/acyl_halide}{}{fig:ph86}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph86a}{0.9}
+
+%         The resulting \ce{RCO+} molecule can then perform EAS with an aromatic ring. A full reaction using real compounds is shown below.
+
+%         \myfig{0.8}{conj_sys_figures/full_reaction}{}{fig:ph87}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph87a}{0.9}
+
+%       \end{core}
+
+%     \subsubsection{Directing Groups}
+
+%       \begin{core}{Directing Groups}
+
+%         So far, we have covered simply the EAS reaction types in \autoref{sec:eas_types} namely using benzene as our sole relevent aromatic structure. However, in scneraios where the aromatic ring is asymmetrical, chemists need a method to determine which carbon they want the EAS to occur on. Now we introduce \textbf{directing groups}, functional groups already attached to a benzene ring that dictate where (O, M, P) a new incoming electrophile will land. 
+
+%         \myfig{0.5}{conj_sys_figures/dgroup_locations}{}{fig:ph88}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph88a}{0.9}
+
+%         A summary table is provided below, but visit each Core Concept for a more detailed look into each directing group type.
+
+%         \begin{table}[H]
+%           \centering
+%           \begin{tabular}{>{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{5cm}}
+%             \hline
+%             \hline
+%             \textbf{Directing Group Type} & \textbf{Examples} & \textbf{Description} \\
+%             \hline
+%             {\small (1) Inductive \textcolor{Yellow}{O}/\textcolor{Blue}{P} Director} &
+%             {\small $R = $ alkyl $[\text{Me}, \text{Et}, i\text{Pr}, \text{\ldots}]$} &
+%             {\small Alkyl groups donate electron density inductively, directing substitution to the ortho and para positions.} \\[3ex]
+
+%             {\small (2) Inductive \textcolor{Orange}{M} Director} &
+%             {\small $R = $ carbon w/ EN atoms $[$\ce{CCl3}, \ce{CF3}, \ldots$]$} &
+%             {\small Carbons bearing electronegative atoms withdraw electron density inductively, directing substitution to the meta position.} \\[3ex]
+
+%             {\small (3) Resonance \textcolor{Yellow}{O}/\textcolor{Blue}{P} Director} &
+%             {\small i) $R$ has lone pair adjacent to ring: $[\ce{OMe}, \ce{SR}, \ce{NMe2}]$ \newline ii) $R$ = carbon w/ π system: [alkene, alkyne, benzene]} &
+%             {\small Substituents that donate electron density via resonance into the ring direct substitution to the ortho and para positions.} \\[3ex]
+
+%             {\small (4) Resonance \textcolor{Orange}{M} Director} &
+%             {\small $[\ce{C=O}, \ce{C#N}, \ce{NO2}]$} &
+%             {\small Substituents that withdraw electron density via resonance from the ring accept electron density and direct substitution to the meta position.} \\[3ex]
+%             \hline
+%           \end{tabular}
+%           \caption{Classification of electrophilic aromatic substitution directing groups}
+%           \label{tab:directing_groups}
+%         \end{table}
+
+%       \end{core}
+
+%       \begin{core}{Inductive O/P Directors}
+
+%         \textbf{Inductive O/P directors} are substituents that direct any EAS to the O and P positions within an aromatic ring.
+
+%         \myfig{0.8}{conj_sys_figures/iop_dir}{}{fig:ph89}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->[][]}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph89a}{0.9}
+
+%         The substituents are generally alkyls, and the mechanism behind why they favor O/P over M positioning is due to the general stability of the different resonance structures that occur in each positioning scenario.
+
+%         \myfig{0.8}{conj_sys_figures/iop_triple}{}{fig:ph90}
+
+%         \triplereactionfig{
+%           \scheme{
+%             \text{O}
+%             \qquad \qquad
+%             \chemname{
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%             }{placeholder}
+%             \arrow{<->}
+%             \chemname{
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%             }{placeholder}
+%             \arrow{<->}
+%             \chemname{
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%             }{placeholder}
+%           }
+%         }{
+%           \scheme{
+%             \text{M}
+%             \qquad \qquad
+%             \chemname{
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%             }{placeholder}
+%             \arrow{<->}
+%             \chemname{
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%             }{placeholder}
+%             \arrow{<->}
+%             \chemname{
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%             }{placeholder}
+%           }
+%         }{
+%           \scheme{
+%             \text{P}
+%             \qquad \qquad
+%             \chemname{
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%             }{placeholder}
+%             \arrow{<->}
+%             \chemname{
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%             }{placeholder}
+%             \arrow{<->}
+%             \chemname{
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%             }{placeholder}
+%           }
+%         }{caption}{fig:ph90a}{0.9}
+
+%         As shown above, while nearly all of the different possible resonance structures place the transient carbocation charge on a 2$^\circ$ allylic position, O/P positioning allows for a 3$^\circ$ allylic carbocation position within 1 out of 3 resonance structures for each whereas M positioning does not. As such the energy levels of the resulting carbocation intermediaries follow the general ordering shown in the energy diagram below.
+
+%         \myfig{0.8}{conj_sys_figures/iop_edia}{}{fig:ph91}
+
+%         % \pgfig{
+%         % }{caption}{fig:ph91a}{0.9}
+
+%       \end{core}
+
+%       \begin{core}{Inductive M Directors}
+
+%         \textbf{Inductive M directors} are substituents that direct any EAS to the M position within an aromatic ring. The substituents are carbons bearing highly electronegative atoms, making the carbon highly partially positive.
+
+%         \myfig{0.8}{conj_sys_figures/im}{}{fig:ph92}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph92a}{0.9}
+
+%         The M position is favored because the O/P 3$^\circ$ allylic carbocation resonance structures have possess extra unstable repulsion between the carbocation and the partial positive carbon within the substituent. The M positioning, on the other hand, possess for a resonance structure that allows for maximal distance between the positive substituent carbon and the carbocation charge on teh opposite side fo the aromatic ring.
+
+%         \myfig{0.8}{conj_sys_figures/im_comparison}{}{fig:ph93}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \qquad \qquad
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \qquad \qquad
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph93a}{0.9}
+
+%         Consequently, the resulting energy levels put O/P positioning energy above that of M positioning.
+
+%         \myfig{0.8}{conj_sys_figures/im_edia}{}{fig:ph94}
+
+%         % \doublepgfig{
+%         % }{
+%         % }{caption}{fig:ph94a}{0.9}
+
+%       \end{core}
+
+%       \begin{core}{Resonance O/P Directors}
+
+%         \textbf{Resonance O/P directors} are substituents that direct any EAS to the O and P positions within an aromatic ring through donating \ce{e^-} density. For instance, phenol possess resonance structures that place a carboanion negative charge on exclusivly the O and P positions.
+
+%         \myfig{0.8}{conj_sys_figures/rop}{}{fig:ph95}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{<->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{<->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph95a}{0.9}
+
+%         These types of substiuents specifcally need to be lone pair adjacent to the aromatic ring. Another substituent type that allows for \ce{e^-} donation is carbon with conjugated π systems. Take the following alkene for instance.
+
+%         \myfig{0.8}{conj_sys_figures/rop_alkene}{show the resonance possible}{fig:ph96}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph96a}{0.9}
+
+%         Notice that the primary carbocation is able to form because it is allylic.
+
+%         \textit{Here is a side note regarding the method by which inductive directors induce favorability of EAS positioning in comparison to resonance directors -> resonance directors affect the nucleophilicity capabilities of the relevant positions whereas the inductive versions manipulate favorability through transition state stability.}
+
+%       \end{core}
+
+%       \begin{core}[label=core:rm_director]{Resonance M Directors}
+
+%         \textbf{Resonance M directors} are substituents that direct any EAS to the M position within an aromatic ring through withdrawing \ce{e^-} density. For instance, carbonyl substituents have the ability to withdraw \ce{e^-} density in a manner that results in subsequent resonance structures to place a carbocation positive charge on the O/P positions, making these locations effectively less nucleophilic and the P psoition relatively more nucleophilic.
+
+%         \myfig{0.8}{conj_sys_figures/rm}{}{fig:ph97}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{<->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{<->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph97a}{0.9}
+
+%         As a result, when an electrophile approaches the transient aromatic ring, the nucleophilic attack occurs most favorably from the M position rather than the O/P position.
+
+%         \myfig{0.8}{conj_sys_figures/rm_attack}{}{fig:ph98}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph98a}{0.9}
+
+%       \end{core}
+
+%       \begin{core}{Halogens as Directing Groups}
+
+%         Halogens can also act as directing groups, and based on data, they act as O/P directors. To understand the underlying basis of this observation, let's analyze monohalobenzene in the context of the inductive effect and resonance.
+
+%         \myfig{0.8}{conj_sys_figures/halo_dir}{}{fig:ph99}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->[][]}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph99a}{0.9}
+
+%         \begin{enumerate}
+
+%           \item \textbf{Inductive Effect} 
+
+%           \myfig{0.8}{conj_sys_figures/halo_inductive}{}{fig:ph100}
+
+%           \reactionfig{
+%             \scheme{
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%             }
+%           }{caption}{fig:ph100a}{0.9}
+
+%           Under an O/P directing EAS interaction, inductive analysis would actually discourage O/P directing becaus the subsequent carbocation transition state places a carbocation that already has lowered \ce{e^-} density even lower by residing next to the highly electronegative halogen atom. As a result, the dipole moment created destabilizaes the structure.
+
+%           \item \textbf{Resonance}
+
+%           \myfig{0.8}{conj_sys_figures/halo_resonance}{}{fig:ph101}
+
+%           \reactionfig{
+%             \scheme{
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%               \arrow{<->}
+%               \chemfig{
+%                 [:0]
+%                 -[:30]
+%               }
+%             }
+%           }{caption}{fig:ph101a}{0.9}
+
+%           Resonance, on the other hand, allows the halogen to donate \ce{e^-} density in order to fill all octet requirements throughout the entire molecule, which favors the O/P directing EAS interaction.
+
+%         \end{enumerate}
+
+%         Although these two effects contradict one another, we can confidently say that the effects of resonance trump the inductive effect because real data in practice results in the O/P directing as favored.
+
+%       \end{core}
+
+%     \subsubsection{Aromatic Substituent Manipulations}
+
+%       \begin{core}[label=core:reduction_acyl]{Reduction of Acyl Ketone}
+
+%         The reduction of an acyl ketone is a reduction reaction that was previously used in \autoref{core:alkylation} to replace a carbonyl oxygen with two hydrogen bonds.
+
+%         \myfig{0.5}{conj_sys_figures/acyl_red}{}{fig:ph102}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->[][]}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph102a}{0.9}
+
+%         \textit{No mechanism is provided for this reaction.}
+
+%       \end{core}
+
+%       \begin{core}[label=core:red_nitrobenzene]{Nitrobenzene Reduction to Aniline}
+
+%         The reduction of nitrobenzene work similarly to the reduction of acyl ketone (\textit{\autoref{core:reduction_acyl}}) wherein oxygens are replaced by hydrogens. This reaction uses the same reactants to carry this replacement out.
+
+%         \myfig{0.5}{conj_sys_figures/nitro_red}{}{fig:ph103}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->[][]}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph103a}{0.9}
+
+%         \textit{No mechanism is provided for this reaction.}
+
+%       \end{core}
+
+%       \begin{core}{Diazotization of Aniline}
+
+%         The diazotization of aniline is a potential subsequent reaction to nitrobenzene reduction as the product of the latter is the reactant of the former.
+
+%         \myfig{0.8}{conj_sys_figures/diazotization}{}{fig:ph104}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph104a}{0.9}
+
+%         The reaction mechanism occurs as follows, first starting with the conversion of \ce{NO2-} to a nitrosyl cation.
+
+%         \myfig{0.8}{conj_sys_figures/nitrosyl}{}{fig:ph105}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph105a}{0.9}
+
+%         The highly reactive nitrozyl cation then goes onto intereact with the aniline in the following manner to produce \textbf{aryl diazonium}.
+
+%         \myfig{0.8}{conj_sys_figures/aryl}{}{fig:ph106}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \qquad
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \qquad
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \qquad
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph106a}{0.9}
+
+%       \end{core}
+
+%   \subsection{Nucleophilic Aromatic Substitution}
+
+%     \begin{core}{Nucleophilic Aromatic Substitution}
+
+%       \textbf{Nucleophilic aromatic substitution (NAS or S$_\text{N}$Ar)} is an interaction in which the aromatic ring is the electrophile. NAS comes in two "flavors": \textbf{diazonium} (\textit{\autoref{core:diazonium_chem}}) or \textbf{addition/elimination} (\textit{\autoref{core:add_elim}}) chemistry.
+
+%       \textit{Recall that in electrophilic aromatic substitution (\autoref{sec:eas}), the aromatic ring is the nucleophile.}
+
+%     \end{core}
+
+%     \begin{core}[label=core:diazonium_chem]{Diazonium Chemistry}
+
+%       Diazonium chemistry begins by \ce{N2} leaving a phenyldiazonium molecule---via breaking the bond between the σ C(sp$^2$)--N(sp) bond---to produce a carbocation possessing benzene ring and an extermely stable \ce{N2} gas moleucle. 
+
+%       \myfig{0.8}{conj_sys_figures/nitrogen_gas}{}{fig:ph107}
+
+%       \reactionfig{
+%         \scheme{
+%           \chemname{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }{placeholder}
+%           \arrow{->}
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \+
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%         }
+%       }{caption}{fig:ph107a}{0.9}
+
+%       It's important to notice that resonance is not possible in this specific carbocation state because the orbtial that is empty is the C(sp$^2$) orbtial. We would need an unbalanced p orbital for resonance to occur. As a result, this phenyl cation is highly reactive and hungry for any nearby nucleophile to help stabilize its positive charge.
+
+%       \myfig{0.8}{conj_sys_figures/elec_hungry}{}{fig:ph108}
+
+%       \reactionfig{
+%         \scheme{
+%           \chemfig{
+%             [:0] figure out how to do multiple arrows
+%           }
+%         }
+%       }{caption}{fig:ph108a}{0.9}
+
+%       As shown above, nearly all covered nucleophiles work in this interaction \textbf{with the exception of grignards and lithiates}. \textit{The reasoning behind this will not be covered in the scope of these notes.}
+
+%       Combining this diazonium chemistry with previously learned reactions, chemists can effectively attach nearly any nucleophile to a benzene molecule using the following reaction pathway.
+
+%       \myfig{0.8}{conj_sys_figures/full_pathway}{reference the core concepts for the reactions within the caption}{fig:ph109}
+
+%       \reactionfig{
+%         \scheme{
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \arrow{->}
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \arrow{->}
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \arrow{->}
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \arrow{->}
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%         }
+%       }{caption}{fig:ph109a}{0.9}
+
+%     \end{core}
+
+%     \begin{core}[label=core:add_elim]{Addition/Elimination}
+
+%       The NAS \textbf{addition/elimination} reaction occurs in the following general manner.
+
+%       \myfig{0.8}{conj_sys_figures/add_elim}{}{fig:ph110}
+
+%       \reactionfig{
+%         \scheme{
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \+
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \arrow{->}
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \+
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%         }
+%       }{caption}{fig:ph110a}{0.9}
+
+%       Recall that we have seen resonance acceptors in resonance M directors (\textit{\autoref{core:rm_director}}), however, the these resonance acceptors are not for the purpose of directing meta in the context of NAS chemistry. Their main purpose is to be able to accept \ce{e^-} density after the nucleophile attack the carbon with the leaving group.
+
+%       Additionally, this reaction requires a strong nucleophiles because it ultimately needs to break aromaticity as shown in the mechanism below. It should be noted that this step---the addition---is consequently the rate determining step.
+
+%       \myfig{0.8}{conj_sys_figures/add_elim_mech}{}{fig:ph111}
+
+%       \reactionfig{
+%         \scheme{
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \qquad
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \arrow{->}
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \arrow{->}
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%           \+
+%           \chemfig{
+%             [:0]
+%             -[:30]
+%           }
+%         }
+%       }{caption}{fig:ph111a}{0.9}
+
+%       As the mechanism showcases, the reaction is simply a relay of \ce{e^-} density to the resonance acceptor, which then bounces back the \ce{e^-} density in order to kick out the leaving group in the end. However, since the outcome of this interaction is ultimately the same as that of an \snt reaction, one may wonder why \snt is not a viable pathway.
+
+%       Revisiting the \snt mechanism, recall that, in the lense of molecular orbitals, the nucleophile interacts with the σ$^*$ anti-bonding orbital between the electrophile and leaving group in order to kick out the leaving group and create a bond simultaneously via a backside attack.
+
+%       \myfig{0.8}{conj_sys_figures/snt}{}{fig:ph112}
+
+%       \pgfig{
+%       }{caption}{fig:ph112a}{0.9}
+
+%       In the aromatic ring scenario, this nessecary σ$^*$ interaction is extremely unlikely due to the physcial barrier to entry because of the ring itself.
+
+%       In the context of the frontier molecular orbital theory, the π$^*$ orbital is lower in energy than σ$^*$, making it the LUMO and a much more accessible orbital to interact with, which is what happens in addition/elimination, the favorable pathway.
+
+%       Lets go through two examples.
+
+%       \begin{enumerate}
+
+%         \item \textbf{Example 1: Predicting Major Kinetic Product} 
+
+%         Consider the following reaction consisting to two possible leaving groups F and Cl with a \ce{NO2} resonance acceptor.
+
+%         \myfig{0.8}{conj_sys_figures/example1_start}{}{fig:ph113}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%           }
+%         }{caption}{fig:ph113a}{0.9}
+
+%         Both addition/elimination pathways are possible as shown below, ultimately leading to two distinct products. 
+
+%         \myfig{0.8}{conj_sys_figures/two_products}{}{fig:ph114}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \qquad \qquad
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph114a}{0.9}
+
+%         Since the nucleophile is held constant across both reaction pathways, the ability of the nucleophile to break aromaticity is not a factor. Instead, it is the greater dipole moment created by the more electronegative fluorine over the chlorine. Due to the greater partial positive charge of the fluorine carbon, \ce{MeO-} favors attacking that carbon because it its more electrophilic. Thus the reaction favors the substitution of the F over the Cl.
+
+%         \myfig{0.8}{conj_sys_figures/reaction_complete}{}{fig:ph115}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph115a}{0.9}
+
+%         \item \textbf{Example 2: Predicting Product of NAS Chemistry}
+
+%         Consider the following addition/elimination reaction below.
+
+%         \myfig{0.8}{conj_sys_figures/reaction2_start}{short initial reactants without arrows}{fig:ph116}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%           }
+%         }{caption}{fig:}{0.9}
+
+%         In this case, simply only one of the leaving group substitutions work to donate \ce{e^-} density into the resonance acceptor and the other doesn't.
+
+%         \myfig{0.8}{conj_sys_figures/example2_pathways}{showcase the pathways and how one isnt possible}{fig:ph117}
+
+%         \doublereactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph117a}{0.9}
+
+%         Thus the exclusive reaction outcome maps out as follows.
+
+%         \myfig{0.8}{conj_sys_figures/example2_pathways}{complete chemical equation}{fig:ph118}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph118a}{0.9}
+
+%         \item \textbf{Example 3: Predicting Starting Material}
+
+%         Consider having to determine the starting aromatic compound to the following products based on the given nucleophile.
+
+%         \myfig{0.8}{conj_sys_figures/product_prediction}{}{fig:ph119}
+
+%         \reactionfig{
+%           \scheme{
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph119a}{0.9}
+
+%         Because we see two \ce{Cl-} and two \ce{H3N^+R} on the product side, we know that the addition/elimination has occured twice. Luckily the product quite literally has the nucleophile placed directly on center connected to the aromatic ring system via two bonds on the nitrogen. Based on this, we can reasonably predict the starting material to have had these two bond substituted.
+
+%         \myfig{0.8}{conj_sys_figures/predicted_reactants}{}{fig:ph120}
+
+%         \reactionfig{
+%           \scheme{
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \arrow{->}
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%             \+
+%             \chemfig{
+%               [:0]
+%               -[:30]
+%             }
+%           }
+%         }{caption}{fig:ph120a}{0.9}
+
+%       \end{enumerate}
+
+%     \end{core}
+
