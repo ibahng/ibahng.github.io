@@ -54,7 +54,7 @@
 
       \begin{table}[H]
         \centering
-        \begin{tabular}{p{2.5cm}>{\raggedright\arraybackslash}p{6.5cm}p{3.0cm}}
+        \begin{tabular}{p{2.5cm}>{\raggedright\arraybackslash}p{6.5cm}>{\raggedright\arraybackslash}p{3.0cm}}
           \hline
           \textbf{Component} & \textbf{Functional Significance} & \textbf{Examples} \\ 
           \hline
@@ -70,56 +70,58 @@
 
     \end{core}
 
-    \begin{core}{Message Types}
+    \subsubsection{Message Types}
 
-      Traditional SWIFT messages are structured as highly formatted text-based \textbf{Message Type (MT)} strings, parsed using a three-digit numerical sequence. The first digit---the hundreds place---categorizes the primary transaction sector or asset class involved in the message exchange (\textit{\autoref{tab:swift_mt}}). Sub-categories (\textit{the tens and units places}) further drill down into the specific function of the message, such as initiation, confirmation, or structural notifications.
+      \begin{core}{Message Types}
 
-      However, the contemporary financial infrastructure is transitioning to the XML-based \textbf{ISO 20022 (MX) format} (\textit{\autoref{core:iso_tt}}), allowing for richer data blocks, granular tracking, and more robust compliance screening.
+        Traditional SWIFT messages are structured as highly formatted text-based \textbf{Message Type (MT)} strings, parsed using a three-digit numerical sequence. The first digit---the hundreds place---categorizes the \textbf{primary transaction sector or asset class} involved in the message exchange (\textit{\autoref{tab:swift_mt}}). Sub-categories (\textit{the tens and units places}) further drill down into the specific function of the message, such as initiation, confirmation, or structural notifications.
 
-      \begin{table}[H]
-        \centering
-        \begin{tabular}{cll}
-          \hline
-          \textbf{Category} & \textbf{Functional Area} \\
-          \hline
-          \textbf{MT 1XX} & Customer Payments \& Cheques \\
-          \textbf{MT 2XX} & Financial Institution Transfers \\
-          \textbf{MT 3XX} & Treasury Markets (FX \& Derivatives) \\
-          \textbf{MT 4XX} & Collection \& Cash Letters \\
-          \textbf{MT 5XX} & Securities Markets \\
-          \textbf{MT 6XX} & Precious Metals \& Commodities \\
-          \textbf{MT 7XX} & Documentary Credits \& Guarantees \\
-          \textbf{MT 8XX} & Travellers Cheques \\
-          \textbf{MT 9XX} & Cash Management \& Status \\
-          \hline
-        \end{tabular}
-        \caption{Message type broad categories}
-        \label{tab:swift_mt}
-      \end{table}
+        However, the contemporary financial infrastructure is transitioning to the XML-based \textbf{ISO 20022 (MX) format} (\textit{\autoref{core:iso_tt}}), allowing for richer data blocks, granular tracking, and more robust compliance screening.
+
+        \begin{table}[H]
+          \centering
+          \begin{tabular}{cll}
+            \hline
+            \textbf{Category} & \textbf{Functional Area} \\
+            \hline
+            \textbf{MT 1XX} & Customer Payments \& Cheques \\
+            \textbf{MT 2XX} & Financial Institution Transfers \\
+            \textbf{MT 3XX} & Treasury Markets (FX \& Derivatives) \\
+            \textbf{MT 4XX} & Collection \& Cash Letters \\
+            \textbf{MT 5XX} & Securities Markets \\
+            \textbf{MT 6XX} & Precious Metals \& Commodities \\
+            \textbf{MT 7XX} & Documentary Credits \& Guarantees \\
+            \textbf{MT 8XX} & Travellers Cheques \\
+            \textbf{MT 9XX} & Cash Management \& Status \\
+            \hline
+          \end{tabular}
+          \caption{Message type broad categories}
+          \label{tab:swift_mt}
+        \end{table}
+
+      \end{core}
 
       Among these message types, a small subset is of particular relevance to retail customer actions.
 
-      \begin{enumerate}
+      \begin{core}{Active Liquid Transfers (MT101, MT799, MT103, MT199)}
 
-        \item \textbf{MT103: Single Customer Credit Transfer}
+        An international wire transfer follows a clear progression of instructions across the SWIFT network. The initiation phase is traditionally governed by the \textbf{MT101 (\textit{Request for Transfer})}, a secure \textbf{client-to-bank mechanism} that lets a corporate or institutional account holder instruct their bank to debit (\textit{deduct}) funds and begin an outbound transfer. The \textbf{MT101 is not required for every wire}; its absence simply means initiation occurred through alternative means, such as a bank's web portal, mobile app, or a direct host-to-host API connection.
 
-        Used to instruct the transfer of funds from a customer's account at one bank to a beneficiary's account at another, typically for cross-border retail and commercial payments; it remains the most widely used SWIFT message type for individual credit transfers.
+        % research if the online banking alternative is simply the customer using an app or website to enter info regarding the receivng bank account overseas and such.
 
-        \item \textbf{MT110: Advice of Cheque}
+        Also upstream of the payment layer, the \textbf{MT799 (\textit{Free Format Message; Trade-Related})} is an entirely \textbf{optional communication tool}. As part of SWIFT's trade finance family, it never moves liquid funds or substitutes for a payment initiation order. Instead, in complex or high-value transactions, it serves as an authenticated \textbf{bank-to-bank pre-advice}, deployed before funds move to \textbf{verify creditworthiness}, confirm a parallel \textbf{letter of credit}, or demonstrate financial intent—bridging trust between counterparties while transaction details are finalized.
 
-        Sent by the drawer bank to the drawee bank to notify it that a cheque has been issued, providing details such as the cheque number, amount, and payee, allowing the receiving bank to verify the instrument upon presentation.
+        Once the bank receives instructions---whether via online banking or an MT101---and any pre-deal advisories are complete, the timeline shifts to the actual movement of capital via the \textbf{MT103 (\textit{Single Customer Credit Transfer})}. The MT103 is the core execution mechanism of the global banking system: \textbf{the explicit instruction to move liquid funds across borders} to the beneficiary's institution. It maps out accounting variables, compliance data, and intermediary routing, serving as the \textbf{legally binding proof of payment} that settles the obligation.
 
-        \item \textbf{MT101: Request for Transfer} % change to MT110
+        Throughout this lifecycle, the \textbf{MT199 (\textit{Free Format Message; Payments-Related})} functions as a flexible, unformatted text channel. It is most often used for \textbf{post-payment support}---fixing a beneficiary name typo, clarifying an account number, or supplying regulatory tracking data---but banks may also exchange MT199s before an MT103 \textbf{to resolve details or compliance ambiguities}. Either way, it provides the narrative flexibility needed to resolve queries without rejecting the underlying transfer.
 
-        Allows a corporate or retail customer to instruct their bank to execute one or more payment transfers on their behalf, often used for centralized treasury operations or bulk payment requests.
+      \end{core}
 
-        \item \textbf{MT799:}
+      \begin{core}{Paper Clearing Security (MT110)}
 
-        \item \textbf{MT199:}
+        Alternatively, if a portion of the transaction requires physical delivery via a paper bank draft, the paying bank transmits this digital check verification message to the overseas branch to register the serial number and payee details, ensuring the draft can be safely authenticated upon physical presentation.
 
-      \end{enumerate}
-
-    \end{core}
+      \end{core}
 
   \subsection{ISO 20022}
 
