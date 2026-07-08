@@ -30,17 +30,9 @@
 
     \begin{core}{Society for Worldwide Interbank Financial Telecommunications}
 
-      % Society for Worldwide Interbank Financial Telecommunications (SWIFT)
-      %   MT103
-      %   MT799
-      %   MT110
-      %   maybe go through the entire MT id logic and organization
-      % 
       % UETR (Unique End-to-End Transaction Reference)
 
-      % The Society for Worldwide Interbank Financial Telecommunications (SWIFT) operates as a secure, standardized global financial messaging network connecting over 11,000 financial institutions. SWIFT uses structured Message Type (MT) codes grouped by functional categories (1 to 9), such as Category 1 for customer payments (\textbf{MT103} for single customer credit transfers, \textbf{MT110} for advice of a cheque) and Category 7 for trade finance and guarantees (\textbf{MT799} for free-format bank-to-bank text messages). To ensure end-to-end auditability and real-time visibility across correspondent banking networks, every transaction string is permanently appended with a 36-character \textbf{Unique End-to-End Transaction Reference (UETR)}, preventing routing friction and enabling instant payment tracking.
-
-      The \href{https://www.swift.com/}{\textbf{Society for Worldwide Interbank Financial Telecommunication (SWIFT)}} serves as the foundational communication layer for global banking. It is a critical distinction that SWIFT operates strictly as a \textbf{secure messaging network}; it transmits standardized instructions (\textit{payment orders}) between counterparties, while actual cash settlement is processed down the line through correspondent banking networks. 
+      The \href{https://www.swift.com/}{\textbf{Society for Worldwide Interbank Financial Telecommunication (SWIFT)}} serves as the standardized financial messaging network for global banking. It is a critical distinction that SWIFT operates \textbf{strictly as a messaging network}; it transmits instructions (\textit{payment orders}) between counterparties, while actual cash settlement is processed down the line through correspondent banking networks. 
 
     \end{core}
 
@@ -95,7 +87,7 @@
             \textbf{MT 9XX} & Cash Management \& Status \\
             \hline
           \end{tabular}
-          \caption{Message type broad categories}
+          \caption{SWIFT Message type categories}
           \label{tab:swift_mt}
         \end{table}
 
@@ -105,21 +97,45 @@
 
       \begin{core}{Active Liquid Transfers (MT101, MT799, MT103, MT199)}
 
-        An international wire transfer follows a clear progression of instructions across the SWIFT network. The initiation phase is traditionally governed by the \textbf{MT101 (\textit{Request for Transfer})}, a secure \textbf{client-to-bank mechanism} that lets a corporate or institutional account holder instruct their bank to debit (\textit{deduct}) funds and begin an outbound transfer. The \textbf{MT101 is not required for every wire}; its absence simply means initiation occurred through alternative means, such as a bank's web portal, mobile app, or a direct host-to-host API connection.
+        An international wire transfer follows a clear progression of instructions across the SWIFT network. 
 
-        % research if the online banking alternative is simply the customer using an app or website to enter info regarding the receivng bank account overseas and such.
+        \begin{enumerate}
 
-        Also upstream of the payment layer, the \textbf{MT799 (\textit{Free Format Message; Trade-Related})} is an entirely \textbf{optional communication tool}. As part of SWIFT's trade finance family, it never moves liquid funds or substitutes for a payment initiation order. Instead, in complex or high-value transactions, it serves as an authenticated \textbf{bank-to-bank pre-advice}, deployed before funds move to \textbf{verify creditworthiness}, confirm a parallel \textbf{letter of credit}, or demonstrate financial intent—bridging trust between counterparties while transaction details are finalized.
+          \item \textbf{Initiation: MT101, Banking Interfaces, MT799} 
 
-        Once the bank receives instructions---whether via online banking or an MT101---and any pre-deal advisories are complete, the timeline shifts to the actual movement of capital via the \textbf{MT103 (\textit{Single Customer Credit Transfer})}. The MT103 is the core execution mechanism of the global banking system: \textbf{the explicit instruction to move liquid funds across borders} to the beneficiary's institution. It maps out accounting variables, compliance data, and intermediary routing, serving as the \textbf{legally binding proof of payment} that settles the obligation.
+          The initiation phase is traditionally governed by the \textbf{MT101 (\textit{Request for Transfer})}, a secure \textbf{client-to-bank mechanism} that allows a corporate or institutional account holder to instruct their bank to debit (\textit{deduct}) funds and execute an outbound transfer. The \textbf{MT101 is not required for every wire}; its absence simply indicates that initiation occurred through alternative channels, such as a bank's web portal, a mobile application, or a direct host-to-host API connection.
 
-        Throughout this lifecycle, the \textbf{MT199 (\textit{Free Format Message; Payments-Related})} functions as a flexible, unformatted text channel. It is most often used for \textbf{post-payment support}---fixing a beneficiary name typo, clarifying an account number, or supplying regulatory tracking data---but banks may also exchange MT199s before an MT103 \textbf{to resolve details or compliance ambiguities}. Either way, it provides the narrative flexibility needed to resolve queries without rejecting the underlying transfer.
+          \begin{itemize}
+
+            \item \textbf{Corporate treasuries} managing global, industrial-scale liquidity often employ MT101 messages to initiate liquid transfers because they provide a \textbf{standardized interface} to process thousands of payments across multiple jurisdictions, currencies, and banking institutions. Additionally, this framework facilitates enhanced administrative oversight and stricter internal controls.
+
+            \item \textbf{Retail customers} rarely initiate liquid transfers via an MT101. Aside from high-net-worth individuals, family offices, or specialized entities with institutional banking connections, the vast majority of consumers utilize standard web portals or mobile applications. While these consumer interfaces offer \textbf{greater convenience}, they lack the scalability and automation capabilities utilized by corporate treasuries.
+
+          \end{itemize}
+
+          While setting up a MT101 framework is highly effective for repetitive, structured transfers, it is inefficient for one-time, high-value transactions. In these scenarios, an \textbf{MT799 (\textit{Free Format Message; Trade-Related})} is optionally used as an authenticated \textbf{bank-to-bank pre-advice}, deployed prior to the movement of capital to \textbf{verify the creditworthiness or funds availability of the sending party}. Importantly, the MT799 functions purely as an \textbf{optional communication tool} that never transfers liquid funds or substitutes for a formal payment initiation order.
+
+          \item \textbf{Transfer: MT103}
+
+          Once the bank receives instructions---whether via online interfaces or an MT101 file---and any pre-deal advisories are finalized, the workflow shifts to the actual movement of capital via the \textbf{MT103 (\textit{Single Customer Credit Transfer})}. The MT103 serves as the primary execution mechanism of the global banking ecosystem, conveying the \textbf{explicit instruction to transfer liquid funds across borders} to the beneficiary's institution. It maps out essential accounting variables, compliance data, and intermediary routing, functioning as the \textbf{legally binding proof of payment} that settles the underlying financial obligation.
+
+          \item \textbf{Support: MT199}
+
+          Throughout this lifecycle, the \textbf{MT199 (\textit{Free Format Message; Payments-Related})} functions as a flexible, unformatted text channel. It is primarily utilized for \textbf{post-payment support}---such as correcting beneficiary name typos, clarifying account details, or supplying regulatory tracking data---though banks may also exchange MT199 messages prior to an MT103 \textbf{to resolve operational details or compliance ambiguities}. Ultimately, it provides the narrative flexibility required to settle queries without rejecting or delaying the underlying transfer.
+
+        \end{enumerate}
 
       \end{core}
 
-      \begin{core}{Paper Clearing Security (MT110)}
+      \begin{core}{Bank Draft Settlement Pathway (MT110)}
 
-        Alternatively, if a portion of the transaction requires physical delivery via a paper bank draft, the paying bank transmits this digital check verification message to the overseas branch to register the serial number and payee details, ensuring the draft can be safely authenticated upon physical presentation.
+        When an international payment is settled using a \textbf{physical negotiable instrument}---such as a bank draft or check---rather than a direct wire transfer, the SWIFT network provides an advice mechanism to validate the paper-based transaction electronically.
+
+        The process begins when a client requests a cross-border draft or check from the local institution holding the funds to be transferred, referred to as the \textbf{Drawing Bank}. This bank issues a \textbf{physical, high-security paper bank draft} made out to the \textbf{foreign beneficiary}, which the client then mails or couriers to the recipient overseas. At the same time, the Drawing Bank sends an \textbf{MT110 (\textit{Advice of Cheque})} message through the SWIFT network to the foreign institution that will ultimately receive the funds, known as the \textbf{Paying Bank}. This message functions as a secure electronic preview of the physical instrument, specifying the check number, amount, currency, issuance date, and beneficiary identity in advance.
+
+        Once the beneficiary presents the physical check to the Paying Bank, the bank compares its details against the information already received in the MT110. If the two match exactly, the Paying Bank safely liquidates the instrument, pays the beneficiary, and settles the corresponding balance with the Drawing Bank.
+
+        \textit{While structurally identical, a "Banker's Draft" is the official term used in the UK and Commonwealth countries, whereas "Bank Draft" is the standard official terminology used in the United States and Canada.}
 
       \end{core}
 
