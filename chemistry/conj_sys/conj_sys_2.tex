@@ -1,472 +1,742 @@
-% \section{Diel Alder Reactions} % lessons 4-5
-
-%   \begin{core}{Cycloadditions}
-
-%     Cycloadditions refer to 2 seperate π systems reacting to form a new ring. There is no nucleophile nor an electrophile in this interaction.
-
-%     We have already seen cycloadditions in two different reactions within \href{https://ibahng.github.io/chemistry/alkene_alkyne/alkene_alkyne.pdf}{Alkenes \& Alkynes}.
-
-%     \begin{enumerate}
-
-%       \item \textbf{Ozonolysis} (\textit{\autoref{alk-core:ozonolysis}})
-
-%       \myfig{0.65}{conj_sys_figures/ozonolysis}{}{fig:ph37}
-
-%       \reactionfig{
-%         \scheme{
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \qquad
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \arrow{->[cycloaddition]}
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%         }
-%       }{caption}{fig:ph37a}{0.9}
-
-%       \item \textbf{\ce{OsO4} Syn-Dihydroxylation} (\textit{\autoref{alk-core:osmium_hydrox}})
-
-%       \myfig{0.65}{conj_sys_figures/dihydroxylation}{}{fig:ph38}
-
-%       \reactionfig{
-%         \scheme{
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \qquad
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \arrow{->[cycloaddition]}
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%         }
-%       }{caption}{fig:ph38a}{0.9}
-
-%     \end{enumerate}
-
-%   \end{core}
-
-%   \begin{core}{Diel Alder Reactions}
-
-%     Diel alder reactions are a type of cycloaddition that combines a minimum 4π diene wiht a minimum 2π dienophile to form a cyclohexane.
-
-%     \myfig{0.6}{conj_sys_figures/da_general}{}{fig:ph39}
-
-%     \reactionfig{
-%       \scheme{
-%         \chemfig{
-%           [:0]
-%           -[:30]
-%         }
-%         \qquad
-%         \chemfig{
-%           [:0]
-%           -[:30]
-%         }
-%         \arrow{->}
-%         \chemfig{
-%           [:0]
-%           -[:30]
-%         }
-%         \qquad
-%         \chemfig{
-%           [:0]
-%           -[:30]
-%         }
-%       }
-%     }{caption}{fig:ph39a}{0.9}
-
-%     As such, diene and dienophile pairings that possess larger conjugated π systems than the stated minimums of 4π and 2π, respectively, can produce a massive diversity of stereoisomeric products
-
-%     \myfig{0.6}{conj_sys_figures/da_diverse}{}{fig:ph40}
-
-%     \triplereactionfig{
-%       \scheme{
-%         \chemfig{
-%           [:0]
-%           -[:30]
-%         }
-%         \+
-%         \chemfig{
-%           [:0]
-%           -[:30]
-%         }
-%         \arrow{->[DA][Chemistry]}
-%         \chemfig{
-%           [:0]
-%           -[:30]
-%         }
-%         \+
-%         \chemfig{
-%           [:0]
-%           -[:30]
-%         }
-%       }
-%     }{
-%       \scheme{
-%         \chemfig{
-%           [:0]
-%           -[:30]
-%         }
-%         \+
-%         \chemfig{
-%           [:0]
-%           -[:30]
-%         }
-%         \+
-%         \chemfig{
-%           [:0]
-%           -[:30]
-%         }
-%       }
-%     }{
-%       \scheme{
-%         \chemfig{
-%           [:0]
-%           -[:30]
-%         }
-%         \+
-%         \chemfig{
-%           [:0]
-%           -[:30]
-%         }
-%         \+
-%         \chemfig{
-%           [:0]
-%           -[:30]
-%         }
-%       }
-%     }{caption}{fig:ph40a}{0.9}
-
-%   \end{core}
-
-%   \begin{core}{Orbitals of Diel Alder Reactions}
-
-%     In diel alder reactions, π systems approach each other in a vertical manner to allows π systems to generate new σ overlaps
-
-%     \myfig{0.65}{conj_sys_figures/da_overlap}{p orbitals overlap to form σ interactions}{fig:ph41}
-
-%     % \pgfig{
-%     % }{caption}{fig:ph41a}{0.9}
-
-%     Let's take a look at the energy diagrams of the repective conjugated π systems of the diene and dienophile.
-
-%     \myfig{0.6}{conj_sys_figures/da_edia}{}{fig:ph42}
-
-%     % \pgfig{
-%     % }{caption}{fig:ph42a}{0.9}
-
-%     An important observation can be made in the context of which energy levels interact with which: HOMO of one reagent interacts with the LUMO of the other reagent.
-
-%     \myfig{0.6}{conj_sys_figures/da_homolumo}{}{fig:ph43}
-
-%     % \pgfig{
-%     % }{caption}{fig:ph43a}{0.9}
-
-%   \end{core}
-
-%   \begin{core}{Diel Alder Stereochemistry}
-
-%     We can also categorize diel alder reactions by the different possible stereochemical approaches of the reagents.
-
-%     \begin{enumerate}
-
-%       \item \textbf{Top} and \textbf{bottom} diel alder reactions simply refer to when the dienophile approaches the diene from the \textbf{top} or \textbf{bottom}, respectively.
-
-%       \myfig{0.5}{conj_sys_figures/top_bottom}{}{fig:ph44}
-
-%       \pgfig{
-%       }{caption}{fig:ph44a}{0.9}
-
-%       \item \textbf{Endo} and \textbf{exo} distinctions refer to when the sterics of the dienophile are pointed \textbf{towards} or \textbf{away from} the corresponding diene
-
-%       \myfig{0.5}{conj_sys_figures/endo_exo}{}{fig:ph45}
-
-%       % \pgfig{
-%       % }{caption}{fig:ph45a}{0.9}
-
-%       Keep in mind that the bonds pointing towards the diene get flipped around the dienophile double bond in the direction opposite from where the diene approaches.
-
-%       <manual figure> ph46
-
-%       % \pgfig{
-%       % }{caption}{fig:ph46a}{0.9}
-
-%     \end{enumerate}
-
-%     As practice, consider the following diel alder reaction in which we need to predict all diel alder nondimer products.
-
-%     \myfig{0.5}{conj_sys_figures/da_practice1}{}{fig:ph47}
-
-%     \reactionfig{
-%       \scheme{
-%         \chemfig{
-%           [:0]
-%           -[:30]
-%         }
-%         \+
-%         \chemfig{
-%           [:0]
-%           -[:30]
-%         }
-%         \arrow{->[][]}
-%         \chemfig{
-%           \text{placeholder}
-%         }
-%       }
-%     }{caption}{fig:ph47a}{0.9}
-
-%     Two possible constant isomers can form from the two different dienophile positionings that can occur.
-
-%     \myfig{0.5}{conj_sys_figures/da_practice2}{easier to think of the dienophile being flipped along a centered horizontal axis to produce the right product}{fig:ph48}
-
-%     \reactionfig{
-%       \scheme{
-%         \chemfig{
-%           [:0]
-%           -[:30]
-%         }
-%         \qquad \qquad
-%         \chemfig{
-%           [:0]
-%           -[:30]
-%         }
-%       }
-%     }{caption}{fig:ph48a}{0.9}
-
-%     And for each of these reactions, four different stereochemical approaches---endo top, endo bottom, exo top, exo bottom---exist.
-
-%     % review the lecture recording
-
-%     \begin{enumerate}
-
-%       \item \textbf{Isomer 1} 
-
-%       \reactionfig{
-%         \scheme{
-%           \chemname{
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%           }{placeholder}
-%           \qquad \qquad
-%           \chemname{
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%           }{placeholder}
-%           \qquad \qquad
-%           \chemname{
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%           }{placeholder}
-%           \qquad \qquad
-%           \chemname{
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%           }{placeholder}
-%         }
-%       }{manual figure of endo top, endo bottom, exo top, exo bottom product}{fig:ph49a}{0.9}
-
-%       \item \textbf{Isomer 2} 
-
-%       \reactionfig{
-%         \scheme{
-%           \chemname{
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%           }{placeholder}
-%           \qquad \qquad
-%           \chemname{
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%           }{placeholder}
-%           \qquad \qquad
-%           \chemname{
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%           }{placeholder}
-%           \qquad \qquad
-%           \chemname{
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%           }{placeholder}
-%         }
-%       }{manual figure of endo top, endo bottom, exo top, exo bottom product}{fig:ph50a}{0.9}
-
-%     \end{enumerate}
-
-%   \end{core}
-
-%   \subsection{Rates of Diel Alder Reactions}
-
-%     \begin{core}{Diene Orientation}
-
-%       Diel alder reactions are more favorable when the resulting ring has minimal strain. The \textbf{s-cis} diene orientation does this better than the \textbf{s-trans} orientation as shown below. \textit{The s in s-cis and s-trans stands for specifically along single bond as clarification because conventionally cis and trans in the context of alkenes look at the double bond as the reference bond.}
-
-%       \myfig{0.5}{conj_sys_figures/cis_trans}{a ring needs to be at least 8 atoms large to accommodate a trans π bond}{fig:ph51}
-
-%       \reactionfig{
-%         \scheme{
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \arrow{->}
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \qquad \qquad
-%           \text{VS}
-%           \qquad \qquad
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \arrow{->}
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%         }
-%       }{caption}{fig:}{0.9}
-
-%       Take the following dienes for instance.
-
-%       \myfig{0.5}{conj_sys_figures/cis_trans_relative}{}{fig:ph52}
-
-%       \reactionfig{
-%         \scheme{
-%           \chemname{
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%           }{A}
-%           \qquad \qquad
-%           \chemname{
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%           }{B}
-%           \qquad \qquad
-%           \chemname{
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%           }{C}
-%         }
-%       }{figure out how to do the downwards arrows}{fig:ph52a}{0.9}
-
-%       The relative diel alder reaction rates is $\text{C} > \text{A} > \text{B}$. C reigns superior because its structure restricts rotation along the relevant single bond, preventing any rearrangement to an s-trans arrangement. A and B, on the other hand, both can rotate along the relevant single bond, however B favors the s-trans arrangement because the s-cis arangement has a comparatively higher level of steric hinderance between the alkenyl substituents to the relevant single bond.
-
-%     \end{core}
-
-%     \begin{core}{Secondary Orbital Overlap}
-
-%       Under certain scenarios, orbitials not directly responsible for new bond formation between the diene and dienophile can undergo a secondary overlap to lower the overall E$_\text{a}$. Take a look at the following diel alder interaction between two cyclopentenes.
-
-%       \myfig{0.5}{conj_sys_figures/secondary_overlap}{}{fig:ph53}
-
-%       \pgfig{
-%       }{caption}{fig:ph53a}{0.9}
-
-%       It's important to keep in mind that although favorable mixing of secondary orbital overlaps in the transition state will help stabilize that transition state, sterics still does not favor the endo approach. As a result, ambigiuous diene dienophile pairs will usually need to undergo experiments to see which effect is more impartant in each case.
-
-%     \end{core}
-
-%     \begin{core}{Electronic Effects}
-
-%       Diel alder reactions progress faster when the energies of the interacting orbitals are closer to one another. In other words, the small the HOMO-LUMO gap between reacting molecules, the faster the rate. This usually occurs when more conjugation occurs.
-
-%       However, while more conjugation typically shrinks the HOMO-LUMO gap and speeds up a reaction, it also alters the wave topology (\textit{the layout of the nodes}). If the orbital with the ideal energy gap happens to place a node on an essential bonding atom, that orbital becomes useless for the reaction, forcing the system to use a higher-energy, slower pathway. Symmetry and overlap must always be satisfied before energy gaps even matter.
-
-%       \myfig{0.5}{conj_sys_figures/electronic_effect}{The left reagents actually go faster despite the small π3-π$^*$ gap of the right reagents because π3 is not favorable because there is a node of the atom that needs ot make a new σ bond}{fig:ph54}
-
-%       % \pgfig{
-%       % }{caption}{fig:ph54a}{0.9}
-
-%     \end{core}
-
-%     \begin{core}{Groundstate Destabilization}
-
-%       Given that two sets of reagents that are similar will have similar transition states leading to the \textbf{same} product, the reactant pair in which the ground states of the initial diene and dienophile start at a higher energy levels (\textit{due to something such as steric hinderance}) will have a faster diel alder reaction rate. Take the following diene dineophile pairs leading to the same product for instance.
-
-%       \myfig{0.5}{conj_sys_figures/ground_state}{}{fig:ph55}
-
-%       \doublereactionfig{
-%         \scheme{
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \+
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \arrow{->}
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%         }
-%       }{
-%         \scheme{
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \+
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \arrow{->}
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%         }
-%       }{caption}{fig:ph55a}{0.9}
-
-%       The energy level for the right diene dineophile pair possesses a greater level of steric hinderance between the isobutyl substituents wihtin the diene, placing it at a higher energy level relative to the left diene dienophile pair.
-
-%       \myfig{0.5}{conj_sys_figures/ground_state_edia}{}{fig:ph56}
-
-%       % \pgfig{
-%       % }{caption}{fig:ph56a}{0.9}
-
-%       As shown in the energy diagram above, the E$_\text{a}$ is much lower for the more unstable reactant pair and thus progresses at a much faster rate because the total ΔH is lower.
-
-%     \end{core}
+\section{Diel Alder Reactions} % lessons 4-5
+
+  \begin{core}{Cycloadditions}
+
+    \textbf{Cycloadditions} refer to the reaction of two separate π systems to form a new ring, an interaction that involves neither a nucleophile nor an electrophile.
+
+    Cycloadditions have already been encountered in two reactions within \href{https://ibahng.github.io/chemistry/alkene_alkyne/alkene_alkyne.pdf}{Alkenes \& Alkynes}.
+
+    \begin{enumerate}
+
+      \item \textbf{Ozonolysis} (\textit{\autoref{alk-core:ozonolysis}})
+
+      \reactionfig{
+        \scheme{
+          \raisebox{0.25cm}{
+            \chemfig{
+              [:0]@{oxygen1}O
+              (=[@{dbond1}:60]@{oxygen3}O)
+              (-[:-60]@{oxygen2}\ncharge{45}{O})
+            }
+          }
+          \qquad \qquad
+          \chemfig{
+            [:0]@{carbon1}
+            (-[:-45])
+            =[@{dbond2}:90]@{carbon2}
+            (-[:45])
+          }
+          \qquad \qquad
+          \arrow{->[cycloaddition]}
+          \qquad
+          \chemfig{
+            [:180]*5(
+            (-[:30])
+            -[:,,,,Red]
+            O-O-O
+            -[:,,,,Red]
+            (-[:-30])
+            -
+            )
+          }
+        }
+        \chemmovearrow{
+          \reactionfigarrow{dbond1}{120}{oxygen1}{150}{Red}
+          \reactionfigarrow{oxygen2}{0}{carbon1}{-135}{Red}
+          \reactionfigarrow{dbond2}{-15}{carbon2}{0}{Red}
+          \reactionfigarrow{carbon2}{135}{oxygen3}{45}{Red}
+        }
+      }{Ozonolysis}{fig:ph37a}{0.9}
+
+      \item \textbf{\ce{OsO4} Syn-Dihydroxylation} (\textit{\autoref{alk-core:osmium_hydrox}})
+
+      \reactionfig{
+        \scheme{
+          \raisebox{0.25cm}{
+            \chemfig{
+              [:0]@{osm}Os
+              (=[@{dbond3}:60]@{oxygen2}O)
+              (=[@{dbond1}:-60]@{oxygen1}O)
+              (=[:135]O)
+              (=[:-135]O)
+            }
+          }
+          \qquad \qquad
+          \chemfig{
+            [:0]@{carbon1}
+            (-[:-45])
+            =[@{dbond2}:90]@{carbon2}
+            (-[:45])
+          }
+          \qquad \qquad
+          \arrow{->[cycloaddition]}
+          \qquad
+          \chemfig{
+            [:180]*5(
+            (-[:30])
+            -[:,,,,Red]
+            O-Os
+            (=[:135]O)
+            (=[:-135]O)
+            -O
+            -[:,,,,Red]
+            (-[:-30])
+            -
+            )
+          }
+        }
+        \chemmovearrow{
+          \reactionfigarrow{dbond1}{-135}{oxygen1}{-100}{Red}
+          \reactionfigarrow{oxygen1}{0}{carbon1}{-135}{Red}
+          \reactionfigarrow{dbond2}{-15}{carbon2}{0}{Red}
+          \reactionfigarrow{carbon2}{135}{oxygen2}{45}{Red}
+          \reactionfigarrow{dbond3}{0}{osm}{-15}{Red}
+        }
+      }{\ce{OsO4} syn-dihydroxylation}{fig:ph38a}{0.9}
+
+    \end{enumerate}
+
+  \end{core}
+
+  \begin{core}{Diel Alder Reactions}
+
+    \textbf{Diels--Alder reactions} are a type of cycloaddition that combine a diene possessing a minimum of 4π \ce{e^-}s with a dienophile possessing a minimum of 2π \ce{e^-}s, forming a cyclohexene product.
+
+    \reactionfig{
+      \scheme{
+        \chemname{
+          \chemfig{
+            [:0]
+            (=[@{dbond1}:-45]@{carbon4})
+            (-[:-135])
+            -[@{sbond1}:90]
+            (=[@{dbond2}:45]@{carbon1})
+            (-[:135])
+          }
+        }{4π diene}
+        \qquad \qquad
+        \chemname{
+          \chemfig{
+            [:0]@{carbon3}
+            (-[:-45])
+            =[@{dbond3}:90]@{carbon2}
+            (-[:45])
+          }
+        }{2π dienophile}
+        \arrow{->}
+        \chemfig{
+          [:0]*6(
+          (-[:-150])
+          -
+          -[:,,,,Red]
+          (-[:-30])
+          -
+          (-[:30])
+          -[:,,,,Red]
+          -
+          (-[:150])
+          =[:,,,,Red]
+          )
+        }
+        \qquad
+        \chemfig{
+          [:0,,,,Yellow]*6(-----=)
+        }
+      }
+      \chemmovearrow{
+        \reactionfigarrow{dbond1}{45}{sbond1}{15}{Red}
+        \reactionfigarrow{dbond2}{135}{carbon1}{100}{Red}
+        \reactionfigarrow{carbon1}{-15}{carbon2}{110}{Red}
+        \reactionfigarrow{dbond3}{15}{carbon3}{0}{Red}
+        \reactionfigarrow{carbon3}{-135}{carbon4}{0}{Red}
+      }
+    }{Diel alder reaction; \textit{combination of a minimum 4π diene wiht a minimum 2π dienophile}}{fig:ph39a}{0.7}
+
+    Consequently, diene and dienophile pairings possessing conjugated π systems larger than these stated minimums of 4π and  2π, respectively, can give rise to a substantial diversity of stereoisomeric products.
+
+    \triplereactionfig{
+      \scheme{
+        \raisebox{-1.5cm}{
+          \chemfig[atom sep=2em]{
+            [:0]\charge{135:4pt=\textcolor{Green}{B}}{}
+            (=[:30]\charge{90:4pt=\textcolor{Green}{A}}{})
+            -[:-90]\charge{-135:4pt=\textcolor{Green}{C}}{}
+            =[:-30]\charge{15:4pt=\textcolor{Green}{D}}{}
+            -[:-90]
+          }
+          \qquad
+          \raisebox{-0.5cm}{
+            \+
+          }
+          \qquad
+          \chemfig[atom sep=2em]{
+            [:0]\charge{110:4pt=\textcolor{Red}{2}}{}
+            (
+            -[:30]\charge{90:4pt=\textcolor{Red}{3}}{}
+            =[:-30]\charge{-30:4pt=\textcolor{Red}{4}}{}
+            (-[:30])
+            -[:-90]
+            )
+            =[:-90]\charge{-45:4pt=\textcolor{Red}{1}}{}
+          }
+        }
+        \qquad
+        \arrow{->[DA][Chemistry]}
+        \qquad
+        \chemname{
+          \chemfig[atom sep=2em]{
+            *6(-
+            (-[:-90])
+            --
+            (
+            -[:30]
+            =[:-30]
+            (-[:-90])
+            -[:30]
+            )
+            --=)
+          }
+        }{\textcolor{Green}{A}\textcolor{Red}{2}\textcolor{Green}{D}\textcolor{Red}{1}}
+        \+
+        \chemname{
+          \chemfig[atom sep=2em]{
+            *6(-
+            (-[:-90])
+            -
+            (
+            -[:-30]
+            =[:30]
+            (-[:90])
+            -[:-30]
+            )
+            ---=)
+          }
+        }{\textcolor{Green}{A}\textcolor{Red}{1}\textcolor{Green}{D}\textcolor{Red}{2}}
+      }
+    }{
+      \scheme{
+        \chemname{
+          \chemfig[atom sep=2em]{
+            *6(-
+            (-[:-90])
+            -
+            (-[:-30])
+            (-[:0])
+            -
+            (
+            -[:30]
+            =[:-30]
+            )
+            --=)
+          }
+        }{\textcolor{Green}{A}\textcolor{Red}{3}\textcolor{Green}{D}\textcolor{Red}{4}}
+        \+
+        \chemname{
+          \chemfig[atom sep=2em]{
+            *6(-
+            (-[:-90])
+            -
+            (
+            -[:-30]
+            =[:30]
+            )
+            -
+            (-[:30])
+            (-[:0])
+            --=)
+          }
+        }{\textcolor{Green}{A}\textcolor{Red}{4}\textcolor{Green}{D}\textcolor{Red}{3}}
+        \+
+        \chemname{
+          \chemfig[atom sep=2em]{
+            *6(---
+            (
+            -[:30]
+            =[:-30]
+            -[:30]
+            )
+            -
+            (-[:60])
+            (-[:120])
+            -=)
+          }
+        }{\textcolor{Red}{1}\textcolor{Green}{A}\textcolor{Red}{4}\textcolor{Green}{B}}
+      }
+    }{
+      \scheme{
+        \chemname{
+          \chemfig[atom sep=2em]{
+            *6(--
+            (-[:-30])
+            -
+            (
+            -[:30]
+            =[:-30]
+            )
+            -
+            (-[:60])
+            (-[:120])
+            -=)
+          }
+        }{\textcolor{Red}{1}\textcolor{Green}{D}\textcolor{Red}{4}\textcolor{Green}{C}}
+        \+
+        \chemname{
+          \chemfig[atom sep=2em]{
+            *6(--
+            (
+            -[:-30]
+            =[:30]
+            )
+            -
+            (-[:30])
+            -
+            (-[:60])
+            (-[:120])
+            -=)
+          }
+        }{\textcolor{Red}{1}\textcolor{Green}{C}\textcolor{Red}{4}\textcolor{Green}{D}}
+        \+
+        \chemname{
+          \chemfig[atom sep=2em]{
+            *6(--
+            (
+            -[:-30]
+            =[:30]
+            -[:-30]
+            )
+            --
+            (-[:60])
+            (-[:120])
+            -=)
+          }
+        }{\textcolor{Red}{1}\textcolor{Green}{B}\textcolor{Red}{4}\textcolor{Green}{A}}
+      }
+    }{Diel alder reaction product diversity}{fig:ph40a}{0.8}
+
+  \end{core}
+
+  \begin{core}{Orbitals of Diel Alder Reactions}
+
+    In Diels--Alder reactions, the π systems of the diene and dienophile approach one another in a vertical orientation, enabling them to generate new σ overlaps.
+
+    \myfig{0.3}{conj_sys_figures/da_overlap}{Diene and dienophile vertical interaction; \textit{p orbitals overlap to form σ interactions}}{fig:ph41}
+
+    Consider the energy diagrams of the respective conjugated π systems of the diene and dienophile.
+
+    \myfig{0.6}{conj_sys_figures/da_edia}{Conjugated π system energy diagrams of a diene and dineophile}{fig:ph42}
+
+    A key observation follows from examining which energy levels interact with which: the HOMO of one reagent interacts with the LUMO of the other.
+
+    \myfig{0.6}{conj_sys_figures/da_homolumo}{HOMO--LUMO interaction versions between diel alder reagents}{fig:ph43}
+
+  \end{core}
+
+  \begin{core}{Diel Alder Stereochemistry}
+
+    Diels--Alder reactions can further be categorized according to the distinct stereochemical approaches the reagents may adopt.
+
+    \begin{enumerate}
+
+      \item \textbf{Top} and \textbf{bottom} Diels--Alder reactions refer, respectively, to the dienophile approaching the diene from \textbf{above} or \textbf{below} its plane.
+
+      \pgfig{
+        \node at (0,1) {
+          \chemfig[atom sep=2.5em]{
+            [:0]
+            (-[:180])
+            (=[:-30])
+            -[:45]
+            (=[:0])
+            (-[:150])
+          }
+        };
+
+        \node at (1,-0.5) {
+          \chemfig[atom sep=2.5em]{
+            [:0,,,,Red]
+            (-[:-30])
+            =[:45]
+            -[:0]
+          }
+        };
+
+        \node at (1.7,0.5) {BOTTOM};
+
+        \draw[-{Latex}] (1,0.2) -- (0.5,1);
+
+        \begin{scope}[xshift=5cm]
+          \node at (0,-0.5) {
+            \chemfig[atom sep=2.5em]{
+              [:0]
+              (-[:180])
+              (=[:-30])
+              -[:45]
+              (=[:0])
+              (-[:150])
+            }
+          };
+
+          \node at (1.5,1) {
+            \chemfig[atom sep=2.5em]{
+              [:0,,,,Red]
+              (-[:-30])
+              =[:45]
+              -[:0]
+            }
+          };
+
+          \node at (0,1) {TOP};
+          \draw[-{Latex}] (1.2,0.5) -- (0.5,-0.5);
+        \end{scope}
+      }{Bottom (\textit{left}) and top (\textit{right}) attacks by the dienophile in a diel alder reaction}{fig:ph44a}{0.9}
+
+      \item \textbf{Endo} and \textbf{exo} distinctions refer to whether the substituents of the dienophile are oriented \textbf{towards} or \textbf{away from} the corresponding diene.
+
+      \reactionfig{
+        \scheme{
+          \chemfig{
+            [:0]
+            (=[:30])
+            (-[:150])
+            -[:-90]
+            (=[:-30])
+            (-[:-150])
+          }
+          \arrow{<-}
+          \chemname{
+            \chemfig{
+              [:0]
+              (-[:150,,,,Red,line width=2pt])
+              =[:-90]
+              (-[:-150,,,,Red,line width=2pt])
+            }
+          }{ENDO}
+          \qquad \qquad \qquad
+          \chemfig{
+            [:0]
+            (=[:30])
+            (-[:150])
+            -[:-90]
+            (=[:-30])
+            (-[:-150])
+          }
+          \arrow{<-}
+          \chemname{
+            \chemfig{
+              [:0]
+              (-[:30,,,,Red,line width=2pt])
+              =[:-90]
+              (-[:-30,,,,Red,line width=2pt])
+            }
+          }{EXO}
+        }
+      }{Endo (\textit{left}) and exo (\textit{right}) attack by the dienophile in a diel alder reaction}{fig:ph45a}{0.9}
+
+      It is important to note that the bonds oriented towards the diene are flipped about the dienophile's double bond, in the direction opposite to the diene's approach.
+
+      \myfig{0.5}{conj_sys_figures/da_flip}{Flipping of dienophile substituents pointing towards the diene during a diel alder reaction}{fig:ph46a}
+
+      In general, this flipping process can be summarized by the following outline reaction.
+
+      \reactionfig{
+        \scheme{
+          \chemfig[atom sep=2em]{
+            [:0]
+            (-[:150]R)
+            (
+            =[:30]
+            (-[:90,,,,Yellow]\textcolor{Yellow}{O})
+            -[:-30,,,,Red]\textcolor{Red}{I}
+            )
+            -[:-90]
+            (-[:-150]R')
+            (
+            =[:-30]
+            (-[:-90,,,,Yellow]\textcolor{Yellow}{O'})
+            -[:30,,,,Red]\textcolor{Red}{I'}
+            )
+          }
+          \qquad
+          \chemfig[atom sep=2em]{
+            [:0]
+            (-[:30,,,,Green]\textcolor{Green}{A})
+            (-[:150,,,,Blue]\textcolor{Blue}{T})
+            =[:-90]
+            (-[:-30,,,,Green]\textcolor{Green}{A'})
+            (-[:-150,,,,Blue]\textcolor{Blue}{T'})
+          }
+          \arrow(aa--bb){->[TOP]}[20]
+          \chemfig[atom sep=2em]{
+            [:-60]*6(
+            (-[:150]R)
+            -
+            (-[:-150]R')
+            -
+            (<[:-120,,,,Yellow]\textcolor{Yellow}{O'})
+            (<:[:-60,,,,Red]\textcolor{Red}{I'})
+            -
+            (<[:15,,,,Blue]\textcolor{Blue}{T'})
+            (<:[:-45,,,,Green]\textcolor{Green}{A'})
+            -
+            (<[:-15,,,,Blue]\textcolor{Blue}{T})
+            (<:[:45,,,,Green]\textcolor{Green}{A})
+            -
+            (<[:120,,,,Yellow]\textcolor{Yellow}{O})
+            (<:[:60,,,,Red]\textcolor{Red}{I})
+            -)
+          }
+          \arrow(@aa--cc){->[BOTTOM]}[-20]
+          \chemfig[atom sep=2em]{
+            [:-60]*6(
+            (-[:150]R)
+            -
+            (-[:-150]R')
+            -
+            (<:[:-120,,,,Yellow]\textcolor{Yellow}{O'})
+            (<[:-60,,,,Red]\textcolor{Red}{I'})
+            -
+            (<:[:15,,,,Blue]\textcolor{Blue}{T'})
+            (<[:-45,,,,Green]\textcolor{Green}{A'})
+            -
+            (<:[:-15,,,,Blue]\textcolor{Blue}{T})
+            (<[:45,,,,Green]\textcolor{Green}{A})
+            -
+            (<:[:120,,,,Yellow]\textcolor{Yellow}{O})
+            (<[:60,,,,Red]\textcolor{Red}{I})
+            -)
+          }
+        }
+      }{Diastereoselective outcomes resulting from top-face (\textit{top}) versus bottom-face (\textit{bottom}) attack during a cycloaddition reaction}{fig:ph46b}{0.9}
+
+    \end{enumerate}
+
+    As practice, consider the following Diels--Alder reaction, in which the objective is to predict all non-dimeric Diels--Alder products.
+
+    \reactionfig{
+      \scheme{
+        \chemfig[atom sep=2.5em]{
+          [:0]\charge{-150:4pt=\textcolor{Yellow}{X}}{}
+          (
+          =[:30]\charge{90:4pt=\textcolor{Yellow}{W}}{}
+          -[:-30]D
+          )
+          (-[:150]\ce{D3C})
+          -[:-90]\charge{30:4pt=\textcolor{Yellow}{Y}}{}
+          (
+          =[:-30]\charge{0:4pt=\textcolor{Yellow}{Z}}{}
+          -[:-90]D
+          )
+          (-[:-150])
+        }
+        \qquad
+        \raisebox{-1cm}{
+          \+
+        }
+        \qquad
+        \chemfig[atom sep=2.5em]{
+          [:0]\charge{135:4pt=\textcolor{Red}{1}}{}
+          (-[:30]\ce{CD3})
+          =[:-90]\charge{-135:4pt=\textcolor{Red}{2}}{}
+          (-[:-30])
+        }
+        \qquad
+        \arrow{->[DA][Δ (heat)]}
+        \qquad
+        \chemfig{
+          \text{\textit{Predict all DA, nondimer products}}
+        }
+      }
+    }{Example diel alder reaction}{fig:ph47a}{0.9}
+
+    Two possible constitutional isomers can form, corresponding to the two distinct positionings the dienophile may adopt.
+
+    \reactionfig{
+      \scheme{
+        \chemname{
+          \chemfig[atom sep=2.5em]{
+            *6(
+            (-[:-150])
+            -\charge{90:5pt=\textcolor{Yellow}{Z}}{}
+            (-[:-90]D)
+            -\charge{150:5pt=\textcolor{Red}{2}}{}
+            (-[:-30])
+            -\charge{-150:5pt=\textcolor{Red}{1}}{}
+            (-[:30]\ce{CD3})
+            -\charge{-90:5pt=\textcolor{Yellow}{W}}{}
+            (-[:90]D)
+            -
+            (-[:150]\ce{D3C})
+            -)
+          }
+        }{\textcolor{Yellow}{W}\textcolor{Red}{1}\textcolor{Yellow}{Z}\textcolor{Red}{2}}
+        \qquad \qquad
+        \chemname{
+          \chemfig[atom sep=2.5em]{
+            *6(
+            (-[:-150])
+            -\charge{90:5pt=\textcolor{Yellow}{Z}}{}
+            (-[:-90]D)
+            -\charge{150:5pt=\textcolor{Red}{1}}{}
+            (-[:-30]\ce{CD3})
+            -\charge{-150:5pt=\textcolor{Red}{2}}{}
+            (-[:30])
+            -\charge{-90:5pt=\textcolor{Yellow}{W}}{}
+            (-[:90]D)
+            -
+            (-[:150]\ce{D3C})
+            -)
+          }
+        }{\textcolor{Yellow}{W}\textcolor{Red}{2}\textcolor{Yellow}{Z}\textcolor{Red}{1}}
+      }
+    }{Isomer product possibilities of the reaction shown in \autoref{fig:ph47a}}{fig:ph48a}{0.9}
+
+    It is also important to note that for each of these diene--dienophile arrangements, four distinct stereochemical approaches exist---endo top, endo bottom, exo top, and exo bottom---consistent with the general outline given in \autoref{fig:ph46b}.
+
+  \end{core}
+
+  \subsection{Rates of Diel Alder Reactions}
+
+    \begin{core}{Diene Orientation}
+
+      Diel alder reactions are more favorable when the resulting ring has minimal strain. The \textbf{s-cis} diene orientation does this better than the \textbf{s-trans} orientation as shown below. \textit{The s in s-cis and s-trans stands for specifically along single bond as clarification because conventionally cis and trans in the context of alkenes look at the double bond as the reference bond.}
+
+      \myfig{0.5}{conj_sys_figures/cis_trans}{a ring needs to be at least 8 atoms large to accommodate a trans π bond}{fig:ph51}
+
+      \reactionfig{
+        \scheme{
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+          \arrow{->}
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+          \qquad \qquad
+          \text{VS}
+          \qquad \qquad
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+          \arrow{->}
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+        }
+      }{caption}{fig:}{0.9}
+
+      Take the following dienes for instance.
+
+      \myfig{0.5}{conj_sys_figures/cis_trans_relative}{}{fig:ph52}
+
+      \reactionfig{
+        \scheme{
+          \chemname{
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+          }{A}
+          \qquad \qquad
+          \chemname{
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+          }{B}
+          \qquad \qquad
+          \chemname{
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+          }{C}
+        }
+      }{figure out how to do the downwards arrows}{fig:ph52a}{0.9}
+
+      The relative diel alder reaction rates is $\text{C} > \text{A} > \text{B}$. C reigns superior because its structure restricts rotation along the relevant single bond, preventing any rearrangement to an s-trans arrangement. A and B, on the other hand, both can rotate along the relevant single bond, however B favors the s-trans arrangement because the s-cis arangement has a comparatively higher level of steric hinderance between the alkenyl substituents to the relevant single bond.
+
+    \end{core}
+
+    \begin{core}{Secondary Orbital Overlap}
+
+      Under certain scenarios, orbitials not directly responsible for new bond formation between the diene and dienophile can undergo a secondary overlap to lower the overall E$_\text{a}$. Take a look at the following diel alder interaction between two cyclopentenes.
+
+      \myfig{0.5}{conj_sys_figures/secondary_overlap}{}{fig:ph53}
+
+      \pgfig{
+      }{caption}{fig:ph53a}{0.9}
+
+      It's important to keep in mind that although favorable mixing of secondary orbital overlaps in the transition state will help stabilize that transition state, sterics still does not favor the endo approach. As a result, ambigiuous diene dienophile pairs will usually need to undergo experiments to see which effect is more impartant in each case.
+
+    \end{core}
+
+    \begin{core}{Electronic Effects}
+
+      Diel alder reactions progress faster when the energies of the interacting orbitals are closer to one another. In other words, the small the HOMO-LUMO gap between reacting molecules, the faster the rate. This usually occurs when more conjugation occurs.
+
+      However, while more conjugation typically shrinks the HOMO-LUMO gap and speeds up a reaction, it also alters the wave topology (\textit{the layout of the nodes}). If the orbital with the ideal energy gap happens to place a node on an essential bonding atom, that orbital becomes useless for the reaction, forcing the system to use a higher-energy, slower pathway. Symmetry and overlap must always be satisfied before energy gaps even matter.
+
+      \myfig{0.5}{conj_sys_figures/electronic_effect}{The left reagents actually go faster despite the small π3-π$^*$ gap of the right reagents because π3 is not favorable because there is a node of the atom that needs ot make a new σ bond}{fig:ph54}
+
+      % \pgfig{
+      % }{caption}{fig:ph54a}{0.9}
+
+    \end{core}
+
+    \begin{core}{Groundstate Destabilization}
+
+      Given that two sets of reagents that are similar will have similar transition states leading to the \textbf{same} product, the reactant pair in which the ground states of the initial diene and dienophile start at a higher energy levels (\textit{due to something such as steric hinderance}) will have a faster diel alder reaction rate. Take the following diene dineophile pairs leading to the same product for instance.
+
+      \myfig{0.5}{conj_sys_figures/ground_state}{}{fig:ph55}
+
+      \doublereactionfig{
+        \scheme{
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+          \+
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+          \arrow{->}
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+        }
+      }{
+        \scheme{
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+          \+
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+          \arrow{->}
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+        }
+      }{caption}{fig:ph55a}{0.9}
+
+      The energy level for the right diene dineophile pair possesses a greater level of steric hinderance between the isobutyl substituents wihtin the diene, placing it at a higher energy level relative to the left diene dienophile pair.
+
+      \myfig{0.5}{conj_sys_figures/ground_state_edia}{}{fig:ph56}
+
+      % \pgfig{
+      % }{caption}{fig:ph56a}{0.9}
+
+      As shown in the energy diagram above, the E$_\text{a}$ is much lower for the more unstable reactant pair and thus progresses at a much faster rate because the total ΔH is lower.
+
+    \end{core}
 
