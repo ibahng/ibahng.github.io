@@ -600,62 +600,140 @@
 
       Diel alder reactions are more favorable when the resulting ring has minimal strain. The \textbf{s-cis} diene orientation does this better than the \textbf{s-trans} orientation as shown below. \textit{The s in s-cis and s-trans stands for specifically along single bond as clarification because conventionally cis and trans in the context of alkenes look at the double bond as the reference bond.}
 
-      \myfig{0.5}{conj_sys_figures/cis_trans}{a ring needs to be at least 8 atoms large to accommodate a trans π bond}{fig:ph51}
-
+      \vspace{0.5cm}
       \reactionfig{
         \scheme{
-          \chemfig{
-            [:0]
-            -[:30]
+          \chemname{
+            \chemfig[atom sep=2.5em]{
+              [:0]
+              (=[@{abond3}:30]@{acarbon1})
+              -[@{abond2}:-90]
+              (=[@{abond1}:-30]@{acarbon4})
+            }
+          }{\textit{s-cis}}
+          \qquad \quad
+          \chemfig[atom sep=2.5em]{
+            [:0]@{acarbon2}
+            (-[:30])
+            =[@{abond4}:-90]@{acarbon3}
           }
           \arrow{->}
-          \chemfig{
-            [:0]
-            -[:30]
+          \raisebox{-1cm}{
+            \chemfig[atom sep=2.5em]{
+              *6(-
+              -[:,,,,Red, line width=2pt]
+              -
+              (-[:30])
+              -[:,,,,Red, line width=2pt]
+              -=)
+            }
           }
-          \qquad \qquad
-          \text{VS}
-          \qquad \qquad
-          \chemfig{
-            [:0]
-            -[:30]
+          \qquad
+          \raisebox{-1cm}{
+            \text{VS}
+          }
+          \qquad
+          \chemname{
+            \chemfig[atom sep=2.5em]{
+              [:0]
+              (=[@{bbond3}:30]@{bcarbon1})
+              -[@{bbond2}:-90]
+              (=[@{bbond1}:-150]@{bcarbon4})
+            }
+          }{\textit{s-trans}}
+          \qquad \quad
+          \chemfig[atom sep=2.5em]{
+            [:0]@{bcarbon2}
+            (-[:30])
+            =[@{bbond4}:-90]@{bcarbon3}
           }
           \arrow{->}
-          \chemfig{
+          \chemfig[atom sep=2.5em]{
             [:0]
-            -[:30]
+            (=[:30])
+            -[:-90]
+            (
+            =[:-120]
+            -[:15,2.5,,,Red, line width=2pt]
+            -[:90,1.15]
+            (-[:30])
+            -[:150,1.2,,,Red, line width=2pt]
+            )
           }
         }
-      }{caption}{fig:}{0.9}
+        \chemmovearrow{
+          \reactionfigarrow{abond1}{60}{abond2}{15}{Red}
+          \reactionfigarrow{abond3}{120}{acarbon1}{60}{Red}
+          \reactionfigarrow{acarbon1}{15}{acarbon2}{135}{Red}
+          \reactionfigarrow{abond4}{15}{acarbon3}{-15}{Red}
+          \reactionfigarrow{acarbon3}{-135}{acarbon4}{0}{Red}
+          \reactionfigarrow{bbond1}{120}{bbond2}{165}{Red}
+          \reactionfigarrow{bbond3}{120}{bcarbon1}{60}{Red}
+          \reactionfigarrow{bcarbon1}{15}{bcarbon2}{135}{Red}
+          \reactionfigarrow{bbond4}{15}{bcarbon3}{-15}{Red}
+          \reactionfigarrow{bcarbon3}{-135}{bcarbon4}{-45}{Red}
+        }
+      }{s-cis (\textit{left}) vs s-trans (\textit{right}) diene orienation; \textit{s-trans orientation induces aggressive ring strain}; \textit{a ring needs to be at least 8 atoms large to accommodate a trans π bond, thus the above s-trans reaction will no proceed}}{fig:ph51a}{0.8}
 
       Take the following dienes for instance.
 
-      \myfig{0.5}{conj_sys_figures/cis_trans_relative}{}{fig:ph52}
-
       \reactionfig{
         \scheme{
           \chemname{
-            \chemfig{
+            \chemfig[atom sep=2em]{
               [:0]
-              -[:30]
+              (=[:-30])
+              (-[:-150])
+              -[:90,,,,Yellow, line width=2pt]
+              (=[:30])
+              (-[:150])
             }
-          }{A}
-          \qquad \qquad
+          }{A; \textit{~50\% s-cis}}
+          \arrow(aa--bb){->}[,,,White]
           \chemname{
-            \chemfig{
+            \chemfig[atom sep=2em]{
               [:0]
+              (
+              =[:-30]
               -[:30]
+              )
+              -[:90,,,,Yellow, line width=2pt]
+              (
+              =[:30]
+              -[:-30]
+              )
             }
-          }{B}
-          \qquad \qquad
+          }{B; \textit{~0\% s-cis}}
+          \arrow(@bb--){->}[,,,White]
           \chemname{
-            \chemfig{
-              [:0]
-              -[:30]
+            \chemfig[atom sep=2em]{
+              [:0]*6(=---=-[:,,,,Yellow, line width=2pt])
             }
-          }{C}
+          }{C; \textit{100\% s-cis}}
+          \arrow(@aa--){<->}[90]
+          \chemfig[atom sep=2em]{
+            [:0]
+            (=[:-30])
+            (-[:-150])
+            -[:90]
+            (-[:30])
+            (=[:150])
+          }
+          \arrow(@bb--){->}[90]
+          \chemfig[atom sep=2em]{
+            [:0]
+            (
+            =[:-150]
+            -[:150]
+            )
+            -[:90]
+            (
+            =[:30]
+            -[:-30]
+            )
+          }
         }
-      }{figure out how to do the downwards arrows}{fig:ph52a}{0.9}
+      }{Differences in s-cis orientation dominance across different dienes; \textit{Diel-Alder reaction rates favor diene C the most and diene B the least}}{fig:ph52a}{1}
 
       The relative diel alder reaction rates is $\text{C} > \text{A} > \text{B}$. C reigns superior because its structure restricts rotation along the relevant single bond, preventing any rearrangement to an s-trans arrangement. A and B, on the other hand, both can rotate along the relevant single bond, however B favors the s-trans arrangement because the s-cis arangement has a comparatively higher level of steric hinderance between the alkenyl substituents to the relevant single bond.
 
@@ -665,7 +743,7 @@
 
       Under certain scenarios, orbitials not directly responsible for new bond formation between the diene and dienophile can undergo a secondary overlap to lower the overall E$_\text{a}$. Take a look at the following diel alder interaction between two cyclopentenes.
 
-      \myfig{0.5}{conj_sys_figures/secondary_overlap}{}{fig:ph53}
+      \myfig{0.8}{conj_sys_figures/secondary_overlap}{}{fig:ph53}
 
       \pgfig{
       }{caption}{fig:ph53a}{0.9}
@@ -680,7 +758,7 @@
 
       However, while more conjugation typically shrinks the HOMO-LUMO gap and speeds up a reaction, it also alters the wave topology (\textit{the layout of the nodes}). If the orbital with the ideal energy gap happens to place a node on an essential bonding atom, that orbital becomes useless for the reaction, forcing the system to use a higher-energy, slower pathway. Symmetry and overlap must always be satisfied before energy gaps even matter.
 
-      \myfig{0.5}{conj_sys_figures/electronic_effect}{The left reagents actually go faster despite the small π3-π$^*$ gap of the right reagents because π3 is not favorable because there is a node of the atom that needs ot make a new σ bond}{fig:ph54}
+      \myfig{0.8}{conj_sys_figures/electronic_effect}{The left reagents actually go faster despite the small π3-π$^*$ gap of the right reagents because π3 is not favorable because there is a node of the atom that needs ot make a new σ bond}{fig:ph54}
 
       % \pgfig{
       % }{caption}{fig:ph54a}{0.9}
@@ -691,7 +769,7 @@
 
       Given that two sets of reagents that are similar will have similar transition states leading to the \textbf{same} product, the reactant pair in which the ground states of the initial diene and dienophile start at a higher energy levels (\textit{due to something such as steric hinderance}) will have a faster diel alder reaction rate. Take the following diene dineophile pairs leading to the same product for instance.
 
-      \myfig{0.5}{conj_sys_figures/ground_state}{}{fig:ph55}
+      \myfig{0.8}{conj_sys_figures/ground_state}{}{fig:ph55}
 
       \doublereactionfig{
         \scheme{
@@ -731,7 +809,7 @@
 
       The energy level for the right diene dineophile pair possesses a greater level of steric hinderance between the isobutyl substituents wihtin the diene, placing it at a higher energy level relative to the left diene dienophile pair.
 
-      \myfig{0.5}{conj_sys_figures/ground_state_edia}{}{fig:ph56}
+      \myfig{0.8}{conj_sys_figures/ground_state_edia}{}{fig:ph56}
 
       % \pgfig{
       % }{caption}{fig:ph56a}{0.9}
