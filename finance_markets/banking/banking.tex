@@ -99,6 +99,24 @@
 
         An international wire transfer follows a clear progression of instructions across the SWIFT network. 
 
+        \pgfig{
+          \node[draw, rounded corners, align=center, minimum width=4cm, minimum height=1.2cm] (client) at (0,0) {Client\\\footnotesize (corporate/retail)};
+          \node[draw, rounded corners, align=center, minimum width=4cm, minimum height=1.2cm] (sendingbank) at (7.5,0) {Sending Bank};
+          \node[draw, rounded corners, align=center, minimum width=4cm, minimum height=1.2cm] (receivingbank) at (7.5,-6) {Receiving Bank};
+          \node[draw, rounded corners, align=center, minimum width=4cm, minimum height=1.2cm] (beneficiary) at (0,-6) {Beneficiary};
+
+          \draw[->, thick] (client) -- node[above, align=center] {\footnotesize (1) MT101\\\footnotesize (Request for Transfer)} (sendingbank);
+
+          \draw[->, thick, dashed] (sendingbank) to[bend left=45] node[pos=0.5, left, align=center, xshift=-0.2cm] {\footnotesize MT799\\\footnotesize (pre-advice)} (receivingbank);
+
+          \draw[->, thick] (sendingbank) to[bend right=45] node[pos=0.5, left, align=center, xshift=-0.2cm] {\footnotesize (2) MT103\\\footnotesize (Single Customer\\\footnotesize Credit Transfer)} (receivingbank);
+
+          \draw[<->, thick, dashed] (sendingbank) to[bend left=65] node[pos=0.5, right, align=center, xshift=0.2cm] {\footnotesize MT199\\\footnotesize (Free Format;\\\footnotesize Payments-Related)} (receivingbank);
+
+          \draw[->, thick] (receivingbank) -- node[below, align=center] {\footnotesize (3) Final credit} (beneficiary);
+
+        }{Overview of the MT101, MT799, MT103, and MT199 message flow in an active liquid transfer}{fig:mtflow}{1}
+
         \begin{enumerate}
 
           \item \textbf{Initiation: MT101, Banking Interfaces, MT799} 
@@ -133,6 +151,21 @@
 
         The process begins when a client requests a cross-border draft or check from the local institution holding the funds to be transferred, referred to as the \textbf{Drawing Bank}. This bank issues a \textbf{physical, high-security paper bank draft} made out to the \textbf{foreign beneficiary}, which the client then mails or couriers to the recipient overseas. At the same time, the Drawing Bank sends an \textbf{MT110 (\textit{Advice of Cheque})} message through the SWIFT network to the foreign institution that will ultimately receive the funds, known as the \textbf{Paying Bank}. This message functions as a secure electronic preview of the physical instrument, specifying the check number, amount, currency, issuance date, and beneficiary identity in advance.
 
+        \pgfig{
+          \node[draw, rounded corners, align=center, minimum width=3.5cm, minimum height=1.2cm] (drawing) at (0,0) {Drawing Bank\\\footnotesize (funds held)};
+          \node[draw, rounded corners, align=center, minimum width=3.5cm, minimum height=1.2cm] (paying) at (8,0) {Paying Bank\\\footnotesize (funds received)};
+          \node[draw, rounded corners, align=center, minimum width=3.5cm, minimum height=1.2cm] (client) at (0,-4) {Client};
+          \node[draw, rounded corners, align=center, minimum width=3.5cm, minimum height=1.2cm] (beneficiary) at (8,-4) {Foreign Beneficiary};
+
+          \draw[->, thick] (drawing) -- node[left, align=center] {\footnotesize (1) Issues physical\\\footnotesize bank draft} (client);
+          \draw[->, thick] (client) -- node[below, align=center] {\footnotesize (2) Mails/couriers\\\footnotesize physical draft} (beneficiary);
+          \draw[->, thick] (beneficiary) -- node[right, align=center] {\footnotesize (3) Presents\\\footnotesize physical draft} (paying);
+
+          \draw[->, thick, dashed] (drawing) -- node[above, align=center, yshift=0.3cm] {\footnotesize (1) MT110\\\footnotesize (Advice of Cheque)} (paying);
+
+          \draw[->, thick] (paying) to[bend left=15] node[below, align=center, yshift=-0.2cm] {\footnotesize (4) Match \&\\\footnotesize settle balance} (drawing);
+
+        }{Overview of the MT110 Advice of Cheque process for validating a physical negotiable instrument in cross-border settlement}{fig:mt110}{1}
         Once the beneficiary presents the physical check to the Paying Bank, the bank compares its details against the information already received in the MT110. If the two match exactly, the Paying Bank safely liquidates the instrument, pays the beneficiary, and settles the corresponding balance with the Drawing Bank.
 
         \textit{While structurally identical, a "Banker's Draft" is the official term used in the UK and Commonwealth countries, whereas "Bank Draft" is the standard official terminology used in the United States and Canada.}
@@ -143,17 +176,9 @@
 
     \begin{core}[label=core:iso_tt]{ISO 20022}
 
-      ISO 20022 represents the modern global standard for financial messaging, transitioning from legacy, character-restricted SWIFT MT text lines to rich, structural XML-based MX schemas. By introducing highly structured, granular, and uniform data elements, ISO 20022 dramatically reduces false positives in automated compliance screening, allows for the transmission of extensive remittance information within a single payment, and enables cross-border interoperability among various real-time gross settlement (RTGS) systems worldwide.
+      \textbf{ISO 20022} represents the \textbf{modern} global standard for financial messaging, transitioning from legacy, character-restricted SWIFT MT text lines to rich, structural \textbf{XML-based schemas}. By introducing highly structured, granular, and uniform data elements, ISO 20022 makes cross-border payments faster, safer, and easier to process worldwide.
 
-    \end{core}
-
-  \subsection{Clearing Houses}
-
-    \begin{core}{CHIPS}
-
-      % CHIPS (Clearing House Interbank Payments System)
-
-      The Clearing House Interbank Payments System (CHIPS) serves as the primary, privately owned clearing and settlement engine for large-value domestic and international USD transactions, facilitating approximately 95\% of global correspondent banking dollar liquidity. Unlike real-time gross settlement systems like Fedwire, CHIPS utilizes a sophisticated, multilateral continuous netting algorithm that matches and clears offsetting payments throughout the day, allowing participant banks to settle trillions of dollars in aggregate transactions using only a small fraction of actual funding reserves.
+      \textit{As of July 2026, the global financial system is actively transitioning from legacy MT messaging to the new ISO 20022 standard.}
 
     \end{core}
 
@@ -161,23 +186,47 @@
 
   \subsection{Account Relationships}
 
-    \begin{core}{Nostro \& Vostro Accounts}
+    \begin{core}[label=core:cbr]{Correspondent Banking Relationships}
 
-      Nostro and Vostro accounts form the essential bilateral ledger framework required to execute international correspondent banking transactions. From the perspective of a domestic institution, a \textbf{Nostro account} ("our money held by you") is a foreign-currency cash balance maintained on deposit at a correspondent bank abroad, whereas a \textbf{Vostro account} ("your money held by us") is a domestic-currency ledger balance maintained on behalf of a foreign counterparty bank to clear local financial transactions.
+      A \textbf{correspondent banking relationship} is an arrangement where one bank (\textit{the correspondent}) provides banking services to another bank (\textit{the respondent}) in a country where the respondent doesn't have a physical presence. This allowslocal customers to send money, convert currencies, cash checks, and accept deposits \textbf{internationally} via \textbf{Nostro/Vostro accounts} (\textit{\autoref{core:nostro_vostro}}).
+
+    \end{core}
+
+    \begin{core}[label=core:nostro_vostro]{Nostro \& Vostro Accounts}
+
+      \textbf{Nostro \& Vostro accounts} form the essential bilateral ledger framework required to execute international \textbf{correspondent banking transactions} (\textit{\autoref{core:cbr}}). 
+
+      From the perspective of a domestic institution, a \textbf{Nostro account} ("\textit{our money held by you}") is a foreign-currency cash balance maintained on deposit at a correspondent bank abroad, whereas a \textbf{Vostro account} ("\textit{your money held by us}") is a domestic-currency ledger balance maintained on behalf of a foreign counterparty bank to clear local financial transactions.
+
+      For instance, consider Bank A (\textit{in New York}) opening a British Pound (£) bank account physically located at Bank B (\textit{in London}).
+
+      \begin{itemize}
+
+        \item From Bank A’s perspective (\textit{New York}), that account is a \textbf{Nostro account} $\rightarrow$ "\textit{That is our money held over at your bank in London}"
+
+        \item From Bank B’s perspective (\textit{London}), that exact same account is a \textbf{Vostro account} $\rightarrow$ "\textit{That is your money held here at our bank in London}"
+
+      \end{itemize}
 
     \end{core}
 
   \subsection{Transaction Routing}
 
-    \begin{core}{Intermediary Bank Participation}
+    \begin{core}{Direct Transfer}
 
-      Intermediary bank participation occurs when the originating bank and the ultimate receiving bank share no direct correspondent relationship or matching Nostro/Vostro agreements. In these scenarios, the payment must be sequentially routed through one or more transit or correspondent banks that act as credit bridges, with each intermediary bank executing internal ledger transfers, subtracting specialized transaction fees, and forwarding the messaging string until it reaches the target jurisdiction.
+      A \textbf{direct transfer} of money refers to a transfer of a money from a sending bank to a receiving bank \textbf{without the participation of a intermediary bank}. This mechanism takes place when the sending bank maintains an established, active \textbf{Nostro account} (\textit{\autoref{core:nostro_vostro}})---and thus a \textbf{correspondent banking relationship}---with the receiving bank, or vice versa. 
+
+      For instance, using the same example set in \autoref{core:nostro_vostro}, if a Bank A client in New York wishes to send £10,000 to a Bank B client in London, Bank A deducts the equivalent amount in USD from the New York client's account. Correspondingly, via the SWIFT network, Bank A notifies Bank B of the transaction, instructing Bank B to debit £10,000 from Bank A's Vostro account (\textit{referred to as a Nostro account from Bank A's perspective}) and credit £10,000 to the London client's account.
+
+      <pgfig>
+
+      This direct account architecture completely eliminates the processing delays, variable transaction fees, and operational routing errors associated with multi-correspondent transit, allowing for the \textbf{instantaneous debiting and crediting} of reciprocal accounts across a clean ledger connection.
 
     \end{core}
 
-    \begin{core}{Direct Transfer}
+    \begin{core}{Intermediary Bank Participation}
 
-      A direct transfer takes place when the sending bank maintains an established, active Nostro account with the receiving bank, or vice versa. This direct account architecture completely eliminates the processing delays, variable transaction fees, and operational routing errors associated with multi-hop correspondent transit, allowing for the instantaneous debiting and crediting of reciprocal accounts across a clean ledger connection.
+      Intermediary bank participation occurs when the originating bank and the ultimate receiving bank share no direct correspondent relationship or matching Nostro/Vostro agreements. In these scenarios, the payment must be sequentially routed through one or more transit or correspondent banks that act as credit bridges, with each intermediary bank executing internal ledger transfers, subtracting specialized transaction fees, and forwarding the messaging string until it reaches the target jurisdiction.
 
     \end{core}
 
