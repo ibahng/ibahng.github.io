@@ -15,7 +15,7 @@
 % \externaldocument[fix-]{../fixed_income/fixed_income}[https://ibahng.github.io/finance_markets/fixed_income/fixed_income.pdf]
 % \externaldocument[for-]{../forex/forex}[https://ibahng.github.io/finance_markets/forex/forex.pdf]
 % \externaldocument[fnd-]{../fundamental_analysis/fundamental_analysis}[https://ibahng.github.io/finance_markets/fundamental_analysis/fundamental_analysis.pdf]
-% \externaldocument[mac-]{../macroeconomics/macroeconomics}[https://ibahng.github.io/finance_markets/macroeconomics/macroeconomics.pdf]
+\externaldocument[mac-]{../macroeconomics/macroeconomics}[https://ibahng.github.io/finance_markets/macroeconomics/macroeconomics.pdf]
 % \externaldocument[mic-]{../microeconomics/microeconomics}[https://ibahng.github.io/finance_markets/microeconomics/microeconomics.pdf]
 % \externaldocument[val-]{../valuation/valuation}[https://ibahng.github.io/finance_markets/valuation/valuation.pdf]
 % \externaldocument[tec-]{../technical_analysis/technical_analysis}[https://ibahng.github.io/finance_markets/technical_analysis/technical_analysis.pdf]
@@ -216,17 +216,123 @@
 
       A \textbf{direct transfer} of money refers to a transfer of a money from a sending bank to a receiving bank \textbf{without the participation of a intermediary bank}. This mechanism takes place when the sending bank maintains an established, active \textbf{Nostro account} (\textit{\autoref{core:nostro_vostro}})---and thus a \textbf{correspondent banking relationship}---with the receiving bank, or vice versa. 
 
-      For instance, using the same example set in \autoref{core:nostro_vostro}, if a Bank A client in New York wishes to send £10,000 to a Bank B client in London, Bank A deducts the equivalent amount in USD from the New York client's account. Correspondingly, via the SWIFT network, Bank A notifies Bank B of the transaction, instructing Bank B to debit £10,000 from Bank A's Vostro account (\textit{referred to as a Nostro account from Bank A's perspective}) and credit £10,000 to the London client's account.
+      \pgfig{
+        % Outer country boxes
+        \draw[thick, rounded corners] (0,0) rectangle (7,10);
+        \draw[thick, rounded corners] (9,0) rectangle (16,10);
+        \node[anchor=east] at (6.7,9.6) {\textit{New York}};
+        \node[anchor=east] at (15.7,9.6) {\textit{London}};
 
-      <pgfig>
+        % Client ellipses
+        \node[draw, rounded corners, align=center, minimum width=3cm, minimum height=1cm] (clienta) at (2,9) {NY Client};
+        \node[draw, rounded corners, align=center, minimum width=3cm, minimum height=1cm] (clientb) at (11,9) {London Client};
+
+        % Bank A box
+        \draw[thick, rounded corners] (0.5,0.5) rectangle (6.5,7.2);
+        \node[anchor=east] at (6.3,6.8) {\textit{Bank A}};
+
+        % Client A Account box
+        \node[draw, rounded corners, align=center, minimum width=3.2cm, minimum height=1.5cm] (clientaacct) at (2.4,6.2) {Client A\\Account};
+
+        % Bank B box
+        \draw[thick, rounded corners] (9.5,0.5) rectangle (15.5,7.2);
+        \node[anchor=east] at (15.3,6.8) {\textit{Bank B}};
+
+        % Client B Account box
+        \node[draw, rounded corners, align=center, minimum width=3cm, minimum height=1.5cm] (clientbacct) at (11.4,5.5) {Client B\\Account};
+
+        % Nostro/Vostro Account box
+        \node[draw, rounded corners, align=center, minimum width=3cm, minimum height=1.5cm] (nostrovostro) at (11.4,1.6) {Nostro/Vostro\\Account};
+
+        % (1) NY Client requests transfer
+        \draw[->, thick] (clienta.south) -- (clienta.south |- clientaacct.north) node[midway, right, align=left, yshift=0.1cm] {\footnotesize (1) NY client requests £10,000 transfer\\\footnotesize to London client account};
+
+        % (2) Bank A deducts USD equivalent
+        \node[below=0.1cm of clientaacct, align=center, xshift=1.8cm] {\footnotesize (2) Bank A deducts\\\footnotesize £10,000 equivalent in USD};
+
+        % (3) SWIFT MT notification arrow, Bank A -> Nostro/Vostro
+        \draw[->, thick] (clientaacct.south) -- (clientaacct.south |- 1.4,1.4) -- (9.7,1.4);
+        \node[align=center] at (4.5,2) {\footnotesize (3) SWIFT MT202\\\footnotesize notification of transaction};
+
+        % (4) Transfer from Nostro/Vostro to Client B account
+        \draw[->, thick] (nostrovostro) -- (clientbacct) node[midway, right, align=left, xshift=0.2cm] {\footnotesize (4) transfer of £10,000\\\footnotesize from Bank A vostro\\\footnotesize account to London\\\footnotesize client account};
+
+        \node[right=0cm of nostrovostro, align=left, xshift=0cm] {\footnotesize (4a) debit of £10,000\\\footnotesize from Bank A vostro\\\footnotesize account};
+
+        \node[right=0cm of clientbacct, align=left, xshift=0cm] {\footnotesize (4b) credit of\\\footnotesize £10,000 in\\\footnotesize Client B account};
+
+        % (5) London client accesses funds
+        \draw[->, thick] (clientbacct.north) -- (clientbacct.north |- clientb.south) node[midway, right, align=left, yshift=0.5cm] {\footnotesize (5) London client can\\\footnotesize access the £10,000};
+      }{Direct transfer of £10,000 from a Bank A client in New York to a Bank B client in London}{fig:dtransfer}{0.95}
+
+      As shown in \autoref{fig:dtransfer}, using the same example set in \autoref{core:nostro_vostro}, if a Bank A client in New York wishes to send £10,000 to a Bank B client in London, Bank A deducts the equivalent amount in USD from the New York client's account. Correspondingly, via the SWIFT network, Bank A notifies Bank B of the transaction, instructing Bank B to debit £10,000 from Bank A's Vostro account (\textit{referred to as a Nostro account from Bank A's perspective}) and credit £10,000 to the London client's account.
 
       This direct account architecture completely eliminates the processing delays, variable transaction fees, and operational routing errors associated with multi-correspondent transit, allowing for the \textbf{instantaneous debiting and crediting} of reciprocal accounts across a clean ledger connection.
 
     \end{core}
 
-    \begin{core}{Intermediary Bank Participation}
+    \begin{core}{Intermediary Banking Transfer}
 
-      Intermediary bank participation occurs when the originating bank and the ultimate receiving bank share no direct correspondent relationship or matching Nostro/Vostro agreements. In these scenarios, the payment must be sequentially routed through one or more transit or correspondent banks that act as credit bridges, with each intermediary bank executing internal ledger transfers, subtracting specialized transaction fees, and forwarding the messaging string until it reaches the target jurisdiction.
+      An \textbf{intermediary banking transfer} refers to a cross-border transaction executed between an originating bank and a beneficiary bank that do not maintain a direct \textbf{correspondent banking relationship} (\textit{\autoref{core:cbr}}). To bridge this structural gap, the transaction is routed through a third-party \textbf{intermediary bank} that holds concurrent Nostro and Vostro account relationships with both participating institutions, acting as a centralized clearing and liquidity bridge.
+
+      \pgfig{
+        % Client A box
+        \node[draw, rounded corners, align=center, minimum width=2cm, minimum height=1cm] (clienta) at (1.5,1.2) {Client A};
+
+        % Bank A outer box
+        \node[draw, thick, rounded corners, fit={(0,0) (15,-3)}, inner sep=0pt] (banka) {};
+        \node[anchor=east] at (14.9,-0.3) {\textit{Bank A}};
+
+          % Client A Account box
+          \node[draw, rounded corners, align=center, minimum width=2.5cm, minimum height=1.3cm] (clientaacct) at (2,-1.5) {Client A\\account\\(KRW)};
+
+        % Bank B outer box
+        \node[draw, thick, rounded corners, fit={(0,-4) (15,-7)}, inner sep=0pt] (bankb) {};
+        \node[anchor=east] at (14.9,-4.3) {\textit{Bank B}};
+
+          % N/V (A-B) Account box
+          \node[draw, rounded corners, align=center, minimum width=3cm, minimum height=1.3cm] (nvab) at (2,-5) {Nostro/Vostro (A--B)\\account (USD)};
+
+          % N/V (B-C) Account box
+          \node[draw, rounded corners, align=center, minimum width=3cm, minimum height=1.3cm] (nvbc) at (9,-5) {Nostro/Vostro (B--C)\\account (USD)};
+
+        % Bank C outer box
+        \node[draw, thick, rounded corners, fit={(0,-8) (15,-11)}, inner sep=0pt] (bankc) {};
+        \node[anchor=east] at (14.9,-8.3) {\textit{Bank C}};
+
+          % Client C Account box
+          \node[draw, rounded corners, align=center, minimum width=2.5cm, minimum height=1.3cm] (clientcacct) at (2,-9.5) {Client C\\account\\(USD)};
+
+        % Client C box
+        \node[draw, rounded corners, align=center, minimum width=2.2cm, minimum height=1cm] (clientc) at (1.5,-12.2) {Client C};
+
+        % (1) Client A requests transfer
+        \draw[->, thick] (clienta.east) -- (clienta.east -| banka.north) -- (banka.north) node[midway, right, align=left] {(1) requests transfer};
+
+        % (2) Bank A deducts KRW equivalent
+        \node[right=0.2cm of clientaacct, align=left, xshift=0cm] {(2) Bank A deducts\\ equivalent KRW amount};
+
+        % (3) SWIFT MT message, Bank A -> N/V (A-B)
+        \draw[->, thick] (banka.south) -- (bankb.north) node[midway, right, align=left] {(3) SWIFT MT message regarding transaction};
+
+        % (4) Transfer from N/V(A-B) to N/V(B-C)
+        \draw[->, thick] (nvab.east) -- (nvbc.west) node[midway, below, align=left] {(4) Transfer of funds};
+        \node[below=0.1cm of nvab, align=center] {(4a) Debit of Bank A\\N/V account};
+        \node[below=0.1cm of nvbc, align=center] {(4b) Credit of Bank B\\N/V account};
+
+        % % (5) SWIFT MT notification, Bank B -> Bank C
+        \draw[->, thick] (bankb.south) -- (bankc.north) node[midway, right, align=left] {(5) SWIFT MT notification of N/V account credit};
+
+        % % (6) Bank C debits N/V(B-C), credits Client C account
+        \node[right=0.2cm of clientcacct, align=left, xshift=0cm] {(6) Bank C consequently\\ \textbf{credits the Client C}\\ \textbf{account} and \textbf{debits}\\ \textbf{the N/V (B--C) account}};
+
+        % (7) Client C accesses funds
+        \draw[->, thick] (clientcacct.south) -- (clientcacct.south |- clientc.north) node[midway, right, align=left, yshift=-0.4cm] {(7) Client C can access money};
+      }{Intermediary banking transfer from Client A (\textit{Bank A, KRW}) through Bank B's nested Nostro/Vostro accounts to Client C (\textit{Bank C, USD})}{fig:itransfer}{0.9}
+
+      As illustrated in \autoref{fig:itransfer}, when a client at Bank A (\textit{Seoul}) initiates a USD transfer to a beneficiary at Bank C (\textit{Ohio}), Bank A first debits the local client's account. Because no direct accounting channel exists between Seoul and Ohio, Bank A transmits a SWIFT instruction to the intermediary, Bank B (\textit{New York}). Upon receipt, Bank B executes a dual bookkeeping entry within its own ledger: it debits Bank A's Vostro account to absorb the funds and simultaneously credits Bank C's Vostro account. Following this internal ledger adjustment, Bank B transmits a final payment notification to Bank C. Bank C then updates its own balance sheet by debiting its Nostro account held at Bank B---thereby increasing its foreign assets---and concurrently crediting the local Ohio beneficiary's account. 
+
+      This multi-tiered accounting sequence ensures the safe and traceable movement of funds across disconnected financial jurisdictions, though it \textbf{introduces cumulative processing fees, settlement queues, and multi-layered compliance screening}.
 
     \end{core}
 
@@ -234,43 +340,72 @@
 
   \begin{core}{Twin Peaks Framework}
 
-    The Twin Peaks framework is a structural model of financial regulation that splits oversight responsibilities between two distinct, specialized authorities. One "peak" focuses exclusively on prudential regulation—ensuring the financial solvency, capitalization, and macro-stability of systemic institutions—while the second "peak" targets market conduct, consumer protection, and business transparency, mitigating structural conflicts of interest inherent in consolidated single-regulator models.
+    The \textbf{Twin Peaks framework} is a structural model of financial regulation that splits oversight responsibilities between two distinct, specialized authorities. 
+
+    \begin{itemize}
+
+      \item The \textbf{prudential peak} exclusively focueses on maintaining the stability and safety of the broader financial system within its jurisdiction via capital adequacy, liquidity buffers, stress testing, and risk management.
+
+      \item The \textbf{conduct peak}, on the other hand, protects consumers and preserves market integrity through enforcing anti-fraud policies, fair lending practices, and business transaparency.
+
+    \end{itemize}
+
+    \textit{While there exists a widespread adoption of the Twin Peaks framework across several nations, such as South Africa (\autoref{sec:southa}) and the United Kingdom (\autoref{sec:uk}), some nations---most notably the United States (\autoref{sec:us})---utilize a more fragmented approach.}
 
   \end{core}
 
   \subsection{United States}
+    \label{sec:us}
 
     \begin{core}{Federal Reserve Bank (FRB)}
 
-      The Federal Reserve Board (FRB) operates as the apex monetary authority and systemic banking regulator in the United States. In addition to conducting macroprudential policy via interest rate setting and open-market operations, the Fed acts as the lender of last resort through the discount window, oversees systemically important financial institutions (SIFIs), and directly supervises state-chartered member commercial banks.
+      \sbs{0.5}{
+        The \textbf{Federal Reserve Board (FRB)} serves as the governing body of the U.S. \textbf{Federal Reserve System}. Comprising seven members known as \textbf{Governors}---one of whom is designated \textbf{Chairman} and serves as the Board's leader---the FRB functions as the nation's apex monetary authority and principal systemic banking regulator. Beyond conducting monetary policy through \textbf{interest rate setting} (\textit{\autoref{mac-core:ffr}}) and \textbf{open-market operations} (\textit{\autoref{mac-core:omc}}), the Federal Reserve also serves as lender of last resort via the \textbf{discount window}---an official lending facility that extends short-term credit directly to eligible commercial banks---and maintains oversight of \href{https://www.federalreserve.gov/supervisionreg/global-systemically-important-banks.htm}{\textbf{global systemically important banks (GSIBs)}}, whose failure would pose substantial risk to the U.S. financial system.
+      }{
+        \myfig{0.95}{banking_figures/powell}{Jerome Powell, Chairman of the U.S. Federal Reserve Board from February 2018 to May 2026}{fig:frb}
+      }
 
     \end{core}
 
     \begin{core}{Office of Comptroller of the Currency (OCC)}
 
-      % Daily USD settlement capacity cuts and expansions (OCC)
-
-      The Office of the Comptroller of the Currency (OCC) is an independent bureau within the U.S. Department of the Treasury responsible for charting, regulating, and supervising all national banks and federal savings associations. The OCC manages microprudential risk profiles, enforcing compliance mandates and adjusting individual bank caps regarding \textbf{daily USD settlement capacity cuts and expansions} based on an institution's balance-sheet health and intraday liquidity clearing risks.
+      \sbs{0.6}{
+        The \textbf{Office of the Comptroller of the Currency (OCC)} is an independent bureau within the U.S. Department of the Treasury responsible for charting, regulating, and supervising all national banks and federal savings associations. The OCC manages microprudential risk profiles, enforcing compliance mandates and adjusting individual bank caps regarding \textbf{daily USD settlement capacity cuts and expansions} based on an institution's balance-sheet health and intraday liquidity clearing risks.
+      }{
+        \myfig{0.95}{banking_figures/occ}{U.S. Office of Comptroller of the Currency}{fig:occ}
+      }
 
     \end{core}
 
     \begin{core}{Consumer Financial Protection Bureau (CFPB)}
 
-      The Consumer Financial Protection Bureau (CFPB) is an independent regulatory body tasked with policing consumer-facing activities across the financial sector. The bureau monitors retail banking operations, mortgage lending practices, credit reporting agencies, and debt collectors to enforce anti-predatory mandates and ensure consumer financial markets remain fair, transparent, and non-discriminatory.
+      \sbs{0.6}{
+        The Consumer Financial Protection Bureau (CFPB) is an independent regulatory body tasked with policing consumer-facing activities across the financial sector. The bureau monitors retail banking operations, mortgage lending practices, credit reporting agencies, and debt collectors to enforce anti-predatory mandates and ensure consumer financial markets remain fair, transparent, and non-discriminatory.
+      }{
+        \myfig{0.95}{banking_figures/cfpb}{U.S. Consumer Financial Protection Bureau}{fig:cfpb}
+      }
 
     \end{core}
 
     \begin{core}{Financial Crimes Enforcement Network (FinCEN)}
 
-      The Financial Crimes Enforcement Network (FinCEN) serves as the United States' primary financial intelligence unit under the Department of the Treasury. FinCEN collects, analyzes, and disseminates transaction intelligence generated by financial institutions—including Suspicious Activity Reports (SARs) and Currency Transaction Reports (CTRs)—to combat systemic money laundering, terrorist financing, and illicit international tax evasion networks.
+      \sbs{0.6}{
+        The Financial Crimes Enforcement Network (FinCEN) serves as the United States' primary financial intelligence unit under the Department of the Treasury. FinCEN collects, analyzes, and disseminates transaction intelligence generated by financial institutions—including Suspicious Activity Reports (SARs) and Currency Transaction Reports (CTRs)—to combat systemic money laundering, terrorist financing, and illicit international tax evasion networks.
+      }{
+        \myfig{0.95}{banking_figures/fincen}{U.S. Financial Crimes Enforcement Network}{fig:fincen}
+      }
 
     \end{core}
 
     \begin{core}{Office of Foreign Assets Control (OFAC)}
 
-      The Office of Foreign Assets Control (OFAC) is an administrative enforcement agency within the U.S. Department of the Treasury that administers and enforces economic and trade sanctions based on U.S. foreign policy and national security goals. OFAC publishes highly sensitive compliance lists, such as the Specially Designated Nationals (SDN) list, forcing global banking institutions utilizing the USD clearing network to block or freeze transactions involving targeted foreign regimes, terrorists, and international criminal syndicates.
+      \sbs{0.6}{
+        The Office of Foreign Assets Control (OFAC) is an administrative enforcement agency within the U.S. Department of the Treasury that administers and enforces economic and trade sanctions based on U.S. foreign policy and national security goals. OFAC publishes highly sensitive compliance lists, such as the Specially Designated Nationals (SDN) list, forcing global banking institutions utilizing the USD clearing network to block or freeze transactions involving targeted foreign regimes, terrorists, and international criminal syndicates.
 
-      General License X1
+        General License X1
+      }{
+        \myfig{0.95}{banking_figures/ofac}{U.S. Office of Foreign Asests Control}{fig:ofac}
+      }
 
     \end{core}
 
@@ -289,6 +424,7 @@
     \end{core}
 
   \subsection{South Africa}
+    \label{sec:southa}
 
     \begin{core}{South African Reserve Bank (SARB)}
 
@@ -303,6 +439,7 @@
     \end{core}
 
   \subsection{United Kingdom}
+    \label{sec:uk}
 
     \begin{core}{Financial Conduct Authority (FCA)}
 
@@ -333,6 +470,12 @@
     \begin{core}{Quinn Emanuel Urquhart \& Sullivan}
 
       Quinn Emanuel Urquhart \& Sullivan is an elite, global business litigation law firm famous for its specialization in high-stakes white-collar financial disputes, asset recovery, and complex banking defense. The firm frequently represents sovereign governments, major banking entities, and asset managers in multi-billion-dollar litigation involving structural financial products, derivatives failures, counterparty defaults, and extensive regulatory enforcement actions.
+
+    \end{core}
+
+    \begin{core}{Grant \& Eisenhofer}
+
+      content
 
     \end{core}
 
