@@ -1,3 +1,5 @@
+% !TEX root = conj_sys.tex
+
 \section{Aromaticity \& Aromatic Substitution} % lessons 6-9
 
   \subsection{Aromatic Compounds}
@@ -8,48 +10,72 @@
 
       While not limited to the base benzene structure, the extent of these notes will mostly refer to base benzene compounds such as the following.
 
-      \myfig{0.65}{conj_sys_figures/aromatic_rings}{}{fig:ph57}
-
       \doublereactionfig{
         \scheme{
-          \chemfig{
-            [:0]
-            -[:30]
-          }
+          \chemname{
+            \chemfig[atom sep=2em]{
+              *6(=-=
+              (-[:30]H)
+              -=-)
+            }
+          }{\textit{Benzene (PhH)}}
           \qquad \qquad
-          \chemfig{
-            [:0]
-            -[:30]
-          }
+          \chemname{
+            \chemfig[atom sep=2em]{
+              *6(=-=
+              (-[:30]\ce{CH3})
+              -=-)
+            }
+          }{\textit{Tolvene (PhMe)}}
           \qquad \qquad
-          \chemfig{
-            [:0]
-            -[:30]
-          }
+          \chemname{
+            \chemfig[atom sep=2em]{
+              *6(=-=
+              (-[:30]OH)
+              -=-)
+            }
+          }{\textit{Phenol (PhOH)}}
           \qquad \qquad
-          \chemfig{
-            [:0]
-            -[:30]
-          }
+          \chemname{
+            \chemfig[atom sep=2em]{
+              *6(=-=
+              (-[:30]\ce{NH2})
+              -=-)
+            }
+          }{\textit{Aniline (\ce{PhNH2})}}
         }
       }{
         \scheme{
-          \chemfig{
-            [:0]
-            -[:30]
-          }
+          \chemname{
+            \chemfig[atom sep=2em]{
+              *6(=-=
+              (
+              -[:30]
+              =[:-30]O
+              )
+              -=-)
+            }
+          }{\textit{Aniline (\ce{PhNH2})}}
           \qquad \qquad
-          \chemfig{
-            [:0]
-            -[:30]
-          }
+          \chemname{
+            \chemfig[atom sep=2em]{
+              *6(=-=
+              (
+              -[:30]
+              (=[:90]O)
+              -[:-30]OH
+              )
+              -=-)
+            }
+          }{\textit{Benzoic Acid (\ce{PhCO2H})}}
           \qquad \qquad
-          \chemfig{
-            [:0]
-            -[:30]
-          }
+          \chemname{
+            \chemfig[atom sep=2em]{
+              *6(=-=-N=-)
+            }
+          }{\textit{Pyradine}}
         }
-      }{caption}{fig:ph57a}{0.9}
+      }{Phenyl ring based aromatic compound examples; \textit{pyradine represents an aromatic compound wiht a non CH as part of its ring}}{fig:ph57a}{0.9}
 
     \end{core}
 
@@ -57,59 +83,93 @@
 
       Additional substituent positioning to the the root aromatic compounds shown in FIG REFERENCE can be specified through the ortho, meta, and para keywords.
 
-      \myfig{0.3}{conj_sys_figures/ring_relation}{}{fig:ph58}
-
       \reactionfig{
         \scheme{
-          \chemfig{
-            [:0]
-            -[:30]
+          \chemfig[atom sep=2em]{
+            *6(
+            (-[:-150]R)
+            =
+            (-[:-90,,,,Yellow]\textcolor{Yellow}{ortho})
+            -
+            (-[:-30,,,,Orange]\textcolor{Orange}{meta})
+            =
+            (-[:30,,,,Blue]\textcolor{Blue}{para})
+            -
+            (-[:90,,,,Orange]\textcolor{Orange}{meta})
+            =
+            (-[:150,,,,Yellow]\textcolor{Yellow}{ortho})
+            -)
           }
         }
-      }{caption}{fig:ph58a}{0.9}
+      }{Phenyl ring substituent positioning keywords}{fig:ph58a}{0.9}
 
       The compound naming scheme follows a structure of \textit{realtion-sub-root}. Take a look at the following examples.
 
-      \myfig{0.5}{conj_sys_figures/ring_relation_example}{dont for get to add the three other examples}{fig:ph59}
-
-      \reactionfig{
+      \doublereactionfig{
         \scheme{
           \chemname{
-            \chemfig{
-              [:0]
-              -[:30]
+            \chemfig[atom sep=2em]{
+              *6(=
+              (-[:-90]\ce{NH2})
+              -
+              (-[:-30]\ce{NO2})
+              =-=-)
             }
-          }{placholder}
+          }{\textcolor{Yellow}{ortho-}\textcolor{Blue}{nitro-}\textcolor{Orange}{aniline}}
           \qquad \qquad
           \chemname{
-            \chemfig{
-              [:0]
-              -[:30]
+            \chemfig[atom sep=2em]{
+              [:30]*6(=-
+              (
+              -[:0]S
+              (=[:90]O)
+              (=[:-90]O)
+              -[:0]\ce{O-}
+              )
+              =-=-)
             }
-          }{placholder}
+          }{\textcolor{Yellow}{para-}\textcolor{Blue}{sulfonate-}\textcolor{Orange}{tolvene}}
           \qquad \qquad
           \chemname{
-            \chemfig{
-              [:0]
+            \chemfig[atom sep=2em]{
+              *6(=
+              (-[:-90]Cl)
+              -=
+              (
               -[:30]
+              (=[:90]O)
+              -[:-30]OH
+              )
+              -=-)
             }
-          }{placholder}
-          \qquad \qquad
-          \chemname{
-            \chemfig{
-              [:0]
-              -[:30]
-            }
-          }{placholder}
-          \qquad \qquad
-          \chemname{
-            \chemfig{
-              [:0]
-              -[:30]
-            }
-          }{placholder}
+          }{\textcolor{Yellow}{meta-}\textcolor{Blue}{chloro-}\textcolor{Orange}{benzoic acid}}
         }
-      }{caption}{fig:ph59a}{0.9}
+      }{
+        \scheme{
+          \chemname{
+            \chemfig[atom sep=2em]{
+              *6(=-
+              (-[:-30]OH)
+              =
+              (-[:30]OH)
+              -=-)
+            }
+          }{\textcolor{Yellow}{ortho-}\textcolor{Blue}{hydroxyl-}\textcolor{Orange}{phenol}}
+          \qquad \qquad
+          \qquad \qquad
+          \chemname{
+            \chemfig[atom sep=2em]{
+              *6(=-
+              (
+              -[:-30]N
+              (-[:-90])
+              -[:30]
+              )
+              =-=-)
+            }
+          }{\textcolor{Yellow}{para-}\textcolor{Blue}{dimethylamino-}\textcolor{Orange}{pyradine}}
+        }
+      }{Phenyl ring based aromatic compound nomenclature}{fig:ph59a}{0.9}
 
     \end{core}
 
@@ -117,22 +177,20 @@
 
       Aromatic compounds are less reactive than predicted. For instance while a simple cyclohexene reacts with mCPBA to form a secondary ester ring, no reaction occurs when benzene and 3 mCPBA are mixed together.
 
-      \myfig{0.5}{conj_sys_figures/ring_ur}{}{fig:ph60}
-
       \doublereactionfig{
         \scheme{
-          \chemfig{
-            [:0]
-            -[:30]
+          \chemfig[atom sep=2em]{
+            *6(--=---)
           }
           \+
           \chemfig{
             \text{mCPBA}
           }
           \arrow{->}
-          \chemfig{
-            [:0]
-            -[:30]
+          \chemfig[atom sep=2em]{
+            *6(--
+            (*3(-O--))
+            ----)
           }
           \+
           \chemfig{
@@ -141,31 +199,30 @@
         }
       }{
         \scheme{
-          \chemfig{
-            [:0]
-            -[:30]
+          \chemfig[atom sep=2em]{
+            *6(=-=-=-)
           }
           \+
           \chemfig{
-            \text{mCPBA}
+            \text{3 mCPBA}
           }
           \arrow{->}
           \chemfig{
-            \text{No Reactions}
+            \text{\textit{no reaction}}
           }
         }
-      }{caption}{fig:ph60a}{0.9}
+      }{Cyclohexene and benzene reaction with mCPBA}{fig:ph60a}{0.9}
 
       Similarly, a portion of the predicted energy drop during the hydrogenation of benzene is eliminated due to aromatic stabilization.
 
-      \myfig{0.5}{conj_sys_figures/ring_stable}{}{fig:ph61}
+      \myfig{0.8}{conj_sys_figures/ring_stable}{}{fig:ph61}
 
       % \pgfig{
       % }{caption}{fig:ph61a}{0.9}
 
       In order to explain this, let's look at a top down view of the benzene molecular orbital diagram.
 
-      \myfig{0.5}{conj_sys_figures/benzene_frost}{}{fig:ph62}
+      \myfig{0.8}{conj_sys_figures/benzene_frost}{}{fig:ph62}
 
       % \pgfig{
       % }{caption}{fig:ph62a}{0.9}
@@ -1681,326 +1738,325 @@
         }
       }{caption}{fig:ph108a}{0.9}
 
-%       As shown above, nearly all covered nucleophiles work in this interaction \textbf{with the exception of grignards and lithiates}. \textit{The reasoning behind this will not be covered in the scope of these notes.}
+      As shown above, nearly all covered nucleophiles work in this interaction \textbf{with the exception of grignards and lithiates}. \textit{The reasoning behind this will not be covered in the scope of these notes.}
 
-%       Combining this diazonium chemistry with previously learned reactions, chemists can effectively attach nearly any nucleophile to a benzene molecule using the following reaction pathway.
+      Combining this diazonium chemistry with previously learned reactions, chemists can effectively attach nearly any nucleophile to a benzene molecule using the following reaction pathway.
 
-%       \myfig{0.8}{conj_sys_figures/full_pathway}{reference the core concepts for the reactions within the caption}{fig:ph109}
+      \myfig{0.8}{conj_sys_figures/full_pathway}{reference the core concepts for the reactions within the caption}{fig:ph109}
 
-%       \reactionfig{
-%         \scheme{
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \arrow{->}
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \arrow{->}
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \arrow{->}
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \arrow{->}
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%         }
-%       }{caption}{fig:ph109a}{0.9}
+      \reactionfig{
+        \scheme{
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+          \arrow{->}
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+          \arrow{->}
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+          \arrow{->}
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+          \arrow{->}
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+        }
+      }{caption}{fig:ph109a}{0.9}
 
-%     \end{core}
+    \end{core}
 
-%     \begin{core}[label=core:add_elim]{Addition/Elimination}
+    \begin{core}[label=core:add_elim]{Addition/Elimination}
 
-%       The NAS \textbf{addition/elimination} reaction occurs in the following general manner.
+      The NAS \textbf{addition/elimination} reaction occurs in the following general manner.
 
-%       \myfig{0.8}{conj_sys_figures/add_elim}{}{fig:ph110}
+      \myfig{0.8}{conj_sys_figures/add_elim}{}{fig:ph110}
 
-%       \reactionfig{
-%         \scheme{
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \+
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \arrow{->}
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \+
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%         }
-%       }{caption}{fig:ph110a}{0.9}
+      \reactionfig{
+        \scheme{
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+          \+
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+          \arrow{->}
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+          \+
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+        }
+      }{caption}{fig:ph110a}{0.9}
 
-%       Recall that we have seen resonance acceptors in resonance M directors (\textit{\autoref{core:rm_director}}), however, the these resonance acceptors are not for the purpose of directing meta in the context of NAS chemistry. Their main purpose is to be able to accept \ce{e^-} density after the nucleophile attack the carbon with the leaving group.
+      Recall that we have seen resonance acceptors in resonance M directors (\textit{\autoref{core:rm_director}}), however, the these resonance acceptors are not for the purpose of directing meta in the context of NAS chemistry. Their main purpose is to be able to accept \ce{e^-} density after the nucleophile attack the carbon with the leaving group.
 
-%       Additionally, this reaction requires a strong nucleophiles because it ultimately needs to break aromaticity as shown in the mechanism below. It should be noted that this step---the addition---is consequently the rate determining step.
+      Additionally, this reaction requires a strong nucleophiles because it ultimately needs to break aromaticity as shown in the mechanism below. It should be noted that this step---the addition---is consequently the rate determining step.
 
-%       \myfig{0.8}{conj_sys_figures/add_elim_mech}{}{fig:ph111}
+      \myfig{0.8}{conj_sys_figures/add_elim_mech}{}{fig:ph111}
 
-%       \reactionfig{
-%         \scheme{
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \qquad
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \arrow{->}
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \arrow{->}
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%           \+
-%           \chemfig{
-%             [:0]
-%             -[:30]
-%           }
-%         }
-%       }{caption}{fig:ph111a}{0.9}
+      \reactionfig{
+        \scheme{
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+          \qquad
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+          \arrow{->}
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+          \arrow{->}
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+          \+
+          \chemfig{
+            [:0]
+            -[:30]
+          }
+        }
+      }{caption}{fig:ph111a}{0.9}
 
-%       As the mechanism showcases, the reaction is simply a relay of \ce{e^-} density to the resonance acceptor, which then bounces back the \ce{e^-} density in order to kick out the leaving group in the end. However, since the outcome of this interaction is ultimately the same as that of an \snt reaction, one may wonder why \snt is not a viable pathway.
+      As the mechanism showcases, the reaction is simply a relay of \ce{e^-} density to the resonance acceptor, which then bounces back the \ce{e^-} density in order to kick out the leaving group in the end. However, since the outcome of this interaction is ultimately the same as that of an \snt reaction, one may wonder why \snt is not a viable pathway.
 
-%       Revisiting the \snt mechanism, recall that, in the lense of molecular orbitals, the nucleophile interacts with the σ$^*$ anti-bonding orbital between the electrophile and leaving group in order to kick out the leaving group and create a bond simultaneously via a backside attack.
+      Revisiting the \snt mechanism, recall that, in the lense of molecular orbitals, the nucleophile interacts with the σ$^*$ anti-bonding orbital between the electrophile and leaving group in order to kick out the leaving group and create a bond simultaneously via a backside attack.
 
-%       \myfig{0.8}{conj_sys_figures/snt}{}{fig:ph112}
+      \myfig{0.8}{conj_sys_figures/snt}{}{fig:ph112}
 
-%       \pgfig{
-%       }{caption}{fig:ph112a}{0.9}
+      \pgfig{
+      }{caption}{fig:ph112a}{0.9}
 
-%       In the aromatic ring scenario, this nessecary σ$^*$ interaction is extremely unlikely due to the physcial barrier to entry because of the ring itself.
+      In the aromatic ring scenario, this nessecary σ$^*$ interaction is extremely unlikely due to the physcial barrier to entry because of the ring itself.
 
-%       In the context of the frontier molecular orbital theory, the π$^*$ orbital is lower in energy than σ$^*$, making it the LUMO and a much more accessible orbital to interact with, which is what happens in addition/elimination, the favorable pathway.
+      In the context of the frontier molecular orbital theory, the π$^*$ orbital is lower in energy than σ$^*$, making it the LUMO and a much more accessible orbital to interact with, which is what happens in addition/elimination, the favorable pathway.
 
-%       Lets go through two examples.
+      Lets go through two examples.
 
-%       \begin{enumerate}
+      \begin{enumerate}
 
-%         \item \textbf{Example 1: Predicting Major Kinetic Product} 
+        \item \textbf{Example 1: Predicting Major Kinetic Product} 
 
-%         Consider the following reaction consisting to two possible leaving groups F and Cl with a \ce{NO2} resonance acceptor.
+        Consider the following reaction consisting to two possible leaving groups F and Cl with a \ce{NO2} resonance acceptor.
 
-%         \myfig{0.8}{conj_sys_figures/example1_start}{}{fig:ph113}
+        \myfig{0.8}{conj_sys_figures/example1_start}{}{fig:ph113}
 
-%         \reactionfig{
-%           \scheme{
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%             \+
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%             \arrow{->}
-%           }
-%         }{caption}{fig:ph113a}{0.9}
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+            \+
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+            \arrow{->}
+          }
+        }{caption}{fig:ph113a}{0.9}
 
-%         Both addition/elimination pathways are possible as shown below, ultimately leading to two distinct products. 
+        Both addition/elimination pathways are possible as shown below, ultimately leading to two distinct products. 
 
-%         \myfig{0.8}{conj_sys_figures/two_products}{}{fig:ph114}
+        \myfig{0.8}{conj_sys_figures/two_products}{}{fig:ph114}
 
-%         \reactionfig{
-%           \scheme{
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%             \qquad \qquad
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%           }
-%         }{caption}{fig:ph114a}{0.9}
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+            \qquad \qquad
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+          }
+        }{caption}{fig:ph114a}{0.9}
 
-%         Since the nucleophile is held constant across both reaction pathways, the ability of the nucleophile to break aromaticity is not a factor. Instead, it is the greater dipole moment created by the more electronegative fluorine over the chlorine. Due to the greater partial positive charge of the fluorine carbon, \ce{MeO-} favors attacking that carbon because it its more electrophilic. Thus the reaction favors the substitution of the F over the Cl.
+        Since the nucleophile is held constant across both reaction pathways, the ability of the nucleophile to break aromaticity is not a factor. Instead, it is the greater dipole moment created by the more electronegative fluorine over the chlorine. Due to the greater partial positive charge of the fluorine carbon, \ce{MeO-} favors attacking that carbon because it its more electrophilic. Thus the reaction favors the substitution of the F over the Cl.
 
-%         \myfig{0.8}{conj_sys_figures/reaction_complete}{}{fig:ph115}
+        \myfig{0.8}{conj_sys_figures/reaction_complete}{}{fig:ph115}
 
-%         \reactionfig{
-%           \scheme{
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%             \+
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%             \arrow{->}
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%             \+
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%           }
-%         }{caption}{fig:ph115a}{0.9}
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+            \+
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+            \arrow{->}
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+            \+
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+          }
+        }{caption}{fig:ph115a}{0.9}
 
-%         \item \textbf{Example 2: Predicting Product of NAS Chemistry}
+        \item \textbf{Example 2: Predicting Product of NAS Chemistry}
 
-%         Consider the following addition/elimination reaction below.
+        Consider the following addition/elimination reaction below.
 
-%         \myfig{0.8}{conj_sys_figures/reaction2_start}{short initial reactants without arrows}{fig:ph116}
+        \myfig{0.8}{conj_sys_figures/reaction2_start}{short initial reactants without arrows}{fig:ph116}
 
-%         \reactionfig{
-%           \scheme{
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%             \+
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%             \arrow{->}
-%           }
-%         }{caption}{fig:}{0.9}
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+            \+
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+            \arrow{->}
+          }
+        }{caption}{fig:}{0.9}
 
-%         In this case, simply only one of the leaving group substitutions work to donate \ce{e^-} density into the resonance acceptor and the other doesn't.
+        In this case, simply only one of the leaving group substitutions work to donate \ce{e^-} density into the resonance acceptor and the other doesn't.
 
-%         \myfig{0.8}{conj_sys_figures/example2_pathways}{showcase the pathways and how one isnt possible}{fig:ph117}
+        \myfig{0.8}{conj_sys_figures/example2_pathways}{showcase the pathways and how one isnt possible}{fig:ph117}
 
-%         \doublereactionfig{
-%           \scheme{
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%             \+
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%           }
-%         }{
-%           \scheme{
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%             \+
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%           }
-%         }{caption}{fig:ph117a}{0.9}
+        \doublereactionfig{
+          \scheme{
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+            \+
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+          }
+        }{
+          \scheme{
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+            \+
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+          }
+        }{caption}{fig:ph117a}{0.9}
 
-%         Thus the exclusive reaction outcome maps out as follows.
+        Thus the exclusive reaction outcome maps out as follows.
 
-%         \myfig{0.8}{conj_sys_figures/example2_pathways}{complete chemical equation}{fig:ph118}
+        \myfig{0.8}{conj_sys_figures/example2_pathways}{complete chemical equation}{fig:ph118}
 
-%         \reactionfig{
-%           \scheme{
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%             \+
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%             \arrow{->}
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%             \arrow{->}
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%           }
-%         }{caption}{fig:ph118a}{0.9}
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+            \+
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+            \arrow{->}
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+            \arrow{->}
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+          }
+        }{caption}{fig:ph118a}{0.9}
 
-%         \item \textbf{Example 3: Predicting Starting Material}
+        \item \textbf{Example 3: Predicting Starting Material}
 
-%         Consider having to determine the starting aromatic compound to the following products based on the given nucleophile.
+        Consider having to determine the starting aromatic compound to the following products based on the given nucleophile.
 
-%         \myfig{0.8}{conj_sys_figures/product_prediction}{}{fig:ph119}
+        \myfig{0.8}{conj_sys_figures/product_prediction}{}{fig:ph119}
 
-%         \reactionfig{
-%           \scheme{
-%             \arrow{->}
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%             \+
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%             \+
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%           }
-%         }{caption}{fig:ph119a}{0.9}
+        \reactionfig{
+          \scheme{
+            \arrow{->}
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+            \+
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+            \+
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+          }
+        }{caption}{fig:ph119a}{0.9}
 
-%         Because we see two \ce{Cl-} and two \ce{H3N^+R} on the product side, we know that the addition/elimination has occured twice. Luckily the product quite literally has the nucleophile placed directly on center connected to the aromatic ring system via two bonds on the nitrogen. Based on this, we can reasonably predict the starting material to have had these two bond substituted.
+        Because we see two \ce{Cl-} and two \ce{H3N^+R} on the product side, we know that the addition/elimination has occured twice. Luckily the product quite literally has the nucleophile placed directly on center connected to the aromatic ring system via two bonds on the nitrogen. Based on this, we can reasonably predict the starting material to have had these two bond substituted.
 
-%         \myfig{0.8}{conj_sys_figures/predicted_reactants}{}{fig:ph120}
+        \myfig{0.8}{conj_sys_figures/predicted_reactants}{}{fig:ph120}
 
-%         \reactionfig{
-%           \scheme{
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%             \arrow{->}
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%             \+
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%             \+
-%             \chemfig{
-%               [:0]
-%               -[:30]
-%             }
-%           }
-%         }{caption}{fig:ph120a}{0.9}
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+            \arrow{->}
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+            \+
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+            \+
+            \chemfig{
+              [:0]
+              -[:30]
+            }
+          }
+        }{caption}{fig:ph120a}{0.9}
 
-%       \end{enumerate}
+      \end{enumerate}
 
-%     \end{core}
-
+    \end{core}
