@@ -6,9 +6,9 @@
 
     \begin{core}{Aromatic Compounds}
 
-      Name originates from these compounds' nice scent, but now it is a strictly structural definition covered in \autoref{core:aromaticity_rules}.
+      The name "aromatic" originates from these compounds' characteristic scent; however, the term now denotes a strictly structural definition, as covered in \autoref{core:aromaticity_rules}.
 
-      While not limited to the base benzene structure, the extent of these notes will mostly refer to base benzene compounds such as the following.
+      While aromaticity is not limited to the base benzene structure, these notes will primarily refer to benzene-derived compounds such as the following.
 
       \doublereactionfig{
         \scheme{
@@ -26,7 +26,7 @@
               (-[:30]\ce{CH3})
               -=-)
             }
-          }{\textit{Tolvene (PhMe)}}
+          }{\textit{Toluene (PhMe)}}
           \qquad \qquad
           \chemname{
             \chemfig[atom sep=2em]{
@@ -73,15 +73,15 @@
             \chemfig[atom sep=2em]{
               *6(=-=-N=-)
             }
-          }{\textit{Pyradine}}
+          }{\textit{Pyridine}}
         }
-      }{Phenyl ring based aromatic compound examples; \textit{pyradine represents an aromatic compound wiht a non CH as part of its ring}}{fig:ph57a}{0.9}
+      }{Phenyl ring-based aromatic compound examples; \textit{pyridine represents an aromatic compound with a non-CH atom as part of its ring}}{fig:ph57a}{0.9}
 
     \end{core}
 
     \begin{core}{Aromatic Compound Stereochemistry}
 
-      Additional substituent positioning to the the root aromatic compounds shown in FIG REFERENCE can be specified through the ortho, meta, and para keywords.
+      Additional substituent positions on the root aromatic compounds shown above can be specified using the ortho, meta, and para keywords.
 
       \reactionfig{
         \scheme{
@@ -101,9 +101,9 @@
             -)
           }
         }
-      }{Phenyl ring substituent positioning keywords}{fig:ph58a}{0.9}
+      }{Phenyl ring substituent-positioning keywords}{fig:ph58a}{0.9}
 
-      The compound naming scheme follows a structure of \textit{realtion-sub-root}. Take a look at the following examples.
+      The compound naming scheme follows the structure \textit{relation-substituent-root}. Consider the following examples.
 
       \doublereactionfig{
         \scheme{
@@ -128,7 +128,7 @@
               )
               =-=-)
             }
-          }{\textcolor{Yellow}{para-}\textcolor{Blue}{sulfonate-}\textcolor{Orange}{tolvene}}
+          }{\textcolor{Yellow}{para-}\textcolor{Blue}{sulfonate-}\textcolor{Orange}{toluene}}
           \qquad \qquad
           \chemname{
             \chemfig[atom sep=2em]{
@@ -167,15 +167,15 @@
               )
               =-=-)
             }
-          }{\textcolor{Yellow}{para-}\textcolor{Blue}{dimethylamino-}\textcolor{Orange}{pyradine}}
+          }{\textcolor{Yellow}{para-}\textcolor{Blue}{dimethylamino-}\textcolor{Orange}{pyridine}}
         }
-      }{Phenyl ring based aromatic compound nomenclature}{fig:ph59a}{0.9}
+      }{Phenyl ring-based aromatic compound nomenclature}{fig:ph59a}{0.9}
 
     \end{core}
 
     \begin{core}{Reactivity of Aromatic Compounds}
 
-      Aromatic compounds are less reactive than predicted. For instance while a simple cyclohexene reacts with mCPBA to form a secondary ester ring, no reaction occurs when benzene and 3 mCPBA are mixed together.
+      Aromatic compounds are considerably less reactive than would otherwise be predicted. For instance, while a simple cyclohexene reacts readily with mCPBA to form an epoxide, no reaction occurs when benzene is mixed with three equivalents of mCPBA.
 
       \doublereactionfig{
         \scheme{
@@ -211,63 +211,185 @@
             \text{\textit{no reaction}}
           }
         }
-      }{Cyclohexene and benzene reaction with mCPBA}{fig:ph60a}{0.9}
+      }{Reactions of cyclohexene and benzene with mCPBA}{fig:ph60a}{0.9}
 
-      Similarly, a portion of the predicted energy drop during the hydrogenation of benzene is eliminated due to aromatic stabilization.
+      Similarly, a substantial portion of the predicted energy release during the hydrogenation of benzene is offset by aromatic stabilization.
 
-      \myfig{0.8}{conj_sys_figures/ring_stable}{}{fig:ph61}
+      \pgfig{
+        % Baseline (x-axis)
+        \draw[thick] (0,0) -- (12,0);
+        \draw[-{Latex}, thick] (0,0) -- (0,6);
+        \node[rotate=0] at (-0.5,3) {\large E};
 
-      % \pgfig{
-      % }{caption}{fig:ph61a}{0.9}
+        % Molecule structures at top of each column
+        \node at (1,3) {
+          \chemfig[atom sep=1.5em]{
+            *6(--=---)
+          }
+        };
+        \node at (4,5) {
+          \chemfig[atom sep=1.5em]{
+            *6(--=--=)
+          }
+        };
+        \node at (7,5) {
+          \chemfig[atom sep=1.5em]{
+            *6(--=-=-)
+          }
+        };
+        \node at (10,6) {
+          \chemfig[atom sep=1.5em]{
+            *6(=-=-=-)
+          }
+        };
 
-      In order to explain this, let's look at a top down view of the benzene molecular orbital diagram.
+        % Column 1
+        \draw[Yellow, thick, {Bar}->] (1,1.5) -- (1,0) node[midway, right] {-28.6};
 
-      \myfig{0.8}{conj_sys_figures/benzene_frost}{}{fig:ph62}
+        % Column 2
+        \draw[Blue, thick, {Bar}->] (3,3) -- (3,0) node[midway, right] {-57.2} node[above] at (3,3) {\footnotesize predicted};
 
-      % \pgfig{
-      % }{caption}{fig:ph62a}{0.9}
+        % Column 3
+        \draw[Yellow, thick, {Bar}->] (5,3) -- (5,0) node[midway, right] {-57.2} node[above] at (5,3) {\footnotesize actual};
 
-      explaination % take a look at lecture recording
+        % Column 4
+        \draw[Yellow, thick, {Bar}->] (7,2.7) -- (7,0) node[midway, right] {-55.4};
+
+        \draw[Orange, thick, {Bar}-{Bar}] (7,3) -- (7,2.7) node[above, align=center] at (7,3) {\footnotesize ~$2\,\text{kcal}\,\text{mol}^{-1}$ \\\footnotesize of conj. stabilization};
+
+        % Column 5
+        \draw[Blue, thick, {Bar}->] (9,4.5) -- (9,0) node[midway, right] {-80} node[above] at (9,4.5) {\footnotesize predicted};
+
+        % Column 6
+        \draw[Yellow, thick, {Bar}->] (11,2.3) -- (11,0) node[midway, right] {-50};
+
+        \draw[Orange, thick, {Bar}-{Bar}] (11,4.5) -- (11,2.3) node[midway, right, align=left] {\footnotesize $30\,\text{kcal}\,\text{mol}^{-1}$\\\footnotesize of aromatic stabilization};
+      }{Energy diagram of predicted versus actual heats of hydrogenation for cyclohexene derivatives; \textit{aromaticity confers a substantial increase in stability relative to the summed values of the corresponding isolated double-bond hydrogenations, exceeding even the stabilization observed in nonaromatic but conjugated cyclohexene systems}}{fig:ph61a}{0.95}
+
+      To explain this phenomenon, consider a top-down view of the benzene π molecular orbital diagram.
+
+      \myfig{0.7}{conj_sys_figures/benzene_frost}{Energy diagram of the benzene π molecular orbitals (\textit{top-down view})}{fig:ph62a}
+
+      As shown in \autoref{fig:ph62a}, the π electrons occupy exclusively bonding molecular orbitals, rendering the system exceptionally stable.
 
     \end{core}
 
     \begin{core}{Aromatic Compound Molecular Diagrams}
 
-      The \textbf{Frost Diagram} is a method to quickly predict π molecular orbital energy levels for a cyclic conjugated system, following the following steps.
+      The \textbf{Frost Diagram} is a method for rapidly predicting π molecular orbital energy levels of a cyclic conjugated system, following the steps below.
 
       \begin{enumerate}[label=(\arabic*)]
 
-        \item Compound must have acyclic array of p orbitals 
+        \item The compound must possess a cyclic array of p orbitals
 
-        \item Draw shape pointed down
+        \item Draw the ring structure with one vertex pointed downwards
 
-        \item Draw a circle around the shape 
+        \item Draw a circle around the compound 
 
-        \item Intersections are energy levels
+        \item Intersections represent energy levels
 
-        \item Middle of circle is nonbonding
+        \item The middle of the circle represents the nonbonding energy level
 
         \item Add \ce{e^-}s
 
       \end{enumerate}
 
-      Here are the respective orbital digram examples for a pentene anion and a heptene cation. Benzene has already been shown in FIG REFERENCE ABOVE.
+      Below are the corresponding orbital diagrams for a cyclopentenyl anion and a cycloheptenyl cation; the benzene diagram has already been shown above.
 
       \begin{enumerate}
 
-        \item \textbf{Pentene Anion}
+        \item \textbf{Cyclopentene Anion}
 
-        \myfig{0.5}{conj_sys_figures/pentene_frost}{}{fig:ph63}
+        \pgfig{
+          % Cyclopentadienyl anion structure (left)
+          \node at (0.3,1.8) {
+            \chemfig{
+              [:18]*5(-=
+              -[:]\ncharge{90}{}
+              -=)
+            }
+          };
 
-        % \pgfig{
-        % }{caption}{fig:ph63a}{0.9}
+          % Dashed correlation line
+          \draw[dashed] (1.8,1.8) -- (10.5,1.8);
 
-        \item \textbf{Heptene Cation}
+          % Hückel pentagon energy-level diagram (yellow/orange pentagon outline representing MO pattern)
+          \node at (3.2,1.8) {
+            \chemfig{
+              [:198]*5(-=
+              -[:]\ncharge{-90}{}
+              -=)
+            }
+          };
+          \draw[Yellow, thick] (3.2,1.9) circle (0.9cm);
 
-        \myfig{0.5}{conj_sys_figures/heptene_frost}{}{fig:ph64}
+          \draw[Orange, thick] (2.9,1) -- (3.5,1);
+          \draw[Orange, thick] (2.1,1.6) -- (2.7,1.6);
+          \draw[Orange, thick] (3.7,1.6) -- (4.3,1.6);
+          \draw[Orange, thick] (2.3,2.6) -- (2.9,2.6);
+          \draw[Orange, thick] (3.5,2.6) -- (4.1,2.6);
 
-        % \pgfig{
-        % }{caption}{fig:ph64a}{0.9}
+          % Energy axis
+          \draw[thick, ->] (6,0.5) -- (6,3.5) coordinate (Etop) node[anchor=east, xshift=-0.1cm, yshift=-0.4cm] {$E$};
+
+          \begin{scope}[xshift=5cm]
+            \draw[Orange, thick] (2.9,1) -- (3.5,1) node[midway, above, Blue] {$\uparrow\,\downarrow$};
+            \draw[Orange, thick] (2.1,1.6) -- (2.7,1.6) node[midway, above, Blue] {$\uparrow\,\downarrow$};
+            \draw[Orange, thick] (3.7,1.6) -- (4.3,1.6) node[midway, above, Blue] {$\uparrow\,\downarrow$};
+            \draw[Orange, thick] (2.3,2.6) -- (2.9,2.6);
+            \draw[Orange, thick] (3.5,2.6) -- (4.1,2.6);
+          \end{scope}
+        }{Frost diagram for the cyclopentenyl anion, showing three filled bonding/nonbonding orbitals and two unoccupied, degenerate antibonding orbitals}{fig:ph63a}{1}
+
+        \item \textbf{Cycloheptene Cation}
+
+        \pgfig{
+          \node at (0,1.8) {
+            \chemfig{
+              [:13]*7(
+              -[:]\pcharge{-90}{}
+              -=-=-=)
+            }
+          };
+
+          \draw[dashed] (1.8,1.8) -- (10.5,1.8);
+
+          % Hückel pentagon energy-level diagram (yellow/orange pentagon outline representing MO pattern)
+          \node at (3.2,1.8) {
+            \chemfig{
+              [:13]*7(
+              -[:]\pcharge{-90}{}
+              -=-=-=)
+            }
+          };
+          \draw[Yellow, thick] (3.2,1.85) circle (1.25cm);
+
+          \draw[Orange, thick] (2.9,0.6) -- (3.5,0.6);
+
+          \draw[Orange, thick] (2,1.1) -- (2.6,1.1);
+          \draw[Orange, thick] (3.8,1.1) -- (4.4,1.1);
+
+          \draw[Orange, thick] (1.7,2.1) -- (2.3,2.1);
+          \draw[Orange, thick] (4.1,2.1) -- (4.7,2.1);
+
+          \draw[Orange, thick] (2.4,3) -- (3,3);
+          \draw[Orange, thick] (3.4,3) -- (4,3);
+
+          % Energy axis
+          \draw[thick, ->] (6,0.5) -- (6,3.5) coordinate (Etop) node[anchor=east, xshift=-0.1cm, yshift=-0.4cm] {$E$};
+
+          \begin{scope}[xshift=5cm]
+            \draw[Orange, thick] (2.9,0.6) -- (3.5,0.6) node[midway, above, Blue] {$\uparrow\,\downarrow$};
+            \draw[Orange, thick] (2,1.1) -- (2.6,1.1) node[midway, above, Blue] {$\uparrow\,\downarrow$};
+            \draw[Orange, thick] (3.8,1.1) -- (4.4,1.1) node[midway, above, Blue] {$\uparrow\,\downarrow$};
+
+            \draw[Orange, thick] (1.7,2.1) -- (2.3,2.1);
+            \draw[Orange, thick] (4.1,2.1) -- (4.7,2.1);
+
+            \draw[Orange, thick] (2.4,3) -- (3,3);
+            \draw[Orange, thick] (3.4,3) -- (4,3);
+          \end{scope}
+        }{Frost diagram for the cycloheptenyl cation, showing three filled bonding/nonbonding orbitals and four unoccupied, degenerate antibonding orbitals}{fig:ph64a}{1}
 
       \end{enumerate}
 
@@ -275,69 +397,105 @@
 
     \begin{core}[label=core:aromaticity_rules]{Aromaticity Rules}
 
-      In order to a compound to be considered aromatic, it must follow a strict set of rules.
+      In order for a compound to be considered aromatic, it must satisfy a strict set of rules.
 
       \begin{enumerate}[label=(\arabic*)]
 
-        \item Cyclic array of p orbitals
+        \item The compound must be a cyclic array of p orbitals
 
-        \item \ce{e^-} count in cyclic array fulfills the equation of $4n+2$, where $n$ is an integer (0, 1, 2, 3, 4, \ldots).
+        \item The \ce{e^-} count of the cyclic array must fulfills the equation of $4n+2$, where $n$ is an integer (0, 1, 2, 3, 4, \ldots).
 
-        \textit{An \ce{e^-} count that fulfills the equation of $4n$ where $n$ is an integer is much more reactive than predicted and is termed \textbf{anti-aromatic}}
+        \textit{An \ce{e^-} count that instead fulfills the equation $4n$, where $n$ is an integer, results in a compound that is far more reactive than predicted and is termed \textbf{anti-aromatic}.}
 
       \end{enumerate}
 
-      If the above criteria are not met, the compound is considered \textbf{nonaromatic}, such as the cyclohexene shown below.
-
-      \myfig{0.5}{conj_sys_figures/nonaromatic_cyclohexene}{}{fig:ph65}
+      If the above criteria are not met, the compound is considered \textbf{nonaromatic}, as in the cyclohexene shown below.
 
       \reactionfig{
         \scheme{
           \chemfig{
-            [:0]
-            -[:30]
+            *6(=
+            -\charge{-30:4pt=A}{}
+            -\charge{30:4pt=B}{}
+            -=-)
           }
         }
-      }{caption}{fig:ph65a}{0.9}
+      }{Nonaromatic cyclohexene; \textit{carbons A and B are sp$^3$, which prevents an uninterrupted cyclic array of p orbitals}}{fig:ph65a}{0.9}
 
-      As practice, take a look at the follow two examples.
+      As practice, consider the following two examples.
 
       \begin{enumerate}
 
         \item \textbf{Pentene Anion} 
 
-        \myfig{0.5}{conj_sys_figures/pentene_anion}{}{fig:ph66}
-
         \reactionfig{
           \scheme{
             \chemfig{
-              [:0]
-              -[:30]
+              [:18]*5(-=
+              -[:]\ncharge{90}{}
+              -=)
             }
           }
-        }{caption}{fig:ph66a}{0.9}
+        }{Aromatic pentene anion}{fig:ph66a}{0.9}
 
-        This is a cyclic array of p orbitals and the \ce{e^-} count is 6, which fulfills the $4n+2$ expression. Thus this compound is \textbf{considered aromatic}.
+        This structure exhibits a cyclic array of p orbitals with an electron count of 6, satisfying the $4n+2$ expression. This compound is therefore \textbf{considered aromatic}.
 
         \item \textbf{Pentene Cation}
 
-        \myfig{0.5}{conj_sys_figures/pentene_cation}{}{fig:ph67}
-
         \reactionfig{
           \scheme{
             \chemfig{
-              [:0]
-              -[:30]
+              [:18]*5(-=
+              -[:]\pcharge{90}{}
+              -=)
             }
           }
-        }{caption}{fig:ph67a}{0.9}
+        }{Anti-aromatic pentene cation}{fig:ph67a}{0.9}
 
-        This compound is also a cyclic array of \ce{e^-}s but its electron count is 4 which does not fulfill the expression $4n+2$ but rather $4n$. Thus this compound is considered \textbf{anti-aromatic}. 
+        This compound likewise exhibits a cyclic array of p orbitals, but its electron count of 4 satisfies $4n$ rather than $4n+2$. This compound is therefore considered \textbf{anti-aromatic}.
 
-        Notice that the corresponding molecular orbital diagram results in two unpair \ce{e^-}s, making it reactive.
+        Notice that the corresponding molecular orbital diagram results in two unpaired electrons, accounting for its heightened reactivity.
 
-        % \pgfig{
-        % }{energy diagram in previous rough figure}{fig:ph68a}{0.9}
+        \pgfig{
+          % Cyclopentadienyl anion structure (left)
+          \node at (0.3,1.8) {
+            \chemfig{
+              [:18]*5(-=
+              -[:]\pcharge{90}{}
+              -=)
+            }
+          };
+
+          % Dashed correlation line
+          \draw[dashed] (1.8,1.8) -- (10.5,1.8);
+
+          % Hückel pentagon energy-level diagram (yellow/orange pentagon outline representing MO pattern)
+          \node at (3.2,1.8) {
+            \chemfig{
+              [:198]*5(-=
+              -[:]\pcharge{-90}{}
+              -=)
+            }
+          };
+          \draw[Yellow, thick] (3.2,1.9) circle (0.9cm);
+
+          \draw[Orange, thick] (2.9,1) -- (3.5,1);
+          \draw[Orange, thick] (2.1,1.6) -- (2.7,1.6);
+          \draw[Orange, thick] (3.7,1.6) -- (4.3,1.6);
+          \draw[Orange, thick] (2.3,2.6) -- (2.9,2.6);
+          \draw[Orange, thick] (3.5,2.6) -- (4.1,2.6);
+
+          % Energy axis
+          \draw[thick, ->] (6,0.5) -- (6,3.5) coordinate (Etop) node[anchor=east, xshift=-0.1cm, yshift=-0.4cm] {$E$};
+
+          \begin{scope}[xshift=5cm]
+            \draw[Orange, thick] (2.9,1) -- (3.5,1) node[midway, above, Blue] {$\uparrow\,\downarrow$};
+            \draw[Orange, thick] (2.1,1.6) -- (2.7,1.6) node[midway, above, Blue] {$\uparrow$};
+            \draw[Orange, thick] (3.7,1.6) -- (4.3,1.6) node[midway, above, Blue] {$\uparrow$};
+            \draw[Orange, thick] (2.3,2.6) -- (2.9,2.6);
+            \draw[Orange, thick] (3.5,2.6) -- (4.1,2.6);
+          \end{scope}
+        }{Frost diagram for the cyclopentenyl cation}{fig:ph68a}{1}
 
       \end{enumerate}
 
@@ -345,25 +503,39 @@
 
     \begin{core}{Aromatic Contributors}
 
-      An \textbf{aromatic contributor} refers to a resonance structure of a molecule that possesses a fully conjugated, cyclic, planar π system satisfying the $4n+2$ π \ce{e^-} count, even if the dominant or lowest-energy Lewis structure doesn't immediately look aromatic. Take the following molecule for instance.
-
-      \myfig{0.5}{conj_sys_figures/aromatic_contributor}{figure of the base non aromatic state to the left and the contributer state to the right}{fig:ph69}
+      An \textbf{aromatic contributor} refers to a resonance structure of a molecule that possesses a fully conjugated, cyclic, planar π system satisfying the $4n+2$ π-electron count, even when the dominant or lowest-energy Lewis structure does not immediately appear aromatic. Consider the following molecule as an example.
 
       \reactionfig{
         \scheme{
           \chemfig{
-            [:0]
-            -[:30]
+            [:-60]*6(-@{nitrogen1}\charge{-90:12pt=\footnotesize\textcolor{Blue}{p}}{}\charge{-90:4pt=\:}{N}
+            (-[:-150]R)
+            -[@{bond1}:]
+            (=[@{bond2}:-90]@{oxygen1}\charge{-135:16pt=\footnotesize\textcolor{Blue}{sp$^2$}}{}\charge{-135:4pt=\:}{}\charge{-30:20pt=\footnotesize\textcolor{Blue}{sp$^2$}}{}\charge{-45:4pt=\:}{O})
+            -@{nitrogen2}\charge{-30:20pt=\footnotesize\textcolor{Blue}{sp$^2$}}{}\charge{-45:4pt=\:}{N}
+            =[@{bond3}:]
+            (-[@{bond4}:30]@{nitrogen3}\charge{-70:12pt=\footnotesize\textcolor{Blue}{p}}{}\charge{-90:4pt=\:}{\ce{NH2}})
+            -=)
           }
           \arrow{<->}
           \chemfig{
-            [:0]
-            -[:30]
+            [:-60]*6(-\pcharge{-90}{N}
+            (-[:-150]R)
+            =
+            (-[:-90]\ncharge{-45}{O})
+            -N=
+            (-[:30]\ce{NH2})
+            -=)
           }
+          \arrow{->}[-90,0.5,,,White]
         }
-      }{caption}{fig:ph69a}{0.9}
+        \chemmovearrow{
+          \reactionfigarrow{nitrogen1}{60}{bond1}{30}{Red}
+          \reactionfigarrow{bond2}{10}{oxygen1}{0}{Red}
+        }
+      }{Aromatic contributor; \textit{a simple rule of thumb for identifying a resonance contributor is to attempt to achieve alternating π bonds while ensuring that a circle drawn around the ring never crosses a π bond}}{fig:ph69a}{0.9}
 
-      Notice that while the base state is nonaromatic by definition because the conjugated π orbtial system is not cyclic, an alternative state accessed through resonance is aromatic, making it an aromatic contributor.
+      Notice that although the base resonance structure is nonaromatic by definition, since its conjugated π orbital system is not cyclic, an alternative structure accessible through resonance is aromatic, thereby qualifying the molecule as possessing an aromatic contributor.
 
     \end{core}
 
