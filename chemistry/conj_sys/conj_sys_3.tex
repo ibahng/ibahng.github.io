@@ -546,48 +546,65 @@
 
     \begin{core}[label=core:eas_general]{Electrophilic Aromatic Substitution}
 
-      \textbf{Electrophilic aromatic substitution (EAS)} refers to a reaction wherein an aromatic ring acts as a nucleophile. This reaction type follows the following general mechanism.
-
-      \myfig{0.5}{conj_sys_figures/eas_general}{}{fig:ph70}
+      \textbf{Electrophilic aromatic substitution (EAS)} describes a class of reactions in which an aromatic ring functions as the nucleophilic species. The general mechanism underlying this reaction type is outlined below.
 
       \reactionfig{
         \scheme{
           \chemfig{
-            [:0]
-            -[:30]
+            [:0]E
+            -[@{bond1}:0]@{leaving}LG
           }
           \arrow{->}
           \chemfig{
-            [:0]
-            -[:30]
+            [:0]@{elec}\pcharge{60}{E}
           }
           \qquad
-          \chemfig{
-            [:0]
-            -[:30]
+          \chemfig[atom sep=2em]{
+            *6(
+            -=-=
+            -@{carbon1}
+            =[@{bond2}:]
+            )
           }
           \arrow{->}
-          \chemfig{
-            [:0]
-            -[:30]
+          \chemfig[atom sep=2em]{
+            *6(
+            (\pcharge{-150}{})
+            -=-=-
+            (-[:180]E)
+            (-[@{bond3}:120]@{hydrogen}H)
+            -[@{bond4}:])
+          }
+          \raisebox{0.8cm}{
+            \+
+            \chemfig{
+              [:0]@{base}Base
+            }
           }
           \arrow{->}
-          \chemfig{
-            [:0]
-            -[:30]
+          \chemfig[atom sep=2em]{
+            *6(-=-=-
+            (-[:150]E)
+            =)
           }
           \+
           \chemfig{
-            [:0]
-            -[:30]
+            [:0]\ncharge{60}{LG}
           }
           \+
           \chemfig{
-            [:0]
-            -[:30]
+            [:0]H
+            -[:0]\pcharge{90}{Base}
           }
         }
-      }{caption}{fig:ph70a}{0.9}
+        \chemmovearrow{
+          \reactionfigarrow{bond1}{-100}{leaving}{-80}{Red}
+          \reactionfigarrow{bond2}{-10}{carbon1}{0}{Red}
+          \reactionfigarrow{carbon1}{135}{elec}{100}{Red}
+          \reactionfigarrow{base}{135}{hydrogen}{45}{Red}
+          \reactionfigarrow{bond3}{30}{bond4}{-15}{Red}
+        }
+      }{General mechanistic outline of electrophilic aromatic substitution reactions}{fig:ph70a}{0.8}
 
     \end{core}
 
@@ -596,172 +613,206 @@
 
       \begin{core}[label=core:eas_halogenation]{Halogenation}
 
-        \textbf{EAS halogenation} effectively attaches a single halogen to an aromatic ring, generating the corresponding hydrohalogen as a byproduct. The general mechanism utilizes a \textbf{Lewis acid} (\textit{any chemical species capable of accepting a pair of electrons}) as shown below.
+        \textbf{EAS halogenation} results in the attachment of a single halogen atom to an aromatic ring, with the corresponding hydrohalic acid generated as a byproduct. This mechanism proceeds via activation by a \textbf{Lewis acid} (\textit{defined as any chemical species capable of accepting an electron pair}), as illustrated below.
 
-        \myfig{0.5}{conj_sys_figures/eas_halogenation_general}{}{fig:ph71}
-
+        \vspace{0.4cm}
         \reactionfig{
           \scheme{
-            \chemfig{
-              [:0]
-              -[:30]
+            \chemfig[atom sep=2.5em]{
+              [:0]X
+              -[:0]@{halogen1}X
             }
-            \qquad \qquad
+            \qquad
             \chemfig{
-              [:0]
-              -[:30]
+              @{la}\text{Lewis Acid}
+            }
+            \arrow{->}
+            \chemfig[atom sep=2.5em]{
+              [:0]X
+              -[@{bond1}:0]@{halogen2}\pcharge{-90}{X}
+              -[:0]\ncharge{90}{LA}
             }
             \arrow{->}
             \chemfig{
-              [:0]
-              -[:30]
-            }
-            \arrow{->}
-            \chemfig{
-              [:0]
-              -[:30]
+              [:0]\pcharge{45}{X}
             }
             \+
-            \chemfig{
-              [:0]
-              -[:30]
+            \chemfig[atom sep=2.5em]{
+              [:0]X
+              -[:0]\ncharge{90}{LA}
             }
           }
-        }{caption}{fig:ph71a}{0.9}
+          \chemmovearrow{
+            \reactionfigarrow{halogen1}{30}{la}{150}{Red}
+            \reactionfigarrow{bond1}{100}{halogen2}{80}{Red}
+          }
+        }{Generation of a halogen cation electrophile via Lewis acid activation; \textit{Lewis acids function as electron-pair acceptors and include species such as \ce{FeX3}, \ce{BX3}, and \ce{AlX3}}}{fig:ph71a}{0.9}
+        \vspace{-0.4cm}
 
-        Analogously, here are examples showcasing chlorination and bromination of benzene.
+        The chlorination and bromination of benzene, presented below, illustrate this general mechanism.
 
         \begin{enumerate}
 
           \item \textbf{Chlorination of Benzene} 
 
-          \myfig{0.5}{conj_sys_figures/eas_chlorination}{}{fig:ph72}
-
           \doublereactionfig{
             \scheme{
-              \chemfig{
-                [:0]
-                -[:30]
+              \chemfig[atom sep=2.5em]{
+                [:0]Cl
+                -[:0]@{halogen1}Cl
               }
-              \+
+              \qquad
               \chemfig{
-                [:0]
-                -[:30]
+                @{la}\ce{AlCl3}
+              }
+              \arrow{->}
+              \chemfig[atom sep=2.5em]{
+                [:0]Cl
+                -[@{bond1}:0]@{halogen2}\pcharge{-90}{Cl}
+                -[:0]\ncharge{90}{Al}\ce{Cl3}
               }
               \arrow{->}
               \chemfig{
-                [:0]
-                -[:30]
-              }
-              \arrow{->}
-              \chemfig{
-                [:0]
-                -[:30]
+                [:0]\pcharge{45}{Cl}
               }
               \+
-              \chemfig{
-                [:0]
-                -[:30]
+              \chemfig[atom sep=2.5em]{
+                [:0]Cl
+                -[:0]\ncharge{90}{Al}\ce{Cl3}
               }
+            }
+            \chemmovearrow{
+              \reactionfigarrow{halogen1}{-60}{la}{-120}{Red}
+              \reactionfigarrow{bond1}{100}{halogen2}{80}{Red}
             }
           }{
             \scheme{
-              \chemfig{
-                [:0]
-                -[:30]
+              \chemfig[atom sep=2em]{
+                *6(=-=-=-)
               }
               \+
               \chemfig{
-                [:0]
-                -[:30]
+                [:0]\ce{Cl2}
               }
-              \arrow{->[placeholder][]}
-              \chemfig{
-                [:0]
-                -[:30]
+              \qquad \qquad
+              \arrow{->[cat \ce{AlCl3}][
+                \shortstack{
+                  electrophilic \\
+                  \ce{Cl+} attack
+                }
+              ]}
+              \qquad
+              \chemfig[atom sep=2em]{
+                *6(
+                (\pcharge{-150}{})
+                -=-=-
+                (-[:180]Cl)
+                (-[@{bond3}:120]@{hydrogen}H)
+                -[@{bond4}:])
               }
               \+
               \chemfig{
-                [:0]
-                -[:30]
+                [:0]@{base}Cl
+                -[@{bond5}:0]\ncharge{90}{Al}\ce{Cl3}
               }
               \arrow{->}
-              \chemfig{
-                [:0]
-                -[:30]
+              \chemfig[atom sep=2em]{
+                *6(-=-=-
+                (-[:150]Cl)
+                =)
               }
               \+
               \chemfig{
-                [:0]
-                -[:30]
+                [:0]HCl
               }
             }
-          }{caption}{fig:ph72a}{0.9}
+            \chemmovearrow{
+              \reactionfigarrow{base}{135}{hydrogen}{45}{Red}
+              \reactionfigarrow{bond3}{30}{bond4}{-15}{Red}
+              \reactionfigarrow{bond5}{80}{base}{100}{Red}
+            }
+          }{Chlorination of benzene}{fig:ph72a}{0.9}
+          \vspace{-0.4cm}
 
           \item \textbf{Bromination of Benzene} 
 
-          \myfig{0.5}{conj_sys_figures/eas_bromination}{}{fig:ph73}
-
           \doublereactionfig{
             \scheme{
-              \chemfig{
-                [:0]
-                -[:30]
+              \chemfig[atom sep=2.5em]{
+                [:0]Br
+                -[:0]@{halogen1}Br
               }
-              \+
+              \qquad
               \chemfig{
-                [:0]
-                -[:30]
+                @{la}\text{FeBr3}
+              }
+              \arrow{->}
+              \chemfig[atom sep=2.5em]{
+                [:0]Br
+                -[@{bond1}:0]@{halogen2}\pcharge{-90}{Br}
+                -[:0]\ncharge{90}{Fe}\ce{Br3}
               }
               \arrow{->}
               \chemfig{
-                [:0]
-                -[:30]
-              }
-              \arrow{->}
-              \chemfig{
-                [:0]
-                -[:30]
+                [:0]\pcharge{45}{Br}
               }
               \+
-              \chemfig{
-                [:0]
-                -[:30]
+              \chemfig[atom sep=2.5em]{
+                [:0]Br
+                -[:0]\ncharge{90}{FeBr3}
               }
+            }
+            \chemmovearrow{
+              \reactionfigarrow{halogen1}{-60}{la}{-120}{Red}
+              \reactionfigarrow{bond1}{100}{halogen2}{80}{Red}
             }
           }{
             \scheme{
-              \chemfig{
-                [:0]
-                -[:30]
+              \chemfig[atom sep=2em]{
+                *6(=-=-=-)
               }
               \+
               \chemfig{
-                [:0]
-                -[:30]
+                [:0]\ce{Br2}
               }
-              \arrow{->[placeholder][]}
-              \chemfig{
-                [:0]
-                -[:30]
+              \qquad \qquad
+              \arrow{->[cat \ce{FeBr3}][
+                \shortstack{
+                  electrophilic \\
+                  \ce{Br+} attack
+                }
+              ]}
+              \qquad
+              \chemfig[atom sep=2em]{
+                *6(
+                (\pcharge{-150}{})
+                -=-=-
+                (-[:180]Br)
+                (-[@{bond3}:120]@{hydrogen}H)
+                -[@{bond4}:])
               }
               \+
               \chemfig{
-                [:0]
-                -[:30]
+                [:0]@{base}Br
+                -[@{bond5}:0]\ncharge{90}{Fe}\ce{Br3}
               }
               \arrow{->}
-              \chemfig{
-                [:0]
-                -[:30]
+              \chemfig[atom sep=2em]{
+                *6(-=-=-
+                (-[:150]Br)
+                =)
               }
               \+
               \chemfig{
-                [:0]
-                -[:30]
+                [:0]HBr
               }
             }
-          }{caption}{fig:ph73a}{0.9}
+            \chemmovearrow{
+              \reactionfigarrow{base}{135}{hydrogen}{45}{Red}
+              \reactionfigarrow{bond3}{30}{bond4}{-15}{Red}
+              \reactionfigarrow{bond5}{80}{base}{100}{Red}
+            }
+          }{Bromination of benzene}{fig:ph73a}{0.9}
 
         \end{enumerate}
 
@@ -769,406 +820,551 @@
 
       \begin{core}{Nitration}
 
-        \textbf{Nitration} effectively attaches an \ce{NO2} nitro group onto an aromatic ring, acting primarily as a synthetic stepping stone in practice. First, let's look at the generation of an \ce{NO2+} electrophile through the exposure of nitric acid to sulfuric acid.
-
-        \myfig{0.8}{conj_sys_figures/eas_nitration_one}{}{fig:ph74}
+        \textbf{Nitration} involves the attachment of a nitro group (\ce{NO2}) to an aromatic ring and serves primarily as a synthetic intermediate step in practice. Consider first the generation of the \ce{NO2+} electrophile, formed upon exposure of nitric acid to sulfuric acid.
 
         \reactionfig{
           \scheme{
-            \chemfig{
-              [:0]
-              -[:30]
+            \chemfig[atom sep=3em]{
+              [:0]H@{oxygen1}O
+              -[:0]\pcharge{0}{N}
+              (=[:45]O)
+              (-[:-45]\ncharge{0}{O})
             }
             \+
             \chemfig{
-              [:0]
-              -[:30]
+              [:0]@{hydrogen1}H
+              -[@{bond1}:0]@{oxygen2}O@{placeholder}\ce{SO3H}
             }
             \arrow{->}
-            \chemfig{
-              [:0]
-              -[:30]
+            \chemfig[atom sep=3em]{
+              [:0]\ce{H2}@{oxygen3}\pcharge{90}{O}
+              -[@{bond2}:0]\pcharge{0}{N}
+              (=[:45]O)
+              (-[@{bond3}:-45]@{oxygen4}\ncharge{-45}{O})
             }
             \+
             \chemfig{
-              [:0]
-              -[:30]
+              [:0]\ncharge{90}{O}\ce{SO3H}
             }
             \arrow{->}
-            \chemfig{
-              [:0]
-              -[:30]
+            \chemfig[atom sep=2em]{
+              [:0]O
+              =[:0]\pcharge{90}{N}
+              =[:0]O
             }
             \+
             \chemfig{
-              [:0]
-              -[:30]
+              [:0]\ce{H2O}
             }
             \+
             \chemfig{
-              [:0]
-              -[:30]
+              [:0]\ncharge{135}{O}\ce{SO3H}
             }
           }
-        }{caption}{fig:ph74a}{0.9}
+          \chemmovearrow{
+            \reactionfigarrow{oxygen1}{60}{hydrogen1}{120}{Red}
+            \reactionfigarrow{bond1}{-100}{oxygen2}{-90}{Red}
+            \reactionfigarrow{bond2}{-80}{oxygen3}{-100}{Red}
+            \reactionfigarrow{oxygen4}{15}{bond3}{45}{Red}
+          }
+        }{Generation of the \ce{NO2+} electrophile}{fig:ph74a}{0.85}
 
-        With this in mind, the general nitration mechanism to a benzene follows the outline reaction mapped out in \autoref{core:eas_general}.
-
-        \myfig{0.8}{conj_sys_figures/eas_nitration_two}{}{fig:ph75}
+        With this electrophile established, the nitration of benzene proceeds according to the general mechanism outlined in \autoref{core:eas_general}.
 
         \reactionfig{
           \scheme{
-            \chemfig{
-              [:0]
-              -[:30]
+            \chemfig[atom sep=2em]{
+              [:0]@{oxygen1}O
+              =[@{bond2}:0]@{nitrogen1}\pcharge{90}{N}
+              =[:0]O
+            }
+            \qquad
+            \chemfig[atom sep=2em]{
+              *6(
+              -=-=
+              -@{carbon1}
+              =[@{bond1}:]
+              )
+            }
+            \qquad
+            \arrow{->}
+            \qquad
+            \chemfig[atom sep=2em]{
+              *6(
+              (\pcharge{-150}{})
+              -=-=-
+              (
+              -[:180]\pcharge{180}{N}
+              (=[:120]O)
+              (-[:240]\ncharge{180}{O})
+              )
+              (-[@{bond3}:120]@{hydrogen}H)
+              -[@{bond4}:])
             }
             \+
             \chemfig{
-              [:0]
-              -[:30]
+              [:0]@{base}\ce{H2O}
             }
             \arrow{->}
-            \chemfig{
-              [:0]
-              -[:30]
+            \qquad
+            \chemfig[atom sep=2em]{
+              *6(-=-=-
+              (
+              -[:150]\pcharge{-90}{N}
+              (=[:90]O)
+              (-[:210]\ncharge{180}{O})
+              )
+              -)
             }
-            \+
-            \chemfig{
-              [:0]
-              -[:30]
+            \raisebox{0.7cm}{
+              \+
             }
-            \arrow{->}
             \chemfig{
-              [:0]
-              -[:30]
-            }
-            \+
-            \chemfig{
-              [:0]
-              -[:30]
-            }
-            \+
-            \chemfig{
-              [:0]
-              -[:30]
+              [:0]\ce{H3O+}
+              -[:90,,,,White]\ce{^-OSO3H}
             }
           }
-        }{caption}{fig:ph75a}{0.9}
+          \chemmovearrow{
+            \reactionfigarrow{bond1}{-10}{carbon1}{0}{Red}
+            \reactionfigarrow{carbon1}{150}{nitrogen1}{60}{Red}
+            \reactionfigarrow{bond2}{-80}{oxygen1}{-100}{Red}
+            \reactionfigarrow{base}{135}{hydrogen}{45}{Red}
+            \reactionfigarrow{bond3}{30}{bond4}{-15}{Red}
+          }
+        }{Nitration of benzene}{fig:ph75a}{0.85}
 
       \end{core}
 
       \begin{core}{Sulfonation}
 
-        \textbf{Sulfonation} entails the attachment of a \ce{SO3H} group onto an aromatic ring. The first step is a reaction between two \ce{H2SO4} molecules, a consequence of one of the reagents being \textbf{fumming \ce{H2SO4}}.
-
-        \myfig{0.8}{conj_sys_figures/fumming_sa}{}{fig:ph76}
+        \textbf{Sulfonation} entails the attachment of a sulfonic acid group (\ce{SO3H}) to an aromatic ring. The initial step involves a reaction between two molecules of \ce{H2SO4}, arising from the use of \textbf{fuming \ce{H2SO4}} as one of the reagents.
 
         \reactionfig{
           \scheme{
-            \chemfig{
-              [:0]
-              -[:30]
+            \chemfig[atom sep=2em]{
+              [:0]H
+              -[:0]OS
+              (=[:90]O)
+              (=[:-90]O)
+              -[:0]@{oxygen1}O
+              -[:0]H
             }
             \+
             \chemfig{
-              [:0]
-              -[:30]
+              [:0]@{hydrogen1}H
+              -[@{bond1}:0]@{oxygen2}O\ce{SO3H}
             }
             \arrow{->}
-            \chemfig{
-              [:0]
-              -[:30]
+            \chemfig[atom sep=2em]{
+              [:0]H@{oxygen3}O
+              -[@{bond2}:0]S
+              (=[:90]O)
+              (=[:-90]O)
+              -[@{bond3}:0]@{oxygen4}\pcharge{-90}{O}\ce{H2}
             }
             \+
             \chemfig{
-              [:0]
-              -[:30]
+              [:0]\ncharge{90}{O}\ce{SO3H}
             }
             \arrow{->}
-            \chemfig{
-              [:0]
-              -[:30]
+            \chemfig[atom sep=2em]{
+              [:0]S
+              (=[:90]O)
+              (=[:-30]O)
+              (=[:-150]H\pcharge{-45}{O})
             }
             \+
             \chemfig{
-              [:0]
-              -[:30]
+              [:0]\ce{H2O}
             }
             \+
             \chemfig{
-              [:0]
-              -[:30]
+              [:0]\ncharge{135}{O}\ce{SO3H}
             }
           }
-        }{caption}{fig:ph76a}{0.9}
+          \chemmovearrow{
+            \reactionfigarrow{oxygen1}{60}{hydrogen1}{120}{Red}
+            \reactionfigarrow{bond1}{-100}{oxygen2}{-80}{Red}
+            \reactionfigarrow{oxygen3}{-100}{bond2}{-80}{Red}
+            \reactionfigarrow{bond3}{100}{oxygen4}{80}{Red}
+          }
+        }{Formation of fuming \ce{H2SO4}}{fig:ph76a}{0.9}
 
-        Then follows the same general EAS reaction mechanism covered in \autoref{core:eas_general}.
-
-        \myfig{0.8}{conj_sys_figures/sulfonation}{}{fig:ph77}
+        The reaction then proceeds according to the same general EAS mechanism described in \autoref{core:eas_general}.
 
         \reactionfig{
           \scheme{
-            \chemfig{
-              [:0]
-              -[:30]
+            \chemfig[atom sep=2em]{
+              *6(=-=-=-)
             }
-            \arrow{->[][]}
-            \chemfig{
-              [:0]
-              -[:30]
+            \arrow{->[
+              \shortstack{
+                fumming \\
+                \ce{H2SO4}
+              }
+            ]}
+            \chemfig[atom sep=2em]{
+              *6(=-=
+              (
+              -[:30]S
+              (=[:120]O)
+              (=[:-60]O)
+              -[:30]OH
+              )
+              -=-)
             }
             \+
             \chemfig{
-              [:0]
-              -[:30]
+              [:0]\ce{H3O+}
             }
             \+
             \chemfig{
-              [:0]
-              -[:30]
+              [:0] \ce{^-OSO3H}
             }
           }
-        }{caption}{fig:ph77a}{0.9}
+        }{Sulfonation of benzene}{fig:ph77a}{0.9}
 
       \end{core}
 
       \begin{core}[label=core:alkylation]{Alkylation}
 
-        \textbf{Alkylation} is the process of adding an alkyl group onto an aromatic structure. In order for an alkane to become electrophilic, it must undergo a prepatory conversion to a carbocation state through the following reaction.
+        \textbf{Alkylation} refers to the addition of an alkyl group to an aromatic structure. Before an alkane can act as an electrophile, it must first undergo conversion to a carbocation intermediate, as shown in the reactions below.
 
         \begin{enumerate}
 
-          \item \textbf{placeholder} 
-
-          \myfig{0.8}{conj_sys_figures/ak_1}{}{fig:ph78}
+          \item \textbf{Generation of an Electrophile via a Lewis Acid} 
 
           \reactionfig{
             \scheme{
-              \chemfig{
+              \chemfig[atom sep=2em]{
                 [:0]
-                -[:30]
+                -[:0]
+                (-[:120])
+                (-[:-120])
+                -[:0]@{cl}Cl
               }
               \+
               \chemfig{
-                [:0]
-                -[:30]
+                [:0]@{al}Al\ce{Cl3}
               }
               \arrow{->}
-              \chemfig{
+              \chemfig[atom sep=2em]{
                 [:0]
-                -[:30]
+                -[:0]
+                (-[:120])
+                (-[:-120])
+                -[@{bond}:0]@{cl2}\pcharge{-90}{Cl}
+                -[:0,1.5]\ncharge{-90}{Al}\ce{Cl3}
               }
               \arrow{->}
-              \chemfig{
-                [:0]
-                -[:30]
+              \chemfig[atom sep=2em]{
+                [:0]\pcharge{-90}{}
+                (-[:90])
+                (-[:-30])
+                (-[:-150])
               }
               \+
-              \chemfig{
-                [:0]
-                -[:30]
+              \chemfig[atom sep=2em]{
+                [:0]Cl
+                -[:0,1.5]\ncharge{-90}{Al}\ce{Cl3}
               }
             }
-          }{caption}{fig:ph78a}{0.9}
+            \chemmovearrow{
+              \reactionfigarrow{cl}{60}{al}{120}{Red}
+              \reactionfigarrow{bond}{100}{cl2}{80}{Red}
+            }
+          }{Mechanism for the formation of a tert-butyl carbocation from tert-butyl chloride using aluminum chloride (\ce{AlCl3}) as a Lewis acid catalyst}{fig:ph78a}{0.9}
 
-          This reaction is similar to the initial reaction shown in the chlorination pathway within \autoref{core:eas_halogenation}.
+          This transformation parallels the initial step of the chlorination pathway presented in \autoref{core:eas_halogenation}.
 
-          \item \textbf{placeholder} 
-
-          \myfig{0.8}{conj_sys_figures/ak_2}{}{fig:ph79}
+          \item \textbf{Lewis Acid-Catalyzed Epoxide Ring Opening} 
 
           \reactionfig{
             \scheme{
-              \chemfig{
-                [:0]
-                -[:30]
+              \chemfig[atom sep=2.5em]{
+                [:-30]*3(-
+                (-[:-15])
+                (-[:-45])
+                -@{oxygen1}O-)
               }
               \+
               \chemfig{
-                [:0]
-                -[:30]
+                [:0]@{boron}B\ce{F3}
               }
               \arrow{->}
-              \chemfig{
-                [:0]
-                -[:30]
+              \chemfig[atom sep=2.5em]{
+                [:-30]*3(-
+                (-[:-15])
+                (-[:-45])
+                -[@{bond}:]@{oxygen2}\pcharge{120}{O}
+                (-[:60]\ncharge{135}{B}\ce{F3})
+                -)
               }
               \arrow{->}
-              \chemfig{
-                [:0]
+              \chemfig[atom sep=2.5em]{
+                [:0]\ce{F3}\ncharge{90}{B}
+                -[:-30]O
                 -[:30]
+                -[:-30]\pcharge{90}{}
+                (-[:30])
+                (-[:-90])
               }
             }
-          }{caption}{fig:ph79a}{0.9}
+            \chemmovearrow{
+              \reactionfigarrow{oxygen1}{30}{boron}{150}{Red}
+              \reactionfigarrow{bond}{0}{oxygen2}{15}{Red}
+            }
+          }{Boron trifluoride (\ce{BF3}) coordination to an epoxide, promoting regioselective ring cleavage to generate the more thermodynamically stable tertiary carbocation}{fig:ph79a}{0.9}
 
-          \item \textbf{placeholder} 
-
-          \myfig{0.8}{conj_sys_figures/ak_3}{}{fig:ph80}
+          \item \textbf{Acid-Catalyzed Carbocation Formation from an Alcohol} 
 
           \reactionfig{
             \scheme{
-              \chemfig{
+              \chemfig[atom sep=2em]{
                 [:0]
                 -[:30]
+                (-[:90])
+                =[:-30]
+                -[:30]
+                (-[:120])
+                (-[:60]@{oxygen1}OH)
+                -[:-30]
               }
               \+
               \chemfig{
+                [:0]@{hydrogen}H
+                -[@{bond}:0]@{oxygen2}O\ce{SO3H}
+              }
+              \arrow{->[][\ce{-^-OSO3H}]}
+              \chemfig[atom sep=2em]{
                 [:0]
                 -[:30]
+                (-[:90])
+                =[:-30]
+                -[:30]
+                (-[:120])
+                (-[@{bond2}:60]@{oxygen3}\pcharge{90}{O}\ce{H2})
+                -[:-30]
               }
               \arrow{->}
               \chemfig{
                 [:0]
                 -[:30]
-              }
-              \arrow{->}
-              \chemfig{
-                [:0]
-                -[:30]
+                (-[:90])
+                =[:-30]
+                -[:30]\pcharge{-90}{}
+                (-[:90])
+                -[:-30]
               }
               \+
               \chemfig{
-                [:0]
-                -[:30]
+                [:0]\ce{H2O}
               }
             }
-          }{caption}{fig:ph80a}{0.9}
+            \chemmovearrow{
+              \reactionfigarrow{oxygen1}{60}{hydrogen}{120}{Red}
+              \reactionfigarrow{bond}{-100}{oxygen2}{-80}{Red}
+              \reactionfigarrow{bond2}{150}{oxygen3}{120}{Red}
+            }
+          }{Protonation of a tertiary alcohol by sulfuric acid, followed by the expulsion of water to form a tertiary carbocation intermediate}{fig:ph80a}{0.9}
 
-          \item \textbf{placeholder} 
-
-          \myfig{0.8}{conj_sys_figures/ak_4}{}{fig:ph81}
+          \item \textbf{Protonation of an Aromatic Ring} 
 
           \reactionfig{
             \scheme{
-              \chemfig{
-                [:0]
-                -[:30]
+              \chemfig[atom sep=2em]{
+                *6(-@{carbon1}
+                =[@{bond1}:]
+                -
+                =[@{bond2}:]@{carbon2}
+                (-[:90])
+                --)
               }
+              \qquad
               \+
+              \qquad
               \chemfig{
-                [:0]
-                -[:30]
+                [:0]@{hydrogen}H
+                -[@{bond}:0]@{oxygen}O\ce{SO3H}
               }
               \arrow{->}
-              \chemfig{
-                [:0]
-                -[:30]
+              \chemfig[atom sep=2em]{
+                *6(-=
+                -\pcharge{30}{}
+                -
+                (-[:120])
+                (-[:60]H)
+                --)
+              }
+              \qquad
+              \+
+              \qquad
+              \chemfig[atom sep=2em]{
+                *6(-
+                (-[:-90]H)
+                -\pcharge{-30}{}
+                -=
+                (-[:90])
+                --)
               }
             }
-          }{caption}{fig:ph81a}{0.9}
+            \chemmovearrow{
+              \reactionfigarrow{bond1}{80}{carbon1}{100}{Orange}
+              \reactionfigarrow{carbon1}{-90}{hydrogen}{-120}{Orange}
+              \reactionfigarrow{bond2}{-80}{carbon2}{-100}{Blue}
+              \reactionfigarrow{carbon2}{60}{hydrogen}{120}{Blue}
+              \reactionfigarrow{bond}{100}{oxygen}{80}{Red}
+            }
+          }{Electrophilic attack on toluene by\ce{H+}; \textit{the first hydrogenation step follows either the blue or orange \ce{e^-} movement}}{fig:ph81a}{0.9}
 
         \end{enumerate}
 
-        In certain instances, carbocation rearrangements can occur when the directly resulting carbocation is unstable.
-
-        \myfig{0.8}{conj_sys_figures/carbocation_rr}{}{fig:ph82}
+        In certain cases, carbocation rearrangement occurs when the initially formed carbocation is unstable.
 
         \reactionfig{
           \scheme{
-            \chemfig{
-              [:0]
-              -[:30]
-            }
-            \arrow{->}
-            \chemfig{
-              [:0]
-              -[:30]
-            }
-            \arrow{->}
-            \chemfig{
-              [:0]
-              -[:30]
+            \chemfig[atom sep=2em]{
+              *4(-
+              (
+              -[:-30]
+              -[:30]@{oxygen1}OH
+              )
+              ---)
             }
             \+
             \chemfig{
-              [:0]
-              -[:30]
+              [:0]@{hydrogen}H
+              -[@{bond1}:0]@{oxygen2}O\ce{SO3H}
+            }
+            \arrow(aa--bb){->}
+            \chemfig[atom sep=2em]{
+              *5(-
+              -\pcharge{0}{}
+              ---)
             }
             \+
             \chemfig{
-              [:0]
-              -[:30]
+              [:0]\ce{H2O}
             }
+            \+
+            \chemfig{
+              [:0]\ncharge{90}{O}\ce{SO3H}
+            }
+            \arrow(@aa--cc)[-60]
+            \chemfig{
+              *4(-
+              (
+              -[:-30]@{carbon2}
+              -[@{bond3}:30]@{oxygen3}\pcharge{90}{O}\ce{H2}
+              )
+              -[@{bond2}:]@{carbon1}
+              --)
+            }
+            \arrow(@cc--@bb){->}
           }
-        }{caption}{fig:ph82a}{0.9}
+          \chemmovearrow{
+            \reactionfigarrow{oxygen1}{60}{hydrogen}{100}{Red}
+            \reactionfigarrow{bond1}{-100}{oxygen2}{-80}{Red}
+            \reactionfigarrow{bond2}{190}{carbon1}{150}{Red}
+            \reactionfigarrow{carbon1}{30}{carbon2}{90}{Red}
+            \reactionfigarrow{bond3}{-90}{oxygen3}{-80}{Red}
+          }
+        }{Acid-catalyzed dehydration and subsequent ring expansion to generate a more thermodynamically stable cyclopentyl carbocation}{fig:ph82a}{0.9}
 
-        Subsequently, these carbocation alkanes then proceed to perform EAS to aromatic structures.
-
-        \myfig{0.8}{conj_sys_figures/carbocation_reaction}{}{fig:ph83}
+        These rearranged carbocations subsequently undergo EAS with aromatic structures.
 
         \reactionfig{
           \scheme{
-            \chemfig{
-              [:0]
-              -[:30]
+            \chemfig[atom sep=2em]{
+              *6(=-=-=-)
             }
             \+
-            \chemfig{
-              [:0]
-              -[:30]
+            \chemfig[atom sep=2em]{
+              *4(-
+              (
+              -[:-30]
+              -[:30]OH
+              )
+              ---)
             }
-            \arrow{->}
-            \chemfig{
-              [:0]
-              -[:30]
+            \arrow{->[\ce{H2SO4}]}
+            \chemfig[atom sep=2em]{
+              [:30]*6(=-
+              (-[@{bond1}:60]@{hydrogen}H)
+              (
+              -[:0]*5(-----)
+              )
+              -[@{bond2}:]\pcharge{60}{}
+              -=-)
             }
             \+
-            \chemfig{
-              [:0]
-              -[:30]
+            \chemfig[atom sep=2em]{
+              [:0]@{oxygen1}\ncharge{-90}{O}\ce{SO3H}
             }
             \arrow{->}
-            \chemfig{
-              [:0]
-              -[:30]
+            \chemfig[atom sep=2em]{
+              [:30]*6(=-
+              (
+              -[:0]*5(-----)
+              )
+              =
+              -=-)
             }
           }
-        }{caption}{fig:ph83a}{0.9}
+          \chemmovearrow{
+            \reactionfigarrow{oxygen1}{150}{hydrogen}{45}{Red}
+            \reactionfigarrow{bond1}{-45}{bond2}{-135}{Red}
+          }
+        }{Electrophilic aromatic substitution of benzene by a rearranged cyclopentyl carbocation}{fig:ph83a}{0.9}
 
-        In the specific case above showcasing carbocation rearrangement of a cyclobutane to a cyclopentane, we can prevent rearrangement via a stepwise reaction pathway of \textbf{acylation} (\textit{\autoref{core:acylation}}) and then reduction with \ce{Zn(Hg)} and \ce{HCl}.
+        In the case above, illustrating rearrangement from a cyclobutyl to a cyclopentyl carbocation, such rearrangement can be avoided through a stepwise pathway involving \textbf{acylation} (\textit{\autoref{core:acylation}}) followed by reduction with \ce{Zn(Hg)} and \ce{HCl}.
 
         \begin{enumerate}
 
           \item \textbf{Acylation} 
 
-          \myfig{0.8}{conj_sys_figures/ak_acy}{}{fig:ph84}
-
           \reactionfig{
             \scheme{
-              \chemfig{
-                [:0]
-                -[:30]
+              \chemfig[atom sep=2em]{
+                *6(=-=-=-)
               }
               \+
-              \chemfig{
-                [:0]
+              \chemfig[atom sep=2em]{
+                [:0]Cl
                 -[:30]
+                (=[:90]O)
+                -[:-30]*4(----)
               }
-              \arrow{->}
-              \chemfig{
-                [:0]
+              \arrow{->[cat \ce{BCl3}]}
+              \chemfig[atom sep=2em]{
+                [:0]Ph
                 -[:30]
+                (=[:90]O)
+                -[:-30]*4(----)
               }
             }
-          }{caption}{fig:ph84a}{0.9}
+          }{Acylation}{fig:ph84a}{0.9}
 
           \item \textbf{Reduction}
 
-          \myfig{0.8}{conj_sys_figures/ak_red}{}{fig:ph85}
-
           \reactionfig{
             \scheme{
-              \chemfig{
-                [:0]
+              \chemfig[atom sep=2em]{
+                [:0]Ph
                 -[:30]
+                (=[:90]O)
+                -[:-30]*4(----)
               }
-              \arrow{->[]}
-              \chemfig{
-                [:0]
+              \arrow{->[Zn(Hg), HCl]}
+              \chemfig[atom sep=2em]{
+                [:0]Ph
                 -[:30]
+                (-[:60,,,,Orange]\textcolor{Orange}{H})
+                (-[:120,,,,Orange]\textcolor{Orange}{H})
+                -[:-30]*4(----)
               }
             }
-          }{caption}{fig:ph85a}{0.9}
+          }{Reduction of ketone with Zn(Hg) and HCl}{fig:ph85a}{0.9}
 
         \end{enumerate}
 
@@ -1176,86 +1372,122 @@
 
       \begin{core}[label=core:acylation]{Acylation}
 
-        \textbf{Acylation} is the process of adding an acyl halide compound to an aromatic structure. We first need to make the acyl halide electrophilic through a lewis acid as shown in the following general reaction outline.
-
-        \myfig{0.8}{conj_sys_figures/acyl_halide}{}{fig:ph86}
+        \textbf{Acylation} refers to the addition of an acyl halide to an aromatic structure. The acyl halide must first be rendered electrophilic through activation by a Lewis acid, as shown in the general reaction outline below.
 
         \reactionfig{
           \scheme{
-            \chemfig{
-              [:0]
-              -[:30]
-            }
+            \chemname{
+              \chemfig{
+                [:0]R
+                -[:30]
+                (=[:90]O)
+                -[:-30]@{halogen1}X
+              }
+            }{Acyl halide}
             \+
             \chemfig{
-              [:0]
-              -[:30]
+              [:0]@{leaving}LA
             }
             \arrow{->}
             \chemfig{
-              [:0]
+              [:0]R
               -[:30]
+              (=[@{bond1}:90]@{oxygen}O)
+              -[@{bond2}:-30]@{halogen2}\pcharge{90}{X}
+              -[:0]\ncharge{90}{LA}
             }
             \arrow{->}
             \chemfig{
-              [:0]
-              -[:30]
+              [:0]R
+              -[:0]C
+              ~[:0]\pcharge{45}{O}
             }
             \+
             \chemfig{
-              [:0]
-              -[:30]
+              [:0]X
+              -[:0]\ncharge{45}{LA}
             }
           }
-        }{caption}{fig:ph86a}{0.9}
+          \chemmovearrow{
+            \reactionfigarrow{halogen1}{60}{leaving}{120}{Red}
+            \reactionfigarrow{oxygen}{150}{bond1}{180}{Red}
+            \reactionfigarrow{bond2}{-120}{halogen2}{-100}{Red}
+          }
+        }{Conversion of an acyl halide to an electrophile}{fig:ph86a}{0.9}
 
-        The resulting \ce{RCO+} molecule can then perform EAS with an aromatic ring. A full reaction using real compounds is shown below.
+        The resulting \ce{RCO+} species can then undergo EAS with an aromatic ring, as demonstrated below using representative compounds.
 
-        \myfig{0.8}{conj_sys_figures/full_reaction}{}{fig:ph87}
-
-        \reactionfig{
+        \doublereactionfig{
           \scheme{
-            \chemfig{
-              [:0]
-              -[:30]
+            \chemfig[atom sep=2em]{
+              [:0]*6(=-=-=-)
             }
             \+
             \chemfig{
-              [:0]
+              [:0]Ph
               -[:30]
+              (=[:90]O)
+              -[:-30]Cl
+            }
+            \arrow{->[cat][\ce{FeCl3}]}
+            \chemfig[atom sep=2em]{
+              [:0]*6(=-
+              =[@{bond1}:]@{carbon1}
+              -=-)
+            }
+            \+
+            \chemfig{
+              [:0]Ph
+              -[:0]@{carbon2}C
+              ~[@{bond2}:0]@{oxygen1}\pcharge{90}{O}
             }
             \arrow{->}
-            \chemfig{
-              [:0]
+          }
+          \chemmovearrow{
+            \reactionfigarrow{bond1}{-170}{carbon1}{170}{Red}
+            \reactionfigarrow{carbon1}{45}{carbon2}{110}{Red}
+            \reactionfigarrow{bond2}{-100}{oxygen1}{-80}{Red}
+          }
+        }{
+          \scheme{
+            \chemfig[atom sep=2em]{
+              *6(=
+              -\pcharge{-30}{}
+              -[@{bond3}:]
+              (-[@{bond2}:90]@{hydrogen}H)
+              (
               -[:30]
+              (=[:90]O)
+              -[:-30]Ph
+              )
+              -=-)
             }
             \+
             \chemfig{
-              [:0]
-              -[:30]
+              [:0]@{cl}Cl
+              -[@{bond1}:0]@{iron}\ncharge{90}{Fe}\ce{Cl3}
             }
-            \arrow{->}
-            \chemfig{
-              [:0]
+            \arrow{->[][-\ce{FeCl3}]}
+            \chemfig[atom sep=2em]{
+              *6(=-=
+              (
               -[:30]
-            }
-            \+
-            \chemfig{
-              [:0]
-              -[:30]
-            }
-            \arrow{->}
-            \chemfig{
-              [:0]
-              -[:30]
+              (=[:90]O)
+              -[:-30]Ph
+              )
+              -=-)
             }
             \+
             \chemfig{
-              [:0]
-              -[:30]
+              [:0]\ce{HCl}
             }
           }
-        }{caption}{fig:ph87a}{0.9}
+          \chemmovearrow{
+            \reactionfigarrow{bond1}{-100}{iron}{-80}{Red}
+            \reactionfigarrow{cl}{100}{hydrogen}{80}{Red}
+            \reactionfigarrow{bond2}{170}{bond3}{-170}{Red}
+          }
+        }{Acylation of benzene}{fig:ph87a}{0.9}
 
       \end{core}
 
@@ -2232,3 +2464,5 @@
       \end{enumerate}
 
     \end{core}
+
+
