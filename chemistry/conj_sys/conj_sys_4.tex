@@ -1,0 +1,1676 @@
+% !TEX root = conj_sys.tex
+
+    \subsubsection{Directing Groups}
+
+      \begin{core}{Directing Groups}
+
+        \sbs{0.7}{
+          So far, we have covered the EAS reaction types in \autoref{sec:eas_types} using benzene as our sole relevant aromatic structure. However, in scenarios where the aromatic ring is asymmetrical, chemists require a method for determining which carbon the EAS reaction will occur on. We now introduce \textbf{directing groups}, functional groups already attached to a benzene ring that dictate where (\textit{ortho, meta, para}) an incoming electrophile will land. The table below summarizes directing group behavior; consult each Core Concept entry for a more detailed treatment of each type.
+        }{
+          \reactionfig{
+            \scheme{
+              \chemfig[atom sep=1.5em]{
+                [:-30]*6(
+                (-[:180]R)
+                =
+                (-[:-120,,,,Yellow]\textcolor{Yellow}{O})
+                -
+                (-[:-60,,,,Orange]\textcolor{Orange}{M})
+                =
+                (-[:0,,,,Blue]\textcolor{Blue}{P})
+                -=-)
+              }
+            }
+          }{Directing groups ortho (\textit{yellow}), meta (\textit{orange}), and para (\textit{blue})}{fig:ph88a}{1.2}
+        }
+
+        \begin{table}[H]
+          \centering
+          \begin{tabular}{>{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{5cm}}
+            \hline
+            \hline
+            \textbf{Directing Group Type} & \textbf{Examples} & \textbf{Description} \\
+            \hline
+            {\small (1) Inductive \textcolor{Yellow}{O}/\textcolor{Blue}{P} Director} &
+            {\small $R = $ alkyl $[\text{Me}, \text{Et}, i\text{Pr}, \text{\ldots}]$} &
+            {\small Alkyl groups donate electron density inductively, directing substitution to the ortho and para positions.} \\[3ex]
+            {\small (2) Inductive \textcolor{Orange}{M} Director} &
+            {\small $R = $ carbon w/ EN atoms $[$\ce{CCl3}, \ce{CF3}, \ldots$]$} &
+            {\small Carbons bearing electronegative atoms withdraw electron density inductively, directing substitution to the meta position.} \\[3ex]
+            {\small (3) Resonance \textcolor{Yellow}{O}/\textcolor{Blue}{P} Director} &
+            {\small i) $R$ has lone pair adjacent to ring: $[\ce{OMe}, \ce{SR}, \ce{NMe2}]$ \newline ii) $R$ = carbon w/ π system: [alkene, alkyne, benzene]} &
+            {\small Substituents that donate electron density via resonance into the ring direct substitution to the ortho and para positions.} \\[3ex]
+            {\small (4) Resonance \textcolor{Orange}{M} Director} &
+            {\small $[\ce{C=O}, \ce{C#N}, \ce{NO2}]$} &
+            {\small Substituents that withdraw electron density via resonance from the ring direct substitution to the meta position.} \\[3ex]
+            \hline
+          \end{tabular}
+          \caption{Classification of electrophilic aromatic substitution directing groups}
+          \label{tab:directing_groups}
+        \end{table}
+
+      \end{core}
+
+      \begin{core}{Inductive O/P Directors}
+
+        \textbf{Inductive O/P directors} are substituents that direct any EAS to the ortho and para positions within an aromatic ring.
+
+        \reactionfig{
+          \scheme{
+            \chemfig[atom sep=2em]{
+              [:0]*6(=-
+              (-[:-30]\ce{CH3})
+              =-=-)
+            }
+            \+
+            \chemfig[atom sep=2em]{
+              [:0]E
+              -[:0]LG
+            }
+            \qquad \qquad
+            \arrow{->[cat. Lewis Acid][]}
+            \qquad
+            \chemfig[atom sep=2em]{
+              [:0]*6(=
+              (-[:-90,,,,Yellow]\textcolor{Yellow}{E})
+              -
+              (-[:-30]\ce{CH3})
+              =-=-)
+            }
+            \+
+            \chemfig[atom sep=2em]{
+              [:0]*6(=-
+              (-[:-30]\ce{CH3})
+              =-=
+              (-[:150,,,,Blue]\textcolor{Blue}{E})
+              -)
+            }
+            \+
+            \chemfig[atom sep=2em]{
+              [:0]H
+              -[:0]LG
+            }
+          }
+        }{Inductive O/P directors}{fig:ph89a}{0.9}
+
+        These substituents are typically alkyl groups; their preference for O/P over M positioning arises from the relative stability of the resonance structures generated in each case.
+
+        \vspace{0.35cm}
+        \triplereactionfig{
+          \scheme{
+            \text{\textcolor{Yellow}{\textbf{O}}}
+            \qquad
+            \chemname{
+              \chembrackets{
+                \chemfig[atom sep=2em]{
+                  *6(-=
+                  (-[:-30]\ce{CH3})
+                  -
+                  (-[:0]E)
+                  (-[:60]H)
+                  -\pcharge{90}{}
+                  -[@{bo2}:]
+                  =[@{bo1}:])
+                }
+              }
+            }{2$^\circ$ allylic}
+            \arrow{<->}
+            \chemname{
+              \chembrackets{
+                \chemfig[atom sep=2em]{
+                  *6(
+                  \pcharge{-150}{}
+                  -[@{bo4}:]
+                  =[@{bo3}:]
+                  (-[:-30]\ce{CH3})
+                  -
+                  (-[:0]E)
+                  (-[:60]H)
+                  -=-)
+                }
+              }
+            }{2$^\circ$ allylic}
+            \arrow{<->}
+            \chemname{
+              \chembrackets{
+                \chemfig[atom sep=2em]{
+                  *6(=
+                  -\pcharge{-90}{}
+                  (-[:-30]\ce{CH3})
+                  -
+                  (-[:0]E)
+                  (-[:60]H)
+                  -=-)
+                }
+              }
+            }{\textcolor{Red}{3$^\circ$ allylic}}
+          }
+          \chemmovearrow{
+            \reactionfigarrow{bo1}{180}{bo2}{120}{Red}
+            \reactionfigarrow{bo3}{-60}{bo4}{-120}{Red}
+          }
+        }{
+          \scheme{
+            \text{\textcolor{Orange}{\textbf{M}}}
+            \qquad
+            \chemname{
+              \chembrackets{
+                \chemfig[atom sep=2em]{
+                  *6(-
+                  =[@{bo1}:]
+                  (-[:-30]\ce{CH3})
+                  -[@{bo2}:]\pcharge{30}{}
+                  -
+                  (-[:60]E)
+                  (-[:120]H)
+                  -=)
+                }
+              }
+            }{2$^\circ$ allylic}
+            \arrow{<->}
+            \chemname{
+              \chembrackets{
+                \chemfig[atom sep=2em]{
+                  *6(
+                  -[@{bo4}:]\pcharge{-90}{}
+                  -
+                  (-[:-30]\ce{CH3})
+                  =-
+                  (-[:60]E)
+                  (-[:120]H)
+                  -
+                  =[@{bo3}:])
+                }
+              }
+            }{2$^\circ$ allylic}
+            \arrow{<->}
+            \chemname{
+              \chembrackets{
+                \chemfig[atom sep=2em]{
+                  *6(=-
+                  (-[:-30]\ce{CH3})
+                  =-
+                  (-[:60]E)
+                  (-[:120]H)
+                  -\pcharge{150}{}
+                  -)
+                }
+              }
+            }{2$^\circ$ allylic}
+          }
+          \chemmovearrow{
+            \reactionfigarrow{bo1}{-60}{bo2}{0}{Red}
+            \reactionfigarrow{bo3}{180}{bo4}{-120}{Red}
+          }
+        }{
+          \scheme{
+            \text{\textcolor{Blue}{\textbf{P}}}
+            \qquad
+            \chemname{
+              \chembrackets{
+                \chemfig[atom sep=2em]{
+                  *6(
+                  \pcharge{-150}{}
+                  -[@{bo2}:]
+                  =[@{bo1}:]
+                  (-[:-30]\ce{CH3})
+                  -=-
+                  (-[:120]H)
+                  (-[:180]E)
+                  -)
+                }
+              }
+            }{2$^\circ$ allylic}
+            \arrow{<->}
+            \chemname{
+              \chembrackets{
+                \chemfig[atom sep=2em]{
+                  *6(=
+                  -\pcharge{30}{}
+                  (-[:-30]\ce{CH3})
+                  -[@{bo4}:]
+                  =[@{bo3}:]
+                  -
+                  (-[:120]H)
+                  (-[:180]E)
+                  -)
+                }
+              }
+            }{\textcolor{Red}{3$^\circ$ allylic}}
+            \arrow{<->}
+            \chemname{
+              \chembrackets{
+                \chemfig[atom sep=2em]{
+                  *6(=-
+                  (-[:-30]\ce{CH3})
+                  =
+                  -\pcharge{90}{}
+                  -
+                  (-[:120]H)
+                  (-[:180]E)
+                  -)
+                }
+              }
+            }{2$^\circ$ allylic}
+          }
+          \chemmovearrow{
+            \reactionfigarrow{bo1}{-60}{bo2}{-120}{Red}
+            \reactionfigarrow{bo3}{60}{bo4}{0}{Red}
+          }
+        }{Ortho, meta, para positioning resonance structures of \ce{H3CPh}}{fig:ph90a}{0.9}
+
+        As shown above in \autoref{fig:ph90a}, although most resonance structures place the transient carbocation charge at a secondary allylic position, O/P substitution permits a tertiary allylic carbocation in one of three resonance structures, whereas M substitution does not. Consequently, the relative energies of the resulting carbocation intermediates follow the ordering shown in the energy diagram below.
+
+        \pgfig{
+          % Axes
+          \draw[->, thick] (0,-0.3) -- (0,4.2) node[above] {$E$};
+          \draw[->, thick] (0,-0.3) -- (6.5,-0.3);
+
+          % Reaction coordinate labels
+          \node at (0,-0.8) {\ce{PhCH3}};
+          \draw[->, thick] (1,-0.9) -- (5,-0.9);
+          \node at (6.5,-0.9) {Arenium ion};
+
+          % Baseline leading into the curves
+          \draw[thick] (0,0.3) -- (1,0.3);
+
+          % Energy curves: meta (highest), ortho (middle), para (lowest)
+          \draw[thick, Red]
+            (1,0.3) .. controls (2,0.4) and (2.3,3.6) .. (3.2,3.7)
+                     .. controls (4,3.6) and (4.5,3.0) .. (5.2,2.9);
+          \draw[thick, Red] (5.2,2.9) -- (6.2,2.9) node[right] {\small meta};
+
+          \draw[thick, Yellow]
+            (1,0.3) .. controls (2,0.4) and (2.3,2.8) .. (3.2,2.9)
+                     .. controls (4,2.8) and (4.5,2.2) .. (5.2,2.1);
+          \draw[thick, Yellow] (5.2,2.1) -- (6.2,2.1) node[right] {\small ortho};
+
+          \draw[thick, Blue]
+            (1,0.3) .. controls (2,0.4) and (2.3,2.4) .. (3.2,2.5)
+                     .. controls (4,2.4) and (4.5,1.8) .. (5.2,1.7);
+          \draw[thick, Blue] (5.2,1.7) -- (6.2,1.7) node[right] {\small para};
+        }{Energy diagram comparing the relative energies of the meta, ortho, and para transition states leading from the reaction \ce{H3CPh + E+ -> H3CPhE+}}{fig:ph91a}{0.9}
+
+      \end{core}
+
+      \begin{core}{Inductive M Directors}
+
+        \textbf{Inductive M directors} are substituents that direct EAS to the meta position within an aromatic ring. These substituents consist of carbons bonded to highly electronegative atoms, rendering the carbon strongly partially positive.
+
+        \reactionfig{
+          \scheme{
+            \chemfig[atom sep=2em]{
+              [:0]*6(=-=
+              (
+              -[:30]\textcolor{Blue}{\charge{-100:6pt=$δ^+$}{C}}
+              (-[:30]\textcolor{Red}{\charge{45:6pt=$δ^-$}{F}})
+              (-[:-50]\textcolor{Red}{\charge{45:6pt=$δ^-$}{F}})
+              (-[:110]\textcolor{Red}{\charge{45:6pt=$δ^-$}{F}})
+              )
+              -=-)
+            }
+          }
+        }{Inductive M directors}{fig:ph92a}{0.95}
+
+        The M position is favored because the O/P 3$^\circ$ allylic carbocation resonance structures experience destabilizing repulsion between the carbocation and the partially positive substituent carbon. The M position, by contrast, permits a resonance structure in which the positive substituent carbon and the carbocation charge reside at maximal distance on opposite sides of the aromatic ring.
+
+        \reactionfig{
+          \scheme{
+            \chemname{
+              \chemfig[atom sep=2em]{
+                *6(=
+                -\pcharge{150}{}
+                (-[:-30]\textcolor{Blue}{\charge{-90:6pt=$δ^+$}{C}}\ce{F3})
+                -
+                (-[:0]E)
+                (-[:60]H)
+                -=-)
+              }
+            }{\textcolor{Yellow}{ortho}}
+            \qquad \qquad
+            \chemname{
+              \chemfig[atom sep=2em]{
+                *6(=-
+                (-[:-30]\textcolor{Blue}{\charge{-90:6pt=$δ^+$}{C}}\ce{F3})
+                =-
+                (-[:60]E)
+                (-[:120]H)
+                -\pcharge{150}{}
+                -)
+              }
+            }{\textcolor{Orange}{meta}}
+            \qquad \qquad
+            \chemname{
+              \chemfig[atom sep=2em]{
+                *6(=
+                -\pcharge{150}{}
+                (-[:-30]\textcolor{Blue}{\charge{-90:6pt=$δ^+$}{C}}\ce{F3})
+                -=-
+                (-[:120]H)
+                (-[:180]E)
+                -)
+              }
+            }{\textcolor{Blue}{para}}
+          }
+        }{Best resonance contributors of each position in \ce{F3CPh}; \textit{the O/P 3$^\circ$ allylic contributors experience additional Coulombic \textbf{repulsion} due to the partially positive adjacent carbon of the \ce{CF3} substituent}}{fig:ph93a}{0.95}
+
+        Consequently, the resulting energy levels place O/P positioning above that of M positioning.
+
+        \pgfig{
+          % Axes
+          \draw[->, thick] (0,-0.3) -- (0,4.2) node[above] {$E$};
+          \draw[->, thick] (0,-0.3) -- (6.5,-0.3);
+
+          % Reaction coordinate labels
+          \node at (3,-0.9) {Toluene version};
+
+          % Baseline leading into the curves
+          \draw[thick] (0,0.3) -- (1,0.3);
+          \draw[thick, dashed] (1,0.3) -- (10,0.3);
+
+          % Energy curves: meta (highest), ortho (middle), para (lowest)
+          \draw[thick, Red]
+            (1,0.3) .. controls (2,0.4) and (2.3,2.6) .. (3.2,2.7)
+                     .. controls (4,2.6) and (4.5,2.0) .. (5.2,1.9);
+          \draw[thick, Red] (5.2,1.9) -- (6.2,1.9);
+          \draw[thick, Red, dashed] (6.2,1.9) -- (14.2,1.9);
+
+          \draw[thick, Yellow]
+            (1,0.3) .. controls (2,0.4) and (2.3,1.8) .. (3.2,1.9)
+                     .. controls (4,1.8) and (4.5,1.2) .. (5.2,1.1);
+          \draw[thick, Yellow] (5.2,1.1) -- (6.2,1.1) node[right] {\small ortho};
+
+          \draw[thick, Blue]
+            (1,0.3) .. controls (2,0.4) and (2.3,1.4) .. (3.2,1.5)
+                     .. controls (4,1.4) and (4.5,0.8) .. (5.2,0.7);
+          \draw[thick, Blue] (5.2,0.7) -- (6.2,0.7) node[right] {\small para};
+
+          \begin{scope}[xshift=9cm]
+
+            \draw[->, thick] (0,-0.3) -- (0,4.2) node[above] {$E$};
+            \draw[->, thick] (0,-0.3) -- (6.5,-0.3);
+
+            % Reaction coordinate labels
+            \node at (0,-0.8) {\ce{PhCF3}};
+            \draw[->, thick] (1,-0.9) -- (5,-0.9);
+            \node at (6.5,-0.9) {Arenium ion};
+
+            % Baseline leading into the curves
+            \draw[thick] (0,0.3) -- (1,0.3);
+
+            \draw[thick, Red]
+              (1,0.3) .. controls (2,0.4) and (2.3,2.6) .. (3.2,2.7)
+                       .. controls (4,2.6) and (4.5,2.0) .. (5.2,1.9);
+            \draw[thick, Red] (5.2,1.9) -- (6.2,1.9) node[right] {\small meta};
+
+            \draw[thick, Yellow]
+              (1,0.3) .. controls (2,0.4) and (2.3,4.8) .. (3.2,4.9)
+                       .. controls (4,4.8) and (4.5,4.2) .. (5.2,4.1);
+            \draw[thick, Yellow] (5.2,4.1) -- (6.2,4.1) node[right] {\small ortho};
+            \draw[thick, Blue]
+              (1,0.3) .. controls (2,0.4) and (2.3,4.4) .. (3.2,4.5)
+                       .. controls (4,4.4) and (4.5,3.8) .. (5.2,3.7);
+            \draw[thick, Blue] (5.2,3.7) -- (6.2,3.7) node[right] {\small para};
+
+          \end{scope}
+        }{Energy diagram comparing the transition-state energies for meta, ortho, and para substitution in the reactions \ce{H3CPh + E+ -> H3CPhE+} and \ce{F3CPh + E+ -> F3CPhE+}; \textit{inductive directors raise the O/P energies comparatively more, making meta the relatively favored position}}{fig:ph94a}{0.9}
+
+      \end{core}
+
+      \begin{core}{Resonance O/P Directors}
+
+        \textbf{Resonance O/P directors} are substituents that direct EAS to the O and P positions within an aromatic ring by donating \ce{e^-} density. Phenol, for example, possesses resonance structures that localize the resulting carbanion charge exclusively at the O and P positions.
+
+        \reactionfig{
+          \scheme{
+            \chemfig[atom sep=2.5em]{
+              *6(-=
+              -@{carbon1}
+              =[@{bond2}:]
+              (
+              -[@{bond1}:90]@{oxygen1}O
+              -[:30]H
+              )
+              -=)
+            }
+            \qquad
+            \arrow{<->}
+            \qquad
+            \chemname{
+              \chemfig[atom sep=2.5em]{
+                *6(
+                -@{carbon3}
+                =[@{bond4}:]
+                -[@{bond3}:]@{carbon2}\ncharge{90}{}
+                (-[:30]H)
+                -
+                (
+                =[:90]\pcharge{135}{O}
+                -[:30]H
+                )
+                -=)
+              }
+            }{\textcolor{Yellow}{ortho}}
+            \qquad
+            \arrow{<->}
+            \qquad
+            \chemname{
+              \chemfig[atom sep=2.5em]{
+                *6(
+                -\ncharge{-30}{}
+                (-[:-90]H)
+                -=-
+                (
+                =[:90]\pcharge{135}{O}
+                -[:30]H
+                )
+                -=)
+              }
+            }{\textcolor{Blue}{para}}
+          }
+          \chemmovearrow{
+            \reactionfigarrow{oxygen1}{170}{bond1}{-170}{Red}
+            \reactionfigarrow{bond2}{60}{carbon1}{30}{Red}
+            \reactionfigarrow{carbon2}{-20}{bond3}{-30}{Red}
+            \reactionfigarrow{bond4}{80}{carbon3}{100}{Red}
+          }
+        }{Resonance O/P director; \textit{this mechanism requires a substituent capable of donating an electron pair}}{fig:ph95a}{0.9}
+
+        These substituents must specifically possess a lone pair adjacent to the aromatic ring. Another substituent type capable of \ce{e^-} donation is a carbon bearing a conjugated π system, as illustrated by the following alkene.
+
+        \reactionfig{
+          \scheme{
+            \chemfig[atom sep=2.5em]{
+              *6(
+              -@{carbon1}
+              =[@{bond3}:]
+              (
+              -[@{bond2}:-30]
+              =[@{bond1}:30]
+              )
+              -=-=)
+            }
+            \qquad
+            \arrow{<->}
+            \qquad
+            \chemname{
+              \chemfig[atom sep=2.5em]{
+                *6(
+                -[@{bond4}:]@{carbon2}\ncharge{90}{}
+                (-[:-90]H)
+                -
+                (
+                =[:-30]
+                -[:30]\pcharge{90}{}
+                )
+                -=
+                -@{carbon3}
+                =[@{bond5}:])
+              }
+            }{\textcolor{Yellow}{ortho}}
+            \qquad
+            \arrow{<->}
+            \qquad
+            \chemname{
+              \chemfig[atom sep=2.5em]{
+                *6(=-
+                (
+                =[:-30]
+                -[:30]\pcharge{90}{}
+                )
+                -=
+                -\ncharge{150}{}
+                (-[:150]H)
+                -)
+              }
+            }{\textcolor{Blue}{para}}
+          }
+          \chemmovearrow{
+            \reactionfigarrow{bond1}{-60}{bond2}{-120}{Red}
+            \reactionfigarrow{bond3}{-60}{carbon1}{-90}{Red}
+            \reactionfigarrow{carbon2}{-100}{bond4}{-120}{Red}
+            \reactionfigarrow{bond5}{-170}{carbon3}{160}{Red}
+          }
+        }{Conjugated π system resonance O/P directing}{fig:ph96a}{0.9}
+
+        Note that formation of the primary carbocation is favorable here because it is allylic.
+
+        \textit{As a side note on how inductive and resonance directors differ in the mechanism by which they induce positional favorability: resonance directors alter the relative nucleophilicity of the ring positions, whereas inductive directors influence favorability through transition-state stability.}
+
+      \end{core}
+
+      \begin{core}[label=core:rm_director]{Resonance M Directors}
+
+        \textbf{Resonance M directors} are substituents that direct EAS to the M position within an aromatic ring by withdrawing \ce{e^-} density. Carbonyl substituents, for example, withdraw \ce{e^-} density such that the resulting resonance structures place a positive charge at the O/P positions, rendering these positions less nucleophilic and the M position relatively more nucleophilic.
+
+        \reactionfig{
+          \scheme{
+            \chemfig[atom sep=2.5em]{
+              *6(-=-
+              (
+              -[@{bond2}:30]
+              (=[@{bond3}:90]@{oxygen1}O)
+              -[:-30]
+              )
+              =[@{bond1}:]
+              -=)
+            }
+            \qquad
+            \arrow{<->}
+            \qquad
+            \chemname{
+              \chemfig[atom sep=2.5em]{
+                *6(-=-
+                (
+                =[:30]
+                (-[:90]\ncharge{45}{O})
+                -[:-30]
+                )
+                -\pcharge{90}{}
+                -[@{bond5}:]
+                =[@{bond4}:]
+                )
+              }
+            }{\textcolor{Yellow}{ortho}}
+            \qquad
+            \arrow{<->}
+            \qquad
+            \chemname{
+              \chemfig[atom sep=2.5em]{
+                *6(
+                \pcharge{-150}{}
+                -=-
+                (
+                =[:30]
+                (-[:90]\ncharge{45}{O})
+                -[:-30]
+                )
+                -=-)
+              }
+            }{\textcolor{Blue}{para}}
+          }
+          \chemmovearrow{
+            \reactionfigarrow{bond1}{80}{bond2}{100}{Red}
+            \reactionfigarrow{bond3}{-10}{oxygen1}{10}{Red}
+            \reactionfigarrow{bond4}{-10}{bond5}{-20}{Red}
+          }
+        }{Resonance M director}{fig:ph97a}{0.8}
+        \vspace{-0.4cm}
+
+        As a result, when an electrophile approaches the transient aromatic ring, nucleophilic attack occurs most favorably from the M position rather than the O/P positions.
+
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              [:0]@{elec}\pcharge{15}{E}
+            }
+            \qquad \qquad
+            \chemfig[atom sep=2em]{
+              *6(-=-
+              (
+              -[:30]
+              (=[:90]O)
+              -[:-30]
+              )
+              =
+              -@{carbon1}
+              =[@{bond1}:]
+              )
+            }
+            \arrow{->}
+            \chemfig[atom sep=2em]{
+              *6(\pcharge{-150}{}
+              -=-
+              (
+              -[:30]
+              (=[:90]O)
+              -[:-30]
+              )
+              =-
+              (-[:180]E)
+              (-[:120]H)
+              -)
+            }
+          }
+          \chemmovearrow{
+            \reactionfigarrow{bond1}{-170}{carbon1}{170}{Red}
+            \reactionfigarrow{carbon1}{120}{elec}{60}{Red}
+          }
+        }{Electrophilic aromatic substitution in the presence of resonance M directors}{fig:ph98a}{0.85}
+
+      \end{core}
+
+      \begin{core}{Halogens as Directing Groups}
+
+        Halogens can also function as directing groups; empirically, they act as O/P directors. To understand the basis for this behavior, consider monohalobenzene in the context of both the inductive effect and resonance.
+
+        \reactionfig{
+          \scheme{
+            \chemfig[atom sep=2em]{
+              *6(-=-
+              (-[:30]Cl)
+              =-=)
+            }
+            \+
+            \chemfig[atom sep=2em]{
+              [:0]E
+              -[:0]LG
+            }
+            \qquad \qquad
+            \arrow{->[cat. Lewis Acid][]}
+            \qquad
+            \chemfig[atom sep=2em]{
+              *6(-=
+              (-[:-30]E)
+              -
+              (-[:30]Cl)
+              =-=)
+            }
+            \+
+            \chemfig[atom sep=2em]{
+              *6(
+              (-[:-150]E)
+              -=-
+              (-[:30]Cl)
+              =-=)
+            }
+            \+
+            \chemfig[atom sep=2em]{
+              [:0]H
+              -[:0]LG
+            }
+          }
+        }{Halogen directing groups}{fig:ph99a}{0.8}
+        \vspace{-0.4cm}
+
+        \begin{enumerate}
+
+          \item \textbf{Inductive Effect}
+
+          \reactionfig{
+            \scheme{
+              \chemfig[atom sep=2em]{
+                *6(-=
+                (-[:0]H)
+                (-[:-60]E)
+                -\textcolor{Blue}{\pcharge{90}{C}}
+                (-[:30]\textcolor{Red}{Cl})
+                =-=)
+              }
+            }
+          }{Inductive effect}{fig:ph100a}{0.9}
+
+          Under an O/P directing EAS interaction, inductive analysis would actually disfavor O/P substitution, since the resulting carbocation transition state places positive charge adjacent to the electronegative halogen, further depleting an already electron-poor center. The resulting dipole destabilizes the structure.
+
+          \item \textbf{Resonance}
+
+          \reactionfig{
+            \scheme{
+              \chemfig[atom sep=2em]{
+                *6(=-
+                (-[:0]H)
+                (-[:-60]E)
+                -[:]\pcharge{-150}{}
+                (-[@{bond}:30]@{cl}\charge{90:1pt=\textcolor{Red}{\:}}{Cl})
+                -=-)
+              }
+              \arrow{<->}
+              \chemfig[atom sep=2em]{
+                *6(=-
+                (-[:0]H)
+                (-[:-60]E)
+                -
+                (=[:30]\pcharge{90}{Cl})
+                -=-)
+              }
+            }
+            \chemmovearrow{
+              \reactionfigarrow{cl}{80}{bond}{120}{Red}
+            }
+          }{Resonance capability of halogen directing groups}{fig:ph101a}{0.9}
+
+          Resonance, by contrast, allows the halogen to donate \ce{e^-} density to satisfy the octet requirement throughout the molecule, favoring the O/P directing interaction.
+
+        \end{enumerate}
+
+        Although these two effects act in opposition, experimental data confirm that resonance dominates over the inductive effect, resulting in O/P substitution being favored in practice.
+
+      \end{core}
+
+    \subsubsection{Aromatic Substituent Manipulations}
+
+      \begin{core}[label=core:reduction_acyl]{Reduction of Acyl Ketone}
+
+        The reduction of an acyl ketone, previously employed in \autoref{core:alkylation}, replaces a carbonyl oxygen with two hydrogen substituents.
+
+        \reactionfig{
+          \scheme{
+            \chemfig[atom sep=2em]{
+              *6(=-=
+              (
+              -[:30]
+              (=[:90]O)
+              -[:-30]R
+              )
+              -=-)
+            }
+            \arrow{->[Zn(Hg)][HCl]}
+            \chemfig[atom sep=2em]{
+              *6(=-=
+              (
+              -[:30]
+              (-[:60,,,,Orange]\textcolor{Orange}{H})
+              (-[:120,,,,Orange]\textcolor{Orange}{H})
+              -[:-30]R
+              )
+              -=-)
+            }
+          }
+        }{Reduction of an acyl ketone with Zn(Hg) and HCl}{fig:ph102a}{0.9}
+
+        \textit{No mechanism is provided for this reaction.}
+
+      \end{core}
+
+      \begin{core}[label=core:red_nitrobenzene]{Nitrobenzene Reduction to Aniline}
+
+        The reduction of nitrobenzene proceeds analogously to the reduction of an acyl ketone (\textit{\autoref{core:reduction_acyl}}), in which oxygens are replaced by hydrogens, and employs the same reactants to accomplish this transformation.
+
+        \reactionfig{
+          \scheme{
+            \chemfig[atom sep=2em]{
+              *6(-=-
+              (-[:30]\ce{NO2})
+              =-=)
+            }
+            \arrow{->[Zn(Hg)][HCl]}
+            \chemfig[atom sep=2em]{
+              *6(-=-
+              (-[:30]\ce{NH2})
+              =-=)
+            }
+          }
+        }{Nitrobenzene reduction to aniline with Zn(Hg) and HCl}{fig:ph103a}{0.9}
+
+        \textit{No mechanism is provided for this reaction.}
+
+      \end{core}
+
+      \begin{core}[label=core:diazotization]{Diazotization of Aniline}
+
+        The diazotization of aniline is a natural subsequent step following nitrobenzene reduction (\textit{\autoref{core:red_nitrobenzene}}), as the product of the latter serves as the reactant for the former.
+
+        \reactionfig{
+          \scheme{
+            \chemfig[atom sep=2em]{
+              *6(=-=
+              (-[:30]\ce{NH2})
+              -=-)
+            }
+            \+
+            \chemfig{
+              \ce{NaNO2}
+            }
+            \+
+            \chemfig{
+              \ce{2HCl}
+            }
+            \arrow{->}
+            \chemfig[atom sep=2em]{
+              *6(=-=
+              (
+              -[:30]\pcharge{120}{N}
+              ~[:30]N
+              )
+              -=-)
+            }
+            \+
+            \chemfig{
+              \ce{2H2O}
+            }
+            \+
+            \chemfig{
+              \ce{Cl-}
+            }
+            \+
+            \chemfig{
+              \ce{NaCl}
+            }
+          }
+        }{Diazotization of aniline}{fig:ph104a}{0.9}
+
+        The reaction mechanism proceeds as follows, beginning with the conversion of \ce{NO2-} to a nitrosyl cation.
+
+        \reactionfig{
+          \scheme{
+            \chemfig{
+              \pcharge{45}{Na}
+            }
+            \quad
+            \+
+            \quad
+            \chemfig[atom sep=2.5em]{
+              [:0]N
+              (-[:150]@{oxygen1}\ncharge{-90}{O})
+              =[:-90]O
+            }
+            \qquad \qquad
+            \arrow{->[
+              \chemfig[atom sep=2em]{
+                [:0]@{hydrogen1}H
+                -[@{bond1}:0]@{cl1}Cl
+              }
+            ][-\ce{Na+}\ce{Cl-}]}
+            \qquad
+            \chemfig[atom sep=2.5em]{
+              [:0]N
+              (-[:150]H@{oxygen2}O)
+              =[:-90]O
+            }
+            \qquad \qquad
+            \arrow{->[
+              \chemfig[atom sep=2em]{
+                [:0]@{hydrogen2}H
+                -[@{bond2}:0]@{cl2}Cl
+              }
+            ][-\ce{Cl-}]}
+            \qquad
+            \chemfig[atom sep=2.5em]{
+              [:0]N
+              (-[@{bond4}:150]\ce{H2}@{oxygen4}\pcharge{-90}{O})
+              =[@{bond3}:-90]@{oxygen3}O
+            }
+            \qquad \qquad
+            \arrow{->[][-\ce{H2O}]}
+            \chemfig[atom sep=2em]{
+              [:0]N
+              ~[:0]\pcharge{45}{O}
+            }
+          }
+          \chemmovearrow{
+            \reactionfigarrow{oxygen1}{45}{hydrogen1}{150}{Red}
+            \reactionfigarrow{bond1}{100}{cl1}{80}{Red}
+            \reactionfigarrow{oxygen2}{45}{hydrogen2}{150}{Red}
+            \reactionfigarrow{bond2}{100}{cl2}{80}{Red}
+            \reactionfigarrow{oxygen3}{-170}{bond3}{170}{Red}
+            \reactionfigarrow{bond4}{60}{oxygen4}{120}{Red}
+          }
+        }{Conversion of \ce{NO2-} to a nitrosyl cation}{fig:ph105a}{0.9}
+
+        The highly reactive nitrosyl cation then interacts with aniline as shown below to produce \textbf{aryl diazonium}.
+
+        \doublereactionfig{
+          \scheme{
+            \chemfig[atom sep=2em]{
+              *6(-=
+              (-[:-30]@{nitrogen1}N\ce{H2})
+              -=-=)
+            }
+            \+
+            \chemfig[atom sep=2em]{
+              [:0]@{nitrogen2}N
+              ~[@{bond1}:0]@{oxygen1}\pcharge{45}{O}
+            }
+            \arrow{->}
+            \chemfig[atom sep=2em]{
+              *6(-=
+              (
+              -[:-30]@{nitrogena}\pcharge{90}{N}
+              (-[@{bonda}:-60]@{hydrogen1}H)
+              (-[:-120]H)
+              -[:30]N
+              =[:-30]O
+              )
+              -=-=)
+            }
+            \arrow{->[
+              \chemfig{
+                @{water1}\ce{OH2}
+              }
+            ]}
+            \chemfig[atom sep=2em]{
+              *6(-=
+              (
+              -[:-30]@{nitrogen3}N
+              (
+              -[:-90]H
+              -[:-45,,,,White]@{hydrogen2}H
+              -[@{bond4}:0]@{oxygen3}\pcharge{90}{O}\ce{H2}
+              )
+              -[@{bond2}:30]N
+              =[@{bond3}:-30]@{oxygen2}O
+              )
+              -=-=)
+            }
+            \arrow{->}
+          }
+          \chemmovearrow{
+            \reactionfigarrow{nitrogen1}{80}{nitrogen2}{120}{Red}
+            \reactionfigarrow{bond1}{100}{oxygen1}{80}{Red}
+            \reactionfigarrow{water1}{-120}{hydrogen1}{-30}{Red}
+            \reactionfigarrow{nitrogen3}{100}{bond2}{80}{Red}
+            \reactionfigarrow{bond3}{100}{oxygen2}{80}{Red}
+            \reactionfigarrow{oxygen2}{-100}{hydrogen2}{80}{Red}
+            \reactionfigarrow{bond4}{-100}{oxygen3}{-80}{Red}
+            \reactionfigarrow{bonda}{-10}{nitrogena}{10}{Red}
+          }
+        }{
+          \scheme{
+            \chemfig[atom sep=2em]{
+              *6(-=
+              (
+              -[:-30]@{nitrogen1}\pcharge{-150}{N}
+              (
+              =[:-90]N
+              -[:-30]OH
+              )
+              -[@{bond1}:30]@{hydrogen1}H
+              )
+              -=-=)
+            }
+            \arrow{->[
+              \chemfig{
+                @{water1}\ce{OH2}
+              }
+            ]}
+            \chemfig[atom sep=2em]{
+              *6(-=
+              (
+              -[:-30]N
+              (
+              =[:-90]N
+              -[:-30]@{oxygen1}OH
+              )
+              -[:15,2,,,White]@{hydrogen2}H
+              -[@{bond2}:0]@{oxygen2}\pcharge{90}{O}\ce{H2}
+              )
+              -=-=)
+            }
+            \arrow{->}
+            \chemfig[atom sep=2em]{
+              *6(-=
+              (
+              -[:-30]@{nitrogen2}N
+              =[@{bond3}:-90]N
+              -[@{bond4}:-30,1.5]@{oxygen3}\pcharge{90}{O}\ce{H2}
+              )
+              -=-=)
+            }
+            \arrow{->}
+            \chemfig[atom sep=2em]{
+              *6(-=
+              (
+              -[:-30]\pcharge{60}{N}
+              ~[:-30]N
+              )
+              -=-=)
+            }
+          }
+          \chemmovearrow{
+            \reactionfigarrow{water1}{-120}{hydrogen1}{-60}{Red}
+            \reactionfigarrow{bond1}{80}{nitrogen1}{100}{Red}
+            \reactionfigarrow{oxygen1}{60}{hydrogen2}{-90}{Red}
+            \reactionfigarrow{bond2}{-100}{oxygen2}{-80}{Red}
+            \reactionfigarrow{nitrogen2}{15}{bond3}{-15}{Red}
+            \reactionfigarrow{bond4}{-150}{oxygen3}{-90}{Red}
+          }
+        }{Conversion of aniline to aryl diazonium via interaction with the nitrosyl cation}{fig:ph106a}{0.85}
+
+      \end{core}
+
+  \subsection{Nucleophilic Aromatic Substitution}
+
+    \begin{core}{Nucleophilic Aromatic Substitution}
+
+      \textbf{Nucleophilic aromatic substitution (NAS or S$_\text{N}$Ar)} is a reaction class in which the aromatic ring itself serves as the electrophile. NAS proceeds through one of two distinct pathways: \textbf{diazonium chemistry} (\textit{\autoref{core:diazonium_chem}}) or \textbf{addition/elimination} (\textit{\autoref{core:add_elim}}).
+
+      \textit{Recall that in electrophilic aromatic substitution (\autoref{sec:eas}), the aromatic ring instead serves as the nucleophile, the reverse of its role here.}
+
+    \end{core}
+
+    \begin{core}[label=core:diazonium_chem]{Diazonium Chemistry}
+
+      Diazonium chemistry begins when \ce{N2} departs from a phenyldiazonium molecule via cleavage of the σ C(sp$^2$)--N(sp) bond, generating a benzene-ring-bearing carbocation alongside an exceptionally stable \ce{N2} gas molecule.
+
+      \reactionfig{
+        \scheme{
+          \chemname{
+            \chemfig[atom sep=2.5em]{
+              *6(-=
+              (-[@{bond}:-30]@{nitrogen}\pcharge{-30}{\ce{N2}})
+              -=-=)
+            }
+          }{σC(sp$^2$)--N(sp)}
+          \arrow{->}
+          \chemfig[atom sep=2.5em]{
+              *6(-
+              =\pcharge{-30}{}
+              -=-=)
+          }
+          \qquad
+          \+
+          \qquad
+          \chemfig{
+            [:0]\ce{N2}
+          }
+        }
+        \chemmovearrow{
+          \reactionfigarrow{bond}{100}{nitrogen}{80}{Red}
+        }
+      }{Diazonium chemistry; \textit{note that the empty orbital is the sp$^2$ orbital rather than the p orbital, meaning no resonance is available to stabilize the resulting positive charge}}{fig:ph107a}{0.9}
+
+      It is important to recognize that resonance stabilization is unavailable in this particular carbocation, since the vacant orbital is the C(sp$^2$) orbital rather than an unhybridized p orbital, which resonance would require. Consequently, this phenyl cation is highly reactive and readily seeks out any nearby nucleophile capable of stabilizing its positive charge.
+
+      \reactionfig{
+        \scheme{
+          \chemfig[atom sep=2em]{
+            *6(-
+            =\pcharge{-30}{}
+            -=-=)
+          }
+          \arrow(aa--){->[\ce{X-}]}[0,1.7]
+          \chemfig[atom sep=2em]{
+            *6(-=
+            (-[:-30]X)
+            -=-=)
+          }
+          \arrow(@aa--){->[\ce{HO-}]}[30,1.5]
+          \chemfig[atom sep=2em]{
+            *6(-=
+            (-[:-30]OH)
+            -=-=)
+          }
+          \arrow(@aa--){->[\ce{^-CN}]}[-30,1.7]
+          \chemfig[atom sep=2em]{
+            *6(-=
+            (-[:-30]CN)
+            -=-=)
+          }
+        }
+      }{Nucleophilic attack on the benzene carbocation; \textit{most nucleophiles react readily here, with the notable exception of carbon-based nucleophiles such as Grignard reagents and organolithiums (\autoref{alc-core:organometallics})}}{fig:ph108a}{0.9}
+
+      As illustrated above, nearly every nucleophile covered in this course participates readily in this reaction, with the exception of Grignard reagents and organolithiums. \textit{The underlying reasoning for this exception falls outside the scope of these notes.}
+
+      By combining diazonium chemistry with reactions covered previously, chemists can effectively install nearly any nucleophile onto a benzene ring via the following reaction pathway.
+
+      \reactionfig{
+        \scheme{
+          \chemfig[atom sep=2em]{
+            *6(=-=-=-)
+          }
+          \arrow{->[\ce{HNO3}][\ce{H2SO4}]}
+          \chemfig[atom sep=2em]{
+            *6(=-=
+            (-[:30]\ce{NO2})
+            -=-)
+          }
+          \arrow{->[Zn(Hg)][HCl]}
+          \chemfig[atom sep=2em]{
+            *6(=-=
+            (-[:30]\ce{NH2})
+            -=-)
+          }
+          \arrow{->[\ce{NaNO2}][2HCl]}
+          \chemfig[atom sep=2em]{
+            *6(=-=
+            (-[:30]\pcharge{90}{\ce{N2}})
+            -=-)
+          }
+          \arrow{->[\ce{Nuc-}][]}
+          \chemfig[atom sep=2em]{
+            *6(=-=
+            (-[:30]Nuc)
+            -=-)
+          }
+        }
+      }{Complete reaction pathway illustrating nitration (\textit{\autoref{core:eas_nitration}}), nitro group reduction (\textit{\autoref{core:red_nitrobenzene}}), diazotization (\textit{\autoref{core:diazotization}}), and diazonium chemistry (\textit{\autoref{core:diazonium_chem}})}{fig:ph109a}{0.9}
+
+    \end{core}
+
+    \begin{core}[label=core:add_elim]{Addition/Elimination}
+
+      The NAS \textbf{addition/elimination} pathway proceeds according to the following general mechanism.
+
+      \reactionfig{
+        \scheme{
+          \chemfig[atom sep=2em]{
+            *6(
+            (-[:-150]RA)
+            =-
+            (-[:-30]RA)
+            =
+            (-[:30]LG)
+            -=-)
+          }
+          \+
+          \chemfig{
+            [:0]\ce{Nuc-}
+          }
+          \arrow{->}
+          \chemfig[atom sep=2em]{
+            *6(
+            (-[:-150]RA)
+            =-
+            (-[:-30]RA)
+            =
+            (-[:30]Nuc)
+            -=-)
+          }
+          \+
+          \chemfig{
+            [:0]\ce{LG-}
+          }
+        }
+      }{Outline of the nucleophilic aromatic substitution addition/elimination reaction; \textit{RA denotes a resonance acceptor, which must occupy the ortho or para position relative to the leaving group for the necessary resonance stabilization to occur}}{fig:ph110a}{0.9}
+
+      \textit{Recall that resonance acceptors were previously introduced in the context of meta-directing groups (\autoref{core:rm_director}); here, however, their role is not to direct meta substitution but rather to accept electron density once the nucleophile attacks the carbon bearing the leaving group.}
+
+      Additionally, this reaction \textbf{requires a strong nucleophile}, since aromaticity must ultimately be disrupted, as shown in the mechanism below. Note that this initial addition step is, consequently, the rate-determining step.
+
+      \reactionfig{
+        \scheme{
+          \chemfig[atom sep=2.5em]{
+            *6(
+            (
+            -[:-150]\pcharge{90}{N}
+            (=[:-90]O)
+            -[:150]\ncharge{90}{O}
+            )
+            =[@{bond5}:]
+            (
+            -[@{bond6}:-90]C
+            ~[@{bond7}:-90]@{nitrogen1}N
+            )
+            -@{carbon1}
+            (-[:-30]Br)
+            =[@{bond1}:]
+            -[@{bond2}:]
+            =[@{bond3}:]
+            -[@{bond4}:]
+            )
+          }
+          \qquad
+          \chemfig{
+            [:0]@{sulfur1}\ncharge{-135}{S}Me
+          }
+          \arrow{->}
+          \chemfig[atom sep=2.5em]{
+            *6(
+            (
+            -[:-150]\pcharge{90}{N}
+            (=[:-90]O)
+            -[:150]\ncharge{90}{O}
+            )
+            -
+            (
+            =[@{bond2a}:-90]C
+            =[@{bond1a}:-90]@{nitrogen1a}\ncharge{-45}{N}
+            )
+            -[@{bond3a}:]
+            (-[@{bond4a}:-0]@{bromine1a}Br)
+            (-[:-60]SMe)
+            -=-=)
+          }
+          \arrow{->}
+          \chemfig[atom sep=2.5em]{
+            *6(
+            (-[:-150]\ce{O2N})
+            -
+            (-[:-90]CN)
+            =
+            (-[:-30]SMe)
+            -=-=)
+          }
+          \+
+          \chemfig{
+            [:0]\ncharge{45}{Br}
+          }
+        }
+        \chemmovearrow{
+          \reactionfigarrow{sulfur1}{120}{carbon1}{30}{Red}
+          \reactionfigarrow{bond1}{30}{bond2}{30}{Red}
+          \reactionfigarrow{bond3}{150}{bond4}{150}{Red}
+          \reactionfigarrow{bond5}{-120}{bond6}{-150}{Red}
+          \reactionfigarrow{bond7}{10}{nitrogen1}{-10}{Red}
+          \reactionfigarrow{nitrogen1a}{-170}{bond1a}{170}{Red}
+          \reactionfigarrow{bond2a}{-10}{bond3a}{-60}{Red}
+          \reactionfigarrow{bond4a}{100}{bromine1a}{80}{Red}
+        }
+      }{Nucleophilic aromatic substitution addition/elimination reaction; \textit{the \ce{NO2} group cannot participate in resonance stabilization here, as it occupies the meta position}}{fig:ph111a}{0.8}
+
+      As the mechanism demonstrates, the reaction proceeds by relaying electron density into the resonance acceptor, which subsequently returns that electron density to expel the leaving group. Since the net outcome of this reaction resembles that of an \snt substitution, one might reasonably ask why an \snt-type pathway (\autoref{org-core:snt}) is not viable here instead.
+
+      Revisiting the \snt mechanism, recall that, from a molecular orbital perspective, the nucleophile interacts with the σ$^*$ anti-bonding orbital between the electrophile and leaving group, simultaneously expelling the leaving group and forming a new bond via backside attack.
+
+      \myfig{0.35}{conj_sys_figures/snt}{Backside nucleophilic attack on the carbon of chlorobenzene, prevented by steric hindrance from the aromatic ring}{fig:ph112}
+
+      In the aromatic ring system, this necessary σ$^*$ interaction is extremely unlikely, since the ring structure itself presents a substantial physical barrier to backside attack.
+
+      Within the framework of frontier molecular orbital theory, the \textbf{π$^*$ orbital lies lower in energy than σ$^*$}, making it the LUMO and a far more accessible orbital for interaction. This is precisely what occurs in the addition/elimination pathway, which is consequently the favored mechanism.
+
+      Let us work through the following examples.
+
+      \begin{enumerate}
+
+        \item \textbf{Example 1: Predicting Major Kinetic Product}
+
+        Consider the following reaction, which presents two possible leaving groups, F and Cl, alongside a \ce{NO2} resonance acceptor.
+
+        \reactionfig{
+          \scheme{
+            \chemfig[atom sep=2em]{
+              *6(-
+              (-[:-90]\charge{-45:6pt=\small\textcolor{Red}{δ$^{--}$}}{F})
+              =
+              (
+              -[:-30]\pcharge{90}{N}
+              (=[:-90]O)
+              -[:30]\ncharge{90}{O}
+              )
+              -
+              (-[:30]\charge{45:6pt=\small\textcolor{Red}{δ$^{-}$}}{Cl})
+              =-=)
+            }
+            \+
+            \chemfig{
+              Me\ncharge{45}{O}
+            }
+            \arrow{->}
+          }
+        }{Reactants for NAS addition/elimination practice example 1}{fig:ph113a}{0.9}
+
+        Both addition/elimination pathways are feasible, as shown below, ultimately leading to two distinct products.
+
+        \reactionfig{
+          \scheme{
+            \chemfig[atom sep=3em]{
+              *6(-@{b12}
+              (
+              -[:-90]F
+              -[:-165,1.5,,,White]Me@{b11}\ncharge{-90}{O}
+              )
+              =[@{b21}:]
+              (
+              -[@{b22}:-30]\pcharge{90}{N}
+              (=[@{b31}:-90]@{b32}O)
+              -[:30]\ncharge{90}{O}
+              )
+              -
+              (-[:30]Cl)
+              =-=)
+            }
+            \qquad \qquad \qquad \qquad
+            \chemfig[atom sep=3em]{
+              *6(
+              -[@{e32}:]
+              (-[:-90]F)
+              =[@{e41}:]
+              (
+              -[@{e42}:-30]\pcharge{90}{N}
+              (=[@{e51}:-90]@{e52}O)
+              -[:30]\ncharge{90}{O}
+              )
+              -@{e12}
+              (
+              -[:30]Cl
+              -[:0,1.5,,,White]@{e11}\ncharge{90}{O}Me
+              )
+              =[@{e21}:]
+              -[@{e22}:]
+              =[@{e31}:]
+              )
+            }
+          }
+          \chemmovearrow{
+            \reactionfigarrow{b11}{45}{b12}{-135}{Red}
+            \reactionfigarrow{b21}{-100}{b22}{-80}{Red}
+            \reactionfigarrow{b31}{10}{b32}{-10}{Red}
+            \reactionfigarrow{e11}{-150}{e12}{-30}{Red}
+            \reactionfigarrow{e21}{60}{e22}{120}{Red}
+            \reactionfigarrow{e31}{180}{e32}{-120}{Red}
+            \reactionfigarrow{e41}{-100}{e42}{-80}{Red}
+            \reactionfigarrow{e51}{10}{e52}{-10}{Red}
+          }
+        }{NAS addition/elimination practice example 1 --- reaction pathways with fluorine (\textit{left}) versus chlorine (\textit{right}) serving as the leaving group}{fig:ph114a}{0.9}
+
+        Because the nucleophile is held constant across both pathways, its ability to disrupt aromaticity is not the deciding factor. Instead, the outcome is governed by the larger dipole moment created by the more electronegative fluorine relative to chlorine. The resulting greater partial positive charge on the fluorine-bearing carbon renders it more electrophilic, so \ce{MeO-} preferentially attacks that position. The reaction therefore favors substitution at the carbon bearing F over the one bearing Cl.
+
+        \reactionfig{
+          \scheme{
+            \chemfig[atom sep=2em]{
+              *6(-
+              (-[:-90]\charge{-45:6pt=\small\textcolor{Red}{δ$^{--}$}}{F})
+              =
+              (
+              -[:-30]\pcharge{90}{N}
+              (=[:-90]O)
+              -[:30]\ncharge{90}{O}
+              )
+              -
+              (-[:30]\charge{45:6pt=\small\textcolor{Red}{δ$^{-}$}}{Cl})
+              =-=)
+            }
+            \+
+            \chemfig{
+              Me\ncharge{45}{O}
+            }
+            \arrow{->}
+            \chemfig[atom sep=2em]{
+              *6(-
+              (-[:-90]OMe)
+              =
+              (
+              -[:-30]\ce{NO2}
+              )
+              -
+              (-[:30]Cl)
+              =-=)
+            }
+            \+
+            \chemfig{
+              \ncharge{45}{F}
+            }
+          }
+        }{NAS addition/elimination practice example 1 --- the correct reaction pathway}{fig:ph115a}{0.9}
+
+        \item \textbf{Example 2: Predicting Product of NAS Chemistry}
+
+        Consider the addition/elimination reaction below.
+
+        \reactionfig{
+          \scheme{
+            \chemfig[atom sep=2em]{
+              *6(=-
+              (*6(-
+              (-[:-90]F)
+              =
+              (-[:-30]Br)
+              -=--))
+              =-=
+              (
+              -[:150]
+              (=[:90]O)
+              -[:-150]
+              )
+              -)
+            }
+            \+
+            \chemfig{
+              [:0]\ncharge{90}{C}N
+            }
+            \arrow{->}
+          }
+        }{Reactants for NAS addition/elimination practice example 2}{fig:ph116a}{0.9}
+
+        In this case, only one of the two possible leaving-group substitutions successfully donates \ce{e^-} density into the resonance acceptor, while the other does not.
+
+        \doublereactionfig{
+          \scheme{
+            \chemfig[atom sep=2.5em]{
+              *6(
+              =[@{bond7}:]
+              -[@{bond6}:]
+              (*6(
+              -@{carbon2}
+              (
+              -[:-90]F
+              -[:-15,1.5,,,White]@{carbon1}\ncharge{90}{C}N
+              )
+              =[@{bond1}:]
+              (-[:-30]Br)
+              -[@{bond2}:]
+              =[@{bond3}:]
+              -[@{bond4}:]
+              -))
+              =[@{bond5}:]
+              -@{carbon3}
+              =[@{bond9}:]
+              (
+              -[:150]
+              (=[:90]O)
+              -[:-150]
+              )
+              -[@{bond8}:]
+              )
+            }
+            \qquad
+            \chemfig{
+              \text{\textcolor{Red}{\ce{e^-} does not travel into the RA}}
+            }
+          }
+          \chemmovearrow{
+            \reactionfigarrow{carbon1}{135}{carbon2}{-45}{Red}
+            \reactionfigarrow{bond1}{150}{bond2}{150}{Red}
+            \reactionfigarrow{bond3}{60}{bond4}{120}{Red}
+            \reactionfigarrow{bond5}{150}{bond6}{150}{Red}
+            \reactionfigarrow{bond7}{-150}{bond8}{-150}{Red}
+            \reactionfigarrow{bond9}{120}{carbon3}{80}{Red}
+          }
+        }{
+          \scheme{
+            \chemfig[atom sep=2.5em]{
+              *6(=
+              -
+              (*6(-[@{bond2a}:]
+              (-[:-90]F)
+              =[@{bond1a}:]@{carbon2a}
+              (
+              -[:-30]Br
+              -[:45,1.5,,,White]@{carbon1a}\ncharge{90}{C}N
+              )
+              -=--))
+              =[@{bond3a}:]
+              -[@{bond4a}:]
+              =[@{bond5a}:]
+              (
+              -[@{bond6a}:150]
+              (=[@{bond7a}:90]@{oxygen1a}O)
+              -[:-150]
+              )
+              -)
+            }
+            \arrow{->}
+            \chemfig[atom sep=2.5em]{
+              *6(
+              =
+              -
+              (*6(
+              =[@{bond5b}:]
+              (-[:-90]F)
+              -[@{bond6b}:]
+              (-[:-0]CN)
+              (-[@{bond7b}:-60]@{bromine}Br)
+              -=--))
+              -[@{bond4b}:]
+              =[@{bond3b}:]
+              -[@{bond2b}:]
+              (
+              =[@{bond1b}:150]
+              (-[@{bondb}:90]@{oxygen1b}\ncharge{45}{O})
+              -[:-150]
+              )
+              -)
+            }
+          }
+          \chemmovearrow{
+            \reactionfigarrow{carbon1a}{-135}{carbon2a}{45}{Red}
+            \reactionfigarrow{bond1a}{80}{bond2a}{100}{Red}
+            \reactionfigarrow{bond3a}{-150}{bond4a}{-150}{Red}
+            \reactionfigarrow{bond5a}{80}{bond6a}{100}{Red}
+            \reactionfigarrow{bond7a}{-170}{oxygen1a}{170}{Red}
+            \reactionfigarrow{oxygen1b}{170}{bondb}{-170}{Red}
+            \reactionfigarrow{bond1b}{100}{bond2b}{80}{Red}
+            \reactionfigarrow{bond3b}{-150}{bond4b}{-150}{Red}
+            \reactionfigarrow{bond5b}{100}{bond6b}{80}{Red}
+            \reactionfigarrow{bond7b}{-170}{bromine}{-140}{Red}
+          }
+        }{NAS addition/elimination practice example 2 --- reaction pathways with fluorine (\textit{top}) versus bromine (\textit{bottom}) as the leaving group; \textit{note that treating fluorine as the leaving group prevents the resonance-accepting carbonyl group from accepting electron density, whereas treating bromine as the leaving group does not}}{fig:ph117a}{0.8}
+
+        The exclusive reaction outcome therefore proceeds as follows.
+
+        \reactionfig{
+          \scheme{
+            \chemfig[atom sep=2em]{
+              *6(=-
+              (*6(-
+              (-[:-90]F)
+              =
+              (-[:-30]Br)
+              -=--))
+              =-=
+              (
+              -[:150]
+              (=[:90]O)
+              -[:-150]
+              )
+              -)
+            }
+            \+
+            \chemfig{
+              [:0]\ncharge{90}{C}N
+            }
+            \arrow{->}
+            \chemfig[atom sep=2em]{
+              *6(=-
+              (*6(-
+              (-[:-90]F)
+              =
+              (-[:-30]CN)
+              -=--))
+              =-=
+              (
+              -[:150]
+              (=[:90]O)
+              -[:-150]
+              )
+              -)
+            }
+            \+
+            \chemfig{
+              [:0]\ncharge{90}{Br}
+            }
+          }
+        }{NAS addition/elimination practice example 2 --- the correct reaction pathway}{fig:ph118a}{0.9}
+
+        \item \textbf{Example 3: Predicting Starting Material}
+
+        Consider the task of determining the starting aromatic compound that yields the following products, given the nucleophile shown.
+
+        \reactionfig{
+          \scheme{
+            \arrow{->[
+              \chemfig[atom sep=1.5em]{
+                [:0]\ce{H2N}
+                -[:0]*3(---)
+              }
+            ][NAS]}
+            \qquad
+            \chemfig[atom sep=2em]{
+              [:0]*6(-
+              (
+              -[:-90]C
+              ~[:-90]N
+              )
+              =
+              (*7(
+              -[:,,,,Orange, line width=2pt]N
+              (-[:-90]*3(---))
+              -[:,,,,Orange, line width=2pt]
+              (*6(-=-=-=))
+              --
+              (=[:60]O)
+              -N
+              (-[:100]H)
+              --))
+              -=-=)
+            }
+            \qquad
+            \+
+            \raisebox{0.7cm}{
+              \chemfig[atom sep=2em]{
+                [:0]\ce{H3}\pcharge{90}{N}
+                (
+                -[:-90,2,,,White]\ce{H3}\pcharge{90}{N}
+                -[:0]*3(---)
+                )
+                -[:0]*3(---)
+              }
+            }
+            \+
+            \chemfig{
+              [:0]2\ncharge{90}{Cl}
+            }
+          }
+        }{Products for NAS addition/elimination practice example 3}{fig:ph119a}{0.9}
+
+        Because two \ce{Cl-} counterions and two \ce{H3N+R} groups appear on the product side, we can conclude that addition/elimination has occurred twice. The product conveniently shows the nucleophile positioned centrally, connected to the aromatic ring system through two bonds (\textit{orange}) at the nitrogen. On this basis, we can reasonably infer that the starting material bore leaving groups at precisely these two positions.
+
+        \reactionfig{
+          \scheme{
+            \chemfig[atom sep=2em]{
+              *6(-
+              (-[:-90]CN)
+              =
+              (-[:-30,,,,Blue, line width=2pt]\textcolor{Blue}{Cl})
+              -
+              (
+              -[:30]N
+              (-[:120]H)
+              -[:0]
+              (=[:60]O)
+              -[:-30]*6(-
+              (-[:-150,,,,Blue, line width=2pt]\textcolor{Blue}{Cl})
+              =-=-=)
+              )
+              =-=)
+            }
+            \qquad
+            \arrow{->[
+              \chemfig[atom sep=1.5em]{
+                [:0]\ce{H2N}
+                -[:0]*3(---)
+              }
+            ][NAS]}
+            \qquad
+            \chemfig[atom sep=2em]{
+              [:0]*6(-
+              (
+              -[:-90]C
+              ~[:-90]N
+              )
+              =
+              (*7(
+              -[:,,,,Orange, line width=2pt]N
+              (-[:-90]*3(---))
+              -[:,,,,Orange, line width=2pt]
+              (*6(-=-=-=))
+              --
+              (=[:60]O)
+              -N
+              (-[:100]H)
+              --))
+              -=-=)
+            }
+            \qquad
+            \+
+            \raisebox{0.7cm}{
+              \chemfig[atom sep=2em]{
+                [:0]\ce{H3}\pcharge{90}{N}
+                (
+                -[:-90,2,,,White]\ce{H3}\pcharge{90}{N}
+                -[:0]*3(---)
+                )
+                -[:0]*3(---)
+              }
+            }
+            \+
+            \chemfig{
+              [:0]2\ncharge{90}{Cl}
+            }
+          }
+        }{NAS addition/elimination practice example 3 --- the complete reaction}{fig:ph120a}{0.9}
+
+      \end{enumerate}
+
+    \end{core}
+

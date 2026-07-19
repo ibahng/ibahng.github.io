@@ -422,7 +422,7 @@
           \node at (0,1) {TOP};
           \draw[-{Latex}] (1.2,0.5) -- (0.5,-0.5);
         \end{scope}
-      }{Bottom (\textit{left}) and top (\textit{right}) attacks by the dienophile in a Diels--Alder reaction}{fig:ph44a}{0.9}
+      }{Bottom (\textit{left}) and top (\textit{right}) attacks by the dienophile in a Diels--Alder reaction}{fig:ph44a}{0.95}
 
       \item \textbf{Endo} and \textbf{exo} distinctions refer to whether the substituents of the dienophile are oriented \textbf{towards} or \textbf{away from} the corresponding diene.
 
@@ -438,37 +438,43 @@
           }
           \arrow{<-}
           \chemname{
-            \chemfig{
-              [:0]
-              (-[:150,,,,Red,line width=2pt])
-              =[:-90]
-              (-[:-150,,,,Red,line width=2pt])
+            \raisebox{-1.1cm}{
+              \chemfig{
+                [:0]
+                (-[:150,,,,Red,line width=2pt])
+                =[:-90]
+                (-[:-150,,,,Red,line width=2pt])
+              }
             }
           }{ENDO}
           \qquad \qquad \qquad
-          \chemfig{
-            [:0]
-            (=[:30])
-            (-[:150])
-            -[:-90]
-            (=[:-30])
-            (-[:-150])
+          \raisebox{-1cm}{
+            \chemfig{
+              [:0]
+              (=[:30])
+              (-[:150])
+              -[:-90]
+              (=[:-30])
+              (-[:-150])
+            }
           }
           \arrow{<-}
           \chemname{
-            \chemfig{
-              [:0]
-              (-[:30,,,,Red,line width=2pt])
-              =[:-90]
-              (-[:-30,,,,Red,line width=2pt])
+            \raisebox{-1cm}{
+              \chemfig{
+                [:0]
+                (-[:30,,,,Red,line width=2pt])
+                =[:-90]
+                (-[:-30,,,,Red,line width=2pt])
+              }
             }
           }{EXO}
         }
-      }{Endo (\textit{left}) and exo (\textit{right}) attack by the dienophile in a Diels--Alder reaction}{fig:ph45a}{0.9}
+      }{Endo (\textit{left}) and exo (\textit{right}) attack by the dienophile in a Diels--Alder reaction}{fig:ph45a}{0.95}
 
       It is important to note that the bonds oriented towards the diene are flipped about the dienophile's double bond, in the direction opposite to the diene's approach.
 
-      \myfig{0.5}{conj_sys_figures/da_flip}{Flipping of dienophile substituents pointing towards the diene during a Diels--Alder reaction}{fig:ph46a}
+      \myfig{0.53}{conj_sys_figures/da_flip}{Flipping of dienophile substituents pointing towards the diene during a Diels--Alder reaction}{fig:ph46a}
 
       In general, this flipping process can be summarized by the following outline reaction.
 
@@ -587,38 +593,42 @@
     \reactionfig{
       \scheme{
         \chemname{
-          \chemfig[atom sep=2.5em]{
-            *6(
-            (-[:-150])
-            -\charge{90:5pt=\textcolor{Yellow}{Z}}{}
-            (-[:-90]D)
-            -\charge{150:5pt=\textcolor{Red}{2}}{}
-            (-[:-30])
-            -\charge{-150:5pt=\textcolor{Red}{1}}{}
-            (-[:30]\ce{CD3})
-            -\charge{-90:5pt=\textcolor{Yellow}{W}}{}
-            (-[:90]D)
-            -
-            (-[:150]\ce{D3C})
-            -)
+          \raisebox{-1.5cm}{
+            \chemfig[atom sep=2.5em]{
+              *6(
+              (-[:-150])
+              -\charge{90:5pt=\textcolor{Yellow}{Z}}{}
+              (-[:-90]D)
+              -\charge{150:5pt=\textcolor{Red}{2}}{}
+              (-[:-30])
+              -\charge{-150:5pt=\textcolor{Red}{1}}{}
+              (-[:30]\ce{CD3})
+              -\charge{-90:5pt=\textcolor{Yellow}{W}}{}
+              (-[:90]D)
+              -
+              (-[:150]\ce{D3C})
+              -)
+            }
           }
         }{\textcolor{Yellow}{W}\textcolor{Red}{1}\textcolor{Yellow}{Z}\textcolor{Red}{2}}
         \qquad \qquad
         \chemname{
-          \chemfig[atom sep=2.5em]{
-            *6(
-            (-[:-150])
-            -\charge{90:5pt=\textcolor{Yellow}{Z}}{}
-            (-[:-90]D)
-            -\charge{150:5pt=\textcolor{Red}{1}}{}
-            (-[:-30]\ce{CD3})
-            -\charge{-150:5pt=\textcolor{Red}{2}}{}
-            (-[:30])
-            -\charge{-90:5pt=\textcolor{Yellow}{W}}{}
-            (-[:90]D)
-            -
-            (-[:150]\ce{D3C})
-            -)
+          \raisebox{-1.5cm}{
+            \chemfig[atom sep=2.5em]{
+              *6(
+              (-[:-150])
+              -\charge{90:5pt=\textcolor{Yellow}{Z}}{}
+              (-[:-90]D)
+              -\charge{150:5pt=\textcolor{Red}{1}}{}
+              (-[:-30]\ce{CD3})
+              -\charge{-150:5pt=\textcolor{Red}{2}}{}
+              (-[:30])
+              -\charge{-90:5pt=\textcolor{Yellow}{W}}{}
+              (-[:90]D)
+              -
+              (-[:150]\ce{D3C})
+              -)
+            }
           }
         }{\textcolor{Yellow}{W}\textcolor{Red}{2}\textcolor{Yellow}{Z}\textcolor{Red}{1}}
       }
@@ -634,25 +644,28 @@
 
       Diels--Alder reactions proceed more favorably when the resulting ring exhibits minimal strain. The \textbf{s-cis} diene orientation satisfies this condition more effectively than the \textbf{s-trans} orientation, as illustrated below. \textit{The "s" in s-cis and s-trans specifically denotes orientation about a single bond, distinguishing this usage from the conventional application of cis/trans nomenclature to alkenes, where the double bond serves as the reference axis.}
 
-      \vspace{0.5cm}
       \reactionfig{
         \scheme{
           \chemname{
-            \chemfig[atom sep=2.5em]{
-              [:0]
-              (=[@{abond3}:30]@{acarbon1})
-              -[@{abond2}:-90]
-              (=[@{abond1}:-30]@{acarbon4})
+            \raisebox{-1.5cm}{
+              \chemfig[atom sep=2.5em]{
+                [:0]
+                (=[@{abond3}:30]@{acarbon1})
+                -[@{abond2}:-90]
+                (=[@{abond1}:-30]@{acarbon4})
+              }
             }
           }{\textit{s-cis}}
           \qquad \quad
-          \chemfig[atom sep=2.5em]{
-            [:0]@{acarbon2}
-            (-[:30])
-            =[@{abond4}:-90]@{acarbon3}
+          \raisebox{-1.5cm}{
+            \chemfig[atom sep=2.5em]{
+              [:0]@{acarbon2}
+              (-[:30])
+              =[@{abond4}:-90]@{acarbon3}
+            }
           }
           \arrow{->}
-          \raisebox{-1cm}{
+          \raisebox{-2.5cm}{
             \chemfig[atom sep=2.5em]{
               *6(-
               -[:,,,,Red, line width=2pt]
@@ -663,23 +676,27 @@
             }
           }
           \qquad
-          \raisebox{-1cm}{
+          \raisebox{-2.5cm}{
             \text{VS}
           }
           \qquad
           \chemname{
-            \chemfig[atom sep=2.5em]{
-              [:0]
-              (=[@{bbond3}:30]@{bcarbon1})
-              -[@{bbond2}:-90]
-              (=[@{bbond1}:-150]@{bcarbon4})
+            \raisebox{-1.5cm}{
+              \chemfig[atom sep=2.5em]{
+                [:0]
+                (=[@{bbond3}:30]@{bcarbon1})
+                -[@{bbond2}:-90]
+                (=[@{bbond1}:-150]@{bcarbon4})
+              }
             }
           }{\textit{s-trans}}
           \qquad \quad
-          \chemfig[atom sep=2.5em]{
-            [:0]@{bcarbon2}
-            (-[:30])
-            =[@{bbond4}:-90]@{bcarbon3}
+          \raisebox{-1.5cm}{
+            \chemfig[atom sep=2.5em]{
+              [:0]@{bcarbon2}
+              (-[:30])
+              =[@{bbond4}:-90]@{bcarbon3}
+            }
           }
           \arrow{->}
           \chemfig[atom sep=2.5em]{
@@ -712,6 +729,7 @@
       Consider the following dienes as illustrative examples.
 
       \reactionfig{
+        \chemnameinit{}
         \scheme{
           \chemname{
             \chemfig[atom sep=2em]{
@@ -768,7 +786,6 @@
           }
         }
       }{Differences in s-cis orientation prevalence across the three dienes; \textit{Diels--Alder reaction rates favor diene C the most and diene B the least}}{fig:ph52a}{1}
-      \vspace{-0.4cm}
 
       The relative Diels--Alder reaction rates follow the order $\text{C} > \text{A} > \text{B}$. Diene C reacts fastest because its cyclic structure restricts rotation about the relevant single bond, thereby preventing any rearrangement into an s-trans conformation. Dienes A and B, by contrast, can both rotate freely about this single bond; however, B favors the s-trans arrangement, since its s-cis conformation experiences comparatively greater steric hindrance between the alkenyl substituents flanking the relevant single bond.
 
@@ -778,7 +795,7 @@
 
       Under certain circumstances, orbitals not directly involved in new bond formation between the diene and dienophile can undergo secondary overlap, thereby lowering the overall E$_\text{a}$. Consider the following Diels--Alder interaction between two cyclopentenes.
 
-      \myfig{0.7}{conj_sys_figures/secondary_overlap}{Secondary orbital overlap during an endo Diels--Alder reaction}{fig:ph53}
+      \myfig{0.65}{conj_sys_figures/secondary_overlap}{Secondary orbital overlap during an endo Diels--Alder reaction}{fig:ph53}
       \vspace{-0.4cm}
 
       It is important to note that although favorable mixing of secondary orbital overlaps within the transition state helps stabilize that transition state, steric factors nonetheless disfavor the endo approach. Consequently, ambiguous diene--dienophile pairs typically require experimental investigation to determine which effect predominates in a given case.
@@ -791,7 +808,7 @@
 
       However, while increased conjugation typically narrows the HOMO--LUMO gap and accelerates the reaction, it also alters the orbital's wave topology (\textit{i.e., the arrangement of its nodes}). If the orbital possessing the ideal energy gap happens to place a node on an essential bonding atom, that orbital becomes unusable for the reaction, forcing the system to proceed via a higher-energy, slower pathway instead. Symmetry and orbital overlap must therefore always be satisfied before energy gap considerations become relevant.
 
-      \myfig{0.63}{conj_sys_figures/electronic_effect}{Diels--Alder reaction electronic effects; \textit{the reagents on the left actually react faster despite the smaller π3–π$^*$ gap of the reagents on the right, because the latter possesses a node on the atom required to form a new σ bond}}{fig:ph54}
+      \myfig{0.6}{conj_sys_figures/electronic_effect}{Diels--Alder reaction electronic effects; \textit{the reagents on the left actually react faster despite the smaller π3–π$^*$ gap of the reagents on the right, because the latter possesses a node on the atom required to form a new σ bond}}{fig:ph54}
 
     \end{core}
 
@@ -902,7 +919,7 @@
               }};
 
         \end{axis}
-      }{Energy diagrams for the corresponding diene--dienophile pairs from \autoref{fig:ph55a}; \textit{the E$_\text{a}$ for compound pair A is substantially smaller than that of pair B, owing to the former's relatively higher starting energy state}}{fig:ph56a}{1}
+      }{Energy diagrams for the corresponding diene--dienophile pairs from \autoref{fig:ph55a}; \textit{the E$_\text{a}$ for compound pair A is substantially smaller than that of pair B, owing to the former's relatively higher starting energy state}}{fig:ph56a}{1.1}
 
       As shown in the energy diagram above, the E$_\text{a}$ is substantially lower for the more unstable reactant pair A, which consequently proceeds at a much faster rate, since its overall ΔH is lower.
 
