@@ -441,7 +441,7 @@
           \myfig{0.85}{banking_figures/ofac}{U.S. Office of Foreign Asests Control}{fig:ofac}
         }
 
-        To execute these sanctions, OFAC publishes and maintains highly sensitive \textbf{compliance lists}---namely the \href{https://sanctionssearch.ofac.treas.gov/}{\texttt{Specially Designated Nationals (SDN)}} list---forcing global banking institutions utilizing the USD clearing network to block or freeze transactions involving targeted foreign regimes, terrorists, and international criminal syndicates. The violating of these regulations leads to massive fines and also federal prison time if the violation is criminal.
+        To execute these sanctions, OFAC publishes and maintains public \textbf{compliance lists}---namely the \href{https://sanctionssearch.ofac.treas.gov/}{\texttt{Specially Designated Nationals (SDN)}} list---forcing global banking institutions utilizing the USD clearing network to block or freeze transactions involving targeted foreign regimes, terrorists, and international criminal syndicates. Through this, OFAC is also able to \textbf{directly impose daily USD settlement limits and/or sanctions}. The violating of these regulations leads to massive fines and also federal prison time if the violation is criminal.
 
         \begin{enumerate}
 
@@ -457,17 +457,29 @@
 
   \subsection{Hong Kong}
 
-    \begin{core}{Hong Kong Monetary Authority (HKMA)}
+    \begin{core}[label=core:hkma]{Hong Kong Monetary Authority (HKMA)}
 
-      The Hong Kong Monetary Authority (HKMA) operates as the de facto central bank and primary financial regulator of Hong Kong. The HKMA is responsible for maintaining currency stability through the management of the Linked Exchange Rate System, supervising banking institutions to ensure structural solvency, and defending the operational integrity of Hong Kong's multi-currency financial infrastructure.
+      \sbs{0.6}{
+        The \textbf{Hong Kong Monetary Authority (HKMA)} is the principal statutory regulator of Hong Kong's banking and payment infrastructure, exercising supervisory authority derived primarily from the \href{https://www.elegislation.gov.hk/hk/cap155}{\texttt{Banking Ordinance} (Cap. 155)} to promote systemic stability and safeguard depositors. Operating under delegated authority from the Financial Secretary, the HKMA maintains exclusive supervisory jurisdiction over Hong Kong's banking system.
+
+        Operationally, the HKMA enforces \textbf{prudential risk standards}---including capital adequacy rules (\textit{Basel III framework, a regulatory measures developed in response to the 2008 Financial Crisis}), liquidity coverage requirements, and exposure limits---through off-site reviews and \textbf{on-site statutory examinations}. These complementary supervisory channels allow the HKMA to monitor authorized institutions on both a continuous and periodic basis.
+      }{
+        \myfig{0.9}{banking_figures/hkma}{Hong Kong Monetary Authority}{fig:hkma}
+      }
+
+      The HKMA wields extensive supervisory and statutory enforcement powers: it enforces strict ``fit and proper" criteria for bank controllers and chief executives, investigates regulatory breaches under the \textbf{Anti-Money Laundering and Counter-Terrorist Financing Ordinance (AMLO)}, issues public reprimands, removes bank officers, and levies \textbf{substantial civil monetary penalties}. Furthermore, under the \textbf{Financial Institutions (Resolution) Ordinance (FIRO)}, the HKMA acts as the designated \textbf{Resolution Authority} for banking institutions, possessing extraordinary statutory powers to order debt bail-ins, asset transfers, or structural restructurings to prevent systemic contagion without reliance on public bailouts.
 
     \end{core}
 
-    \begin{core}{Hong Kong Police Force Commercial Crime Bureau (HKPF CCB)}
+    \begin{core}[label=core:hkpf_ccb]{Hong Kong Police Force Commercial Crime Bureau (HKPF CCB)}
 
-      The Commercial Crime Bureau (HKPF CCB) is a specialized investigative arm of the Hong Kong Police Force tasked with combating sophisticated white-collar financial crimes. The CCB targets large-scale corporate fraud, counterfeit currencies, systemic money laundering syndicates, and technology-driven financial scams, collaborating directly with local banking compliance officers and international law enforcement networks.
+      The \textbf{Commercial Crime Bureau (HKPF CCB)} is a specialized investigative arm of the \textbf{Hong Kong Police Force} tasked with combating sophisticated \textbf{white-collar financial crimes}. The CCB targets large-scale corporate fraud, counterfeit currencies, systemic money laundering syndicates, and technology-driven financial scams, collaborating directly with local banking compliance officers and international law enforcement networks.
 
-      % FINEST system
+    \end{core}
+
+    \begin{core}{Financial Intelligence Evaluation Sharing Tool (FINEST)}
+
+      The \textbf{Financial Intelligence Evaluation Sharing Tool (FINEST)} is a bank-to-bank information-sharing platform launched in June 2023 through a joint initiative by the \textbf{HKPF} (\textit{\autoref{core:hkpf_ccb}}), the \textbf{HKMA} (\textit{\autoref{core:hkma}}), and the Hong Kong Association of Banks (\textit{HKAB}). Designed to strengthen Hong Kong's AML and counter-fraud capabilities, FINEST allows participating institutions to exchange real-time intelligence on suspicious transactions and complex financial crime schemes. Operating under strict purpose-bound safeguards and data privacy regulations, the platform enables \textbf{targeted, event-driven information exchanges to intercept illicit proceeds} without granting authorities or banks unrestricted access to standard customer data.
 
     \end{core}
 
@@ -476,13 +488,13 @@
 
     \begin{core}{South African Reserve Bank (SARB)}
 
-      The South African Reserve Bank (SARB) functions as the central bank of the Republic of South Africa, acting as the prudential supervisor within the nation’s formal Twin Peaks regulatory model. The SARB is legally mandated to achieve price stability via inflation targeting, manage national foreign exchange reserves, and oversee the clearing and settlement operations of the national payment system.
+      The \textbf{South African Reserve Bank (SARB)} functions as the central bank of the Republic of South Africa, acting as the \textbf{prudential supervisor} within the nation’s formal Twin Peaks regulatory model. The SARB is legally mandated to achieve \textbf{price stability} via inflation targeting, manage national foreign exchange reserves, and oversee the clearing and settlement operations of the national payment system.
 
     \end{core}
 
     \begin{core}{Financial Sector Conduct Authority (FSCA)}
 
-      The Financial Sector Conduct Authority (FSCA) acts as the market conduct regulator in South Africa’s Twin Peaks framework. Operating independently from the SARB, the FSCA oversees the business practices of financial institutions, investment funds, and market intermediaries, ensuring fair treatment of financial customers, promoting market efficiency, and reducing systemic financial crime.
+      The \textbf{Financial Sector Conduct Authority (FSCA)} acts as the \textbf{market conduct regulator} in South Africa’s Twin Peaks framework. Operating independently from the SARB, the FSCA oversees the business practices of financial institutions, investment funds, and market intermediaries, ensuring fair treatment of financial customers, promoting market efficiency, and reducing systemic financial crime.
 
     \end{core}
 
@@ -491,41 +503,107 @@
 
     \begin{core}{Financial Conduct Authority (FCA)}
 
-      The Financial Conduct Authority (FCA) operates as the independent conduct regulator for financial services firms and financial markets across the United Kingdom. The FCA enforces rules regarding corporate governance, treating customers fairly, and market abuse, with structural authority to fine institutions, reverse toxic transactions, and remove professional financial licenses.
+      The \textbf{Financial Conduct Authority (FCA)} operates as the independent \textbf{conduct regulator} for financial services firms and financial markets across the United Kingdom. The FCA enforces rules regarding corporate governance, treating customers fairly, and market abuse, with structural authority to fine institutions, reverse toxic transactions, and remove professional financial licenses.
 
     \end{core}
 
     \begin{core}{Prudential Regulation Authority (PRA)}
 
-      The Prudential Regulation Authority (PRA), structured as a subsidiary arm of the Bank of England, serves as the prudential supervisor within the UK's financial system. The PRA establishes capital and liquidity adequacy frameworks for banks, building societies, credit unions, and systemic insurance firms, focusing entirely on preventing individual firm insolvencies from cascading into broader macroeconomic contagion.
+      The \textbf{Prudential Regulation Authority (PRA)}, structured as a subsidiary arm of the Bank of England, serves as the \textbf{prudential supervisor} within the UK's financial system. The PRA establishes capital and liquidity adequacy frameworks for banks, building societies, credit unions, and systemic insurance firms, focusing entirely on preventing individual firm insolvencies from cascading into broader macroeconomic contagion.
 
     \end{core}
 
-  \subsection{Criminal Enforcement \& Litigation}
+\section{Criminal Enforcement \& Litigation}
 
-    \begin{core}{Racketeer Influenced and Corrupt Organizations Act (RICO)}
+  \begin{core}{Racketeer Influenced and Corrupt Organizations Act (RICO)}
 
-      The Racketeer Influenced and Corrupt Organizations Act (RICO) is a powerful federal statute designed to prosecute systemic criminal enterprises, heavily leveraged by U.S. authorities against institutional financial networks. In the context of banking, RICO allows prosecutors to hold senior executives and corporate entities civilly and criminally liable for patterns of racketeering activity, including bank fraud, mail and wire fraud, or structured international money laundering, bypassing individual transactional barriers.
+    The \textbf{Racketeer Influenced and Corrupt Organizations Act (RICO)}---\href{https://home.treasury.gov/system/files/246/18usc1961-1968-rico.pdf}{\texttt{18 U.S.C. \S\S 1961–1968}}---is a powerful federal statute established in 1970 originally designed to prosecute mobsters and organized crime syndicates. RICO allows law enforcement and private litigants to \textbf{target the overall ongoing criminal enterprise}---and its leadership---\textbf{rather than just individual low-level participants committing standalone crimes}.
 
-    \end{core}
+    To establish a RICO violation, a prosecutor or plaintiff must prove the four following core elements.
 
-    \begin{core}{Southern District of New York Department of Justice (SDNY DOJ)}
+    \begin{enumerate}
 
-      The U.S. Attorney's Office for the Southern District of New York (SDNY), working alongside the Department of Justice, is the preeminent prosecutorial entity for global white-collar financial crime. Due to its jurisdiction over Wall Street and major international dollar clearing engines, the SDNY spearheads high-profile criminal prosecutions involving complex market manipulation, sovereign cross-border sanctions violations, corporate fraud, and multi-jurisdictional banking corruption.
+      \item \textbf{An Enterprise}: A legal entity (\textit{e.g., a corporation, bank, partnership}) or an ``association-in-fact" enterprise (\textit{a group of individuals or companies associated together for a common purpose}). 
 
-    \end{core}
+      \item \textbf{A Pattern of Racketeering Activity}: At least \textbf{two predicate acts} of racketeering committed within a 10-year period.
 
-    \begin{core}{Quinn Emanuel Urquhart \& Sullivan}
+      \item \textbf{Qualifying Predicate Acts}: Specific statutory offenses enumerated in \href{https://home.treasury.gov/system/files/246/18usc1961-1968-rico.pdf}{\texttt{18 U.S.C. \S 1961(1)}}. In financial contexts, these primarily include the following items.
 
-      Quinn Emanuel Urquhart \& Sullivan is an elite, global business litigation law firm famous for its specialization in high-stakes white-collar financial disputes, asset recovery, and complex banking defense. The firm frequently represents sovereign governments, major banking entities, and asset managers in multi-billion-dollar litigation involving structural financial products, derivatives failures, counterparty defaults, and extensive regulatory enforcement actions.
+      \begin{itemize}
 
-    \end{core}
+        \item Mail Fraud (\href{https://www.law.cornell.edu/uscode/text/18/1341}{\texttt{18 U.S.C. \S 1341}})
 
-    \begin{core}{Grant \& Eisenhofer}
+        \item Wire Fraud (\href{https://www.law.cornell.edu/uscode/text/18/1343}{\texttt{18 U.S.C. \S 1343}})
 
-      content
+        \item Bank Fraud (\href{https://www.law.cornell.edu/uscode/text/18/1344}{\texttt{18 U.S.C. \S 1344}})
 
-    \end{core}
+        \item Money Laundering (\href{https://www.law.cornell.edu/uscode/text/18/1956}{\texttt{18 U.S.C. \S\S 1956 \& 1957}})
+
+        \item Financial Institution Fraud
+
+        \item Bribery, extortion, and obstruction of justice
+
+      \end{itemize}
+
+      \item \textbf{Nexus/Direct Harm}: A direct causal connection between the racketeering activity and the injury to plaintiff's business or property.
+
+    \end{enumerate}
+
+    In the context of banking, RICO allows prosecutors to hold \textbf{senior executives and corporate entities} civilly and criminally liable for patterns of racketeering activity.
+
+  \end{core}
+
+  \begin{core}[label=core:doj]{United States Department of Justice (DOJ)}
+
+    \sbs{0.65}{
+      The \textbf{United States Department of Justic (DOJ)} is the federal executive department responsible for enforcing federal laws, representing the U.S. government in legal matters, and administering the federal prison system. 
+
+      Headquartered in Washington, D.C. (\textit{"Main Justice"}), the DOJ is led by the \textbf{Attorney General (AG)}, a Cabinet member who serves as the chief law enforcement officer of the United States. Reporting directly to the Attorney General are the \textbf{Solicitor General}, who directs litigation before the Supreme Court, and the \textbf{Deputy Attorney General}, who supervises the day-to-day operations of the following branches.
+    }{
+      \myfig{0.7}{banking_figures/doj}{U.S. Department of Justice}{fig:doj}
+    }
+
+    \begin{enumerate}
+
+      \item \textbf{Litigating Divisions} are specialized branches of federal lawyers headquartered at "Main Justice" in Washington, D.C. They handle prosecutions, litigation, and legal policy in specific subject-matter areas.
+
+      \item \textbf{Federal Law Enforcement Agencies} encompass the FBI, DEA, ATF, and USMS.
+
+      \item \textbf{93 U.S. Attorneys' Offices}, located throughout the nation, prosecute federal offenses within their respective districts. Within the context of banking and financial crime, the \textbf{U.S. Attorney's Office for the Southern District of New York (SDNY)} (\textit{\autoref{core:sdny}}) is the most prominent.
+
+    \end{enumerate}
+
+  \end{core}
+
+  \begin{core}[label=core:sdny]{United States Attorney’s Office for the Southern District of New York (SDNY)}
+
+    The \textbf{U.S. Attorney's Office for the Southern District of New York (SDNY)} is a U.S. Attorney Offices under the DOJ (\textit{\autoref{core:doj}}) that geographically covers Manhattan, the Bronx, and six northern counties. 
+
+    Because Manhattan is the financial and media capital of the world, SDNY handles a disproportionate volume of international, financial, and complex criminal cases, making it the preeminent prosecutorial entity for global white-collar financial crime that is categorized into the following specialized divsions.
+
+    \begin{enumerate}
+
+      \item \textbf{Criminal Division}: Investigates and prosecutes a wide spectrum of federal offenses---including financial fraud, terrorism, cybercrime, public corruption, organized crime, and violent offenses---while managing complex asset forfeiture matters.
+
+      \item \textbf{Civil Division}: Represents the United States in a broad docket of affirmative and defensive civil litigation across various practice areas from case inception through trial and appellate proceedings.
+
+      \item \textbf{White Plains Division}: Investigates and prosecutes federal criminal violations---such as gang activity, drug trafficking, violent crime, and fraud---occurring primarily within Westchester, Rockland, Orange, Putnam, Dutchess, and Sullivan counties.
+
+    \end{enumerate}
+
+  \end{core}
+
+  \begin{core}{Quinn Emanuel Urquhart \& Sullivan}
+
+    \href{https://www.quinnemanuel.com/}{\textbf{Quinn Emanuel Urquhart \& Sullivan, LLP}} is an elite global law firm devoted exclusively to business litigation and arbitration, employing over 1,000 attorneys across 35 worldwide offices. Founded in 1986, the firm maintains a \textbf{conflict-free business model} by deliberately foregoing corporate transactional practice (\textit{e.g. M\&A}), allowing its trial lawyers to aggressively litigate against major commercial corporations and global banking institutions.
+
+  \end{core}
+
+  \begin{core}{Grant \& Eisenhofer}
+
+    \href{https://www.gelaw.com/}{\textbf{Grant \& Eisenhofer P.A.}} is a premier plaintiffs' litigation law firm headquartered in Wilmington, Delaware, specializing in institutional investor representation, corporate governance, mass torts, and whistleblower actions. Founded in 1997 by former defense litigators Stuart Grant and Jay Eisenhofer, the firm has recovered over \$30 billion for clients.
+
+  \end{core}
 
 \section{Private Wealth}
 
