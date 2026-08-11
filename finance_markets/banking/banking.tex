@@ -62,7 +62,7 @@
 
     \subsubsection{Message Types}
 
-      \begin{core}{Message Types}
+      \begin{core}[label=core:swift_mt]{Message Types}
 
         Traditional SWIFT messages are structured as highly formatted text-based \textbf{Message Type (MT)} strings, parsed using a three-digit numerical sequence. The first digit---the hundreds place---categorizes the \textbf{primary transaction sector or asset class} involved in the message exchange (\textit{\autoref{tab:swift_mt}}). Sub-categories (\textit{the tens and units places}) further drill down into the specific function of the message, such as initiation, confirmation, or structural notifications.
 
@@ -357,7 +357,7 @@
 
     \subsubsection{Federal Reserve System}
 
-      \begin{core}{Federal Reserve Bank (FRB)}
+      \begin{core}[label=core:frb]{Federal Reserve Bank (FRB)}
 
         \sbs{0.5}{
           The \textbf{Federal Reserve Board (FRB)} serves as the governing body of the U.S. \textbf{Federal Reserve System}. Comprising seven members known as \textbf{Governors}---one of whom is designated \textbf{Chairman} and serves as the Board's leader---the FRB functions as the nation's apex monetary authority and principal systemic banking regulator. Beyond conducting monetary policy through \textbf{interest rate setting} (\textit{\autoref{mac-core:ffr}}) and \textbf{open-market operations} (\textit{\autoref{mac-core:omc}}), the Federal Reserve also serves as lender of last resort via the \textbf{discount window}---an official lending facility that extends short-term credit directly to eligible commercial banks---and maintains oversight of \href{https://www.federalreserve.gov/supervisionreg/global-systemically-important-banks.htm}{\textbf{global systemically important banks (GSIBs)}}, whose failure would pose substantial risk to the U.S. financial system.
@@ -367,7 +367,7 @@
 
       \end{core}
 
-      \begin{core}{Consumer Financial Protection Bureau (CFPB)}
+      \begin{core}[label=core:cfpb]{Consumer Financial Protection Bureau (CFPB)}
 
         \sbs{0.65}{
           The \textbf{Consumer Financial Protection Bureau (CFPB)} is an independent regulatory bureau housed within the Federal Reserve System, charged with overseeing \textbf{consumer-facing activities} across the financial sector. Created to centralize oversight, the CFPB consolidated consumer protection authorities previously scattered across seven different federal agencies in 2011. It supervises retail banking operations as well as non-bank entities like mortgage lenders, credit reporting agencies, and debt collectors. By enforcing anti-predatory mandates, it ensures that consumer financial markets remain fair and transparent. Crucially, to \textbf{preserve its regulatory independence}, the CFPB is \textbf{funded directly by the Federal Reserve} rather than through the traditional congressional process, a unique structure recently upheld by the U.S. Supreme Court in 2024.
@@ -383,7 +383,7 @@
 
     \subsubsection{Department of Treasury}
 
-      \begin{core}{Office of Comptroller of the Currency (OCC)}
+      \begin{core}[label=core:occ]{Office of Comptroller of the Currency (OCC)}
 
         \sbs{0.65}{
           The \textbf{Office of the Comptroller of the Currency (OCC)} is an independent bureau within the U.S. Department of the Treasury responsible for chartering and regulating \textbf{federally chartered institutions}, which comprise the following categories.
@@ -407,10 +407,10 @@
 
       \end{core}
 
-      \begin{core}{Financial Crimes Enforcement Network (FinCEN)}
+      \begin{core}[label=core:fincen]{Financial Crimes Enforcement Network (FinCEN)}
 
         \sbs{0.65}{
-          The \textbf{Financial Crimes Enforcement Network (FinCEN)} is a bureau of the U.S. Department of the Treasury \textbf{Office of Terrorism and Financial Intelligence} that serves as the nation's primary \textbf{Financial Intelligence Unit (FIU)}. Its central mission is to safeguard the financial system from illicit use, combat money laundering, counter terrorist financing, and promote national security. FinCEN achieves this by exercising its statutory authority to administer the \textbf{Bank Secrecy Act (BSA)}, which forms the foundation of the U.S. \textbf{anti-money laundering (AML)} and \textbf{countering the financing of terrorism (CFT)} legal architecture. 
+          The \textbf{Financial Crimes Enforcement Network (FinCEN)} is a bureau of the U.S. Department of the Treasury \textbf{Office of Terrorism and Financial Intelligence} that serves as the nation's primary \textbf{Financial Intelligence Unit (FIU)}. Its central mission is to safeguard the financial system from illicit use, combat money laundering, counter terrorist financing, and promote national security. FinCEN achieves this by exercising its statutory authority to administer the \textbf{Bank Secrecy Act} (\textit{\autoref{core:bsa}}), which forms the foundation of the U.S. \textbf{anti-money laundering (AML)} and \textbf{countering the financing of terrorism (CFT)} legal architecture. 
 
           Operationally, FinCEN functions through a dual mandate of regulation and intelligence support. As a primary regulator, it establishes rules that financial institutions must follow regarding recordkeeping, reporting, and beneficial ownership disclosure, and it \textbf{holds the authority to levy significant civil penalties for non-compliance}. 
         }{
@@ -421,7 +421,7 @@
 
       \end{core}
 
-      \begin{core}{Office of Foreign Assets Control (OFAC)}
+      \begin{core}[label=core:ofac]{Office of Foreign Assets Control (OFAC)}
 
         \sbs{0.65}{
           The \textbf{Office of Foreign Assets Control (OFAC)} is an administrative enforcement agency within the U.S. Department of the Treasury \textbf{Office of Terrorism and Finanical Intelligence} that administers and enforces economic and trade sanctions based on U.S. foreign policy and national security goals. OFAC jurisdiction and compliance standards reach out to the following entities.
@@ -515,117 +515,165 @@
 
 \section{Criminal Enforcement \& Litigation}
 
-  \begin{core}{Racketeer Influenced and Corrupt Organizations Act (RICO)}
+  \subsection{Governing Statutes}
 
-    The \textbf{Racketeer Influenced and Corrupt Organizations Act (RICO)}---\href{https://home.treasury.gov/system/files/246/18usc1961-1968-rico.pdf}{\texttt{18 U.S.C. \S\S 1961–1968}}---is a powerful federal statute established in 1970 originally designed to prosecute mobsters and organized crime syndicates. RICO allows law enforcement and private litigants to \textbf{target the overall ongoing criminal enterprise}---and its leadership---\textbf{rather than just individual low-level participants committing standalone crimes}.
+    \begin{core}{Racketeer Influenced and Corrupt Organizations Act (RICO)}
 
-    To establish a RICO violation, a prosecutor or plaintiff must prove the four following core elements.
+      The \textbf{Racketeer Influenced and Corrupt Organizations Act (RICO)}---\href{https://home.treasury.gov/system/files/246/18usc1961-1968-rico.pdf}{\texttt{18 U.S.C. \S\S 1961–1968}}---is a powerful federal statute established in 1970 originally designed to prosecute mobsters and organized crime syndicates. RICO allows law enforcement and private litigants to \textbf{target the overall ongoing criminal enterprise}---and its leadership---\textbf{rather than just individual low-level participants committing standalone crimes}.
 
-    \begin{enumerate}
+      To establish a RICO violation, a prosecutor or plaintiff must prove the four following core elements.
 
-      \item \textbf{An Enterprise}: A legal entity (\textit{e.g., a corporation, bank, partnership}) or an ``association-in-fact" enterprise (\textit{a group of individuals or companies associated together for a common purpose}). 
+      \begin{enumerate}
 
-      \item \textbf{A Pattern of Racketeering Activity}: At least \textbf{two predicate acts} of racketeering committed within a 10-year period.
+        \item \textbf{An Enterprise}: A legal entity (\textit{e.g., a corporation, bank, partnership}) or an ``association-in-fact" enterprise (\textit{a group of individuals or companies associated together for a common purpose}). 
 
-      \item \textbf{Qualifying Predicate Acts}: Specific statutory offenses enumerated in \href{https://home.treasury.gov/system/files/246/18usc1961-1968-rico.pdf}{\texttt{18 U.S.C. \S 1961(1)}}. In financial contexts, these primarily include the following items.
+        \item \textbf{A Pattern of Racketeering Activity}: At least \textbf{two predicate acts} of racketeering committed within a 10-year period.
 
-      \begin{itemize}
+        \item \textbf{Qualifying Predicate Acts}: Specific statutory offenses enumerated in \href{https://home.treasury.gov/system/files/246/18usc1961-1968-rico.pdf}{\texttt{18 U.S.C. \S 1961(1)}}. In financial contexts, these primarily include the following items.
 
-        \item Mail Fraud (\href{https://www.law.cornell.edu/uscode/text/18/1341}{\texttt{18 U.S.C. \S 1341}})
+        \begin{itemize}
 
-        \item Wire Fraud (\href{https://www.law.cornell.edu/uscode/text/18/1343}{\texttt{18 U.S.C. \S 1343}})
+          \item Mail Fraud (\href{https://www.law.cornell.edu/uscode/text/18/1341}{\texttt{18 U.S.C. \S 1341}})
 
-        \item Bank Fraud (\href{https://www.law.cornell.edu/uscode/text/18/1344}{\texttt{18 U.S.C. \S 1344}})
+          \item Wire Fraud (\href{https://www.law.cornell.edu/uscode/text/18/1343}{\texttt{18 U.S.C. \S 1343}})
 
-        \item Money Laundering (\href{https://www.law.cornell.edu/uscode/text/18/1956}{\texttt{18 U.S.C. \S\S 1956 \& 1957}})
+          \item Bank Fraud (\href{https://www.law.cornell.edu/uscode/text/18/1344}{\texttt{18 U.S.C. \S 1344}})
 
-        \item Financial Institution Fraud
+          \item Money Laundering (\href{https://www.law.cornell.edu/uscode/text/18/1956}{\texttt{18 U.S.C. \S\S 1956 \& 1957}})
 
-        \item Bribery, extortion, and obstruction of justice
+          \item Financial Institution Fraud
 
-      \end{itemize}
+          \item Bribery, extortion, and obstruction of justice
 
-      \item \textbf{Nexus/Direct Harm}: A direct causal connection between the racketeering activity and the injury to plaintiff's business or property.
+        \end{itemize}
 
-    \end{enumerate}
+        \item \textbf{Nexus/Direct Harm}: A direct causal connection between the racketeering activity and the injury to plaintiff's business or property.
 
-    In the context of banking, RICO allows prosecutors to hold \textbf{senior executives and corporate entities} civilly and criminally liable for patterns of racketeering activity.
+      \end{enumerate}
 
-  \end{core}
+      In the context of banking, RICO allows prosecutors to hold \textbf{senior executives and corporate entities} civilly and criminally liable for patterns of racketeering activity.
 
-  \begin{core}[label=core:doj]{United States Department of Justice (DOJ)}
+    \end{core}
 
-    \sbs{0.65}{
-      The \textbf{United States Department of Justic (DOJ)} is the federal executive department responsible for enforcing federal laws, representing the U.S. government in legal matters, and administering the federal prison system. 
+    \begin{core}[label=core:bsa]{Bank Secrecy Act (BSA)}
 
-      Headquartered in Washington, D.C. (\textit{"Main Justice"}), the DOJ is led by the \textbf{Attorney General (AG)}, a Cabinet member who serves as the chief law enforcement officer of the United States. Reporting directly to the Attorney General are the \textbf{Solicitor General}, who directs litigation before the Supreme Court, and the \textbf{Deputy Attorney General}, who supervises the day-to-day operations of the following branches.
-    }{
-      \myfig{0.7}{banking_figures/doj}{U.S. Department of Justice}{fig:doj}
-    }
+      The \textbf{Bank Secrecy Act (BSA)}---\href{https://www.fincen.gov/resources/statutes-and-regulations/bank-secrecy-act}{codified across multiple U.S. Codes}---is the foundational anti-money laundering (AML) statute in the United States. Enacted in 1970, it requires financial institutions to assist U.S. government agencies in detecting and preventing money laundering, tax evasion, and terrorist financing.
+      
+      To comply with the BSA, financial institutions are strictly mandated to implement the following requirements.
+      
+      \begin{enumerate}
+        \item \textbf{Anti-Money Laundering (AML) Program}: Institutions must establish robust internal controls, designate a compliance officer, and conduct regular independent testing and employee training.
+        
+        \item \textbf{Customer Identification Program (CIP)}: Often referred to as \textbf{``Know Your Customer" (KYC)}, this requires banks to thoroughly verify the identities of clients opening accounts.
+        
+        \item \textbf{Suspicious Activity Reports (SARs)}: Institutions must monitor for and file reports on transactions that lack an apparent lawful purpose or signify potential illicit activity.
+        
+        \item \textbf{Currency Transaction Reports (CTRs)}: The mandatory reporting of single or aggregated cash transactions that exceed \$10,000 within a 24-hour period.
+      \end{enumerate}
+      
+      In corporate prosecutions, the government frequently targets institutions for \textbf{willfully failing to maintain an effective AML program}, which can result in massive criminal fines, civil penalties, and deferred prosecution agreements. \textit{The \textbf{2012 HSBC AML incident} (\autoref{core:hsbc_aml}) serves as an illustrative case study of institutional AML failure.}
 
-    \begin{enumerate}
+    \end{core}
 
-      \item \textbf{Litigating Divisions} are specialized branches of federal lawyers headquartered at "Main Justice" in Washington, D.C. They handle prosecutions, litigation, and legal policy in specific subject-matter areas.
+    \begin{core}[label=core:ieepa]{International Emergency Economic Powers Act (IEEPA)}
 
-      \item \textbf{Federal Law Enforcement Agencies} encompass the FBI, DEA, ATF, and USMS.
+      The \textbf{International Emergency Economic Powers Act (IEEPA)}---\href{https://www.law.cornell.edu/uscode/text/50/chapter-35}{\texttt{50 U.S.C. Chapter 35}}---is a federal law enacted in 1977 that grants the President broad authority to regulate international commerce and freeze foreign assets in response to an ``\textit{unusual and extraordinary threat}" to the United States \textbf{during peacetime}.
+      
+      IEEPA serves as the primary statutory framework for U.S. economic sanctions programs, which are primarily administered by the \textbf{Office of Foreign Assets Control} (\textit{\autoref{core:ofac}}), and makes it a federal crime to \textbf{willfully violate, attempt to violate, or conspire to violate} any license, order, or regulation issued under IEEPA. Financial institutions face severe liability if they process cross-border payments or strip wire data on behalf of sanctioned entities.
 
-      \item \textbf{93 U.S. Attorneys' Offices}, located throughout the nation, prosecute federal offenses within their respective districts. Within the context of banking and financial crime, the \textbf{U.S. Attorney's Office for the Southern District of New York (SDNY)} (\textit{\autoref{core:sdny}}) is the most prominent.
+    \end{core}
 
-    \end{enumerate}
+    \begin{core}[label=core:twea]{Trading with the Enemy Act (TWEA)}
 
-  \end{core}
+      The \textbf{Trading with the Enemy Act (TWEA)}---\href{https://www.law.cornell.edu/uscode/text/50/4301}{\texttt{50 U.S.C. \S\S 4301–4341}}---is a \textbf{wartime statute} established in 1917 that restricts trade with hostile nations. While largely superseded by IEEPA for modern peacetime sanctions, TWEA remains actively enforced against specific embargoed countries, most notably Cuba.
 
-  \begin{core}[label=core:sdny]{United States Attorney’s Office for the Southern District of New York (SDNY)}
+      The statute imposes strict prohibitions and grants the executive branch extensive economic powers. In global banking, TWEA violations frequently occur when international banks route USD transactions through the U.S. financial system on behalf of entities located in comprehensively sanctioned TWEA jurisdictions.
 
-    The \textbf{U.S. Attorney's Office for the Southern District of New York (SDNY)} is a U.S. Attorney Offices under the DOJ (\textit{\autoref{core:doj}}) that geographically covers Manhattan, the Bronx, and six northern counties. 
+    \end{core}
 
-    Because Manhattan is the financial and media capital of the world, SDNY handles a disproportionate volume of international, financial, and complex criminal cases, making it the preeminent prosecutorial entity for global white-collar financial crime that is categorized into the following specialized divsions.
+  \subsection{Key Parties}
 
-    \begin{enumerate}
+    \begin{core}[label=core:doj]{United States Department of Justice (DOJ)}
 
-      \item \textbf{Criminal Division}: Investigates and prosecutes a wide spectrum of federal offenses---including financial fraud, terrorism, cybercrime, public corruption, organized crime, and violent offenses---while managing complex asset forfeiture matters.
+      \sbs{0.65}{
+        The \textbf{United States Department of Justic (DOJ)} is the federal executive department responsible for enforcing federal laws, representing the U.S. government in legal matters, and administering the federal prison system. 
 
-      \item \textbf{Civil Division}: Represents the United States in a broad docket of affirmative and defensive civil litigation across various practice areas from case inception through trial and appellate proceedings.
+        Headquartered in Washington, D.C. (\textit{"Main Justice"}), the DOJ is led by the \textbf{Attorney General (AG)}, a Cabinet member who serves as the chief law enforcement officer of the United States. Reporting directly to the Attorney General are the \textbf{Solicitor General}, who directs litigation before the Supreme Court, and the \textbf{Deputy Attorney General}, who supervises the day-to-day operations of the following branches.
+      }{
+        \myfig{0.7}{banking_figures/doj}{U.S. Department of Justice}{fig:doj}
+      }
 
-      \item \textbf{White Plains Division}: Investigates and prosecutes federal criminal violations---such as gang activity, drug trafficking, violent crime, and fraud---occurring primarily within Westchester, Rockland, Orange, Putnam, Dutchess, and Sullivan counties.
+      \begin{enumerate}
 
-    \end{enumerate}
+        \item \textbf{Litigating Divisions} are specialized branches of federal lawyers headquartered at "Main Justice" in Washington, D.C. They handle prosecutions, litigation, and legal policy in specific subject-matter areas.
 
-  \end{core}
+        \item \textbf{Federal Law Enforcement Agencies} encompass the FBI, DEA, ATF, and USMS.
 
-  \begin{core}{Quinn Emanuel Urquhart \& Sullivan}
+        \item \textbf{93 U.S. Attorneys' Offices}, located throughout the nation, prosecute federal offenses within their respective districts. Within the context of banking and financial crime, the \textbf{U.S. Attorney's Office for the Southern District of New York (SDNY)} (\textit{\autoref{core:sdny}}) is the most prominent.
 
-    \href{https://www.quinnemanuel.com/}{\textbf{Quinn Emanuel Urquhart \& Sullivan, LLP}} is an elite global law firm devoted exclusively to business litigation and arbitration, employing over 1,000 attorneys across 35 worldwide offices. Founded in 1986, the firm maintains a \textbf{conflict-free business model} by deliberately foregoing corporate transactional practice (\textit{e.g. M\&A}), allowing its trial lawyers to aggressively litigate against major commercial corporations and global banking institutions.
+      \end{enumerate}
 
-  \end{core}
+    \end{core}
 
-  \begin{core}{Grant \& Eisenhofer}
+    \begin{core}[label=core:sdny]{United States Attorney’s Office for the Southern District of New York (SDNY)}
 
-    \href{https://www.gelaw.com/}{\textbf{Grant \& Eisenhofer P.A.}} is a premier plaintiffs' litigation law firm headquartered in Wilmington, Delaware, specializing in institutional investor representation, corporate governance, mass torts, and whistleblower actions. Founded in 1997 by former defense litigators Stuart Grant and Jay Eisenhofer, the firm has recovered over \$30 billion for clients.
+      The \textbf{U.S. Attorney's Office for the Southern District of New York (SDNY)} is a U.S. Attorney Offices under the DOJ (\textit{\autoref{core:doj}}) that geographically covers Manhattan, the Bronx, and six northern counties. 
 
-  \end{core}
+      Because Manhattan is the financial and media capital of the world, SDNY handles a disproportionate volume of international, financial, and complex criminal cases, making it the preeminent prosecutorial entity for global white-collar financial crime that is categorized into the following specialized divsions.
+
+      \begin{enumerate}
+
+        \item \textbf{Criminal Division}: Investigates and prosecutes a wide spectrum of federal offenses---including financial fraud, terrorism, cybercrime, public corruption, organized crime, and violent offenses---while managing complex asset forfeiture matters.
+
+        \item \textbf{Civil Division}: Represents the United States in a broad docket of affirmative and defensive civil litigation across various practice areas from case inception through trial and appellate proceedings.
+
+        \item \textbf{White Plains Division}: Investigates and prosecutes federal criminal violations---such as gang activity, drug trafficking, violent crime, and fraud---occurring primarily within Westchester, Rockland, Orange, Putnam, Dutchess, and Sullivan counties.
+
+      \end{enumerate}
+
+    \end{core}
+
+    \begin{core}{Quinn Emanuel Urquhart \& Sullivan}
+
+      \href{https://www.quinnemanuel.com/}{\textbf{Quinn Emanuel Urquhart \& Sullivan, LLP}} is an elite global law firm devoted exclusively to business litigation and arbitration, employing over 1,000 attorneys across 35 worldwide offices. Founded in 1986, the firm maintains a \textbf{conflict-free business model} by deliberately foregoing corporate transactional practice (\textit{e.g. M\&A}), allowing its trial lawyers to aggressively litigate against major commercial corporations and global banking institutions.
+
+    \end{core}
+
+    \begin{core}{Grant \& Eisenhofer}
+
+      \href{https://www.gelaw.com/}{\textbf{Grant \& Eisenhofer P.A.}} is a premier plaintiffs' litigation law firm headquartered in Wilmington, Delaware, specializing in institutional investor representation, corporate governance, mass torts, and whistleblower actions. Founded in 1997 by former defense litigators Stuart Grant and Jay Eisenhofer, the firm has recovered over \$30 billion for clients.
+
+    \end{core}
 
 \section{Private Wealth}
 
-  \subsection{Family Offices}
+  \begin{core}{Family Offices}
 
-    \begin{core}{Single-Family Offices (SFOs)}
+    A \textbf{family office} is a private wealth management advisory firm established to handle the financial, legal, investment, and personal affairs of \textbf{ultra-high-net-worth individuals (UHNWIs)} and their families. These offices generally fall into the three following structural models based on scale, cost, and degree of control.
 
-      A Single-Family Office (SFO) is a private wealth management entity dedicated entirely to overseeing the investment portfolios, legal compliance, tax optimization, and generational estate planning of a single ultra-high-net-worth lineage. SFOs maintain strict internal operational privacy, customizing risk tolerance models and capital allocations to preserve and transition dynastic wealth across generations.
+    \begin{enumerate}
 
-    \end{core}
+      \item \textbf{Single Family Offices (SFOs)} are dedicated exclusively to one family, offering absolute privacy, custom control, and bespoke services, but incurs high annual operating costs. Typically, SFOs requires \$100M to \$200M+ in investable net worth to justify the high operating expenses.
 
-    \begin{core}{Multi-Family Offices (MFOs)}
+      \item \textbf{Multi-Family Offices (MFOs)} are commercial entities serving multiple unrelated wealthy families where the costs and infrastructure are shared across clients. MFOs typically accepts families starting at \$25M to \$50M in assets.
 
-      A Multi-Family Office (MFO) manages the aggregated wealth, estate planning, and philanthropic assets of multiple unrelated ultra-high-net-worth families. MFOs operate on a commercialized basis, pooling capital and operational resources across clients to achieve significant cost efficiencies, gain institutional access to exclusive private equity deals, and distribute expensive overhead costs.
+      \item \textbf{Virtual Family Offices (VFOs)} utilize a lean, technology-driven model where a core coordinator or software platform manages a network of third-party outsourced professionals (\textit{CFOs, attorneys, tax advisors}).
 
-    \end{core}
+    \end{enumerate}
+
+    These family offices often rely on dedicated bank divisions within global financial institutions (\textit{J.P. Morgan's 23 Wall, UBS's Global Family and Institutional Wealth (GFIW), and Goldman Sachs' Global Family Office}) to execute asset management processes beyond the reach of their in-house teams, bridging the gap between private wealth management and investment banking.
+
+    Because large family offices require capabilities that extend far beyond traditional retail wealth management---such as direct co-investment access, complex structured lending, capital markets execution, and prime brokerage---these specialized divisions treat family offices as institutional counterparties. The result is a symbiotic relationship in which family offices preserve operational independence while gaining access to the balance sheets, proprietary deal flow, and global infrastructure of major investment banks.
+
+  \end{core}
 
 \section{Chronology of Major Systemic Banking Crises \& Institutional Shocks}
 
   \subsection{Systemic Willful Blindness \& Balance Sheet Fractures}
 
     \begin{core}{The Herstatt Risk Precedent (1974)}
+      
+      \textit{In Progress.}
 
       % On June 26, 1974, German regulators forced Bankhaus Herstatt into sudden liquidation at the close of the European business day. Because of the time-zone differential, Herstatt had already received Deutsche Marks from its international counterparties in Frankfurt, but its operations were suspended before it could execute the reciprocal USD payments to New York via the correspondent network. This historic default gave birth to the concept of \textbf{Herstatt Risk} (cross-currency settlement risk). The ensuing panic across global payment corridors forced central banks to establish the Basel Committee on Banking Supervision to implement coordinated, international capital requirements and real-time settlement safety standards.
 
@@ -633,17 +681,51 @@
 
     \begin{core}{The BNP Paribas Fund Freezes (2007)}
 
+      \textit{In Progress.}
+
       % On August 9, 2007, French banking conglomerate BNP Paribas abruptly suspended redemptions on three of its asset-backed investment funds, explicitly stating it could no longer calculate their net asset value because liquidity in the U.S. subprime mortgage market had completely dried up. This event marks the official structural launch of the Great Financial Crisis. The sudden announcement triggered a global interbank credit freeze; realizing that toxic structured credit was buried invisibly on balance sheets, banks stopped lending to one another overnight, forcing the Federal Reserve and the European Central Bank to flood the plumbing with emergency liquidity injections.
 
     \end{core}
 
-    \begin{core}{The HSBC Anti-Money Laundering Incident (2012)}
+    \begin{core}[label=core:hsbc_aml]{The HSBC Anti-Money Laundering Scandal (2012)}
 
-      % In 2012, a sweeping U.S. Senate investigation and subsequent Department of Justice prosecution revealed that global banking giant HSBC had practiced extreme, systematic \textbf{willful blindness} within its internal compliance frameworks. To capture high-margin transaction volumes, senior leadership under-resourced its AML divisions, allowing billions of dollars from violent Mexican drug cartels to enter the domestic USD clearing system. Furthermore, affiliates engaged in deliberate \textbf{sanctions stripping}—covertly deleting originator details from SWIFT messaging lines to intentionally bypass OFAC filters blocking transactions for sanctioned nations like Iran. To avert a catastrophic systemic bankruptcy, the DOJ utilized a Deferred Prosecution Agreement and a record \$1.92 billion fine, permanently transforming global compliance architecture into a rigid, highly bureaucratic mandate.
+      In December 2012, \textbf{HSBC Holdings plc} (\textit{London, England}) and \textbf{HSBC Bank USA, N.A.} entered into a historic five-year \href{https://www.sec.gov/Archives/edgar/data/83246/000119312512499980/d453978dex101.htm#:~:text=DEFERRED%20PROSECUTION%20AGREEMENT.%20Defendant%20HSBC%20Bank%20USA%2C,*%20Criminal%20Information%20and%20Acceptance%20of%20Responsibility.}{\textbf{Deferred Prosecution Agreement (DPA)}} with the U.S. DOJ (\textit{\autoref{core:doj}}) after a massive AML and sanctions-evasion investigation. 
+
+      In the years preceding the investigation, HSBC engaged in a sustained pattern of willful misconduct, encompassing the following violations.
+
+      \begin{itemize}
+
+        \item \textbf{Money Laundering}: HSBC willfully failed to maintain an effective AML program. This systemic failure allowed transnational criminal organizations, including drug cartels, to launder at least \$881 million in illicit proceeds through the U.S. financial system.
+
+        \item \textbf{Sanctions Violations}: The bank knowingly facilitated hundreds of millions of dollars in transactions for customers in comprehensively sanctioned nations, directly violating both the \textbf{IEEPA} (\textit{\autoref{core:ieepa}}) and \textbf{TWEA} (\textit{\autoref{core:twea}}).
+
+        \item \textbf{Deliberate Evasion}: Clients were able to alter or withhold identifying information on cross-border \textbf{SWIFT payment messages} (\textit{\autoref{core:swift_mt}}) to bypass U.S. sanctions filters. This allowed HSBC to illicitly process USD transactions on behalf of entities in sanctioned jurisdictions, including Iran, Sudan, and Cuba.
+
+      \end{itemize}
+
+      To avoid a criminal indictment that could have destabilized the global financial system, HSBC agreed to a massive financial penalty totaling \textbf{\$1.921 billion}---the largest bank AML penalty in U.S. history at the time. Of the total fine, \$1.256 billion was paid directly to the U.S. government, serving as a substitute res for the illegal funds that the bank processed. The additional \$665 million was paid as civil fines distributed among federal regulators, including the \textbf{OCC} (\textit{\autoref{core:occ}}), the \textbf{Federal Reserve} (\textit{\autoref{core:frb}}), and \textbf{FinCEN} (\textit{\autoref{core:fincen}}).
+
+      Under the five-year DPA, the DOJ agreed to defer, and ultimately dismiss, the four-count criminal information against HSBC, provided the bank strictly adhered to the following sweeping remedial measures.
+
+      \begin{itemize}
+
+        \item \textbf{Corporate Compliance Monitor}: HSBC was required to retain an \textbf{independent monitor} tasked with evaluating the bank's internal controls and certifying its ongoing compliance with U.S. AML and sanctions laws over the five-year probation term.
+
+        \item \textbf{Executive Accountability}: HSBC replaced its CEO, General Counsel, and Chief Compliance Officer. The bank also ``\textit{clawed back}" the bonuses of senior executives who oversaw the compliance failures.
+
+        \item \textbf{Structural Overhaul}: The bank fundamentally restructured its global risk profile and exited risky business lines, such as the Banknotes business. Furthermore, HSBC implemented strict bans on U.S. dollar transactions involving sanctioned jurisdictions.
+
+      \end{itemize}
+
+      \textit{The official DOJ Press Release detailing this incident is available via the following \href{https://www.justice.gov/archives/opa/pr/hsbc-holdings-plc-and-hsbc-bank-usa-na-admit-anti-money-laundering-and-sanctions-violations}{link}.}
+
+      \textit{The archived DPA contract is available via SEC EDGAR at the following} \href{https://www.sec.gov/Archives/edgar/data/83246/000119312512499980/d453978dex101.htm#:~:text=DEFERRED%20PROSECUTION%20AGREEMENT.%20Defendant%20HSBC%20Bank%20USA%2C,*%20Criminal%20Information%20and%20Acceptance%20of%20Responsibility.}{\textit{link}}.
 
     \end{core}
 
     \begin{core}{The Digital Bank Run on Silicon Valley Bank (2023)}
+
+      \textit{In Progress.}
 
       % Silicon Valley Bank (SVB) collapsed due to unhedged duration risk exacerbated by modern mobile communication infrastructure. During the 2020--2021 tech boom, SVB parked an influx of start-up deposits into long-term, fixed-rate U.S. Treasuries; when the Fed aggressively hiked rates, the market value of these bonds plummeted, trapping SVB with massive unrealized losses. Forced to liquidate its portfolio at a loss to satisfy deposit outflows, the bank's financial vulnerability leaked online. Venture capitalists quickly coordinated a hyper-accelerated digital bank run via social media and mobile apps, pulling \$42 billion in a single day and forcing an emergency regulatory shutdown.
 
@@ -653,11 +735,15 @@
 
     \begin{core}{The Criminal Enterprise of BCCI (1991)}
 
+      \textit{In Progress.}
+
       % The Bank of Credit and Commerce International (BCCI) collapsed in 1991 following a synchronized multi-jurisdictional regulatory raid that exposed it as a massive, fraudulent enterprise. Operating across fluid, loosely regulated offshore havens, BCCI systematically bypassed sovereign financial supervision to facilitate multi-billion-dollar money laundering networks for drug cartels, rogue intelligence agencies, and illegal arms traffickers. The systemic opacity of the bank's ledger demonstrated the severe vulnerabilities inherent in fragmented, uncoordinated international oversight, accelerating the creation of cross-border financial intelligence units like FinCEN.
 
     \end{core}
 
     \begin{core}{The Global LIBOR Manipulation Conspiracy (2012)}
+
+      \textit{In Progress.}
 
       % The London Interbank Offered Rate (LIBOR) scandal exposed a massive, multi-year criminal conspiracy among a cartel of the world's largest financial institutions—including Barclays, UBS, and Deutsche Bank—to deliberately rig the world's baseline interest rate. Throughout the 2000s, derivative traders and treasury desks actively colluded to submit false, coordinated borrowing costs to the British Bankers' Association. This artificial manipulation was executed both to generate immense profits on internal interest-rate swap portfolios and to falsely project financial strength during credit crunches, ultimately impacting the pricing of hundreds of trillions of dollars in global consumer mortgages, corporate loans, and derivatives contracts.
 
