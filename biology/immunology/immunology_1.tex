@@ -2,9 +2,13 @@
 
 \section{Immune System Players}
 
-  \begin{core}{Hematopoietic Stem Cells (HSCs) \& Lineage}
+  \begin{core}[label=core:hsc]{Hematopoietic Stem Cells (HSCs) \& Lineage}
 
-    \autoref{fig:hsc_lineage} illustrates the hierarchical differentiation of haematopoietic stem cells (HSCs) into the myeloid and lymphoid lineages, highlighting the key transcription factors that govern lineage commitment at each branch point.
+    \textbf{Hematopoietic stem cells (HSCs)} are pluripotent stem cells capable of giving rise to any type of blood cell. Each HSC can either divide to produce additional copies of itself---a process termed self-renewal---or begin to differentiate through a series of lineage-restricting choices.
+
+    Developmentally, HSCs first arise in the yolk sac membrane of the early embryo, subsequently migrate to the liver and spleen, and ultimately settle predominantly in the \textbf{bone marrow} prior to birth. Remarkably, as few as approximately 100 HSCs are sufficient to fully regenerate the entire hematopoietic system.
+
+    \autoref{fig:hsc_lineage} illustrates the hierarchical differentiation of HSCs into the myeloid and lymphoid lineages, highlighting the key transcription factors governing lineage commitment at each branch point.
 
     \pgfig{
       % Styles
@@ -81,13 +85,33 @@
       \node[edgelabel] at (12.5,-2.9) {\underline{\textbf{Notch family}} for T cell\\lineage pathway};
     }{Hierarchy of haematopoietic stem cell differentiation into myeloid (\textit{left}) and lymphoid (\textit{right}) lineages}{fig:hsc_lineage}{0.85}
 
+    As shown in \autoref{fig:hsc_lineage}, HSCs destined for differentiation are termed \textbf{lineage positive (\textit{lin+})}, whereas those not destined for differentiation are termed \textbf{lineage negative (\textit{lin-})}. This binary state is governed by the presence of one of two transcription factors.
+
+    \begin{itemize}
+
+      \item \textbf{Bmi-1}: A transcription factor whose presence maintains HSCs in an \textbf{undifferentiated state}, sustaining ongoing self-renewal and division.
+
+      \item \textbf{GATA-2}: A transcription factor that \textbf{triggers HSC differentiation}, initiating the developmental path toward a specialized cell type.
+
+    \end{itemize}
+
+    Given a \textit{lin+} state, the first branch point determines whether the cell commits to the myeloid or lymphoid lineage.
+
+    \begin{itemize}
+
+      \item Commitment to a \textbf{common myeloid-erythroid progenitor} enables development into a wide array of cell types, including various white blood cells, red blood cells, and platelet-producing megakaryocytes.
+
+      \item Commitment to a \textbf{common lymphoid progenitor} is marked by expression of the transcription factor \textbf{Ikaros}, giving rise to adaptive T and B cells or innate NK and dendritic cells. Further along the differentiation tree, the \textbf{Notch family} of transcription factors governs the divergence of T and B cell development.
+
+    \end{itemize}
+
   \end{core}
 
   \begin{core}{Lymphoid Lineage}
 
-    \autoref{tab:lymphocytes} presents a structured overview of the cell types comprising the lymphoid lineage depicted in \autoref{fig:hsc_lineage}.
+    Cells of the \textbf{lymphoid lineage} constitute 20--40\% of circulating leukocytes in the blood and approximately 99\% of the cells of the lymph. These cells are broadly categorized as either \textbf{adaptive}---characterized by gene rearrangement during the immune response---or \textbf{innate}---characterized by the absence of such gene rearrangement.
 
-    \textit{It's important to note that nearly all nucleated cells in the human body express \textbf{Major Histocompatibility Complex (MHC) class I} (\autoref{core:mhc_characteristics}) molecules on their surfaces. These molecules are critical for the presentation of antigens to CD8+ cytotoxic T cells.}
+    \autoref{tab:lymphocytes} presents a structured overview of the cell types comprising the lymphoid lineage depicted in \autoref{fig:hsc_lineage}.
 
   \end{core}
 
@@ -195,7 +219,9 @@
 
   \begin{core}{Myeloid Lineage}
 
-    ph
+    Cells of the \textbf{myeloid lineage} can be broadly categorized into \textbf{granulocytic cells}---characterized by specific granules that compartmentalize potentially dangerous molecules---and \textbf{antigen-presenting cells (APCs)}, which present antigen to T cells. Additional myeloid lineage cell types include \textbf{red blood cells (\textit{erythrocytes})} and \textbf{platelets (\textit{thrombocytes})}, which serve more secondary roles within general immune function.
+
+    \autoref{tab:myeloid} presents a structured overview of the cell types comprising the myeloid lineage depicted in \autoref{fig:hsc_lineage}.
 
   \end{core}
 
@@ -203,7 +229,7 @@
 
     \centering
     \caption{Overview of innate granulocytic (\textit{1st page}), innate antigen presenting (\textit{2nd page}), and other myeloid cell populations (\textit{2nd page})}
-    \label{tab:myeloid_gmc}
+    \label{tab:myeloid}
     \begin{tabular}{
       >{\raggedright\arraybackslash}p{1.2cm}
       >{\raggedright\arraybackslash}p{1.5cm}
@@ -239,9 +265,11 @@
 
       [TNFα]
       & \footnotesize
-        One-day lifespan
+      First responders to inflection
 
-        Multilobed nucleus \\[4pt]
+      One-day lifespan
+
+      Multilobed nucleus \\[4pt]
       % =====================================================================================
       & \textit{Basophil}
       & \textbf{Defense} against allergic responses and parasitic infections
@@ -250,7 +278,9 @@
       & Histamine-rich basophilic granules
       & \footnotesize Non-phagocytic
 
-      Lobed nucleus \\[4pt]
+      Lobed nucleus
+
+      Responds to worms\\[4pt]
       % =====================================================================================
       & \textit{Mast Cell}
       & \textbf{Defense} against allergic responses and parasitic infections
@@ -366,233 +396,207 @@
 
   \begin{core}{Follicular Dendritic Cells}
 
-    % Follicular Dendritic Cells
-    Follicular Dendritic Cells
+    \textbf{Follicular dendritic cells (FDCs)} are specialized stromal cells that, in contrast to the myeloid, antigen presenting \textbf{sentinel dendritic cells} shown in \autoref{tab:myeloid}, do not arise via \textbf{hematopoiesis} from HSCs. Instead, they originate during embryogenesis from a distinct \textbf{mesenchymal} lineage of \textbf{mesenchymal progenitor cells}.
+    
+    Following development, FDCs migrate into lymphoid tissues, where they ultimately become embedded within the follicles of secondary lymphoid organs.
+    
+    Once established, FDCs are distinguished by their unique capacity to \textbf{retain and present intact antigens} on their surfaces over extended periods. They capture antigens from the lymph and retain them as immune complexes, a function essential for \textbf{B cell activation} and \textbf{germinal center formation}.
+    
+    The most characteristic surface markers of FDCs are as follows.
 
-      % FDCs do not arise through hematopoiesis but rather through a mesenchymal origin
-      Unlike most immune cells, follicular dendritic cells (FDCs) do not arise via hematopoiesis; rather, they originate from a mesenchymal lineage.
+    \begin{itemize}
 
-      % Mesenchymal Origin: FDCs are believed to develop from mesenchymal progenitor cells during embryogenesis. These progenitors are distinct from the hematopoietic progenitors.
-      Mesenchymal Origin: FDCs develop from mesenchymal progenitor cells during embryogenesis, which are entirely distinct from hematopoietic progenitors.
+      \item \textbf{CD21/CD35}: FDCs express the complement receptors CD21 and CD35, which mediate their role in antigen capture.
 
-      % Migration: FDCs migrate into the lymphoid tissue during its development and become embedded in the follicles of secondary lymphoid organs.
-      Migration: FDCs migrate into developing lymphoid tissues and ultimately embed themselves within the follicles of secondary lymphoid organs.
+      \item \textbf{FDC-M1}: This marker is specific to FDCs, enabling their identification and distinction from other cellular populations within lymphoid tissue.
 
-      % Antigen Retention: FDCs are unique for their ability to retain and present antigens on their surface for extended periods. They capture antigens from the lymph and retain them in the form of immune complexes, which are critical for B cell activation and the formation of germinal centers.
-      Antigen Retention: FDCs are characterized by their unique capacity to retain and present intact antigens on their surfaces for extended durations. They capture antigens from the lymph, holding them as immune complexes that are essential for B cell activation and germinal center formation.
-
-      % Surface Markers
-      Surface Markers
-
-        % CD21/CD35: FDCs express complement receptors such as CD21 and CD35, which are important for their role in antigen capture.
-        CD21/CD35: FDCs express complement receptors, including CD21 and CD35, which facilitate their role in antigen capture.
-
-        % FDC-M1: A marker specifically associated with FDCs, distinguishing them from other cell types in lymphoid tissues.
-        FDC-M1: This marker is specifically associated with FDCs, allowing them to be distinguished from other cellular populations within lymphoid tissues.
+    \end{itemize}
 
   \end{core}
 
 \section{Immune System Organs}
+  
+  \subsection{Primary Immune System Organs}
 
-  \begin{core}{Primary Immune System Organs}
+    \begin{core}{Primary Immune System Organs}
 
-    \begin{enumerate}
+      The \textbf{primary immune system organs} are the sites at which cells divide, commit to a developmental fate, and, where applicable, undergo gene rearrangement.
 
-      \item \textbf{Bone Marrow} 
+    \end{core}
 
-        <FIGURE>
+    \begin{core}{Bone Marrow}
 
-        % Location of hematopoietic stem cells (HSCs)
-        Primary location of hematopoietic stem cells (HSCs).
-        % Full development of all myeloid cells, NK cells, and B cells
-        Site for the complete maturation of all myeloid cells, natural killer (NK) cells, and B cells.
-        % Initial development of T cells
-        Serves as the site for the initial developmental stages of T cells.
-        % Major sites are femur, humerus, hip bones, and sternum
-        The major anatomical sites containing active bone marrow include the femur, humerus, hip bones, and sternum.
+      \sbs{0.5}{
+        The \textbf{bone marrow} is the soft, highly vascularized tissue residing within the hollow interior cavities of bones. It is the primary site of \textbf{hematopoietic stem cells (HSCs)} (\textit{\autoref{core:hsc}}) and continuous blood cell generation in adult mammals, serving as the location for the complete maturation of all myeloid cells, NK cells, and B cells, as well as the site of the initial developmental stages of T cells.
 
-      \item \textbf{Thymus}
+        The major anatomical sites containing active bone marrow include the femur, humerus, hip bones, and sternum. 
+      }{
+        \myfig{0.9}{immunology_figures/bone_marrow}{Bone marrow}{fig:bone_marrow}
+      }
 
-        <FIGURE>
+    \end{core}
 
-        % Site of T cell maturation and development
-        The primary site for T cell maturation and development.
+    \begin{core}{Thymus}
 
-        % Maturation process
-        Maturation Process:
-          % Cell rearrange genes for TCR (T cell receptor) in the cortex
-          Cells undergo gene rearrangement to form the T cell receptor (TCR) within the thymic cortex.
-          % Positive Selection: [CORTEX; outer] check for MHC I antigen recognition 
-          Positive Selection: Occurs in the outer cortex, testing the cells for functional recognition of MHC class I molecules.
-          % Negative Selection: [MEDULLA; inner] check for over reactive MHC I antigen recognition (prevention of autoimmunity)
-          Negative Selection: Occurs in the inner medulla, eliminating cells that exhibit over-reactive recognition of MHC class I self-antigens to prevent autoimmunity.
+      \sbs{0.55}{
+        The \textbf{thymus}, a small gland located above the heart, is the primary site of \textbf{T cell maturation} and development, involving a rigorous, stepwise selection process that tests for the correct functionality of T cells and their surface receptors. Cells that successfully survive this selection process enter systemic circulation, whereas the vast majority that fail undergo \textbf{apoptosis}.
 
-        % Cells that survive the process (less than 95%) enter the circulation—if not → apoptosis
-        Cells that successfully survive this selection process enter systemic circulation; the vast majority that fail undergo apoptosis.
+        Structurally, the thymus is organized into an \textbf{outer cortex} and an \textbf{inner medulla}, each supported by a distinct network of epithelial cells that guide developing \textbf{thymocytes} (\textit{immature, developing T cells}) through selection.
+      }{
+        \myfig{0.95}{immunology_figures/thymus}{Thymus}{fig:thymus}
+      }
 
-        % Apoptosis is different from necrosis in that apoptosis is a much more controlled process and thus much easier to clean up. Necrosis, on the other hand, is analogous to blowing up a building, making it much harder to clean up after.
-        Apoptosis is distinct from necrosis due to its highly controlled nature, allowing for efficient cellular clearance. In contrast, necrosis is a disruptive and unregulated process, making the resulting cellular debris significantly more difficult for the body to clear.
+    \end{core}
 
-    \end{enumerate}
+  \subsection{Secondary Immune System Organs}
 
-  \end{core}
+    \begin{core}{Secondary Immune System Organs}
 
-  \begin{core}{Secondary Immune System Organs}
+      The \textbf{secondary immune system organs} are the sites at which information regarding pathogens is coordinated, leading to the subsequent activation of immune cells.
 
-    \begin{enumerate}
+    \end{core}
 
-      \item \textbf{Lymph Sysstem: Fluids, Vessels, Nodes}
+    \begin{core}{Lymphatic System (Fluids, Vessels, Nodes)}
 
-        <FIGURE>
+      \sbs{0.45}{
+        The \textbf{lymphatic system} functions as a \textbf{unidirectional} transport network, carrying fluid from peripheral tissues back toward the heart and ultimately the bloodstream.
 
         \begin{itemize}
 
-          \item \textit{Vessel \& Fluid}
+          \item \textbf{Vessel \& Fluid}
 
-            % The lymph system is a one-way trip from the body’s tissue to the heart (and back into the bloodstream)
-            The lymphatic system functions as a unidirectional transport network from the peripheral tissues back to the heart, eventually returning fluid to the bloodstream.
+          \textbf{Lymphatic vessels} drain interstitial fluid, collecting antigens and leukocytes in the process; they facilitate the transport of immune cells but, unlike blood vessels, are devoid of \textbf{red blood cells (RBCs)}. Lymph fluid undergoes filtration as it passes through the lymph nodes.
 
-            % Vessels drain interstitial fluid—picking up antigens and white blood cells—and provides transportation of immune cells but no RBCs
-            Lymphatic vessels drain interstitial fluid, collecting antigens and leukocytes in the process. They facilitate the transportation of immune cells but are devoid of red blood cells (RBCs).
+          \item \textbf{Lymph Nodes}
 
-            % Lymph is filtered through lymph nodes
-            Lymph fluid undergoes filtration as it passes through the lymph nodes.
+            Lymph nodes serve primarily to [1] \textbf{trap incoming antigens} presented by APCs and [2] \textbf{provide a localized environment for lymphocytes}---T and B cells---to interact with these antigens, thereby generating a subsequent adaptive immune response.
 
-          \item \textit{Nodes}
+          The resulting activated lymphocytes exit the node through the efferent lymphatic vessels, ultimately entering the bloodstream via the thoracic duct and subclavian vein to traffic toward the site of infection.
 
-            % Lymph nodes [1] trap antigen and [2] provides a place for lymphocytes to interact with those antigens
-            Lymph nodes serve two primary functions: they trap incoming antigens and provide a localized environment for lymphocytes to interact with these antigens.
+        \end{itemize}
+      }{
+        \myfig{1}{immunology_figures/lymph_system}{Lymphatic system}{fig:lymph_system}
+      }
 
-            % Response Pathway
-            Response Pathway:
+    \end{core}
 
-              % APCs enter the lymph through the afferent lymphatic vessels
-              Antigen-presenting cells (APCs) enter the lymph node via the afferent lymphatic vessels.
+    \begin{core}{Spleen}
 
-              % Antigen is presented to and activates effector T cells—forming TH and TC cells—in the paracortex of the node
-              Antigens are presented to effector T cells within the paracortex of the node, leading to their activation and subsequent differentiation into T helper (TH) and cytotoxic T (TC) cells.
+      \sbs{0.45}{
+        The \textbf{spleen} functions strictly to \textbf{filter blood}, as opposed to lymph, and can be categorized into two tissue types.
 
-              % T cells activate B cells in the cortex of the node
-              Activated T cells then migrate to stimulate B cells located in the cortex of the lymph node.
+        \begin{itemize}
 
-              % Activated lymphocytes exit through the efferent lymphatic vessels, entering the bloodstream through the thoracic duct towards the subclavian vein and towards the infection
-              The resulting activated lymphocytes exit the node through the efferent lymphatic vessels, ultimately entering the bloodstream via the thoracic duct and subclavian vein to traffic toward the site of infection.
+          \item \textbf{Red Pulp} is responsible for recycling senescent RBCs and platelets from circulation via macrophage-mediated phagocytosis.
+
+          \item \textbf{White Pulp} is a crucial site for immune activation, organized into \textbf{periarteriolar lymphoid sheaths (PALS)} primarily containing T cells, and marginal \textbf{lymphoid follicles} primarily containing B cells.
 
         \end{itemize}
 
-      \item \textbf{Spleen}
+        \textit{Surgical removal of the spleen can significantly elevate an individual's susceptibility to bacterial infections.}
+      }{
+        \myfig{0.95}{immunology_figures/spleen}{Spleen}{fig:spleen}
+      }
 
-        <FIGURE>
+    \end{core}
 
-          % Filters blood (not lymph)
-          Functions strictly to filter blood, as opposed to lymph.
+    \begin{core}{Mucosa Associated Lymphoid Tissues (MALT)}
 
-          % Tissue Types
-          Tissue Types:
+      \sbs{0.4}{
+        \textbf{Mucosa associated lymphoid tissues (MALT)} refer to the collection of lymphoid tissues situated across various mucosal surfaces, including the gastrointestinal (GALT), bronchial (BALT), and nasal (NALT) tracts; these mucosal systems represent the primary sites of pathogen entry into the body.
 
-            % Red Pulp: Recycle RBCs and platelets from circulation through macrophage phagocytosis
-            Red Pulp: Responsible for recycling senescent RBCs and platelets from circulation via macrophage-mediated phagocytosis.
+        \textit{Highly organized MALT structures include the tonsils, the appendix, and \textbf{Peyer's patches} located in the intestinal tract.}
 
-            % White Pulp: Key site for immune activation and response; forms structures known as periarteriolar lymphoid sheaths (PALS) and lymphoid follicles—which have T and B cells respectively
-            White Pulp: A crucial site for immune activation, organized into periarteriolar lymphoid sheaths (PALS) primarily containing T cells, and lymphoid follicles primarily containing B cells.
+        \textbf{Microfold (M) cells} (\textit{\autoref{fig:malt}}) are specialized, large epithelial cells located in areas of localized lymphoid concentration throughout the MALT, each possessing a basolateral pocket that houses several smaller immune cells.
 
-          % Removing the spleen can increase a person’s risk for bacterial infections
-          Surgical removal of the spleen can significantly elevate an individual's susceptibility to bacterial infections.
+        The epithelial cells of the mucosa serve the following functions.
+      }{
+        \myfig{0.9}{immunology_figures/malt}{Mucosa associated lymphoid tissues; \textit{microfold cell present towards the left end of epithelial cell line}}{fig:malt}
+      }
 
-      \item \textbf{Mucosa Associated Lymphoid Tissues (MALT)}
+      \begin{itemize}
 
-        <FIGURE>
+        \item They facilitate the \textbf{transport of antigen samples} from the \textbf{lumen} (\textit{the space within vessels}) across the epithelial barrier via the specialized M cells.
 
-        % MALT is refers to the lymphoid tissues found in various mucosal surfaces of the body—gastrointestinal, respiratory, nasal
-        MALT refers to the collection of lymphoid tissues situated across various mucosal surfaces, including the gastrointestinal, respiratory, and nasal tracts.
+        \item They \textbf{secrete fluids} such as tears and mucus, which contain antimicrobial enzymes like lysozyme that degrade bacterial membranes.
 
-        % Mucosa major systems represents major pathogen entry sites
-        These major mucosal systems represent the primary sites of pathogen entry into the body.
+        \item They utilize ciliary action to \textbf{physically sweep away pathogens and debris}, a mechanism prominent in the respiratory and reproductive tracts.
 
-        % Organized structures of the MALT include tonsils, appendix, and Peyer’s patches in the intestine
-        Highly organized MALT structures include the tonsils, the appendix, and Peyer’s patches located in the intestinal tract.
+      \end{itemize}
 
-        % M cells are large epithelial cells—present in the localized areas of lymphoid concentration throughout the MALT—each with a number of smaller immune cells residing in its basolateral pocket
-        Microfold (M) cells are specialized large epithelial cells located in areas of localized lymphoid concentration throughout the MALT. Each M cell possesses a basolateral pocket that houses several smaller immune cells.
+    \end{core}
 
-        % Epithelial cells of the mucosa 
-        Epithelial Cells of the Mucosa:
-
-          % Deliver antigen samples from the lumen (space inside bodily vessels) through these M cells
-          They facilitate the transport of antigen samples from the lumen across the epithelial barrier via the specialized M cells.
-
-          % Secrete tears, mucus, lysozyme to tear up bacterial membranes
-          They secrete fluids such as tears and mucus, which contain antimicrobial enzymes like lysozyme that degrade bacterial membranes.
-
-          % Sweep out pathogen and debris in cilia (for lungs and reproductive organs)
-          They utilize ciliary action to physically sweep away pathogens and debris, a mechanism prominent in the respiratory and reproductive tracts.
-
-    \end{enumerate}
-
-  \end{core}
+  \subsection{Tertiary Immune System Organs}
 
   \begin{core}{Tertiary Immune System Organs}
 
-    \begin{enumerate}
+    A \textbf{tertiary immune organ} is an organized, non-encapsulated aggregate of immune and stromal cells that develops postnatally within non-lymphoid tissues at sites of persistent antigen exposure.
 
-      \item \textbf{Skin} 
+  \end{core}
 
-        <FIGURE>
+  \begin{core}{Skin}
 
-        % Innate defense
-        Innate Defense Mechanisms:
+    The \textbf{skin} is the largest organ of the human body and provides both innate and adaptive immune defense mechanisms. Its innate defense characteristics are as follows.
 
-          % Epithelial cells of the outer layer (called keratinocytes) secrete cytokines that activate innate immune cells in the area
-          Keratinocytes, the epithelial cells forming the outer epidermal layer, secrete cytokines to activate localized innate immune cells upon detecting a threat.
+    \begin{itemize}
 
-          % When dead, keratinocytes leave behind keratin intermediate filament as a protective barrier
-          Upon cell death, keratinocytes leave behind a protective physical barrier composed of keratin intermediate filaments.
+      \item \textbf{Keratinocytes}, the epithelial cells forming the outer epidermal layer, secrete \textbf{cytokines} to activate localized innate immune cells upon detecting a threat.
 
-          % Epidermis—oil gland/hair follicles secrete sebum, antibacterial peptides, and psoriasin (an antimicrobial peptide; AMP) to kill bad and promote good bacteria
-          In the epidermis, sebaceous glands and hair follicles secrete sebum, antibacterial peptides, and psoriasin (a specific antimicrobial peptide) to eliminate pathogenic bacteria while maintaining normal flora.
+      \item Upon cell death, keratinocytes leave behind a protective \textbf{physical barrier} composed of keratin intermediate filaments.
 
-          % Dermis—deeper and thicker mesenchymal and connective tissue important for blood supply and development
-          The underlying dermis consists of a deeper, thicker layer of mesenchymal and connective tissue that provides essential blood supply and structural support.
+      \item In the \textbf{epidermis}, sebaceous glands and hair follicles secrete \textbf{sebum}, antibacterial peptides, and \textbf{psoriasin} (\textit{a specific antimicrobial peptide}) to eliminate pathogenic bacteria while maintaining normal flora.
 
-        % Adaptive defense
-        Adaptive Defense Mechanisms:
+    \end{itemize}
 
-          % Keratinocytes (expresses [MHC II]) and Langerhan cells (skin DCs) activate TH cells
-          Keratinocytes (capable of expressing MHC class II) and Langerhans cells (specialized dendritic cells of the skin) present antigens to activate TH cells.
+    \sbs{0.5}{
+      \begin{itemize}
 
-          % There also intra-epidermal lymphocytes (specialized group of T cells) that roam
-          Additionally, the skin harbors intra-epidermal lymphocytes, a specialized population of resident T cells that continuously patrol the tissue.
+        \item The underlying \textbf{dermis} consists of a deeper, thicker layer of mesenchymal and connective tissue that provides essential \textbf{blood supply and structural support}.
 
-    \end{enumerate}
+      \end{itemize}
+
+      Conversely, the adaptive defense mechanisms of the skin are as follows.
+
+      \begin{itemize}
+
+        \item Keratinocytes, which are capable of expressing MHC~II receptors (\textit{\autoref{core:mhc_characteristics}}), and \textbf{Langerhans cells} (\textit{specialized dendritic cells of the skin}) present antigens to activate T$_\text{H}$ cells.
+
+        \item Additionally, the skin harbors \textbf{intra-epidermal lymphocytes}, a specialized population of resident T cells that continuously patrol the tissue.
+
+      \end{itemize}
+    }{
+      \myfig{0.95}{immunology_figures/skin}{Skin}{fig:skin}
+    }
 
   \end{core}
 
 \section{Innate Immunity Processes}
 
+  \begin{core}{Innate vs Adaptive Immune Response}
+
+    The \textbf{innate immune response} is the body's first line of defense against pathogens. It is a rapid, \textbf{non-specific}, and evolutionary ancient defense mechanism that acts within minutes to hours of exposure. It is one that you can produce prior to exposure by a specific pathogen and doesn't require change to DNA/genes. All organisms have a form of innate immunity.
+
+    By contrast, the \textbf{adaptive response} is is the antigen-specific branch of the immune system that mounts a \textbf{tailored} defense against specific pathogen and creates long-lasting immunological memory. This response type takes days to develop during a primary infection because it requres the activation, gene rearrangement, clonal selection, and proliferation of lymphocytes with uniquely formed antigen receptors.
+
+  \end{core}
+
   \subsection{Inflammation}
 
     \begin{core}{Inflammation}
 
-      % Inflammation is a primary response that involves marshaling the whole immune system to fight a new pathogen threat.
-      Inflammation represents a primary, coordinated physiological response that mobilizes systemic immune components to address and neutralize emerging pathogenic threats.
+      \textbf{Inflammation} represents a primary, coordinated physiological response that mobilizes systemic immune components to address and neutralize emerging pathogenic threats.
 
     \end{core}
 
-    \begin{core}{Fever \& The Local Response}
+  \begin{core}{Fever \& The Local Response}
 
-      % Hypothalamus controls the body’s temperature set point which provides overt sign of immune up-regulation (associated with a better survival rate)
-      The hypothalamus regulates the body's baseline temperature; fever serves as an overt systemic indicator of immune up-regulation, a response historically correlated with improved survival rates during infection.
+    \textbf{Fever} is a key characteristic of the inflammatory response, induced by the \textbf{hypothalamus}, which regulates the body's baseline temperature. It serves as an overt systemic indicator of immune up-regulation, a response historically correlated with improved survival rates during infection.
 
-      % Any type of injury, even internal, triggers local inflammatory response
-      Any form of tissue injury, including internal trauma, inherently triggers a localized inflammatory response.
+    Any form of tissue injury, including internal trauma, inherently triggers a \textbf{localized inflammatory response}, characterized by the classical signs of \textbf{swelling} (\textit{due to vascular leakage}), \textbf{redness} (\textit{due to increased local blood flow}), \textbf{localized heat}, and \textbf{pain}. Collectively, these physiological changes serve to discourage behaviors that might exacerbate the initial injury.
 
-      % Involves swelling (tissue leaks), redness (blood flow), heating up, and pain
-      This process is characterized by classical signs: swelling (due to vascular leakage), redness (due to increased local blood flow), localized heat, and pain.
+    \myfig{0.45}{immunology_figures/inflammation}{Localized inflammatory response; \textit{invading pathogens and physical tissue damage from a skin laceration elicit the classical signs of inflammation and the recruitment of immune cells to defend against infection}}{fig:inflammation}
 
-      % Helps prevent any actions that worsen injury
-      These physiological changes collectively discourage physical behaviors that might exacerbate the initial injury.
-
-    \end{core}
+  \end{core}
 
     \begin{core}{Immune Cell Extravasation}
 
