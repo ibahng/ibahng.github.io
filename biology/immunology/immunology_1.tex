@@ -366,6 +366,10 @@
       & ROS/RNS via the NOX complex
 
       [B7]
+
+      [IL-1],[IL-6]
+
+      [TNFα]
       & \footnotesize Exhibits amoeboid motility
 
       Pathogens opsonized by antibodies are more readily phagocytized\\[4pt]
@@ -588,164 +592,261 @@
 
     \end{core}
 
-  \begin{core}{Fever \& The Local Response}
+    \begin{core}{Fever \& The Local Response}
 
-    \textbf{Fever} is a key characteristic of the inflammatory response, induced by the \textbf{hypothalamus}, which regulates the body's baseline temperature. It serves as an overt systemic indicator of immune up-regulation, a response historically correlated with improved survival rates during infection.
+      \textbf{Fever} is a key characteristic of the inflammatory response, induced by the \textbf{hypothalamus}, which regulates the body's baseline temperature. It serves as an overt systemic indicator of immune up-regulation, a response historically correlated with improved survival rates during infection.
 
-    Any form of tissue injury, including internal trauma, inherently triggers a \textbf{localized inflammatory response}, characterized by the classical signs of \textbf{swelling} (\textit{due to vascular leakage}), \textbf{redness} (\textit{due to increased local blood flow}), \textbf{localized heat}, and \textbf{pain}. Collectively, these physiological changes serve to discourage behaviors that might exacerbate the initial injury.
+      Any form of tissue injury, including internal trauma, inherently triggers a \textbf{localized inflammatory response}, characterized by the classical signs of \textbf{swelling} (\textit{due to vascular leakage}), \textbf{redness} (\textit{due to increased local blood flow}), \textbf{localized heat}, and \textbf{pain}. Collectively, these physiological changes serve to discourage behaviors that might exacerbate the initial injury.
 
-    \myfig{0.45}{immunology_figures/inflammation}{Localized inflammatory response; \textit{invading pathogens and physical tissue damage from a skin laceration elicit the classical signs of inflammation and the recruitment of immune cells to defend against infection}}{fig:inflammation}
-
-  \end{core}
-
-    \begin{core}{Immune Cell Extravasation}
-
-      % Neutrophils, unlike macrophages (which are roaming the ECM always), are not roaming in the ECM prior to a pathogen invasion and only get recruited after an infection by extravasating through blood vessels.
-      Unlike tissue-resident macrophages that continuously patrol the extracellular matrix (ECM), neutrophils are primarily confined to the vasculature prior to an infection and are selectively recruited to tissues via extravasation.
-
-        % Rolling—neutrophils stick briefly and release, causing them to bounce or roll on the surface
-        Rolling: Neutrophils form transient, low-affinity interactions with the endothelial surface, causing them to slowly roll along the vascular wall.
-
-        % Activation 
-        Activation: Endothelial and local cytokine signals induce conformational changes in neutrophil integrins.
-
-        % Arrest 
-        Arrest: High-affinity binding halts the rolling process, firmly arresting the cell on the endothelium.
-
-        % Transendothelial migration—neutrophils then enter the tissue to phagocytize pathogens through local signals and cytokines
-        Transendothelial Migration: Neutrophils move between endothelial cells to enter the inflamed tissue, directed by local cytokine gradients, where they will subsequently phagocytize pathogens.
-
-      <FIGURE>
+      \myfig{0.45}{immunology_figures/inflammation}{Localized inflammatory response; \textit{invading pathogens and physical tissue damage from a skin laceration elicit the classical signs of inflammation and the recruitment of immune cells to defend against infection}}{fig:inflammation}
 
     \end{core}
 
+  \begin{core}{Immune Cell Extravasation}
+
+    \textbf{Extravasation} is the process by which immune cells exit the circulatory system, migrating across the endothelial lining of blood vessels and into surrounding tissue toward a site of infection, injury, or inflammation. This process is particularly relevant to \textbf{neutrophils}, which are largely confined to the vasculature prior to infection and are selectively recruited to tissues via extravasation.
+
+    \myfig{0.8}{immunology_figures/extravasation}{Extravastion of a neutrophil}{fig:extravasation}
+
+    \begin{enumerate}[label=(\arabic*)]
+
+      \item \textbf{Rolling}: Neutrophils form transient, low-affinity interactions with the endothelial surface, causing them to slowly roll along the vascular wall.
+
+      \item \textbf{Activation}: Endothelial and local cytokine signals induce conformational changes in neutrophil \textbf{integrins}.
+
+      \item \textbf{Adhesion}: High-affinity binding halts the rolling process, firmly arresting the cell on the endothelium.
+
+      \item \textbf{Transendothelial Migration}: Neutrophils move between endothelial cells to enter the inflamed tissue, directed by local cytokine gradients, where they will subsequently phagocytize pathogens.
+
+    \end{enumerate}
+
+  \end{core}
+
   \subsection{Innate Pathogen Pattern Recognition}
 
-    \begin{core}{Pathogen Associated Molecular Patterns (PAMPs)}
+    \begin{core}[label=core:pamp]{Pathogen Associated Molecular Patterns (PAMPs)}
+
+      \textbf{Pathogen associated molecular patterns (PAMPs)} are conserved molecular structures shared broadly across classes of microorganisms and are not found on host cells, allowing the \textbf{innate} immune system to recognize them as generic markers of infection via dedicated \textbf{pattern recognition receptors} (\textit{\autoref{core:prr}}).
 
       \begin{enumerate}
 
         \item \textbf{Proteins} (\textit{**very few recognized innately})
 
-          % Flagellin—bacteria tails
-          Flagellin: The primary structural component of bacterial flagella.
+          \begin{itemize}
 
-          % Profilin—surface protein of protozoan (group of single-celled eukaryotes) that helps with movement towards host cell
-          Profilin: A surface protein found in protozoa that facilitates their motility and host cell targeting.
+            \item \ul{Flagellin}: The primary structural component of bacterial flagella (\textit{tails}).
+
+            \item \ul{Profilin}: A surface protein found in protozoa that facilitates their motility and host cell targeting.
+
+          \end{itemize}
 
         \item \textbf{Carbs \& Glycopeptides}
 
-          % Zymosan—fungal cell wall component
-          Zymosan: A carbohydrate complex present in fungal cell walls.
+          \begin{itemize}
 
-          % Peptidoglycan—gram +/- bacterial cell wall component
-          Peptidoglycan: A major structural polymer of both Gram-positive and Gram-negative bacterial cell walls.
+            \item \ul{Zymosan}: A carbohydrate complex present in fungal cell walls.
 
-          <FIGURE>
+            \myfig{0.75}{immunology_figures/peptidoglycan}{Gram-positive (\textit{left}) and Gram-negative (\textit{right}) bacteria; \textit{peptidoglycan (burgandy) is present in both cell wall types}}{fig:peptidoglycan}
+            \vspace{-0.5cm}
+
+            \item \ul{Peptidoglycan}: A major structural polymer of both Gram-positive and Gram-negative bacterial cell walls shown in \autoref{fig:peptidoglycan}.
+
+          \end{itemize}
 
         \item \textbf{Lipids}
 
-          % Recognized lipids usually come attached to other carbs or peptides
-          Innately recognized lipids are typically structurally conjugated to carbohydrates or peptides.
+          \begin{itemize}
+
+            \item \ul{Lipopolysaccharide (LPS)}: Innately recognized lipids that are typically conjugated to carbohydrates or peptides, exemplified by the outer membrane component of Gram-negative bacteria (\textit{\autoref{fig:peptidoglycan}}).
+
+          \end{itemize}
 
         \item \textbf{Nucleic Acids}
 
-          % DNA with specific methylation patterns
-          DNA exhibiting unmethylated CpG motifs characteristic of microbial genomes.
+          \begin{itemize}
 
-          % “wrong strandedness”—single stranded DNA / double stranded RNA
-          Nucleic acids displaying abnormal configurations, such as single-stranded DNA or double-stranded RNA.
+            \item \ul{Atypical Nucleic Acids}: Nucleic acids displaying configurations atypical of the host, such as single-stranded DNA or double-stranded RNA.
+
+          \end{itemize}
 
       \end{enumerate}
 
     \end{core}
 
-    \begin{core}{Pattern Recognition Receptors (PPRs)}
+    \begin{core}[label=core:prr]{Pattern Recognition Receptors (PRRs)}
+
+      \textbf{Pattern recognition receptors (PRRs)} are host receptors that recognize PAMPs (\textit{\autoref{core:pamp}}), enabling the \textbf{innate} immune system to detect and respond to a broad range of microbial threats independent of prior antigen exposure.
 
       \begin{enumerate}
 
-        \item \textbf{Extracellular} 
+        \item \textbf{Extracellular PRRs}
 
-          % Lysozyme—against peptidoglycans (gram +/- bacterial cell wall component)
-          Lysozyme: An enzyme that specifically degrades the peptidoglycan layer of bacterial cell walls.
+          \begin{itemize}
 
-          % Psoriasin (type of AMPs)—psoriasin is a type of antimicrobial peptide on the skin that disrupts bacterial membranes
-          Psoriasin: A specific antimicrobial peptide (AMP) localized to the skin that effectively disrupts bacterial cell membranes.
+            \item \ul{Lysozyme}: An enzyme that specifically \textbf{degrades the peptidoglycan} layer of bacterial cell walls (\textit{\autoref{fig:peptidoglycan}}).
 
-          % AMPs are found throughout the body and they all function mainly to disrupt bacterial membrane, psoriasin is specific to the skin
-          While AMPs are distributed systemically and share a general mechanism of membrane disruption, psoriasin is notably skin-specific.
+            \item \ul{Psoriasin}: A skin-specific \textbf{antimicrobial peptide (AMP)} that \textbf{disrupts bacterial cell membranes}; \textit{whereas AMPs are generally distributed systemically and share this membrane-disruptive mechanism, psoriasin is notable for its restriction to cutaneous tissue}.
 
-          % Mannose-binding lectin (MBL)—initiator of the complement system found in the blood plasma
-          Mannose-binding lectin (MBL): A plasma protein that binds microbial carbohydrates to initiate the lectin pathway of the complement system.
+            \item \ul{Mannose-binding lectin (MBL)}: A plasma protein that binds microbial carbohydrates to initiate the \textbf{lectin pathway of the complement system} (\textit{AUTOREF}).
 
-          % C-reactive protein (CRP)—recognizes microbes and damaged self-cells in the blood plasma
-          C-reactive protein (CRP): An acute-phase plasma protein that binds to specific surface molecules on microbes and damaged host cells.
+            \item \ul{C-reactive protein (CRP)}: An acute-phase plasma protein that binds to specific surface molecules on \textbf{microbes} and \textbf{damaged host cells}.
 
-          % Lipopolysaccharide binding protein (LBP)—specifically for gram negative bacteria
-          Lipopolysaccharide-binding protein (LBP): A protein tailored to recognize and bind the lipopolysaccharide (LPS) characteristic of Gram-negative bacteria.
+            \item \ul{Lipopolysaccharide-binding protein (LBP)}: A protein that \textbf{recognizes and binds lipopolysaccharide (LPS)} (\textit{\autoref{fig:peptidoglycan}}), the principal constituent of the Gram-negative bacterial outer membrane.
 
-          % Gram negative bacteria also have a second membrane on the outside often covered with LPS
-          It is noteworthy that Gram-negative bacteria possess an outer membrane largely composed of this LPS complex.
+          \end{itemize}
 
-        \item \textbf{Cytoplasmic}
+        \item \textbf{Cytoplasmic PRRs}
 
-          % NOD proteins—recognizes bacterial cell wall components
-          NOD proteins: Intracellular sensors that detect degradation products of bacterial cell walls within the cytoplasm.
+          \begin{itemize}
 
-        \item \textbf{Toll-like Receptors} 
+            \item \ul{NOD proteins}: Intracellular sensors that detect degradation products of \textbf{bacterial cell walls} within the cytoplasm.
 
-          % Overview
-          Overview:
+          \end{itemize}
 
-          % Works singly or in pairs—either in the RER/phagolysosomal membrane (internal) or plasma membrane to ECM (external)
-          Toll-like receptors function as monomers or dimers and are distributed either internally (on endosomal or phagolysosomal membranes) or externally (on the plasma membrane facing the ECM).
+        \item \textbf{Toll-like receptors (TLRs)} function as monomers or dimers and are distributed either \textbf{internally}, on endosomal or phagolysosomal membranes, or \textbf{externally}, on the plasma membrane facing the ECM.
 
-          % Signals activate NF-κB pathway, turning on the production of cytokines and inflammation
-          Upon ligand binding, TLRs trigger signaling cascades that activate the NF-κB transcription factor, upregulating the production of pro-inflammatory cytokines.
+          \myfig{0.6}{immunology_figures/tlr}{Toll-like receptors; \textit{external (top left) TLRs sit on the plasma membrane facing the ECM and internal (bottom right) TLRs sit on the endosomal membrane}}{fig:tlr}
+          \vspace{-0.5cm}
 
-          % External
-          External TLRs:
+          Upon ligand binding, TLRs initiate signaling cascades that activate the transcription factor NF-κB, upregulating the \textbf{production of pro-inflammatory cytokines}.
 
-          % TLR1, 2, 6: Recognition of bacterial lipopeptides and lipoproteins on cell walls
-          TLR1, TLR2, and TLR6: Mediate the recognition of various bacterial lipopeptides and cell wall lipoproteins.
-
-          % TLR4: Recognition of LPS on gram negative bacterial cell walls
-          TLR4: Specifically detects lipopolysaccharide (LPS) from Gram-negative bacteria.
-
-          % TLR5: Recognition of bacterial flagellin
-          TLR5: Specifically recognizes bacterial flagellin.
-
-          % TLR 10: Unknown
-          TLR10: The specific physiological ligand remains uncharacterized.
-
-          % Internal
-          Internal TLRs:
-
-          % TLR3: Recognition of double stranded RNA
-          TLR3: Detects viral double-stranded RNA.
-
-          % TLR7, 8: Recognition of single stranded viral RNA
-          TLR7 and TLR8: Detect single-stranded viral RNA sequences.
-
-          % TLR9: Recognition of DNA with unmethylated CpG signatures
-          TLR9: Recognizes unmethylated CpG dinucleotide motifs commonly found in bacterial and viral DNA.
-
-          % Other
-          Non-Human TLRs:
-
-          % TLR11, 12, 13: These TLRs are NOT found in human beings, but in mice and are primarily for recognition of profilin (protein involved in the regulation of actin dynamics within cells) or bacterial 23s RNA
-          TLR11, TLR12, and TLR13: These receptors are absent in humans but are expressed in mice, functioning primarily to recognize profilin (an actin-binding protein) and bacterial 23S rRNA.
+          \begin{table}[H]
+            \centering
+            \small
+            \begin{tabular}{@{}l l p{9cm}@{}}
+              \hline
+              \textbf{Category} & \textbf{TLR} & \textbf{Ligand Recognition} \\
+              \hline
+              \multirow{4}{*}{External}
+                & TLR1, TLR2, TLR6 & Mediate the recognition of various \textbf{bacterial lipopeptides} and cell wall \textbf{lipoproteins}. \\
+                & TLR4 & Specifically detects \textbf{LPS} from Gram-negative bacteria. \\
+                & TLR5 & Specifically recognizes \textbf{bacterial flagellin}. \\
+                & TLR10 & \textit{Unknown.} \\
+              \hline
+              \multirow{3}{*}{Internal}
+                & TLR3 & Detects \textbf{viral double-stranded RNA}. \\
+                & TLR7, TLR8 & Detect \textbf{single-stranded viral RNA sequences}. \\
+                & TLR9 & Recognizes \textbf{unmethylated CpG dinucleotide motifs} commonly found in bacterial and viral DNA. \\
+              \hline
+              Non-Human & TLR11, TLR12, TLR13 & These receptors are absent in humans but are expressed in mice, functioning primarily to recognize \textbf{profilin} (\textit{an actin-binding protein}) and bacterial 23S rRNA. \\
+              \hline
+            \end{tabular}
+            \caption{Ligand specificity of TLRs, categorized by cellular localization.}
+            \label{tab:tlr_ligand}
+          \end{table}
 
       \end{enumerate}
 
     \end{core}
 
-  \subsection{NOX Complexes}
+  \subsection{Phagocytosis \& NOX Complexes}
 
-    \begin{core}{NADPH Oxidase (NOX) Complxes}
+    \begin{core}{Phagocytosis}
 
-      <FIGURE>
+      \sbs{0.4}{
+        \textbf{Phagocytosis} refers to the engulfment of pathogens via the extension of \textbf{pseudopodia} around the target, leading to the formation a a \textbf{phagosome}. This process is triggered upstream by \textbf{PAMPs} (\textit{\autoref{core:pamp}}) and their recognition by \textbf{PRRs} (\textit{\autoref{core:prr}}) and primarily carried out by macrophages and neutrophils, which degrades the trapped pathogen via \textbf{NOX complexes} (\textit{\autoref{core:nox_complex}}).
+      }{
+        \myfig{1}{immunology_figures/phagocytosis}{Phagocytosis}{fig:phagocytosis}
+      }
 
+    \end{core}
+
+    \begin{core}[label=core:nox_complex]{NADPH Oxidase (NOX) Complexes}
+
+      \textbf{NADPH oxidase (NOX) complexes} are multi-subunit, membrane-bound enzymes whose primary biological function is the targeted generation of \textbf{reactive oxygen species (ROS)} through the transfer of electrons across biological membranes. 
+
+      \pgfig{
+        [
+          >=Stealth,
+          every node/.style={font=\sffamily},
+          membranefill/.style={fill=boxblue},
+          boxfill/.style={fill=boxblue, draw=black},
+        ]
+
+        % ===== Labels =====
+        \node[font=\sffamily\bfseries, anchor=west] (phagosome) at (0,11.8) {\underline{PHAGOSOME}};
+        \node[font=\sffamily\bfseries, anchor=west] (cytoplasm) at (0,0.4) {\underline{CYTOPLASM}};
+
+        % ===== Bacteria cloud =====
+        \node[cloud, draw, boxfill, aspect=2.2, minimum width=3.6cm, minimum height=2.2cm, cloud puffs=13] (bacteria) at (13.2,11.0) {Bacteria};
+
+        % ===== Degradation arrow =====
+        \node[font=\sffamily] at (8.6,12.15) {Degradation};
+
+        % ===== Membrane =====
+        \coordinate (memL) at (0.3,4.0);
+        \coordinate (memR) at (15.6,4.0);
+        \draw[boxfill] (0.3,4.6) rectangle (15.6,5.4);
+        \node[anchor=west] at (0.5,5.0) {\normalsize Phagosome Membrane};
+        \draw[boxfill] (0.8,4.0) rectangle (15.1,4.6);
+        \node[anchor=west] at (1.0,4.3) {\normalsize Microfilaments};
+
+        % ===== NOX Complex =====
+        \node[boxfill, rounded corners=8pt, minimum width=2.3cm, minimum height=3.4cm, align=center] (nox) at (6.0,4.9) {\Large NOX\\Complex};
+
+
+        % ===== Defensins ellipses =====
+        \node[boxfill, ellipse, minimum width=2.2cm, minimum height=1.1cm] (def1) at (11.0,1.6) {Defensins};
+        \node[boxfill, ellipse, minimum width=2.2cm, minimum height=1.1cm] (def2) at (10.3,0.2) {Defensins};
+        \node[boxfill, ellipse, minimum width=2.2cm, minimum height=1.1cm] (def3) at (12.9,0.75) {Defensins};
+
+        % ===== Chemical species labels =====
+        \node[font=\large] (O2) at (3.9,7.4) {\ce{2O2}};
+        \node[font=\large] (O2m) at (7.6,7.6) {\ce{2O2^-}};
+        \node[font=\large] (H2O2) at (7.0,10.2) {\ce{H2O2}};
+        \node[font=\large] (HOCl) at (3.0,10.1) {\ce{HOCl}};
+        \node[font=\large] (NADPH) at (3.9,2.45) {\ce{NADPH}};
+        \node[font=\large] (NADPp) at (7.8,2.45) {\ce{NADP+ + H+}};
+        \node[font=\large] (Htop) at (10.15,7.4) {\ce{H+}};
+        \node[font=\large] (Hbot) at (10.15,2.85) {\ce{H+}};
+        \node[font=\large] (Ktop) at (12.15,7.4) {\ce{K+}};
+        \node[font=\large] (Kbot) at (12.15,2.6) {\ce{K+}};
+
+        % ===== Arrows =====
+        % NADPH into NOX complex
+        \draw[->,thick] (NADPH.north east) to[bend left=45] (NADPp.north west);
+        % 2O2 -> 2O2-
+        \draw[->,thick] (O2.south east) to[bend right=45] (O2m.south west);
+        % 2O2- -> H2O2
+        \draw[->,thick] (O2m.north) -- (H2O2.south);
+        % H2O2 -> HOCl (elbow / stepped line)
+        \draw[->,thick] (H2O2.west) -- (HOCl.east);
+        % HOCl -> curved arrow up to Degradation arrow start
+        \draw[->,thick] (HOCl.north east) to[bend left=15] (10.7,11.75);
+        % NADP+ + H+ -> H+ (bottom)
+        \draw[->,thick] (NADPp.east) -- (Hbot.west);
+        % Vertical arrow through Proton channel: Hbot -> Htop
+        \draw[->,thick] (Hbot.north) -- (Htop.south);
+        % Vertical arrow through Kv channel: Kbot -> Ktop
+        \draw[->,thick] (Kbot.north) -- (Ktop.south);
+        % Defensins -> Bacteria (curved, right side, swings wide of the Kv channel arrow)
+        \draw[->,thick] ([xshift=0.3cm,yshift=0.2cm]def1.east) to[bend right=60] ([xshift=0.2cm,yshift=-0.2cm]bacteria.south east);
+        \draw[->,thick] (Htop.north) -- (H2O2.south);
+
+        % ===== Proton Channels (cylinder) =====
+        \begin{scope}
+          \coordinate (pcB) at (10.15,3.55);
+          \coordinate (pcT) at (10.15,5.65);
+          \fill[boxfill] (9.5,3.55) rectangle (10.8,5.65);
+          \draw[boxfill] (9.5,3.55) -- (9.5,5.65) (10.8,3.55) -- (10.8,5.65);
+          \node[align=center] at (10.15,4.55) {\small Proton\\\small Channels};
+        \end{scope}
+
+        % ===== Kv Channels (cylinder) =====
+        \begin{scope}
+          \coordinate (kcB) at (12.15,3.55);
+          \coordinate (kcT) at (12.15,5.65);
+          \fill[boxfill] (11.5,3.55) rectangle (12.8,5.65);
+          \draw[boxfill] (11.5,3.55) -- (11.5,5.65) (12.8,3.55) -- (12.8,5.65);
+          \node[align=center] at (12.15,4.55) {\small Kv\\\small Channels};
+        \end{scope}
+
+        \node[font=\bfseries\large] at (2,3.5) {(A)};
+        \node[font=\bfseries\large] at (2,10) {(B)};
+        \node[font=\bfseries\large] at (14,2) {(C)};
+        \node[font=\bfseries\large] at (13,7) {(D)};
+      }{NADPH oxidase (NOX) complex mechanism; \textit{(A) \textbf{Microfilaments package the exterior} of the vacuole, preventing swelling and maintaining the concentration of toxic compounds inside}; \textit{(B) Both \textbf{ROS} and \textbf{RNS} are made to attack the bacterial cell, this figure only shows the formation of ROS however for simplicity}; \textit{(C) \textbf{Defensin peptides (a type of AMP)} attack the pathogen by poking holes in its membrane, working best in a certain \ce{K+} concentration and tonicity}; \textit{(D) In order to \textbf{regulate the electrochemical gradient} made by transferring ions across the membrane, \ce{K+} is transferred into the phagosomal lumen by membrane channels}}{fig:phk}{0.8}
+       
     \end{core}
 
 \section{Antibodies}
