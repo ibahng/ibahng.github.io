@@ -1,926 +1,976 @@
 % !TEX root = immunology.tex
 
-\section{Immune System Players}
+% \section{Immune System Players}
 
-  \begin{core}[label=core:hsc]{Hematopoietic Stem Cells (HSCs) \& Lineage}
+%   \begin{core}[label=core:hsc]{Hematopoietic Stem Cells (HSCs) \& Lineage}
 
-    \textbf{Hematopoietic stem cells (HSCs)} are pluripotent stem cells capable of giving rise to any type of blood cell. Each HSC can either divide to produce additional copies of itself---a process termed self-renewal---or begin to differentiate through a series of lineage-restricting choices.
+%     \textbf{Hematopoietic stem cells (HSCs)} are pluripotent stem cells capable of giving rise to any type of blood cell. Each HSC can either divide to produce additional copies of itself---a process termed self-renewal---or begin to differentiate through a series of lineage-restricting choices.
 
-    Developmentally, HSCs first arise in the yolk sac membrane of the early embryo, subsequently migrate to the liver and spleen, and ultimately settle predominantly in the \textbf{bone marrow} prior to birth. Remarkably, as few as approximately 100 HSCs are sufficient to fully regenerate the entire hematopoietic system.
+%     Developmentally, HSCs first arise in the yolk sac membrane of the early embryo, subsequently migrate to the liver and spleen, and ultimately settle predominantly in the \textbf{bone marrow} prior to birth. Remarkably, as few as approximately 100 HSCs are sufficient to fully regenerate the entire hematopoietic system.
 
-    \autoref{fig:hsc_lineage} illustrates the hierarchical differentiation of HSCs into the myeloid and lymphoid lineages, highlighting the key transcription factors governing lineage commitment at each branch point.
+%     \autoref{fig:hsc_lineage} illustrates the hierarchical differentiation of HSCs into the myeloid and lymphoid lineages, highlighting the key transcription factors governing lineage commitment at each branch point.
 
-    \pgfig{
-      % Styles
-      \tikzset{
-        myeloid/.style={rectangle, draw, fill={rgb,255:red,164;green,194;blue,244}, minimum width=3cm, minimum height=1cm, align=center, font=\small},
-        lymphoid/.style={rectangle, draw, fill={rgb,255:red,249;green,203;blue,156}, minimum width=2cm, minimum height=1cm, align=center, font=\small},
-        leafnode/.style={rectangle, rounded corners=8pt, draw, fill={rgb,255:red,207;green,226;blue,243}, minimum width=2.4cm, minimum height=0.9cm, align=center, font=\small},
-        edgelabel/.style={font=\small\itshape, align=left}
-      }
-      % Level 0
-      \node[myeloid] (HSC) at (5,0) {Haematopoietic\\Stem Cell};
-      % Level 1
-      \node[myeloid]  (CMP) at (1,-2)   {Common Myeloid\\Progenitor (CMP)};
-      \node[lymphoid] (CLP) at (9,-2)   {Common Lymphoid\\Progenitor (CLP)};
-      % Level 2
-      \node[myeloid]  (MEP) at (-1.5,-4) {Megakaryocyte-Erythroid\\Progenitor (MEP)};
-      \node[myeloid]  (GMP) at (2.5,-4)  {Granulocyte-Macrophage\\Progenitor (GMP);\\Myeloblast};
-      \node[lymphoid] (NKP) at (6,-4)  {NK Cell\\Progenitor};
-      \node[lymphoid] (BCP) at (9,-4)  {B Cell\\Progenitor};
-      \node[lymphoid] (TCP) at (12,-4)   {T Cell\\Progenitor};
-      % Level 3 - GMP lineage
-      \node[leafnode] (BASO) at (-3,-7.8) {Basophil};
-      \node[leafnode] (EOSI) at (-0,-7.8) {Eosinophil};
-      \node[leafnode] (CDC)  at (3,-7.8) {cDC};
-      \node[leafnode] (NEUT) at (6,-7.8) {Neutrophil};
-      \node[leafnode] (MONO) at (1,-9.4) {Monocyte};
-      \node[leafnode] (MAC)  at (-0.5,-11.0) {Macrophage};
-      \node[leafnode] (MODC) at (2.5,-11.0) {moDCs};
-      % Arrows: GMP
-      \draw[-{latex}, thick] (GMP) -- (BASO);
-      \draw[-{latex}, thick] (GMP) -- (EOSI);
-      \draw[-{latex}, thick] (GMP) -- (CDC);
-      \draw[-{latex}, thick] (GMP) -- (NEUT);
-      \draw[-{latex}, thick] (GMP) -- (MONO);
-      \draw[-{latex}, thick] (MONO) -- (MAC);
-      \draw[-{latex}, thick] (MONO) -- (MODC);
-      % Level 3 - MEP lineage
-      \node[leafnode] (RBC)  at (-3,-6.2) {RBCs\\(Erythrocytes)};
-      \node[leafnode] (MEGA) at (-0.5,-6.2) {Megakaryocytes;\\Platelets\\(Thrombocytes)};
-      % Level 3 - lymphoid leaves
-      \node[leafnode] (NKC) at (6.3,-6.2)  {NK Cells};
-      \node[leafnode] (BC)  at (9,-6.2)  {B Cells};
-      \node[leafnode] (TCC) at (13,-6.2)   {TC Cells};
-      % T helper branch
-      \node[leafnode] (THC)   at (10.6,-7.8) {TH Cells};
-      \node[leafnode] (TH2)   at (9.5,-10.8) {TH2 Cells};
-      \node[leafnode] (TH17)  at (12.1,-10.8) {TH17 Cells};
-      \draw[-{latex}, thick] (THC) -- (TH2);
-      \draw[-{latex}, thick] (THC) -- (TH17);
-      \node[leafnode] (TH1)   at (8.6,-9.6) {TH1 Cells};
-      \node[leafnode] (THREG) at (13.0,-9.6) {THreg Cells};
-      \draw[-{latex}, thick] (THC) -- (TH1);
-      \draw[-{latex}, thick] (THC) -- (THREG);
-      % Arrows: HSC
-      \draw[-{latex}, thick] (HSC) -- (CMP);
-      \draw[-{latex}, thick] (HSC) -- (CLP);
-      \draw[-{latex}, thick] (CMP) -- (MEP);
-      \draw[-{latex}, thick] (CMP) -- (GMP);
-      \draw[-{latex}, thick] (CLP) -- (NKP);
-      \draw[-{latex}, thick] (CLP) -- (BCP);
-      \draw[-{latex}, thick] (CLP) -- (TCP);
-      % Arrows: MEP
-      \draw[-{latex}, thick] (MEP) -- (RBC);
-      \draw[-{latex}, thick] (MEP) -- (MEGA);
-      % Arrows: lymphoid leaves
-      \draw[-{latex}, thick] (NKP) -- (NKC);
-      \draw[-{latex}, thick] (BCP) -- (BC);
-      \draw[-{latex}, thick] (TCP) -- (TCC);
-      \draw[-{latex}, thick] (TCP) -- (THC);
-      % Standalone edge labels (fixed coordinates, independent of node positions)
-      \node[edgelabel] at (5,0.9)   {\underline{\textbf{Bmi-1}} to stay in renewal cycle (Lin-)};
-      \node[edgelabel] at (9,-0.9) {\underline{\textbf{Ikaros}} transcription\\factor to become CLP};
-      \node[edgelabel] at (5,-2) {\underline{\textbf{GATA-2}} to\\differentiate (Lin+)};
-      \node[edgelabel] at (12.5,-2.9) {\underline{\textbf{Notch family}} for T cell\\lineage pathway};
-    }{Hierarchy of haematopoietic stem cell differentiation into myeloid (\textit{left}) and lymphoid (\textit{right}) lineages}{fig:hsc_lineage}{0.85}
+%     \pgfig{
+%       % Styles
+%       \tikzset{
+%         myeloid/.style={rectangle, draw, fill={rgb,255:red,164;green,194;blue,244}, minimum width=3cm, minimum height=1cm, align=center, font=\small},
+%         lymphoid/.style={rectangle, draw, fill={rgb,255:red,249;green,203;blue,156}, minimum width=2cm, minimum height=1cm, align=center, font=\small},
+%         leafnode/.style={rectangle, rounded corners=8pt, draw, fill={rgb,255:red,207;green,226;blue,243}, minimum width=2.4cm, minimum height=0.9cm, align=center, font=\small},
+%         edgelabel/.style={font=\small\itshape, align=left}
+%       }
+%       % Level 0
+%       \node[myeloid] (HSC) at (5,0) {Haematopoietic\\Stem Cell};
+%       % Level 1
+%       \node[myeloid]  (CMP) at (1,-2)   {Common Myeloid\\Progenitor (CMP)};
+%       \node[lymphoid] (CLP) at (9,-2)   {Common Lymphoid\\Progenitor (CLP)};
+%       % Level 2
+%       \node[myeloid]  (MEP) at (-1.5,-4) {Megakaryocyte-Erythroid\\Progenitor (MEP)};
+%       \node[myeloid]  (GMP) at (2.5,-4)  {Granulocyte-Macrophage\\Progenitor (GMP);\\Myeloblast};
+%       \node[lymphoid] (NKP) at (6,-4)  {NK Cell\\Progenitor};
+%       \node[lymphoid] (BCP) at (9,-4)  {B Cell\\Progenitor};
+%       \node[lymphoid] (TCP) at (12,-4)   {T Cell\\Progenitor};
+%       % Level 3 - GMP lineage
+%       \node[leafnode] (BASO) at (-3,-7.8) {Basophil};
+%       \node[leafnode] (EOSI) at (-0,-7.8) {Eosinophil};
+%       \node[leafnode] (CDC)  at (3,-7.8) {cDC};
+%       \node[leafnode] (NEUT) at (6,-7.8) {Neutrophil};
+%       \node[leafnode] (MONO) at (1,-9.4) {Monocyte};
+%       \node[leafnode] (MAC)  at (-0.5,-11.0) {Macrophage};
+%       \node[leafnode] (MODC) at (2.5,-11.0) {moDCs};
+%       % Arrows: GMP
+%       \draw[-{latex}, thick] (GMP) -- (BASO);
+%       \draw[-{latex}, thick] (GMP) -- (EOSI);
+%       \draw[-{latex}, thick] (GMP) -- (CDC);
+%       \draw[-{latex}, thick] (GMP) -- (NEUT);
+%       \draw[-{latex}, thick] (GMP) -- (MONO);
+%       \draw[-{latex}, thick] (MONO) -- (MAC);
+%       \draw[-{latex}, thick] (MONO) -- (MODC);
+%       % Level 3 - MEP lineage
+%       \node[leafnode] (RBC)  at (-3,-6.2) {RBCs\\(Erythrocytes)};
+%       \node[leafnode] (MEGA) at (-0.5,-6.2) {Megakaryocytes;\\Platelets\\(Thrombocytes)};
+%       % Level 3 - lymphoid leaves
+%       \node[leafnode] (NKC) at (6.3,-6.2)  {NK Cells};
+%       \node[leafnode] (BC)  at (9,-6.2)  {B Cells};
+%       \node[leafnode] (TCC) at (13,-6.2)   {TC Cells};
+%       % T helper branch
+%       \node[leafnode] (THC)   at (10.6,-7.8) {TH Cells};
+%       \node[leafnode] (TH2)   at (9.5,-10.8) {TH2 Cells};
+%       \node[leafnode] (TH17)  at (12.1,-10.8) {TH17 Cells};
+%       \draw[-{latex}, thick] (THC) -- (TH2);
+%       \draw[-{latex}, thick] (THC) -- (TH17);
+%       \node[leafnode] (TH1)   at (8.6,-9.6) {TH1 Cells};
+%       \node[leafnode] (THREG) at (13.0,-9.6) {THreg Cells};
+%       \draw[-{latex}, thick] (THC) -- (TH1);
+%       \draw[-{latex}, thick] (THC) -- (THREG);
+%       % Arrows: HSC
+%       \draw[-{latex}, thick] (HSC) -- (CMP);
+%       \draw[-{latex}, thick] (HSC) -- (CLP);
+%       \draw[-{latex}, thick] (CMP) -- (MEP);
+%       \draw[-{latex}, thick] (CMP) -- (GMP);
+%       \draw[-{latex}, thick] (CLP) -- (NKP);
+%       \draw[-{latex}, thick] (CLP) -- (BCP);
+%       \draw[-{latex}, thick] (CLP) -- (TCP);
+%       % Arrows: MEP
+%       \draw[-{latex}, thick] (MEP) -- (RBC);
+%       \draw[-{latex}, thick] (MEP) -- (MEGA);
+%       % Arrows: lymphoid leaves
+%       \draw[-{latex}, thick] (NKP) -- (NKC);
+%       \draw[-{latex}, thick] (BCP) -- (BC);
+%       \draw[-{latex}, thick] (TCP) -- (TCC);
+%       \draw[-{latex}, thick] (TCP) -- (THC);
+%       % Standalone edge labels (fixed coordinates, independent of node positions)
+%       \node[edgelabel] at (5,0.9)   {\underline{\textbf{Bmi-1}} to stay in renewal cycle (Lin-)};
+%       \node[edgelabel] at (9,-0.9) {\underline{\textbf{Ikaros}} transcription\\factor to become CLP};
+%       \node[edgelabel] at (5,-2) {\underline{\textbf{GATA-2}} to\\differentiate (Lin+)};
+%       \node[edgelabel] at (12.5,-2.9) {\underline{\textbf{Notch family}} for T cell\\lineage pathway};
+%     }{Hierarchy of haematopoietic stem cell differentiation into myeloid (\textit{left}) and lymphoid (\textit{right}) lineages}{fig:hsc_lineage}{0.85}
 
-    As shown in \autoref{fig:hsc_lineage}, HSCs destined for differentiation are termed \textbf{lineage positive (\textit{lin+})}, whereas those not destined for differentiation are termed \textbf{lineage negative (\textit{lin-})}. This binary state is governed by the presence of one of two transcription factors.
+%     As shown in \autoref{fig:hsc_lineage}, HSCs destined for differentiation are termed \textbf{lineage positive (\textit{lin+})}, whereas those not destined for differentiation are termed \textbf{lineage negative (\textit{lin-})}. This binary state is governed by the presence of one of two transcription factors.
 
-    \begin{itemize}
+%     \begin{itemize}
 
-      \item \textbf{Bmi-1}: A transcription factor whose presence maintains HSCs in an \textbf{undifferentiated state}, sustaining ongoing self-renewal and division.
+%       \item \textbf{Bmi-1}: A transcription factor whose presence maintains HSCs in an \textbf{undifferentiated state}, sustaining ongoing self-renewal and division.
 
-      \item \textbf{GATA-2}: A transcription factor that \textbf{triggers HSC differentiation}, initiating the developmental path toward a specialized cell type.
+%       \item \textbf{GATA-2}: A transcription factor that \textbf{triggers HSC differentiation}, initiating the developmental path toward a specialized cell type.
 
-    \end{itemize}
+%     \end{itemize}
 
-    Given a \textit{lin+} state, the first branch point determines whether the cell commits to the myeloid or lymphoid lineage.
+%     Given a \textit{lin+} state, the first branch point determines whether the cell commits to the myeloid or lymphoid lineage.
 
-    \begin{itemize}
+%     \begin{itemize}
 
-      \item Commitment to a \textbf{common myeloid-erythroid progenitor} enables development into a wide array of cell types, including various white blood cells, red blood cells, and platelet-producing megakaryocytes.
+%       \item Commitment to a \textbf{common myeloid-erythroid progenitor} enables development into a wide array of cell types, including various white blood cells, red blood cells, and platelet-producing megakaryocytes.
 
-      \item Commitment to a \textbf{common lymphoid progenitor} is marked by expression of the transcription factor \textbf{Ikaros}, giving rise to adaptive T and B cells or innate NK and dendritic cells. Further along the differentiation tree, the \textbf{Notch family} of transcription factors governs the divergence of T and B cell development.
+%       \item Commitment to a \textbf{common lymphoid progenitor} is marked by expression of the transcription factor \textbf{Ikaros}, giving rise to adaptive T and B cells or innate NK and dendritic cells. Further along the differentiation tree, the \textbf{Notch family} of transcription factors governs the divergence of T and B cell development.
 
-    \end{itemize}
+%     \end{itemize}
 
-  \end{core}
+%   \end{core}
 
-  \begin{core}{Lymphoid Lineage}
+%   \begin{core}{Lymphoid Lineage}
 
-    Cells of the \textbf{lymphoid lineage} constitute 20--40\% of circulating leukocytes in the blood and approximately 99\% of the cells of the lymph. These cells are broadly categorized as either \textbf{adaptive}---characterized by gene rearrangement during the immune response---or \textbf{innate}---characterized by the absence of such gene rearrangement.
+%     Cells of the \textbf{lymphoid lineage} constitute 20--40\% of circulating leukocytes in the blood and approximately 99\% of the cells of the lymph. These cells are broadly categorized as either \textbf{adaptive}---characterized by gene rearrangement during the immune response---or \textbf{innate}---characterized by the absence of such gene rearrangement.
 
-    \autoref{tab:lymphocytes} presents a structured overview of the cell types comprising the lymphoid lineage depicted in \autoref{fig:hsc_lineage}.
+%     \autoref{tab:lymphocytes} presents a structured overview of the cell types comprising the lymphoid lineage depicted in \autoref{fig:hsc_lineage}.
 
-  \end{core}
+%   \end{core}
 
-  \begin{sidewaystable}
+%   \begin{sidewaystable}
 
-    \centering
-    \caption{Overview of adaptive and innate lymphocyte populations}
-    \label{tab:lymphocytes}
-    \begin{tabular}{
-      >{\raggedright\arraybackslash}p{1.2cm}
-      >{\raggedright\arraybackslash}p{2.2cm}
-      >{\raggedright\arraybackslash}p{3.0cm}
-      >{\raggedright\arraybackslash}p{3.8cm}
-      >{\raggedright\arraybackslash}p{2.5cm}
-      >{\raggedright\arraybackslash}p{2.5cm}
-      >{\raggedright\arraybackslash}p{3.3cm}
-    }
-    \hline
-    \textbf{Type} & \textbf{Name} & \textbf{Function} & \textbf{Surface Expression} & \textbf{Responds to} & \textbf{Releases} & \textbf{Notes} \\
-    \hline
+%     \centering
+%     \caption{Overview of adaptive and innate lymphocyte populations}
+%     \label{tab:lymphocytes}
+%     \begin{tabular}{
+%       >{\raggedright\arraybackslash}p{1.2cm}
+%       >{\raggedright\arraybackslash}p{2.2cm}
+%       >{\raggedright\arraybackslash}p{3.0cm}
+%       >{\raggedright\arraybackslash}p{3.8cm}
+%       >{\raggedright\arraybackslash}p{2.5cm}
+%       >{\raggedright\arraybackslash}p{2.5cm}
+%       >{\raggedright\arraybackslash}p{3.3cm}
+%     }
+%     \hline
+%     \textbf{Type} & \textbf{Name} & \textbf{Function} & \textbf{Surface Expression} & \textbf{Responds to} & \textbf{Releases} & \textbf{Notes} \\
+%     \hline
 
-    \multirow{5}{*}{\textbf{ADAPTIVE}}
-      % =====================================================================================
-      & \textit{T$_\text{H}$ (Helper) Lymphocyte} & \textbf{Activates} inflammation, macrophages, and B cells
-      & [CD4]---{\footnotesize stabilizes MHC~II--TCR antigen recognition}
+%     \multirow{5}{*}{\textbf{ADAPTIVE}}
+%       % =====================================================================================
+%       & \textit{T$_\text{H}$ (Helper) Lymphocyte} & \textbf{Activates} inflammation, macrophages, and B cells
+%       & [CD4]---{\footnotesize stabilizes MHC~II--TCR antigen recognition}
 
-      [TCR]
-      & MHC~II-presented antigen & Cytokines
-      & \footnotesize
-        Subtypes include:
+%       [TCR]
+%       & MHC~II-presented antigen & Cytokines
+%       & \footnotesize
+%         Subtypes include:
 
-        \textbf{T$_\text{H}$1}---direct response
+%         \textbf{T$_\text{H}$1}---direct response
 
-        \textbf{T$_\text{H}$2}---nutrient restraint response
+%         \textbf{T$_\text{H}$2}---nutrient restraint response
 
-        \textbf{T$_\text{H}$17}---fungi/parasite response
+%         \textbf{T$_\text{H}$17}---fungi/parasite response
 
-        \textbf{Memory cells}---future reserve \\[4pt]
+%         \textbf{Memory cells}---future reserve \\[4pt]
 
-      % =====================================================================================
-      & \textit{T$_\text{R}$ (Regulatory) Lymphocyte} & \textbf{Suppresses} immune response (\textit{generally and of specific lymphocytes})
-      & [CD4]
+%       % =====================================================================================
+%       & \textit{T$_\text{R}$ (Regulatory) Lymphocyte} & \textbf{Suppresses} immune response (\textit{generally and of specific lymphocytes})
+%       & [CD4]
 
-      [CD25]---{\footnotesize stabilizes T$_\text{reg}$ binding to IL-2, essential for survival and function}
+%       [CD25]---{\footnotesize stabilizes T$_\text{reg}$ binding to IL-2, essential for survival and function}
 
-      & \textit{Unknown}
-      & Cytokines;
+%       & \textit{Unknown}
+%       & Cytokines;
 
-      IL-10;
+%       IL-10;
 
-      TGF-β
-      & \footnotesize Prevents allergy and autoimmune disease; subtype of the TH lineage \\[4pt]
+%       TGF-β
+%       & \footnotesize Prevents allergy and autoimmune disease; subtype of the TH lineage \\[4pt]
 
-      % =====================================================================================
-      & \textit{T$_\text{C}$ (Cytotoxic) Lymphocyte} & \textbf{Destroys} altered-self cells
-      & [CD8]---{\footnotesize stabilizes MHC~I--TCR antigen recognition}
-      & MHC~I-presented antigen
-      & Perforin;
+%       % =====================================================================================
+%       & \textit{T$_\text{C}$ (Cytotoxic) Lymphocyte} & \textbf{Destroys} altered-self cells
+%       & [CD8]---{\footnotesize stabilizes MHC~I--TCR antigen recognition}
+%       & MHC~I-presented antigen
+%       & Perforin;
 
-      Granzymes
-      & \\[4pt]
+%       Granzymes
+%       & \\[4pt]
 
-      % =====================================================================================
-      & \textit{B Cell} & \textbf{Recognizes} antigen; can present antigen to T cells
-      & [Membrane-bound antibodies/BCRs]
+%       % =====================================================================================
+%       & \textit{B Cell} & \textbf{Recognizes} antigen; can present antigen to T cells
+%       & [Membrane-bound antibodies/BCRs]
 
-      [MHC~II]---{\footnotesize constitutive; presents BCR-captured antigen fragments}
+%       [MHC~II]---{\footnotesize constitutive; presents BCR-captured antigen fragments}
 
-      [TLR]
+%       [TLR]
 
-      [Fc receptors]---{\footnotesize down-regulate antibody production}
+%       [Fc receptors]---{\footnotesize down-regulate antibody production}
 
-      [B7]
-      & Circulating antigen;
+%       [B7]
+%       & Circulating antigen;
 
-      T$_\text{H}$ cytokine signals & [B7]
-      & \footnotesize Develops into a \textbf{plasma cell} or \textbf{memory cell} (\textit{reserve for future infection}) \\[4pt]
+%       T$_\text{H}$ cytokine signals & [B7]
+%       & \footnotesize Develops into a \textbf{plasma cell} or \textbf{memory cell} (\textit{reserve for future infection}) \\[4pt]
 
-      % =====================================================================================
-      & \textit{Plasma Cell} & \textbf{Secretes} antibodies
-      & No surface antibodies & T$_\text{H}$ cytokine signals & Antibodies
-      & \footnotesize Mature B cell;
+%       % =====================================================================================
+%       & \textit{Plasma Cell} & \textbf{Secretes} antibodies
+%       & No surface antibodies & T$_\text{H}$ cytokine signals & Antibodies
+%       & \footnotesize Mature B cell;
 
-      Lives 1--2 weeks \\
-    \hline
+%       Lives 1--2 weeks \\
+%     \hline
 
-    \multirow{1}{*}{\textbf{INNATE}}
-      % =====================================================================================
-      & \textit{NK (Natural Killer) Cell} & \textbf{Destroys} altered-self cells
-      & [CD16]---{\footnotesize Fc receptor recognizing antibody-coated altered cells, triggering attack}
+%     \multirow{1}{*}{\textbf{INNATE}}
+%       % =====================================================================================
+%       & \textit{NK (Natural Killer) Cell} & \textbf{Destroys} altered-self cells
+%       & [CD16]---{\footnotesize Fc receptor recognizing antibody-coated altered cells, triggering attack}
 
-      [MHC~I receptors]---{\footnotesize induce killing when MHC~I is absent}
-      & Antibodies;
+%       [MHC~I receptors]---{\footnotesize induce killing when MHC~I is absent}
+%       & Antibodies;
 
-      downregulated MHC~I 
-      & Perforin;
+%       downregulated MHC~I 
+%       & Perforin;
 
-      Granzymes
-      & \footnotesize Executes \textbf{antibody-dependent cell-mediated cytotoxicity (ADCC)}, triggering apoptosis via antibody signals on antigen-coated cell surfaces \\
+%       Granzymes
+%       & \footnotesize Executes \textbf{antibody-dependent cell-mediated cytotoxicity (ADCC)}, triggering apoptosis via antibody signals on antigen-coated cell surfaces \\
 
-    \hline
-    \end{tabular}
+%     \hline
+%     \end{tabular}
 
-  \end{sidewaystable}
+%   \end{sidewaystable}
 
-  \begin{core}{Myeloid Lineage}
+%   \begin{core}{Myeloid Lineage}
 
-    Cells of the \textbf{myeloid lineage} can be broadly categorized into \textbf{granulocytic cells}---characterized by specific granules that compartmentalize potentially dangerous molecules---and \textbf{antigen-presenting cells (APCs)}, which present antigen to T cells. Additional myeloid lineage cell types include \textbf{red blood cells (\textit{erythrocytes})} and \textbf{platelets (\textit{thrombocytes})}, which serve more secondary roles within general immune function.
+%     Cells of the \textbf{myeloid lineage} can be broadly categorized into \textbf{granulocytic cells}---characterized by specific granules that compartmentalize potentially dangerous molecules---and \textbf{antigen-presenting cells (APCs)}, which present antigen to T cells. Additional myeloid lineage cell types include \textbf{red blood cells (\textit{erythrocytes})} and \textbf{platelets (\textit{thrombocytes})}, which serve more secondary roles within general immune function.
 
-    \autoref{tab:myeloid} presents a structured overview of the cell types comprising the myeloid lineage depicted in \autoref{fig:hsc_lineage}.
+%     \autoref{tab:myeloid} presents a structured overview of the cell types comprising the myeloid lineage depicted in \autoref{fig:hsc_lineage}.
 
-  \end{core}
+%   \end{core}
 
-  \begin{sidewaystable}
+%   \begin{sidewaystable}
 
-    \centering
-    \caption{Overview of innate granulocytic (\textit{1st page}), innate antigen presenting (\textit{2nd page}), and other myeloid cell populations (\textit{2nd page})}
-    \label{tab:myeloid}
-    \begin{tabular}{
-      >{\raggedright\arraybackslash}p{1.2cm}
-      >{\raggedright\arraybackslash}p{1.5cm}
-      >{\raggedright\arraybackslash}p{3.0cm}
-      >{\raggedright\arraybackslash}p{4.7cm}
-      >{\raggedright\arraybackslash}p{2.2cm}
-      >{\raggedright\arraybackslash}p{2.5cm}
-      >{\raggedright\arraybackslash}p{3.3cm}
-    }
-    \hline
-    \textbf{Type} & \textbf{Name} & \textbf{Function} & \textbf{Surface Expression} & \textbf{Responds to} & \textbf{Releases} & \textbf{Notes} \\
-    \hline
+%     \centering
+%     \caption{Overview of innate granulocytic (\textit{1st page}), innate antigen presenting (\textit{2nd page}), and other myeloid cell populations (\textit{2nd page})}
+%     \label{tab:myeloid}
+%     \begin{tabular}{
+%       >{\raggedright\arraybackslash}p{1.2cm}
+%       >{\raggedright\arraybackslash}p{1.5cm}
+%       >{\raggedright\arraybackslash}p{3.0cm}
+%       >{\raggedright\arraybackslash}p{4.7cm}
+%       >{\raggedright\arraybackslash}p{2.2cm}
+%       >{\raggedright\arraybackslash}p{2.5cm}
+%       >{\raggedright\arraybackslash}p{3.3cm}
+%     }
+%     \hline
+%     \textbf{Type} & \textbf{Name} & \textbf{Function} & \textbf{Surface Expression} & \textbf{Responds to} & \textbf{Releases} & \textbf{Notes} \\
+%     \hline
 
-    \multirow{5}{1.2cm}{\textbf{INNATE (Granul- ocytic)}}
-      % =====================================================================================
-      & \textit{Neutrophil}
-      & \textbf{Phagocytosis}, mediates the acute inflammatory response
+%     \multirow{5}{1.2cm}{\textbf{INNATE (Granul- ocytic)}}
+%       % =====================================================================================
+%       & \textit{Neutrophil}
+%       & \textbf{Phagocytosis}, mediates the acute inflammatory response
 
-      Migrates into infected tissues
-      & [Fc Receptors]---{\footnotesize binds to the \textbf{fragment crystallizable} region of antibodies, facilitating the recognition of antibody-coated pathogens and subsequent immune activation}
+%       Migrates into infected tissues
+%       & [Fc Receptors]---{\footnotesize binds to the \textbf{fragment crystallizable} region of antibodies, facilitating the recognition of antibody-coated pathogens and subsequent immune activation}
 
-      [Complement Receptors] ---{\footnotesize enhances the phagocytosis of pathogens opsonized by complement proteins}
+%       [Complement Receptors] ---{\footnotesize enhances the phagocytosis of pathogens opsonized by complement proteins}
       
-      [PRR]---{\footnotesize mediates pathogen pattern recognition; specifically \textbf{Toll-like receptors}}
-      & Chemokines
-      & Acidic \& basic granules
+%       [PRR]---{\footnotesize mediates pathogen pattern recognition; specifically \textbf{Toll-like receptors}}
+%       & Chemokines
+%       & Acidic \& basic granules
 
-      ROS/RNS via the NOX complex
+%       ROS/RNS via the NOX complex
 
-      [IL-1]
+%       [IL-1]
 
-      [IL-6]
+%       [IL-6]
 
-      [TNFα]
-      & \footnotesize
-      First responders to inflection
+%       [TNFα]
+%       & \footnotesize
+%       First responders to inflection
 
-      One-day lifespan
+%       One-day lifespan
 
-      Multilobed nucleus \\[4pt]
-      % =====================================================================================
-      & \textit{Basophil}
-      & \textbf{Defense} against allergic responses and parasitic infections
-      & [Fc Receptors]---{\footnotesize for IgE antibodies}
-      & \textit{Chemokines}
-      & Histamine-rich basophilic granules
-      & \footnotesize Non-phagocytic
+%       Multilobed nucleus \\[4pt]
+%       % =====================================================================================
+%       & \textit{Basophil}
+%       & \textbf{Defense} against allergic responses and parasitic infections
+%       & [Fc Receptors]---{\footnotesize for IgE antibodies}
+%       & \textit{Chemokines}
+%       & Histamine-rich basophilic granules
+%       & \footnotesize Non-phagocytic
 
-      Lobed nucleus
+%       Lobed nucleus
 
-      Responds to worms\\[4pt]
-      % =====================================================================================
-      & \textit{Mast Cell}
-      & \textbf{Defense} against allergic responses and parasitic infections
-      & [Fc Receptors]---{\footnotesize for IgE antibodies}
-      & 
-      & Histamine-rich basophilic granules
-      & \footnotesize Non-phagocytic
+%       Responds to worms\\[4pt]
+%       % =====================================================================================
+%       & \textit{Mast Cell}
+%       & \textbf{Defense} against allergic responses and parasitic infections
+%       & [Fc Receptors]---{\footnotesize for IgE antibodies}
+%       & 
+%       & Histamine-rich basophilic granules
+%       & \footnotesize Non-phagocytic
 
-      Mononuclear (non-lobed) \\[4pt]
-      % =====================================================================================
-      & \textit{Eosinophil}
-      & \textbf{Defense} against allergic responses and parasitic infections
-      & [Fc Receptors]---{\footnotesize for IgE antibodies}
-      & \textit{Chemokines}
-      & Eosinophilic granules containing hydrolytic enzymes
-      & \footnotesize Phagocytic, though not its primary function
+%       Mononuclear (non-lobed) \\[4pt]
+%       % =====================================================================================
+%       & \textit{Eosinophil}
+%       & \textbf{Defense} against allergic responses and parasitic infections
+%       & [Fc Receptors]---{\footnotesize for IgE antibodies}
+%       & \textit{Chemokines}
+%       & Eosinophilic granules containing hydrolytic enzymes
+%       & \footnotesize Phagocytic, though not its primary function
 
-      Bi-lobed nucleus
-      \\[4pt]
-      \hline
-      % =====================================================================================
-      &
-      &
-      &
-      &
-      &
-      & \raggedleft \footnotesize continued on next page \\
+%       Bi-lobed nucleus
+%       \\[4pt]
+%       \hline
+%       % =====================================================================================
+%       &
+%       &
+%       &
+%       &
+%       &
+%       & \raggedleft \footnotesize continued on next page \\
 
-    \end{tabular}
+%     \end{tabular}
 
-  \end{sidewaystable}
+%   \end{sidewaystable}
 
-  \begin{sidewaystable}
+%   \begin{sidewaystable}
 
-    \centering
-    \begin{tabular}{
-      >{\raggedright\arraybackslash}p{1.2cm}
-      >{\raggedright\arraybackslash}p{2.2cm}
-      >{\raggedright\arraybackslash}p{3.0cm}
-      >{\raggedright\arraybackslash}p{3.8cm}
-      >{\raggedright\arraybackslash}p{2.5cm}
-      >{\raggedright\arraybackslash}p{2.5cm}
-      >{\raggedright\arraybackslash}p{3.3cm}
-    }
-    \hline
-    \textbf{Type} & \textbf{Name} & \textbf{Function} & \textbf{Surface Expression} & \textbf{Responds to} & \textbf{Releases} & \textbf{Notes} \\
-    \hline
+%     \centering
+%     \begin{tabular}{
+%       >{\raggedright\arraybackslash}p{1.2cm}
+%       >{\raggedright\arraybackslash}p{2.2cm}
+%       >{\raggedright\arraybackslash}p{3.0cm}
+%       >{\raggedright\arraybackslash}p{3.8cm}
+%       >{\raggedright\arraybackslash}p{2.5cm}
+%       >{\raggedright\arraybackslash}p{2.5cm}
+%       >{\raggedright\arraybackslash}p{3.3cm}
+%     }
+%     \hline
+%     \textbf{Type} & \textbf{Name} & \textbf{Function} & \textbf{Surface Expression} & \textbf{Responds to} & \textbf{Releases} & \textbf{Notes} \\
+%     \hline
 
-    \multirow{3}{1.2cm}{\textbf{INNATE (Antigen Present- ing)}}
-      % =====================================================================================
-      & \textit{Sentinel Dendritic Cell (DC)} 
-      & \textbf{Processes and presents} antigens to T$_\text{H}$ cells
+%     \multirow{3}{1.2cm}{\textbf{INNATE (Antigen Present- ing)}}
+%       % =====================================================================================
+%       & \textit{Sentinel Dendritic Cell (DC)} 
+%       & \textbf{Processes and presents} antigens to T$_\text{H}$ cells
 
-      \textit{Minor roles:} \textbf{Phagocytosis}, \textbf{endocytosis}, and \textbf{pinocytosis} of microorganisms and cellular debris
-      & [MHC~II]---{\footnotesize constitutive}
+%       \textit{Minor roles:} \textbf{Phagocytosis}, \textbf{endocytosis}, and \textbf{pinocytosis} of microorganisms and cellular debris
+%       & [MHC~II]---{\footnotesize constitutive}
 
-      [B7]---{\footnotesize facilitates T cell activation}
+%       [B7]---{\footnotesize facilitates T cell activation}
 
-      [PRR]---{\footnotesize mediates pathogen pattern recognition; specifically \textbf{Toll-like receptors}}
-      & 
-      & [B7]---{\footnotesize co-stimulatory molecule provided to T cells during MHC-TCR antigen presentation}
-      & \footnotesize
-      DCs can differentiate from CMPs, monocytes, and CLPs (\textit{each yielding distinct specialized subsets})
+%       [PRR]---{\footnotesize mediates pathogen pattern recognition; specifically \textbf{Toll-like receptors}}
+%       & 
+%       & [B7]---{\footnotesize co-stimulatory molecule provided to T cells during MHC-TCR antigen presentation}
+%       & \footnotesize
+%       DCs can differentiate from CMPs, monocytes, and CLPs (\textit{each yielding distinct specialized subsets})
 
-      Reside in peripheral tissues, \textbf{migrating to secondary lymphoid organs} only upon detecting pathogenic signals \\[4pt]
-      % =====================================================================================
-      & \textit{Monocyte}
-      & \textbf{Precursors} to macrophages, DCs, and MDSCs
-      & [TLR]
-      & Interferon from T$_\text{H}$ cells
-      & 
-      & \footnotesize Circulates in the bloodstream for approximately 8 hours \\[4pt]
+%       Reside in peripheral tissues, \textbf{migrating to secondary lymphoid organs} only upon detecting pathogenic signals \\[4pt]
+%       % =====================================================================================
+%       & \textit{Monocyte}
+%       & \textbf{Precursors} to macrophages, DCs, and MDSCs
+%       & [TLR]
+%       & Interferon from T$_\text{H}$ cells
+%       & 
+%       & \footnotesize Circulates in the bloodstream for approximately 8 hours \\[4pt]
 
-      % =====================================================================================
-      & \textit{Macrophage}
-      & \textbf{Phagocytosis} of microorganisms and cellular debris
+%       % =====================================================================================
+%       & \textit{Macrophage}
+%       & \textbf{Phagocytosis} of microorganisms and cellular debris
 
-      \textit{Minor role:} \textbf{Presents} antigens following activation
-      & [MHC~II]---{\footnotesize post-activation}
+%       \textit{Minor role:} \textbf{Presents} antigens following activation
+%       & [MHC~II]---{\footnotesize post-activation}
 
-      [PRR]---{\footnotesize mediates pathogen pattern recognition; specifically \textbf{Toll-like receptors}}
-      & 
-      & ROS/RNS via the NOX complex
+%       [PRR]---{\footnotesize mediates pathogen pattern recognition; specifically \textbf{Toll-like receptors}}
+%       & 
+%       & ROS/RNS via the NOX complex
 
-      [B7]
+%       [B7]
 
-      [IL-1],[IL-6]
+%       [IL-1],[IL-6]
 
-      [TNFα]
-      & \footnotesize Exhibits amoeboid motility
+%       [TNFα]
+%       & \footnotesize Exhibits amoeboid motility
 
-      Pathogens opsonized by antibodies are more readily phagocytized\\[4pt]
-    \hline
+%       Pathogens opsonized by antibodies are more readily phagocytized\\[4pt]
+%     \hline
 
-    \multirow{2}{*}{\textbf{OTHER}}
-      % =====================================================================================
-      & \textit{Red Blood Cells (RBC; Erythrocytes)} 
-      & \textbf{Distributes} oxygen and nutrients systemically
-      & [CD235a]---{\footnotesize contributes to RBC antigenic properties}
-      & 
-      & 
-      & \\[4pt]
-      % =====================================================================================
-      & \textit{Platelets (Thrombocytes)} 
-      & \textbf{Mediates} coagulation at sites of vascular injury
-      & [CD41]---{\footnotesize functions as a key marker essential for platelet aggregation}
+%     \multirow{2}{*}{\textbf{OTHER}}
+%       % =====================================================================================
+%       & \textit{Red Blood Cells (RBC; Erythrocytes)} 
+%       & \textbf{Distributes} oxygen and nutrients systemically
+%       & [CD235a]---{\footnotesize contributes to RBC antigenic properties}
+%       & 
+%       & 
+%       & \\[4pt]
+%       % =====================================================================================
+%       & \textit{Platelets (Thrombocytes)} 
+%       & \textbf{Mediates} coagulation at sites of vascular injury
+%       & [CD41]---{\footnotesize functions as a key marker essential for platelet aggregation}
 
-      [CD42b]---{\footnotesize facilitates platelet adhesion via a glycoprotein complex}
-      & 
-      & 
-      & \footnotesize Platelets are derived from megakaryocytes\\
+%       [CD42b]---{\footnotesize facilitates platelet adhesion via a glycoprotein complex}
+%       & 
+%       & 
+%       & \footnotesize Platelets are derived from megakaryocytes\\
 
-    \hline
-    \end{tabular}
+%     \hline
+%     \end{tabular}
 
-  \end{sidewaystable}
+%   \end{sidewaystable}
 
-  \begin{core}{Follicular Dendritic Cells}
+%   \begin{core}{Follicular Dendritic Cells}
 
-    \textbf{Follicular dendritic cells (FDCs)} are specialized stromal cells that, in contrast to the myeloid, antigen presenting \textbf{sentinel dendritic cells} shown in \autoref{tab:myeloid}, do not arise via \textbf{hematopoiesis} from HSCs. Instead, they originate during embryogenesis from a distinct \textbf{mesenchymal} lineage of \textbf{mesenchymal progenitor cells}.
+%     \textbf{Follicular dendritic cells (FDCs)} are specialized stromal cells that, in contrast to the myeloid, antigen presenting \textbf{sentinel dendritic cells} shown in \autoref{tab:myeloid}, do not arise via \textbf{hematopoiesis} from HSCs. Instead, they originate during embryogenesis from a distinct \textbf{mesenchymal} lineage of \textbf{mesenchymal progenitor cells}.
     
-    Following development, FDCs migrate into lymphoid tissues, where they ultimately become embedded within the follicles of secondary lymphoid organs.
+%     Following development, FDCs migrate into lymphoid tissues, where they ultimately become embedded within the follicles of secondary lymphoid organs.
     
-    Once established, FDCs are distinguished by their unique capacity to \textbf{retain and present intact antigens} on their surfaces over extended periods. They capture antigens from the lymph and retain them as immune complexes, a function essential for \textbf{B cell activation} and \textbf{germinal center formation}.
+%     Once established, FDCs are distinguished by their unique capacity to \textbf{retain and present intact antigens} on their surfaces over extended periods. They capture antigens from the lymph and retain them as immune complexes, a function essential for \textbf{B cell activation} and \textbf{germinal center formation}.
     
-    The most characteristic surface markers of FDCs are as follows.
+%     The most characteristic surface markers of FDCs are as follows.
 
-    \begin{itemize}
+%     \begin{itemize}
 
-      \item \textbf{CD21/CD35}: FDCs express the complement receptors CD21 and CD35, which mediate their role in antigen capture.
+%       \item \textbf{CD21/CD35}: FDCs express the complement receptors CD21 and CD35, which mediate their role in antigen capture.
 
-      \item \textbf{FDC-M1}: This marker is specific to FDCs, enabling their identification and distinction from other cellular populations within lymphoid tissue.
+%       \item \textbf{FDC-M1}: This marker is specific to FDCs, enabling their identification and distinction from other cellular populations within lymphoid tissue.
 
-    \end{itemize}
+%     \end{itemize}
 
-  \end{core}
+%   \end{core}
 
-\section{Immune System Organs}
+% \section{Immune System Organs}
   
-  \subsection{Primary Immune System Organs}
+%   \subsection{Primary Immune System Organs}
 
-    \begin{core}{Primary Immune System Organs}
+%     \begin{core}{Primary Immune System Organs}
 
-      The \textbf{primary immune system organs} are the sites at which cells divide, commit to a developmental fate, and, where applicable, undergo gene rearrangement.
+%       The \textbf{primary immune system organs} are the sites at which cells divide, commit to a developmental fate, and, where applicable, undergo gene rearrangement.
 
-    \end{core}
+%     \end{core}
 
-    \begin{core}{Bone Marrow}
+%     \begin{core}{Bone Marrow}
 
-      \sbs{0.5}{
-        The \textbf{bone marrow} is the soft, highly vascularized tissue residing within the hollow interior cavities of bones. It is the primary site of \textbf{hematopoietic stem cells (HSCs)} (\textit{\autoref{core:hsc}}) and continuous blood cell generation in adult mammals, serving as the location for the complete maturation of all myeloid cells, NK cells, and B cells, as well as the site of the initial developmental stages of T cells.
+%       \sbs{0.5}{
+%         The \textbf{bone marrow} is the soft, highly vascularized tissue residing within the hollow interior cavities of bones. It is the primary site of \textbf{hematopoietic stem cells (HSCs)} (\textit{\autoref{core:hsc}}) and continuous blood cell generation in adult mammals, serving as the location for the complete maturation of all myeloid cells, NK cells, and B cells, as well as the site of the initial developmental stages of T cells.
 
-        The major anatomical sites containing active bone marrow include the femur, humerus, hip bones, and sternum. 
-      }{
-        \myfig{0.9}{immunology_figures/bone_marrow}{Bone marrow}{fig:bone_marrow}
-      }
+%         The major anatomical sites containing active bone marrow include the femur, humerus, hip bones, and sternum. 
+%       }{
+%         \myfig{0.9}{immunology_figures/bone_marrow}{Bone marrow}{fig:bone_marrow}
+%       }
 
-    \end{core}
+%     \end{core}
 
-    \begin{core}{Thymus}
+%     \begin{core}{Thymus}
 
-      \sbs{0.55}{
-        The \textbf{thymus}, a small gland located above the heart, is the primary site of \textbf{T cell maturation} and development, involving a rigorous, stepwise selection process that tests for the correct functionality of T cells and their surface receptors. Cells that successfully survive this selection process enter systemic circulation, whereas the vast majority that fail undergo \textbf{apoptosis}.
+%       \sbs{0.55}{
+%         The \textbf{thymus}, a small gland located above the heart, is the primary site of \textbf{T cell maturation} and development, involving a rigorous, stepwise selection process that tests for the correct functionality of T cells and their surface receptors. Cells that successfully survive this selection process enter systemic circulation, whereas the vast majority that fail undergo \textbf{apoptosis}.
 
-        Structurally, the thymus is organized into an \textbf{outer cortex} and an \textbf{inner medulla}, each supported by a distinct network of epithelial cells that guide developing \textbf{thymocytes} (\textit{immature, developing T cells}) through selection.
-      }{
-        \myfig{0.95}{immunology_figures/thymus}{Thymus}{fig:thymus}
-      }
+%         Structurally, the thymus is organized into an \textbf{outer cortex} and an \textbf{inner medulla}, each supported by a distinct network of epithelial cells that guide developing \textbf{thymocytes} (\textit{immature, developing T cells}) through selection.
+%       }{
+%         \myfig{0.95}{immunology_figures/thymus}{Thymus}{fig:thymus}
+%       }
 
-    \end{core}
+%     \end{core}
 
-  \subsection{Secondary Immune System Organs}
+%   \subsection{Secondary Immune System Organs}
 
-    \begin{core}{Secondary Immune System Organs}
+%     \begin{core}{Secondary Immune System Organs}
 
-      The \textbf{secondary immune system organs} are the sites at which information regarding pathogens is coordinated, leading to the subsequent activation of immune cells.
+%       The \textbf{secondary immune system organs} are the sites at which information regarding pathogens is coordinated, leading to the subsequent activation of immune cells.
 
-    \end{core}
+%     \end{core}
 
-    \begin{core}{Lymphatic System (Fluids, Vessels, Nodes)}
+%     \begin{core}{Lymphatic System (Fluids, Vessels, Nodes)}
 
-      \sbs{0.45}{
-        The \textbf{lymphatic system} functions as a \textbf{unidirectional} transport network, carrying fluid from peripheral tissues back toward the heart and ultimately the bloodstream.
+%       \sbs{0.45}{
+%         The \textbf{lymphatic system} functions as a \textbf{unidirectional} transport network, carrying fluid from peripheral tissues back toward the heart and ultimately the bloodstream.
 
-        \begin{itemize}
+%         \begin{itemize}
 
-          \item \textbf{Vessel \& Fluid}
+%           \item \textbf{Vessel \& Fluid}
 
-          \textbf{Lymphatic vessels} drain interstitial fluid, collecting antigens and leukocytes in the process; they facilitate the transport of immune cells but, unlike blood vessels, are devoid of \textbf{red blood cells (RBCs)}. Lymph fluid undergoes filtration as it passes through the lymph nodes.
+%           \textbf{Lymphatic vessels} drain interstitial fluid, collecting antigens and leukocytes in the process; they facilitate the transport of immune cells but, unlike blood vessels, are devoid of \textbf{red blood cells (RBCs)}. Lymph fluid undergoes filtration as it passes through the lymph nodes.
 
-          \item \textbf{Lymph Nodes}
+%           \item \textbf{Lymph Nodes}
 
-            Lymph nodes serve primarily to [1] \textbf{trap incoming antigens} presented by APCs and [2] \textbf{provide a localized environment for lymphocytes}---T and B cells---to interact with these antigens, thereby generating a subsequent adaptive immune response.
+%             Lymph nodes serve primarily to [1] \textbf{trap incoming antigens} presented by APCs and [2] \textbf{provide a localized environment for lymphocytes}---T and B cells---to interact with these antigens, thereby generating a subsequent adaptive immune response.
 
-          The resulting activated lymphocytes exit the node through the efferent lymphatic vessels, ultimately entering the bloodstream via the thoracic duct and subclavian vein to traffic toward the site of infection.
+%           The resulting activated lymphocytes exit the node through the efferent lymphatic vessels, ultimately entering the bloodstream via the thoracic duct and subclavian vein to traffic toward the site of infection.
 
-        \end{itemize}
-      }{
-        \myfig{1}{immunology_figures/lymph_system}{Lymphatic system}{fig:lymph_system}
-      }
+%         \end{itemize}
+%       }{
+%         \myfig{1}{immunology_figures/lymph_system}{Lymphatic system}{fig:lymph_system}
+%       }
 
-    \end{core}
+%     \end{core}
 
-    \begin{core}{Spleen}
+%     \begin{core}{Spleen}
 
-      \sbs{0.45}{
-        The \textbf{spleen} functions strictly to \textbf{filter blood}, as opposed to lymph, and can be categorized into two tissue types.
+%       \sbs{0.45}{
+%         The \textbf{spleen} functions strictly to \textbf{filter blood}, as opposed to lymph, and can be categorized into two tissue types.
 
-        \begin{itemize}
+%         \begin{itemize}
 
-          \item \textbf{Red Pulp} is responsible for recycling senescent RBCs and platelets from circulation via macrophage-mediated phagocytosis.
+%           \item \textbf{Red Pulp} is responsible for recycling senescent RBCs and platelets from circulation via macrophage-mediated phagocytosis.
 
-          \item \textbf{White Pulp} is a crucial site for immune activation, organized into \textbf{periarteriolar lymphoid sheaths (PALS)} primarily containing T cells, and marginal \textbf{lymphoid follicles} primarily containing B cells.
+%           \item \textbf{White Pulp} is a crucial site for immune activation, organized into \textbf{periarteriolar lymphoid sheaths (PALS)} primarily containing T cells, and marginal \textbf{lymphoid follicles} primarily containing B cells.
 
-        \end{itemize}
+%         \end{itemize}
 
-        \textit{Surgical removal of the spleen can significantly elevate an individual's susceptibility to bacterial infections.}
-      }{
-        \myfig{0.95}{immunology_figures/spleen}{Spleen}{fig:spleen}
-      }
+%         \textit{Surgical removal of the spleen can significantly elevate an individual's susceptibility to bacterial infections.}
+%       }{
+%         \myfig{0.95}{immunology_figures/spleen}{Spleen}{fig:spleen}
+%       }
 
-    \end{core}
+%     \end{core}
 
-    \begin{core}{Mucosa Associated Lymphoid Tissues (MALT)}
+%     \begin{core}{Mucosa Associated Lymphoid Tissues (MALT)}
 
-      \sbs{0.4}{
-        \textbf{Mucosa associated lymphoid tissues (MALT)} refer to the collection of lymphoid tissues situated across various mucosal surfaces, including the gastrointestinal (GALT), bronchial (BALT), and nasal (NALT) tracts; these mucosal systems represent the primary sites of pathogen entry into the body.
+%       \sbs{0.4}{
+%         \textbf{Mucosa associated lymphoid tissues (MALT)} refer to the collection of lymphoid tissues situated across various mucosal surfaces, including the gastrointestinal (GALT), bronchial (BALT), and nasal (NALT) tracts; these mucosal systems represent the primary sites of pathogen entry into the body.
 
-        \textit{Highly organized MALT structures include the tonsils, the appendix, and \textbf{Peyer's patches} located in the intestinal tract.}
+%         \textit{Highly organized MALT structures include the tonsils, the appendix, and \textbf{Peyer's patches} located in the intestinal tract.}
 
-        \textbf{Microfold (M) cells} (\textit{\autoref{fig:malt}}) are specialized, large epithelial cells located in areas of localized lymphoid concentration throughout the MALT, each possessing a basolateral pocket that houses several smaller immune cells.
+%         \textbf{Microfold (M) cells} (\textit{\autoref{fig:malt}}) are specialized, large epithelial cells located in areas of localized lymphoid concentration throughout the MALT, each possessing a basolateral pocket that houses several smaller immune cells.
 
-        The epithelial cells of the mucosa serve the following functions.
-      }{
-        \myfig{0.9}{immunology_figures/malt}{Mucosa associated lymphoid tissues; \textit{microfold cell present towards the left end of epithelial cell line}}{fig:malt}
-      }
+%         The epithelial cells of the mucosa serve the following functions.
+%       }{
+%         \myfig{0.9}{immunology_figures/malt}{Mucosa associated lymphoid tissues; \textit{microfold cell present towards the left end of epithelial cell line}}{fig:malt}
+%       }
 
-      \begin{itemize}
+%       \begin{itemize}
 
-        \item They facilitate the \textbf{transport of antigen samples} from the \textbf{lumen} (\textit{the space within vessels}) across the epithelial barrier via the specialized M cells.
+%         \item They facilitate the \textbf{transport of antigen samples} from the \textbf{lumen} (\textit{the space within vessels}) across the epithelial barrier via the specialized M cells.
 
-        \item They \textbf{secrete fluids} such as tears and mucus, which contain antimicrobial enzymes like lysozyme that degrade bacterial membranes.
+%         \item They \textbf{secrete fluids} such as tears and mucus, which contain antimicrobial enzymes like lysozyme that degrade bacterial membranes.
 
-        \item They utilize ciliary action to \textbf{physically sweep away pathogens and debris}, a mechanism prominent in the respiratory and reproductive tracts.
+%         \item They utilize ciliary action to \textbf{physically sweep away pathogens and debris}, a mechanism prominent in the respiratory and reproductive tracts.
 
-      \end{itemize}
+%       \end{itemize}
 
-    \end{core}
+%     \end{core}
 
-  \subsection{Tertiary Immune System Organs}
+%   \subsection{Tertiary Immune System Organs}
 
-  \begin{core}{Tertiary Immune System Organs}
+%   \begin{core}{Tertiary Immune System Organs}
 
-    A \textbf{tertiary immune organ} is an organized, non-encapsulated aggregate of immune and stromal cells that develops postnatally within non-lymphoid tissues at sites of persistent antigen exposure.
+%     A \textbf{tertiary immune organ} is an organized, non-encapsulated aggregate of immune and stromal cells that develops postnatally within non-lymphoid tissues at sites of persistent antigen exposure.
 
-  \end{core}
+%   \end{core}
 
-  \begin{core}{Skin}
+%   \begin{core}{Skin}
 
-    The \textbf{skin} is the largest organ of the human body and provides both innate and adaptive immune defense mechanisms. Its innate defense characteristics are as follows.
+%     The \textbf{skin} is the largest organ of the human body and provides both innate and adaptive immune defense mechanisms. Its innate defense characteristics are as follows.
 
-    \begin{itemize}
+%     \begin{itemize}
 
-      \item \textbf{Keratinocytes}, the epithelial cells forming the outer epidermal layer, secrete \textbf{cytokines} to activate localized innate immune cells upon detecting a threat.
+%       \item \textbf{Keratinocytes}, the epithelial cells forming the outer epidermal layer, secrete \textbf{cytokines} to activate localized innate immune cells upon detecting a threat.
 
-      \item Upon cell death, keratinocytes leave behind a protective \textbf{physical barrier} composed of keratin intermediate filaments.
+%       \item Upon cell death, keratinocytes leave behind a protective \textbf{physical barrier} composed of keratin intermediate filaments.
 
-      \item In the \textbf{epidermis}, sebaceous glands and hair follicles secrete \textbf{sebum}, antibacterial peptides, and \textbf{psoriasin} (\textit{a specific antimicrobial peptide}) to eliminate pathogenic bacteria while maintaining normal flora.
+%       \item In the \textbf{epidermis}, sebaceous glands and hair follicles secrete \textbf{sebum}, antibacterial peptides, and \textbf{psoriasin} (\textit{a specific antimicrobial peptide}) to eliminate pathogenic bacteria while maintaining normal flora.
 
-    \end{itemize}
+%     \end{itemize}
 
-    \sbs{0.5}{
-      \begin{itemize}
+%     \sbs{0.5}{
+%       \begin{itemize}
 
-        \item The underlying \textbf{dermis} consists of a deeper, thicker layer of mesenchymal and connective tissue that provides essential \textbf{blood supply and structural support}.
+%         \item The underlying \textbf{dermis} consists of a deeper, thicker layer of mesenchymal and connective tissue that provides essential \textbf{blood supply and structural support}.
 
-      \end{itemize}
+%       \end{itemize}
 
-      Conversely, the adaptive defense mechanisms of the skin are as follows.
+%       Conversely, the adaptive defense mechanisms of the skin are as follows.
 
-      \begin{itemize}
+%       \begin{itemize}
 
-        \item Keratinocytes, which are capable of expressing MHC~II receptors (\textit{\autoref{core:mhc_characteristics}}), and \textbf{Langerhans cells} (\textit{specialized dendritic cells of the skin}) present antigens to activate T$_\text{H}$ cells.
+%         \item Keratinocytes, which are capable of expressing MHC~II receptors (\textit{\autoref{core:mhc_characteristics}}), and \textbf{Langerhans cells} (\textit{specialized dendritic cells of the skin}) present antigens to activate T$_\text{H}$ cells.
 
-        \item Additionally, the skin harbors \textbf{intra-epidermal lymphocytes}, a specialized population of resident T cells that continuously patrol the tissue.
+%         \item Additionally, the skin harbors \textbf{intra-epidermal lymphocytes}, a specialized population of resident T cells that continuously patrol the tissue.
 
-      \end{itemize}
-    }{
-      \myfig{0.95}{immunology_figures/skin}{Skin}{fig:skin}
-    }
+%       \end{itemize}
+%     }{
+%       \myfig{0.95}{immunology_figures/skin}{Skin}{fig:skin}
+%     }
 
-  \end{core}
+%   \end{core}
 
-\section{Innate Immunity Processes}
+% \section{Innate Immunity Processes}
 
-  \begin{core}{Innate vs Adaptive Immune Response}
+%   \begin{core}{Innate vs Adaptive Immune Response}
 
-    The \textbf{innate immune response} is the body's first line of defense against pathogens. It is a rapid, \textbf{non-specific}, and evolutionary ancient defense mechanism that acts within minutes to hours of exposure. It is one that you can produce prior to exposure by a specific pathogen and doesn't require change to DNA/genes. All organisms have a form of innate immunity.
+%     The \textbf{innate immune response} is the body's first line of defense against pathogens. It is a rapid, \textbf{non-specific}, and evolutionary ancient defense mechanism that acts within minutes to hours of exposure. It is one that you can produce prior to exposure by a specific pathogen and doesn't require change to DNA/genes. All organisms have a form of innate immunity.
 
-    By contrast, the \textbf{adaptive response} is is the antigen-specific branch of the immune system that mounts a \textbf{tailored} defense against specific pathogen and creates long-lasting immunological memory. This response type takes days to develop during a primary infection because it requres the activation, gene rearrangement, clonal selection, and proliferation of lymphocytes with uniquely formed antigen receptors.
+%     By contrast, the \textbf{adaptive response} is is the antigen-specific branch of the immune system that mounts a \textbf{tailored} defense against specific pathogen and creates long-lasting immunological memory. This response type takes days to develop during a primary infection because it requres the activation, gene rearrangement, clonal selection, and proliferation of lymphocytes with uniquely formed antigen receptors.
 
-  \end{core}
+%   \end{core}
 
-  \subsection{Inflammation}
+%   \subsection{Inflammation}
 
-    \begin{core}{Inflammation}
+%     \begin{core}{Inflammation}
 
-      \textbf{Inflammation} represents a primary, coordinated physiological response that mobilizes systemic immune components to address and neutralize emerging pathogenic threats.
+%       \textbf{Inflammation} represents a primary, coordinated physiological response that mobilizes systemic immune components to address and neutralize emerging pathogenic threats.
 
-    \end{core}
+%     \end{core}
 
-    \begin{core}{Fever \& The Local Response}
+%     \begin{core}{Fever \& The Local Response}
 
-      \textbf{Fever} is a key characteristic of the inflammatory response, induced by the \textbf{hypothalamus}, which regulates the body's baseline temperature. It serves as an overt systemic indicator of immune up-regulation, a response historically correlated with improved survival rates during infection.
+%       \textbf{Fever} is a key characteristic of the inflammatory response, induced by the \textbf{hypothalamus}, which regulates the body's baseline temperature. It serves as an overt systemic indicator of immune up-regulation, a response historically correlated with improved survival rates during infection.
 
-      Any form of tissue injury, including internal trauma, inherently triggers a \textbf{localized inflammatory response}, characterized by the classical signs of \textbf{swelling} (\textit{due to vascular leakage}), \textbf{redness} (\textit{due to increased local blood flow}), \textbf{localized heat}, and \textbf{pain}. Collectively, these physiological changes serve to discourage behaviors that might exacerbate the initial injury.
+%       Any form of tissue injury, including internal trauma, inherently triggers a \textbf{localized inflammatory response}, characterized by the classical signs of \textbf{swelling} (\textit{due to vascular leakage}), \textbf{redness} (\textit{due to increased local blood flow}), \textbf{localized heat}, and \textbf{pain}. Collectively, these physiological changes serve to discourage behaviors that might exacerbate the initial injury.
 
-      \myfig{0.45}{immunology_figures/inflammation}{Localized inflammatory response; \textit{invading pathogens and physical tissue damage from a skin laceration elicit the classical signs of inflammation and the recruitment of immune cells to defend against infection}}{fig:inflammation}
+%       \myfig{0.45}{immunology_figures/inflammation}{Localized inflammatory response; \textit{invading pathogens and physical tissue damage from a skin laceration elicit the classical signs of inflammation and the recruitment of immune cells to defend against infection}}{fig:inflammation}
 
-    \end{core}
+%     \end{core}
 
-  \begin{core}{Immune Cell Extravasation}
+%     \begin{core}{Immune Cell Extravasation}
 
-    \textbf{Extravasation} is the process by which immune cells exit the circulatory system, migrating across the endothelial lining of blood vessels and into surrounding tissue toward a site of infection, injury, or inflammation. This process is particularly relevant to \textbf{neutrophils}, which are largely confined to the vasculature prior to infection and are selectively recruited to tissues via extravasation.
+%       \textbf{Extravasation} is the process by which immune cells exit the circulatory system, migrating across the endothelial lining of blood vessels and into surrounding tissue toward a site of infection, injury, or inflammation. This process is particularly relevant to \textbf{neutrophils}, which are largely confined to the vasculature prior to infection and are selectively recruited to tissues via extravasation.
 
-    \myfig{0.8}{immunology_figures/extravasation}{Extravastion of a neutrophil}{fig:extravasation}
+%       \myfig{0.8}{immunology_figures/extravasation}{Extravastion of a neutrophil}{fig:extravasation}
 
-    \begin{enumerate}[label=(\arabic*)]
+%       \begin{enumerate}[label=(\arabic*)]
 
-      \item \textbf{Rolling}: Neutrophils form transient, low-affinity interactions with the endothelial surface, causing them to slowly roll along the vascular wall.
+%         \item \textbf{Rolling}: Neutrophils form transient, low-affinity interactions with the endothelial surface, causing them to slowly roll along the vascular wall.
 
-      \item \textbf{Activation}: Endothelial and local cytokine signals induce conformational changes in neutrophil \textbf{integrins}.
+%         \item \textbf{Activation}: Endothelial and local cytokine signals induce conformational changes in neutrophil \textbf{integrins}.
 
-      \item \textbf{Adhesion}: High-affinity binding halts the rolling process, firmly arresting the cell on the endothelium.
+%         \item \textbf{Adhesion}: High-affinity binding halts the rolling process, firmly arresting the cell on the endothelium.
 
-      \item \textbf{Transendothelial Migration}: Neutrophils move between endothelial cells to enter the inflamed tissue, directed by local cytokine gradients, where they will subsequently phagocytize pathogens.
+%         \item \textbf{Transendothelial Migration}: Neutrophils move between endothelial cells to enter the inflamed tissue, directed by local cytokine gradients, where they will subsequently phagocytize pathogens.
 
-    \end{enumerate}
+%       \end{enumerate}
 
-  \end{core}
+%     \end{core}
 
-  \subsection{Innate Pathogen Pattern Recognition}
+%   \subsection{Innate Pathogen Pattern Recognition}
 
-    \begin{core}[label=core:pamp]{Pathogen Associated Molecular Patterns (PAMPs)}
+%     \begin{core}[label=core:pamp]{Pathogen Associated Molecular Patterns (PAMPs)}
 
-      \textbf{Pathogen associated molecular patterns (PAMPs)} are conserved molecular structures shared broadly across classes of microorganisms and are not found on host cells, allowing the \textbf{innate} immune system to recognize them as generic markers of infection via dedicated \textbf{pattern recognition receptors} (\textit{\autoref{core:prr}}).
+%       \textbf{Pathogen associated molecular patterns (PAMPs)} are conserved molecular structures shared broadly across classes of microorganisms and are not found on host cells, allowing the \textbf{innate} immune system to recognize them as generic markers of infection via dedicated \textbf{pattern recognition receptors} (\textit{\autoref{core:prr}}).
 
-      \begin{enumerate}
+%       \begin{enumerate}
 
-        \item \textbf{Proteins} (\textit{**very few recognized innately})
+%         \item \textbf{Proteins} (\textit{**very few recognized innately})
 
-          \begin{itemize}
+%           \begin{itemize}
 
-            \item \ul{Flagellin}: The primary structural component of bacterial flagella (\textit{tails}).
+%             \item \ul{Flagellin}: The primary structural component of bacterial flagella (\textit{tails}).
 
-            \item \ul{Profilin}: A surface protein found in protozoa that facilitates their motility and host cell targeting.
+%             \item \ul{Profilin}: A surface protein found in protozoa that facilitates their motility and host cell targeting.
 
-          \end{itemize}
+%           \end{itemize}
 
-        \item \textbf{Carbs \& Glycopeptides}
+%         \item \textbf{Carbs \& Glycopeptides}
 
-          \begin{itemize}
+%           \begin{itemize}
 
-            \item \ul{Zymosan}: A carbohydrate complex present in fungal cell walls.
+%             \item \ul{Zymosan}: A carbohydrate complex present in fungal cell walls.
 
-            \myfig{0.75}{immunology_figures/peptidoglycan}{Gram-positive (\textit{left}) and Gram-negative (\textit{right}) bacteria; \textit{peptidoglycan (burgandy) is present in both cell wall types}}{fig:peptidoglycan}
-            \vspace{-0.5cm}
+%             \myfig{0.75}{immunology_figures/peptidoglycan}{Gram-positive (\textit{left}) and Gram-negative (\textit{right}) bacteria; \textit{peptidoglycan (burgandy) is present in both cell wall types}}{fig:peptidoglycan}
+%             \vspace{-0.5cm}
 
-            \item \ul{Peptidoglycan}: A major structural polymer of both Gram-positive and Gram-negative bacterial cell walls shown in \autoref{fig:peptidoglycan}.
+%             \item \ul{Peptidoglycan}: A major structural polymer of both Gram-positive and Gram-negative bacterial cell walls shown in \autoref{fig:peptidoglycan}.
 
-          \end{itemize}
+%           \end{itemize}
 
-        \item \textbf{Lipids}
+%         \item \textbf{Lipids}
 
-          \begin{itemize}
+%           \begin{itemize}
 
-            \item \ul{Lipopolysaccharide (LPS)}: Innately recognized lipids that are typically conjugated to carbohydrates or peptides, exemplified by the outer membrane component of Gram-negative bacteria (\textit{\autoref{fig:peptidoglycan}}).
+%             \item \ul{Lipopolysaccharide (LPS)}: Innately recognized lipids that are typically conjugated to carbohydrates or peptides, exemplified by the outer membrane component of Gram-negative bacteria (\textit{\autoref{fig:peptidoglycan}}).
 
-          \end{itemize}
+%           \end{itemize}
 
-        \item \textbf{Nucleic Acids}
+%         \item \textbf{Nucleic Acids}
 
-          \begin{itemize}
+%           \begin{itemize}
 
-            \item \ul{Atypical Nucleic Acids}: Nucleic acids displaying configurations atypical of the host, such as single-stranded DNA or double-stranded RNA.
+%             \item \ul{Atypical Nucleic Acids}: Nucleic acids displaying configurations atypical of the host, such as single-stranded DNA or double-stranded RNA.
 
-          \end{itemize}
+%           \end{itemize}
 
-      \end{enumerate}
+%       \end{enumerate}
 
-    \end{core}
+%     \end{core}
 
-    \begin{core}[label=core:prr]{Pattern Recognition Receptors (PRRs)}
+%     \begin{core}[label=core:prr]{Pattern Recognition Receptors (PRRs)}
 
-      \textbf{Pattern recognition receptors (PRRs)} are host receptors that recognize PAMPs (\textit{\autoref{core:pamp}}), enabling the \textbf{innate} immune system to detect and respond to a broad range of microbial threats independent of prior antigen exposure.
+%       \textbf{Pattern recognition receptors (PRRs)} are host receptors that recognize PAMPs (\textit{\autoref{core:pamp}}), enabling the \textbf{innate} immune system to detect and respond to a broad range of microbial threats independent of prior antigen exposure.
 
-      \begin{enumerate}
+%       \begin{enumerate}
 
-        \item \textbf{Extracellular PRRs}
+%         \item \textbf{Extracellular PRRs}
 
-          \begin{itemize}
+%           \begin{itemize}
 
-            \item \ul{Lysozyme}: An enzyme that specifically \textbf{degrades the peptidoglycan} layer of bacterial cell walls (\textit{\autoref{fig:peptidoglycan}}).
+%             \item \ul{Lysozyme}: An enzyme that specifically \textbf{degrades the peptidoglycan} layer of bacterial cell walls (\textit{\autoref{fig:peptidoglycan}}).
 
-            \item \ul{Psoriasin}: A skin-specific \textbf{antimicrobial peptide (AMP)} that \textbf{disrupts bacterial cell membranes}; \textit{whereas AMPs are generally distributed systemically and share this membrane-disruptive mechanism, psoriasin is notable for its restriction to cutaneous tissue}.
+%             \item \ul{Psoriasin}: A skin-specific \textbf{antimicrobial peptide (AMP)} that \textbf{disrupts bacterial cell membranes}; \textit{whereas AMPs are generally distributed systemically and share this membrane-disruptive mechanism, psoriasin is notable for its restriction to cutaneous tissue}.
 
-            \item \ul{Mannose-binding lectin (MBL)}: A plasma protein that binds microbial carbohydrates to initiate the \textbf{lectin pathway of the complement system} (\textit{AUTOREF}).
+%             \item \ul{Mannose-binding lectin (MBL)}: A plasma protein that binds microbial carbohydrates to initiate the \textbf{lectin pathway of the complement system} (\textit{AUTOREF}).
 
-            \item \ul{C-reactive protein (CRP)}: An acute-phase plasma protein that binds to specific surface molecules on \textbf{microbes} and \textbf{damaged host cells}.
+%             \item \ul{C-reactive protein (CRP)}: An acute-phase plasma protein that binds to specific surface molecules on \textbf{microbes} and \textbf{damaged host cells}.
 
-            \item \ul{Lipopolysaccharide-binding protein (LBP)}: A protein that \textbf{recognizes and binds lipopolysaccharide (LPS)} (\textit{\autoref{fig:peptidoglycan}}), the principal constituent of the Gram-negative bacterial outer membrane.
+%             \item \ul{Lipopolysaccharide-binding protein (LBP)}: A protein that \textbf{recognizes and binds lipopolysaccharide (LPS)} (\textit{\autoref{fig:peptidoglycan}}), the principal constituent of the Gram-negative bacterial outer membrane.
 
-          \end{itemize}
+%           \end{itemize}
 
-        \item \textbf{Cytoplasmic PRRs}
+%         \item \textbf{Cytoplasmic PRRs}
 
-          \begin{itemize}
+%           \begin{itemize}
 
-            \item \ul{NOD proteins}: Intracellular sensors that detect degradation products of \textbf{bacterial cell walls} within the cytoplasm.
+%             \item \ul{NOD proteins}: Intracellular sensors that detect degradation products of \textbf{bacterial cell walls} within the cytoplasm.
 
-          \end{itemize}
+%           \end{itemize}
 
-        \item \textbf{Toll-like receptors (TLRs)} function as monomers or dimers and are distributed either \textbf{internally}, on endosomal or phagolysosomal membranes, or \textbf{externally}, on the plasma membrane facing the ECM.
+%         \item \textbf{Toll-like receptors (TLRs)} function as monomers or dimers and are distributed either \textbf{internally}, on endosomal or phagolysosomal membranes, or \textbf{externally}, on the plasma membrane facing the ECM.
 
-          \myfig{0.6}{immunology_figures/tlr}{Toll-like receptors; \textit{external (top left) TLRs sit on the plasma membrane facing the ECM and internal (bottom right) TLRs sit on the endosomal membrane}}{fig:tlr}
-          \vspace{-0.5cm}
+%           \myfig{0.6}{immunology_figures/tlr}{Toll-like receptors; \textit{external (top left) TLRs sit on the plasma membrane facing the ECM and internal (bottom right) TLRs sit on the endosomal membrane}}{fig:tlr}
+%           \vspace{-0.5cm}
 
-          Upon ligand binding, TLRs initiate signaling cascades that activate the transcription factor NF-κB, upregulating the \textbf{production of pro-inflammatory cytokines}.
+%           Upon ligand binding, TLRs initiate signaling cascades that activate the transcription factor NF-κB, upregulating the \textbf{production of pro-inflammatory cytokines}.
 
-          \begin{table}[H]
-            \centering
-            \small
-            \begin{tabular}{@{}l l p{9cm}@{}}
-              \hline
-              \textbf{Category} & \textbf{TLR} & \textbf{Ligand Recognition} \\
-              \hline
-              \multirow{4}{*}{External}
-                & TLR1, TLR2, TLR6 & Mediate the recognition of various \textbf{bacterial lipopeptides} and cell wall \textbf{lipoproteins}. \\
-                & TLR4 & Specifically detects \textbf{LPS} from Gram-negative bacteria. \\
-                & TLR5 & Specifically recognizes \textbf{bacterial flagellin}. \\
-                & TLR10 & \textit{Unknown.} \\
-              \hline
-              \multirow{3}{*}{Internal}
-                & TLR3 & Detects \textbf{viral double-stranded RNA}. \\
-                & TLR7, TLR8 & Detect \textbf{single-stranded viral RNA sequences}. \\
-                & TLR9 & Recognizes \textbf{unmethylated CpG dinucleotide motifs} commonly found in bacterial and viral DNA. \\
-              \hline
-              Non-Human & TLR11, TLR12, TLR13 & These receptors are absent in humans but are expressed in mice, functioning primarily to recognize \textbf{profilin} (\textit{an actin-binding protein}) and bacterial 23S rRNA. \\
-              \hline
-            \end{tabular}
-            \caption{Ligand specificity of TLRs, categorized by cellular localization.}
-            \label{tab:tlr_ligand}
-          \end{table}
+%           \begin{table}[H]
+%             \centering
+%             \small
+%             \begin{tabular}{@{}l l p{9cm}@{}}
+%               \hline
+%               \textbf{Category} & \textbf{TLR} & \textbf{Ligand Recognition} \\
+%               \hline
+%               \multirow{4}{*}{External}
+%                 & TLR1, TLR2, TLR6 & Mediate the recognition of various \textbf{bacterial lipopeptides} and cell wall \textbf{lipoproteins}. \\
+%                 & TLR4 & Specifically detects \textbf{LPS} from Gram-negative bacteria. \\
+%                 & TLR5 & Specifically recognizes \textbf{bacterial flagellin}. \\
+%                 & TLR10 & \textit{Unknown.} \\
+%               \hline
+%               \multirow{3}{*}{Internal}
+%                 & TLR3 & Detects \textbf{viral double-stranded RNA}. \\
+%                 & TLR7, TLR8 & Detect \textbf{single-stranded viral RNA sequences}. \\
+%                 & TLR9 & Recognizes \textbf{unmethylated CpG dinucleotide motifs} commonly found in bacterial and viral DNA. \\
+%               \hline
+%               Non-Human & TLR11, TLR12, TLR13 & These receptors are absent in humans but are expressed in mice, functioning primarily to recognize \textbf{profilin} (\textit{an actin-binding protein}) and bacterial 23S rRNA. \\
+%               \hline
+%             \end{tabular}
+%             \caption{Ligand specificity of TLRs, categorized by cellular localization.}
+%             \label{tab:tlr_ligand}
+%           \end{table}
 
-      \end{enumerate}
+%       \end{enumerate}
 
-    \end{core}
+%     \end{core}
 
-  \subsection{Phagocytosis \& NOX Complexes}
+%   \subsection{Phagocytosis \& NOX Complexes}
 
-    \begin{core}{Phagocytosis}
+%     \begin{core}{Phagocytosis}
 
-      \sbs{0.4}{
-        \textbf{Phagocytosis} refers to the engulfment of pathogens via the extension of \textbf{pseudopodia} around the target, leading to the formation a a \textbf{phagosome}. This process is triggered upstream by \textbf{PAMPs} (\textit{\autoref{core:pamp}}) and their recognition by \textbf{PRRs} (\textit{\autoref{core:prr}}) and primarily carried out by macrophages and neutrophils, which degrades the trapped pathogen via \textbf{NOX complexes} (\textit{\autoref{core:nox_complex}}).
-      }{
-        \myfig{1}{immunology_figures/phagocytosis}{Phagocytosis}{fig:phagocytosis}
-      }
+%       \sbs{0.4}{
+%         \textbf{Phagocytosis} refers to the engulfment of pathogens via the extension of \textbf{pseudopodia} around the target, leading to the formation a a \textbf{phagosome}. This process is triggered upstream by \textbf{PAMPs} (\textit{\autoref{core:pamp}}) and their recognition by \textbf{PRRs} (\textit{\autoref{core:prr}}) and primarily carried out by macrophages and neutrophils, which degrades the trapped pathogen via \textbf{NOX complexes} (\textit{\autoref{core:nox_complex}}).
+%       }{
+%         \myfig{1}{immunology_figures/phagocytosis}{Phagocytosis}{fig:phagocytosis}
+%       }
 
-    \end{core}
+%     \end{core}
 
-    \begin{core}[label=core:nox_complex]{NADPH Oxidase (NOX) Complexes}
+%     \begin{core}[label=core:nox_complex]{NADPH Oxidase (NOX) Complexes}
 
-      \textbf{NADPH oxidase (NOX) complexes} are multi-subunit, membrane-bound enzymes whose primary biological function is the targeted generation of \textbf{reactive oxygen species (ROS)} through the transfer of electrons across biological membranes. 
+%       \textbf{NADPH oxidase (NOX) complexes} are multi-subunit, membrane-bound enzymes whose primary biological function is the targeted generation of \textbf{reactive oxygen species (ROS)} through the transfer of electrons across biological membranes. 
 
-      \pgfig{
-        [
-          >=Stealth,
-          every node/.style={font=\sffamily},
-          membranefill/.style={fill=boxblue},
-          boxfill/.style={fill=boxblue, draw=black},
-        ]
+%       \pgfig{
+%         [
+%           >=Stealth,
+%           every node/.style={font=\sffamily},
+%           membranefill/.style={fill=boxblue},
+%           boxfill/.style={fill=boxblue, draw=black},
+%         ]
 
-        % ===== Labels =====
-        \node[font=\sffamily\bfseries, anchor=west] (phagosome) at (0,11.8) {\underline{PHAGOSOME}};
-        \node[font=\sffamily\bfseries, anchor=west] (cytoplasm) at (0,0.4) {\underline{CYTOPLASM}};
+%         % ===== Labels =====
+%         \node[font=\sffamily\bfseries, anchor=west] (phagosome) at (0,11.8) {\underline{PHAGOSOME}};
+%         \node[font=\sffamily\bfseries, anchor=west] (cytoplasm) at (0,0.4) {\underline{CYTOPLASM}};
 
-        % ===== Bacteria cloud =====
-        \node[cloud, draw, boxfill, aspect=2.2, minimum width=3.6cm, minimum height=2.2cm, cloud puffs=13] (bacteria) at (13.2,11.0) {Bacteria};
+%         % ===== Bacteria cloud =====
+%         \node[cloud, draw, boxfill, aspect=2.2, minimum width=3.6cm, minimum height=2.2cm, cloud puffs=13] (bacteria) at (13.2,11.0) {Bacteria};
 
-        % ===== Degradation arrow =====
-        \node[font=\sffamily] at (8.6,12.15) {Degradation};
+%         % ===== Degradation arrow =====
+%         \node[font=\sffamily] at (8.6,12.15) {Degradation};
 
-        % ===== Membrane =====
-        \coordinate (memL) at (0.3,4.0);
-        \coordinate (memR) at (15.6,4.0);
-        \draw[boxfill] (0.3,4.6) rectangle (15.6,5.4);
-        \node[anchor=west] at (0.5,5.0) {\normalsize Phagosome Membrane};
-        \draw[boxfill] (0.8,4.0) rectangle (15.1,4.6);
-        \node[anchor=west] at (1.0,4.3) {\normalsize Microfilaments};
+%         % ===== Membrane =====
+%         \coordinate (memL) at (0.3,4.0);
+%         \coordinate (memR) at (15.6,4.0);
+%         \draw[boxfill] (0.3,4.6) rectangle (15.6,5.4);
+%         \node[anchor=west] at (0.5,5.0) {\normalsize Phagosome Membrane};
+%         \draw[boxfill] (0.8,4.0) rectangle (15.1,4.6);
+%         \node[anchor=west] at (1.0,4.3) {\normalsize Microfilaments};
 
-        % ===== NOX Complex =====
-        \node[boxfill, rounded corners=8pt, minimum width=2.3cm, minimum height=3.4cm, align=center] (nox) at (6.0,4.9) {\Large NOX\\Complex};
+%         % ===== NOX Complex =====
+%         \node[boxfill, rounded corners=8pt, minimum width=2.3cm, minimum height=3.4cm, align=center] (nox) at (6.0,4.9) {\Large NOX\\Complex};
 
 
-        % ===== Defensins ellipses =====
-        \node[boxfill, ellipse, minimum width=2.2cm, minimum height=1.1cm] (def1) at (11.0,1.6) {Defensins};
-        \node[boxfill, ellipse, minimum width=2.2cm, minimum height=1.1cm] (def2) at (10.3,0.2) {Defensins};
-        \node[boxfill, ellipse, minimum width=2.2cm, minimum height=1.1cm] (def3) at (12.9,0.75) {Defensins};
+%         % ===== Defensins ellipses =====
+%         \node[boxfill, ellipse, minimum width=2.2cm, minimum height=1.1cm] (def1) at (11.0,1.6) {Defensins};
+%         \node[boxfill, ellipse, minimum width=2.2cm, minimum height=1.1cm] (def2) at (10.3,0.2) {Defensins};
+%         \node[boxfill, ellipse, minimum width=2.2cm, minimum height=1.1cm] (def3) at (12.9,0.75) {Defensins};
 
-        % ===== Chemical species labels =====
-        \node[font=\large] (O2) at (3.9,7.4) {\ce{2O2}};
-        \node[font=\large] (O2m) at (7.6,7.6) {\ce{2O2^-}};
-        \node[font=\large] (H2O2) at (7.0,10.2) {\ce{H2O2}};
-        \node[font=\large] (HOCl) at (3.0,10.1) {\ce{HOCl}};
-        \node[font=\large] (NADPH) at (3.9,2.45) {\ce{NADPH}};
-        \node[font=\large] (NADPp) at (7.8,2.45) {\ce{NADP+ + H+}};
-        \node[font=\large] (Htop) at (10.15,7.4) {\ce{H+}};
-        \node[font=\large] (Hbot) at (10.15,2.85) {\ce{H+}};
-        \node[font=\large] (Ktop) at (12.15,7.4) {\ce{K+}};
-        \node[font=\large] (Kbot) at (12.15,2.6) {\ce{K+}};
+%         % ===== Chemical species labels =====
+%         \node[font=\large] (O2) at (3.9,7.4) {\ce{2O2}};
+%         \node[font=\large] (O2m) at (7.6,7.6) {\ce{2O2^-}};
+%         \node[font=\large] (H2O2) at (7.0,10.2) {\ce{H2O2}};
+%         \node[font=\large] (HOCl) at (3.0,10.1) {\ce{HOCl}};
+%         \node[font=\large] (NADPH) at (3.9,2.45) {\ce{NADPH}};
+%         \node[font=\large] (NADPp) at (7.8,2.45) {\ce{NADP+ + H+}};
+%         \node[font=\large] (Htop) at (10.15,7.4) {\ce{H+}};
+%         \node[font=\large] (Hbot) at (10.15,2.85) {\ce{H+}};
+%         \node[font=\large] (Ktop) at (12.15,7.4) {\ce{K+}};
+%         \node[font=\large] (Kbot) at (12.15,2.6) {\ce{K+}};
 
-        % ===== Arrows =====
-        % NADPH into NOX complex
-        \draw[->,thick] (NADPH.north east) to[bend left=45] (NADPp.north west);
-        % 2O2 -> 2O2-
-        \draw[->,thick] (O2.south east) to[bend right=45] (O2m.south west);
-        % 2O2- -> H2O2
-        \draw[->,thick] (O2m.north) -- (H2O2.south);
-        % H2O2 -> HOCl (elbow / stepped line)
-        \draw[->,thick] (H2O2.west) -- (HOCl.east);
-        % HOCl -> curved arrow up to Degradation arrow start
-        \draw[->,thick] (HOCl.north east) to[bend left=15] (10.7,11.75);
-        % NADP+ + H+ -> H+ (bottom)
-        \draw[->,thick] (NADPp.east) -- (Hbot.west);
-        % Vertical arrow through Proton channel: Hbot -> Htop
-        \draw[->,thick] (Hbot.north) -- (Htop.south);
-        % Vertical arrow through Kv channel: Kbot -> Ktop
-        \draw[->,thick] (Kbot.north) -- (Ktop.south);
-        % Defensins -> Bacteria (curved, right side, swings wide of the Kv channel arrow)
-        \draw[->,thick] ([xshift=0.3cm,yshift=0.2cm]def1.east) to[bend right=60] ([xshift=0.2cm,yshift=-0.2cm]bacteria.south east);
-        \draw[->,thick] (Htop.north) -- (H2O2.south);
+%         % ===== Arrows =====
+%         % NADPH into NOX complex
+%         \draw[->,thick] (NADPH.north east) to[bend left=45] (NADPp.north west);
+%         % 2O2 -> 2O2-
+%         \draw[->,thick] (O2.south east) to[bend right=45] (O2m.south west);
+%         % 2O2- -> H2O2
+%         \draw[->,thick] (O2m.north) -- (H2O2.south);
+%         % H2O2 -> HOCl (elbow / stepped line)
+%         \draw[->,thick] (H2O2.west) -- (HOCl.east);
+%         % HOCl -> curved arrow up to Degradation arrow start
+%         \draw[->,thick] (HOCl.north east) to[bend left=15] (10.7,11.75);
+%         % NADP+ + H+ -> H+ (bottom)
+%         \draw[->,thick] (NADPp.east) -- (Hbot.west);
+%         % Vertical arrow through Proton channel: Hbot -> Htop
+%         \draw[->,thick] (Hbot.north) -- (Htop.south);
+%         % Vertical arrow through Kv channel: Kbot -> Ktop
+%         \draw[->,thick] (Kbot.north) -- (Ktop.south);
+%         % Defensins -> Bacteria (curved, right side, swings wide of the Kv channel arrow)
+%         \draw[->,thick] ([xshift=0.3cm,yshift=0.2cm]def1.east) to[bend right=60] ([xshift=0.2cm,yshift=-0.2cm]bacteria.south east);
+%         \draw[->,thick] (Htop.north) -- (H2O2.south);
 
-        % ===== Proton Channels (cylinder) =====
-        \begin{scope}
-          \coordinate (pcB) at (10.15,3.55);
-          \coordinate (pcT) at (10.15,5.65);
-          \fill[boxfill] (9.5,3.55) rectangle (10.8,5.65);
-          \draw[boxfill] (9.5,3.55) -- (9.5,5.65) (10.8,3.55) -- (10.8,5.65);
-          \node[align=center] at (10.15,4.55) {\small Proton\\\small Channels};
-        \end{scope}
+%         % ===== Proton Channels (cylinder) =====
+%         \begin{scope}
+%           \coordinate (pcB) at (10.15,3.55);
+%           \coordinate (pcT) at (10.15,5.65);
+%           \fill[boxfill] (9.5,3.55) rectangle (10.8,5.65);
+%           \draw[boxfill] (9.5,3.55) -- (9.5,5.65) (10.8,3.55) -- (10.8,5.65);
+%           \node[align=center] at (10.15,4.55) {\small Proton\\\small Channels};
+%         \end{scope}
 
-        % ===== Kv Channels (cylinder) =====
-        \begin{scope}
-          \coordinate (kcB) at (12.15,3.55);
-          \coordinate (kcT) at (12.15,5.65);
-          \fill[boxfill] (11.5,3.55) rectangle (12.8,5.65);
-          \draw[boxfill] (11.5,3.55) -- (11.5,5.65) (12.8,3.55) -- (12.8,5.65);
-          \node[align=center] at (12.15,4.55) {\small Kv\\\small Channels};
-        \end{scope}
+%         % ===== Kv Channels (cylinder) =====
+%         \begin{scope}
+%           \coordinate (kcB) at (12.15,3.55);
+%           \coordinate (kcT) at (12.15,5.65);
+%           \fill[boxfill] (11.5,3.55) rectangle (12.8,5.65);
+%           \draw[boxfill] (11.5,3.55) -- (11.5,5.65) (12.8,3.55) -- (12.8,5.65);
+%           \node[align=center] at (12.15,4.55) {\small Kv\\\small Channels};
+%         \end{scope}
 
-        \node[font=\bfseries\large] at (2,3.5) {(A)};
-        \node[font=\bfseries\large] at (2,10) {(B)};
-        \node[font=\bfseries\large] at (14,2) {(C)};
-        \node[font=\bfseries\large] at (13,7) {(D)};
-      }{NADPH oxidase (NOX) complex mechanism; \textit{(A) \textbf{Microfilaments package the exterior} of the vacuole, preventing swelling and maintaining the concentration of toxic compounds inside}; \textit{(B) Both \textbf{ROS} and \textbf{RNS} are made to attack the bacterial cell, this figure only shows the formation of ROS however for simplicity}; \textit{(C) \textbf{Defensin peptides (a type of AMP)} attack the pathogen by poking holes in its membrane, working best in a certain \ce{K+} concentration and tonicity}; \textit{(D) In order to \textbf{regulate the electrochemical gradient} made by transferring ions across the membrane, \ce{K+} is transferred into the phagosomal lumen by membrane channels}}{fig:phk}{0.8}
+%         \node[font=\bfseries\large] at (2,3.5) {(A)};
+%         \node[font=\bfseries\large] at (2,10) {(B)};
+%         \node[font=\bfseries\large] at (14,2) {(C)};
+%         \node[font=\bfseries\large] at (13,7) {(D)};
+%       }{NADPH oxidase (NOX) complex mechanism; \textit{(A) \textbf{Microfilaments package the exterior} of the vacuole, preventing swelling and maintaining the concentration of toxic compounds inside}; \textit{(B) Both \textbf{ROS} and \textbf{RNS} are made to attack the bacterial cell, this figure only shows the formation of ROS however for simplicity}; \textit{(C) \textbf{Defensin peptides (a type of AMP)} attack the pathogen by poking holes in its membrane, working best in a certain \ce{K+} concentration and tonicity}; \textit{(D) In order to \textbf{regulate the electrochemical gradient} made by transferring ions across the membrane, \ce{K+} is transferred into the phagosomal lumen by membrane channels}}{fig:phk}{0.8}
        
-    \end{core}
+%     \end{core}
 
 \section{Antibodies}
 
   \subsection{Immunoglobulin Structure \& Isotypes}
 
-    \begin{core}{Immunoglobulin Structure}
+    \begin{core}{Immunoglobulin Superfamily}
 
-      <FIGURE>
+      \sbs{0.55}{
+        The \textbf{immunoglobulin superfamily} refers to a group of molecules containing at least one \textbf{immunoglobulin (Ig) domain}. Regardless of the specific protein it belongs to, almost all domains share a highly conserved 3D structure consisting of 70 to 110 amino acids folded into a compact lump of \textbf{β pleated sheets} that are pined together by a single \textbf{intradomain disulfide bond} between \textbf{two cysteine residues}
+
+        It's natural confirmation results in the inner-facing side chains of the β sheets being primarily \textbf{hydrophobic}, driving them to pack itghly against each other, further stabilizing what is often referred to as the "\textit{sandwich}" structure.
+      }{
+        \myfig{0.65}{immunology_figures/ig_domain}{Three-dimensional structure of an immunoglobulin domain}{fig:ig_domain}
+      }
+
+    \end{core}
+
+    \begin{core}[label=core:ig_receptor]{Immunoglobulin Receptors \& Antibodies}
+
+      An \textbf{antibody}---also known simply as an \textbf{immunoglobulin} or \textbf{Ig}---is a highly specialized, Y-shaped protein composed of Ig domains that is produced by the immune system to recognize and neutralize foreign threats. An \textbf{Ig receptor} (\textit{or B cell receptor}) is an antibody bearing a membrane-spanning and cytosolic domain at its \textit{C-terminal} end. The general antibody structure can be divided into two \textbf{light (L)} and two \textbf{heavy (H)} chains.
 
       \begin{enumerate}
 
-        \item \textbf{Light Domain} 
+        \item \textbf{Light Chains}: The two light chains---$~25,000$ MW; $50,000$ MW total for both---are identical to one another and each consist of 2 Ig domains: one \textbf{variable} (\textit{\ce{V_L} in \autoref{fig:antibody}}) and one \textbf{constant} (\textit{\ce{C_L} in \autoref{fig:antibody}}).
+
+          \myfig{0.55}{immunology_figures/light_chain}{Three-dimensional structure of an antibody light chain; \textit{variable Ig domain (left), joining segment (green), constant domain (blue)}}{fig:light_chain}
 
           \begin{itemize}
 
-            \item \textit{Variable Region ($V_L$)}
+            \item \textbf{Constant Region (\ce{C_L})}: The carboxy-terminal (\ce{COOH}) portion of this region \textbf{links with the heavy chain}, contributing to the hinge structure that forms the base of the characteristic Y-shape. Two distinct isotypic variants of the light chain constant region exist: the \textbf{kappa (κ)} and \textbf{lambda (λ)} chains, the latter of which can be further divided into five structural subclasses.
 
-              % 3 loops that stick out at the end comprise hypervariable region composed of three non-contiguous amino acid sequences (15-20% of the domain)
-              Contains three distinct loops extending from the terminus that form the hypervariable region. This region is constructed from three non-contiguous amino acid sequences, comprising approximately 15 to 20 percent of the domain.
-
-            \item \textit{Constant Region ($C_L$)}
-
-              % The C terminal of this region connect with the H chain to hinge/bend to the base of the Y figure
-              The carboxy-terminal portion of this region links with the heavy chain, contributing to the hinge structure that forms the base of the characteristic Y-shape.
-
-              % There are two version:
-              There are two distinct isotopic variants of the light chain constant region:
-
-              % Kappa (κ) 
-              Kappa (κ) chains.
-
-              % Lambda (λ)—this version has 5 further subversions of the constant region
-              Lambda (λ) chains, which are further divided into five structural subclasses.
+            \item \textbf{Variable Region (\ce{V_L})}: This region contains three distinct loops extending from the terminus that together form the \textbf{hypervariable region}, constructed from three non-contiguous amino acid sequences and comprising approximately 15--20\% of the domain.
 
           \end{itemize}
 
-        \item \textbf{Heavy Domain}
+        \pgfig{
+          \tikzset{
+            redbox/.style={rectangle, draw, fill={rgb,255:red,224;green,102;blue,102}, minimum width=3cm, minimum height=1cm, align=center, font=\bfseries},
+            bluebox/.style={rectangle, draw, fill={rgb,255:red,61;green,133;blue,198}, text=white, minimum width=3cm, minimum height=1cm, align=center, font=\bfseries},
+            lightbluebox/.style={rectangle, draw, fill={rgb,255:red,207;green,226;blue,243}, minimum width=3cm, minimum height=1cm, align=center, font=\bfseries},
+          }
+
+          % CENTER X
+          \node[bluebox, rotate=45] at (0,0) {};
+          \node[bluebox, rotate=-45] at (0,0) {\small Hinge-Bend Region};
+
+          % RIGHT side
+          \node[bluebox, rotate=45] at (2.2,2.2) {Constant Region};
+          \node[lightbluebox, rotate=45] at (3.0,1.4) {\Large \ce{C_L}}; % 0.8 difference
+
+          \node[redbox, rotate=45] at (4.4,4.4) {Variable Region};
+          \node[redbox, rotate=45] at (5.2,3.6) {\Large \ce{V_L}}; % 0.8 difference
+
+          \node[bluebox, rotate=-70] at (1.8,-2.8) {};
+          \node[bluebox, rotate=-120] at (1.5,-6.0) {};
+
+          % LEFT side
+          \node[bluebox, rotate=-45] at (-2.2,2.2) {};
+          \node[lightbluebox, rotate=-45] (lightbox) at (-3.0,1.4) {}; % 0.8 difference
+
+          \node[redbox, rotate=-45] at (-4.4,4.4) {};
+          \node[redbox, rotate=-45] at (-5.2,3.6) {}; % 0.8 difference
+
+          \node[rectangle, draw, fill={rgb,255:red,182;green,215;blue,168}, minimum width=0.8cm, minimum height=0.2cm, align=center, font=\bfseries, rotate=-45] (dGroup) at (-5.45,4.9) {};
+
+          \node[rectangle, draw, fill={rgb,255:red,254;green,228;blue,152}, minimum width=2.2cm, minimum height=0.2cm, align=center, font=\bfseries, rotate=-45] (jGroup) at (-4.39,3.84) {};
+
+          \node[rectangle, draw, fill={rgb,255:red,254;green,228;blue,152}, minimum width=3cm, minimum height=0.2cm, align=center, font=\bfseries, rotate=-45] at (-4.93,3.87) {};
+
+          \node[bluebox, rotate=70] at (-1.8,-2.8) {Constant Region};
+          \node[bluebox, rotate=-60] at (-1.5,-6.0) {\small C-Term Domain};
+
+          \node[cloud, draw, fill=boxblue, draw=black, aspect=2.2, minimum width=2.7cm, minimum height=2.2cm, cloud puffs=13] at (0,-3) {\small Oligosaccharide};
+
+          \filldraw[fill=Red, draw=black] (0.4,0.4) circle (0.2);
+          \filldraw[fill=Red, draw=black] (1.8,1) circle (0.2) node (linkageGroup) {};
+          \filldraw[fill=Red, draw=black] (-1.8,1) circle (0.2);
+
+          \filldraw[fill=Green, draw=black] (-4.4,4.6) circle (0.2);
+          \filldraw[fill=Green, draw=black] (-4.6,4.4) circle (0.2);
+
+          \filldraw[fill=Green, draw=black] (-5.2,3.8) circle (0.2);
+          \filldraw[fill=Green, draw=black] (-5.4,3.6) circle (0.2) node (rGroup) {};
+
+          \node[regular polygon, regular polygon sides=6, minimum size=2cm, draw=black, fill={rgb,255:red,142;green,124;blue,195}, thick, font=\bfseries, text=white] at (7,6.5) {\large Antigen};
+
+          \draw[|-|, thick] (2.5,-0.2) -- (6.8,4.1) node[midway, below, sloped] {\bfseries \Large Light Chain};
+
+          \draw[|-|, thick] plot[smooth] coordinates {(5,6) (-2,-1) (-3,-5) (-1.5,-7.6)};
+
+          \node[rotate=45] at (2.3,4.0) {\bfseries \Large Heavy Chain};
+
+          \node[rotate=45] at (-6.1,5.5) {\bfseries \Large CDR};
+
+          \draw[|-|, thick] (-4,-7.6) -- (-4,-1) node[midway, above, xshift=-1.5cm] {\bfseries \Large Fc Stem};
+
+          \draw[{latex}-, thick] (rGroup) -- ++(-1,-2) node[below, align=center] {Stabilizing\\Cysteine R\\Groups};
+
+          \draw[{latex}-, thick] (linkageGroup) -- ++(3,-2) node[below right, align=center] {\bfseries \large (C)};
+
+          \draw[{latex}-, thick] (dGroup) -- ++(3,2) node[right, align=center] {Diversity Group};
+
+          \draw[{latex}-, thick] (jGroup) -- ++(3,2) node[right, align=center] {Joining Group};
+
+          \draw[{latex}-, thick] (lightbox) -- ++(-3,-2) node[left, align=center] {Kappa (κ) OR\\Lambda (λ; \textit{5 subversions})};
+
+          \node[] at (-7.5,5) {\bfseries \large (A)};
+          \node[] at (0,-4.5) {\bfseries \large (B)};
+        }{Antibody structure diagram; \textit{(A) \textbf{three loops} protrude from the ends of the variable domains and serve as the site of connection for a particular \textbf{antigen epitope}---each distinct CDR site is referred to as a distinct \textbf{idiotype}}; \textit{(B) an \textbf{oligosaccharide attaches to the second Ig domain}, determining how the antibody interacts with the rest of the immune system}; \textit{(C) both light--heavy and heavy--heavy linkages involve \textbf{covalent disulfide bonds} and strong \textbf{non-covalent forces}}}{fig:antibody}{0.8}
+
+        \item \textbf{Heavy Domain}: The two heavy chains---$~50,000$ MW; $100,000$ MW for both---are also identical to one another and each consist of 4 or 5 Ig domains: one variable domain and the remaining constant domains, which serve the same general function across distinct antibodies.
 
           \begin{itemize}
 
-            \item \textit{Variable Region ($V_H$)}
+            \item \textbf{Variable Region ($V_H$)}: Like the \ce{V_L} domain, three terminal loops form the \textbf{hypervariable region} of the heavy chain. When spatially paired with the three corresponding loops of the light chain \ce{V_L}, these loops collectively form the \textbf{complementarity-determining regions (CDRs)}, which are responsible for unique, hyperspecific antigen binding.
 
-              % 3 loops that stick out at the end comprise hypervariable region, composing the complementarity-determining regions (CDRs) when paired with the L chain’s 3 loops
-              Three terminal loops form the hypervariable region of the heavy chain. When paired spatially with the three corresponding loops of the light chain, they collectively form the complementarity-determining regions (CDRs) responsible for antigen binding.
+            \item \textbf{First Constant Domain}
 
-            \item \textit{First Constant Domain}
+            \item \textbf{Hinge-Bend Region}: This region is either a flexible \textbf{hinge} or a rigid \textbf{bend}, depending on the specific \textbf{Ig isotype} (\textit{\autoref{core:isotype}}). In IgM and IgE (\textit{possessing μ and ε heavy chains, respectively}), this region consists of additional, highly rigid immunoglobulin domains. In IgG, IgA, and IgD (\textit{possessing γ, α, and δ heavy chains}), it instead consists of a proline-rich amino acid sequence stabilized by disulfide bonds, which provides substantial structural flexibility.
 
-            \item \textit{Hinge-Bend Region}
+            \item \textbf{Next Constant Domain}: This domain serves as the primary site for post-translational \textbf{oligosaccharide attachment}, which spatially opens the domains to the aqueous environment, which is essential for facilitating subsequent interactions.
 
-              % IgM and IgE (μ and ε heavy chains)—rigid bend (Ig domains)
-              In IgM and IgE (possessing μ and ε heavy chains, respectively), this region consists of additional, highly rigid immunoglobulin domains.
-
-              % IgG, IgA, and IgD (γ, α, and δ)—sequence rich in proline and secured with disulfide linkages that makes this region bendable
-              In IgG, IgA, and IgD (possessing γ, α, and δ heavy chains), this region consists of a proline-rich amino acid sequence stabilized by disulfide bonds, providing substantial structural flexibility.
-
-            \item \textit{Next Constant Domain}
-
-              % Site of oligosaccharide attachment (added after protein synthesis)
-              This domain serves as the primary site for post-translational oligosaccharide attachment.
-
-              % Opens these domains of the aqueous environment and interacts with complements
-              Glycosylation spatially opens the domains to the aqueous environment, essential for facilitating subsequent interactions with complement proteins.
-
-            \item \textit{Carboxy-Terminal (C-term) Domain}
-
-              % Crucial function in determining whether antibody is membrane-bound (naive OR memory B cells) or secreted (plasma B cells)
-              This terminal domain dictates the antibody's final localization: whether it is retained as a membrane-bound receptor (on naive or memory B cells) or secreted extracellularly (by plasma cells).
-
-              % Secreted version ends with a short hydrophilic sequence
-              The secreted variant terminates in a short, exclusively hydrophilic amino acid sequence.
-
-              % Membrane-bound version ends with a hydrophobic and then hydrophilic sequence
-              The membrane-bound variant terminates in a specialized sequence containing a hydrophobic transmembrane span followed by a short cytoplasmic hydrophilic tail.
+            \item \textbf{Carboxy-Terminal (C-term) Domain}: This terminal domain dictates the antibody's final localization: whether it is retained as a \textbf{membrane-bound receptor} (\textit{on naive or memory B cells}) or \textbf{secreted extracellularly} (\textit{by \textbf{plasma cells}}). The secreted variant terminates in a short, exclusively hydrophilic amino acid sequence, whereas the membrane-bound variant terminates in a specialized sequence containing a hydrophobic transmembrane span followed by a short, cytoplasmic hydrophilic tail.
 
           \end{itemize}
 
@@ -928,96 +978,99 @@
 
     \end{core}
 
-    \begin{core}{Immunoglobulin Isotypes (\textit{H Chain Differences})}
+    \begin{core}[label=core:isotype]{Immunoglobulin Isotypes (\textit{H Chain Differences})}
+
+      There are five classes of antibodies---termed IgM, IgD, IgG, IgA, and IgE---which differ in function as well as in the exact amino acid sequence and conformation of the Fc stem. In all cases, the basic unit consists of two heavy chains and two light chains, and the light chain may be either κ or λ, as discussed in \autoref{core:ig_receptor}. The classification of antibodies into these five classes depends on the structural elements of and functions dependent on the heavy chain as outlined below.
+
+      \begin{itemize}
+
+        \item \textbf{Flexible hinge/Rigid bend}: The number of constant (C) Ig domains present, which determines whether the heavy chain possesses a flexible hinge region or a more rigid bend.
+
+        \item \textbf{Oligocsaccharide}: A small carbohydrate group is added to the second domain from the C-terminus, with the specific carbohydrate varying according to antibody type.
+
+        \item \textbf{J Chain}: The presence of a J chain allows certain antibodies to form compound structures capable of crossing epithelial layers.
+
+        \item \textbf{Subclasses}: Distinct subcategories exist within a given antibody class (\textit{e.g., IgA1, IgA2, IgA3, IgA4}).
+
+      \end{itemize}
+
+      \begin{table}[H]
+        \centering
+        \begin{tabular}{
+          >{\itshape}c
+          >{\centering\arraybackslash}p{0.5cm}
+          >{\centering\arraybackslash}p{1.2cm}
+          >{\arraybackslash}p{0.5cm}
+          >{\raggedright\arraybackslash}p{3cm}
+          >{\raggedright\arraybackslash}p{2.5cm}
+        }
+          \hline
+          \textbf{IgX} & \textbf{Hinge/ Bend} & \textbf{J chain} & \textbf{Sub- classes} & \textbf{Timing} & \textbf{Membrane Spanning} \\
+          \hline
+          M & Rigid & \checkmark & --- & First class produced in maturing B cells & Na\"ive \& memory \\
+          D & Hinge & $\times$ & --- & Produced as Ig receptor on mature, na\"ive B cells & Na\"ive cells (\textit{rarely soluble/memory}) \\
+          G & Hinge & $\times$ & 4 & After class switching in activated B cells & Memory cells \\
+          A & Hinge & \checkmark & 2 & After class switching in activated B cells & Memory cells \\
+          E & Bend & $\times$ & 1 & After class switching in activated B cells & Memory cells \\
+          \hline
+        \end{tabular}
+        \caption{Structural and functional properties distinguishing the five immunoglobulin classes.}
+        \label{tab:ig_classes}
+      \end{table}
+
+      The following is a more in depth look into the functional roles and characteristics of each Ig subclass.
 
       \begin{enumerate}
 
-        \item \textbf{IgD} (\textit{Memory \& Naive B Cells})
+        \item \textbf{IgM} (\textit{Memory \& Naive B Cells})
 
-          <FIGURE>
+          IgM is structurally defined by a \textbf{rigid bend} region comprising four constant domains and serves as a critical first-line defense, representing the first antibody isotype secreted into plasma during a \textbf{primary immune response}. 
 
-          % Hinge
-          Flexible hinge structure.
+          \myfig{0.45}{immunology_figures/igm_pentamer}{IgM Pentamer}{fig:igm_pentamer}
 
-          % Function—aids recognition by naive B cell
-          Functionally assists in initial antigen recognition by naive B cells.
+          When expressed as a membrane-bound B cell receptor, it exists strictly as a monomer; however, its secreted soluble form assembles into a large \textbf{pentameric structure} possessing ten distinct antigen-binding sites. This pentamer is stabilized by a central \textbf{J chain}, which both aids in \textbf{mucosal secretion} and, through its multimeric geometry, renders IgM highly efficient at \textbf{cross-linking antigens} and initiating the \textbf{complement cascade}. 
 
-          % Primarily functions as a B cell receptor (BCR) and rarely found in plasma
-          It predominantly operates as a membrane-bound B cell receptor (BCR) and is detected in plasma only at trace levels.
+          As with IgG, this potent complement activation drives rapid \textbf{opsonization} of targets and promotes their subsequent phagocytic destruction. Despite its larger size, IgM can also undergo \textbf{transcytosis} across mucosal barriers.
+
+        \item \textbf{IgD} (\textit{Naive B Cells})
+
+          IgD possesses a \textbf{flexible hinge} structure and assists in the \textbf{initial recognition of antigen by naive B cells}, predominantly operating as a \textbf{membrane-bound B cell receptor} rather than as a secreted antibody; accordingly, it is detected in plasma only at trace levels, accounting for roughly 0.2\% of total serum immunoglobulins.
 
         \item \textbf{IgG} (\textit{Memory B Cells})
 
-          <FIGURE>
+          \myfig{0.7}{immunology_figures/igg_subclasses}{IgG subclasses (\textit{IgG1, IgG2, IgG3, and IgG4})}{fig:igg_subclasses}
 
-          % Hinge
-          Flexible hinge structure.
+          IgG is characterized by a \textbf{flexible hinge} structure comprising three constant domains and represents the \textbf{predominant secreted antibody class}, responsible for widespread systemic defense against both bacterial and viral pathogens. It is highly effective at activating the \textbf{complement system}, a process that leads to pathogen \textbf{opsonization} and consequently enhances phagocytic clearance. IgG further diversifies into four subclasses, numbered 1 through 4, which vary in their biological specificity and effector function, as summarized below.
 
-          % Function—Standard secreted antibody defending against bacterial and viral pathogens
-          Represents the predominant secreted antibody class responsible for widespread systemic defense against both bacterial and viral pathogens.
-
-          % Activation of complements leads to opsonized pathogens, improving phagocytosis
-          Highly effective at activating the complement system, which leads to pathogen opsonization and consequently enhances phagocytic clearance.
-
-          <TABLE FOR THE CLASSES>
+          \begin{table}[H]
+            \centering
+            \begin{tabular}{
+              >{\itshape}c
+              >{\raggedright\arraybackslash}p{3.5cm}
+              >{\raggedright\arraybackslash}p{3.5cm}
+            }
+              \hline
+              \textbf{Subclass} & \textbf{Complement Activation} & \textbf{Fc Receptor Binding} \\
+              \hline
+              IgG1 & Moderately activates & Binds tightly \\
+              IgG2 & Weakly activates & Binds weakly \\
+              IgG3 & Strongly activates & Binds tightly (high disulfide content) \\
+              IgG4 & Does not activate & Binds weakly \\
+              \hline
+            \end{tabular}
+            \caption{Comparative complement activation and Fc receptor binding across IgG subclasses.}
+            \label{tab:igg_subclasses}
+          \end{table}
 
         \item \textbf{IgA} (\textit{Memory B Cells})
 
-          <FIGURE>
+          \myfig{0.6}{immunology_figures/iga_dimer}{IgA dimer}{fig:iga_dimer}
 
-          % Hinge
-          Flexible hinge structure.
-
-          % Function—primarily epithelial patrol
-          Primary role involves immune surveillance and defense at mucosal and epithelial barriers.
-
-          % Occurs in serum (liquid component of blood that remains after blood clots) as monomer and dimer when secreted
-          Circulates in the serum largely as a monomer, but is assembled and secreted across epithelia primarily as a dimer.
-
-          % Held together by J chain (good for secretion into and binding with mucus) and tends to home in on various epithelial linings
-          The dimeric form is covalently linked by a J (joining) chain, which facilitates secretion into mucus layers and localizes the antibody to various epithelial linings.
-
-          % The transfer of antibodies across the epithelia is called transcytosis
-          The active transport mechanism utilized to move these antibodies across epithelial cell layers is termed transcytosis.
-
-          <TABLE FOR THE CLASSES>
-
-        \item \textbf{IgM} (\textit{Memory \& Naive B Cells})
-
-          <FIGURE>
-
-          % Rigid
-          Rigid hinge region (extra domain).
-
-          % Function—general purpose (first class expressed in plasma)
-          Serves as a critical first-line defense and is the first antibody isotype secreted into plasma during a primary immune response.
-
-          % Membrane-bound form occurs as monomer
-          When expressed as a membrane-bound BCR, it exists strictly as a monomer.
-
-          % Secreted form occurs as pentamer with 10 antigen binding sites
-          The secreted soluble form assembles into a large pentameric structure, possessing ten distinct antigen-binding sites.
-
-          % Held together by J chain (good for secretion into and binding with mucus) and efficient at being large complex structures and activating complement system
-          The pentamer is stabilized by a central J chain, which aids in mucosal secretion. The multimeric geometry makes IgM highly efficient at cross-linking antigens and initiating the complement cascade.
-
-          % Activation of complements leads to opsonized pathogens, improving phagocytosis
-          Like IgG, its potent complement activation results in the rapid opsonization of targets, promoting their phagocytic destruction.
-
-          % The transfer of antibodies across the epithelia is called transcytosis
-          Though larger, it can also undergo transcytosis across mucosal barriers utilizing a similar active transport mechanism.
+          IgA possesses a \textbf{flexible hinge} structure and exists in two subclasses, IgA1 and IgA2. Its primary role involves \textbf{immune surveillance} and \textbf{defense at mucosal and epithelial barriers}, and it is secreted in substantial quantities---up to 15 grams per day---into mucus, tears, saliva, and breast milk. While IgA circulates in the serum \textbf{largely as a monomer}, it is \textbf{assembled and secreted across epithelia primarily as a dimer}, covalently linked by a \textbf{J chain} that facilitates its secretion into \textbf{mucus layers} and localizes the antibody to various \textbf{epithelial linings}; the active transport mechanism responsible for moving these antibodies across epithelial cell layers is termed \textbf{transcytosis}.
 
         \item \textbf{IgE} (\textit{Memory B Cells})
 
-          <FIGURE>
-
-          % Rigid
-          Rigid hinge region (extra domain).
-
-          % Function—defense against worm parasites
-          Physiologically adapted for immunological defense against large parasitic helminths (worms).
-
-          % Involved in allergic response—binds to Fc receptors on mast cell and basophils
-          It is deeply implicated in allergic pathogenesis; the constant regions of IgE bind with exceptionally high affinity to specialized Fc receptors on the surface of mast cells and basophils.
+          IgE possesses a \textbf{rigid bend} region owing to an additional constant domain, and as a monomer it superficially resembles IgM, though it differs somewhat in amino acid sequence. Physiologically, it is adapted for immunological defense against \textbf{large parasitic helminths, or worms}. IgE is also deeply implicated in allergic pathogenesis, as its constant regions bind with exceptionally \textbf{high affinity to specialized Fc receptors} on the surface of mast cells and basophils, triggering the \textbf{characteristic allergic response}.
 
       \end{enumerate}
 
@@ -1027,16 +1080,13 @@
 
     \begin{core}{B Cell Receptors}
 
-      % If an antibody is stuck in the membrane, sticking out, it's an Ig Receptor or BCR
-      When an immunoglobulin molecule is anchored in the cellular membrane and oriented outward, it functions as an Immunoglobulin Receptor or B Cell Receptor (BCR).
-        
-        % Naive B cells have IgM or IgD receptors
-        Prior to activation, naive B cells exclusively co-express IgM and IgD as their surface receptors.
+      \sbs{0.45}{
+        A \textbf{B cell receptor (BCR)} is an immunoglobulin molecule anchored to the cellular membrane and oriented outward, which recognizes foreign antigen when two neighboring receptors bind it and undergo \textbf{crosslinking}. Because the BCR itself has only a very short cytoplasmic tail incapable of independent signaling, it relies entirely on the associated heterodimer of Igα/Igβ---currently designated CD79a and CD79b, respectively---to relay the crosslinking event into an intracellular signaling cascade, ultimately triggering downstream pathways.
 
-        % Memory B cells can have receptors of any class(**once you class switch away from an isotype, that will be the only class of receptor you will express)
-        Following activation and differentiation, memory B cells display receptors of other heavy chain classes (e.g., IgG, IgA, IgE). Once a B cell undergoes class-switch recombination to a downstream isotype, that specific isotype becomes the permanent class of receptor it expresses.
-
-      <FIGURE>
+        Prior to activation, naive B cells exclusively co-express IgM and IgD as their surface receptors, both of which share the same antigen-binding specificity despite differing in their heavy chain constant regions. Following activation and differentiation, memory B cells instead display receptors belonging to other heavy chain classes (\textit{e.g., IgG, IgA, or IgE}), a transition driven by exposure to antigen and helper T cell signals.
+      }{
+        \myfig{0.98}{immunology_figures/bcr}{B cell receptor}{fig:bcr}
+      }
 
     \end{core}
 
@@ -1368,13 +1418,29 @@
 
     \begin{core}{History: \textit{Edelman \& Porter}}
 
-      % When chemists in the 1960s, put blood plasma under gel electrophoresis, they found that it split into 5 distinct groups—one of which was named “gamma” and measured to possess the majority of “immune protection” among the plasma proteins (this was later found to have antibodies and the way we got to study them)
-      In foundational experiments conducted during the 1960s, researchers utilizing serum protein electrophoresis fractionated human plasma into five distinct molecular cohorts. One specific migratory band, designated the "gamma" globulin fraction, was identified as housing the vast majority of the plasma's protective immunological activity. Subsequent purification of this fraction led to the biochemical isolation and characterization of antibody molecules.
+      In foundational experiments conducted during the 1960s, researchers utilizing serum protein electrophoresis fractionated human plasma into five distinct molecular cohorts. One specific migratory band, designated the "\textit{gamma}" globulin fraction, was identified as housing the vast majority of the plasma's protective immunological activity. Subsequent purification of this fraction led to the biochemical isolation and characterization of antibody molecules.
 
-      <TABLE>
+      \begin{enumerate}
 
-      % NOTE: Fab2 fragments exposed to antigen will form a chain whereas Fab fragments will not
-      NOTE: Structurally divalent F(ab')2 fragments remain capable of precipitating or cross-linking antigens to form extended immune complexes, whereas monomeric Fab fragments lack this cross-linking ability.
+        \item \textbf{Gerald Edelman} (\textit{Mercaptoethanol})
+
+          Edelman employed mercaptoethanol to \textbf{reduce the disulfide bonds} that keep the light and heavy chains interconnected with one another, thereby enabling each chain to be isolated and studied individually.
+
+          \myfig{0.75}{immunology_figures/edelman}{Antibody cleavage via mercaptoethanol; \textit{ph}}{fig:edelman} % ask gemini to remvoe the labels in the Ig domains
+
+        \item \textbf{Rodney Porter} (\textit{Pepsin \& Papain})
+
+          Porter demonstrated that pepsin cleaves preferentially at the \ul{\textbf{bottom of the hinge}} between the arms and the stem, thereby disconnecting the two individual heavy chain Fc sections from the top half of the molecule and yielding a single \ul{\textit{Fab2 fragment}}.
+
+          \myfig{0.7}{immunology_figures/porter1}{Antibody cleavage via pepsin}{fig:porter1}
+
+          By contrast, he found that papain cleaves preferentially at the \ul{\textbf{top of the hinge}} between the arms and the stem, disconnecting the Fc sections---which remain joined to one another by disulfide bonds---from two separate \textit{Fab} fragments.
+
+          \myfig{0.65}{immunology_figures/porter2}{Antibody cleavage via papain}{fig:porter2}
+
+      \end{enumerate}
+
+      Notably, structurally divalent F(ab')2 fragments remain capable of precipitating or cross-linking antigens to form extended immune complexes, whereas monomeric Fab fragments lack this cross-linking ability.
 
     \end{core}
 
