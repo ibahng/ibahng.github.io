@@ -1076,25 +1076,19 @@
 
     \end{core}
 
-  \subsection{B Cell Receptors}
+  \subsection{Immunoglobulin Expression}
 
-    \begin{core}{B Cell Receptors}
+    \begin{core}{Immunoglobulin DNA to Expression}
 
-      \sbs{0.45}{
-        A \textbf{B cell receptor (BCR)} is an immunoglobulin molecule anchored to the cellular membrane and oriented outward, which recognizes foreign antigen when two neighboring receptors bind it and undergo \textbf{crosslinking}. Because the BCR itself has only a very short cytoplasmic tail incapable of independent signaling, it relies entirely on the associated heterodimer of Igα/Igβ---currently designated CD79a and CD79b, respectively---to relay the crosslinking event into an intracellular signaling cascade, ultimately triggering downstream pathways.
-
-        Prior to activation, naive B cells exclusively co-express IgM and IgD as their surface receptors, both of which share the same antigen-binding specificity despite differing in their heavy chain constant regions. Following activation and differentiation, memory B cells instead display receptors belonging to other heavy chain classes (\textit{e.g., IgG, IgA, or IgE}), a transition driven by exposure to antigen and helper T cell signals.
-      }{
-        \myfig{0.98}{immunology_figures/bcr}{B cell receptor}{fig:bcr}
-      }
+      <FIGURE>
 
     \end{core}
 
-  \subsection{Immunoglobulin: DNA to Expression/Secretion}
+    \begin{core}{Immunoglobulins in Action}
 
-    \begin{core}{Immunoglobulin: DNA to Expression/Secretion}
+      Antigen recognition occurs at the six loops located at the tips of the antibody's Y-shaped arms, mediated by the same weak, non-covalent interactions responsible for enzyme-substrate binding. As in enzyme-substrate interactions, this binding process can involve induced fit, in which both the antibody and the antigen undergo conformational distortion to achieve optimal complementarity.
 
-      <FIGURE>
+      Antigens are usually proteins, and several structural features govern how B-cell epitopes are recognized. Epitopes are typically located at the surface of a protein, often corresponding to regions that protrude outward and are thus most accessible to antibody binding. The protein's tertiary structure, or three-dimensional shape, is critical to this recognition; denatured proteins consequently fail to bind, since the epitope's native conformation has been lost. Quaternary structure can also play a role, as an antibody may recognize an epitope formed at the junction between two distinct associated peptides. Because of this dependence on three-dimensional conformation, B-cell epitopes may be formed either by contiguous (sequential) stretches of amino acids or by residues that are non-sequential in the primary structure but are brought into spatial proximity through protein folding.
 
     \end{core}
 
@@ -1111,7 +1105,50 @@
 
         \item \textbf{λ L Chain}
 
-          <FIGURE>
+          \pgfig{
+            \hbandreset{0.2} % starting x-position
+            \draw[dashed] (0,0) node[left] {5'} -- (16,0) node[right] {3'};
+
+            \draw[hband black={0.2}{L}];
+            \hbandshift{0.1}
+            \draw[hband pink={0.8}{V}];
+            \hbandshift{0.4}
+
+            \draw[hband black={0.2}{L}];
+            \hbandshift{0.1}
+            \draw[hband pink={0.8}{V}];
+            \hbandshift{1.0}
+
+            \draw[hband black={0.2}{L}];
+            \hbandshift{0.1}
+            \draw[hband pink={0.8}{V}];
+            \hbandshift{0.4}
+
+            \draw[hband yellow={0.3}{J}];
+            \hbandshift{0.2}
+            \draw[hband blue={1.2}{C}];
+            \hbandshift{0.4}
+
+            \draw[hband yellow={0.3}{J}];
+            \hbandshift{0.2}
+            \draw[hband blue={1.2}{C}];
+            \hbandshift{0.4}
+
+            \draw[hband yellow={0.3}{J}];
+            \hbandshift{0.2}
+            \draw[hband blue={1.2}{C}];
+            \hbandshift{0.4}
+
+            \draw[hband yellow={0.3}{J}];
+            \hbandshift{0.2}
+            \draw[hband blue={1.2}{C}];
+            \hbandshift{0.4}
+
+            \draw[hband yellow={0.3}{J}];
+            \hbandshift{0.2}
+            \draw[hband blue={1.2}{C}];
+            \hbandshift{0.4}
+          }{caption}{fig:ph1}{0.9}
 
           % Chromosome 22
           Localized to Chromosome 22.
@@ -1124,7 +1161,42 @@
 
         \item \textbf{κ L Chain}
 
-          <FIGURE>
+          \pgfig{
+            \hbandreset{0.2}
+            \draw[dashed] (0,0) node[left] {5'} -- (13,0) node[right] {3'};
+
+            \draw[hband black={0.2}{L}];
+            \hbandshift{0.1}
+            \draw[hband pink={0.8}{V}];
+            \hbandshift{0.4}
+
+            \draw[hband black={0.2}{L}];
+            \hbandshift{0.1}
+            \draw[hband pink={0.8}{V}];
+            \hbandshift{1.0}
+
+            \draw[hband black={0.2}{L}];
+            \hbandshift{0.1}
+            \draw[hband pink={0.8}{V}];
+            \hbandshift{0.6}
+
+            \draw[hband yellow={0.3}{J}];
+            \hbandshift{0.8}
+
+            \draw[hband yellow={0.3}{J}];
+            \hbandshift{0.8}
+
+            \draw[hband yellow={0.3}{J}];
+            \hbandshift{0.8}
+
+            \draw[hband yellow={0.3}{J}];
+            \hbandshift{0.8}
+
+            \draw[hband yellow={0.3}{J}];
+            \hbandshift{0.8}
+
+            \draw[hband blue={1.2}{C}];
+          }{caption}{fig:ph2}{0.9}
 
           % Chromosome 2
           Localized to Chromosome 2.
@@ -1137,7 +1209,7 @@
 
       \end{enumerate}
 
-      <FIGURE>
+      <FIGURE details>
 
       % content about the details
       Further molecular details concerning these sequence loci will be elaborated upon below.
@@ -1146,7 +1218,75 @@
 
     \begin{core}{H Chain Gene Sequences}
 
-      <FIGURE>
+      \pgfig{
+        \hbandreset{0.2}
+        \draw[dashed] (0,0) node[left] {5'} -- (16,0);
+
+        \draw[hband black={0.2}{L}];
+        \hbandshift{0.1}
+        \draw[hband pink={0.8}{V}];
+        \hbandshift{1.0}
+
+        \draw[hband black={0.2}{L}];
+        \hbandshift{0.1}
+        \draw[hband pink={0.8}{V}];
+        \hbandshift{0.6}
+
+        \draw[hband green={0.2}{D}];
+        \hbandshift{0.8}
+
+        \draw[hband green={0.2}{D}];
+        \hbandshift{0.6}
+
+        \draw[hband yellow={0.3}{J}];
+        \hbandshift{0.8}
+
+        \draw[hband yellow={0.3}{J}];
+        \hbandshift{0.8}
+
+        \draw[hband yellow={0.3}{J}];
+        \hbandshift{0.8}
+
+        \draw[hband yellow={0.3}{J}];
+        \hbandshift{0.8}
+
+        \draw[hband yellow={0.3}{J}];
+        \hbandshift{0.8}
+
+        \hbandreset{0.2}
+
+        \draw[dashed] (0,-2) -- (16,-2) node[right] {3'};
+
+        \begin{scope}[shift={(0,-2)}]
+          \draw[hband blue={1.2}{C}];
+          \hbandshift{0.5}
+
+          \draw[hband blue={1.2}{C}];
+          \hbandshift{0.5}
+
+          \draw[hband blue={1.2}{C}];
+          \hbandshift{0.5}
+
+          \draw[hband blue={1.2}{C}];
+          \hbandshift{0.5}
+
+          \draw[hband blue={1.2}{C}];
+          \hbandshift{0.5}
+
+          \draw[hband blue={1.2}{C}];
+          \hbandshift{0.5}
+
+          \draw[hband blue={1.2}{C}];
+          \hbandshift{0.5}
+
+          \draw[hband blue={1.2}{C}];
+          \hbandshift{0.5}
+
+          \draw[hband blue={1.2}{C}];
+          \hbandshift{0.5}
+        \end{scope}
+
+      }{caption}{fig:ph3}{0.85}
 
       % Chromosome 14
       Localized to Chromosome 14.
@@ -1166,7 +1306,7 @@
       % [Cμ/Cδ] [Cγ3] [Cγ1] [Cα1] [Cγ2] [Cγ4] [Cε] [Cα2] in order**
       The specific downstream genomic arrangement of these constant regions follows the order: Cμ/Cδ, Cγ3, Cγ1, Cα1, Cγ2, Cγ4, Cε, and Cα2.
 
-      <FIGURE>
+      <FIGURE details>
 
       % If we look deeper into the regions that code for the heavy chain, we can see more specific variety of DNA sequences
       Examining the heavy chain constant regions at a higher resolution reveals an organized substructure of coding sequences:
@@ -1190,26 +1330,150 @@
 
           \item \textbf{REARRANGEMENT} [Rearranged Gene] --- \textit{Nucleus}
 
-            <FIGURE>
+            \pgfig{
+              \hbandreset{0.2} % starting x-position
+              \draw[dashed] (0,0) node[left] {5'} -- (7,0) node[right] {3'};
+
+              \draw[hband black={0.2}{L}];
+              \hbandshift{0.1}
+              \draw[hband pink={0.8}{V}];
+              \hbandshift{0.4}
+
+              \draw[hband black={0.2}{L}];
+              \hbandshift{0.1}
+              \draw[hband pink={0.8}{V}];
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.2}
+              \draw[hband blue={1.2}{C}];
+              \hbandshift{0.4}
+
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.2}
+              \draw[hband blue={1.2}{C}];
+              \hbandshift{0.4}
+
+              \hbandreset{0.2} % starting x-position
+              \begin{scope}[shift={(0,-2)}]
+                \hbandreset{0.2} % starting x-position
+                \draw[dashed] (0,0) node[left] {5'} -- (16,0) node[right] {3'};
+
+                \draw[hband black={0.2}{L}];
+                \hbandshift{0.1}
+                \draw[hband pink={0.8}{V}];
+                \hbandshift{0.4}
+
+                \draw[hband black={0.2}{L}];
+                \hbandshift{0.1}
+                \draw[hband pink={0.8}{V}];
+                \hbandshift{1.0}
+
+                \draw[hband black={0.2}{L}];
+                \hbandshift{0.1}
+                \draw[hband pink={0.8}{V}];
+                \draw[hband yellow={0.3}{J}];
+                \hbandshift{0.2}
+                \draw[hband blue={1.2}{C}];
+                \hbandshift{0.4}
+
+                \draw[hband yellow={0.3}{J}];
+                \hbandshift{0.2}
+                \draw[hband blue={1.2}{C}];
+                \hbandshift{0.4}
+
+                \draw[hband yellow={0.3}{J}];
+                \hbandshift{0.2}
+                \draw[hband blue={1.2}{C}];
+                \hbandshift{0.4}
+
+                \draw[hband yellow={0.3}{J}];
+                \hbandshift{0.2}
+                \draw[hband blue={1.2}{C}];
+                \hbandshift{0.4}
+
+                \draw[hband yellow={0.3}{J}];
+                \hbandshift{0.2}
+                \draw[hband blue={1.2}{C}];
+                \hbandshift{0.4}
+              \end{scope}
+
+              \hbandreset{0.2} % starting x-position
+              \begin{scope}[shift={(0,-4)}]
+                \draw[dashed] (0,0) node[left] {5'} -- (4,0) node[right] {3'};
+
+                \draw[hband black={0.2}{L}];
+                \hbandshift{0.1}
+                \draw[hband pink={0.8}{V}];
+                \draw[hband yellow={0.3}{J}];
+                \hbandshift{0.2}
+                \draw[hband blue={1.2}{C}];
+                \hbandshift{0.4}
+
+              \end{scope}
+
+            }{caption}{fig:ph4}{0.9}
 
             % 1 LV and 1 JC pair come together at random, clipping out any JC pairs between the selected VJC combination and activating the promoter of the selected VL only
             A single variable (V) segment undergoes somatic recombination with a single joining (J) segment. This DNA rearrangement physically excises any intervening genetic sequences and functionally activates only the promoter immediately upstream of the successfully joined V segment.
 
-            <FIGURE>
+            \pgfig{
+              \hbandreset{0.2} % starting x-position
+              \draw[dashed] (0,0) node[left] {5'} -- (9,0) node[right] {3'};
+
+              \draw[hband black={0.2}{L}];
+              \hbandshift{0.1}
+              \draw[hband pink={0.8}{V}];
+              \hbandshift{5}
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.2}
+              \draw[hband blue={1.2}{C}];
+              \hbandshift{0.4}
+
+              \draw[fill=imgray, draw=none] (1.3,-0.3) rectangle (2.0,0.3);
+              \draw[fill=impurple, draw=none] (2.0,-0.3) rectangle (2.7,0.3);
+              \draw[fill=imorange, draw=none] (3.3,-0.3) -- (2.7,-0.3) -- (2.7,0.3) -- cycle;
+              \draw (2.7,0.3) -- (1.3,0.3) -- (1.3,-0.3) -- (3.3,-0.3) -- cycle; 
+
+              \draw[fill=imlightpurple, draw=none] (4.9,-0.3) rectangle (5.6,0.3);
+              \draw[fill=imgray, draw=none] (5.6,-0.3) rectangle (6.3,0.3);
+              \draw[fill=imorange, draw=none] (4.3,0.3) -- (4.9,0.3) -- (4.9,-0.3) -- cycle;
+              \draw (4.3,0.3) -- (6.3,0.3) -- (6.3,-0.3) -- (4.9,-0.3) -- cycle; 
+
+            }{caption}{fig:rss1}{0.9}
 
             % reference to the mechanism core concept
             This process relies on the Recombination Signal Sequence (RSS) mechanism detailed in a subsequent section.
 
           \item \textbf{TRANSCRIPTION} [Primary Transcript] --- \textit{Nucleus}
 
-            <FIGURE>
+            \pgfig{
+              \hbandreset{0.2} % starting x-position
+              \draw[dashed] (0,0) node[left] {5'} -- (4,0) node[right] {3'};
+
+              \draw[hband black={0.2}{L}];
+              \hbandshift{0.1}
+              \draw[hband pink={0.8}{V}];
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.2}
+              \draw[hband blue={1.2}{C}];
+              \hbandshift{0.4}
+
+            }{caption}{fig:ph5}{0.9}
 
             % RNA polymerase transcribes the VL and JC into a primary transcript, stopping at the stop signal present at the end of the C region sequence
             RNA polymerase generates a primary transcript covering the rearranged VJ sequence, continuing through the downstream constant (C) region until it terminates at the designated transcription stop signal.
 
           \item \textbf{PROCESSING} [Processed Message] --- \textit{Nucleus}
 
-            <FIGURE>
+            \pgfig{
+              \hbandreset{0.2} % starting x-position
+              \draw[dashed] (0,0) node[left] {5'} -- (3,0) node[right] {AA(A\ce{_n})AA 3'};
+
+              \draw[hband black={0.2}{L}];
+              \draw[hband pink={0.8}{V}];
+              \draw[hband yellow={0.3}{J}];
+              \draw[hband blue={1.2}{C}];
+
+            }{caption}{fig:ph6}{0.9}
 
             % Enzymes removes the introns from between the VL and the JC
             Spliceosomes process the primary RNA, removing non-coding intronic sequences located between the rearranged VJ unit and the C domain.
@@ -1219,7 +1483,16 @@
 
           \item \textbf{TRANSLATION} [Nascent Peptide] --- \textit{Into the RER}
 
-            <FIGURE>
+            \pgfig{
+              \hbandreset{0.2} % starting x-position
+              \draw[dashed] (0,0) node[left] {N} -- (3,0) node[right] {C};
+
+              \draw[hband black={0.2}{L}];
+              \draw[hband pink={0.8}{V}];
+              \draw[hband yellow={0.3}{J}];
+              \draw[hband blue={1.2}{C}];
+
+            }{caption}{fig:ph7}{0.9}
 
             % The ribosome attaches to the message, begins translating, attaches to the Rough Endoplasmic Reticulum (RER), and pushes the nascent peptide into the ER lumen
             Ribosomal complexes bind the mature mRNA in the cytosol. Upon synthesizing the initial targeting sequence, the ribosome docks to the Rough Endoplasmic Reticulum (RER), allowing the nascent polypeptide chain to be translocated directly into the ER lumen.
@@ -1229,7 +1502,15 @@
 
           \item \textbf{L REGION SNIPPING} [Mature Chain] --- \textit{ER Lumen}
 
-            <FIGURE>
+            \pgfig{
+              \hbandreset{0.2} % starting x-position
+              \draw[dashed] (0,0) node[left] {N} -- (2.8,0) node[right] {C};
+
+              \draw[hband pink={0.8}{V}];
+              \draw[hband yellow={0.3}{J}];
+              \draw[hband blue={1.2}{C}];
+
+            }{caption}{fig:ph8}{0.9}
 
             % Enzymes clip off the leader, leaving a chain with a V(D)J domain and a constant domain
             Signal peptidases within the ER lumen cleave the N-terminal leader sequence, producing a mature light chain polypeptide consisting solely of the variable (VJ) domain and the constant (C) domain.
@@ -1244,26 +1525,103 @@
 
           \item \textbf{REARRANGEMENT} [Rearranged Gene] --- \textit{Nucleus}
 
-            <FIGURE>
+            \pgfig{
+              \hbandreset{0.2}
+              \draw[dashed] (0,0) node[left] {5'} -- (9,0) node[right] {3'};
+
+              \draw[hband black={0.2}{L}];
+              \hbandshift{0.1}
+              \draw[hband pink={0.8}{V}];
+              \hbandshift{0.4}
+
+              \draw[hband black={0.2}{L}];
+              \hbandshift{0.1}
+              \draw[hband pink={0.8}{V}];
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.8}
+
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.8}
+
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.8}
+
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.8}
+
+              \draw[hband blue={1.2}{C}];
+            }{caption}{fig:ph9}{0.9}
 
             % 1 VL and 1 J gene region come together, clipping out any J regions between the selected LVJ combination and again activating only the promoter of the selected VL only
             Similar to the lambda chain, a single V segment undergoes recombination with a single J segment. Any intervening J sequences are permanently excised from the DNA, and the upstream promoter corresponding exclusively to the chosen V segment becomes functionally active.
 
-            <FIGURE>
+            \pgfig{
+              \hbandreset{0.2} % starting x-position
+              \draw[dashed] (0,0) node[left] {5'} -- (9,0) node[right] {3'};
+
+              \draw[hband black={0.2}{L}];
+              \hbandshift{0.1}
+              \draw[hband pink={0.8}{V}];
+              \hbandshift{5}
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.2}
+              \draw[hband blue={1.2}{C}];
+              \hbandshift{0.4}
+
+              \draw[fill=imgray, draw=none] (1.3,-0.3) rectangle (2.0,0.3);
+              \draw[fill=imlightpurple, draw=none] (2.0,-0.3) rectangle (2.7,0.3);
+              \draw[fill=imorange, draw=none] (2.7,-0.3) -- (2.7,0.3) -- (3.3,0.3) -- cycle;
+              \draw (3.3,0.3) -- (1.3,0.3) -- (1.3,-0.3) -- (2.7,-0.3) -- cycle; 
+
+              \draw[fill=impurple, draw=none] (4.9,-0.3) rectangle (5.6,0.3);
+              \draw[fill=imgray, draw=none] (5.6,-0.3) rectangle (6.3,0.3);
+              \draw[fill=imorange, draw=none] (4.3,-0.3) -- (4.9,-0.3) -- (4.9,0.3) -- cycle;
+              \draw (4.9,0.3) -- (6.3,0.3) -- (6.3,-0.3) -- (4.3,-0.3) -- cycle; 
+
+            }{caption}{fig:rss2}{0.9}
 
             % reference to RSS mechanism core concept
             This DNA rearrangement is mediated by the RSS molecular mechanism.
 
           \item \textbf{TRANSCRIPTION} [Primary Transcript] --- \textit{Nucleus}
 
-            <FIGURE>
+            \pgfig{
+              \hbandreset{0.2}
+              \draw[dashed] (0,0) node[left] {5'} -- (7.5,0) node[right] {3'};
+
+              \draw[hband black={0.2}{L}];
+              \hbandshift{0.1}
+              \draw[hband pink={0.8}{V}];
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.8}
+
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.8}
+
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.8}
+
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.8}
+
+              \draw[hband blue={1.2}{C}];
+            }{caption}{fig:ph10}{0.9}
 
             % RNA polymerase transcribes the beginning Vl, the selected J (and all the downstream Js), and the constant region
             Transcription initiates at the active promoter, generating a primary RNA transcript that spans the chosen V segment, the selected J segment, any remaining downstream unselected J segments, and the single Cκ constant region.
 
           \item \textbf{PROCESSING} [Processed Message] --- \textit{Nucleus}
 
-            <FIGURE>
+            \pgfig{
+              \hbandreset{0.2} % starting x-position
+              \draw[dashed] (0,0) node[left] {5'} -- (3,0) node[right] {AA(A\ce{_n})AA 3'};
+
+              \draw[hband black={0.2}{L}];
+              \draw[hband pink={0.8}{V}];
+              \draw[hband yellow={0.3}{J}];
+              \draw[hband blue={1.2}{C}];
+
+            }{caption}{fig:kl1}{0.9}
 
             % Any introns and extra Js get clipped out
             RNA splicing enzymes excise all intronic sequences and the unselected downstream J segments, yielding a contiguous coding message.
@@ -1273,14 +1631,31 @@
 
           \item \textbf{TRANSLATION} [Nascent Peptide] --- \textit{Into the RER}
 
-            <FIGURE>
+            \pgfig{
+              \hbandreset{0.2} % starting x-position
+              \draw[dashed] (0,0) node[left] {N} -- (3,0) node[right] {C};
+
+              \draw[hband black={0.2}{L}];
+              \draw[hband pink={0.8}{V}];
+              \draw[hband yellow={0.3}{J}];
+              \draw[hband blue={1.2}{C}];
+
+            }{caption}{fig:kl2}{0.9}
 
             % Same as λ L chain translation
             This process proceeds identically to lambda light chain translation, involving RER docking.
 
           \item \textbf{L REGION SNIPPING} [Mature Chain] --- \textit{ER Lumen}
 
-            <FIGURE>
+            \pgfig{
+              \hbandreset{0.2} % starting x-position
+              \draw[dashed] (0,0) node[left] {N} -- (2.8,0) node[right] {C};
+
+              \draw[hband pink={0.8}{V}];
+              \draw[hband yellow={0.3}{J}];
+              \draw[hband blue={1.2}{C}];
+
+            }{caption}{fig:kl3}{0.9}
 
             % Enzymes clip off the leader, leaving a chain with a V(D)J domain and a constant domain
             Proteolytic removal of the leader sequence within the ER yields the final mature protein, comprising the variable and constant regions.
@@ -1295,28 +1670,171 @@
 
           \item \textbf{REARRANGEMENT} [Rearranged Gene] --- \textit{Nucleus}
 
-            <FIGURE>
-
             % First, a D region joins with a J, clipping out all extra D and J regions in between, but leaving any downstream Js
             The initial recombination event joins one Diversity (D) segment to one J segment. All intervening D and J segments are excised from the genome, while those situated downstream remain intact.
+
+            \pgfig{
+              \hbandreset{0.2}
+              \draw[dashed] (0,0) node[left] {5'} -- (11,0) node[right] {\dots};
+
+              \draw[hband black={0.2}{L}];
+              \hbandshift{0.1}
+              \draw[hband pink={0.8}{V}];
+              \hbandshift{1.0}
+
+              \draw[hband black={0.2}{L}];
+              \hbandshift{0.1}
+              \draw[hband pink={0.8}{V}];
+              \hbandshift{0.6}
+
+              \draw[hband green={0.2}{D}];
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.8}
+
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.8}
+
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.8}
+
+              \draw[hband blue={1.2}{C}];
+              \hbandshift{0.5}
+
+              \draw[hband blue={1.2}{C}];
+              \hbandshift{0.5}
+
+            }{caption}{fig:lchain1}{0.85}
 
             % Second, a VL join with a D, removing all the downstream VLs and upstream Ds in between
             Following the D-J joining, a second recombination event splices a V segment to the newly formed D-J complex. This physically deletes all unselected V segments located downstream of the chosen V segment, and any D segments located upstream of the chosen D segment.
 
-            <FIGURE>
+            \pgfig{
+              \hbandreset{0.2}
+              \draw[dashed] (0,0) node[left] {5'} -- (10.5,0) node[right] {\dots};
 
-            <FIGURE>
+              \draw[hband black={0.2}{L}];
+              \hbandshift{0.1}
+              \draw[hband pink={0.8}{V}];
+              \hbandshift{1.0}
+
+              \draw[hband black={0.2}{L}];
+              \hbandshift{0.1}
+              \draw[hband pink={0.8}{V}];
+              \draw[hband green={0.2}{D}];
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.8}
+
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.8}
+
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.8}
+
+              \draw[hband blue={1.2}{C}];
+              \hbandshift{0.5}
+
+              \draw[hband blue={1.2}{C}];
+              \hbandshift{0.5}
+
+            }{caption}{fig:lchain2}{0.85}
+
+            \pgfig{
+              \hbandreset{0.2}
+              \draw[dashed] (0,0) node[left] {5'} -- (14.5,0) node[right] {\dots};
+
+              \draw[hband black={0.2}{L}];
+              \hbandshift{0.1}
+              \draw[hband pink={0.8}{V}];
+              \hbandshift{5}
+              \draw[hband green={0.2}{D}];
+              \hbandshift{5}
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.8}
+
+              \draw[hband blue={1.2}{C}];
+              \hbandshift{0.5}
+
+              \draw[fill=imgray, draw=none] (1.3,-0.3) rectangle (2.0,0.3);
+              \draw[fill=impurple, draw=none] (2.0,-0.3) rectangle (2.7,0.3);
+              \draw[fill=imorange, draw=none] (3.3,-0.3) -- (2.7,-0.3) -- (2.7,0.3) -- cycle;
+              \draw (2.7,0.3) -- (1.3,0.3) -- (1.3,-0.3) -- (3.3,-0.3) -- cycle; 
+
+              \draw[fill=imlightpurple, draw=none] (4.9,-0.3) rectangle (5.6,0.3);
+              \draw[fill=imgray, draw=none] (5.6,-0.3) rectangle (6.3,0.3);
+              \draw[fill=imorange, draw=none] (4.3,0.3) -- (4.9,0.3) -- (4.9,-0.3) -- cycle;
+              \draw (4.3,0.3) -- (6.3,0.3) -- (6.3,-0.3) -- (4.9,-0.3) -- cycle; 
+
+              \draw[fill=imgray, draw=none] (6.5,-0.3) rectangle (7.2,0.3);
+              \draw[fill=imlightpurple, draw=none] (7.2,-0.3) rectangle (7.9,0.3);
+              \draw[fill=imorange, draw=none] (7.9,-0.3) -- (7.9,0.3) -- (8.5,0.3) -- cycle;
+              \draw (8.5,0.3) -- (6.5,0.3) -- (6.5,-0.3) -- (7.9,-0.3) -- cycle; 
+
+              \draw[fill=impurple, draw=none] (10.1,-0.3) rectangle (10.8,0.3);
+              \draw[fill=imgray, draw=none] (10.8,-0.3) rectangle (11.5,0.3);
+              \draw[fill=imorange, draw=none] (9.5,-0.3) -- (10.1,-0.3) -- (10.1,0.3) -- cycle;
+              \draw (10.1,0.3) -- (11.5,0.3) -- (11.5,-0.3) -- (9.5,-0.3) -- cycle;
+
+            }{caption}{fig:rss3}{0.85}
 
           \item \textbf{TRANSCRIPTION} [Primary Transcript] --- \textit{Nucleus}
 
-            <FIGURE>
+            \pgfig{
+              \hbandreset{0.2}
+              \draw[dashed] (0,0) node[left] {5'} -- (10.5,0) node[right] {\dots};
+
+              \draw[hband black={0.2}{L}];
+              \hbandshift{0.1}
+              \draw[hband pink={0.8}{V}];
+              \hbandshift{1.0}
+
+              \draw[hband black={0.2}{L}];
+              \hbandshift{0.1}
+              \draw[hband pink={0.8}{V}];
+              \draw[hband green={0.2}{D}];
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.8}
+
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.8}
+
+              \draw[hband yellow={0.3}{J}];
+              \hbandshift{0.8}
+
+              \draw[hband blue={1.2}{\ce{C_μ}}];
+              \hbandshift{0.5}
+
+              \draw[hband blue={1.2}{\ce{C_δ}}];
+              \hbandshift{0.5}
+
+            }{caption}{fig:lchain3}{0.85}
 
             % RNA polymerase transcribes from the LVDJ region, through any remaining Js and introns, and copies through the constant regions and stops at the first stop signal at the end of Cδ (after passing through Cμ)
             The primary transcript synthesized spans the fully rearranged V-D-J sequence, encompassing all downstream introns and remaining J segments. Importantly, transcription continues unabated through both the Cμ and Cδ constant region coding domains, terminating only after the poly-A site situated downstream of Cδ.
 
           \item \textbf{PROCESSING} [Processed Message] --- \textit{Nucleus}
 
-            <FIGURE>
+            \pgfig{
+              \hbandreset{0.2}
+              \draw[dashed] (0,0) node[left] {5'} -- (3.5,0) node[right] {AA(A\ce{_n})AA 3'};
+
+              \draw[hband black={0.2}{L}];
+              \draw[hband pink={0.8}{V}];
+              \draw[hband green={0.2}{D}];
+              \draw[hband yellow={0.3}{J}];
+              \draw[hband blue={1.2}{\ce{C_μ}}];
+
+              \hbandreset{0.2}
+              \begin{scope}[shift={(7,0)}]
+                \draw[dashed] (0,0) node[left] {5'} -- (3.5,0) node[right] {AA(A\ce{_n})AA 3'};
+
+                \draw[hband black={0.2}{L}];
+                \draw[hband pink={0.8}{V}];
+                \draw[hband green={0.2}{D}];
+                \draw[hband yellow={0.3}{J}];
+                \draw[hband blue={1.2}{\ce{C_δ}}];
+              \end{scope}
+
+            }{caption}{fig:lchain4}{0.85}
 
             % The transcript undergoes alternative message splicing to include either the μ or the δ constant exon, but not both
             The elongated primary transcript is subject to alternative RNA splicing, a critical regulatory step determining whether the mature mRNA will ultimately incorporate the exons for the μ heavy chain (forming IgM) or the δ heavy chain (forming IgD), but not both simultaneously on the same transcript.
@@ -1326,14 +1844,54 @@
 
           \item \textbf{TRANSLATION} [Nascent Peptide] --- \textit{Into the RER}
 
-            <FIGURE> 
+            \pgfig{
+              \hbandreset{0.2}
+              \draw[dashed] (0,0) node[left] {N} -- (3.5,0) node[right] {C};
+
+              \draw[hband black={0.2}{L}];
+              \draw[hband pink={0.8}{V}];
+              \draw[hband green={0.2}{D}];
+              \draw[hband yellow={0.3}{J}];
+              \draw[hband blue={1.2}{\ce{C_μ}}];
+
+              \hbandreset{0.2}
+              \begin{scope}[shift={(5,0)}]
+                \draw[dashed] (0,0) node[left] {N} -- (3.5,0) node[right] {C};
+
+                \draw[hband black={0.2}{L}];
+                \draw[hband pink={0.8}{V}];
+                \draw[hband green={0.2}{D}];
+                \draw[hband yellow={0.3}{J}];
+                \draw[hband blue={1.2}{\ce{C_δ}}];
+              \end{scope}
+
+            }{caption}{fig:lchain5}{0.85}
 
             % Same as L chain translation
             Follows the same ER-docking and luminal translocation process described for light chains.
 
           \item \textbf{L REGION SNIPPING} [Mature Chain] --- \textit{ER Lumen}
 
-            <FIGURE>
+            \pgfig{
+              \hbandreset{0.2}
+              \draw[dashed] (0,0) node[left] {N} -- (3.5,0) node[right] {C};
+
+              \draw[hband pink={0.8}{V}];
+              \draw[hband green={0.2}{D}];
+              \draw[hband yellow={0.3}{J}];
+              \draw[hband blue={1.2}{\ce{C_μ}}];
+
+              \hbandreset{0.2}
+              \begin{scope}[shift={(5,0)}]
+                \draw[dashed] (0,0) node[left] {N} -- (3.5,0) node[right] {C};
+
+                \draw[hband pink={0.8}{V}];
+                \draw[hband green={0.2}{D}];
+                \draw[hband yellow={0.3}{J}];
+                \draw[hband blue={1.2}{\ce{C_δ}}];
+              \end{scope}
+
+            }{caption}{fig:lchain6}{0.85}
 
             % Enzymes clip off the leader, leaving a chain with a V(D)J domain and a constant domain
             Proteolytic removal of the leader sequence yields the mature heavy chain polypeptide, featuring the highly variable V-D-J domain and the selected constant isotype domain.
@@ -1416,41 +1974,39 @@
 
   \subsection{Other}
 
-    \begin{core}{History: \textit{Edelman \& Porter}}
+    \begin{core}{\textit{Edelman \& Porter}}
 
-      In foundational experiments conducted during the 1960s, researchers utilizing serum protein electrophoresis fractionated human plasma into five distinct molecular cohorts. One specific migratory band, designated the "\textit{gamma}" globulin fraction, was identified as housing the vast majority of the plasma's protective immunological activity. Subsequent purification of this fraction led to the biochemical isolation and characterization of antibody molecules.
+      In foundational experiments conducted during the 1960s, researchers utilizing serum protein electrophoresis fractionated human plasma into five distinct molecular cohorts. One specific migratory band, designated the "\textit{gamma}" globulin fraction, was identified as housing the vast majority of the plasma's protective immunological activity. Subsequent purification of this fraction \textbf{led to the biochemical isolation and characterization of antibody molecules}.
 
       \begin{enumerate}
 
         \item \textbf{Gerald Edelman} (\textit{Mercaptoethanol})
 
-          Edelman employed mercaptoethanol to \textbf{reduce the disulfide bonds} that keep the light and heavy chains interconnected with one another, thereby enabling each chain to be isolated and studied individually.
+          Edelman employed \textbf{mercaptoethanol} to \textbf{reduce the disulfide bonds} that keep the light and heavy chains interconnected with one another, thereby enabling each chain to be isolated and studied individually.
 
-          \myfig{0.75}{immunology_figures/edelman}{Antibody cleavage via mercaptoethanol; \textit{ph}}{fig:edelman} % ask gemini to remvoe the labels in the Ig domains
+          \myfig{0.7}{immunology_figures/edelman}{Antibody cleavage via mercaptoethanol; \textit{cleavage occurs at disulfide bonds, reducing the antibody to individual light and heavy chains}}{fig:edelman}
 
         \item \textbf{Rodney Porter} (\textit{Pepsin \& Papain})
 
-          Porter demonstrated that pepsin cleaves preferentially at the \ul{\textbf{bottom of the hinge}} between the arms and the stem, thereby disconnecting the two individual heavy chain Fc sections from the top half of the molecule and yielding a single \ul{\textit{Fab2 fragment}}.
+          Porter demonstrated that \textbf{pepsin} cleaves preferentially at the \textbf{bottom of the hinge} between the arms and the stem, thereby disconnecting the two individual heavy chain Fc sections from the top half of the molecule and yielding a single \textbf{Fab2 fragment}.
 
-          \myfig{0.7}{immunology_figures/porter1}{Antibody cleavage via pepsin}{fig:porter1}
+          \myfig{0.65}{immunology_figures/porter1}{Antibody cleavage via pepsin; \textit{cleavage occurs at hinge, separating two heavy chain fragments and one Fab2 molecule}}{fig:porter1}
 
-          By contrast, he found that papain cleaves preferentially at the \ul{\textbf{top of the hinge}} between the arms and the stem, disconnecting the Fc sections---which remain joined to one another by disulfide bonds---from two separate \textit{Fab} fragments.
+          By contrast, he found that \textbf{papain} cleaves preferentially at the \textbf{top of the hinge} between the arms and the stem, disconnecting the Fc sections---which remain joined to one another by disulfide bonds---from two separate \textit{Fab} fragments.
 
-          \myfig{0.65}{immunology_figures/porter2}{Antibody cleavage via papain}{fig:porter2}
+          \myfig{0.6}{immunology_figures/porter2}{Antibody cleavage via papain; \textit{cleavage occurs at upper hinge, resulting in connected lower heavy chain fragments and two Fab fragments}}{fig:porter2}
+
+          Notably, structurally \textbf{divalent Fab2 fragments} (\textit{from pepsin treatement}) remain capable of precipitating or cross-linking antigens to form extended immune complexes, whereas \textbf{monomeric Fab fragments} (\textit{from papain treatment}) lack this cross-linking ability.
 
       \end{enumerate}
-
-      Notably, structurally divalent F(ab')2 fragments remain capable of precipitating or cross-linking antigens to form extended immune complexes, whereas monomeric Fab fragments lack this cross-linking ability.
 
     \end{core}
 
     \begin{core}{Haptens (\textit{Small Antigens})}
 
-      % Haptens are harmful substances that are not inherently immunogenic because they are too small to be recognized by the immune system alone
-      Haptens are low-molecular-weight chemical entities that can be recognized by antibodies but are inherently non-immunogenic; their minute size prevents them from independently eliciting an adaptive immune response.
+      \textbf{Haptens} are \textbf{low-molecular-weight} chemical entities that can be recognized by antibodies but are \textbf{inherently non-immunogenic}; their minute size prevents them from independently eliciting an adaptive immune response.
 
-      % Trigger an immune response is given after incorporating into a larger protein called a BSA (bovine serum albumin), allowing for antibody production for 
-      To overcome this limitation for experimental or clinical antibody production, haptens must be covalently conjugated to a high-molecular-weight carrier protein, such as bovine serum albumin (BSA), to provide the requisite steric bulk and T cell epitopes needed to induce active immunity.
+      To overcome this limitation for experimental or clinical antibody production, haptens must be covalently conjugated to a \textbf{high-molecular-weight} carrier protein, such as \textbf{bovine serum albumin (BSA)}, to provide the requisite steric bulk and T cell epitopes needed to induce active immunity.
 
       <FIGURE>
 
@@ -1472,6 +2028,20 @@
     \end{core}
 
 \section{B Cells}
+
+  % \subsection{B Cell Receptors}
+
+  %   \begin{core}{B Cell Receptors}
+
+  %     \sbs{0.45}{
+  %       A \textbf{B cell receptor (BCR)} is an immunoglobulin molecule anchored to the cellular membrane and oriented outward, which recognizes foreign antigen when two neighboring receptors bind it and undergo \textbf{crosslinking}. Because the BCR itself has only a very short cytoplasmic tail incapable of independent signaling, it relies entirely on the associated heterodimer of Igα/Igβ---currently designated CD79a and CD79b, respectively---to relay the crosslinking event into an intracellular signaling cascade, ultimately triggering downstream pathways.
+
+  %       Prior to activation, naive B cells exclusively co-express IgM and IgD as their surface receptors, both of which share the same antigen-binding specificity despite differing in their heavy chain constant regions. Following activation and differentiation, memory B cells instead display receptors belonging to other heavy chain classes (\textit{e.g., IgG, IgA, or IgE}), a transition driven by exposure to antigen and helper T cell signals.
+  %     }{
+  %       \myfig{0.98}{immunology_figures/bcr}{B cell receptor}{fig:bcr}
+  %     }
+
+  %   \end{core}
 
   \subsection{Naive B Cell Development}
 

@@ -86,3 +86,31 @@
   \schemestop
 }
 
+% tracks the running x-position; reset this before starting a new sequence
+\newcommand{\hbandreset}[1]{\xdef\hbandcurrentx{#1}}
+\hbandreset{0} % default starting position
+
+\newcommand{\hbandshift}[1]{%
+  \pgfmathsetmacro{\hbandcurrentx}{\hbandcurrentx+#1}%
+  \xdef\hbandcurrentx{\hbandcurrentx}%
+}
+
+\tikzset{
+  hband base/.style 2 args={
+    /utils/exec={
+      \pgfmathsetmacro{\hbandleft}{\hbandcurrentx}
+      \pgfmathsetmacro{\hbandright}{\hbandcurrentx+#1}
+      \xdef\hbandcurrentx{\hbandright}
+    },
+    insert path={
+      (\hbandleft,-0.3) rectangle (\hbandright,0.3)
+      node[above] at ($(\hbandleft,0.3)!0.5!(\hbandright,0.3)$) {#2}
+    },
+    draw=black
+  },
+  hband pink/.style 2 args={hband base={#1}{#2}, fill=impink},
+  hband yellow/.style 2 args={hband base={#1}{#2}, fill=imyellow},
+  hband blue/.style 2 args={hband base={#1}{#2}, fill=imblue},
+  hband green/.style 2 args={hband base={#1}{#2}, fill=imgreen},
+  hband black/.style 2 args={hband base={#1}{#2}, fill=black}
+}
