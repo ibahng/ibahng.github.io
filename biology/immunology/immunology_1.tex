@@ -1,853 +1,853 @@
 % !TEX root = immunology.tex
 
-\section{Immune System Players}
+% \section{Immune System Players}
 
-  \begin{core}[label=core:hsc]{Hematopoietic Stem Cells (HSCs) \& Lineage}
+%   \begin{core}[label=core:hsc]{Hematopoietic Stem Cells (HSCs) \& Lineage}
 
-    \textbf{Hematopoietic stem cells (HSCs)} are pluripotent stem cells capable of giving rise to any type of blood cell. Each HSC can either divide to produce additional copies of itself---a process termed self-renewal---or begin to differentiate through a series of lineage-restricting choices.
+%     \textbf{Hematopoietic stem cells (HSCs)} are pluripotent stem cells capable of giving rise to any type of blood cell. Each HSC can either divide to produce additional copies of itself---a process termed self-renewal---or begin to differentiate through a series of lineage-restricting choices.
 
-    Developmentally, HSCs first arise in the yolk sac membrane of the early embryo, subsequently migrate to the liver and spleen, and ultimately settle predominantly in the \textbf{bone marrow} prior to birth. Remarkably, as few as approximately 100 HSCs are sufficient to fully regenerate the entire hematopoietic system.
+%     Developmentally, HSCs first arise in the yolk sac membrane of the early embryo, subsequently migrate to the liver and spleen, and ultimately settle predominantly in the \textbf{bone marrow} prior to birth. Remarkably, as few as approximately 100 HSCs are sufficient to fully regenerate the entire hematopoietic system.
 
-    \autoref{fig:hsc_lineage} illustrates the hierarchical differentiation of HSCs into the myeloid and lymphoid lineages, highlighting the key transcription factors governing lineage commitment at each branch point.
+%     \autoref{fig:hsc_lineage} illustrates the hierarchical differentiation of HSCs into the myeloid and lymphoid lineages, highlighting the key transcription factors governing lineage commitment at each branch point.
 
-    \pgfig{
-      % Styles
-      \tikzset{
-        myeloid/.style={rectangle, draw, fill={rgb,255:red,164;green,194;blue,244}, minimum width=3cm, minimum height=1cm, align=center, font=\small},
-        lymphoid/.style={rectangle, draw, fill={rgb,255:red,249;green,203;blue,156}, minimum width=2cm, minimum height=1cm, align=center, font=\small},
-        leafnode/.style={rectangle, rounded corners=8pt, draw, fill={rgb,255:red,207;green,226;blue,243}, minimum width=2.4cm, minimum height=0.9cm, align=center, font=\small},
-        edgelabel/.style={font=\small\itshape, align=left}
-      }
-      % Level 0
-      \node[myeloid] (HSC) at (5,0) {Haematopoietic\\Stem Cell};
-      % Level 1
-      \node[myeloid]  (CMP) at (1,-2)   {Common Myeloid\\Progenitor (CMP)};
-      \node[lymphoid] (CLP) at (9,-2)   {Common Lymphoid\\Progenitor (CLP)};
-      % Level 2
-      \node[myeloid]  (MEP) at (-1.5,-4) {Megakaryocyte-Erythroid\\Progenitor (MEP)};
-      \node[myeloid]  (GMP) at (2.5,-4)  {Granulocyte-Macrophage\\Progenitor (GMP);\\Myeloblast};
-      \node[lymphoid] (NKP) at (6,-4)  {NK Cell\\Progenitor};
-      \node[lymphoid] (BCP) at (9,-4)  {B Cell\\Progenitor};
-      \node[lymphoid] (TCP) at (12,-4)   {T Cell\\Progenitor};
-      % Level 3 - GMP lineage
-      \node[leafnode] (BASO) at (-3,-7.8) {Basophil};
-      \node[leafnode] (EOSI) at (-0,-7.8) {Eosinophil};
-      \node[leafnode] (CDC)  at (3,-7.8) {cDC};
-      \node[leafnode] (NEUT) at (6,-7.8) {Neutrophil};
-      \node[leafnode] (MONO) at (1,-9.4) {Monocyte};
-      \node[leafnode] (MAC)  at (-0.5,-11.0) {Macrophage};
-      \node[leafnode] (MODC) at (2.5,-11.0) {moDCs};
-      % Arrows: GMP
-      \draw[-{latex}, thick] (GMP) -- (BASO);
-      \draw[-{latex}, thick] (GMP) -- (EOSI);
-      \draw[-{latex}, thick] (GMP) -- (CDC);
-      \draw[-{latex}, thick] (GMP) -- (NEUT);
-      \draw[-{latex}, thick] (GMP) -- (MONO);
-      \draw[-{latex}, thick] (MONO) -- (MAC);
-      \draw[-{latex}, thick] (MONO) -- (MODC);
-      % Level 3 - MEP lineage
-      \node[leafnode] (RBC)  at (-3,-6.2) {RBCs\\(Erythrocytes)};
-      \node[leafnode] (MEGA) at (-0.5,-6.2) {Megakaryocytes;\\Platelets\\(Thrombocytes)};
-      % Level 3 - lymphoid leaves
-      \node[leafnode] (NKC) at (6.3,-6.2)  {NK Cells};
-      \node[leafnode] (BC)  at (9,-6.2)  {B Cells};
-      \node[leafnode] (TCC) at (13,-6.2)   {TC Cells};
-      % T helper branch
-      \node[leafnode] (THC)   at (10.6,-7.8) {TH Cells};
-      \node[leafnode] (TH2)   at (9.5,-10.8) {TH2 Cells};
-      \node[leafnode] (TH17)  at (12.1,-10.8) {TH17 Cells};
-      \draw[-{latex}, thick] (THC) -- (TH2);
-      \draw[-{latex}, thick] (THC) -- (TH17);
-      \node[leafnode] (TH1)   at (8.6,-9.6) {TH1 Cells};
-      \node[leafnode] (THREG) at (13.0,-9.6) {THreg Cells};
-      \draw[-{latex}, thick] (THC) -- (TH1);
-      \draw[-{latex}, thick] (THC) -- (THREG);
-      % Arrows: HSC
-      \draw[-{latex}, thick] (HSC) -- (CMP);
-      \draw[-{latex}, thick] (HSC) -- (CLP);
-      \draw[-{latex}, thick] (CMP) -- (MEP);
-      \draw[-{latex}, thick] (CMP) -- (GMP);
-      \draw[-{latex}, thick] (CLP) -- (NKP);
-      \draw[-{latex}, thick] (CLP) -- (BCP);
-      \draw[-{latex}, thick] (CLP) -- (TCP);
-      % Arrows: MEP
-      \draw[-{latex}, thick] (MEP) -- (RBC);
-      \draw[-{latex}, thick] (MEP) -- (MEGA);
-      % Arrows: lymphoid leaves
-      \draw[-{latex}, thick] (NKP) -- (NKC);
-      \draw[-{latex}, thick] (BCP) -- (BC);
-      \draw[-{latex}, thick] (TCP) -- (TCC);
-      \draw[-{latex}, thick] (TCP) -- (THC);
-      % Standalone edge labels (fixed coordinates, independent of node positions)
-      \node[edgelabel] at (5,0.9)   {\underline{\textbf{Bmi-1}} to stay in renewal cycle (Lin-)};
-      \node[edgelabel] at (9,-0.9) {\underline{\textbf{Ikaros}} transcription\\factor to become CLP};
-      \node[edgelabel] at (5,-2) {\underline{\textbf{GATA-2}} to\\differentiate (Lin+)};
-      \node[edgelabel] at (12.5,-2.9) {\underline{\textbf{Notch family}} for T cell\\lineage pathway};
-    }{Hierarchy of haematopoietic stem cell differentiation into myeloid (\textit{left}) and lymphoid (\textit{right}) lineages}{fig:hsc_lineage}{0.85}
+%     \pgfig{
+%       % Styles
+%       \tikzset{
+%         myeloid/.style={rectangle, draw, fill={rgb,255:red,164;green,194;blue,244}, minimum width=3cm, minimum height=1cm, align=center, font=\small},
+%         lymphoid/.style={rectangle, draw, fill={rgb,255:red,249;green,203;blue,156}, minimum width=2cm, minimum height=1cm, align=center, font=\small},
+%         leafnode/.style={rectangle, rounded corners=8pt, draw, fill={rgb,255:red,207;green,226;blue,243}, minimum width=2.4cm, minimum height=0.9cm, align=center, font=\small},
+%         edgelabel/.style={font=\small\itshape, align=left}
+%       }
+%       % Level 0
+%       \node[myeloid] (HSC) at (5,0) {Haematopoietic\\Stem Cell};
+%       % Level 1
+%       \node[myeloid]  (CMP) at (1,-2)   {Common Myeloid\\Progenitor (CMP)};
+%       \node[lymphoid] (CLP) at (9,-2)   {Common Lymphoid\\Progenitor (CLP)};
+%       % Level 2
+%       \node[myeloid]  (MEP) at (-1.5,-4) {Megakaryocyte-Erythroid\\Progenitor (MEP)};
+%       \node[myeloid]  (GMP) at (2.5,-4)  {Granulocyte-Macrophage\\Progenitor (GMP);\\Myeloblast};
+%       \node[lymphoid] (NKP) at (6,-4)  {NK Cell\\Progenitor};
+%       \node[lymphoid] (BCP) at (9,-4)  {B Cell\\Progenitor};
+%       \node[lymphoid] (TCP) at (12,-4)   {T Cell\\Progenitor};
+%       % Level 3 - GMP lineage
+%       \node[leafnode] (BASO) at (-3,-7.8) {Basophil};
+%       \node[leafnode] (EOSI) at (-0,-7.8) {Eosinophil};
+%       \node[leafnode] (CDC)  at (3,-7.8) {cDC};
+%       \node[leafnode] (NEUT) at (6,-7.8) {Neutrophil};
+%       \node[leafnode] (MONO) at (1,-9.4) {Monocyte};
+%       \node[leafnode] (MAC)  at (-0.5,-11.0) {Macrophage};
+%       \node[leafnode] (MODC) at (2.5,-11.0) {moDCs};
+%       % Arrows: GMP
+%       \draw[-{latex}, thick] (GMP) -- (BASO);
+%       \draw[-{latex}, thick] (GMP) -- (EOSI);
+%       \draw[-{latex}, thick] (GMP) -- (CDC);
+%       \draw[-{latex}, thick] (GMP) -- (NEUT);
+%       \draw[-{latex}, thick] (GMP) -- (MONO);
+%       \draw[-{latex}, thick] (MONO) -- (MAC);
+%       \draw[-{latex}, thick] (MONO) -- (MODC);
+%       % Level 3 - MEP lineage
+%       \node[leafnode] (RBC)  at (-3,-6.2) {RBCs\\(Erythrocytes)};
+%       \node[leafnode] (MEGA) at (-0.5,-6.2) {Megakaryocytes;\\Platelets\\(Thrombocytes)};
+%       % Level 3 - lymphoid leaves
+%       \node[leafnode] (NKC) at (6.3,-6.2)  {NK Cells};
+%       \node[leafnode] (BC)  at (9,-6.2)  {B Cells};
+%       \node[leafnode] (TCC) at (13,-6.2)   {TC Cells};
+%       % T helper branch
+%       \node[leafnode] (THC)   at (10.6,-7.8) {TH Cells};
+%       \node[leafnode] (TH2)   at (9.5,-10.8) {TH2 Cells};
+%       \node[leafnode] (TH17)  at (12.1,-10.8) {TH17 Cells};
+%       \draw[-{latex}, thick] (THC) -- (TH2);
+%       \draw[-{latex}, thick] (THC) -- (TH17);
+%       \node[leafnode] (TH1)   at (8.6,-9.6) {TH1 Cells};
+%       \node[leafnode] (THREG) at (13.0,-9.6) {THreg Cells};
+%       \draw[-{latex}, thick] (THC) -- (TH1);
+%       \draw[-{latex}, thick] (THC) -- (THREG);
+%       % Arrows: HSC
+%       \draw[-{latex}, thick] (HSC) -- (CMP);
+%       \draw[-{latex}, thick] (HSC) -- (CLP);
+%       \draw[-{latex}, thick] (CMP) -- (MEP);
+%       \draw[-{latex}, thick] (CMP) -- (GMP);
+%       \draw[-{latex}, thick] (CLP) -- (NKP);
+%       \draw[-{latex}, thick] (CLP) -- (BCP);
+%       \draw[-{latex}, thick] (CLP) -- (TCP);
+%       % Arrows: MEP
+%       \draw[-{latex}, thick] (MEP) -- (RBC);
+%       \draw[-{latex}, thick] (MEP) -- (MEGA);
+%       % Arrows: lymphoid leaves
+%       \draw[-{latex}, thick] (NKP) -- (NKC);
+%       \draw[-{latex}, thick] (BCP) -- (BC);
+%       \draw[-{latex}, thick] (TCP) -- (TCC);
+%       \draw[-{latex}, thick] (TCP) -- (THC);
+%       % Standalone edge labels (fixed coordinates, independent of node positions)
+%       \node[edgelabel] at (5,0.9)   {\underline{\textbf{Bmi-1}} to stay in renewal cycle (Lin-)};
+%       \node[edgelabel] at (9,-0.9) {\underline{\textbf{Ikaros}} transcription\\factor to become CLP};
+%       \node[edgelabel] at (5,-2) {\underline{\textbf{GATA-2}} to\\differentiate (Lin+)};
+%       \node[edgelabel] at (12.5,-2.9) {\underline{\textbf{Notch family}} for T cell\\lineage pathway};
+%     }{Hierarchy of haematopoietic stem cell differentiation into myeloid (\textit{left}) and lymphoid (\textit{right}) lineages}{fig:hsc_lineage}{0.85}
 
-    As shown in \autoref{fig:hsc_lineage}, HSCs destined for differentiation are termed \textbf{lineage positive (\textit{lin+})}, whereas those not destined for differentiation are termed \textbf{lineage negative (\textit{lin-})}. This binary state is governed by the presence of one of two transcription factors.
+%     As shown in \autoref{fig:hsc_lineage}, HSCs destined for differentiation are termed \textbf{lineage positive (\textit{lin+})}, whereas those not destined for differentiation are termed \textbf{lineage negative (\textit{lin-})}. This binary state is governed by the presence of one of two transcription factors.
 
-    \begin{itemize}
+%     \begin{itemize}
 
-      \item \textbf{Bmi-1}: A transcription factor whose presence maintains HSCs in an \textbf{undifferentiated state}, sustaining ongoing self-renewal and division.
+%       \item \textbf{Bmi-1}: A transcription factor whose presence maintains HSCs in an \textbf{undifferentiated state}, sustaining ongoing self-renewal and division.
 
-      \item \textbf{GATA-2}: A transcription factor that \textbf{triggers HSC differentiation}, initiating the developmental path toward a specialized cell type.
+%       \item \textbf{GATA-2}: A transcription factor that \textbf{triggers HSC differentiation}, initiating the developmental path toward a specialized cell type.
 
-    \end{itemize}
+%     \end{itemize}
 
-    Given a \textit{lin+} state, the first branch point determines whether the cell commits to the myeloid or lymphoid lineage.
+%     Given a \textit{lin+} state, the first branch point determines whether the cell commits to the myeloid or lymphoid lineage.
 
-    \begin{itemize}
+%     \begin{itemize}
 
-      \item Commitment to a \textbf{common myeloid-erythroid progenitor} enables development into a wide array of cell types, including various white blood cells, red blood cells, and platelet-producing megakaryocytes.
+%       \item Commitment to a \textbf{common myeloid-erythroid progenitor} enables development into a wide array of cell types, including various white blood cells, red blood cells, and platelet-producing megakaryocytes.
 
-      \item Commitment to a \textbf{common lymphoid progenitor} is marked by expression of the transcription factor \textbf{Ikaros}, giving rise to adaptive T and B cells or innate NK and dendritic cells. Further along the differentiation tree, the \textbf{Notch family} of transcription factors governs the divergence of T and B cell development.
+%       \item Commitment to a \textbf{common lymphoid progenitor} is marked by expression of the transcription factor \textbf{Ikaros}, giving rise to adaptive T and B cells or innate NK and dendritic cells. Further along the differentiation tree, the \textbf{Notch family} of transcription factors governs the divergence of T and B cell development.
 
-    \end{itemize}
+%     \end{itemize}
 
-  \end{core}
+%   \end{core}
 
-  \begin{core}{Lymphoid Lineage}
+%   \begin{core}{Lymphoid Lineage}
 
-    Cells of the \textbf{lymphoid lineage} constitute 20--40\% of circulating leukocytes in the blood and approximately 99\% of the cells of the lymph. These cells are broadly categorized as either \textbf{adaptive}---characterized by gene rearrangement during the immune response---or \textbf{innate}---characterized by the absence of such gene rearrangement.
+%     Cells of the \textbf{lymphoid lineage} constitute 20--40\% of circulating leukocytes in the blood and approximately 99\% of the cells of the lymph. These cells are broadly categorized as either \textbf{adaptive}---characterized by gene rearrangement during the immune response---or \textbf{innate}---characterized by the absence of such gene rearrangement.
 
-    \autoref{tab:lymphocytes} presents a structured overview of the cell types comprising the lymphoid lineage depicted in \autoref{fig:hsc_lineage}.
+%     \autoref{tab:lymphocytes} presents a structured overview of the cell types comprising the lymphoid lineage depicted in \autoref{fig:hsc_lineage}.
 
-  \end{core}
+%   \end{core}
 
-  \begin{sidewaystable}
+%   \begin{sidewaystable}
 
-    \centering
-    \caption{Overview of adaptive and innate lymphocyte populations}
-    \label{tab:lymphocytes}
-    \begin{tabular}{
-      >{\raggedright\arraybackslash}p{1.2cm}
-      >{\raggedright\arraybackslash}p{2.2cm}
-      >{\raggedright\arraybackslash}p{3.0cm}
-      >{\raggedright\arraybackslash}p{3.8cm}
-      >{\raggedright\arraybackslash}p{2.5cm}
-      >{\raggedright\arraybackslash}p{2.5cm}
-      >{\raggedright\arraybackslash}p{3.3cm}
-    }
-    \hline
-    \textbf{Type} & \textbf{Name} & \textbf{Function} & \textbf{Surface Expression} & \textbf{Responds to} & \textbf{Releases} & \textbf{Notes} \\
-    \hline
+%     \centering
+%     \caption{Overview of adaptive and innate lymphocyte populations}
+%     \label{tab:lymphocytes}
+%     \begin{tabular}{
+%       >{\raggedright\arraybackslash}p{1.2cm}
+%       >{\raggedright\arraybackslash}p{2.2cm}
+%       >{\raggedright\arraybackslash}p{3.0cm}
+%       >{\raggedright\arraybackslash}p{3.8cm}
+%       >{\raggedright\arraybackslash}p{2.5cm}
+%       >{\raggedright\arraybackslash}p{2.5cm}
+%       >{\raggedright\arraybackslash}p{3.3cm}
+%     }
+%     \hline
+%     \textbf{Type} & \textbf{Name} & \textbf{Function} & \textbf{Surface Expression} & \textbf{Responds to} & \textbf{Releases} & \textbf{Notes} \\
+%     \hline
 
-    \multirow{5}{*}{\textbf{ADAPTIVE}}
-      % =====================================================================================
-      & \textit{T$_\text{H}$ (Helper) Lymphocyte} & \textbf{Activates} inflammation, macrophages, and B cells
-      & [CD4]---{\footnotesize stabilizes MHC~II--TCR antigen recognition}
+%     \multirow{5}{*}{\textbf{ADAPTIVE}}
+%       % =====================================================================================
+%       & \textit{T$_\text{H}$ (Helper) Lymphocyte} & \textbf{Activates} inflammation, macrophages, and B cells
+%       & [CD4]---{\footnotesize stabilizes MHC~II--TCR antigen recognition}
 
-      [TCR]
-      & MHC~II-presented antigen & Cytokines
-      & \footnotesize
-        Subtypes include:
+%       [TCR]
+%       & MHC~II-presented antigen & Cytokines
+%       & \footnotesize
+%         Subtypes include:
 
-        \textbf{T$_\text{H}$1}---direct response
+%         \textbf{T$_\text{H}$1}---direct response
 
-        \textbf{T$_\text{H}$2}---nutrient restraint response
+%         \textbf{T$_\text{H}$2}---nutrient restraint response
 
-        \textbf{T$_\text{H}$17}---fungi/parasite response
+%         \textbf{T$_\text{H}$17}---fungi/parasite response
 
-        \textbf{Memory cells}---future reserve \\[4pt]
+%         \textbf{Memory cells}---future reserve \\[4pt]
 
-      % =====================================================================================
-      & \textit{T$_\text{R}$ (Regulatory) Lymphocyte} & \textbf{Suppresses} immune response (\textit{generally and of specific lymphocytes})
-      & [CD4]
+%       % =====================================================================================
+%       & \textit{T$_\text{R}$ (Regulatory) Lymphocyte} & \textbf{Suppresses} immune response (\textit{generally and of specific lymphocytes})
+%       & [CD4]
 
-      [CD25]---{\footnotesize stabilizes T$_\text{reg}$ binding to IL-2, essential for survival and function}
+%       [CD25]---{\footnotesize stabilizes T$_\text{reg}$ binding to IL-2, essential for survival and function}
 
-      & \textit{Unknown}
-      & Cytokines;
+%       & \textit{Unknown}
+%       & Cytokines;
 
-      IL-10;
+%       IL-10;
 
-      TGF-β
-      & \footnotesize Prevents allergy and autoimmune disease; subtype of the TH lineage \\[4pt]
+%       TGF-β
+%       & \footnotesize Prevents allergy and autoimmune disease; subtype of the TH lineage \\[4pt]
 
-      % =====================================================================================
-      & \textit{T$_\text{C}$ (Cytotoxic) Lymphocyte} & \textbf{Destroys} altered-self cells
-      & [CD8]---{\footnotesize stabilizes MHC~I--TCR antigen recognition}
-      & MHC~I-presented antigen
-      & Perforin;
+%       % =====================================================================================
+%       & \textit{T$_\text{C}$ (Cytotoxic) Lymphocyte} & \textbf{Destroys} altered-self cells
+%       & [CD8]---{\footnotesize stabilizes MHC~I--TCR antigen recognition}
+%       & MHC~I-presented antigen
+%       & Perforin;
 
-      Granzymes
-      & \\[4pt]
+%       Granzymes
+%       & \\[4pt]
 
-      % =====================================================================================
-      & \textit{B Cell} & \textbf{Recognizes} antigen; can present antigen to T cells
-      & [Membrane-bound antibodies/BCRs]
+%       % =====================================================================================
+%       & \textit{B Cell} & \textbf{Recognizes} antigen; can present antigen to T cells
+%       & [Membrane-bound antibodies/BCRs]
 
-      [MHC~II]---{\footnotesize constitutive; presents BCR-captured antigen fragments}
+%       [MHC~II]---{\footnotesize constitutive; presents BCR-captured antigen fragments}
 
-      [TLR]
+%       [TLR]
 
-      [Fc receptors]---{\footnotesize down-regulate antibody production}
+%       [Fc receptors]---{\footnotesize down-regulate antibody production}
 
-      [B7]
-      & Circulating antigen;
+%       [B7]
+%       & Circulating antigen;
 
-      T$_\text{H}$ cytokine signals & [B7]
-      & \footnotesize Develops into a \textbf{plasma cell} or \textbf{memory cell} (\textit{reserve for future infection}) \\[4pt]
+%       T$_\text{H}$ cytokine signals & [B7]
+%       & \footnotesize Develops into a \textbf{plasma cell} or \textbf{memory cell} (\textit{reserve for future infection}) \\[4pt]
 
-      % =====================================================================================
-      & \textit{Plasma Cell} & \textbf{Secretes} antibodies
-      & No surface antibodies & T$_\text{H}$ cytokine signals & Antibodies
-      & \footnotesize Mature B cell;
+%       % =====================================================================================
+%       & \textit{Plasma Cell} & \textbf{Secretes} antibodies
+%       & No surface antibodies & T$_\text{H}$ cytokine signals & Antibodies
+%       & \footnotesize Mature B cell;
 
-      Lives 1--2 weeks \\
-    \hline
+%       Lives 1--2 weeks \\
+%     \hline
 
-    \multirow{1}{*}{\textbf{INNATE}}
-      % =====================================================================================
-      & \textit{NK (Natural Killer) Cell} & \textbf{Destroys} altered-self cells
-      & [CD16]---{\footnotesize Fc receptor recognizing antibody-coated altered cells, triggering attack}
+%     \multirow{1}{*}{\textbf{INNATE}}
+%       % =====================================================================================
+%       & \textit{NK (Natural Killer) Cell} & \textbf{Destroys} altered-self cells
+%       & [CD16]---{\footnotesize Fc receptor recognizing antibody-coated altered cells, triggering attack}
 
-      [MHC~I receptors]---{\footnotesize induce killing when MHC~I is absent}
-      & Antibodies;
+%       [MHC~I receptors]---{\footnotesize induce killing when MHC~I is absent}
+%       & Antibodies;
 
-      downregulated MHC~I 
-      & Perforin;
+%       downregulated MHC~I 
+%       & Perforin;
 
-      Granzymes
-      & \footnotesize Executes \textbf{antibody-dependent cell-mediated cytotoxicity (ADCC)}, triggering apoptosis via antibody signals on antigen-coated cell surfaces \\
+%       Granzymes
+%       & \footnotesize Executes \textbf{antibody-dependent cell-mediated cytotoxicity (ADCC)}, triggering apoptosis via antibody signals on antigen-coated cell surfaces \\
 
-    \hline
-    \end{tabular}
+%     \hline
+%     \end{tabular}
 
-  \end{sidewaystable}
+%   \end{sidewaystable}
 
-  \begin{core}{Myeloid Lineage}
+%   \begin{core}{Myeloid Lineage}
 
-    Cells of the \textbf{myeloid lineage} can be broadly categorized into \textbf{granulocytic cells}---characterized by specific granules that compartmentalize potentially dangerous molecules---and \textbf{antigen-presenting cells (APCs)}, which present antigen to T cells. Additional myeloid lineage cell types include \textbf{red blood cells (\textit{erythrocytes})} and \textbf{platelets (\textit{thrombocytes})}, which serve more secondary roles within general immune function.
+%     Cells of the \textbf{myeloid lineage} can be broadly categorized into \textbf{granulocytic cells}---characterized by specific granules that compartmentalize potentially dangerous molecules---and \textbf{antigen-presenting cells (APCs)}, which present antigen to T cells. Additional myeloid lineage cell types include \textbf{red blood cells (\textit{erythrocytes})} and \textbf{platelets (\textit{thrombocytes})}, which serve more secondary roles within general immune function.
 
-    \autoref{tab:myeloid} presents a structured overview of the cell types comprising the myeloid lineage depicted in \autoref{fig:hsc_lineage}.
+%     \autoref{tab:myeloid} presents a structured overview of the cell types comprising the myeloid lineage depicted in \autoref{fig:hsc_lineage}.
 
-  \end{core}
+%   \end{core}
 
-  \begin{sidewaystable}
+%   \begin{sidewaystable}
 
-    \centering
-    \caption{Overview of innate granulocytic (\textit{1st page}), innate antigen presenting (\textit{2nd page}), and other myeloid cell populations (\textit{2nd page})}
-    \label{tab:myeloid}
-    \begin{tabular}{
-      >{\raggedright\arraybackslash}p{1.2cm}
-      >{\raggedright\arraybackslash}p{1.5cm}
-      >{\raggedright\arraybackslash}p{3.0cm}
-      >{\raggedright\arraybackslash}p{4.7cm}
-      >{\raggedright\arraybackslash}p{2.2cm}
-      >{\raggedright\arraybackslash}p{2.5cm}
-      >{\raggedright\arraybackslash}p{3.3cm}
-    }
-    \hline
-    \textbf{Type} & \textbf{Name} & \textbf{Function} & \textbf{Surface Expression} & \textbf{Responds to} & \textbf{Releases} & \textbf{Notes} \\
-    \hline
+%     \centering
+%     \caption{Overview of innate granulocytic (\textit{1st page}), innate antigen presenting (\textit{2nd page}), and other myeloid cell populations (\textit{2nd page})}
+%     \label{tab:myeloid}
+%     \begin{tabular}{
+%       >{\raggedright\arraybackslash}p{1.2cm}
+%       >{\raggedright\arraybackslash}p{1.5cm}
+%       >{\raggedright\arraybackslash}p{3.0cm}
+%       >{\raggedright\arraybackslash}p{4.7cm}
+%       >{\raggedright\arraybackslash}p{2.2cm}
+%       >{\raggedright\arraybackslash}p{2.5cm}
+%       >{\raggedright\arraybackslash}p{3.3cm}
+%     }
+%     \hline
+%     \textbf{Type} & \textbf{Name} & \textbf{Function} & \textbf{Surface Expression} & \textbf{Responds to} & \textbf{Releases} & \textbf{Notes} \\
+%     \hline
 
-    \multirow{5}{1.2cm}{\textbf{INNATE (Granul- ocytic)}}
-      % =====================================================================================
-      & \textit{Neutrophil}
-      & \textbf{Phagocytosis}, mediates the acute inflammatory response
+%     \multirow{5}{1.2cm}{\textbf{INNATE (Granul- ocytic)}}
+%       % =====================================================================================
+%       & \textit{Neutrophil}
+%       & \textbf{Phagocytosis}, mediates the acute inflammatory response
 
-      Migrates into infected tissues
-      & [Fc Receptors]---{\footnotesize binds to the \textbf{fragment crystallizable} region of antibodies, facilitating the recognition of antibody-coated pathogens and subsequent immune activation}
+%       Migrates into infected tissues
+%       & [Fc Receptors]---{\footnotesize binds to the \textbf{fragment crystallizable} region of antibodies, facilitating the recognition of antibody-coated pathogens and subsequent immune activation}
 
-      [Complement Receptors] ---{\footnotesize enhances the phagocytosis of pathogens opsonized by complement proteins}
+%       [Complement Receptors] ---{\footnotesize enhances the phagocytosis of pathogens opsonized by complement proteins}
       
-      [PRR]---{\footnotesize mediates pathogen pattern recognition; specifically \textbf{Toll-like receptors}}
-      & Chemokines
-      & Acidic \& basic granules
+%       [PRR]---{\footnotesize mediates pathogen pattern recognition; specifically \textbf{Toll-like receptors}}
+%       & Chemokines
+%       & Acidic \& basic granules
 
-      ROS/RNS via the NOX complex
+%       ROS/RNS via the NOX complex
 
-      [IL-1]
+%       [IL-1]
 
-      [IL-6]
+%       [IL-6]
 
-      [TNFα]
-      & \footnotesize
-      First responders to inflection
+%       [TNFα]
+%       & \footnotesize
+%       First responders to inflection
 
-      One-day lifespan
+%       One-day lifespan
 
-      Multilobed nucleus \\[4pt]
-      % =====================================================================================
-      & \textit{Basophil}
-      & \textbf{Defense} against allergic responses and parasitic infections
-      & [Fc Receptors]---{\footnotesize for IgE antibodies}
-      & \textit{Chemokines}
-      & Histamine-rich basophilic granules
-      & \footnotesize Non-phagocytic
+%       Multilobed nucleus \\[4pt]
+%       % =====================================================================================
+%       & \textit{Basophil}
+%       & \textbf{Defense} against allergic responses and parasitic infections
+%       & [Fc Receptors]---{\footnotesize for IgE antibodies}
+%       & \textit{Chemokines}
+%       & Histamine-rich basophilic granules
+%       & \footnotesize Non-phagocytic
 
-      Lobed nucleus
+%       Lobed nucleus
 
-      Responds to worms\\[4pt]
-      % =====================================================================================
-      & \textit{Mast Cell}
-      & \textbf{Defense} against allergic responses and parasitic infections
-      & [Fc Receptors]---{\footnotesize for IgE antibodies}
-      & 
-      & Histamine-rich basophilic granules
-      & \footnotesize Non-phagocytic
+%       Responds to worms\\[4pt]
+%       % =====================================================================================
+%       & \textit{Mast Cell}
+%       & \textbf{Defense} against allergic responses and parasitic infections
+%       & [Fc Receptors]---{\footnotesize for IgE antibodies}
+%       & 
+%       & Histamine-rich basophilic granules
+%       & \footnotesize Non-phagocytic
 
-      Mononuclear (non-lobed) \\[4pt]
-      % =====================================================================================
-      & \textit{Eosinophil}
-      & \textbf{Defense} against allergic responses and parasitic infections
-      & [Fc Receptors]---{\footnotesize for IgE antibodies}
-      & \textit{Chemokines}
-      & Eosinophilic granules containing hydrolytic enzymes
-      & \footnotesize Phagocytic, though not its primary function
+%       Mononuclear (non-lobed) \\[4pt]
+%       % =====================================================================================
+%       & \textit{Eosinophil}
+%       & \textbf{Defense} against allergic responses and parasitic infections
+%       & [Fc Receptors]---{\footnotesize for IgE antibodies}
+%       & \textit{Chemokines}
+%       & Eosinophilic granules containing hydrolytic enzymes
+%       & \footnotesize Phagocytic, though not its primary function
 
-      Bi-lobed nucleus
-      \\[4pt]
-      \hline
-      % =====================================================================================
-      &
-      &
-      &
-      &
-      &
-      & \raggedleft \footnotesize continued on next page \\
+%       Bi-lobed nucleus
+%       \\[4pt]
+%       \hline
+%       % =====================================================================================
+%       &
+%       &
+%       &
+%       &
+%       &
+%       & \raggedleft \footnotesize continued on next page \\
 
-    \end{tabular}
+%     \end{tabular}
 
-  \end{sidewaystable}
+%   \end{sidewaystable}
 
-  \begin{sidewaystable}
+%   \begin{sidewaystable}
 
-    \centering
-    \begin{tabular}{
-      >{\raggedright\arraybackslash}p{1.2cm}
-      >{\raggedright\arraybackslash}p{2.2cm}
-      >{\raggedright\arraybackslash}p{3.0cm}
-      >{\raggedright\arraybackslash}p{3.8cm}
-      >{\raggedright\arraybackslash}p{2.5cm}
-      >{\raggedright\arraybackslash}p{2.5cm}
-      >{\raggedright\arraybackslash}p{3.3cm}
-    }
-    \hline
-    \textbf{Type} & \textbf{Name} & \textbf{Function} & \textbf{Surface Expression} & \textbf{Responds to} & \textbf{Releases} & \textbf{Notes} \\
-    \hline
+%     \centering
+%     \begin{tabular}{
+%       >{\raggedright\arraybackslash}p{1.2cm}
+%       >{\raggedright\arraybackslash}p{2.2cm}
+%       >{\raggedright\arraybackslash}p{3.0cm}
+%       >{\raggedright\arraybackslash}p{3.8cm}
+%       >{\raggedright\arraybackslash}p{2.5cm}
+%       >{\raggedright\arraybackslash}p{2.5cm}
+%       >{\raggedright\arraybackslash}p{3.3cm}
+%     }
+%     \hline
+%     \textbf{Type} & \textbf{Name} & \textbf{Function} & \textbf{Surface Expression} & \textbf{Responds to} & \textbf{Releases} & \textbf{Notes} \\
+%     \hline
 
-    \multirow{3}{1.2cm}{\textbf{INNATE (Antigen Present- ing)}}
-      % =====================================================================================
-      & \textit{Sentinel Dendritic Cell (DC)} 
-      & \textbf{Processes and presents} antigens to T$_\text{H}$ cells
+%     \multirow{3}{1.2cm}{\textbf{INNATE (Antigen Present- ing)}}
+%       % =====================================================================================
+%       & \textit{Sentinel Dendritic Cell (DC)} 
+%       & \textbf{Processes and presents} antigens to T$_\text{H}$ cells
 
-      \textit{Minor roles:} \textbf{Phagocytosis}, \textbf{endocytosis}, and \textbf{pinocytosis} of microorganisms and cellular debris
-      & [MHC~II]---{\footnotesize constitutive}
+%       \textit{Minor roles:} \textbf{Phagocytosis}, \textbf{endocytosis}, and \textbf{pinocytosis} of microorganisms and cellular debris
+%       & [MHC~II]---{\footnotesize constitutive}
 
-      [B7]---{\footnotesize facilitates T cell activation}
+%       [B7]---{\footnotesize facilitates T cell activation}
 
-      [PRR]---{\footnotesize mediates pathogen pattern recognition; specifically \textbf{Toll-like receptors}}
-      & 
-      & [B7]---{\footnotesize co-stimulatory molecule provided to T cells during MHC-TCR antigen presentation}
-      & \footnotesize
-      DCs can differentiate from CMPs, monocytes, and CLPs (\textit{each yielding distinct specialized subsets})
+%       [PRR]---{\footnotesize mediates pathogen pattern recognition; specifically \textbf{Toll-like receptors}}
+%       & 
+%       & [B7]---{\footnotesize co-stimulatory molecule provided to T cells during MHC-TCR antigen presentation}
+%       & \footnotesize
+%       DCs can differentiate from CMPs, monocytes, and CLPs (\textit{each yielding distinct specialized subsets})
 
-      Reside in peripheral tissues, \textbf{migrating to secondary lymphoid organs} only upon detecting pathogenic signals \\[4pt]
-      % =====================================================================================
-      & \textit{Monocyte}
-      & \textbf{Precursors} to macrophages, DCs, and MDSCs
-      & [TLR]
-      & Interferon from T$_\text{H}$ cells
-      & 
-      & \footnotesize Circulates in the bloodstream for approximately 8 hours \\[4pt]
+%       Reside in peripheral tissues, \textbf{migrating to secondary lymphoid organs} only upon detecting pathogenic signals \\[4pt]
+%       % =====================================================================================
+%       & \textit{Monocyte}
+%       & \textbf{Precursors} to macrophages, DCs, and MDSCs
+%       & [TLR]
+%       & Interferon from T$_\text{H}$ cells
+%       & 
+%       & \footnotesize Circulates in the bloodstream for approximately 8 hours \\[4pt]
 
-      % =====================================================================================
-      & \textit{Macrophage}
-      & \textbf{Phagocytosis} of microorganisms and cellular debris
+%       % =====================================================================================
+%       & \textit{Macrophage}
+%       & \textbf{Phagocytosis} of microorganisms and cellular debris
 
-      \textit{Minor role:} \textbf{Presents} antigens following activation
-      & [MHC~II]---{\footnotesize post-activation}
+%       \textit{Minor role:} \textbf{Presents} antigens following activation
+%       & [MHC~II]---{\footnotesize post-activation}
 
-      [PRR]---{\footnotesize mediates pathogen pattern recognition; specifically \textbf{Toll-like receptors}}
-      & 
-      & ROS/RNS via the NOX complex
+%       [PRR]---{\footnotesize mediates pathogen pattern recognition; specifically \textbf{Toll-like receptors}}
+%       & 
+%       & ROS/RNS via the NOX complex
 
-      [B7]
+%       [B7]
 
-      [IL-1],[IL-6]
+%       [IL-1],[IL-6]
 
-      [TNFα]
-      & \footnotesize Exhibits amoeboid motility
+%       [TNFα]
+%       & \footnotesize Exhibits amoeboid motility
 
-      Pathogens opsonized by antibodies are more readily phagocytized\\[4pt]
-    \hline
+%       Pathogens opsonized by antibodies are more readily phagocytized\\[4pt]
+%     \hline
 
-    \multirow{2}{*}{\textbf{OTHER}}
-      % =====================================================================================
-      & \textit{Red Blood Cells (RBC; Erythrocytes)} 
-      & \textbf{Distributes} oxygen and nutrients systemically
-      & [CD235a]---{\footnotesize contributes to RBC antigenic properties}
-      & 
-      & 
-      & \\[4pt]
-      % =====================================================================================
-      & \textit{Platelets (Thrombocytes)} 
-      & \textbf{Mediates} coagulation at sites of vascular injury
-      & [CD41]---{\footnotesize functions as a key marker essential for platelet aggregation}
+%     \multirow{2}{*}{\textbf{OTHER}}
+%       % =====================================================================================
+%       & \textit{Red Blood Cells (RBC; Erythrocytes)} 
+%       & \textbf{Distributes} oxygen and nutrients systemically
+%       & [CD235a]---{\footnotesize contributes to RBC antigenic properties}
+%       & 
+%       & 
+%       & \\[4pt]
+%       % =====================================================================================
+%       & \textit{Platelets (Thrombocytes)} 
+%       & \textbf{Mediates} coagulation at sites of vascular injury
+%       & [CD41]---{\footnotesize functions as a key marker essential for platelet aggregation}
 
-      [CD42b]---{\footnotesize facilitates platelet adhesion via a glycoprotein complex}
-      & 
-      & 
-      & \footnotesize Platelets are derived from megakaryocytes\\
+%       [CD42b]---{\footnotesize facilitates platelet adhesion via a glycoprotein complex}
+%       & 
+%       & 
+%       & \footnotesize Platelets are derived from megakaryocytes\\
 
-    \hline
-    \end{tabular}
+%     \hline
+%     \end{tabular}
 
-  \end{sidewaystable}
+%   \end{sidewaystable}
 
-  \begin{core}{Follicular Dendritic Cells}
+%   \begin{core}{Follicular Dendritic Cells}
 
-    \textbf{Follicular dendritic cells (FDCs)} are specialized stromal cells that, in contrast to the myeloid, antigen presenting \textbf{sentinel dendritic cells} shown in \autoref{tab:myeloid}, do not arise via \textbf{hematopoiesis} from HSCs. Instead, they originate during embryogenesis from a distinct \textbf{mesenchymal} lineage of \textbf{mesenchymal progenitor cells}.
+%     \textbf{Follicular dendritic cells (FDCs)} are specialized stromal cells that, in contrast to the myeloid, antigen presenting \textbf{sentinel dendritic cells} shown in \autoref{tab:myeloid}, do not arise via \textbf{hematopoiesis} from HSCs. Instead, they originate during embryogenesis from a distinct \textbf{mesenchymal} lineage of \textbf{mesenchymal progenitor cells}.
     
-    Following development, FDCs migrate into lymphoid tissues, where they ultimately become embedded within the follicles of secondary lymphoid organs.
+%     Following development, FDCs migrate into lymphoid tissues, where they ultimately become embedded within the follicles of secondary lymphoid organs.
     
-    Once established, FDCs are distinguished by their unique capacity to \textbf{retain and present intact antigens} on their surfaces over extended periods. They capture antigens from the lymph and retain them as immune complexes, a function essential for \textbf{B cell activation} and \textbf{germinal center formation}.
+%     Once established, FDCs are distinguished by their unique capacity to \textbf{retain and present intact antigens} on their surfaces over extended periods. They capture antigens from the lymph and retain them as immune complexes, a function essential for \textbf{B cell activation} and \textbf{germinal center formation}.
     
-    The most characteristic surface markers of FDCs are as follows.
+%     The most characteristic surface markers of FDCs are as follows.
 
-    \begin{itemize}
+%     \begin{itemize}
 
-      \item \textbf{CD21/CD35}: FDCs express the complement receptors CD21 and CD35, which mediate their role in antigen capture.
+%       \item \textbf{CD21/CD35}: FDCs express the complement receptors CD21 and CD35, which mediate their role in antigen capture.
 
-      \item \textbf{FDC-M1}: This marker is specific to FDCs, enabling their identification and distinction from other cellular populations within lymphoid tissue.
+%       \item \textbf{FDC-M1}: This marker is specific to FDCs, enabling their identification and distinction from other cellular populations within lymphoid tissue.
 
-    \end{itemize}
+%     \end{itemize}
 
-  \end{core}
+%   \end{core}
 
-\section{Immune System Organs}
+% \section{Immune System Organs}
   
-  \subsection{Primary Immune System Organs}
+%   \subsection{Primary Immune System Organs}
 
-    \begin{core}{Primary Immune System Organs}
+%     \begin{core}{Primary Immune System Organs}
 
-      The \textbf{primary immune system organs} are the sites at which cells divide, commit to a developmental fate, and, where applicable, undergo gene rearrangement.
+%       The \textbf{primary immune system organs} are the sites at which cells divide, commit to a developmental fate, and, where applicable, undergo gene rearrangement.
 
-    \end{core}
+%     \end{core}
 
-    \begin{core}{Bone Marrow}
+%     \begin{core}[label=core:bone_marrow]{Bone Marrow}
 
-      \sbs{0.5}{
-        The \textbf{bone marrow} is the soft, highly vascularized tissue residing within the hollow interior cavities of bones. It is the primary site of \textbf{hematopoietic stem cells (HSCs)} (\textit{\autoref{core:hsc}}) and continuous blood cell generation in adult mammals, serving as the location for the complete maturation of all myeloid cells, NK cells, and B cells, as well as the site of the initial developmental stages of T cells.
+%       \sbs{0.5}{
+%         The \textbf{bone marrow} is the soft, highly vascularized tissue residing within the hollow interior cavities of bones. It is the primary site of \textbf{hematopoietic stem cells (HSCs)} (\textit{\autoref{core:hsc}}) and continuous blood cell generation in adult mammals, serving as the location for the complete maturation of all myeloid cells, NK cells, and B cells, as well as the site of the initial developmental stages of T cells.
 
-        The major anatomical sites containing active bone marrow include the femur, humerus, hip bones, and sternum. 
-      }{
-        \myfig{0.9}{immunology_figures/bone_marrow}{Bone marrow}{fig:bone_marrow}
-      }
+%         The major anatomical sites containing active bone marrow include the femur, humerus, hip bones, and sternum. 
+%       }{
+%         \myfig{0.9}{immunology_figures/bone_marrow}{Bone marrow}{fig:bone_marrow}
+%       }
 
-    \end{core}
+%     \end{core}
 
-    \begin{core}{Thymus}
+%     \begin{core}{Thymus}
 
-      \sbs{0.55}{
-        The \textbf{thymus}, a small gland located above the heart, is the primary site of \textbf{T cell maturation} and development, involving a rigorous, stepwise selection process that tests for the correct functionality of T cells and their surface receptors. Cells that successfully survive this selection process enter systemic circulation, whereas the vast majority that fail undergo \textbf{apoptosis}.
+%       \sbs{0.55}{
+%         The \textbf{thymus}, a small gland located above the heart, is the primary site of \textbf{T cell maturation} and development, involving a rigorous, stepwise selection process that tests for the correct functionality of T cells and their surface receptors. Cells that successfully survive this selection process enter systemic circulation, whereas the vast majority that fail undergo \textbf{apoptosis}.
 
-        Structurally, the thymus is organized into an \textbf{outer cortex} and an \textbf{inner medulla}, each supported by a distinct network of epithelial cells that guide developing \textbf{thymocytes} (\textit{immature, developing T cells}) through selection.
-      }{
-        \myfig{0.95}{immunology_figures/thymus}{Thymus}{fig:thymus}
-      }
+%         Structurally, the thymus is organized into an \textbf{outer cortex} and an \textbf{inner medulla}, each supported by a distinct network of epithelial cells that guide developing \textbf{thymocytes} (\textit{immature, developing T cells}) through selection.
+%       }{
+%         \myfig{0.95}{immunology_figures/thymus}{Thymus}{fig:thymus}
+%       }
 
-    \end{core}
+%     \end{core}
 
-  \subsection{Secondary Immune System Organs}
+%   \subsection{Secondary Immune System Organs}
 
-    \begin{core}{Secondary Immune System Organs}
+%     \begin{core}{Secondary Immune System Organs}
 
-      The \textbf{secondary immune system organs} are the sites at which information regarding pathogens is coordinated, leading to the subsequent activation of immune cells.
+%       The \textbf{secondary immune system organs} are the sites at which information regarding pathogens is coordinated, leading to the subsequent activation of immune cells.
 
-    \end{core}
+%     \end{core}
 
-    \begin{core}{Lymphatic System (Fluids, Vessels, Nodes)}
+%     \begin{core}{Lymphatic System (Fluids, Vessels, Nodes)}
 
-      \sbs{0.45}{
-        The \textbf{lymphatic system} functions as a \textbf{unidirectional} transport network, carrying fluid from peripheral tissues back toward the heart and ultimately the bloodstream.
+%       \sbs{0.45}{
+%         The \textbf{lymphatic system} functions as a \textbf{unidirectional} transport network, carrying fluid from peripheral tissues back toward the heart and ultimately the bloodstream.
 
-        \begin{itemize}
+%         \begin{itemize}
 
-          \item \textbf{Vessel \& Fluid}
+%           \item \textbf{Vessel \& Fluid}
 
-          \textbf{Lymphatic vessels} drain interstitial fluid, collecting antigens and leukocytes in the process; they facilitate the transport of immune cells but, unlike blood vessels, are devoid of \textbf{red blood cells (RBCs)}. Lymph fluid undergoes filtration as it passes through the lymph nodes.
+%           \textbf{Lymphatic vessels} drain interstitial fluid, collecting antigens and leukocytes in the process; they facilitate the transport of immune cells but, unlike blood vessels, are devoid of \textbf{red blood cells (RBCs)}. Lymph fluid undergoes filtration as it passes through the lymph nodes.
 
-          \item \textbf{Lymph Nodes}
+%           \item \textbf{Lymph Nodes}
 
-            Lymph nodes serve primarily to [1] \textbf{trap incoming antigens} presented by APCs and [2] \textbf{provide a localized environment for lymphocytes}---T and B cells---to interact with these antigens, thereby generating a subsequent adaptive immune response.
+%             Lymph nodes serve primarily to [1] \textbf{trap incoming antigens} presented by APCs and [2] \textbf{provide a localized environment for lymphocytes}---T and B cells---to interact with these antigens, thereby generating a subsequent adaptive immune response.
 
-          The resulting activated lymphocytes exit the node through the efferent lymphatic vessels, ultimately entering the bloodstream via the thoracic duct and subclavian vein to traffic toward the site of infection.
+%           The resulting activated lymphocytes exit the node through the efferent lymphatic vessels, ultimately entering the bloodstream via the thoracic duct and subclavian vein to traffic toward the site of infection.
 
-        \end{itemize}
-      }{
-        \myfig{1}{immunology_figures/lymph_system}{Lymphatic system}{fig:lymph_system}
-      }
+%         \end{itemize}
+%       }{
+%         \myfig{1}{immunology_figures/lymph_system}{Lymphatic system}{fig:lymph_system}
+%       }
 
-    \end{core}
+%     \end{core}
 
-    \begin{core}{Spleen}
+%     \begin{core}{Spleen}
 
-      \sbs{0.45}{
-        The \textbf{spleen} functions strictly to \textbf{filter blood}, as opposed to lymph, and can be categorized into two tissue types.
+%       \sbs{0.45}{
+%         The \textbf{spleen} functions strictly to \textbf{filter blood}, as opposed to lymph, and can be categorized into two tissue types.
 
-        \begin{itemize}
+%         \begin{itemize}
 
-          \item \textbf{Red Pulp} is responsible for recycling senescent RBCs and platelets from circulation via macrophage-mediated phagocytosis.
+%           \item \textbf{Red Pulp} is responsible for recycling senescent RBCs and platelets from circulation via macrophage-mediated phagocytosis.
 
-          \item \textbf{White Pulp} is a crucial site for immune activation, organized into \textbf{periarteriolar lymphoid sheaths (PALS)} primarily containing T cells, and marginal \textbf{lymphoid follicles} primarily containing B cells.
+%           \item \textbf{White Pulp} is a crucial site for immune activation, organized into \textbf{periarteriolar lymphoid sheaths (PALS)} primarily containing T cells, and marginal \textbf{lymphoid follicles} primarily containing B cells.
 
-        \end{itemize}
+%         \end{itemize}
 
-        \textit{Surgical removal of the spleen can significantly elevate an individual's susceptibility to bacterial infections.}
-      }{
-        \myfig{0.95}{immunology_figures/spleen}{Spleen}{fig:spleen}
-      }
+%         \textit{Surgical removal of the spleen can significantly elevate an individual's susceptibility to bacterial infections.}
+%       }{
+%         \myfig{0.95}{immunology_figures/spleen}{Spleen}{fig:spleen}
+%       }
 
-    \end{core}
+%     \end{core}
 
-    \begin{core}{Mucosa Associated Lymphoid Tissues (MALT)}
+%     \begin{core}{Mucosa Associated Lymphoid Tissues (MALT)}
 
-      \sbs{0.4}{
-        \textbf{Mucosa associated lymphoid tissues (MALT)} refer to the collection of lymphoid tissues situated across various mucosal surfaces, including the gastrointestinal (GALT), bronchial (BALT), and nasal (NALT) tracts; these mucosal systems represent the primary sites of pathogen entry into the body.
+%       \sbs{0.4}{
+%         \textbf{Mucosa associated lymphoid tissues (MALT)} refer to the collection of lymphoid tissues situated across various mucosal surfaces, including the gastrointestinal (GALT), bronchial (BALT), and nasal (NALT) tracts; these mucosal systems represent the primary sites of pathogen entry into the body.
 
-        \textit{Highly organized MALT structures include the tonsils, the appendix, and \textbf{Peyer's patches} located in the intestinal tract.}
+%         \textit{Highly organized MALT structures include the tonsils, the appendix, and \textbf{Peyer's patches} located in the intestinal tract.}
 
-        \textbf{Microfold (M) cells} (\textit{\autoref{fig:malt}}) are specialized, large epithelial cells located in areas of localized lymphoid concentration throughout the MALT, each possessing a basolateral pocket that houses several smaller immune cells.
+%         \textbf{Microfold (M) cells} (\textit{\autoref{fig:malt}}) are specialized, large epithelial cells located in areas of localized lymphoid concentration throughout the MALT, each possessing a basolateral pocket that houses several smaller immune cells.
 
-        The epithelial cells of the mucosa serve the following functions.
-      }{
-        \myfig{0.9}{immunology_figures/malt}{Mucosa associated lymphoid tissues; \textit{microfold cell present towards the left end of epithelial cell line}}{fig:malt}
-      }
+%         The epithelial cells of the mucosa serve the following functions.
+%       }{
+%         \myfig{0.9}{immunology_figures/malt}{Mucosa associated lymphoid tissues; \textit{microfold cell present towards the left end of epithelial cell line}}{fig:malt}
+%       }
 
-      \begin{itemize}
+%       \begin{itemize}
 
-        \item They facilitate the \textbf{transport of antigen samples} from the \textbf{lumen} (\textit{the space within vessels}) across the epithelial barrier via the specialized M cells.
+%         \item They facilitate the \textbf{transport of antigen samples} from the \textbf{lumen} (\textit{the space within vessels}) across the epithelial barrier via the specialized M cells.
 
-        \item They \textbf{secrete fluids} such as tears and mucus, which contain antimicrobial enzymes like lysozyme that degrade bacterial membranes.
+%         \item They \textbf{secrete fluids} such as tears and mucus, which contain antimicrobial enzymes like lysozyme that degrade bacterial membranes.
 
-        \item They utilize ciliary action to \textbf{physically sweep away pathogens and debris}, a mechanism prominent in the respiratory and reproductive tracts.
+%         \item They utilize ciliary action to \textbf{physically sweep away pathogens and debris}, a mechanism prominent in the respiratory and reproductive tracts.
 
-      \end{itemize}
+%       \end{itemize}
 
-    \end{core}
+%     \end{core}
 
-  \subsection{Tertiary Immune System Organs}
+%   \subsection{Tertiary Immune System Organs}
 
-  \begin{core}{Tertiary Immune System Organs}
+%   \begin{core}{Tertiary Immune System Organs}
 
-    A \textbf{tertiary immune organ} is an organized, non-encapsulated aggregate of immune and stromal cells that develops postnatally within non-lymphoid tissues at sites of persistent antigen exposure.
+%     A \textbf{tertiary immune organ} is an organized, non-encapsulated aggregate of immune and stromal cells that develops postnatally within non-lymphoid tissues at sites of persistent antigen exposure.
 
-  \end{core}
+%   \end{core}
 
-  \begin{core}{Skin}
+%   \begin{core}{Skin}
 
-    The \textbf{skin} is the largest organ of the human body and provides both innate and adaptive immune defense mechanisms. Its innate defense characteristics are as follows.
+%     The \textbf{skin} is the largest organ of the human body and provides both innate and adaptive immune defense mechanisms. Its innate defense characteristics are as follows.
 
-    \begin{itemize}
+%     \begin{itemize}
 
-      \item \textbf{Keratinocytes}, the epithelial cells forming the outer epidermal layer, secrete \textbf{cytokines} to activate localized innate immune cells upon detecting a threat.
+%       \item \textbf{Keratinocytes}, the epithelial cells forming the outer epidermal layer, secrete \textbf{cytokines} to activate localized innate immune cells upon detecting a threat.
 
-      \item Upon cell death, keratinocytes leave behind a protective \textbf{physical barrier} composed of keratin intermediate filaments.
+%       \item Upon cell death, keratinocytes leave behind a protective \textbf{physical barrier} composed of keratin intermediate filaments.
 
-      \item In the \textbf{epidermis}, sebaceous glands and hair follicles secrete \textbf{sebum}, antibacterial peptides, and \textbf{psoriasin} (\textit{a specific antimicrobial peptide}) to eliminate pathogenic bacteria while maintaining normal flora.
+%       \item In the \textbf{epidermis}, sebaceous glands and hair follicles secrete \textbf{sebum}, antibacterial peptides, and \textbf{psoriasin} (\textit{a specific antimicrobial peptide}) to eliminate pathogenic bacteria while maintaining normal flora.
 
-    \end{itemize}
+%     \end{itemize}
 
-    \sbs{0.5}{
-      \begin{itemize}
+%     \sbs{0.5}{
+%       \begin{itemize}
 
-        \item The underlying \textbf{dermis} consists of a deeper, thicker layer of mesenchymal and connective tissue that provides essential \textbf{blood supply and structural support}.
+%         \item The underlying \textbf{dermis} consists of a deeper, thicker layer of mesenchymal and connective tissue that provides essential \textbf{blood supply and structural support}.
 
-      \end{itemize}
+%       \end{itemize}
 
-      Conversely, the adaptive defense mechanisms of the skin are as follows.
+%       Conversely, the adaptive defense mechanisms of the skin are as follows.
 
-      \begin{itemize}
+%       \begin{itemize}
 
-        \item Keratinocytes, which are capable of expressing MHC~II receptors (\textit{\autoref{core:mhc_characteristics}}), and \textbf{Langerhans cells} (\textit{specialized dendritic cells of the skin}) present antigens to activate T$_\text{H}$ cells.
+%         \item Keratinocytes, which are capable of expressing MHC~II receptors (\textit{\autoref{core:mhc_characteristics}}), and \textbf{Langerhans cells} (\textit{specialized dendritic cells of the skin}) present antigens to activate T$_\text{H}$ cells.
 
-        \item Additionally, the skin harbors \textbf{intra-epidermal lymphocytes}, a specialized population of resident T cells that continuously patrol the tissue.
+%         \item Additionally, the skin harbors \textbf{intra-epidermal lymphocytes}, a specialized population of resident T cells that continuously patrol the tissue.
 
-      \end{itemize}
-    }{
-      \myfig{0.95}{immunology_figures/skin}{Skin}{fig:skin}
-    }
+%       \end{itemize}
+%     }{
+%       \myfig{0.95}{immunology_figures/skin}{Skin}{fig:skin}
+%     }
 
-  \end{core}
+%   \end{core}
 
-\section{Innate Immunity Processes}
+% \section{Innate Immunity Processes}
 
-  \begin{core}{Innate vs Adaptive Immune Response}
+%   \begin{core}{Innate vs Adaptive Immune Response}
 
-    The \textbf{innate immune response} is the body's first line of defense against pathogens. It is a rapid, \textbf{non-specific}, and evolutionary ancient defense mechanism that acts within minutes to hours of exposure. It is one that you can produce prior to exposure by a specific pathogen and doesn't require change to DNA/genes. All organisms have a form of innate immunity.
+%     The \textbf{innate immune response} is the body's first line of defense against pathogens. It is a rapid, \textbf{non-specific}, and evolutionary ancient defense mechanism that acts within minutes to hours of exposure. It is one that you can produce prior to exposure by a specific pathogen and doesn't require change to DNA/genes. All organisms have a form of innate immunity.
 
-    By contrast, the \textbf{adaptive response} is is the antigen-specific branch of the immune system that mounts a \textbf{tailored} defense against specific pathogen and creates long-lasting immunological memory. This response type takes days to develop during a primary infection because it requres the activation, gene rearrangement, clonal selection, and proliferation of lymphocytes with uniquely formed antigen receptors.
+%     By contrast, the \textbf{adaptive response} is is the antigen-specific branch of the immune system that mounts a \textbf{tailored} defense against specific pathogen and creates long-lasting immunological memory. This response type takes days to develop during a primary infection because it requres the activation, gene rearrangement, clonal selection, and proliferation of lymphocytes with uniquely formed antigen receptors.
 
-  \end{core}
+%   \end{core}
 
-  \subsection{Inflammation}
+%   \subsection{Inflammation}
 
-    \begin{core}{Inflammation}
+%     \begin{core}{Inflammation}
 
-      \textbf{Inflammation} represents a primary, coordinated physiological response that mobilizes systemic immune components to address and neutralize emerging pathogenic threats.
+%       \textbf{Inflammation} represents a primary, coordinated physiological response that mobilizes systemic immune components to address and neutralize emerging pathogenic threats.
 
-    \end{core}
+%     \end{core}
 
-    \begin{core}{Fever \& The Local Response}
+%     \begin{core}{Fever \& The Local Response}
 
-      \textbf{Fever} is a key characteristic of the inflammatory response, induced by the \textbf{hypothalamus}, which regulates the body's baseline temperature. It serves as an overt systemic indicator of immune up-regulation, a response historically correlated with improved survival rates during infection.
+%       \textbf{Fever} is a key characteristic of the inflammatory response, induced by the \textbf{hypothalamus}, which regulates the body's baseline temperature. It serves as an overt systemic indicator of immune up-regulation, a response historically correlated with improved survival rates during infection.
 
-      Any form of tissue injury, including internal trauma, inherently triggers a \textbf{localized inflammatory response}, characterized by the classical signs of \textbf{swelling} (\textit{due to vascular leakage}), \textbf{redness} (\textit{due to increased local blood flow}), \textbf{localized heat}, and \textbf{pain}. Collectively, these physiological changes serve to discourage behaviors that might exacerbate the initial injury.
+%       Any form of tissue injury, including internal trauma, inherently triggers a \textbf{localized inflammatory response}, characterized by the classical signs of \textbf{swelling} (\textit{due to vascular leakage}), \textbf{redness} (\textit{due to increased local blood flow}), \textbf{localized heat}, and \textbf{pain}. Collectively, these physiological changes serve to discourage behaviors that might exacerbate the initial injury.
 
-      \myfig{0.45}{immunology_figures/inflammation}{Localized inflammatory response; \textit{invading pathogens and physical tissue damage from a skin laceration elicit the classical signs of inflammation and the recruitment of immune cells to defend against infection}}{fig:inflammation}
+%       \myfig{0.45}{immunology_figures/inflammation}{Localized inflammatory response; \textit{invading pathogens and physical tissue damage from a skin laceration elicit the classical signs of inflammation and the recruitment of immune cells to defend against infection}}{fig:inflammation}
 
-    \end{core}
+%     \end{core}
 
-    \begin{core}{Immune Cell Extravasation}
+%     \begin{core}{Immune Cell Extravasation}
 
-      \textbf{Extravasation} is the process by which immune cells exit the circulatory system, migrating across the endothelial lining of blood vessels and into surrounding tissue toward a site of infection, injury, or inflammation. This process is particularly relevant to \textbf{neutrophils}, which are largely confined to the vasculature prior to infection and are selectively recruited to tissues via extravasation.
+%       \textbf{Extravasation} is the process by which immune cells exit the circulatory system, migrating across the endothelial lining of blood vessels and into surrounding tissue toward a site of infection, injury, or inflammation. This process is particularly relevant to \textbf{neutrophils}, which are largely confined to the vasculature prior to infection and are selectively recruited to tissues via extravasation.
 
-      \myfig{0.8}{immunology_figures/extravasation}{Extravastion of a neutrophil}{fig:extravasation}
+%       \myfig{0.8}{immunology_figures/extravasation}{Extravastion of a neutrophil}{fig:extravasation}
 
-      \begin{enumerate}[label=(\arabic*)]
+%       \begin{enumerate}[label=(\arabic*)]
 
-        \item \textbf{Rolling}: Neutrophils form transient, low-affinity interactions with the endothelial surface, causing them to slowly roll along the vascular wall.
+%         \item \textbf{Rolling}: Neutrophils form transient, low-affinity interactions with the endothelial surface, causing them to slowly roll along the vascular wall.
 
-        \item \textbf{Activation}: Endothelial and local cytokine signals induce conformational changes in neutrophil \textbf{integrins}.
+%         \item \textbf{Activation}: Endothelial and local cytokine signals induce conformational changes in neutrophil \textbf{integrins}.
 
-        \item \textbf{Adhesion}: High-affinity binding halts the rolling process, firmly arresting the cell on the endothelium.
+%         \item \textbf{Adhesion}: High-affinity binding halts the rolling process, firmly arresting the cell on the endothelium.
 
-        \item \textbf{Transendothelial Migration}: Neutrophils move between endothelial cells to enter the inflamed tissue, directed by local cytokine gradients, where they will subsequently phagocytize pathogens.
+%         \item \textbf{Transendothelial Migration}: Neutrophils move between endothelial cells to enter the inflamed tissue, directed by local cytokine gradients, where they will subsequently phagocytize pathogens.
 
-      \end{enumerate}
+%       \end{enumerate}
 
-    \end{core}
+%     \end{core}
 
-  \subsection{Innate Pathogen Pattern Recognition}
+%   \subsection{Innate Pathogen Pattern Recognition}
 
-    \begin{core}[label=core:pamp]{Pathogen Associated Molecular Patterns (PAMPs)}
+%     \begin{core}[label=core:pamp]{Pathogen Associated Molecular Patterns (PAMPs)}
 
-      \textbf{Pathogen associated molecular patterns (PAMPs)} are conserved molecular structures shared broadly across classes of microorganisms and are not found on host cells, allowing the \textbf{innate} immune system to recognize them as generic markers of infection via dedicated \textbf{pattern recognition receptors} (\textit{\autoref{core:prr}}).
+%       \textbf{Pathogen associated molecular patterns (PAMPs)} are conserved molecular structures shared broadly across classes of microorganisms and are not found on host cells, allowing the \textbf{innate} immune system to recognize them as generic markers of infection via dedicated \textbf{pattern recognition receptors} (\textit{\autoref{core:prr}}).
 
-      \begin{enumerate}
+%       \begin{enumerate}
 
-        \item \textbf{Proteins} (\textit{**very few recognized innately})
+%         \item \textbf{Proteins} (\textit{**very few recognized innately})
 
-          \begin{itemize}
+%           \begin{itemize}
 
-            \item \ul{Flagellin}: The primary structural component of bacterial flagella (\textit{tails}).
+%             \item \ul{Flagellin}: The primary structural component of bacterial flagella (\textit{tails}).
 
-            \item \ul{Profilin}: A surface protein found in protozoa that facilitates their motility and host cell targeting.
+%             \item \ul{Profilin}: A surface protein found in protozoa that facilitates their motility and host cell targeting.
 
-          \end{itemize}
+%           \end{itemize}
 
-        \item \textbf{Carbs \& Glycopeptides}
+%         \item \textbf{Carbs \& Glycopeptides}
 
-          \begin{itemize}
+%           \begin{itemize}
 
-            \item \ul{Zymosan}: A carbohydrate complex present in fungal cell walls.
+%             \item \ul{Zymosan}: A carbohydrate complex present in fungal cell walls.
 
-            \myfig{0.75}{immunology_figures/peptidoglycan}{Gram-positive (\textit{left}) and Gram-negative (\textit{right}) bacteria; \textit{peptidoglycan (burgandy) is present in both cell wall types}}{fig:peptidoglycan}
-            \vspace{-0.5cm}
+%             \myfig{0.75}{immunology_figures/peptidoglycan}{Gram-positive (\textit{left}) and Gram-negative (\textit{right}) bacteria; \textit{peptidoglycan (burgandy) is present in both cell wall types}}{fig:peptidoglycan}
+%             \vspace{-0.5cm}
 
-            \item \ul{Peptidoglycan}: A major structural polymer of both Gram-positive and Gram-negative bacterial cell walls shown in \autoref{fig:peptidoglycan}.
+%             \item \ul{Peptidoglycan}: A major structural polymer of both Gram-positive and Gram-negative bacterial cell walls shown in \autoref{fig:peptidoglycan}.
 
-          \end{itemize}
+%           \end{itemize}
 
-        \item \textbf{Lipids}
+%         \item \textbf{Lipids}
 
-          \begin{itemize}
+%           \begin{itemize}
 
-            \item \ul{Lipopolysaccharide (LPS)}: Innately recognized lipids that are typically conjugated to carbohydrates or peptides, exemplified by the outer membrane component of Gram-negative bacteria (\textit{\autoref{fig:peptidoglycan}}).
+%             \item \ul{Lipopolysaccharide (LPS)}: Innately recognized lipids that are typically conjugated to carbohydrates or peptides, exemplified by the outer membrane component of Gram-negative bacteria (\textit{\autoref{fig:peptidoglycan}}).
 
-          \end{itemize}
+%           \end{itemize}
 
-        \item \textbf{Nucleic Acids}
+%         \item \textbf{Nucleic Acids}
 
-          \begin{itemize}
+%           \begin{itemize}
 
-            \item \ul{Atypical Nucleic Acids}: Nucleic acids displaying configurations atypical of the host, such as single-stranded DNA or double-stranded RNA.
+%             \item \ul{Atypical Nucleic Acids}: Nucleic acids displaying configurations atypical of the host, such as single-stranded DNA or double-stranded RNA.
 
-          \end{itemize}
+%           \end{itemize}
 
-      \end{enumerate}
+%       \end{enumerate}
 
-    \end{core}
+%     \end{core}
 
-    \begin{core}[label=core:prr]{Pattern Recognition Receptors (PRRs)}
+%     \begin{core}[label=core:prr]{Pattern Recognition Receptors (PRRs)}
 
-      \textbf{Pattern recognition receptors (PRRs)} are host receptors that recognize PAMPs (\textit{\autoref{core:pamp}}), enabling the \textbf{innate} immune system to detect and respond to a broad range of microbial threats independent of prior antigen exposure.
+%       \textbf{Pattern recognition receptors (PRRs)} are host receptors that recognize PAMPs (\textit{\autoref{core:pamp}}), enabling the \textbf{innate} immune system to detect and respond to a broad range of microbial threats independent of prior antigen exposure.
 
-      \begin{enumerate}
+%       \begin{enumerate}
 
-        \item \textbf{Extracellular PRRs}
+%         \item \textbf{Extracellular PRRs}
 
-          \begin{itemize}
+%           \begin{itemize}
 
-            \item \ul{Lysozyme}: An enzyme that specifically \textbf{degrades the peptidoglycan} layer of bacterial cell walls (\textit{\autoref{fig:peptidoglycan}}).
+%             \item \ul{Lysozyme}: An enzyme that specifically \textbf{degrades the peptidoglycan} layer of bacterial cell walls (\textit{\autoref{fig:peptidoglycan}}).
 
-            \item \ul{Psoriasin}: A skin-specific \textbf{antimicrobial peptide (AMP)} that \textbf{disrupts bacterial cell membranes}; \textit{whereas AMPs are generally distributed systemically and share this membrane-disruptive mechanism, psoriasin is notable for its restriction to cutaneous tissue}.
+%             \item \ul{Psoriasin}: A skin-specific \textbf{antimicrobial peptide (AMP)} that \textbf{disrupts bacterial cell membranes}; \textit{whereas AMPs are generally distributed systemically and share this membrane-disruptive mechanism, psoriasin is notable for its restriction to cutaneous tissue}.
 
-            \item \ul{Mannose-binding lectin (MBL)}: A plasma protein that binds microbial carbohydrates to initiate the \textbf{lectin pathway of the complement system} (\textit{AUTOREF}).
+%             \item \ul{Mannose-binding lectin (MBL)}: A plasma protein that binds microbial carbohydrates to initiate the \textbf{lectin pathway of the complement system} (\textit{AUTOREF}).
 
-            \item \ul{C-reactive protein (CRP)}: An acute-phase plasma protein that binds to specific surface molecules on \textbf{microbes} and \textbf{damaged host cells}.
+%             \item \ul{C-reactive protein (CRP)}: An acute-phase plasma protein that binds to specific surface molecules on \textbf{microbes} and \textbf{damaged host cells}.
 
-            \item \ul{Lipopolysaccharide-binding protein (LBP)}: A protein that \textbf{recognizes and binds lipopolysaccharide (LPS)} (\textit{\autoref{fig:peptidoglycan}}), the principal constituent of the Gram-negative bacterial outer membrane.
+%             \item \ul{Lipopolysaccharide-binding protein (LBP)}: A protein that \textbf{recognizes and binds lipopolysaccharide (LPS)} (\textit{\autoref{fig:peptidoglycan}}), the principal constituent of the Gram-negative bacterial outer membrane.
 
-          \end{itemize}
+%           \end{itemize}
 
-        \item \textbf{Cytoplasmic PRRs}
+%         \item \textbf{Cytoplasmic PRRs}
 
-          \begin{itemize}
+%           \begin{itemize}
 
-            \item \ul{NOD proteins}: Intracellular sensors that detect degradation products of \textbf{bacterial cell walls} within the cytoplasm.
+%             \item \ul{NOD proteins}: Intracellular sensors that detect degradation products of \textbf{bacterial cell walls} within the cytoplasm.
 
-          \end{itemize}
+%           \end{itemize}
 
-        \item \textbf{Toll-like receptors (TLRs)} function as monomers or dimers and are distributed either \textbf{internally}, on endosomal or phagolysosomal membranes, or \textbf{externally}, on the plasma membrane facing the ECM.
+%         \item \textbf{Toll-like receptors (TLRs)} function as monomers or dimers and are distributed either \textbf{internally}, on endosomal or phagolysosomal membranes, or \textbf{externally}, on the plasma membrane facing the ECM.
 
-          \myfig{0.6}{immunology_figures/tlr}{Toll-like receptors; \textit{external (top left) TLRs sit on the plasma membrane facing the ECM and internal (bottom right) TLRs sit on the endosomal membrane}}{fig:tlr}
-          \vspace{-0.5cm}
+%           \myfig{0.6}{immunology_figures/tlr}{Toll-like receptors; \textit{external (top left) TLRs sit on the plasma membrane facing the ECM and internal (bottom right) TLRs sit on the endosomal membrane}}{fig:tlr}
+%           \vspace{-0.5cm}
 
-          Upon ligand binding, TLRs initiate signaling cascades that activate the transcription factor NF-κB, upregulating the \textbf{production of pro-inflammatory cytokines}.
+%           Upon ligand binding, TLRs initiate signaling cascades that activate the transcription factor NF-κB, upregulating the \textbf{production of pro-inflammatory cytokines}.
 
-          \begin{table}[H]
-            \centering
-            \small
-            \begin{tabular}{@{}l l p{9cm}@{}}
-              \hline
-              \textbf{Category} & \textbf{TLR} & \textbf{Ligand Recognition} \\
-              \hline
-              \multirow{4}{*}{External}
-                & TLR1, TLR2, TLR6 & Mediate the recognition of various \textbf{bacterial lipopeptides} and cell wall \textbf{lipoproteins}. \\
-                & TLR4 & Specifically detects \textbf{LPS} from Gram-negative bacteria. \\
-                & TLR5 & Specifically recognizes \textbf{bacterial flagellin}. \\
-                & TLR10 & \textit{Unknown.} \\
-              \hline
-              \multirow{3}{*}{Internal}
-                & TLR3 & Detects \textbf{viral double-stranded RNA}. \\
-                & TLR7, TLR8 & Detect \textbf{single-stranded viral RNA sequences}. \\
-                & TLR9 & Recognizes \textbf{unmethylated CpG dinucleotide motifs} commonly found in bacterial and viral DNA. \\
-              \hline
-              Non-Human & TLR11, TLR12, TLR13 & These receptors are absent in humans but are expressed in mice, functioning primarily to recognize \textbf{profilin} (\textit{an actin-binding protein}) and bacterial 23S rRNA. \\
-              \hline
-            \end{tabular}
-            \caption{Ligand specificity of TLRs, categorized by cellular localization.}
-            \label{tab:tlr_ligand}
-          \end{table}
+%           \begin{table}[H]
+%             \centering
+%             \small
+%             \begin{tabular}{@{}l l p{9cm}@{}}
+%               \hline
+%               \textbf{Category} & \textbf{TLR} & \textbf{Ligand Recognition} \\
+%               \hline
+%               \multirow{4}{*}{External}
+%                 & TLR1, TLR2, TLR6 & Mediate the recognition of various \textbf{bacterial lipopeptides} and cell wall \textbf{lipoproteins}. \\
+%                 & TLR4 & Specifically detects \textbf{LPS} from Gram-negative bacteria. \\
+%                 & TLR5 & Specifically recognizes \textbf{bacterial flagellin}. \\
+%                 & TLR10 & \textit{Unknown.} \\
+%               \hline
+%               \multirow{3}{*}{Internal}
+%                 & TLR3 & Detects \textbf{viral double-stranded RNA}. \\
+%                 & TLR7, TLR8 & Detect \textbf{single-stranded viral RNA sequences}. \\
+%                 & TLR9 & Recognizes \textbf{unmethylated CpG dinucleotide motifs} commonly found in bacterial and viral DNA. \\
+%               \hline
+%               Non-Human & TLR11, TLR12, TLR13 & These receptors are absent in humans but are expressed in mice, functioning primarily to recognize \textbf{profilin} (\textit{an actin-binding protein}) and bacterial 23S rRNA. \\
+%               \hline
+%             \end{tabular}
+%             \caption{Ligand specificity of TLRs, categorized by cellular localization.}
+%             \label{tab:tlr_ligand}
+%           \end{table}
 
-      \end{enumerate}
+%       \end{enumerate}
 
-    \end{core}
+%     \end{core}
 
-  \subsection{Phagocytosis \& NOX Complexes}
+%   \subsection{Phagocytosis \& NOX Complexes}
 
-    \begin{core}[label=core:phagocytosis]{Phagocytosis}
+%     \begin{core}[label=core:phagocytosis]{Phagocytosis}
 
-      \sbs{0.4}{
-        \textbf{Phagocytosis} refers to the engulfment of pathogens via the extension of \textbf{pseudopodia} around the target, leading to the formation a a \textbf{phagosome}. This process is triggered upstream by \textbf{PAMPs} (\textit{\autoref{core:pamp}}) and their recognition by \textbf{PRRs} (\textit{\autoref{core:prr}}) and primarily carried out by macrophages and neutrophils, which degrades the trapped pathogen via \textbf{NOX complexes} (\textit{\autoref{core:nox_complex}}).
-      }{
-        \myfig{1}{immunology_figures/phagocytosis}{Phagocytosis}{fig:phagocytosis}
-      }
+%       \sbs{0.4}{
+%         \textbf{Phagocytosis} refers to the engulfment of pathogens via the extension of \textbf{pseudopodia} around the target, leading to the formation a a \textbf{phagosome}. This process is triggered upstream by \textbf{PAMPs} (\textit{\autoref{core:pamp}}) and their recognition by \textbf{PRRs} (\textit{\autoref{core:prr}}) and primarily carried out by macrophages and neutrophils, which degrades the trapped pathogen via \textbf{NOX complexes} (\textit{\autoref{core:nox_complex}}).
+%       }{
+%         \myfig{1}{immunology_figures/phagocytosis}{Phagocytosis}{fig:phagocytosis}
+%       }
 
-    \end{core}
+%     \end{core}
 
-    \begin{core}[label=core:nox_complex]{NADPH Oxidase (NOX) Complexes}
+%     \begin{core}[label=core:nox_complex]{NADPH Oxidase (NOX) Complexes}
 
-      \textbf{NADPH oxidase (NOX) complexes} are multi-subunit, membrane-bound enzymes whose primary biological function is the targeted generation of \textbf{reactive oxygen species (ROS)} through the transfer of electrons across biological membranes. 
+%       \textbf{NADPH oxidase (NOX) complexes} are multi-subunit, membrane-bound enzymes whose primary biological function is the targeted generation of \textbf{reactive oxygen species (ROS)} through the transfer of electrons across biological membranes. 
 
-      \pgfig{
-        [
-          >=Stealth,
-          every node/.style={font=\sffamily},
-          membranefill/.style={fill=boxblue},
-          boxfill/.style={fill=boxblue, draw=black},
-        ]
+%       \pgfig{
+%         [
+%           >=Stealth,
+%           every node/.style={font=\sffamily},
+%           membranefill/.style={fill=boxblue},
+%           boxfill/.style={fill=boxblue, draw=black},
+%         ]
 
-        % ===== Labels =====
-        \node[font=\sffamily\bfseries, anchor=west] (phagosome) at (0,11.8) {\underline{PHAGOSOME}};
-        \node[font=\sffamily\bfseries, anchor=west] (cytoplasm) at (0,0.4) {\underline{CYTOPLASM}};
+%         % ===== Labels =====
+%         \node[font=\sffamily\bfseries, anchor=west] (phagosome) at (0,11.8) {\underline{PHAGOSOME}};
+%         \node[font=\sffamily\bfseries, anchor=west] (cytoplasm) at (0,0.4) {\underline{CYTOPLASM}};
 
-        % ===== Bacteria cloud =====
-        \node[cloud, draw, boxfill, aspect=2.2, minimum width=3.6cm, minimum height=2.2cm, cloud puffs=13] (bacteria) at (13.2,11.0) {Bacteria};
+%         % ===== Bacteria cloud =====
+%         \node[cloud, draw, boxfill, aspect=2.2, minimum width=3.6cm, minimum height=2.2cm, cloud puffs=13] (bacteria) at (13.2,11.0) {Bacteria};
 
-        % ===== Degradation arrow =====
-        \node[font=\sffamily] at (8.6,12.15) {Degradation};
+%         % ===== Degradation arrow =====
+%         \node[font=\sffamily] at (8.6,12.15) {Degradation};
 
-        % ===== Membrane =====
-        \coordinate (memL) at (0.3,4.0);
-        \coordinate (memR) at (15.6,4.0);
-        \draw[boxfill] (0.3,4.6) rectangle (15.6,5.4);
-        \node[anchor=west] at (0.5,5.0) {\normalsize Phagosome Membrane};
-        \draw[boxfill] (0.8,4.0) rectangle (15.1,4.6);
-        \node[anchor=west] at (1.0,4.3) {\normalsize Microfilaments};
+%         % ===== Membrane =====
+%         \coordinate (memL) at (0.3,4.0);
+%         \coordinate (memR) at (15.6,4.0);
+%         \draw[boxfill] (0.3,4.6) rectangle (15.6,5.4);
+%         \node[anchor=west] at (0.5,5.0) {\normalsize Phagosome Membrane};
+%         \draw[boxfill] (0.8,4.0) rectangle (15.1,4.6);
+%         \node[anchor=west] at (1.0,4.3) {\normalsize Microfilaments};
 
-        % ===== NOX Complex =====
-        \node[boxfill, rounded corners=8pt, minimum width=2.3cm, minimum height=3.4cm, align=center] (nox) at (6.0,4.9) {\Large NOX\\Complex};
+%         % ===== NOX Complex =====
+%         \node[boxfill, rounded corners=8pt, minimum width=2.3cm, minimum height=3.4cm, align=center] (nox) at (6.0,4.9) {\Large NOX\\Complex};
 
 
-        % ===== Defensins ellipses =====
-        \node[boxfill, ellipse, minimum width=2.2cm, minimum height=1.1cm] (def1) at (11.0,1.6) {Defensins};
-        \node[boxfill, ellipse, minimum width=2.2cm, minimum height=1.1cm] (def2) at (10.3,0.2) {Defensins};
-        \node[boxfill, ellipse, minimum width=2.2cm, minimum height=1.1cm] (def3) at (12.9,0.75) {Defensins};
+%         % ===== Defensins ellipses =====
+%         \node[boxfill, ellipse, minimum width=2.2cm, minimum height=1.1cm] (def1) at (11.0,1.6) {Defensins};
+%         \node[boxfill, ellipse, minimum width=2.2cm, minimum height=1.1cm] (def2) at (10.3,0.2) {Defensins};
+%         \node[boxfill, ellipse, minimum width=2.2cm, minimum height=1.1cm] (def3) at (12.9,0.75) {Defensins};
 
-        % ===== Chemical species labels =====
-        \node[font=\large] (O2) at (3.9,7.4) {\ce{2O2}};
-        \node[font=\large] (O2m) at (7.6,7.6) {\ce{2O2^-}};
-        \node[font=\large] (H2O2) at (7.0,10.2) {\ce{H2O2}};
-        \node[font=\large] (HOCl) at (3.0,10.1) {\ce{HOCl}};
-        \node[font=\large] (NADPH) at (3.9,2.45) {\ce{NADPH}};
-        \node[font=\large] (NADPp) at (7.8,2.45) {\ce{NADP+ + H+}};
-        \node[font=\large] (Htop) at (10.15,7.4) {\ce{H+}};
-        \node[font=\large] (Hbot) at (10.15,2.85) {\ce{H+}};
-        \node[font=\large] (Ktop) at (12.15,7.4) {\ce{K+}};
-        \node[font=\large] (Kbot) at (12.15,2.6) {\ce{K+}};
+%         % ===== Chemical species labels =====
+%         \node[font=\large] (O2) at (3.9,7.4) {\ce{2O2}};
+%         \node[font=\large] (O2m) at (7.6,7.6) {\ce{2O2^-}};
+%         \node[font=\large] (H2O2) at (7.0,10.2) {\ce{H2O2}};
+%         \node[font=\large] (HOCl) at (3.0,10.1) {\ce{HOCl}};
+%         \node[font=\large] (NADPH) at (3.9,2.45) {\ce{NADPH}};
+%         \node[font=\large] (NADPp) at (7.8,2.45) {\ce{NADP+ + H+}};
+%         \node[font=\large] (Htop) at (10.15,7.4) {\ce{H+}};
+%         \node[font=\large] (Hbot) at (10.15,2.85) {\ce{H+}};
+%         \node[font=\large] (Ktop) at (12.15,7.4) {\ce{K+}};
+%         \node[font=\large] (Kbot) at (12.15,2.6) {\ce{K+}};
 
-        % ===== Arrows =====
-        % NADPH into NOX complex
-        \draw[->,thick] (NADPH.north east) to[bend left=45] (NADPp.north west);
-        % 2O2 -> 2O2-
-        \draw[->,thick] (O2.south east) to[bend right=45] (O2m.south west);
-        % 2O2- -> H2O2
-        \draw[->,thick] (O2m.north) -- (H2O2.south);
-        % H2O2 -> HOCl (elbow / stepped line)
-        \draw[->,thick] (H2O2.west) -- (HOCl.east);
-        % HOCl -> curved arrow up to Degradation arrow start
-        \draw[->,thick] (HOCl.north east) to[bend left=15] (10.7,11.75);
-        % NADP+ + H+ -> H+ (bottom)
-        \draw[->,thick] (NADPp.east) -- (Hbot.west);
-        % Vertical arrow through Proton channel: Hbot -> Htop
-        \draw[->,thick] (Hbot.north) -- (Htop.south);
-        % Vertical arrow through Kv channel: Kbot -> Ktop
-        \draw[->,thick] (Kbot.north) -- (Ktop.south);
-        % Defensins -> Bacteria (curved, right side, swings wide of the Kv channel arrow)
-        \draw[->,thick] ([xshift=0.3cm,yshift=0.2cm]def1.east) to[bend right=60] ([xshift=0.2cm,yshift=-0.2cm]bacteria.south east);
-        \draw[->,thick] (Htop.north) -- (H2O2.south);
+%         % ===== Arrows =====
+%         % NADPH into NOX complex
+%         \draw[->,thick] (NADPH.north east) to[bend left=45] (NADPp.north west);
+%         % 2O2 -> 2O2-
+%         \draw[->,thick] (O2.south east) to[bend right=45] (O2m.south west);
+%         % 2O2- -> H2O2
+%         \draw[->,thick] (O2m.north) -- (H2O2.south);
+%         % H2O2 -> HOCl (elbow / stepped line)
+%         \draw[->,thick] (H2O2.west) -- (HOCl.east);
+%         % HOCl -> curved arrow up to Degradation arrow start
+%         \draw[->,thick] (HOCl.north east) to[bend left=15] (10.7,11.75);
+%         % NADP+ + H+ -> H+ (bottom)
+%         \draw[->,thick] (NADPp.east) -- (Hbot.west);
+%         % Vertical arrow through Proton channel: Hbot -> Htop
+%         \draw[->,thick] (Hbot.north) -- (Htop.south);
+%         % Vertical arrow through Kv channel: Kbot -> Ktop
+%         \draw[->,thick] (Kbot.north) -- (Ktop.south);
+%         % Defensins -> Bacteria (curved, right side, swings wide of the Kv channel arrow)
+%         \draw[->,thick] ([xshift=0.3cm,yshift=0.2cm]def1.east) to[bend right=60] ([xshift=0.2cm,yshift=-0.2cm]bacteria.south east);
+%         \draw[->,thick] (Htop.north) -- (H2O2.south);
 
-        % ===== Proton Channels (cylinder) =====
-        \begin{scope}
-          \coordinate (pcB) at (10.15,3.55);
-          \coordinate (pcT) at (10.15,5.65);
-          \fill[boxfill] (9.5,3.55) rectangle (10.8,5.65);
-          \draw[boxfill] (9.5,3.55) -- (9.5,5.65) (10.8,3.55) -- (10.8,5.65);
-          \node[align=center] at (10.15,4.55) {\small Proton\\\small Channels};
-        \end{scope}
+%         % ===== Proton Channels (cylinder) =====
+%         \begin{scope}
+%           \coordinate (pcB) at (10.15,3.55);
+%           \coordinate (pcT) at (10.15,5.65);
+%           \fill[boxfill] (9.5,3.55) rectangle (10.8,5.65);
+%           \draw[boxfill] (9.5,3.55) -- (9.5,5.65) (10.8,3.55) -- (10.8,5.65);
+%           \node[align=center] at (10.15,4.55) {\small Proton\\\small Channels};
+%         \end{scope}
 
-        % ===== Kv Channels (cylinder) =====
-        \begin{scope}
-          \coordinate (kcB) at (12.15,3.55);
-          \coordinate (kcT) at (12.15,5.65);
-          \fill[boxfill] (11.5,3.55) rectangle (12.8,5.65);
-          \draw[boxfill] (11.5,3.55) -- (11.5,5.65) (12.8,3.55) -- (12.8,5.65);
-          \node[align=center] at (12.15,4.55) {\small Kv\\\small Channels};
-        \end{scope}
+%         % ===== Kv Channels (cylinder) =====
+%         \begin{scope}
+%           \coordinate (kcB) at (12.15,3.55);
+%           \coordinate (kcT) at (12.15,5.65);
+%           \fill[boxfill] (11.5,3.55) rectangle (12.8,5.65);
+%           \draw[boxfill] (11.5,3.55) -- (11.5,5.65) (12.8,3.55) -- (12.8,5.65);
+%           \node[align=center] at (12.15,4.55) {\small Kv\\\small Channels};
+%         \end{scope}
 
-        \node[font=\bfseries\large] at (2,3.5) {(A)};
-        \node[font=\bfseries\large] at (2,10) {(B)};
-        \node[font=\bfseries\large] at (14,2) {(C)};
-        \node[font=\bfseries\large] at (13,7) {(D)};
-      }{NADPH oxidase (NOX) complex mechanism; \textit{(A) \textbf{Microfilaments package the exterior} of the vacuole, preventing swelling and maintaining the concentration of toxic compounds inside}; \textit{(B) Both \textbf{ROS} and \textbf{RNS} are made to attack the bacterial cell, this figure only shows the formation of ROS however for simplicity}; \textit{(C) \textbf{Defensin peptides (a type of AMP)} attack the pathogen by poking holes in its membrane, working best in a certain \ce{K+} concentration and tonicity}; \textit{(D) In order to \textbf{regulate the electrochemical gradient} made by transferring ions across the membrane, \ce{K+} is transferred into the phagosomal lumen by membrane channels}}{fig:phk}{0.8}
+%         \node[font=\bfseries\large] at (2,3.5) {(A)};
+%         \node[font=\bfseries\large] at (2,10) {(B)};
+%         \node[font=\bfseries\large] at (14,2) {(C)};
+%         \node[font=\bfseries\large] at (13,7) {(D)};
+%       }{NADPH oxidase (NOX) complex mechanism; \textit{(A) \textbf{Microfilaments package the exterior} of the vacuole, preventing swelling and maintaining the concentration of toxic compounds inside}; \textit{(B) Both \textbf{ROS} and \textbf{RNS} are made to attack the bacterial cell, this figure only shows the formation of ROS however for simplicity}; \textit{(C) \textbf{Defensin peptides (a type of AMP)} attack the pathogen by poking holes in its membrane, working best in a certain \ce{K+} concentration and tonicity}; \textit{(D) In order to \textbf{regulate the electrochemical gradient} made by transferring ions across the membrane, \ce{K+} is transferred into the phagosomal lumen by membrane channels}}{fig:phk}{0.8}
        
-    \end{core}
+%     \end{core}
 
 \section{Antibodies}
 
@@ -1096,7 +1096,7 @@
 
         \item \textbf{Allergic Responses}: Eosinophils, basophils, and mast cells express \textbf{Fc receptors (FcRs)} specific for \textbf{IgE}. Antigen-induced cross-linking of receptor-bound IgE triggers \textbf{degranulation} in these cells, releasing inflammatory mediators.
 
-        \item \textbf{Signal for Phagocytosis}: Antibodies also serve as a signal for \textbf{phagocytosis} (\textit{\autoref{core:phagocytosis}}) through \textbf{opsonization}. Macrophages and neutrophils express Fc receptors specific for \textbf{IgG}, and when numerous IgG Fc regions decorate the surface of a bacterium or a cluster of viral particles, they simultaneously engage multiple FcRs on a phagocytic cell. This multivalent binding triggers a transmembrane signaling response that leads to phagocytosis of the bound particle.
+        % \item \textbf{Signal for Phagocytosis}: Antibodies also serve as a signal for \textbf{phagocytosis} (\textit{\autoref{core:phagocytosis}}) through \textbf{opsonization}. Macrophages and neutrophils express Fc receptors specific for \textbf{IgG}, and when numerous IgG Fc regions decorate the surface of a bacterium or a cluster of viral particles, they simultaneously engage multiple FcRs on a phagocytic cell. This multivalent binding triggers a transmembrane signaling response that leads to phagocytosis of the bound particle. % UNCOMMENT AFTER UNCOMMENTING ABOVE SECTIONS
 
         \item \textbf{Activation of Complement}: IgM and IgG bound to a cell surface can additionally activate the \textbf{complement system}, a set of plasma proteins that circulate in an inactive form until triggered. REFERENCE
 
@@ -1112,7 +1112,6 @@
 
     \begin{core}[label=core:l_chain_gene]{L Chain Gene Sequences}
 
-      % ORIGINAL: The light chain gene sequences are seperated into the λ and κ versions.
       The light chain gene sequences are divided into two distinct isotypes, λ and κ, each encoded at a separate genomic locus.
 
       \begin{enumerate}
@@ -1196,9 +1195,9 @@
 
       \textit{Notice that the five and one variations in the constant block for the λ and κ L chain, respectively, are in line with the "Kappa (κ) OR Lambda (λ; 5 subversions)" label in \autoref{fig:antibody}.}
 
-      \myfig{0.7}{immunology_figures/l_chain_detail}{Higher resolution of λ and κ light chain gene sequences}{fig:l_chain_detail}
+      The following detailed representation of the λ and κ light chain gene loci further illustrates the flanking \textbf{recombination signal sequences (RSSs)} (\textit{\autoref{core:rss}}), alongside splicing signals, polyadenylation signals, and transcription termination sites. Notably, the constant region gene encodes only a single immunoglobulin domain, reflecting the single constant domain architecture of light chains relative to the three or four domains found in heavy chains (\autoref{fig:h_chain_detail}).
 
-      This detailed representation of the λ and κ light chain gene loci further illustrates the flanking \textbf{recombination signal sequences (RSSs)} (\textit{\autoref{core:rss}}), alongside splicing signals, polyadenylation signals, and transcription termination sites. Notably, the constant region gene encodes only a single immunoglobulin domain, reflecting the single constant domain architecture of light chains relative to the three or four domains found in heavy chains (\autoref{fig:h_chain_detail}).
+      \myfig{0.7}{immunology_figures/l_chain_detail}{Higher resolution of λ and κ light chain gene sequences}{fig:l_chain_detail}
 
     \end{core} 
 
@@ -1390,30 +1389,6 @@
 
             A single variable (V) segment undergoes somatic recombination with a single joining (J) segment. This DNA rearrangement physically excises the intervening genetic sequence and, in doing so, activates only the promoter immediately upstream of the newly joined V segment.
 
-            \pgfig{
-              \hbandreset{0.2} % starting x-position
-              \draw[dashed] (0,0) node[left] {5'} -- (9,0) node[right] {3'};
-
-              \draw[hband black={0.2}{L}];
-              \hbandshift{0.1}
-              \draw[hband pink={0.8}{V$_\text{λ}$}];
-              \hbandshift{5}
-              \draw[hband yellow={0.3}{J$_\text{λ}$}];
-              \hbandshift{0.2}
-              \draw[hband blue={1.2}{C$_\text{λ}$}];
-              \hbandshift{0.4}
-
-              \draw[fill=imgray, draw=none] (1.3,-0.3) rectangle (2.0,0.3);
-              \draw[fill=impurple, draw=none] (2.0,-0.3) rectangle (2.7,0.3);
-              \draw[fill=imorange, draw=none] (3.3,-0.3) -- (2.7,-0.3) -- (2.7,0.3) -- cycle;
-              \draw (2.7,0.3) -- (1.3,0.3) -- (1.3,-0.3) -- (3.3,-0.3) -- cycle; 
-
-              \draw[fill=imlightpurple, draw=none] (4.9,-0.3) rectangle (5.6,0.3);
-              \draw[fill=imgray, draw=none] (5.6,-0.3) rectangle (6.3,0.3);
-              \draw[fill=imorange, draw=none] (4.3,0.3) -- (4.9,0.3) -- (4.9,-0.3) -- cycle;
-              \draw (4.3,0.3) -- (6.3,0.3) -- (6.3,-0.3) -- (4.9,-0.3) -- cycle; 
-            }{Recombination signal sequences flanking the V and J segments during λ light gene rearrangement}{fig:ll_expression2}{0.9}
-
             This rearrangement process is governed by the \textbf{Recombination Signal Sequence (RSS)} mechanism detailed in \autoref{core:rss}.
 
           \item \textbf{TRANSCRIPTION} [Primary Transcript] --- \textit{Nucleus}
@@ -1517,30 +1492,6 @@
 
             As with the λ chain, a single V segment undergoes recombination with a single J segment. Any intervening J sequences are permanently excised from the DNA, and only the upstream promoter corresponding to the chosen V segment becomes functionally active.
 
-            \pgfig{
-              \hbandreset{0.2} % starting x-position
-              \draw[dashed] (0,0) node[left] {5'} -- (9,0) node[right] {3'};
-
-              \draw[hband black={0.2}{L}];
-              \hbandshift{0.1}
-              \draw[hband pink={0.8}{V$_\text{κ}$}];
-              \hbandshift{5}
-              \draw[hband yellow={0.3}{J$_\text{κ}$}];
-              \hbandshift{0.2}
-              \draw[hband blue={1.2}{C$_\text{κ}$}];
-              \hbandshift{0.4}
-
-              \draw[fill=imgray, draw=none] (1.3,-0.3) rectangle (2.0,0.3);
-              \draw[fill=imlightpurple, draw=none] (2.0,-0.3) rectangle (2.7,0.3);
-              \draw[fill=imorange, draw=none] (2.7,-0.3) -- (2.7,0.3) -- (3.3,0.3) -- cycle;
-              \draw (3.3,0.3) -- (1.3,0.3) -- (1.3,-0.3) -- (2.7,-0.3) -- cycle; 
-
-              \draw[fill=impurple, draw=none] (4.9,-0.3) rectangle (5.6,0.3);
-              \draw[fill=imgray, draw=none] (5.6,-0.3) rectangle (6.3,0.3);
-              \draw[fill=imorange, draw=none] (4.3,-0.3) -- (4.9,-0.3) -- (4.9,0.3) -- cycle;
-              \draw (4.9,0.3) -- (6.3,0.3) -- (6.3,-0.3) -- (4.3,-0.3) -- cycle; 
-            }{Recombination signal sequences flanking the V and J segments during κ light chain gene rearrangement}{fig:kl_expression2}{0.9}
-
             This rearrangement process is governed by the \textbf{Recombination Signal Sequence (RSS)} mechanism detailed in \autoref{core:rss}.
 
           \item \textbf{TRANSCRIPTION} [Primary Transcript] --- \textit{Nucleus}
@@ -1569,6 +1520,7 @@
               \draw (0.4,-0.3) -- (0.45,-0.7) -- (0.5,-0.3); 
               \draw (1.6,-0.3) -- (3.65,-0.7) -- (5.7,-0.3); 
             }{Primary RNA transcript generated from the rearranged κ light chain gene segment}{fig:kl_expression3}{0.9}
+            \vspace{-0.2cm}
 
             Transcription initiates at the active promoter, generating a primary RNA transcript that spans the chosen V segment, the selected J segment, the remaining unselected downstream J segments, and the single C$_\text{κ}$ constant region.
 
@@ -1583,6 +1535,7 @@
               \draw[hband yellow={0.3}{J$_\text{κ}$}];
               \draw[hband blue={1.2}{C$_\text{κ}$}];
             }{Processed κ light chain mRNA transcript}{fig:kl_expression4}{0.9}
+            \vspace{-0.2cm}
 
             \textbf{Spliceosomes} excise all intronic sequences together with the unselected downstream J segments, yielding a contiguous coding message; a \textbf{poly-A tail} is subsequently appended to stabilize the transcript for cytosolic export.
 
@@ -1597,6 +1550,7 @@
               \draw[hband yellow={0.3}{J$_\text{κ}$}];
               \draw[hband blue={1.2}{C$_\text{κ}$}];
             }{Nascent polypeptide resulting from translation of the processed mRNA transcript depicted in \autoref{fig:kl_expression4}}{fig:kl_expression5}{0.9}
+            \vspace{-0.2cm}
 
             This process proceeds identically to λ light chain translation, including RER docking, as described in \autoref{core:ll_chain_gene_expression}.
 
@@ -1610,6 +1564,7 @@
               \draw[hband yellow={0.3}{J$_\text{κ}$}];
               \draw[hband blue={1.2}{C$_\text{κ}$}];
             }{Mature κ light chain polypeptide following cleavage of the leader sequence}{fig:kl_expression6}{0.9}
+            \vspace{-0.2cm}
 
             Proteolytic removal of the leader sequence within the ER yields the final mature protein, consisting of the variable and constant regions.
 
@@ -1617,7 +1572,7 @@
 
       \end{core}
 
-      \begin{core}{H Chain Gene Expression}
+      \begin{core}[label=core:h_chain_gene_expression]{H Chain Gene Expression}
 
         The following is a step-by-step account of the gene expression process for the heavy chain (\textit{\autoref{core:h_chain_gene}}).
 
@@ -1688,43 +1643,6 @@
             }{V and D-J complex joining in second step of H chain gene rearrangement}{fig:lchain2}{0.85}
 
             Following D-J joining, a second recombination event \textbf{splices a V segment onto the newly formed D-J complex}. This deletes all unselected V segments located downstream of the chosen V segment, as well as any D segments located upstream of the chosen D segment.
-
-            \pgfig{
-              \hbandreset{0.2}
-              \draw[dashed] (0,0) node[left] {5'} -- (14.5,0) node[right] {\dots};
-
-              \draw[hband black={0.2}{L}];
-              \hbandshift{0.1}
-              \draw[hband pink={0.8}{V$_\text{H}$}];
-              \hbandshift{5}
-              \draw[hband green={0.2}{D$_\text{H}$}];
-              \hbandshift{5}
-              \draw[hband yellow={0.3}{J$_\text{H}$}];
-              \hbandshift{0.8}
-
-              \draw[hband blue={1.2}{C$_\text{μ}$}];
-              \hbandshift{0.5}
-
-              \draw[fill=imgray, draw=none] (1.3,-0.3) rectangle (2.0,0.3);
-              \draw[fill=impurple, draw=none] (2.0,-0.3) rectangle (2.7,0.3);
-              \draw[fill=imorange, draw=none] (3.3,-0.3) -- (2.7,-0.3) -- (2.7,0.3) -- cycle;
-              \draw (2.7,0.3) -- (1.3,0.3) -- (1.3,-0.3) -- (3.3,-0.3) -- cycle; 
-
-              \draw[fill=imlightpurple, draw=none] (4.9,-0.3) rectangle (5.6,0.3);
-              \draw[fill=imgray, draw=none] (5.6,-0.3) rectangle (6.3,0.3);
-              \draw[fill=imorange, draw=none] (4.3,0.3) -- (4.9,0.3) -- (4.9,-0.3) -- cycle;
-              \draw (4.3,0.3) -- (6.3,0.3) -- (6.3,-0.3) -- (4.9,-0.3) -- cycle; 
-
-              \draw[fill=imgray, draw=none] (6.5,-0.3) rectangle (7.2,0.3);
-              \draw[fill=imlightpurple, draw=none] (7.2,-0.3) rectangle (7.9,0.3);
-              \draw[fill=imorange, draw=none] (7.9,-0.3) -- (7.9,0.3) -- (8.5,0.3) -- cycle;
-              \draw (8.5,0.3) -- (6.5,0.3) -- (6.5,-0.3) -- (7.9,-0.3) -- cycle; 
-
-              \draw[fill=impurple, draw=none] (10.1,-0.3) rectangle (10.8,0.3);
-              \draw[fill=imgray, draw=none] (10.8,-0.3) rectangle (11.5,0.3);
-              \draw[fill=imorange, draw=none] (9.5,-0.3) -- (10.1,-0.3) -- (10.1,0.3) -- cycle;
-              \draw (10.1,0.3) -- (11.5,0.3) -- (11.5,-0.3) -- (9.5,-0.3) -- cycle;
-            }{Recombination signal sequences flanking the V, D, and J segments during heavy chain gene rearrangement}{fig:rss3}{0.85}
 
             This rearrangement process is governed by the \textbf{Recombination Signal Sequence (RSS)} mechanism detailed in \autoref{core:rss}.
 
@@ -1840,7 +1758,171 @@
 
       \end{core}
 
-      \begin{core}[label=core:rss]{RSS Joining Mechanism}
+      \begin{core}{Immunoglobulin DNA to Expression Pathway}
+
+        Immunoglobulin genes are transcribed and translated into a fully assembled, functional antibody through a coordinated sequence beginning with the export of mRNA transcripts from the nucleus. The pathway proceeds through peptide synthesis, chain assembly within the endoplasmic reticulum, and post-translational modification in the Golgi apparatus, culminating in the secretion or membrane insertion of the finished antibody.
+
+        \myfig{0.95}{immunology_figures/ig_expression}{Immunoglobulin DNA to expression pathway; \textit{image was made with AI, thus fully assembled antibody heavy and light chain color coding is incorrect}}{fig:ig_expression}
+
+        The numbered labels in \autoref{fig:ig_expression} correspond to the sequential steps of the pathway outlined below.
+
+        \begin{enumerate}[label=(\arabic*)]
+
+          \item The light- and heavy-chain mRNA transcripts exit the nucleus.
+
+          \item The transcripts associate with ribosomes and begin peptide synthesis, as \textit{the leader region binds \textbf{factors} that direct ribosomal attachment to the RER}.
+
+          \item The light and heavy peptides enter the \textbf{RER lumen} separately, where enzymes cleave the leader sequence and begin adding \textbf{oligosaccharides}; \textit{the heavy chains associate first, followed by the light chains, and in IgG molecules one heavy chain initially pairs with one light chain}.
+
+          \item Disulfide linkages subsequently form within the RER, following which the assembled antibody is transported to the Golgi apparatus for final oligosaccharide modification.
+
+          \item The finished antibodies are then transported via \textbf{vesicles} into the \textbf{ECM} or \textbf{membrane}, where they carry out their functional role.
+
+        \end{enumerate}
+
+      \end{core}
+
+    \subsubsection{Recombination Signal Sequences}
+
+      \begin{core}[label=core:rss]{Recombination Signal Sequences}
+
+        \textbf{Recombination signal sequences (RSSs)} are highly conserved, non-coding DNA sequences flanking the variable (V), diversity (D), and joining (J) gene segments within the immunoglobulin loci.
+
+        \pgfig{
+          \hbandreset{0.2} % starting x-position
+          \draw[dashed] (0,0) node[left] {5'} -- (9,0) node[right] {3'};
+
+          \draw[hband black={0.2}{L}];
+          \hbandshift{0.1}
+          \draw[hband pink={0.8}{V$_\text{λ}$}];
+          \hbandshift{5}
+          \draw[hband yellow={0.3}{J$_\text{λ}$}];
+          \hbandshift{0.2}
+          \draw[hband blue={1.2}{C$_\text{λ}$}];
+          \hbandshift{0.4}
+
+          \draw[fill=imgray, draw=none] (1.3,-0.3) rectangle (2.0,0.3);
+          \draw[fill=impurple, draw=none] (2.0,-0.3) rectangle (2.7,0.3);
+          \draw[fill=imorange, draw=none] (3.3,-0.3) -- (2.7,-0.3) -- (2.7,0.3) -- cycle;
+          \draw (2.7,0.3) -- (1.3,0.3) -- (1.3,-0.3) -- (3.3,-0.3) -- cycle; 
+
+          \draw[fill=imlightpurple, draw=none] (4.9,-0.3) rectangle (5.6,0.3);
+          \draw[fill=imgray, draw=none] (5.6,-0.3) rectangle (6.3,0.3);
+          \draw[fill=imorange, draw=none] (4.3,0.3) -- (4.9,0.3) -- (4.9,-0.3) -- cycle;
+          \draw (4.3,0.3) -- (6.3,0.3) -- (6.3,-0.3) -- (4.9,-0.3) -- cycle; 
+
+          \hbandreset{0.2} % starting x-position
+          \begin{scope}[shift={(0,-2)}]
+
+            \draw[dashed] (0,0) node[left] {5'} -- (9,0) node[right] {3'};
+
+            \draw[hband black={0.2}{L}];
+            \hbandshift{0.1}
+            \draw[hband pink={0.8}{V$_\text{κ}$}];
+            \hbandshift{5}
+            \draw[hband yellow={0.3}{J$_\text{κ}$}];
+            \hbandshift{0.2}
+            \draw[hband blue={1.2}{C$_\text{κ}$}];
+            \hbandshift{0.4}
+
+            \draw[fill=imgray, draw=none] (1.3,-0.3) rectangle (2.0,0.3);
+            \draw[fill=imlightpurple, draw=none] (2.0,-0.3) rectangle (2.7,0.3);
+            \draw[fill=imorange, draw=none] (2.7,-0.3) -- (2.7,0.3) -- (3.3,0.3) -- cycle;
+            \draw (3.3,0.3) -- (1.3,0.3) -- (1.3,-0.3) -- (2.7,-0.3) -- cycle; 
+
+            \draw[fill=impurple, draw=none] (4.9,-0.3) rectangle (5.6,0.3);
+            \draw[fill=imgray, draw=none] (5.6,-0.3) rectangle (6.3,0.3);
+            \draw[fill=imorange, draw=none] (4.3,-0.3) -- (4.9,-0.3) -- (4.9,0.3) -- cycle;
+            \draw (4.9,0.3) -- (6.3,0.3) -- (6.3,-0.3) -- (4.3,-0.3) -- cycle; 
+
+          \end{scope}
+
+          \hbandreset{0.2} % starting x-position
+          \begin{scope}[shift={(0,-4)}]
+
+            \draw[dashed] (0,0) node[left] {5'} -- (14.5,0) node[right] {\dots};
+
+            \draw[hband black={0.2}{L}];
+            \hbandshift{0.1}
+            \draw[hband pink={0.8}{V$_\text{H}$}];
+            \hbandshift{5}
+            \draw[hband green={0.2}{D$_\text{H}$}];
+            \hbandshift{5}
+            \draw[hband yellow={0.3}{J$_\text{H}$}];
+            \hbandshift{0.8}
+
+            \draw[hband blue={1.2}{C$_\text{μ}$}];
+            \hbandshift{0.5}
+
+            \draw[fill=imgray, draw=none] (1.3,-0.3) rectangle (2.0,0.3);
+            \draw[fill=impurple, draw=none] (2.0,-0.3) rectangle (2.7,0.3);
+            \draw[fill=imorange, draw=none] (3.3,-0.3) -- (2.7,-0.3) -- (2.7,0.3) -- cycle;
+            \draw (2.7,0.3) -- (1.3,0.3) -- (1.3,-0.3) -- (3.3,-0.3) -- cycle; 
+
+            \draw[fill=imlightpurple, draw=none] (4.9,-0.3) rectangle (5.6,0.3);
+            \draw[fill=imgray, draw=none] (5.6,-0.3) rectangle (6.3,0.3);
+            \draw[fill=imorange, draw=none] (4.3,0.3) -- (4.9,0.3) -- (4.9,-0.3) -- cycle;
+            \draw (4.3,0.3) -- (6.3,0.3) -- (6.3,-0.3) -- (4.9,-0.3) -- cycle; 
+
+            \draw[fill=imgray, draw=none] (6.5,-0.3) rectangle (7.2,0.3);
+            \draw[fill=imlightpurple, draw=none] (7.2,-0.3) rectangle (7.9,0.3);
+            \draw[fill=imorange, draw=none] (7.9,-0.3) -- (7.9,0.3) -- (8.5,0.3) -- cycle;
+            \draw (8.5,0.3) -- (6.5,0.3) -- (6.5,-0.3) -- (7.9,-0.3) -- cycle; 
+
+            \draw[fill=impurple, draw=none] (10.1,-0.3) rectangle (10.8,0.3);
+            \draw[fill=imgray, draw=none] (10.8,-0.3) rectangle (11.5,0.3);
+            \draw[fill=imorange, draw=none] (9.5,-0.3) -- (10.1,-0.3) -- (10.1,0.3) -- cycle;
+            \draw (10.1,0.3) -- (11.5,0.3) -- (11.5,-0.3) -- (9.5,-0.3) -- cycle;
+
+          \end{scope}
+
+          \begin{scope}[shift={(11,0)}]
+
+            \draw[fill=imgray] (0,0) rectangle (0.4,-0.4) node[right, yshift=0.2cm] {Heptamer};
+            \draw[fill=imlightpurple] (0,-0.6) rectangle (0.4,-1.0) node[right, yshift=0.2cm] {One-turn Spacer};
+            \draw[fill=impurple] (0,-1.2) rectangle (0.4,-1.6) node[right, yshift=0.2cm] {Two-turn Spacer};
+            \draw[fill=imorange] (0,-1.8) rectangle (0.4,-2.2) node[right, yshift=0.2cm] {AT-rich Nonamer};
+
+          \end{scope}
+        }{Recombination signal sequences flanking the V, D, and J segments in the λ light (\textit{top}), κ light (\textit{middle}), and heavy (\textit{bottom}) gene sequences; \textit{the positioning of the RSSs is always the 3' ends of V, both sides of the D, and the 5' end of the J}}{fig:rss_sequences}{0.9}
+        \vspace{-0.4cm}
+
+        The functions of each RSS component depicted in \autoref{fig:rss_sequences} are described below.
+
+        \begin{itemize}
+
+          \item \textbf{Heptamer}: A highly conserved, 7-nucleotide palindromic sequence (\textit{reading identically in both directions})---typically \texttt{CACAGTG}---that mediates the ligation of adjacent V(D)J segments.
+
+          \item \textbf{Spacers}: A largely non-conserved sequence spanning either exactly 12 (\textit{one-turn}) or 23 (\textit{two-turn}) base pairs.
+
+          \item \textbf{AT-rich Nonamer}: A highly conserved, AT-rich 9-base-pair sequence---typically \texttt{ACAAAAACC}---that facilitates attachment of the multienzyme complex responsible for carrying out the recombination process.
+
+        \end{itemize}
+
+        \pgfig{
+
+          \draw[fill=imgray, draw=none] (0.0,-0.3) rectangle (1.4,0.3);
+          \draw[fill=impurple, draw=none] (1.4,-0.3) rectangle (2.8,0.3);
+          \draw[fill=imorange, draw=none] (4.0,-0.3) -- (2.8,-0.3) -- (2.8,0.3) -- cycle;
+          \draw (2.8,0.3) -- (0.0,0.3) -- (0.0,-0.3) -- (4.0,-0.3) -- cycle; 
+
+          \draw[fill=imlightpurple, draw=none] (8.2,-0.3) rectangle (9.6,0.3);
+          \draw[fill=imgray, draw=none] (9.6,-0.3) rectangle (11.0,0.3);
+          \draw[fill=imorange, draw=none] (7.0,0.3) -- (8.2,0.3) -- (8.2,-0.3) -- cycle;
+          \draw (7.0,0.3) -- (11.0,0.3) -- (11.0,-0.3) -- (8.2,-0.3) -- cycle;
+
+          \node[align=center] at (2,-1) {\texttt{CACAGTG -- (12X) -- ACAAAAACC} \\ \texttt{GTGTCAC -- (12X) -- TGTTTTTGG}};
+          \node[align=center] at (9,-1) {\texttt{TGTTTTTGG -- (23X) -- GTGTCAC} \\ \texttt{ACAAAAACC -- (23X) -- CACAGTG}};
+        }{Recombination signal structure nucleotide sequence}{fig:rss_nucleotide}{0.9}
+        \vspace{-0.4cm}
+
+        Notably, signal sequences bearing one-turn spacers can only recombine with those bearing two-turn spacers, a constraint that safeguards against mis-joining during the recombination mechanism (\textit{\autoref{core:rss}}).
+
+      \end{core}
+
+      \begin{core}[label=core:rss_mech]{RSS Joining Mechanism}
+  
+        The RSS joining mechanism follows through two broad stages called \textbf{juxtaposition} and \textbf{ligation}. This entire process is carried out by an enzyme complex called the \textbf{V(D)J recombinase}.
 
         \begin{enumerate}
 
@@ -1848,25 +1930,83 @@
 
             \begin{itemize}
 
-              \item \textit{Locating \& Cleaving}
+              \item \textbf{Locating \& Cleaving}
 
-                % The genes to be arranged move to specific locations in the nucleus and open up, detaching from the nucleosomes (organized DNA units)
-                Target loci destined for rearrangement physically relocate to transcriptionally active zones within the nucleus. The chromatin structure relaxes, displacing nucleosomes to grant enzymatic access to the naked DNA.
+                \pgfig{
 
-                % The processing complex grabs one of the RSS signals—one-turn juxtaposes with two-turn—and one strand of the DNA in 5’ heptamer gets cleaved
-                The RAG-1/RAG-2 recombinase complex aligns specific Recombination Signal Sequences (RSS), strictly adhering to the "12/23 rule," where a sequence featuring a one-turn spacer must pair with a sequence featuring a two-turn spacer. Upon alignment, an endonucleolytic nick is introduced precisely at the 5' border of the conserved heptamer sequence.
+                  \draw[fill=impink] (1.6,-0.3) rectangle (0,0) node[left, yshift=-0.15cm] {5'} node[midway, above, yshift=0.2cm] {V};
+                  \draw[fill=imgray] (1.6,0) rectangle (3.0,-0.3);
+                  \draw[fill=imlightpurple] (3.0,0) rectangle (4.4,-0.3);
+                  \draw[fill=imorange] (4.4,0) rectangle (5.6,-0.3);
+                  \draw[fill=white] (5.6,0) rectangle (8.0,-0.3);
+                  \draw[fill=imorange] (8.0,0) rectangle (9.2,-0.3);
+                  \draw[fill=impurple] (9.2,0) rectangle (10.6,-0.3);
+                  \draw[fill=imgray] (10.6,0) rectangle (12.0,-0.3);
+                  \draw[fill=imyellow] (12.0,0) rectangle (12.6,-0.3) node[right, yshift=0.15cm] {3'} node[midway, above, yshift=0.2cm] {J};
 
-                <FIGURE>
+                  \node[align=center] at (6.8,0.5) {\itshape Long segment of\\\itshape DNA omitted here};
 
-              \item \textit{Hairpin Formation}
+                  \draw[Red, thick] (2.8,-0.3) -- (2.8,0) node[above] {CUT};
 
-                % This loose 5’ end heptamer attacks the opposite side of the uncut strand of the same DNA molecule, producing a hairpin loop at the downstream end of the V and the upstream end of the J (light chains) or D (heavy chains)
-                The newly liberated 3' hydroxyl group executes a nucleophilic attack on the complementary phosphodiester bond of the intact strand. This transesterification reaction creates a covalently sealed hairpin loop at the coding ends of the participating V and J segments (in light chains), or the V, D, and J segments (in heavy chains).
+                  \begin{scope}[shift={(0,-1)}]
 
-                % ***The spacer sequences, along with the AT region signal end in a flush cut with a 5’ phosphorylated end
-                Conversely, the excised signal ends—containing the heptamer, spacer, and nonamer sequences—are left as a blunt, flush cut featuring a free 5' phosphate group.
+                    \draw[fill=impink] (1.6,-0.3) rectangle (0,0) node[left, yshift=-0.15cm] {5'};
+                    \draw[fill=imgray] (1.6,0) rectangle (3.0,-0.3);
+                    \draw[fill=imlightpurple] (3.0,0) rectangle (4.4,-0.3);
+                    \draw[fill=imorange] (4.4,0) rectangle (5.6,-0.3);
+                    \draw[fill=white] (5.6,0) rectangle (8.0,-0.3);
+                    \draw[fill=imorange] (8.0,0) rectangle (9.2,-0.3);
+                    \draw[fill=impurple] (9.2,0) rectangle (10.6,-0.3);
+                    \draw[fill=imgray] (10.6,0) rectangle (12.0,-0.3);
+                    \draw[fill=imyellow] (12.0,0) rectangle (12.6,-0.3) node[right, yshift=0.15cm] {3'};
 
-                <FIGURE>
+                    \draw[Red, thick] (10.8,0) -- (10.8,-0.3) node[below] {CUT};
+                  \end{scope}
+
+                }{Cleavage of 5' end heptamer sequnce}{fig:rss_mech1}{0.9}
+
+                Target genes destined for rearrangement physically relocate to transcriptionally active zones within the nucleus. The chromatin structure relaxes, displacing nucleosomes (\textit{organized DNA units}) to \textbf{grant enzymatic access to the naked DNA}.
+
+                The recombinase complex aligns specific RSS, strictly adhering to the "\textit{12/23 rule}", where a sequence featuring a \textbf{one-turn spacer must pair with a sequence featuring a two-turn spacer}. Upon alignment, an cut is introduced precisely at the \textbf{5' end heptamer sequence}.
+
+              \item \textbf{Hairpin Formation}
+
+                \pgfig{
+
+                  \draw[thick] (2.9,0.8) rectangle (10.7,-1.8);
+
+                  \draw[fill=impink] (0,0) rectangle (1.6,-0.3) node[midway, above, yshift=0.2cm] {V};
+                  \draw[fill=imgray] (1.6,0) rectangle (2.8,-0.3);
+                  \draw[fill=imgray] (1.6,0) -- (2.8,0) -- (2.8,-1.3) -- (1.6,-1.3) -- (1.6,-1.0) -- (2.5,-1.0) -- (2.5,-0.3) -- (1.6,-0.3) -- cycle;
+                  \draw[fill=imlightpurple] (2.8,0) rectangle (4.4,-0.3);
+                  \draw[fill=imorange] (4.4,0) rectangle (5.6,-0.3);
+                  \draw[fill=white] (5.6,0) rectangle (8.0,-0.3);
+                  \draw[fill=imorange] (8.0,0) rectangle (9.2,-0.3);
+                  \draw[fill=impurple] (9.2,0) rectangle (10.6,-0.3);
+                  \draw[fill=imyellow] (12.0,0) rectangle (12.6,-0.3) node[midway, above, yshift=0.2cm] {J};
+
+                  \draw[Red, thick] (3,-0.3) -- (3,0) node[above] {CUT};
+
+                  \begin{scope}[shift={(0,-1)}]
+
+                    \draw[fill=impink] (0,0) rectangle (1.6,-0.3);
+                    \draw[fill=imlightpurple] (3.0,0) rectangle (4.4,-0.3);
+                    \draw[fill=imorange] (4.4,0) rectangle (5.6,-0.3);
+                    \draw[fill=white] (5.6,0) rectangle (8.0,-0.3);
+                    \draw[fill=imorange] (8.0,0) rectangle (9.2,-0.3);
+                    \draw[fill=impurple] (9.2,0) rectangle (10.8,-0.3);
+                    \draw[fill=imgray] (12.0,-0.3) -- (10.8,-0.3) -- (10.8, 1) -- (12.0,1) -- (12.0,0.7) -- (11.1,0.7) -- (11.1,0) -- (12.0,0) -- cycle;
+                    \draw[fill=imyellow] (12.0,0) rectangle (12.6,-0.3);
+
+                    \draw[Red, thick] (10.6,0) -- (10.6,-0.3) node[below] {CUT};
+
+                  \end{scope}
+
+                }{Hairpin formationl; \textit{sequences in the box leave as a loop after the corresponding detachments occur}}{fig:rss_mech2}{0.9}
+
+                The newly liberated 3' end executes a nucleophilic attack on the complementary bond of the intact strand. This reaction creates a covalently sealed \textbf{hairpin loop} at the coding ends of the participating segments.
+
+                Conversely, the excised signal ends---containing the heptamer, spacer, and nonamer sequences---are left as a blunt, flush cut featuring a free 5' end. As shown in FIG REFERENCE, this sequence group is subsequently detached by another cut at the site of the initial nucleophilic attack and leave as a loop.
 
             \end{itemize}
 
@@ -1874,53 +2014,122 @@
 
             \begin{itemize}
 
-              \item \textit{Initial Cleavage \& Ligation}
+              \item \textbf{Initial Cleavage \& Ligation}
 
-                <FIGURE>
+                \pgfig{
 
-                % Enzymes clip the hairpin loop at random locations, ligating two of the single strands together and leaving a region of unmatched single stranded regions
-                The Artemis nuclease complex resolves the coding hairpins through an asymmetric, random single-stranded cleavage. This imprecise nicking generates varying lengths of unmatched single-stranded DNA overhangs at the joining interface.
+                  \draw[fill=impink] (0,0) rectangle (1.6,-0.3) node[midway, above, yshift=0.2cm] {V};
+                  \draw[fill=imgray] (1.6,0) -- (2.8,0) -- (2.8,-1.3) -- (1.6,-1.3) -- (1.6,-1.0) -- (2.5,-1.0) -- (2.5,-0.3) -- (1.6,-0.3) -- cycle;
+                  \draw[fill=imyellow] (6.0,0) rectangle (6.6,-0.3) node[midway, above, yshift=0.2cm] {J};
 
-              \item \textit{P-Nucleotide Addition}
+                  \draw[Red, thick] (2.5,-0.4) -- (2.8,-0.4) node[right] {CUT};
 
-                <FIGURE>
+                  \draw[-{latex}] (2.9,-0.3) -- (3.3, 0.1);
+                  \draw[-{latex}] (2.9,-0.5) -- (3.3, -0.9);
 
-                % Nucleotides are added to fill in the unmatched single stranded regions, matching the ends generated by the cut
-                Cellular repair polymerases fill in these asymmetrical overhangs, synthesizing short palindromic (P) nucleotide sequences that conform perfectly to the templates created by the offset hairpin resolution.
+                  \begin{scope}[shift={(0,-1)}]
 
-              \item \textit{N-Nucleotide Addition (Heavy Chains Only)}
+                    \draw[fill=impink] (0,0) rectangle (1.6,-0.3);
+                    \draw[fill=imgray] (6.0,-0.3) -- (4.8,-0.3) -- (4.8, 1) -- (6.0,1) -- (6.0,0.7) -- (5.1,0.7) -- (5.1,0) -- (6.0,0) -- cycle;
+                    \draw[fill=imyellow] (6.0,0) rectangle (6.6,-0.3);
 
-                <FIGURE>
+                    \draw[Red, thick] (4.8,0.4) node[left] {CUT} -- (5.1,0.4);
 
-                % Up to 15 nucleotides can be added at random in the junction (further adding to the junction’s variability)
-                In developing heavy chains, the enzyme Terminal Deoxynucleotidyl Transferase (TdT) can independently append up to 15 non-templated (N) nucleotides randomly into the junctional gap prior to final ligation, profoundly expanding the sequence diversity of the resulting antigen receptor.
+                    \draw[-{latex}] (4.7,0.5) -- (4.3, 0.9);
+                    \draw[-{latex}] (4.7,0.3) -- (4.3, -0.1);
+
+                  \end{scope}
+
+                  \begin{scope}[shift={(0,-3)}]
+
+                    \draw[-{latex}] (3.45,0.5) node[above] {DNA overhang} -- (3.45, -0.15);
+
+                    \draw[fill=impink] (0,0) rectangle (1.6,-0.3);
+                    \draw[fill=imgray] (1.6,0) rectangle (2.9,-0.3);
+                    \draw[fill=imgray] (4.0,0) rectangle (6.0,-0.3);
+                    \draw[fill=imyellow] (6.0,0) rectangle (6.6,-0.3);
+
+                    \begin{scope}[shift={(0,-1)}]
+
+                      \draw[fill=impink] (0,0) rectangle (1.6,-0.3);
+                      \draw[fill=imgray] (1.6,0) rectangle (4.5,-0.3);
+                      \draw[fill=imgray] (4.5,0) rectangle (6.0,-0.3);
+                      \draw[fill=imyellow] (6.0,0) rectangle (6.6,-0.3);
+
+                    \end{scope}
+
+                  \end{scope}
+
+                }{Hairpin formationl; \textit{sequences in the box leave as a loop after the corresponding detachments occur}}{fig:rss_mech3}{0.9}
+
+                Enzyme resolve the coding hairpins through an \textbf{asymmetric, random single-stranded cleavage}. This imprecise nicking generates varying lengths of unmatched single-stranded DNA overhangs at the joining interface.
+
+              \item \textbf{P-Nucleotide Addition}
+
+                \pgfig{
+
+                  \draw[fill=impink] (0,0) rectangle (1.6,-0.3) node[midway, above, yshift=0.2cm] {V};
+                  \draw[fill=imgray] (1.6,0) rectangle (2.9,-0.3);
+                  \draw[fill=boxblue] (2.9,0) rectangle (4.0,-0.3) node[midway] {\footnotesize ppppp};
+                  \draw[fill=imgray] (4.0,0) rectangle (6.0,-0.3);
+                  \draw[fill=imyellow] (6.0,0) rectangle (6.6,-0.3) node[midway, above, yshift=0.2cm] {J};
+
+                  \begin{scope}[shift={(0,-1)}]
+
+                    \draw[fill=impink] (0,0) rectangle (1.6,-0.3);
+                    \draw[fill=imgray] (1.6,0) rectangle (4.5,-0.3);
+                    \draw[fill=imgray] (4.5,0) rectangle (6.0,-0.3);
+                    \draw[fill=imyellow] (6.0,0) rectangle (6.6,-0.3);
+
+                  \end{scope}
+                }{P-nucleotide addition}{fig:rss_mech4}{0.9}
+
+                Cellular repair polymerases fill in these asymmetrical overhangs, \textbf{synthesizing short palindromic (P) nucleotide sequences} that conform perfectly to the empty region created by the offset hairpin resolution.
+
+              \item \textbf{N-Nucleotide Addition} (\textit{Heavy Chains Only})
+
+                \pgfig{
+
+                  \draw[fill=impink] (0,0) rectangle (1.6,-0.3) node[midway, above, yshift=0.2cm] {V};
+                  \draw[fill=imgray] (1.6,0) rectangle (2.9,-0.3);
+                  \draw[fill=boxblue] (2.9,0) rectangle (4.0,-0.3) node[midway] {\footnotesize ppppp};
+                  \draw[fill=imgray] (4.0,0) rectangle (6.0,-0.3);
+                  \draw[fill=imgreen] (6.0,0) rectangle (6.6,-0.3) node[midway, above, yshift=0.2cm] {D};
+                  \draw[fill=imgray] (6.6,0) rectangle (7.9,-0.3);
+                  \draw[fill=imgray] (7.9,0) rectangle (9.9,-0.3);
+                  \draw[fill=Red] (9.9,0) rectangle (11.0,-0.3) node[midway] {\footnotesize nnnnn};
+                  \draw[fill=imyellow] (11.0,0) rectangle (11.6,-0.3) node[midway, above, yshift=0.2cm] {J};
+
+                  \begin{scope}[shift={(0,-1)}]
+
+                    \draw[fill=impink] (0,0) rectangle (1.6,-0.3);
+                    \draw[fill=imgray] (1.6,0) rectangle (4.5,-0.3);
+                    \draw[fill=imgray] (4.5,0) rectangle (6.0,-0.3);
+                    \draw[fill=imgreen] (6.0,0) rectangle (6.6,-0.3);
+                    \draw[fill=imgray] (6.6,0) rectangle (8.4,-0.3);
+                    \draw[fill=boxblue] (8.4,0) rectangle (9.5,-0.3) node[midway] {\footnotesize ppppp};
+                    \draw[fill=imgray] (9.5,0) rectangle (9.9,-0.3);
+                    \draw[fill=Red] (9.9,0) rectangle (11.0,-0.3) node[midway] {\footnotesize nnnnn};
+                    \draw[fill=imyellow] (11.0,0) rectangle (11.6,-0.3);
+
+                  \end{scope}
+                }{N-nucleotide addition}{fig:rss_mech5}{0.9}
+
+                In developing heavy chains, an enzyme can independently \textbf{append up to 15 additional non-templated (N) nucleotides randomly} into the junctional gap prior to final ligation, profoundly expanding the sequence diversity of the resulting antigen receptor.
 
             \end{itemize}
-
-          \item \textbf{Result}
-
-            % Thus at the end, there is repair and ligation of the coding joint (coding regions + heptamers), and release and digestion of the signal sequences (spacer + AT-nonamer + portion of heptamer; which are retained if there’s an inversional joining)
-            The culmination of this process yields a fully repaired and ligated coding joint, forming the functional antigen-binding domain. Meanwhile, the excised signal sequence fragment—typically forming a closed episomal circle consisting of the joined heptamer-spacer-nonamer elements—is generally degraded, unless specific structural topologies dictated an inversional joining event.
-
-            % Somatic Hypermutation—at a later stage of development, the parts of the genes coding for the hypervariable region can mutate, introducing further variation
-            Subsequent to baseline V(D)J recombination, mature B cells undergo Somatic Hypermutation. During active immune responses, point mutations are intentionally introduced into the hypervariable gene loci, providing the substrate for affinity maturation.
-
-            % ***This occurs later in the process of antibody stimulation, maturation, and selection outside the bone marrow
-            It is essential to delineate that somatic hypermutation occurs exclusively in peripheral secondary lymphoid tissues following antigen stimulation, well after the initial B cell maturation phase in the bone marrow has concluded.
 
         \end{enumerate}
 
       \end{core}
 
-      \begin{core}{Immunoglobulin DNA to Expression Pathway}
+      \begin{core}{Gene Rearrangement Variability}
 
-        core env about the steps the DNA takes from the 
-        nucleus
-        ribosomes
-        RER
-        Golgi
-        vesicles
-        to memebrane (surface receptos) or ECM (secretion)
+        The culmination of this process yields a \textbf{fully repaired and ligated coding joint}, forming the functional antigen-binding domain. Meanwhile, the excised signal sequence fragment---typically forming a closed DNA strand circle consisting of the joined heptamer-spacer-nonamer elements---is generally degraded.
+
+        Subsequent to baseline V(D)J recombination, mature B cells also undergo \textbf{somatic hypermutation} (REFERENCE). During active immune responses, point mutations are intentionally introduced into the hypervariable gene loci, providing the substrate for \textbf{affinity maturation} (REFERENCE) and introducing additional variability in antibodies.
+
+        It is essential to delineate that somatic hypermutation occurs exclusively in peripheral secondary lymphoid tissues \textbf{following antigen stimulation}, well after the initial \textbf{B cell maturation} phase in the bone marrow---where V(D)J recombination occurs---has concluded.
 
       \end{core}
 
@@ -1966,117 +2175,120 @@
 
     \begin{core}{Monoclonal Antibodies (mAb)}
 
-      % Having an endless production stream of an antibody with a desired CDR for a certain antigen epitope has broad applications in the pharmaceutical industry—particularly in the field of oncology.
-      The ability to engineer continuous, uniform production of antibodies featuring customized, highly specific CDR loops targeting defined antigen epitopes holds profound clinical and pharmacological value, especially concerning targeted oncological therapeutics.
+      The capacity to engineer the continuous, \textbf{uniform} production of antibodies bearing customized, highly specific CDR loops directed against defined antigenic epitopes is of substantial clinical and pharmacological importance, particularly in the context of targeted oncological therapeutics.
 
-      % Definition: Monoclonal antibodies are fractions of antibodies with an identical defined specificity (CDR region) for a particular antigen
-      Definition: Monoclonal antibodies represent a homogenous population of immunoglobulins synthesized by a single clonal lineage of B cells, resulting in absolute uniformity of paratope structure and antigen specificity.
+      \textbf{Monoclonal antibodies} constitute a homogeneous population of immunoglobulins secreted by a single clonal lineage of B cells, thereby conferring absolute uniformity of antigen specificity.
 
-      % Hybridomas are a species of these B cells that are immortal and will endlessly crank out a pure stream of antibodies for you. Here’s how you make it.
-      This production is achieved through the generation of hybridomas—engineered, immortalized cell lines formed by fusing specific primary B cells with myeloma cells, thereby ensuring an indefinite, robust yield of the desired monoclonal antibody construct. The general synthesis methodology is detailed below.
+      Such production is accomplished through the generation of \textbf{hybridomas}---engineered, immortalized cell lines formed by \textbf{fusing antigen-specific primary B cells with myeloma cells}---thereby ensuring an indefinite and robust yield of the desired monoclonal antibody construct. Prior to examining the hybridoma generation process, it is necessary to understand the comparative properties of plasma B cells and myeloma B cancer cells.
 
-      <FIGURE>
+      \begin{table}[H]
+        \centering
+        \begin{tabular}{p{6.5cm}p{6.5cm}}
+          \hline
+          \textbf{Plasma B Cell Properties} & \textbf{Myeloma B Cancer Cell Properties} \\
+          \hline
+          - Produces the desired antibody &
+          - Exhibits no antibody production \\
+          - Capable of nucleotide synthesis via the \textit{de novo} pathway &
+          - Capable of nucleotide synthesis via the \textit{de novo} pathway \\
+          - Capable of nucleotide synthesis via the salvage pathway (\textit{recycling}) &
+          - Incapable of nucleotide synthesis via the salvage pathway (\textit{participarting myeloma cells are specifically engineered for deficiency in the HGPRT enzyme, which mediates the salvage pathway}) \\
+          - Viable for only a few weeks &
+          - Viable indefinitely \\
+          \hline
+        \end{tabular}
+        \caption{Comparison of plasma B cell and myeloma B cancer cell properties}
+        \label{tab:plasma_vs_myeloma}
+      \end{table}
+      \vspace{-0.3cm}
+
+      The general methodology for hybridoma synthesis is outlined below.
+
+      \begin{enumerate}[label=(\arabic*)]
+
+        \item \textbf{Challenge} an organism with the antigen against which antibody production is desired.
+
+        \item \textbf{Isolate} an active plasma cell producing an antibody specific to the given antigen. \textit{Note that plasma cells persist for only a few weeks.}
+
+        \item \textbf{Fuse} the plasma cell with a myeloma cell by mixing with polyethylene glycol; myeloma cells, in contrast, survive indefinitely. This step yields a heterogeneous mixture comprising the desired myeloma--plasma hybrids alongside undesired myeloma--myeloma and plasma--plasma combinations.
+
+        \item \textbf{Grow} the mixture of fused cells in a HAT medium.
+
+        \begin{itemize}
+
+          \item \textbf{Aminopterin} inhibits \textit{de novo} nucleotide synthesis, thereby \textbf{selectively eliminating myeloma--myeloma fusions} from the heterogeneous population.
+
+          \item \textbf{Hypoxanthine} and \textbf{thymidine} supply the substrates required for nucleotide synthesis via the salvage pathway \textbf{selectively supporting the myeloma--plasma hybrids}.
+
+        \end{itemize}
+
+      \end{enumerate}
+
+      Following the eventual death of pure plasma--plasma fusions after a period of a few weeks, the resulting cell culture consists exclusively of \textbf{hybridomas} capable of producing a particular antibody while retaining functional salvage-pathway enzymes (\textit{immortality is conferred by the myeloma fusion partner}).
 
     \end{core}
 
 \section{B Cells}
 
-  % \subsection{B Cell Receptors}
+  \subsection{B Cell Receptors}
 
-  %   \begin{core}{B Cell Receptors}
+    \begin{core}{B Cell Receptors}
 
-  %     \sbs{0.45}{
-  %       A \textbf{B cell receptor (BCR)} is an immunoglobulin molecule anchored to the cellular membrane and oriented outward, which recognizes foreign antigen when two neighboring receptors bind it and undergo \textbf{crosslinking}. Because the BCR itself has only a very short cytoplasmic tail incapable of independent signaling, it relies entirely on the associated heterodimer of Igα/Igβ---currently designated CD79a and CD79b, respectively---to relay the crosslinking event into an intracellular signaling cascade, ultimately triggering downstream pathways.
+      A \textbf{B cell receptor (BCR)} is an immunoglobulin molecule anchored to the cellular membrane and oriented outward, which recognizes foreign antigen when two neighboring receptors bind it and undergo \textbf{crosslinking}. Because the BCR itself has only a very short cytoplasmic tail incapable of independent signaling, it relies on the associated heterodimer of \textbf{Igα/Igβ}---currently designated \textbf{CD79a} and \textbf{CD79b}, respectively---to relay the crosslinking event into an intracellular signaling cascade via its \textbf{immunoreceptor tyrosine-based activation motifs (ITAMs)} that stretch into the cytoplasm. 
 
-  %       Prior to activation, naive B cells exclusively co-express IgM and IgD as their surface receptors, both of which share the same antigen-binding specificity despite differing in their heavy chain constant regions. Following activation and differentiation, memory B cells instead display receptors belonging to other heavy chain classes (\textit{e.g., IgG, IgA, or IgE}), a transition driven by exposure to antigen and helper T cell signals.
-  %     }{
-  %       \myfig{0.98}{immunology_figures/bcr}{B cell receptor}{fig:bcr}
-  %     }
+      Prior to activation, \textbf{naive B cells exclusively co-express IgM and IgD} as their surface receptors, both of which share the same antigen-binding specificity despite differing in their heavy chain constant regions. Following activation and differentiation, memory B cells instead display receptors belonging to other heavy chain classes (\textit{e.g., IgG, IgA, or IgE}), a transition driven by exposure to antigen and helper T cell signals in a process termed \textbf{class switching} (REFERENCE).
 
-  %   \end{core}
+      \myfig{0.55}{immunology_figures/bcr}{B cell receptor}{fig:bcr}
+
+    \end{core}
 
   \subsection{Naive B Cell Development}
 
     \begin{core}{Naive B Cell Development}
 
+      Naive B cell development proceeds through a tightly regulated sequence of gene rearrangement, receptor assembly, and selection checkpoints that transform a common lymphoid progenitor into an immunocompetent, self-tolerant B lymphocyte ready to enter systemic circulation.
+
       \begin{enumerate}[label=(\arabic*)]
 
-        \item \textbf{Co-Receptor Development}
+        \item \textbf{Co-Receptor Development} (\textit{Progenitor B Cell})
 
-          <FIGURE>
+          Exposure of Common Lymphoid Progenitors (CLPs) to \textbf{B-Cell Specific Activator Protein (BSAP)} induces the initial surface expression of essential BCR signaling co-receptors, namely \textbf{Igα} and \textbf{Igβ}, thereby committing the precursor irreversibly to the B lymphocyte developmental trajectory as a \textbf{progenitor B cell}.
 
-          % Exposing CLPs to B-Cell Specific Activator Protein (BSAP) triggers the formation of BCR co-receptors (Igα/Igβ) on the cell surface, pushing the cell down the B cell pathway.
-          The exposure of Common Lymphoid Progenitors (CLPs) to B-Cell Specific Activator Protein (BSAP) induces the initial surface expression of essential BCR signaling co-receptors, specifically Ig$\alpha$ and Ig$\beta$, firmly committing the precursor to the B lymphocyte developmental trajectory.
+          \textit{BSAP expression persists constitutively throughout the B cell lineage continuum, ceasing only upon terminal differentiation into antibody-secreting plasma cells.}
 
-          % This cell is called a pro B cell.
-          At this stage of commitment, the developing cell is classified as a progenitor B (pro-B) cell.
+        \item \textbf{Heavy Chain} (\textit{Precursor B Cell})
 
-          % BSAP is present in ALL members of the B cell lineage except mature plasma cells, which are done differentiating
-          BSAP expression is maintained constantly across the entire B cell lineage continuum, ceasing only upon terminal differentiation into antibody-secreting plasma cells.
+          The pro-B cell initiates \textbf{V(D)J rearrangement at the heavy chain locus} (\textit{\autoref{core:h_chain_gene_expression}}, and is afforded a \textbf{maximum of two opportunities} (\textit{one per allele}) to generate a productive rearrangement before undergoing default apoptosis.
 
-        \item \textbf{Heavy Chain}
+          Upon translation of a viable heavy chain polypeptide, the nascent heavy chain associates with a \textbf{pre-existing surrogate light chain (SLC) complex}, marking the transition to a \textbf{precursor B cell}. Successful assembly of this surrogate receptor complex delivers a crucial intracellular signal that enforces allelic exclusion at the heavy chain locus, preserves structural stability, and signals the nucleus to initiate rearrangement of the endogenous light chain genes.
 
-          <FIGURE>
+          \myfig{1}{immunology_figures/bc_development}{Naive B cell development; \textit{although less emphasized than in TCR development (REFERENCE), B cells also undergo \textbf{positive selection}, in which the cell is tested for a properly folding BCR capable of at least tonic signaling; failure to do so likewise results in apoptosis}}{fig:bc_development}
 
-          % The pro B cell rearranges a H chain gene (max two tries or apoptosis)
-          The pro-B cell initiates V(D)J rearrangement at the heavy chain locus. The cell is afforded a maximum of two opportunities (one per allele) to generate a productive rearrangement before default apoptosis occurs.
+        \item \textbf{Light Chain} (\textit{Immature B Cell})
 
-          % After successful rearrangement and formation, the H chain peptide picks up a surrogate light chains, becoming a pre B cell 
-          Upon translating a viable heavy chain polypeptide, the nascent heavy chain associates with a pre-existing surrogate light chain complex, advancing the cell to the precursor B (pre-B) cell stage.
+          The pre-B cell subsequently undertakes \textbf{V-J rearrangement of the light chain loci}, possessing \textbf{up to four total opportunities} (\textit{spanning both the κ and λ alleles}) before risking apoptosis.
 
-          % The attachment of this fake L chain signals allelic exclusion, serves as a temporary filler for the soon-to-be produced L chain, and initiates light chain gene rearrangement 
-          The functional assembly of this surrogate receptor complex delivers a crucial intracellular signal that enforces allelic exclusion at the heavy chain locus, maintains structural stability, and signals the nucleus to begin rearranging the endogenous light chain genes.
-
-        \item \textbf{Light Chain}
-
-          <FIGURE>
-
-          % The pre B cell rearranges a L chain gene (max four tries or apoptosis)
-          The pre-B cell subsequently attempts V-J rearrangement of the light chain loci, possessing up to four total opportunities (spanning both the $\kappa$ and $\lambda$ alleles) before risking apoptosis.
-
-          % If there is successful rearrangement, the receptors then will have displayed an IgM BCR with a determined antigenic specificity (CDR)
-          A productive rearrangement yields a functional light chain that pairs with the heavy chain, resulting in the surface expression of a complete IgM BCR featuring a fully defined complementarity-determining region (CDR).
-
-          % This cell is called an immature B cell.
-          The cell, now bearing its unique surface receptor, transitions into the immature B cell designation.
+          A productive rearrangement yields a functional light chain that pairs with the heavy chain, resulting in surface expression of a complete \textbf{IgM BCR} featuring a fully defined \textbf{complementarity-determining region (CDR)} and marking the cell's transition to an \textbf{immature B cell}.
 
         \item \textbf{Negative Selection}
 
-          % The immature B cell will undergo a process to see whether the receptors will attach to self-antigens (negative selection)
-          Within the bone marrow microenvironment, immature B cells undergo negative selection to rigorously test their newly formed BCRs for potentially harmful autoreactivity against local self-antigens.
+          Within the \textbf{bone marrow microenvironment} (\textit{REFERENCE}), immature B cells undergo negative selection, whereby their newly formed BCRs are rigorously tested for \textbf{potentially harmful autoreactivity against local self-antigens}.
 
-            % Only about 10\% of the B cells will make it through this process
-            Approximately 10\% of the initial developing B cell pool successfully navigates this strict tolerance checkpoint.
+          Approximately 10\% of the initial developing B cell pool successfully navigates this stringent tolerance checkpoint, while the \textbf{remaining autoreactive cells are eliminated}: binding of widespread multivalent self-antigens heavily crosslinks surface IgM, triggering rapid apoptotic cell death. Cells that successfully bypass negative selection are characterized by nonrecognition of self-antigens.
 
-            % Elimination is signaled by the crosslinking of IgM, leading to apoptosis
-            Autoreactive cells face elimination; binding of widespread multivalent self-antigens heavily crosslinks the surface IgM, triggering rapid apoptotic cell death pathways.
+          \textit{Under certain conditions, however, an autoreactive B cell may avoid immediate destruction by reactivating \textbf{Recombination Activating Gene (RAG)} transcription, initiating a process termed receptor editing to generate a new, non-autoreactive light chain specificity.}
 
-            % HOWEVER, some cells can sometimes get a second chance, reactivating their RAG (Recombination Activating Gene) enzymes, and try rearranging again
-            However, under specific conditions, an autoreactive B cell may avoid immediate destruction by reactivating Recombination Activating Gene (RAG) transcription, initiating a process termed receptor editing to generate a new, non-autoreactive light chain specificity.
+        \item \textbf{IgD Formation} (Naive, Mature B Cell)
 
-          % Successful cells do not recognize self-antigens
-          Cells that successfully bypass negative selection exhibit functional central tolerance, lacking recognition for endogenous self-antigens.
-
-        \item \textbf{IgD Formation}
-
-          <FIGURE>
-
-          % The cell now has the option to splice the BCR message so that it can synthesize the IgD version of its BCRs
-          Surviving cells employ alternative mRNA splicing to concurrently transcribe and translate the IgD isotype alongside their existing IgM receptors.
-
-          % This is now a mature B cell and can leave the bone marrow
-          The dual expression of surface IgM and IgD signifies a fully mature, immunocompetent, yet naive B cell, which is now authorized to exit the bone marrow and enter systemic circulation.
+          Surviving cells employ \textbf{alternative mRNA splicing} to concurrently transcribe and translate the \textbf{IgD isotype} alongside their existing IgM receptors. This \textbf{dual expression of surface IgM and IgD} marks the cell as a fully \textbf{mature, immunocompetent, yet naive B cell}, now licensed to exit the bone marrow and enter systemic circulation.
 
         \item \textbf{During Circulation}
 
-          % The cells are released into the plasma and head to the peripheral lymphoid organs: lymph nodes, spleen, and mucosa
-          The mature B cells migrate through the circulatory and lymphatic systems to seed peripheral secondary lymphoid organs, including the lymph nodes, spleen, and various mucosal tissues.
+          Mature B cells migrate through the circulatory and lymphatic systems to seed peripheral secondary lymphoid organs, including the \textbf{lymph nodes} (\textit{REFERENCE}), \textbf{spleen} (\textit{REFERENCE}), and \textbf{mucosa} (\textit{REFERENCE}).
 
-          % Once stimulated to produce antibodies, the cell makes primarily μ peptides, but without the membrane spanning region (thus they will make the soluble IgM pentamer)
-          Upon encountering specific antigen and receiving activating signals, the resulting plasma cells drastically upregulate transcription of the $\mu$ heavy chain, altering RNA processing to exclude the transmembrane coding domains, leading to massive secretion of the soluble, multimeric IgM pentamer.
+          Upon encountering specific antigen and receiving activating signals, the resulting plasma cells markedly \textbf{upregulate transcription of the μ heavy chain}, altering RNA processing to \textbf{exclude the transmembrane coding domains} and thereby driving massive secretion of the soluble, multimeric IgM pentamer (\textit{REFERENCE to antibody isotypes}).
 
-          % The cell rarely makes δ peptides without the membrane spanning regions.
-          Soluble secretion of the $\delta$ isotype (IgD) is physiologically negligible, as the cell rarely produces $\delta$ transcripts lacking the membrane anchor sequences.
+          \textit{Soluble secretion of the δ isotype (IgD) is physiologically negligible, as the cell rarely generates δ transcripts lacking the membrane anchor sequences.}
 
       \end{enumerate}
 
@@ -2088,216 +2300,191 @@
 
       \begin{core}{Thymus Independent B Cell Activation}
 
-        % There exists few antigens (TI antigens) that can prompt B-cell development independent of TH cell co-stimulus. These can also simultaneously activate TLRs
-        Certain distinct classes of antigens, termed Thymus-Independent (TI) antigens, possess the unique capability to induce B cell activation and proliferation in the complete absence of concurrent T helper (TH) cell stimulation. These structures frequently co-engage innate Toll-Like Receptors (TLRs).
+        Certain distinct classes of antigens, termed \textbf{Thymus-Independent (TI) antigens}, are capable of inducing B cell activation and proliferation in the complete absence of concurrent T$_\text{H}$ cell stimulation. These structures frequently co-engage innate \textbf{TLRs} (\textit{REFERENCE}). 
 
-        % TI activation [1] does not induce class switching (you make IgM) and [2] does not produce memory cells; for either you need TH cells
-        TI-mediated activation is characterized by two fundamental limitations: it generally fails to induce functional immunoglobulin class switching (restricting output predominantly to IgM), and it does not yield a sustained population of memory B cells; robust induction of either process strictly requires classical TH cell involvement.
+        TI-mediated activation is nonetheless constrained by its inability to induce \textbf{class switching} (\textit{REFERENCE})---thereby restricting output predominantly to IgM---and its inability to generate memory cells. Both of these functions require classical T$_\text{H}$ cell involvement.
+
+        Generally, TI B cell activation is categorized into two types.
+
+        \myfig{0.85}{immunology_figures/tibc}{Type 1 (\textit{left}) vs Type 2 (\textit{right}) thymus independent B cell activation}{fig:tibc}
 
         \begin{enumerate}
 
-          \item \textbf{Type 1} 
+          \item \textbf{Type 1 Activation} 
 
-            <FIGURE>
+            TI-1 antigens typically consist of potent mitogenic molecules, most notably \textbf{lipopolysaccharide (LPS)}, derived from the outer leaflet of the Gram-negative bacterial cell wall (\textit{FIGURE REFERENCE}).
 
-            % Lipopolysaccharides such as those found in the cell wall of gram negative bacteria 
-            TI-1 antigens typically consist of potent mitogenic molecules, most notably lipopolysaccharide (LPS), derived from the outer leaflet of Gram-negative bacterial cell walls.
+            At sufficiently high concentrations, these molecules bind the BCR while simultaneously acting as ligands for adjacent \textbf{TLR4 receptors} (\textit{REFERENCE}), thereby delivering the necessary, self-contained secondary permissive signal for cellular activation.
 
-            % These molecules also activate TLR4 to provide the second permissive signal
-            At significant concentrations, these molecules bind the BCR while simultaneously acting as potent ligands for adjacent TLR4 receptors, delivering the necessary, self-contained secondary permissive signal for cellular activation.
+          \item \textbf{Type 2 Activation}
 
-          \item \textbf{Type 2}
+            TI-2 antigens are characterized by highly repetitive, polymeric structural motifs---such as extensive bacterial capsular polysaccharides or \textbf{flagellin polymers}---that induce extensive, sustained cross-linking and clustering of surface BCRs.
 
-            <FIGURE>
-
-            % Repetitive polymeric proteins (such as bacterial flagellin) cross-link and clusters Ig receptors
-            TI-2 antigens are characterized by highly repetitive, polymeric structural motifs (such as extensive bacterial capsular polysaccharides or flagellin polymers) that induce massive, sustained cross-linking and clustering of surface BCRs.
-
-            % The signal does not come from a discrete source, but inflammatory cytokines (IL-2, IL3, and IFNɣ) and APCs
-            While lacking direct TH cell contact, successful TI-2 activation often relies upon a generalized, supportive microenvironment heavily supplemented by inflammatory cytokines (e.g., IL-2, IL-3, and IFN-$\gamma$) secreted by nearby innate immune populations and specialized APCs.
+            While lacking direct T$_\text{H}$ cell contact, successful TI-2 activation often depends upon a generalized, supportive microenvironment enriched with \textbf{inflammatory cytokines} (\textit{REFERENCE})---such as IL-2, IL-3, and IFN-γ---secreted by nearby innate immune populations and specialized \textbf{APCs}.
 
         \end{enumerate}
 
-    \end{core}
+      \end{core}
 
-    \begin{core}{Thymus Dependent B Cell Activation}
+      \begin{core}{Thymus Dependent B Cell Activation}
 
-      % IN MOST CASES, antigen cross-links a B cell’s Ig receptors, and sets off a signal, making the B cell seek out a TH cell.
-      Under canonical circumstances governing the majority of adaptive responses, specific antigen binding heavily cross-links the B cell’s surface immunoglobulin. This initial binding event triggers an intracellular cascade that structurally primes the B cell and directs it to actively solicit requisite co-stimulation from an antigen-specific TH cell.
+        Under canonical circumstances, specific antigen binding cross-links BCRs. This initial binding event triggers an intracellular cascade that primes the B cell and directs it to actively solicit requisite co-stimulation from an antigen-specific T$_\text{H}$ cell. The general pathway occurs like the following.
 
-      <FIGURE>
+        \begin{enumerate}[label=(\arabic*)]
 
-      \begin{enumerate}[label=(\arabic*)]
+          \item \textbf{Crosslinking}: Extracellular antigen cross-links multiple BCR complexes. This physical clustering forces the \textbf{spatial aggregation of associated Igα/Igβ domains}, leading to the activation of their \textbf{ITAMs}.
 
-        \item % Antigen cross links BCR Ig, bringing together cytosolic Igα/Igβ domains and activating the ITAMs
-        Extracellular antigen physically cross-links multiple BCR complexes. This physical clustering forces the spatial aggregation of the associated intracellular Ig$\alpha$/Ig$\beta$ signaling domains, leading to the rapid structural activation of their Immunoreceptor Tyrosine-based Activation Motifs (ITAMs).
+          \item \textbf{ITAM Phosphorylation}: Src-family kinases bind these aggregated ITAMs, utilizing ATP hydrolysis to systematically \textbf{phosphorylate certain tyrosine residues on the ITAMs}.
 
-        \item % Src-like kinases attach to ITAMs, adding phosphate from ATP
-        Resident Src-family kinases bind these aggregated ITAMs, utilizing ATP hydrolysis to systematically phosphorylate critical tyrosine residues on the motifs.
+          \item \textbf{Syk Kinase Activation}: The newly phosphorylated ITAMs serve as docking sites for \textbf{Syk kinase}. The recruitment and activation of Syk subsequently initiates a vast, highly interconnected intracellular signaling web.
 
-        \item % Syk kinase docks and sets off a complex interlocking activation cascade
-        The newly phosphorylated ITAMs serve as high-affinity docking sites for Syk kinase. The recruitment and activation of Syk subsequently initiates a vast, highly interconnected intracellular signaling web:
+          \myfig{1}{immunology_figures/tdbc}{Thymus dependent B cell activation pathway; \textit{all elements of the corresponding surrounding content is displayed with the exception of PI3K pathway}}{fig:tdbc}
 
           \begin{enumerate}
 
-            \item % DAG-PIP: An up-regulated hydrolase cleaves a membrane phospholipid to diacyl glycerol (DAG) and phosphoinositide (PIP)—trigger many responses 
-            DAG/IP3 Generation: Phospholipase C-$\gamma$ (PLC-$\gamma$) is activated, cleaving the membrane phospholipid PIP2 into diacylglycerol (DAG) and inositol trisphosphate (IP3), acting as pivotal second messengers.
+            \item \textbf{DAG/IP3 Generation}: \textbf{PLC-γ} is activated, cleaving the membrane phospholipid \textbf{PIP2} into \textbf{diacylglycerol (DAG)} and \textbf{inositol trisphosphate (IP3)}, acting as pivotal second messengers.
 
-              % → release of Ca2+ from the ER → activates calmodulin → NFAT (active transcription factors and upregulates genes) activation
-              IP3 diffuses to trigger the rapid release of stored Ca2+ from the ER lumen into the cytosol. This calcium influx heavily binds calmodulin, which subsequently activates the phosphatase calcineurin to dephosphorylate and activate the transcription factor NFAT.
+            \begin{itemize}
 
-              % → removal of iκB (inhibitor) → up-regulation of inflammatory transcription factor NF-κB
-              Concurrently, DAG activation propagates signals that result in the targeted degradation of the I$\kappa$B inhibitory complex, thereby unleashing the potent pro-inflammatory transcription factor NF-$\kappa$B to enter the nucleus.
+              \item IP3 diffuses to trigger the \textbf{rapid release of stored \ce{Ca^{2+}} from the ER lumen into the cytosol}. This calcium influx heavily binds calmodulin, which subsequently activates the phosphatase calcineurin to dephosphorylate and activate the transcription factor \textbf{NFAT}.
 
-            \item % RAS-RAF-MEK-ERK kinases: This pathway leads to many activated ERKs, causing them to activate, bind DNA and turn on genes for B cell division and differentiation
-            MAPK/ERK Kinase Cascade: Through intermediary adapter proteins, the classical RAS-RAF-MEK-ERK phosphorylation cascade is initiated. This culminates in the nuclear translocation of activated ERK proteins, which directly upregulate essential target genes controlling robust cellular proliferation and terminal differentiation.
+              \item Concurrently, DAG activation propagates signals that result in the targeted \textbf{degradation of the IκB inhibitory complex}, thereby unleashing the potent pro-inflammatory transcription factor \textbf{NF-κB} to enter the nucleus.
 
-            \item % PIP2-PIP3: activation of the BCR causes the PIP2 to add a phosphate and turn into PIP3, blocking signals leading to apoptosis
-            PI3K Activation: The activated BCR complex recruits PI3K, which phosphorylates residual membrane PIP2 to yield PIP3. The accumulation of PIP3 provides a powerful overarching survival signal, effectively blocking endogenous apoptotic pathways during the stress of rapid clonal expansion.
+            \end{itemize}
 
-          \end{enumerate}
+            \item \textbf{MAPK/ERK Kinase Cascade}: Through adapter proteins, the classical \textbf{RAS-RAF-MEK-ERK phosphorylation cascade} is initiated. This culminates in the nuclear translocation of activated ERK proteins, which directly upregulate essential target genes controlling cellular proliferation and differentiation.
 
-        \item % The cells begin to divide and secrete antibodies
-        Driven by these integrated transcription factors, the fully activated B cells commence exponential mitotic division and begin differentiating into functional, antibody-secreting plasma cells.
-
-        \item % REGULATION—As antibody-antigen complexes build up, they bind to the Fc receptors on the B cells (CD22), which provides brakes on the system (FIGURE)
-        Feedback Regulation: As the immune response progresses, the accumulating high-titer antigen-antibody immune complexes begin to bind inhibitory surface Fc$\gamma$ receptors, specifically CD32 (Fc$\gamma$RIIB) which houses an ITIM domain, providing essential negative feedback to safely curtail the response. (Note: CD22 is an independent inhibitory coreceptor recognizing sialic acid, playing a similar dampening role).
-
-          \begin{enumerate}
-
-            \item % Developing tolerance for foreign antigens refers to the immune system's ability to recognize and accept the presence of specific antigens without mounting an immune response against them—do not want this against pathogenic infections
-            While strictly necessary for controlling inflammation, suppressing active signaling presents a risk of inducing peripheral tolerance toward foreign antigens—a state where the immune system inappropriately acknowledges a foreign entity without mounting a defense. This is heavily counterproductive during active pathogenic infections.
-
-            \item % Treg cells further suppresses immune responses to your own proteins and to those of benign commensal bacteria and fungi
-            To carefully manage this balance, specialized Regulatory T (Treg) cells act primarily to enforce systemic tolerance specifically directed against autologous host proteins, as well as maintaining non-reactivity toward benign, commensal microbiome flora.
-
-            \item % IF YOU INTRODUCE FOREIGN ANTIBODIES to an antigen, this will tie up the antigen and prevent it from promoting an immune response
-            Clinically, if exogenous antibodies targeting a specific antigen are passively administered into a host system, they will effectively sequester the circulating antigen load, largely preventing it from natively binding host BCRs and thus actively suppressing the generation of a de novo immune response.
+            \item \textbf{PI3K Activation}: The activated BCR complex recruits \textbf{PI3K}, which phosphorylates residual membrane \textbf{PIP2 to yield PIP3}. The accumulation of PIP3 provides a powerful overarching survival signal, effectively \textbf{blocking apoptotic pathways} during the stress of rapid clonal expansion.
 
           \end{enumerate}
 
-      \end{enumerate}
+          \item (\textit{Mitosis \& Differentiation}): Driven by these transcription factors, the fully activated B cells commence exponential mitotic division and begin differentiating into functional, antibody-secreting plasma cells.
 
-    \end{core}
+        \end{enumerate}
 
-    \begin{core}{T$_\text{H}$ Cell Synpase}
+        As the immune response progresses, the accumulating antigen--antibody \textbf{immune complexes} begin to bind inhibitory surface Fc receptors, \textbf{providing essential negative feedback to safely curtail the response}.
 
-      % The BCR does not signal nor divide effectively without contact with a TH cell—the B cell can stimulate a TH cell at concentrations 100 to 10,000 times lower than those necessary for a macrophage or dendritic cell
-      Despite robust BCR engagement, sustained proliferation heavily relies upon physical contact with an activated TH cell. Notably, the high affinity of the BCR allows the B cell to capture and present antigen to TH cells at concentrations roughly 100 to 10,000 times lower than what is required for standard presentation by macrophages or dendritic cells.
+        \myfig{0.55}{immunology_figures/immune_complex}{Antigen--antibody immune complex engagement of the inhibitory Fc receptor, which in turn suppresses conformational changes in the BCR cytoplasmic domain}{fig:immune_complex}
 
-      \begin{enumerate}[label=(\arabic*)]
+        While strictly necessary for controlling inflammation, suppressing active signaling presents a risk of inducing \textbf{peripheral tolerance} toward foreign antigens---a state where the immune system inappropriately acknowledges a foreign entity without mounting a defense. This is \textbf{heavily counterproductive} during active pathogenic infections.
 
-        \item % When B cells bind antigen, they bring some inside and hydrolyze it
-        BCR engagement triggers receptor-mediated endocytosis, allowing the B cell to internalize the bound antigen and subsequently hydrolyze it into small peptide fragments via the endosomal pathway.
+        To carefully manage this balance, specialized T$_\text{reg}$ cells act primarily to enforce systemic tolerance specifically directed against \textbf{autologous host proteins}, as well as maintaining non-reactivity toward \textbf{benign, commensal microbiome flora}.
 
-        \item % The processed antigen is expressed through the MHC II on the B cell surface
-        These processed antigenic peptides are then loaded onto nascent MHC class II molecules and shuttled back to the external cell surface for presentation.
+        \textit{Clinically, if \textbf{exogenous antibodies} targeting a specific antigen are passively administered into a host system, they will effectively sequester the antigen load, largely preventing it from natively binding host BCRs and thus actively suppressing a new immune response.}
 
-        \item % The [B cell] MHC II-antigen complex binds to the [TH cell] TCR with the help of CD4, forming a immune synapse
-        An activated TH cell specific for that exact peptide epitope binds the MHC II complex via its TCR, heavily stabilized by the CD4 co-receptor, forming a highly organized cellular interface termed the immunological synapse.
+      \end{core}
 
-        \item % This causes the TH cell to produce CD40L (or CD154) which binds to the surface CD40R on the B cell
-        This direct recognition event induces the TH cell to rapidly upregulate surface expression of CD40 Ligand (CD40L/CD154), which securely engages the constitutively expressed CD40 receptor physically present on the B cell surface.
+      \begin{core}[label=core:immune_synapse]{T$_\text{H}$ Cell Synpase}
 
-        \item % This leads to the production of the second signal, activating the interlocking up-regulatory pathways of the B cell and they begin proliferating and differentiating
-        The CD40-CD40L interaction delivers the critical, definitive second signal to the B cell. This massively amplifies the internal signaling cascades initiated by the BCR, fully committing the B cell to exponential proliferation and terminal effector differentiation.
+        Despite robust BCR engagement, sustained proliferation heavily relies upon physical contact with an activated T$_\text{H}$ cell. Conversely, the high affinity of the BCR allows the B cell to capture and present antigen to T$_\text{H}$ cells at concentrations roughly 100 to 10,000 times lower than what is required for standard presentation by macrophages or dendritic cells.
 
-      \end{enumerate}
+        BCR engagement triggers receptor-mediated endocytosis, allowing the B cell to internalize the bound antigen, subsequently hydrolyze it into peptide fragments via the \textbf{endosomal pathway} (\textit{REFERENCE}), and present these fragments to the surface via the \textbf{MHC class II molecule} (\textit{REFERENCE}).
 
-      % In the reciprocal part of the conversation between B and T cell, B7 plays a role in the up-regulation of the TH cell
-      In this reciprocal exchange, the B cell concurrently upregulates surface B7 molecules (CD80/CD86), which engage CD28 on the TH cell to continually support and reinforce the TH cell’s activated state.
+        An activated T$_\text{H}$ cell specific for that exact peptide epitope binds the MHC II complex via its \textbf{T cell receptor} (\textit{REFERENCE}), heavily stabilized by the \textbf{CD4 co-receptor} (\textit{REFERENCE}), forming a highly organized cellular interface termed the \textbf{immunological synapse}.
 
-    \end{core}
+        This direct recognition event induces the participating cells to rapidly upregulate surface expression of signal ligand and receptors.
 
-  \subsubsection{Antibody Development}
+        \myfig{0.55}{immunology_figures/immune_synapse}{B cell and T$_\text{H}$ cell immune synapse; \textit{MHC II--peptide complex binding to TCR initiates the CD40L--CD40 (bottom) and B7--CD28 (top) ligand--receptor interactions}}{fig:immune_synpase}
 
-    \begin{core}{Lymph Node Follicle Development}
+        \begin{enumerate}
 
-      <FIGURE>
+          \item \textbf{CD40L--CD40}: CD40L (\textit{or CD154}) is upregulated on T$_\text{H}$, which securely engages the constitutively expressed CD40 receptor present on the B cell surface. This interaction delivers the critical second signal to the B cell, massively amplifing the internal signaling cascades initiated by the BCR and fully committing the B cell to exponential proliferation and terminal effector differentiation.
 
-      % Free and antibody-bound antigen in the plasma is likely to be picked up by APCsj
-      Circulating free antigen and small immune complexes present in the plasma or lymph are predominantly captured by local antigen-presenting cells (APCs).
+          \item \textbf{B7--CD28}: In a reciprocal exchange compared to the previous CD40L-CD40 interaction, the B cell concurrently upregulates surface B7 molecules---B7-1 (\textit{CD80}) and B7-2 (\textit{CD86})---which engage CD28 on the T$_\text{H}$ cell to continually support and reinforce the TH cell’s activated state.
 
-      % APCs initially activate the TH cells in the paracortex which then goes on to synapse with B cells, producing a clonal cluster at the boundary between the paracortex and cortex
-      These APCs traffic to the lymph node to initially activate TH cells within the paracortical region. These primed TH cells then migrate toward the B cell zones, forming functional immunological synapses with antigen-bearing B cells. This interaction generates a proliferating cellular cluster localized precisely at the boundary delineating the paracortex and the outer cortex.
+        \end{enumerate}
 
-      % This eventually morphs into a secondary follicle (from a primary follicle) with a light germinal center and dark zone
-      This active cluster rapidly expands and reorganizes, driving the transformation of a resting primary follicle into a highly active secondary follicle, distinctly characterized by a well-defined light germinal center and a dense dark zone.
+      \end{core}
 
-        % Germinal Center: Where B, TH , and follicular DCs interact for antibody selection 
-        Germinal Center: The primary structural environment facilitating the intense interactions among B cells, specialized TH cells, and FDCs required for rigorous antibody selection.
+    \subsubsection{Antibody Development}
 
-        % Dark Zone: Sites of mutation and excess reproduction of B cells
-        Dark Zone: The anatomical location dedicated to extreme B cell proliferation accompanied by targeted somatic hypermutation.
+      \begin{core}[label=core:ln_follicle]{Lymph Node Follicle Development}
 
-      % REMINDER: FDCs capture antigen-antibody complexes in beaded structures (iccosomes) and present them to B cells
-      NOTE: Within this environment, FDCs trap and stabilize intact antigen-antibody immune complexes within distinct beaded cellular structures termed iccosomes, presenting them efficiently for selection by competing B cell clones.
+        Free antigen and small immune complexes circulating in the plasma or lymph are predominantly captured by local \textbf{antigen-presenting cells (APCs)}, which traffic to the lymph node and initially activate T$_\text{H}$ cells within the \textbf{paracortical region}. These primed T$_\text{H}$ cells subsequently migrate toward the B cell zones, forming functional \textbf{immunological synapses} (\textit{\autoref{core:immune_synapse}}) with antigen-bearing B cells.
 
-    \end{core}
+        These interactions give rise to a proliferating cellular cluster localized at the boundary between the paracortex and the outer cortex.
 
-    \begin{core}{Affinity Maturation}
+        \myfig{0.7}{immunology_figures/ln_follicle}{Lymph node structure; \textit{placeholder}}{fig:ln_follicle}
 
-      <FIGURE>
+        This cluster rapidly expands and reorganizes, driving the transformation of a resting \textbf{primary follicle} into a highly active \textbf{secondary follicle}, whose defining feature is the \textbf{germinal center}---composed of a well-defined light zone and a dense dark zone.
 
-      % Centroblasts (activated, enlarged B cells) move to the dark zone where they undergo [1] rapid growth and division and [2] somatic hypermutation (CDR loop mutations)—during this phase, they stop displaying their membrane Ig receptors
-      Centroblasts—highly activated, morphologically enlarged B cells—migrate into the dark zone where they experience intense mitotic proliferation. Concurrently, they undergo somatic hypermutation, introducing targeted nucleotide substitutions strictly within the DNA sequences coding for the CDR loops. Throughout this proliferative stage, centroblasts temporarily cease the surface expression of their BCRs.
+        \begin{enumerate}
 
-      % Centrocytes (centroblasts that stop dividing) move to the germinal center or light zone to undergo selection where B cells with more effective receptors will survive and multiply at a greater rate by connecting with iccosomes on the FDCs and receiving CD40 signals from TH cells (ACCELERATED NATURAL SELECTION)
-      Upon exiting the cell cycle, these cells mature into centrocytes and migrate toward the light zone for a rigorous selection process. Centrocytes must actively compete to bind the limited antigen presented on FDC iccosomes. Cells possessing mutated receptors with improved affinity successfully bind the antigen, enabling them to present peptide to TH cells, thereby securing the vital CD40 survival signals. This process functions essentially as accelerated, localized natural selection.
+          \item \textbf{Light Zone}: The primary site facilitating intense interactions among B cells, specialized T$_\text{H}$ cells, and FDCs (\textit{REFERENCE}) required for rigorous antibody selection.
 
-        % Centrocytes that don’t contact an antigen die by apoptosis and are recycled by macrophages
-        Centrocytes bearing low-affinity or non-functional mutations fail to secure sufficient antigen or TH cell help; consequently, they undergo rapid apoptosis and are cleared locally by tingible body macrophages.
+          \textit{It is important to note that FDCs are not conventional dendritic cells. Whereas classical dendritic cells interact primarily with T cells, FDCs trap and stabilize intact antigen--antibody immune complexes within distinct beaded structures termed \textbf{iccosomes}, presenting them efficiently for selection by competing B cell clones.}
 
-      % The centrocytes leave the germinal center as plasma cells, lose their surface antibody again, and begin secreting antibodies at the site of infection
-      The highly selected, high-affinity centrocytes finally exit the germinal center microenvironment, terminally differentiating into long-lived plasma cells. These cells permanently downregulate surface receptor expression in favor of massive, sustained secretion of high-affinity antibodies targeted against the infection.
+          \item \textbf{Dark Zone}: The anatomical site dedicated to rapid B cell proliferation accompanied by targeted \textbf{somatic hypermutation} (\textit{\autoref{core:affinity_maturation}}).
 
-    \end{core}
+        \end{enumerate}
 
-    \begin{core}{Class Switching}
+      \end{core}
 
-      % TH cells synapse with the B cells and cytokine signal the specific switch regions (recombination sites designated by 2-3 KB sequences of DNA)
-      TH cells maintain synaptic contact with differentiating B cells, secreting tailored cytokine profiles that chemically direct class-switch recombination. This mechanism physically targets specific "switch regions"—conserved sequences spanning 2 to 3 kilobases positioned immediately upstream of each respective constant gene segment.
+      \begin{core}[label=core:affinity_maturation]{Affinity Maturation}
 
-      % ***Before switching, the cell would be expressing the µ and δ constant regions
-      Prior to any switching event, the mature B cell exclusively transcribes the proximal $\mu$ and $\delta$ constant regions, forming its initial IgM/IgD receptors.
+        \textbf{Affinity maturation} is ...
 
-      % Switching involves removing these and whatever other C gene region(s) stand(s) between the VDJ region and the C region to be expressed
-      The switching mechanism involves the permanent excisional recombination of DNA, physically looping out and discarding the previously utilized constant domains alongside any intervening sequences positioned between the rearranged VDJ domain and the newly targeted downstream constant region.
+        <FIGURE>
 
-      % Any C region removed upstream after class switching is unretrievable, thus removing the last Cα region will not allow a cell to produce any antibody at all
-      Because this deletion occurs at the DNA level, any excised upstream constant regions are irretrievably lost from that allele's genome. Therefore, progressive class switching is unidirectional down the heavy chain locus.
+        % Centroblasts (activated, enlarged B cells) move to the dark zone where they undergo [1] rapid growth and division and [2] somatic hypermutation (CDR loop mutations)—during this phase, they stop displaying their membrane Ig receptors
+        \textbf{Centroblasts}---highly activated, morphologically enlarged B cells---migrate into the dark zone where they experience intense mitotic proliferation. Concurrently, they undergo somatic hypermutation, introducing targeted nucleotide substitutions strictly within the DNA sequences coding for the CDR loops. Throughout this proliferative stage, centroblasts temporarily cease the surface expression of their BCRs.
 
-      % Takes place after the system has been producing antibodies for a week or more
-      This large-scale genetic remodeling generally requires a sustained immune response, typically occurring functionally prominent after a week or more of persistent antigen challenge.
+        % Centrocytes (centroblasts that stop dividing) move to the germinal center or light zone to undergo selection where B cells with more effective receptors will survive and multiply at a greater rate by connecting with iccosomes on the FDCs and receiving CD40 signals from TH cells (ACCELERATED NATURAL SELECTION)
+        Upon exiting the cell cycle, these cells mature into \textbf{centrocytes} and migrate toward the light zone for a rigorous selection process. Centrocytes must actively compete to bind the limited antigen presented on FDC iccosomes. Cells possessing mutated receptors with improved affinity successfully bind the antigen, enabling them to present peptide to TH cells, thereby securing the vital CD40 survival signals. This process functions essentially as accelerated, localized natural selection.
 
-      % ***First antibodies produced for an infection are IgMs and you don’t start seeing IgGs (or other classes) until later in
-      Consequently, the primary serological hallmark of a novel acute infection is a rapid spike in low-affinity IgM; the transition to high-affinity IgG (or other specialized isotypes) is a slower, distinctly subsequent event characterizing the later phases of the adaptive response.
+          % Centrocytes that don’t contact an antigen die by apoptosis and are recycled by macrophages
+          Centrocytes bearing low-affinity or non-functional mutations fail to secure sufficient antigen or TH cell help; consequently, they undergo rapid apoptosis and are cleared locally by tingible body macrophages.
 
-      <FIGURE>
-      
-    \end{core}
+        % The centrocytes leave the germinal center as plasma cells, lose their surface antibody again, and begin secreting antibodies at the site of infection
+        The highly selected, high-affinity centrocytes finally exit the germinal center microenvironment, terminally differentiating into long-lived plasma cells. These cells permanently downregulate surface receptor expression in favor of massive, sustained secretion of high-affinity antibodies targeted against the infection.
 
-  \subsubsection{Plasma vs Memory B Cells}
+      \end{core}
 
-    \begin{core}{Plasma Cells}
+      \begin{core}{Class Switching}
 
-      % The final differentiation to a plasma cell (from centrocytes) involve the switch (Blimp-1, XBP-1, IRF-4 from ChatGPT) that generates the splicing enzymes that do not add the membrane-spanning exons to the μ heavy chain message
-      The terminal differentiation from an activated centrocyte into a highly specialized plasma cell is orchestrated by key transcription factors. This shifts the cellular machinery, altering RNA splicing enzymes to selectively exclude the membrane-anchoring exons from the heavy chain transcript, thereby converting receptor expression into large-scale soluble secretion.
+        % TH cells synapse with the B cells and cytokine signal the specific switch regions (recombination sites designated by 2-3 KB sequences of DNA)
+        TH cells maintain synaptic contact with differentiating B cells, secreting tailored cytokine profiles that chemically direct class-switch recombination. This mechanism physically targets specific "switch regions"—conserved sequences spanning 2 to 3 kilobases positioned immediately upstream of each respective constant gene segment.
 
-      % Low levels of BSAP (differentiating related factor) tend to promote plasma cell formation
-      This terminal transition is strongly correlated with, and facilitated by, the significant downregulation and suppression of BSAP (Pax-5) expression.
+        % ***Before switching, the cell would be expressing the µ and δ constant regions
+        Prior to any switching event, the mature B cell exclusively transcribes the proximal $\mu$ and $\delta$ constant regions, forming its initial IgM/IgD receptors.
 
-    \end{core}
+        % Switching involves removing these and whatever other C gene region(s) stand(s) between the VDJ region and the C region to be expressed
+        The switching mechanism involves the permanent excisional recombination of DNA, physically looping out and discarding the previously utilized constant domains alongside any intervening sequences positioned between the rearranged VDJ domain and the newly targeted downstream constant region.
 
-    \begin{core}{Memory Cells}
+        % Any C region removed upstream after class switching is unretrievable, thus removing the last Cα region will not allow a cell to produce any antibody at all
+        Because this deletion occurs at the DNA level, any excised upstream constant regions are irretrievably lost from that allele's genome. Therefore, progressive class switching is unidirectional down the heavy chain locus.
 
-      % Memory cells set aside from this process may resemble naive B cells, but they have undergone class switching, thus they express a larger variety of BCRs compared to the naive B cell (only IgD and IgM)
-      Conversely, cells diverted from terminal differentiation to become long-lived memory B cells possess a quiescent morphology superficially resembling naive B cells. However, they bear the genetic scars of class switching and affinity maturation, expressing specialized, high-affinity isotypes (such as IgG, IgA, or IgE) rather than the baseline IgM/IgD phenotype restricted to naive cohorts.
+        % Takes place after the system has been producing antibodies for a week or more
+        This large-scale genetic remodeling generally requires a sustained immune response, typically occurring functionally prominent after a week or more of persistent antigen challenge.
 
-      % High levels of BSAP (differentiating related factor) tend to promote memory cell formation
-      The stabilization and maintenance of the memory cell lineage is highly dependent on the continued, elevated expression of the BSAP transcription factor.
+        % ***First antibodies produced for an infection are IgMs and you don’t start seeing IgGs (or other classes) until later in
+        Consequently, the primary serological hallmark of a novel acute infection is a rapid spike in low-affinity IgM; the transition to high-affinity IgG (or other specialized isotypes) is a slower, distinctly subsequent event characterizing the later phases of the adaptive response.
 
-    \end{core}
+        <FIGURE>
+        
+      \end{core}
+
+    \subsubsection{Plasma vs Memory B Cells}
+
+      \begin{core}{Plasma Cells}
+
+        % The final differentiation to a plasma cell (from centrocytes) involve the switch (Blimp-1, XBP-1, IRF-4 from ChatGPT) that generates the splicing enzymes that do not add the membrane-spanning exons to the μ heavy chain message
+        The terminal differentiation from an activated centrocyte into a highly specialized plasma cell is orchestrated by key transcription factors. This shifts the cellular machinery, altering RNA splicing enzymes to selectively exclude the membrane-anchoring exons from the heavy chain transcript, thereby converting receptor expression into large-scale soluble secretion.
+
+        % Low levels of BSAP (differentiating related factor) tend to promote plasma cell formation
+        This terminal transition is strongly correlated with, and facilitated by, the significant downregulation and suppression of BSAP (Pax-5) expression.
+
+      \end{core}
+
+      \begin{core}{Memory Cells}
+
+        % Memory cells set aside from this process may resemble naive B cells, but they have undergone class switching, thus they express a larger variety of BCRs compared to the naive B cell (only IgD and IgM)
+        Conversely, cells diverted from terminal differentiation to become long-lived memory B cells possess a quiescent morphology superficially resembling naive B cells. However, they bear the genetic scars of class switching and affinity maturation, expressing specialized, high-affinity isotypes (such as IgG, IgA, or IgE) rather than the baseline IgM/IgD phenotype restricted to naive cohorts.
+
+        % High levels of BSAP (differentiating related factor) tend to promote memory cell formation
+        The stabilization and maintenance of the memory cell lineage is highly dependent on the continued, elevated expression of the BSAP transcription factor.
+
+      \end{core}
 
   \subsection{Leukemia \& Lymphoma}
     
