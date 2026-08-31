@@ -4,75 +4,398 @@
   
   \subsection{MAC Complex Attack}
 
-    \begin{core}{MAC Complex Attack}
+    \begin{core}{Complement System}
 
-      <FIGURE>
+      The \textbf{complement system} is an enzymatic cascade of more than 30 soluble plasma proteins and membrane receptors that function as a core branch of \textbf{innate immunity} while also amplifying the effector functions of adaptive antibodies.
 
-      This process is called membrane lysis (poking holes in pathogenic membranes)
+      Most circulating complement proteins are synthesized predominantly by \textbf{hepatocytes} (\textit{liver cells}) and released as \textbf{inactive} precursors, although several immune and stromal cell populations also produce complement components locally.
 
-      The MAC pathway can be triggered through both innate and adaptive recognition—this is the last stage of the complement activation pathway (all complement pathways converge to the cleavage of C5)
+    \end{core}
 
-      The MAC complex is essentially a ring of C9 peptides that serves as a passage hole for harmful substances to degrade the insides of cells like…
+    \begin{core}[label=core:mac_complex]{MAC Complex Attack}
 
-        membrane coated viruses
+      The \textbf{membrane attack complex (MAC)} is the shared \textbf{terminal} effector of complement activation. The \textbf{classical} (\textit{\autoref{core:complement_classical}}), \textbf{lectin} (\textit{\autoref{core:complement_lectin}}), and \textbf{alternative} (\textit{\autoref{core:complement_alternative}}) pathways all converge on the generation of a \textbf{C5 convertase}, whose cleavage of C5 initiates assembly of the terminal complement components.
 
-        rough gram negative (membrane-peptidoglycan-membrane); gram positive is difficult because of its thick walls
+      \pgfig{
+        [
+          >=Stealth,
+          every node/.style={font=\sffamily},
+          component/.style={
+            draw=black,
+            fill=boxblue,
+            rounded corners=7pt,
+            minimum width=0.74cm,
+            minimum height=1.55cm,
+            inner sep=2pt,
+            align=center
+          },
+          smallcomponent/.style={
+            component,
+            minimum width=0.68cm,
+            minimum height=0.82cm
+          },
+          membrane/.style={draw=black, fill=boxblue},
+          process/.style={->, thick},
+          note/.style={font=\sffamily\small, align=left}
+        ]
 
-        eukaryotic parasites
+        % ===== Extracellular-space label =====
+        \node[font=\sffamily\bfseries\large, anchor=west] at (0.35,10.85) {ECM};
 
-        erythrocytes or RBCs (under pathogenic conditions)
+        % ===== C5 cleavage =====
+        \node[component] (c5) at (2.25,9.05) {C5};
+        \node[smallcomponent] (c5a) at (0.95,6.95) {C5a};
+        \node[component] (c5b) at (3.45,5.85) {C5b};
 
-        cancer cells
+        \draw[process] (c5.south west) to[bend left=28] (c5a.east);
+        \draw[process] (c5.south east) to[bend right=8] (c5b.north west);
+        \node[font=\sffamily\small, rotate=-73] at (2.62,7.48) {Cleavage};
 
-      The size of the MAC complex is dependent on the number of C9s that forms the ring (70 to 100)
+        \node[note, font=\sffamily\small, text width=1.65cm, anchor=north west] at (3.95,5.9)
+          {(A)};
 
-      Most complements are synthesized by the liver and release in an inactive form (VERY SIMPLIFIED)
+        % ===== Recruitment of C6 =====
+        \node[component] (c6free) at (4.25,9.1) {C6};
+        \node[component] (c5b6a) at (5.95,7.75) {C5b};
+        \node[component] (c5b6b) at (6.55,8.02) {C6};
+
+        \draw[process] (c5b.north east) -- (5.45,7.25);
+        \draw[process] (c6free.south) -- (5.68,7.35);
+
+        % ===== Recruitment of C7 and membrane attachment =====
+        \node[component] (c7free) at (8.15,10.2) {C7};
+        \draw[process] (c5b6b.east) -- (8.25,8.15);
+        \draw[process] (c7free.south) -- (8.25,8.15);
+
+        \draw[thick] (8.65,7.05) rectangle (11.65,9.95);
+        \draw[membrane] (8.7,7.38) rectangle (11.6,7.82);
+        \node at (10.15,7.6) {Cell Membrane};
+        \node[component] at (9.45,8.52) {C5b};
+        \node[component] at (10.02,8.72) {C6};
+        \node[component] at (10.60,8.55) {C7};
+        \node[note, text width=2.55cm, anchor=south west] at (9.05,10.05)
+          {(B)};
+
+        % ===== Recruitment of C8 and membrane insertion =====
+        \node[component] (c8free) at (13.95,10.25) {C8};
+        \coordinate (c8join) at (13.0,7.15);
+        \draw[process] (11.78,8.55) to[bend left=18] (c8join);
+        \draw[process] (c8free.south west) -- (c8join);
+
+        \draw[thick] (12.15,3.75) rectangle (15.85,7.05);
+        \draw[membrane] (12.2,4.55) rectangle (15.8,5.02);
+        \node at (14.0,4.78) {Cell Membrane};
+        \node[component] at (13.0,5.72) {C5b};
+        \node[component] at (13.55,5.94) {C6};
+        \node[component] at (14.10,5.78) {C7};
+        \node[component, minimum height=2.05cm] at (14.68,5.35) {C8};
+        \node[note, text width=2.9cm, anchor=north west] at (12.7,3.48)
+          {(C)};
+
+        % ===== C9 recruitment =====
+        \node[component, minimum height=1.8cm] (c9free) at (10.55,3.25) {C9};
+        \draw[process] (c9free.west) to[bend right=32] (8.78,3);
+        \draw[process] (13.1,3.72) to[bend left=30] (8.15,2.48);
+        \node[note, anchor=east] at (9.95,3.6) {C9 polymerization};
+
+        % ===== Mature membrane attack complex =====
+        \draw[membrane] (0.25,0.95) rectangle (15.65,1.42);
+        \node[anchor=east] at (15.5,1.18) {Cell Membrane};
+
+        \node[component] at (5.55,2.12) {C5b};
+        \node[component] at (6.12,2.32) {C6};
+        \node[component] at (6.69,2.18) {C7};
+        \node[component, minimum height=2.05cm] at (7.25,1.73) {C8};
+
+        \node[component, minimum height=2.55cm, inner sep=0pt] at (7.70,1.42) {\small C9};
+        \node[component, minimum height=2.72cm, inner sep=0pt] at (8.16,1.42) {\small C9};
+        \node[component, minimum height=2.85cm, inner sep=0pt] at (8.62,1.42) {\small C9};
+        \node[component, minimum height=2.72cm, inner sep=0pt] at (9.08,1.42) {\small C9};
+        \node[component, minimum height=2.55cm, inner sep=0pt] at (9.54,1.42) {\small C9};
+
+        \draw[-{Stealth[length=9pt,width=10pt]}, line width=3.2pt]
+          (8.62,3.25) -- (8.62,0.15);
+        \node[font=\sffamily\bfseries\large, anchor=west] at (9.95,1.72) {MAC Pore};
+        \node[anchor=north] at (8.62,0.08) {Water and ions};
+        \node[font=\sffamily\bfseries\large, anchor=east] at (15.4,0.1)
+          {Inside of Target Cell};
+      }{Membrane attack complex (MAC); \textit{all different complement pathways converge to this pathway}; (A) \textit{C5b is unstable when left unbound}; (B) \textit{C7 recruitment exposes a hydrophobic site that anchors the complex to the membrane}; (C) \textit{C8 recruitment drives partial insertion of the complex into the lipid bilayer}}{fig:mac}{0.9}
+      \vspace{-0.4cm}
+
+      As shown in \autoref{fig:mac}, the completed MAC achieves \textbf{membrane lysis} by forming a transmembrane pore composed of polymerized C9 subunits; structural studies generally describe a pore containing approximately 18 C9 subunits. This pore permits the \textbf{uncontrolled movement of water and ions across the membrane}, disrupting ionic homeostasis and potentially inducing osmotic rupture. Several types of susceptible targets can be damaged in this way, including the following.
+
+      \begin{itemize}
+
+        \item \textbf{Enveloped viruses}, whose host-derived lipid membranes may be disrupted by terminal complement deposition
+
+        \item \textbf{Gram-negative bacteria} (\textit{FIGURE REFEERNCE FROM UNIT 1}), whose outer membrane is accessible to MAC insertion, in contrast to the thick peptidoglycan wall that generally protects \textit{Gram-positive bacteria} from direct MAC-mediated lysis
+
+        \item Susceptible \textbf{eukaryotic parasites}
+
+        \item \textbf{Erythrocytes} (\textit{red blood cells}) under pathological conditions in which complement regulation fails or inappropriate activation occurs
+
+        \item Antibody-targeted \textbf{cancer cells}, provided that complement activation overcomes the cells' membrane-bound complement regulators.
+
+      \end{itemize}
 
     \end{core}
 
   \subsection{Complement Pathways}
 
-    \begin{core}{Classical Pathway}
+    \begin{core}[label=core:complement_classical]{Classical Pathway}
 
-      <FIGURE>
+      The \textbf{classical pathway} is the antibody-dependent route of complement activation, triggered when the C1 complex engages antigen-bound immunoglobulin.
 
-      An inactive C1 complex—composed of 6 C1q (C1qA, C1qB, C1qC), 2 C1r, and 2C1s subunits—activates when at least 2 of the C1q subunits’ heads bind to antibodies, making the C1rs complex wrap on the C1q stems and exposing the C1rs complex’s catalytic activity`
+      \myfig{0.5}{immunology_figures/c1_complex}{C1 complex attached to the Fc stem of an IgG bound to an antigen}{fig:c1_complex}
 
-      The oligosaccharide and the Ig domain it is attached to constitute the principal agent of activation
+      As shown in \autoref{fig:c1_complex}, the inactive C1 complex is composed of one hexameric C1q recognition molecule bound to two C1r and two C1s serine proteases. Each of C1q's six arms terminates in a globular head assembled from C1qA, C1qB, and C1qC chains (\textit{not shown}). C1q recognizes sites within the Fc region of antigen-bound immunoglobulin, and the local Fc conformation and associated glycans influence the accessibility and efficiency of this interaction. \textbf{Engagement of multiple Fc regions} by C1q induces a conformational change that activates C1r, which in turn activates C1s, initiating proteolytic cleavage of C4 and C2.
 
-      Activating Antibody Isotypes
+      \pgfig{
+        [
+          >=Stealth,
+          every node/.style={font=\sffamily},
+          component/.style={
+            draw=black,
+            fill=boxblue,
+            rounded corners=7pt,
+            minimum width=0.72cm,
+            minimum height=1.45cm,
+            inner sep=2pt,
+            align=center
+          },
+          fragment/.style={
+            component,
+            rounded corners=5pt,
+            minimum width=0.65cm,
+            minimum height=0.82cm
+          },
+          process/.style={->, thick},
+          note/.style={font=\sffamily\small, align=left}
+        ]
 
-        IgM—very effective—usually floats in a planar conformation within plasma, but when binded to an antigen, it protrudes it's Fc stem outwards (making it easier to bind)
+        % ===== Activation of the C1 serine proteases =====
+        \node[font=\sffamily\bfseries\large] (c1r) at (14.0,10.6) {C1r};
+        \node[font=\sffamily\bfseries\large] (c1s) at (11.75,10.6) {C1s};
+        \draw[process] (c1r.west) -- (c1s.east);
+        \node[note, font=\sffamily\small, text width=2.7cm, anchor=north west]
+          at (12.25,10.15) {(A)};
 
-        IgG is monomeric. The C1 complex needs two IgGs to bind to in order to go down its pathway (this prevents random activation)
+        % ===== C2 and C4 cleavage =====
+        \node[component] (c2) at (5.0,8.9) {C2};
+        \node[component] (c4) at (9.7,8.9) {C4};
+        \draw[process] (c1s.south west) -- (c2.north east)
+          node[midway, above, sloped, font=\sffamily\small] {cleaves};
+        \draw[process] (c1s.south) -- (c4.north east)
+          node[midway, below, sloped, font=\sffamily\small] {cleaves};
 
-        IgG3 is the best, IgG1 is the second best, IgG2 barely activates, IgG4 doesn’t work at all
+        \node[fragment] (c2b) at (4.55,6.85) {C2b};
+        \node[fragment] (c2a) at (6.35,6.85) {C2a};
+        \draw[process] (c2.south west) -- (c2b.north);
+        \draw[process] (c2.south east) -- (c2a.north);
 
-        IgA, IgE, and IgD do not activate the complement system
+        \node[fragment] (c4b) at (9.1,6.85) {C4b};
+        \node[fragment] (c4a) at (11.0,6.85) {C4a};
+        \draw[process] (c4.south west) -- (c4b.north);
+        \draw[process] (c4.south east) -- (c4a.north);
+        \node[note, text width=2.5cm, anchor=west] at (11.55,6.85)
+          {(B)};
 
-      <FIGURE>
+        % ===== Classical C3 convertase =====
+        \node[component] (c4bconv) at (7.98,4.95) {C4b};
+        \node[fragment, minimum height=1.15cm] (c2aconv) at (7.25,4.95) {C2a};
+        \draw[process] (c4b.south west) -- (c4bconv.north east);
+        \draw[process] (c2a.south east) -- (c2aconv.north west);
+        \node[font=\sffamily\bfseries, anchor=north] at (10.62,5.18) {C4b2a (\textit{C3 convertase})};
+
+        % ===== C3 cleavage and effector fragments =====
+        \node[component] (c3) at (2.3,4.95) {C3};
+        \draw[process] (c2aconv.west) -- (c3.east)
+          node[midway, above, font=\sffamily\small] {cleaves};
+        \node[fragment] (c3a) at (1.85,2.85) {C3a};
+        \node[fragment] (c3b) at (3.55,2.85) {C3b};
+        \draw[process] (c3.south west) -- (c3a.north);
+        \draw[process] (c3.south east) -- (c3b.north);
+        \node[font=\sffamily\small\bfseries, anchor=north] at (1.45,2.1)
+          {Anaphylatoxin};
+        \draw[process] (c3a.south) -- (1.45,2.05);
+        \node[note] at (3.5,1.8) {(C)};
+
+        % ===== Classical C5 convertase =====
+        \node[component] (c4bc5) at (8.62,1.75) {C4b};
+        \node[fragment, minimum height=1.15cm] (c2ac5) at (7.88,1.75) {C2a};
+        \node[component] (c3bc5) at (7.15,1.75) {C3b};
+        \draw[process] (7.55,4.2) -- (8,2.5);
+        \draw[process] (c3b.east) -- (c3bc5.north west);
+        \node[font=\sffamily\bfseries, anchor=north] at (7.88,0.98) {C4b2a3b (\textit{C5 convertase})};
+
+        % ===== Entry into the terminal pathway =====
+        \node[font=\sffamily\bfseries\large, align=center] (mac) at (13.1,1.8)
+          {MAC Activation\\Pathway};
+        \draw[process] (c4bc5.east) -- (mac.west)
+          node[midway, above, font=\sffamily\small\itshape] {cleaves C5};
+      }{Classical complement pathway activation cascade; (A) \textit{activated C1r cleaves C1s, producing an active protease}; (B) \textit{C4a is a weak anaphylatoxin}; (C) \textit{C3b also functions as an \textbf{opsonin}, coating targets for phagocytic recognition}}{fig:classical_pathway}{0.9}
+
+      It's important to note that complement-activating antibody isotypes differ substantially in their ability to recruit C1q.
+
+      \begin{itemize}
+
+        \item \textbf{IgM} is a \textbf{highly efficient} activator. Soluble pentameric IgM generally adopts a planar conformation, whereas when bound to antigen, the pentamer takes up a \textbf{staple-like conformation} (\textit{FIG REFERENCE}) that exposes C1q-binding sites in its Fc regions.
+
+        \myfig{0.9}{immunology_figures/igm_staple}{Antigen binding induces a conformational shift in pentameric IgM, from a planar resting state (\textit{left}) to a staple-like conformation (\textit{right}) that exposes C1q-binding sites in the Fc stems}{fig:igm_staple}
+
+        \item Because \textbf{IgG} is monomeric, efficient C1 activation normally requires several antigen-bound IgG molecules to cluster their Fc regions and provide multivalent engagement of C1q. This requirement limits inappropriate activation by freely circulating IgG.
+
+        Among human IgG subclasses, classical pathway activation potency varies considerably: IgG3, owing to its comparatively long hinge region, is the most efficient activator, followed by IgG1, while IgG2 is relatively weak and IgG4 does not appreciably activate the classical complement pathway.
+
+        \item \textbf{IgA, IgE, and IgD} do not ordinarily initiate the classical complement pathway.
+
+      \end{itemize}
 
     \end{core}
 
-    \begin{core}{Lectin Pathway}
+    \begin{core}[label=core:complement_lectin]{Lectin Pathway}
 
-      The Lectin pathway looks the same as the Classical pathway except these few points
+      The \textbf{lectin pathway} parallels the classical pathway downstream of its initial recognition event. Instead of using C1q to recognize antigen-bound antibody, it begins when soluble \textbf{PRR} molecules, namely \textbf{mannose-binding lectin (MBL)}, bind characteristic carbohydrate structures on a microbial surface and activate associated serine proteases called \textbf{MASP}.
 
-      <TABLE>
+      \myfig{0.5}{immunology_figures/mbl_masp}{Structure of tetrameric MBL bound to a MASP dimer}{fig:mbl_masp}
 
-      The rest of the pathway starting from the cleavage of C4 and C2 are the same
+      In comparison to the \textbf{classical pathway} (\textit{\autoref{core:complement_classical}}), MBL resembles C1q in that it occurs in clusters. Additionally MASP molecules are anlogous to C1r and C1s
+
+      \begin{table}[H]
+        \centering
+        \begin{tabular}{>{\raggedright\arraybackslash}p{6cm}>{\raggedright\arraybackslash}p{6cm}}
+          \hline
+          \textbf{Lectin Pathway} & \textbf{Classical Pathway} \\
+          \hline
+          Initiated by mannose and other carbohydrates & Initiated by antibodies, using the domain with the oligosaccharide \\
+          Changes conformation of MBL & Changes conformation of C1q \\
+          Activates MASP & Activates C1r/C1s \\
+          \hline
+        \end{tabular}
+        \caption{Comparison of the lectin and classical complement pathways}
+        \label{tab:lectin_vs_classical}
+      \end{table}
+
+      Following activation of the lectin-pathway proteases, cleavage of C4 and C2 produces the same C3 convertase, C4b2a, that functions in the classical pathway. The two pathways are therefore identical from C3-convertase formation onward.
 
     \end{core}
 
-    \begin{core}{Alternative Pathway}
+    \begin{core}[label=core:complement_alternative]{Alternative Pathway}
 
-      <FIGURE>
+      The \textbf{alternative pathway} is an evolutionarily ancient route of complement activation that relies on innate pattern recognition of antigens present on pathogenic surfaces, including teichoic acid (\textit{bacterial}), zymosan (\textit{fungal}), certain tumor-associated compounds, and trypanosome (\textit{unicellular eukaryote}) surface markers. Like the classical (\textit{\autoref{core:complement_classical}}) and lectin (\textit{\autoref{core:complement_lectin}}) pathways, the alternative pathway ultimately converges on the formation of a C5 convertase, which cleaves C5 and initiates assembly of the MAC, as outlined in \autoref{core:mac_complex}.
+
+      \pgfig{
+        [
+          >=Stealth,
+          every node/.style={font=\sffamily},
+          component/.style={
+            draw=black,
+            fill=boxblue,
+            rounded corners=7pt,
+            minimum width=0.76cm,
+            minimum height=1.45cm,
+            inner sep=2pt,
+            align=center
+          },
+          fragment/.style={
+            component,
+            rounded corners=5pt,
+            minimum width=0.68cm,
+            minimum height=0.82cm
+          },
+          factor/.style={draw=black, fill=boxblue, minimum width=1.75cm, minimum height=0.72cm},
+          process/.style={->, thick},
+          note/.style={font=\sffamily\small, align=left}
+        ]
+
+        % ===== Spontaneous C3 tickover =====
+        \node[component] (c3tick) at (0.95,8.55) {C3};
+        \node[font=\sffamily\bfseries\large] (water) at (3.25,10.2) {\ce{H2O}};
+        \node[note, text width=2.0cm, anchor=north west] at (0.3,10.6)
+          {Spontaneous hydrolysis};
+        \draw[process] (water.west) to[bend right=18] (c3tick.north east);
+
+        \node[component, align=center] (c3water) at (3.6,8.35) {C3\\\ce{H2O}};
+        \draw[process] (c3tick.east) -- (c3water.west);
+        \node[font=\sffamily\small\bfseries, align=center, anchor=north]
+          at (3.6,7.55) {Hydrolyzed C3\\C3(\ce{H2O})};
+
+        % ===== Factor B binding and Factor D cleavage =====
+        \node[factor] (factorb) at (5.45,9.95) {Factor B};
+        \node[component, align=center] (c3waterb) at (7.25,8.35) {C3\\\ce{H2O}};
+        \node[factor, minimum width=1.3cm, minimum height=1.0cm] (boundb) at (8.35,8.35) {Factor B};
+        \draw[process] (c3water.east) -- (c3waterb.west);
+        \draw[process] (factorb.south east) -- (c3waterb.north west);
+
+        \node[factor] (factord) at (11.25,9.75) {Factor D};
+        \draw[process] (factord.south west) -- (boundb.north east)
+          node[midway, right, font=\sffamily\small, yshift=-0.15cm] {cleaves};
+        \node[factor, minimum width=1.25cm] (ba) at (11.85,7.55) {Factor Ba};
+        \draw[process] (boundb.east) -- (ba.west);
+        \node[note, font=\sffamily\small\itshape, anchor=west] at (12.65,7.55)
+          {(A)};
+
+        % ===== Fluid-phase C3 convertase =====
+          \node[component, align=center] (c3waterconv) at (7.55,5.85) {C3\\\ce{H2O}};
+        \node[factor, minimum width=1.15cm, minimum height=0.7cm] (bbfluid) at (8.65,5.85) {Bb};
+        \draw[process] (c3waterb.south) -- (c3waterconv.north);
+        \node[font=\sffamily\bfseries, anchor=north] at (8.05,5.08) {C3(\ce{H2O})Bb};
+        \node[font=\sffamily\small\bfseries, anchor=north] at (8.05,4.62)
+          {(fluid C3 convertase)};
+
+        % ===== Amplification through C3 cleavage =====
+        \node[component] (c3substrate) at (3.45,5.8) {C3};
+        \draw[process] (c3waterconv.west) -- (c3substrate.east)
+          node[midway, above, font=\sffamily\small] {cleaves};
+        \node[fragment] (c3aalt) at (2.25,3.85) {C3a};
+        \node[fragment] (c3balt) at (4.55,3.85) {C3b};
+        \draw[process] (c3substrate.south west) -- (c3aalt.north);
+        \draw[process] (c3substrate.south east) -- (c3balt.north);
+        \node[font=\sffamily\small\bfseries, anchor=north] at (1.55,3)
+          {Anaphylatoxin};
+        \draw[process] (c3aalt.south) -- (1.55,2.95);
+        \node[note] at (4.55,2.85)
+          {(B)};
+
+        % ===== Surface C3 convertase and properdin stabilization =====
+        \node[component] (c3bsurface) at (7.55,2.55) {C3b};
+        \node[factor, minimum width=1.05cm, minimum height=0.72cm] (bbsurface) at (8.55,2.55) {Bb};
+        \draw[process] (c3balt.east) -- (c3bsurface.west);
+        \node[note, anchor=west] at (6,3.42) {(C)};
+        \node[font=\sffamily\bfseries, anchor=north] at (8.05,1.78) {C3bBb};
+        \node[font=\sffamily\small\bfseries, anchor=north] at (8.05,1.32)
+          {(surface C3 convertase)};
+
+        \node[factor, align=center] (properdin) at (12.65,5.25) {Properdin\\(Factor F)};
+        \draw[process, dashed] (properdin.west) to[bend right=12] (bbsurface.north east);
+        \node[note, font=\sffamily\small\itshape, text width=3.4cm, anchor=north west]
+          at (10.4,4.45) {(D)};
+
+        % ===== Alternative C5 convertase =====
+        \node[fragment, minimum width=0.85cm] (c3bextra) at (10.65,2.45) {C3b};
+        \node[note, anchor=west] at (11.15,2.45) {Additional C3b};
+
+        \node[component] (c3bc5a) at (9.55,-0.65) {C3b};
+        \node[factor, minimum width=1.0cm, minimum height=0.72cm] (bbc5) at (10.55,-0.65) {Bb};
+        \node[component] (c3bc5b) at (11.55,-0.65) {C3b};
+        \draw[process] (bbsurface.east) to[bend left=28] (c3bc5a.north east);
+        \draw[process] (c3bextra.south) -- (c3bc5b.north);
+        \node[font=\sffamily\small\bfseries, anchor=north] at (10.55,-1.43)
+          {C3bBbC3b (C5 convertase)};
+
+        % ===== Entry into the terminal pathway =====
+        \node[font=\sffamily\bfseries\large, align=center] (macalt) at (15.6,-0.55)
+          {MAC Activation\\Pathway};
+        \draw[process] (c3bc5b.east) -- (macalt.west);
+        \node[font=\sffamily\small\itshape] at (12.8,-0.5) {cleaves C5};
+      }{Alternative complement pathway activation cascade; (A) \textit{factor Ba diffuses away}; (B) \textit{C3b also serves as an \textbf{opsonin}, coating activating surfaces}; (C) \textit{factor B binding and factor D cleavage of factor B into Bb}; (D) \textit{properdin---sometimes called factor F--- binds and stabilizes C3bBb on the activating surface}}{fig:alternative_pathway}{0.9}
 
     \end{core}
 
     \begin{core}{Side Signal Pathways \& Other}
 
-      Intro sentence
+      % Intro sentence
+      Complement activation produces several effects in addition to MAC-mediated lysis. Cleavage products generated throughout the cascade promote inflammation, coat targets for immune recognition, neutralize pathogens, and facilitate the removal of immune complexes.
 
       \begin{enumerate}
 
@@ -80,9 +403,11 @@
 
           \begin{itemize}
 
-            \item \textit{C3a}: Triggers degranulation of mast cells and basophils, with also permeability changes in the endothelium
+            % \item \textit{C3a}: Triggers degranulation of mast cells and basophils, with also permeability changes in the endothelium
+            \item \textit{C3a}: C3a promotes inflammatory signaling and can stimulate mast-cell and basophil degranulation, thereby contributing to increased vascular permeability.
 
-            \item \textit{C5a}: Summons macrophages and neutrophils
+            % \item \textit{C5a}: Summons macrophages and neutrophils
+            \item \textit{C5a}: C5a is a potent anaphylatoxin and chemoattractant that recruits and activates neutrophils, monocytes, and other myeloid cells.
 
           \end{itemize}
 
@@ -90,11 +415,14 @@
 
           \begin{itemize}
 
-            \item \textit{Opsonization}: Complements bind to pathogenic cells, enhancing phagocytosis towards them—[C3b]
+            % \item \textit{Opsonization}: Complements bind to pathogenic cells, enhancing phagocytosis towards them—[C3b]
+            \item \textit{Opsonization}: Covalently deposited complement fragments, particularly C3b and iC3b, coat microbial surfaces and enhance their recognition and phagocytosis through complement receptors.
 
-            \item \textit{Viral Neutralization}: Simply attaching a complement to a host cell invader makes it much more difficult to invade
+            % \item \textit{Viral Neutralization}: Simply attaching a complement to a host cell invader makes it much more difficult to invade
+            \item \textit{Viral Neutralization}: Complement deposition can sterically hinder viral attachment or entry, promote virion aggregation, and facilitate clearance by phagocytes.
 
-            \item \textit{Immune Complex Clearing}: Immune complexes (ICs) like antigen-antibody and antigen-complement complexes tend to bind to RBCs and get filtered as then circulate 
+            % \item \textit{Immune Complex Clearing}: Immune complexes (ICs) like antigen-antibody and antigen-complement complexes tend to bind to RBCs and get filtered as then circulate
+            \item \textit{Immune-Complex Clearance}: Complement-tagged antigen--antibody complexes bind complement receptor 1 on erythrocytes and are transported through the circulation to the liver and spleen, where phagocytes remove and degrade them.
 
           \end{itemize}
 
@@ -118,54 +446,72 @@
 
       <FIGURE>
 
-      The MHC gene sequences is found in chromosome 6
+      % The MHC gene sequences is found in chromosome 6
+      The human major histocompatibility complex is encoded within a gene-dense region on the short arm of chromosome 6.
 
-      This whole block of genes is termed a haplotype
+      % This whole block of genes is termed a haplotype
+      The linked set of MHC alleles inherited together on a single chromosome constitutes an \textbf{MHC haplotype}.
 
-      MHC in humans is commonly referred to as Human Leukocyte Antigen (HLA) and is part of the immunoglobulin superfamily
+      % MHC in humans is commonly referred to as Human Leukocyte Antigen (HLA) and is part of the immunoglobulin superfamily
+      Human MHC molecules are designated \textbf{human leukocyte antigens (HLAs)}. Their extracellular domains adopt immunoglobulin-superfamily folds, although the MHC region also contains many genes whose products are not immunoglobulin-superfamily members.
 
-      REMINDER: there are 2 copies of these gene sequences (one from mom, one from dad)
+      % REMINDER: there are 2 copies of these gene sequences (one from mom, one from dad)
+      Each diploid individual inherits one MHC haplotype maternally and one paternally, and both sets of alleles are expressed codominantly.
 
       \begin{enumerate}
 
         \item \textbf{MHC I} 
 
-          Further separated by three different versions: HLA-A, HLA-B, HLA-C (each with a different specificity for peptide binding)
+          % Further separated by three different versions: HLA-A, HLA-B, HLA-C (each with a different specificity for peptide binding)
+          Classical MHC class I molecules are encoded by the \textbf{HLA-A, HLA-B, and HLA-C} loci, whose allelic products differ in peptide-binding specificity.
 
-          There are currently 68 HLA-A, 125 HLA-B, and 44 HLA-C version within the human population that have been identified (thus an underestimate)
+          % There are currently 68 HLA-A, 125 HLA-B, and 44 HLA-C version within the human population that have been identified (thus an underestimate)
+          The HLA-A, HLA-B, and HLA-C loci are exceptionally polymorphic, and modern allele databases contain many thousands of named variants; the historical counts of 68, 125, and 44 variants, respectively, are therefore obsolete underestimates.
 
-          An individual will express at max 6 different types of MHC I proteins—assuming that the maternal alleles are distinct from the paternal alleles
+          % An individual will express at max 6 different types of MHC I proteins—assuming that the maternal alleles are distinct from the paternal alleles
+          An individual may express as many as six distinct classical MHC class I allotypes when the maternal and paternal alleles at all three loci differ.
 
-          ***This gene sequence only covers the α subunits; the β subunit locus is on chromosome 15 (non-polymorphic)
+          % ***This gene sequence only covers the α subunits; the β subunit locus is on chromosome 15 (non-polymorphic)
+          The HLA-A, HLA-B, and HLA-C genes encode only the polymorphic α chains. The invariant \textbf{β2-microglobulin} component is encoded separately by the \textit{B2M} gene on chromosome 15.
 
-          WILDLY POLYMORPHIC (high allele counts for HLA versions)
+          % WILDLY POLYMORPHIC (high allele counts for HLA versions)
+          These classical class I loci exhibit extraordinary allelic polymorphism, particularly within sequences that encode the peptide-binding groove.
 
-          NO ALTERNATIVE SPLICING FORMS (DNA is not changed)
+          % NO ALTERNATIVE SPLICING FORMS (DNA is not changed)
+          The diversity of classical MHC class I molecules among individuals primarily reflects germline polymorphism rather than somatic DNA rearrangement.
 
         \item \textbf{MHC III}
 
-          This gene sequence is completely different from the main MHC proteins I and II
+          % This gene sequence is completely different from the main MHC proteins I and II
+          The MHC class III region does not encode the peptide-presenting molecules characteristic of MHC classes I and II.
 
-          It is included just because it happens to lie in between
+          % It is included just because it happens to lie in between
+          It is designated part of the MHC because of its physical location between the class I and class II regions on chromosome 6.
 
-          Codes for secreted proteins involved in innate response: [complement proteins], [cytokines], [heat shock proteins]
+          % Codes for secreted proteins involved in innate response: [complement proteins], [cytokines], [heat shock proteins]
+          This region contains genes encoding several immune mediators, including complement components, tumor necrosis factors, and heat-shock proteins.
 
         \item \textbf{MHC II}
 
-          Each subsection—HLA-DP, HLA-DQ, HLA-DR (each with a different specificity for peptide binding)—codes for 2 separate peptides (α and β) which function together to make up the MHC II protein
+          % Each subsection—HLA-DP, HLA-DQ, HLA-DR (each with a different specificity for peptide binding)—codes for 2 separate peptides (α and β) which function together to make up the MHC II protein
+          The classical MHC class II region contains the \textbf{HLA-DP, HLA-DQ, and HLA-DR} loci. Each class II molecule is an αβ heterodimer, and both chains contribute to the peptide-binding groove.
 
-          An individual will express at max 12 different types of MHC II proteins (due to potential paternal-maternal α-β dimers)—assuming that the maternal alleles are distinct from the paternal alleles
+          % An individual will express at max 12 different types of MHC II proteins (due to potential paternal-maternal α-β dimers)—assuming that the maternal alleles are distinct from the paternal alleles
+          Codominant expression of maternal and paternal class II genes, together with permitted pairing between certain α and β chains, allows an individual to display a diverse set of MHC class II molecules; the exact number depends on the inherited haplotypes and the expressed DRB genes rather than a universal maximum of twelve.
 
+          % WILDLY POLYMORPHIC (high allele counts for HLA versions)
+          Classical MHC class II loci are highly polymorphic, with much of this variation concentrated in residues that shape the peptide-binding groove.
 
-          WILDLY POLYMORPHIC (high allele counts for HLA versions)
-
-          NO ALTERNATIVE SPLICING FORMS (DNA is not changed)
+          % NO ALTERNATIVE SPLICING FORMS (DNA is not changed)
+          As with class I molecules, interindividual class II diversity primarily reflects inherited germline polymorphism rather than somatic DNA rearrangement.
 
         \item \textbf{Other}
 
-          Interspersed in the MHC II genes are those that code for elements of the antigen processing system for MHC I
+          % Interspersed in the MHC II genes are those that code for elements of the antigen processing system for MHC I
+          The class II region also contains genes encoding components of the MHC class I antigen-processing pathway, including \textit{TAP1}, \textit{TAP2}, \textit{PSMB8}, and \textit{PSMB9}.
 
-          There are other MHC I proteins involved in other functions (specialized receptor, transport, presentation)
+          % There are other MHC I proteins involved in other functions (specialized receptor, transport, presentation)
+          Nonclassical MHC class I molecules perform more specialized functions in immune recognition, molecular transport, and antigen presentation.
 
       \end{enumerate}
 
@@ -179,23 +525,30 @@
 
           <FIGURE>
 
-          The alleles coding for the MHC gene sequences tend to be passed on to offspring as a block (with no crossing over; tightly linked)—thus, in most cases, siblings will have a ¼ chance to have the same MHC genes
+          % The alleles coding for the MHC gene sequences tend to be passed on to offspring as a block (with no crossing over; tightly linked)—thus, in most cases, siblings will have a ¼ chance to have the same MHC genes
+          Because the MHC loci are tightly linked, their alleles are usually inherited together as a haplotype. In the absence of recombination, two full siblings have a 25\% probability of inheriting the same pair of parental MHC haplotypes.
 
-          **The term “haplotype” is used in other contexts where a group of genes remains in a block and be passed on as a unit (e.g. \& chromosomes and Mitochondrial DNA)
+          % **The term “haplotype” is used in other contexts where a group of genes remains in a block and be passed on as a unit (e.g. \& chromosomes and Mitochondrial DNA)
+          More generally, the term \textbf{haplotype} denotes a set of linked alleles or sequence variants inherited together from one parent; its use is not restricted to the MHC.
 
         \item \textbf{Recombinant Inheritance}
 
           <FIGURE>
 
-          Rarely, if the cross over happens between the I and II block, this produces a recombinant haplotype (highly unlikely to have sibling match)
+          % Rarely, if the cross over happens between the I and II block, this produces a recombinant haplotype (highly unlikely to have sibling match)
+          Meiotic crossing over within the MHC can generate a recombinant haplotype that combines portions of the parental class I and class II regions. Such recombination reduces the probability that siblings will match across the entire MHC.
 
-          This increases variability into the gene pool
+          % This increases variability into the gene pool
+          Over evolutionary time, recombination contributes additional haplotypic diversity to the population.
 
-          Inbreeding
+          % Inbreeding
+          \textbf{Inbreeding} increases the probability that an individual will inherit identical or closely related MHC haplotypes.
 
-          With inbreeding—there will be no introduction of new haplotypes of the MHC gene sequences within the population—thus each individual will have the same haplotype on each homologous chromosome
+          % With inbreeding—there will be no introduction of new haplotypes of the MHC gene sequences within the population—thus each individual will have the same haplotype on each homologous chromosome
+          In a highly inbred population, limited introduction of new haplotypes increases MHC homozygosity, such that an individual may carry the same haplotype on both homologous chromosomes.
 
-          This individual will thus have one 3 versions of MHC I and 3 versions of MHC II rather than the maximum 6 and 12 respectively
+          % This individual will thus have one 3 versions of MHC I and 3 versions of MHC II rather than the maximum 6 and 12 respectively
+          An individual homozygous across the classical MHC loci expresses fewer distinct allotypes than a fully heterozygous individual---typically one product from each of HLA-A, HLA-B, and HLA-C, together with a correspondingly reduced class II repertoire.
 
       \end{enumerate}
 
@@ -211,33 +564,49 @@
 
           <FIGURE>
 
-          The antigen is targeted for degradation by binding to ubiquitin—a small protein—and is sent to the interior of a proteasome 
+          % The antigen is targeted for degradation by binding to ubiquitin—a small protein—and is sent to the interior of a proteasome
+          Cytosolic proteins destined for degradation are commonly tagged with chains of the small protein \textbf{ubiquitin}, which direct them to the proteasome for ATP-dependent unfolding and proteolysis.
 
-          Proteosome is made up of a protein with a 7-fold symmetry (associated with danger) and is more active under conditions of stress and damage by their nature
+          % Proteosome is made up of a protein with a 7-fold symmetry (associated with danger) and is more active under conditions of stress and damage by their nature
+          The proteolytic 20S core of the proteasome consists of four stacked heptameric rings. Cellular stress and inflammatory signals can increase protein turnover and alter proteasome composition, thereby shaping the pool of peptides available for MHC class I presentation.
 
-          LMP2 and LMP7 replace proteasomal subunits under inflammatory conditions and promote degradation into the correct peptide size (9 amino acids)
+          % LMP2 and LMP7 replace proteasomal subunits under inflammatory conditions and promote degradation into the correct peptide size (9 amino acids)
+          During inflammation, interferon signaling promotes incorporation of the inducible catalytic subunits LMP2 and LMP7 into the \textbf{immunoproteasome}. These substitutions favor the production of peptides with termini suitable for MHC class I binding, although the products may require additional trimming and are not uniformly nine residues long.
 
-          There are also complex backup systems for this
+          % There are also complex backup systems for this
+          Additional cytosolic peptidases and alternative proteolytic pathways can generate or trim antigenic peptides when conventional proteasomal processing is insufficient.
 
-          LMP2 and LMP7 genes are located within the MHC II gene sequence and are polymorphic
+          % LMP2 and LMP7 genes are located within the MHC II gene sequence and are polymorphic
+          LMP2 and LMP7 are encoded by the \textit{PSMB9} and \textit{PSMB8} genes, respectively, which lie within the MHC class II region and exhibit genetic polymorphism.
 
         \item \textbf{Transport to the RER}
 
           <FIGURE>
 
-          The TAP1 and TAP2 bind to the peptides, hydrolyze ATP, and drive them into the RER lumen
+          % The TAP1 and TAP2 bind to the peptides, hydrolyze ATP, and drive them into the RER lumen
+          The transporter associated with antigen processing (TAP), a heterodimer of TAP1 and TAP2, binds peptides on the cytosolic face of the rough endoplasmic reticulum (RER) and uses ATP hydrolysis to translocate them into the RER lumen.
 
-          TAP1 and TAP2 genes are located within the MHC II gene sequence and are polymorphic
+          % TAP1 and TAP2 genes are located within the MHC II gene sequence and are polymorphic
+          The polymorphic \textit{TAP1} and \textit{TAP2} genes are located within the MHC class II region.
 
-          TAP Protein Structure
+          % TAP Protein Structure
+          \textbf{TAP structure} reflects its function as an ATP-binding cassette transporter.
 
-            Heterodimer
+          \begin{itemize}
 
-            Cytosolic binding side for peptides
+            % Heterodimer
+            \item TAP is an obligate heterodimer composed of TAP1 and TAP2.
 
-            ATP hydrolysis site
+            % Cytosolic binding side for peptides
+            \item Its peptide-binding site is accessible from the cytosol.
 
-            Hydrophobic anchoring regions with 3 switchbacks per peptide
+            % ATP hydrolysis site
+            \item Cytosolic nucleotide-binding domains hydrolyze ATP to power peptide translocation.
+
+            % Hydrophobic anchoring regions with 3 switchbacks per peptide
+            \item Each subunit contains multiple hydrophobic transmembrane helices that together form the peptide-conducting pathway through the RER membrane.
+
+          \end{itemize}
 
         \item \textbf{Assembly of MHC I}
 
@@ -247,33 +616,41 @@
 
               <FIGURE>
 
-              The α chain is inserted into the membrane, and the β microglobulin chain sent through to the lumen
+              % The α chain is inserted into the membrane, and the β microglobulin chain sent through to the lumen
+              The newly synthesized MHC class I α chain is inserted into the RER membrane, while soluble β2-microglobulin enters the RER lumen.
 
-              Here calnexin ensures the α chain’s proper folding
+              % Here calnexin ensures the α chain’s proper folding
+              The membrane-bound chaperone calnexin associates with the α chain and promotes its proper folding.
 
-              Once the β microglobulin chain bind to the α chain, calnexin unbinds
+              % Once the β microglobulin chain bind to the α chain, calnexin unbinds
+              Binding of β2-microglobulin stabilizes the α chain and permits calnexin to dissociate.
 
             \item \textit{α-β-Calreticulin-Tapasin-TAP-ERp57}
 
               <FIGURE>
 
-              The complex associates within calreticulin and tapasin, and then ERp57 binds over the cleft
+              % The complex associates within calreticulin and tapasin, and then ERp57 binds over the cleft
+              The partially assembled MHC class I heterodimer joins calreticulin, tapasin, and ERp57 to form the peptide-loading complex associated with TAP.
 
-              Calreticulin and ERp57 both help stabilize the molecule and prepare it for peptide binding
+              % Calreticulin and ERp57 both help stabilize the molecule and prepare it for peptide binding
+              Calreticulin and ERp57 stabilize the peptide-receptive MHC class I molecule and support quality control during peptide loading.
 
-              Tapasin brings over the TAP complex over to the pre-peptide MHC I
+              % Tapasin brings over the TAP complex over to the pre-peptide MHC I
+              Tapasin bridges MHC class I to TAP, positioning the empty peptide-binding groove near the source of newly translocated peptides.
 
             \item \textit{α-β-Calreticulin-Tapasin-TAP-Peptide}
 
               <FIGURE>
 
-              TAP protein hands off the peptide via tapasin to the cleft which displaces ERp57
+              % TAP protein hands off the peptide via tapasin to the cleft which displaces ERp57
+              Peptides released by TAP sample the MHC class I groove, while the peptide-loading complex favors the selection of high-affinity cargo. Stable peptide binding induces conformational maturation and ultimately releases the loaded MHC class I molecule from its chaperones.
 
             \item \textit{α-β-Peptide to Golgi}
 
               <FIGURE>
 
-              Calreticulin and tapasin dissociate from the MHC I-peptide complex and travel to the Golgi
+              % Calreticulin and tapasin dissociate from the MHC I-peptide complex and travel to the Golgi
+              After calreticulin and tapasin dissociate, the stable peptide--MHC class I complex exits the RER and proceeds through the Golgi apparatus.
 
           \end{enumerate}
 
@@ -281,7 +658,8 @@
 
           <FIGURE>
 
-          After final sorting the Golgi, the vesicle with MHC I-peptide complex is released by exocytosis onto the membrane exterior
+          % After final sorting the Golgi, the vesicle with MHC I-peptide complex is released by exocytosis onto the membrane exterior
+          Following processing and sorting in the Golgi, vesicles deliver peptide--MHC class I complexes to the plasma membrane by exocytosis, exposing the peptide-binding platform to surveillance by CD8$^+$ T cells.
 
       \end{enumerate}
 
@@ -295,18 +673,23 @@
 
           <FIGURE>
 
-          Through endocytosis, the cell picks up the exogenous antigen
+          % Through endocytosis, the cell picks up the exogenous antigen
+          Specialized antigen-presenting cells, particularly dendritic cells, internalize exogenous antigens through endocytosis or phagocytosis.
 
         \item \textbf{Proteasomal Degradation of Antigen to Peptide}
 
           <FIGURE>
 
-          After getting degraded within the endosome through degradation stages, the peptide fragments travel to and fuse with the RER, exposing the exogenous peptides to MHC I proteins
+          % After getting degraded within the endosome through degradation stages, the peptide fragments travel to and fuse with the RER, exposing the exogenous peptides to MHC I proteins
+          Internalized proteins are processed through either a cytosolic route, in which antigen reaches the cytosol for proteasomal degradation and TAP-dependent loading, or a vacuolar route, in which processing and class I loading occur within endocytic compartments. The resulting peptide--MHC class I complexes are transported to the cell surface.
 
       \end{enumerate}
 
-      NOTE: This process only happens in APCs, and activated TC cells do not attack the APCs because they don’t express co-stimulatory danger signals that promote an attack on the presenting cell
-      The purpose of cross presentation is to lower the response time of TC cells.
+      % NOTE: This process only happens in APCs, and activated TC cells do not attack the APCs because they don’t express co-stimulatory danger signals that promote an attack on the presenting cell
+      Cross-presentation is performed most efficiently by specialized dendritic-cell subsets. During \textbf{cross-priming}, these cells provide peptide--MHC class I together with co-stimulatory and cytokine signals that activate naive CD8$^+$ T cells; presentation in the absence of appropriate co-stimulation may instead promote tolerance.
+
+      % The purpose of cross presentation is to lower the response time of TC cells.
+      Cross-presentation enables CD8$^+$ T-cell responses against viruses or tumors that do not directly infect professional antigen-presenting cells, thereby allowing timely cytotoxic immunity to cell-associated exogenous antigens.
 
     \end{core}
 
@@ -322,21 +705,31 @@
 
               <FIGURE>
 
-              The antigen is internalized through phagocytosis—a specialized form of endocytosis during which there occurs an engulfment of whole particles with pathogen
+              % The antigen is internalized through phagocytosis—a specialized form of endocytosis during which there occurs an engulfment of whole particles with pathogen
+              Exogenous antigens enter antigen-presenting cells through receptor-mediated endocytosis, macropinocytosis, or phagocytosis. Phagocytosis is specialized for the engulfment of large particles, including intact microorganisms.
 
-              The formed vesicle injkj the cell interior is named an endosome
+              % The formed vesicle injkj the cell interior is named an endosome
+              Endocytosed material enters an endosome, whereas phagocytosed material is initially enclosed within a phagosome.
 
             \item \textit{Hydrolysis in Vesicles}
 
               <FIGURE>
 
-              An endosome goes through three stages (each one more acidic and hydrolytic) and use lysosomes to degrade the foreign antigens (and remove carbohydrates and lipids), cutting them up to their proper size (13-18 amino acids long)
+              % An endosome goes through three stages (each one more acidic and hydrolytic) and use lysosomes to degrade the foreign antigens (and remove carbohydrates and lipids), cutting them up to their proper size (13-18 amino acids long)
+              As endocytic compartments mature, progressive acidification activates resident hydrolases that degrade internalized proteins and remove associated carbohydrates and lipids. Proteolysis generates peptides of variable length, commonly approximately 13--18 residues, that can bind the open-ended groove of MHC class II.
 
-                Early endosome, pH 6.0 - 6.5
+              \begin{itemize}
 
-                Late endosomes of endolysosomes, pH 5.0 - 6.0
+                % Early endosome, pH 6.0 - 6.5
+                \item Early endosomes maintain a mildly acidic pH of approximately 6.0--6.5.
 
-                Lysosomes (or phagolysosomes), pH 4.5 - 5.0
+                % Late endosomes of endolysosomes, pH 5.0 - 6.0
+                \item Late endosomes and endolysosomes acidify further, generally reaching approximately pH 5.0--6.0.
+
+                % Lysosomes (or phagolysosomes), pH 4.5 - 5.0
+                \item Lysosomes and phagolysosomes provide the most acidic and hydrolytic environment, typically near pH 4.5--5.0.
+
+              \end{itemize}
 
           \end{enumerate}
 
@@ -348,17 +741,21 @@
 
               <FIGURE>
 
-              After translation of the MHC II αβ heterodimer onto the RER membrane, the heterodimer associates with the invariant chain (Ii)
+              % After translation of the MHC II αβ heterodimer onto the RER membrane, the heterodimer associates with the invariant chain (Ii)
+              Following cotranslational insertion of the MHC class II α and β chains into the RER membrane, the heterodimer associates with the invariant chain (Ii; CD74).
 
-              The figure only shows one invariant chain binding, but in reality, the Ii comes as a trimer—three MHC II heterodimers bind at a time
+              % The figure only shows one invariant chain binding, but in reality, the Ii comes as a trimer—three MHC II heterodimers bind at a time
+              Although a simplified diagram may depict a single invariant chain, Ii trimerizes and can associate with three MHC class II αβ heterodimers.
 
-              The invariant chain [1] blocks the cleft (to prevent immature binding), [2] ensures proper conformation, [3] helps RER exiting, and [4] signals for fusing with phagolysosomes
+              % The invariant chain [1] blocks the cleft (to prevent immature binding), [2] ensures proper conformation, [3] helps RER exiting, and [4] signals for fusing with phagolysosomes
+              The invariant chain occupies the peptide-binding groove to prevent premature loading of RER-derived peptides, stabilizes the nascent heterodimer, promotes exit from the RER, and contains sorting signals that direct the complex into the endosomal pathway.
 
             \item \textit{Transportation of Golgi}
 
               <FIGURE>
 
-              The αβ-Ii complex is then transported to the Golgi where it awaits fusion with a phagolysosome
+              % The αβ-Ii complex is then transported to the Golgi where it awaits fusion with a phagolysosome
+              The MHC class II--Ii complex traverses the Golgi and is subsequently sorted into acidified endosomal compartments containing processed exogenous antigen.
 
           \end{enumerate}
 
@@ -366,25 +763,29 @@
 
           <FIGURE>
 
-          The αβ-Ii complex fuses with early endosomes after leaving the Golgi
+          % The αβ-Ii complex fuses with early endosomes after leaving the Golgi
+          After leaving the Golgi, vesicles containing MHC class II--Ii complexes enter the endocytic pathway and mature toward late endosomal peptide-loading compartments.
 
         \item \textbf{Invariant Chain Degradation}
 
           <FIGURE>
 
-          After the development of the endosomes into more acidic internal environments, Ii gets degraded, leaving only the CLIP attached to the MHC II and still blocking the cleft region
+          % After the development of the endosomes into more acidic internal environments, Ii gets degraded, leaving only the CLIP attached to the MHC II and still blocking the cleft region
+          Acid-activated proteases progressively degrade the invariant chain, leaving the class II-associated invariant-chain peptide (CLIP) within the MHC class II groove.
 
         \item \textbf{CLIP Removal}
 
           <FIGURE>
 
-          At the end of antigen degradation into peptides, non-classical MHC (HLA-DM) removes the CLIP, allowing for peptide binding and the formation of a peptide-presenting MHC II protein (which is very stable)
+          % At the end of antigen degradation into peptides, non-classical MHC (HLA-DM) removes the CLIP, allowing for peptide binding and the formation of a peptide-presenting MHC II protein (which is very stable)
+          The nonclassical MHC class II molecule HLA-DM catalyzes CLIP release and edits the peptide repertoire by favoring ligands that form stable complexes with MHC class II.
 
         \item \textbf{Transportation to Exterior}
 
           <FIGURE>
 
-          The peptide-MHC II complex is then transported to the cell surface to be displayed
+          % The peptide-MHC II complex is then transported to the cell surface to be displayed
+          Stable peptide--MHC class II complexes are transported to the plasma membrane for recognition by CD4$^+$ T cells.
 
       \end{enumerate}
 
@@ -394,27 +795,41 @@
 
       \begin{enumerate}[label=(\arabic*)]
 
-        \item \textbf{Glycolipid Uptake} 
+        % \item \textbf{Glycolipid Uptake}
+        \item \textbf{Glycolipid Uptake}: Antigen-presenting cells internalize microbial or endogenous glycolipids into endosomal compartments.
 
-        \item \textbf{Preparation and Expression of CD1 MHC}
+        % \item \textbf{Preparation and Expression of CD1 MHC}
+        \item \textbf{Preparation and Expression of CD1}: CD1 molecules assemble in the RER with β2-microglobulin and traffic through the secretory pathway to the plasma membrane.
 
-        \item \textbf{Retreat of CD1 MHC} 
+        % \item \textbf{Retreat of CD1 MHC}
+        \item \textbf{Internalization of CD1}: Surface CD1 molecules can be internalized and routed into endosomal compartments through signals in their cytoplasmic tails.
 
-        \item \textbf{Binding of CD1 MHC to Glycolipid}
+        % \item \textbf{Binding of CD1 MHC to Glycolipid}
+        \item \textbf{Glycolipid Loading}: Within the endosomal system, lipid-transfer proteins facilitate the loading of glycolipid antigens into the hydrophobic binding groove of CD1.
 
-        \item \textbf{Transportation to Exterior} 
+        % \item \textbf{Transportation to Exterior}
+        \item \textbf{Transport to the Cell Surface}: Loaded glycolipid--CD1 complexes return to the plasma membrane for recognition by lipid-reactive T cells.
 
       \end{enumerate}
 
-      NOTE: Several different types of cells and receptors can bind to and respond to the CD1 lipid presentation
+      % NOTE: Several different types of cells and receptors can bind to and respond to the CD1 lipid presentation
+      Several lymphocyte populations can recognize or respond to lipid antigens presented by members of the CD1 family.
 
-        T cells bind to the lipid-CD1 MHC complex through the γδ receptor (with no CD4 or CD8)
+      \begin{itemize}
 
-        TH cells can also bind through the αβ receptors using CD4
+        % T cells bind to the lipid-CD1 MHC complex through the γδ receptor (with no CD4 or CD8)
+        \item Some γδ T cells recognize lipid--CD1 complexes without requiring CD4 or CD8 co-receptors.
 
-        NK cells
+        % TH cells can also bind through the αβ receptors using CD4
+        \item Certain conventional αβ T cells, including CD4$^+$ populations, recognize antigens presented by CD1 molecules.
 
-        invariant natural killer T cells (iNKT) with CD1
+        % NK cells
+        \item Natural killer cells may respond indirectly to cytokines and cellular changes associated with CD1-restricted immune responses, although they do not use clonotypic TCRs to recognize lipid--CD1 complexes.
+
+        % invariant natural killer T cells (iNKT) with CD1
+        \item Invariant natural killer T cells use a semi-invariant αβ TCR to recognize glycolipids presented specifically by CD1d.
+
+      \end{itemize}
 
     \end{core}
  
@@ -430,25 +845,35 @@
 
         <FIGURE>
 
-        T cells can make either the αβ or γδ TCR—a heterodimer (most T cells make the αβ version)
+        % T cells can make either the αβ or γδ TCR—a heterodimer (most T cells make the αβ version)
+        Each mature T cell expresses either an αβ or a γδ T-cell receptor (TCR), both of which are heterodimers. Most circulating human T cells express the αβ form.
 
-        Both resemble a truncated Ig and is part of the Ig superfamily with three hypervariable loops in each chain (CDRs)
+        % Both resemble a truncated Ig and is part of the Ig superfamily with three hypervariable loops in each chain (CDRs)
+        Both receptor classes belong to the immunoglobulin superfamily and resemble membrane-bound antigen-binding fragments. Each chain contributes three complementarity-determining regions (CDRs) to the antigen-recognition surface.
 
-        The positively charged transmembrane regions of the TCR and negatively charged transmembrane regions of the CD3 signal transducers form a salt bridge attraction that holds the complex together
+        % The positively charged transmembrane regions of the TCR and negatively charged transmembrane regions of the CD3 signal transducers form a salt bridge attraction that holds the complex together
+        Basic residues within the TCR transmembrane segments form ionic interactions with acidic residues in the CD3 signaling subunits, stabilizing assembly of the complete receptor complex.
 
-        During development, the TCR does not go through affinity maturation like B cells, thus they need the supplement receptors (CD4/8) in order to strengthen this less specific binding
+        % During development, the TCR does not go through affinity maturation like B cells, thus they need the supplement receptors (CD4/8) in order to strengthen this less specific binding
+        Unlike immunoglobulins, TCRs do not undergo somatic hypermutation or affinity maturation after activation. The CD4 or CD8 co-receptor stabilizes recognition of the appropriate MHC class and recruits signaling machinery to the engaged TCR.
 
-        αβ Receptor
+        % αβ Receptor
+        \textbf{αβ receptors} undergo thymic selection to generate a repertoire capable of recognizing foreign peptide in the context of self MHC while remaining tolerant of self antigens.
 
-          Undergoes selection to produce a highly specific recognition molecule
+        % Undergoes selection to produce a highly specific recognition molecule
+        The resulting receptor provides highly specific recognition of a peptide--MHC complex.
 
-        γδ Receptor
+        % γδ Receptor
+        \textbf{γδ receptors} support a more innate-like mode of immune surveillance, although their antigen recognition remains clonally distributed and can be highly specific.
 
-          Undergoes selection to produce a quasi innate recognition molecule (some specificity but not as much as αβ)
+        % Undergoes selection to produce a quasi innate recognition molecule (some specificity but not as much as αβ)
+        Many γδ T cells respond rapidly to conserved stress-associated or microbial ligands without conventional peptide--MHC restriction.
 
-          Mostly for recognizing lipid antigens of bacteria and parasites
+        % Mostly for recognizing lipid antigens of bacteria and parasites
+        Depending on the subset, γδ T cells can recognize microbial metabolites, lipids, and stress-induced host molecules associated with bacterial or parasitic infection.
 
-          Important in patrolling mucosa and epithelium
+        % Important in patrolling mucosa and epithelium
+        These cells are particularly enriched at mucosal and epithelial barriers, where they provide rapid tissue surveillance.
 
       \end{core}
 
@@ -456,9 +881,11 @@
 
         <FIGURE>
 
-        All chains (γ, δ, ε) are part of the Ig superfamily
+        % All chains (γ, δ, ε) are part of the Ig superfamily
+        The CD3γ, CD3δ, and CD3ε chains possess extracellular immunoglobulin-superfamily domains and assemble as CD3γε and CD3δε heterodimers.
 
-        All peptides have an immunoreceptor tyrosine-based activation motif (ITAM) at the cell-interior side of the receptor
+        % All peptides have an immunoreceptor tyrosine-based activation motif (ITAM) at the cell-interior side of the receptor
+        Each CD3 chain contains one immunoreceptor tyrosine-based activation motif (ITAM) within its cytoplasmic tail, allowing ligand engagement to be converted into an intracellular signal.
 
       \end{core}
 
@@ -466,11 +893,14 @@
 
         <FIGURE>
 
-        Chains are NOT part of the Ig superfamily
+        % Chains are NOT part of the Ig superfamily
+        The ζ and η chains do not contain extracellular immunoglobulin-superfamily domains.
 
-        Only 9 amino acids to the exterior and a long extended cytoplasmic tail
+        % Only 9 amino acids to the exterior and a long extended cytoplasmic tail
+        They have extremely short extracellular segments and long cytoplasmic tails specialized for signaling.
 
-        Has 3 ITAMs rather can one
+        % Has 3 ITAMs rather can one
+        Each ζ-family chain contains three ITAMs rather than the single ITAM present in each CD3γ, CD3δ, or CD3ε chain. The predominant TCR complex contains a ζζ homodimer, whereas ζη heterodimers are less common.
 
       \end{core}
 
@@ -480,15 +910,20 @@
 
         <FIGURE>
 
-        Used by TH cells to bind to MHC II
+        % Used by TH cells to bind to MHC II
+        CD4 is a co-receptor expressed by helper T cells and other subsets that binds nonpolymorphic regions of MHC class II during TCR recognition.
 
-        Monomer
+        % Monomer
+        CD4 functions as a monomeric transmembrane glycoprotein.
 
-        4 extracellular Ig domains
+        % 4 extracellular Ig domains
+        Its extracellular region contains four immunoglobulin-superfamily domains.
 
-        N-terminal binds to the base of MHC II (junction of α2 and β2 domains) at a hydrophobic pocket
+        % N-terminal binds to the base of MHC II (junction of α2 and β2 domains) at a hydrophobic pocket
+        The amino-terminal D1 domain contacts a nonpolymorphic surface formed principally by the membrane-proximal β2 domain of MHC class II, away from the peptide-binding groove.
 
-        C-terminal possess 3 serine regions that can be phosphorylated
+        % C-terminal possess 3 serine regions that can be phosphorylated
+        The cytoplasmic tail associates noncovalently with the Src-family kinase Lck, thereby positioning Lck near the TCR--CD3 complex during antigen recognition.
 
       \end{core}
 
@@ -496,15 +931,20 @@
 
         <FIGURE>
 
-        Used by TC cells to bind to MHC I
+        % Used by TC cells to bind to MHC I
+        CD8 is the characteristic co-receptor of cytotoxic T cells and binds a nonpolymorphic region of MHC class I.
 
-        Dimer—α-β hetero or α-α homo linked by disulfide
+        % Dimer—α-β hetero or α-α homo linked by disulfide
+        It is expressed as a disulfide-linked CD8αβ heterodimer or CD8αα homodimer.
 
-        1 extracellular Ig domain per peptide
+        % 1 extracellular Ig domain per peptide
+        Each CD8 chain contributes one extracellular immunoglobulin-superfamily domain.
 
-        N-terminal binds to the α2 and β microglobulin
+        % N-terminal binds to the α2 and β microglobulin
+        The amino-terminal domains bind primarily to the α3 domain of the MHC class I α chain, with additional contacts involving β2-microglobulin.
 
-        C-terminal possess amino acid regions that can be phosphorylated
+        % C-terminal possess amino acid regions that can be phosphorylated
+        The cytoplasmic tail of CD8α associates with Lck, coupling co-receptor engagement to phosphorylation of the TCR signaling complex.
 
       \end{core}
 
@@ -520,31 +960,38 @@
 
             <FIGURE>
 
-            Chromosome 14 Long Arm
+            % Chromosome 14 Long Arm
+            The TCR α and δ loci occupy a shared region on the long arm of chromosome 14, with the δ locus nested within the α locus.
 
-            Alpha (α): Resembles the light chain Ig gene because of absence of D regions
-            ~40 V --- N/A D --- ~50 J --- 1 C
+            % Alpha (α): Resembles the light chain Ig gene because of absence of D regions
+            % ~40 V --- N/A D --- ~50 J --- 1 C
+            Like an immunoglobulin light-chain locus, the α locus lacks D segments and assembles a VJ exon from approximately 40 functional V segments, approximately 50 J segments, and one C region.
 
-            Delta (δ): Resembles the heavy chain Ig gene because of presence of D regions
-            ~3 (or more) V --- ~3 D --- ~4 J --- 2 C
+            % Delta (δ): Resembles the heavy chain Ig gene because of presence of D regions
+            % ~3 (or more) V --- ~3 D --- ~4 J --- 2 C
+            Like an immunoglobulin heavy-chain locus, the δ locus contains D segments and forms a V(D)J exon. It uses a limited set of V, D, and J segments followed by a single Cδ gene; some V segments are shared with the α locus.
 
           \item \textbf{β Peptide}
 
             <FIGURE>
 
-            Chromosome 7 Long Arm
+            % Chromosome 7 Long Arm
+            The TCR β locus lies on the long arm of chromosome 7.
 
-            Resembles the heavy chain Ig gene because of presence of D regions
-            ~40 V --- 2 (functional) D --- 6 and 7 J --- 2 C
+            % Resembles the heavy chain Ig gene because of presence of D regions
+            % ~40 V --- 2 (functional) D --- 6 and 7 J --- 2 C
+            Its organization resembles that of an immunoglobulin heavy-chain locus because it includes D segments. Approximately 40 functional V segments precede two D--J--C clusters, whose J clusters contain six and seven functional segments, respectively.
 
           \item \textbf{γ Peptide}
 
             <FIGURE>
 
-            Chromosome 7 Short Arm
+            % Chromosome 7 Short Arm
+            The TCR γ locus lies on the short arm of chromosome 7.
 
-            Resembles the light chain Ig gene because of absence of D regions
-            ~5 (functional) V --- N/A D --- ~5 J --- 2 C
+            % Resembles the light chain Ig gene because of absence of D regions
+            % ~5 (functional) V --- N/A D --- ~5 J --- 2 C
+            Its organization resembles that of an immunoglobulin light-chain locus because it lacks D segments. A limited set of functional V segments rearranges with J segments associated with two principal Cγ regions.
 
         \end{enumerate}
 
@@ -562,15 +1009,18 @@
 
             <FIGURE>
 
-            **Splicing and joining of the sequences are carried out through the same process of RSS manipulation by RAG enzymes done in Ig gene rearrangement ALSO P and N nucleotide addition occurs and further adds to the variability
+            % **Splicing and joining of the sequences are carried out through the same process of RSS manipulation by RAG enzymes done in Ig gene rearrangement ALSO P and N nucleotide addition occurs and further adds to the variability
+            RAG1 and RAG2 recognize recombination signal sequences and mediate V--J joining through the same V(D)J recombination mechanism used at immunoglobulin loci. Imprecise junction formation, including P- and N-nucleotide addition, further increases receptor diversity. Rearrangement of the α locus deletes the intervening δ locus from that chromosome.
 
           \item \textbf{Result}
 
             <FIGURE>
 
-            [Variable \# of VL] - [VL] - [J] - [Variable \# of J] - [Intron] - [C]
+            % [Variable \# of VL] - [VL] - [J] - [Variable \# of J] - [Intron] - [C]
+            A completed α-chain locus contains a selected V segment joined to one J segment, followed downstream by unrearranged J segments, an intron, and the Cα region.
 
-            Next is EXPRESSION
+            % Next is EXPRESSION
+            Transcription and RNA processing subsequently produce the mature α-chain message.
 
         \end{enumerate}
 
@@ -584,25 +1034,32 @@
 
             <FIGURE>
 
-          \item \textbf{VL-D/J Joining}
+          % \item \textbf{VL-D/J Joining}
+          \item \textbf{V--D--J Joining}
 
             \begin{itemize}
 
-              \item \textit{VL-DJ}
+              % \item \textit{VL-DJ}
+              \item \textit{V--D--J rearrangement}
 
                 <FIGURE>
 
-                VL joins with a D
+                % VL joins with a D
+                The TCR β locus rearranges sequentially: a D segment first joins a J segment, after which a V segment joins the resulting DJ unit.
 
-                **Splicing and joining of the sequences are carried out through the same process of RSS manipulation by RAG enzymes done in Ig gene rearrangement ALSO P and N nucleotide addition occurs and further adds to the variability
+                % **Splicing and joining of the sequences are carried out through the same process of RSS manipulation by RAG enzymes done in Ig gene rearrangement ALSO P and N nucleotide addition occurs and further adds to the variability
+                RAG-mediated cleavage at recombination signal sequences and imprecise end joining generate the rearranged VDJ exon. P- and N-nucleotide addition at both junctions substantially increases CDR3 diversity.
 
-              \item \textit{VL-J}
+              % \item \textit{VL-J}
+              \item \textit{Direct V--J joining}
 
                 <FIGURE>
 
-                VL joins with a J (all Ds get cut out)
+                % VL joins with a J (all Ds get cut out)
+                Direct V--J joining is not a normal productive pathway at the TCR β locus because the 12/23 recombination constraints enforce incorporation of a Dβ segment.
 
-                **Splicing and joining of the sequences are carried out through the same process of RSS manipulation by RAG enzymes done in Ig gene rearrangement ALSO P and N nucleotide addition occurs and further adds to the variability
+                % **Splicing and joining of the sequences are carried out through the same process of RSS manipulation by RAG enzymes done in Ig gene rearrangement ALSO P and N nucleotide addition occurs and further adds to the variability
+                Consequently, productive β-chain rearrangement uses V--D--J recombination rather than the alternative V--J scheme depicted in the rough notes.
 
             \end{itemize}
 
@@ -610,11 +1067,13 @@
 
             \begin{itemize}
 
-              \item \textit{VL-DJ}
+              % \item \textit{VL-DJ}
+              \item \textit{V--D--J product}
 
                 <FIGURE>
 
-              \item \textit{VL-J}
+              % \item \textit{VL-J}
+              \item \textit{Noncanonical V--J product}
 
                 <FIGURE>
 
@@ -622,7 +1081,8 @@
 
         \end{enumerate}
 
-        Next occurs EXPRESSION
+        % Next occurs EXPRESSION
+        A productive VDJ exon is subsequently transcribed and spliced to the appropriate Cβ region for β-chain expression.
 
       \end{core}
 
@@ -634,11 +1094,13 @@
 
             <FIGURE>
 
-          \item \textbf{VL-D/J Joining}
+          % \item \textbf{VL-D/J Joining}
+          \item \textbf{V--J Joining}
 
             <FIGURE>
 
-            **Splicing and joining of the sequences are carried out through the same process of RSS manipulation by RAG enzymes done in Ig gene rearrangement ALSO P and N nucleotide addition occurs and further adds to the variability
+            % **Splicing and joining of the sequences are carried out through the same process of RSS manipulation by RAG enzymes done in Ig gene rearrangement ALSO P and N nucleotide addition occurs and further adds to the variability
+            RAG1 and RAG2 mediate V--J recombination at the γ locus through recombination signal sequences. Junctional processing, including P- and N-nucleotide addition, diversifies the resulting CDR3 sequence.
 
           \item \textbf{Result}
 
@@ -646,7 +1108,8 @@
 
         \end{enumerate}
 
-        Next occurs EXPRESSION
+        % Next occurs EXPRESSION
+        The rearranged VJ exon is subsequently transcribed and spliced to a compatible Cγ region for receptor expression.
 
       \end{core}
 
@@ -658,19 +1121,24 @@
 
             <FIGURE>
 
-          \item \textbf{VL-D/J Joining \& Result}
+          % \item \textbf{VL-D/J Joining \& Result}
+          \item \textbf{V--D--J Joining and Result}
 
             <FIGURE>
 
-            The VL sequence either joins to a D or J depending on what it splices out
+            % The VL sequence either joins to a D or J depending on what it splices out
+            Productive TCR δ rearrangement generally joins a V segment to one or more D segments and then to a J segment, creating a V(D)J exon.
 
-            NOTE: This rearrangement can add more than one D to the sequence as well
+            % NOTE: This rearrangement can add more than one D to the sequence as well
+            Unlike most antigen-receptor loci, the arrangement of recombination signal sequences at the δ locus can permit incorporation of multiple D segments into a single rearranged chain.
 
-            **Splicing and joining of the sequences are carried out through the same process of RSS manipulation by RAG enzymes done in Ig gene rearrangement ALSO P and N nucleotide addition occurs and further adds to the variability
+            % **Splicing and joining of the sequences are carried out through the same process of RSS manipulation by RAG enzymes done in Ig gene rearrangement ALSO P and N nucleotide addition occurs and further adds to the variability
+            RAG-mediated recombination and junctional processing, including P- and N-nucleotide addition, generate extensive diversity within the δ-chain CDR3 region.
 
         \end{enumerate}
 
-        Next occurs EXPRESSION
+        % Next occurs EXPRESSION
+        Transcription and RNA processing then join the rearranged variable exon to Cδ for expression of the mature δ chain.
 
       \end{core}
 
@@ -678,25 +1146,33 @@
 
         \begin{enumerate}[label=(\arabic*)]
 
-          \item The message gets trancribed
+          % \item The message gets trancribed
+          \item The rearranged locus is transcribed into a primary RNA transcript.
 
-            NOTE: TCR C regions always has its bulk C gene sequence followed by an extracellular gene (XC), a transmembrane gene (TM), and a cytoplasmic tail gene (CA)
-
-            <FIGURE>
-
-          \item The message precursor is capped and gets a poly-A-tail
-
-          \item Processing occurs (removing the introns and other extra Js)
+            % NOTE: TCR C regions always has its bulk C gene sequence followed by an extracellular gene (XC), a transmembrane gene (TM), and a cytoplasmic tail gene (CA)
+            TCR constant regions are encoded by exons that specify the extracellular constant domain, connecting peptide, transmembrane segment, and short cytoplasmic tail.
 
             <FIGURE>
 
-          \item Translation of the L region attaches the ribosome to the RER and inserts into the lumen with the C-terminal bound to the ER membrane
+          % \item The message precursor is capped and gets a poly-A-tail
+          \item The primary transcript receives a 5$'$ cap and a 3$'$ poly(A) tail.
 
-          \item The L region is clipped off
+          % \item Processing occurs (removing the introns and other extra Js)
+          \item RNA splicing removes introns and excludes unused downstream gene segments, joining the rearranged variable exon to the appropriate constant-region exons.
 
-          \item Enzymes in the Golgi form disulfide bonds
+            <FIGURE>
 
-          \item Vesicles with finished TCRs get transported to and fuses with the plasma membrane
+          % \item Translation of the L region attaches the ribosome to the RER and inserts into the lumen with the C-terminal bound to the ER membrane
+          \item Translation of the amino-terminal leader sequence directs the ribosome to the RER, where the nascent receptor chain enters the secretory pathway and its transmembrane segment anchors it in the ER membrane.
+
+          % \item The L region is clipped off
+          \item Signal peptidase removes the leader peptide during translocation into the RER.
+
+          % \item Enzymes in the Golgi form disulfide bonds
+          \item Folding, disulfide-bond formation, and initial glycosylation occur primarily in the RER, followed by additional glycan processing in the Golgi.
+
+          % \item Vesicles with finished TCRs get transported to and fuses with the plasma membrane
+          \item Vesicles transport fully assembled TCR--CD3 complexes from the Golgi to the plasma membrane, where vesicle fusion displays the receptors on the cell surface.
 
         \end{enumerate}
 
@@ -704,7 +1180,8 @@
 
       \begin{core}{History: \textit{Hendrick and Davis}}
 
-        Hendrick and Davis were responsible for the gene identification of TCRs
+        % Hendrick and Davis were responsible for the gene identification of TCRs
+        Mark Davis and Stephen Hedrick helped identify genes encoding the TCR through experiments designed to isolate T-cell-specific, somatically rearranged transcripts.
 
         \begin{enumerate}[label=(\arabic*)]
 
@@ -712,37 +1189,48 @@
 
             <FIGURE>
 
-            H\&D first separated membrane bound from cytoplasmic proteins by isolating mRNA from membrane bound polysomes
+            % H\&D first separated membrane bound from cytoplasmic proteins by isolating mRNA from membrane bound polysomes
+            Hedrick and Davis enriched for transcripts encoding secreted or membrane proteins by isolating mRNA associated with membrane-bound polysomes.
 
-            T cells—TCR, CD3, CD4/8
+            % T cells—TCR, CD3, CD4/8
+            In T cells, this fraction included transcripts encoding the TCR, CD3 subunits, and the CD4 or CD8 co-receptors.
 
-            B cells—Ig receptor (BjkjkCR), co-receptors
+            % B cells—Ig receptor (BjkjkCR), co-receptors
+            In B cells, it included transcripts encoding membrane immunoglobulin and associated co-receptors.
 
-            Both of these cells with have other things in common as well
+            % Both of these cells with have other things in common as well
+            Because T and B lymphocytes also express many shared membrane proteins, further subtraction was required to isolate T-cell-specific candidates.
 
           \item \textbf{Subtractive Hybridization}
 
             <FIGURE>
 
-            H\&D used membrane bound B cell genes to selectively hybridize with and remove any overlapping radioactive cDNA from T Cells, leaving only the radioactive cDNA unique to T cells behind
+            % H\&D used membrane bound B cell genes to selectively hybridize with and remove any overlapping radioactive cDNA from T Cells, leaving only the radioactive cDNA unique to T cells behind
+            During subtractive hybridization, B-cell-derived nucleic acids were used to remove cDNAs shared by the two lymphocyte lineages, enriching the remaining library for transcripts preferentially expressed by T cells.
 
           \item \textbf{Gene Comparison Across Multiple T Cells}
 
             <FIGURE>
 
-            Now there are only 10 different cDNA clones remained (unique to T cells) and we have to find which ones are rearranged (which would be the TCR)
+            % Now there are only 10 different cDNA clones remained (unique to T cells) and we have to find which ones are rearranged (which would be the TCR)
+            The enriched candidate pool contained approximately ten T-cell-specific cDNA clones, which were then screened for the somatic DNA rearrangement expected of an antigen-receptor gene.
 
-            We run each cDNA portion across multiple T cells lineages
+            % We run each cDNA portion across multiple T cells lineages
+            Each candidate probe was compared across independently derived T-cell clones and a non-T-cell control by genomic blotting.
 
-              If the cDNA portion (for example, g1) is not rearranged, the length traveled in the gel electrophoresis would be the same across all T cell lineages and B cells (control) as well
+            % If the cDNA portion (for example, g1) is not rearranged, the length traveled in the gel electrophoresis would be the same across all T cell lineages and B cells (control) as well
+            A candidate that remained in germline configuration produced the same restriction-fragment pattern across the different cell lineages.
 
-              If the cDNA portion (for example, g2) is rearranged, the length traveled in the gel electrophoresis would be different across different T cell lineages because of their variable lengths
+            % If the cDNA portion (for example, g2) is rearranged, the length traveled in the gel electrophoresis would be different across different T cell lineages because of their variable lengths
+            By contrast, a rearranged candidate produced clone-specific restriction fragments because independent T cells had assembled different variable-region sequences.
 
-            The rearranged gene were 2 out of the 10 cDNAs, thus locating the genes for the TCR
+            % The rearranged gene were 2 out of the 10 cDNAs, thus locating the genes for the TCR
+            Two candidates exhibited T-cell-specific rearrangement, enabling identification of genes encoding the TCR chains.
 
         \end{enumerate}
 
-        Alloreactivity is T cells being able to bind with foreign MHCs, which it should not be able to do (Figure on MHC Characteristics)
+        % Alloreactivity is T cells being able to bind with foreign MHCs, which it should not be able to do (Figure on MHC Characteristics)
+        \textbf{Alloreactivity} is the ability of a T cell selected on self MHC to recognize a structurally distinct allogeneic MHC--peptide complex. This cross-reactivity underlies strong T-cell responses to genetically mismatched transplants (see the figure on MHC characteristics).
 
       \end{core}
 
@@ -762,17 +1250,21 @@
 
         \item \textbf{Antigen Recognition}
 
-          APC presents an antigenic peptide on MHC II
+          % APC presents an antigenic peptide on MHC II
+          A professional antigen-presenting cell displays an antigen-derived peptide within the binding groove of an MHC class II molecule.
 
         \item \textbf{Binding}
 
-          TH cell binds to this complex through TCR–CD3 complex, aided by CD4
+          % TH cell binds to this complex through TCR–CD3 complex, aided by CD4
+          A cognate CD4$^+$ helper T cell binds the peptide--MHC class II complex through its TCR, while CD4 stabilizes the interaction and recruits Lck to the CD3 signaling apparatus.
 
-          *Superantigens are viral or bacterial proteins that nail together TCR-antigen-MHC complexes, hyperstimulating the TH cells and overproducing cytokines (which could kill you)
+          % *Superantigens are viral or bacterial proteins that nail together TCR-antigen-MHC complexes, hyperstimulating the TH cells and overproducing cytokines (which could kill you)
+          \textit{Superantigens} are microbial proteins that crosslink particular TCR Vβ regions to MHC class II outside the conventional peptide-binding interface. This noncanonical interaction activates unusually large T-cell populations and can provoke life-threatening systemic cytokine release.
 
         \item \textbf{Signaling Cascade}
 
-          A signaling cascade starts towards the nucleus and pushes the cell into cell division
+          % A signaling cascade starts towards the nucleus and pushes the cell into cell division
+          TCR engagement and co-stimulation initiate interconnected signaling cascades that reach the nucleus, alter gene expression, and commit the cell to activation, proliferation, and differentiation.
 
         \item \textbf{Transcriptional Activation}
 
@@ -780,31 +1272,46 @@
 
             \item \textit{Immediate Genes}
 
-              Genes for transcription factors for inflammatory response
+              % Genes for transcription factors for inflammatory response
+              Immediate signaling activates pre-existing transcription factors that coordinate the early inflammatory and proliferative response.
 
-              —NFAT, AP-1, NF-κB
+              % —NFAT, AP-1, NF-κB
+              Principal factors include NFAT, AP-1, and NF-κB.
 
             \item \textit{Early Genes}
 
-              Cytokines, Interleukins and their receptors
+              % Cytokines, Interleukins and their receptors
+              Early-response genes encode cytokines, cytokine receptors, and regulatory proteins that reinforce activation and determine developmental fate.
 
-              *This is where developmental branching occurs, and the TH cells differentiate into either TH1, TH2, THreg, or TH17 (sometimes referred to as TH3)
+              % *This is where developmental branching occurs, and the TH cells differentiate into either TH1, TH2, THreg, or TH17 (sometimes referred to as TH3)
+              At this stage, naive helper T cells can differentiate into specialized subsets, including T$_{\text{H}}$1, T$_{\text{H}}$2, T$_{\text{H}}$17, and regulatory T cells. T$_{\text{H}}$17 cells should not be designated T$_{\text{H}}$3, a term historically used for a distinct regulatory phenotype.
 
-              Inducing cytokines are produced by other immune cells like macrophages and DCs which during the production of master transcription factors
+              % Inducing cytokines are produced by other immune cells like macrophages and DCs which during the production of master transcription factors
+              Cytokines produced by dendritic cells, macrophages, and other cells activate lineage-defining transcription factors in the responding T cell.
 
-              —[Type]: [inducing cytokine] → [master transcription factor]
+              % —[Type]: [inducing cytokine] → [master transcription factor]
+              The principal relationships between polarizing cytokines and lineage-defining transcription factors include the following:
 
-              —Th1: IL-12 → T-bet
+              \begin{itemize}
 
-              —Th2: IL-4 → GATA3
+                % —Th1: IL-12 → T-bet
+                \item IL-12 promotes T$_{\text{H}}$1 differentiation through T-bet;
 
-              —Th17: TGF-β + IL-6 → RORγt
+                % —Th2: IL-4 → GATA3
+                \item IL-4 promotes T$_{\text{H}}$2 differentiation through GATA3;
 
-              —Treg: TGF-β + IL-2 → FOXP3
+                % —Th17: TGF-β + IL-6 → RORγt
+                \item TGF-β together with inflammatory cytokines such as IL-6 promotes T$_{\text{H}}$17 differentiation through RORγt; and
+
+                % —Treg: TGF-β + IL-2 → FOXP3
+                \item TGF-β and IL-2 promote peripheral regulatory T-cell differentiation and FOXP3 expression.
+
+              \end{itemize}
 
             \item \textit{Late Genes}
 
-              Cell adhesion molecules (CAMs) and effector cytokines
+              % Cell adhesion molecules (CAMs) and effector cytokines
+              Late-response genes encode effector cytokines, adhesion molecules, and other proteins required for migration and specialized immune function.
 
           \end{itemize}
 
@@ -818,61 +1325,87 @@
 
       \begin{enumerate}[label=(\arabic*)]
 
-        \item APCs present their MHC II and antigen complex to the TCR
+        % \item APCs present their MHC II and antigen complex to the TCR
+        \item An antigen-presenting cell displays a peptide--MHC class II complex to a cognate TCR.
 
-        \item CD4 helps strengthen this binding
+        % \item CD4 helps strengthen this binding
+        \item CD4 binds the MHC class II molecule, stabilizes the receptor complex, and positions its associated kinase Lck near CD3.
 
-        \item p56lck (which is associated with CD4/8 on its cytoplasmic tail) phosphorylates the ITAMs, providing a docking site for ZAP 70
+        % \item p56lck (which is associated with CD4/8 on its cytoplasmic tail) phosphorylates the ITAMs, providing a docking site for ZAP 70
+        \item Co-receptor-associated p56$^{\text{Lck}}$ phosphorylates tyrosines within CD3 and ζ-chain ITAMs, creating docking sites for ZAP-70.
 
-        \item ZAP 70 docks on the ITAMs and get phosphorylated by p56lck and activated
+        % \item ZAP 70 docks on the ITAMs and get phosphorylated by p56lck and activated
+        \item ZAP-70 binds doubly phosphorylated ITAMs through its tandem SH2 domains and is phosphorylated and activated by Lck.
 
-        \item ZAP-70 goes on to phosphorylate a variety of molecules, setting off other downstream pathways through transcriptional activation
+        % \item ZAP-70 goes on to phosphorylate a variety of molecules, setting off other downstream pathways through transcriptional activation
+        \item Activated ZAP-70 phosphorylates adaptor proteins, including LAT and SLP-76, which organize downstream pathways leading to transcriptional activation.
 
-          —DAG-IP3 formed through hydrolysis of membrane phospholipid by phospholipase C, causes ER to release Ca2+
+        \begin{itemize}
 
-          —Ca2+ activates NFAT (up regulates immune response)
+          % —DAG-IP3 formed through hydrolysis of membrane phospholipid by phospholipase C, causes ER to release Ca2+
+          \item PLC-γ1 hydrolyzes PIP$_2$ into diacylglycerol (DAG) and inositol 1,4,5-trisphosphate (IP$_3$); IP$_3$ then stimulates Ca$^{2+}$ release from the RER.
 
-          —DAG activates NF-κB (up regulates immune response)
+          % —Ca2+ activates NFAT (up regulates immune response)
+          \item Ca$^{2+}$ binds calmodulin and activates calcineurin, which dephosphorylates NFAT and permits its entry into the nucleus.
 
-          —Activation of Ras, the G protein
+          % —DAG activates NF-κB (up regulates immune response)
+          \item DAG activates protein kinase C-θ and contributes to activation of the canonical NF-κB pathway.
 
-          —Transcription factors activated by MAP kinases turn on genes that trigger cell division
+          % —Activation of Ras, the G protein
+          \item DAG-dependent signaling also activates the small GTPase Ras.
+
+          % —Transcription factors activated by MAP kinases turn on genes that trigger cell division
+          \item Ras activates mitogen-activated protein kinase cascades and AP-1, inducing genes required for proliferation and effector differentiation.
+
+        \end{itemize}
 
       \end{enumerate}
 
-      Regulation
+      % Regulation
+      \textbf{Co-stimulatory regulation} determines whether TCR signaling produces productive activation or functional unresponsiveness.
 
-      B7 is a membrane bound protein on APCs binding either to the CD28 or CTLA-4 of a T cell
+      % B7 is a membrane bound protein on APCs binding either to the CD28 or CTLA-4 of a T cell
+      The B7 ligands CD80 and CD86 are membrane proteins on antigen-presenting cells that bind either the activating receptor CD28 or the inhibitory receptor CTLA-4 on T cells.
 
-      CD28 Binding (Upregulation)
+      % CD28 Binding (Upregulation)
+      \textbf{CD28 engagement} amplifies TCR signaling and promotes cell survival, metabolism, cytokine production, and proliferation.
 
-      The cell will begin proliferating and dividing, transcribing the message for both IL-2 and the high affinity version of its TCR α chain and enter into a positive feedback loop.
+      % The cell will begin proliferating and dividing, transcribing the message for both IL-2 and the high affinity version of its TCR α chain and enter into a positive feedback loop.
+      CD28 co-stimulation increases transcription of IL-2 and expression of the high-affinity IL-2 receptor α chain (CD25), establishing an autocrine positive-feedback loop that supports clonal expansion. It does not generate a higher-affinity TCR α chain.
 
-      *An APC without the B7 for CD28 would turn the T cell off
+      % *An APC without the B7 for CD28 would turn the T cell off
+      Recognition of antigen by a naive T cell in the absence of adequate CD28 co-stimulation can induce anergy, deletion, or another form of peripheral tolerance.
 
-      CTLA-4 Binding (Downregulation)
+      % CTLA-4 Binding (Downregulation)
+      \textbf{CTLA-4 engagement} opposes CD28-mediated co-stimulation and limits the magnitude of T-cell activation.
 
-      The T cell will being to downregulate its development
+      % The T cell will being to downregulate its development
+      CTLA-4 therefore restrains proliferation and effector development after activation.
 
-      *Resting T cells initially have no CTLA-4, but begin to produce it during activation
+      % *Resting T cells initially have no CTLA-4, but begin to produce it during activation
+      Conventional resting T cells express little surface CTLA-4, but activation induces its expression and trafficking to the plasma membrane; regulatory T cells express CTLA-4 constitutively.
 
     \end{core}
 
     \begin{core}{Lipid Rafts}
 
-      Over the course of the signaling lipid rafts migrate towards the outside of the synapse region as a result of CAMs associating CD45 to CD22
+      % Over the course of the signaling lipid rafts migrate towards the outside of the synapse region as a result of CAMs associating CD45 to CD22
+      During immunological-synapse formation, TCR microclusters and associated lipid-ordered membrane domains reorganize dynamically. Large phosphatases such as CD45 are initially excluded from close-contact signaling zones, while adhesion molecules and the cytoskeleton segregate receptors into central and peripheral supramolecular activation clusters; CD22 is a B-cell protein and does not organize the T-cell synapse.
 
       \begin{enumerate}[label=(\arabic*)]
 
-        \item TCR, lipid raft after antigen binding
+        % \item TCR, lipid raft after antigen binding
+        \item \textbf{Initial engagement}: TCR microclusters form rapidly at sites of peptide--MHC binding and recruit proximal signaling proteins.
 
           <FIGURE>
 
-        \item Synapse during mid-activation
+        % \item Synapse during mid-activation
+        \item \textbf{Intermediate organization}: Actin-dependent transport moves signaling microclusters inward while integrins establish a surrounding adhesive zone.
 
           <FIGURE>
 
-        \item Synapse, mature (bull’s eye formation)
+        % \item Synapse, mature (bull’s eye formation)
+        \item \textbf{Mature synapse}: The interface develops a bull's-eye organization, with a central supramolecular activation cluster surrounded by a peripheral adhesion-rich ring.
 
           <FIGURE>
 
@@ -888,10 +1421,14 @@
 
       <FIGURE>
 
-      Structure
-      Receptors have β pleated sheet (Ig) domains and membrane span characteristics of family
+      % Structure
+      \textbf{Structure}: Immunoglobulin-superfamily receptors share extracellular domains built from antiparallel β sheets arranged in a characteristic immunoglobulin fold.
 
-      Ligands—antigens, integrins, growth factors
+      % Receptors have β pleated sheet (Ig) domains and membrane span characteristics of family
+      Individual family members combine these domains with distinct transmembrane and cytoplasmic signaling arrangements suited to their functions.
+
+      % Ligands—antigens, integrins, growth factors
+      \textbf{Ligands}: Members of this broad family participate in antigen recognition, cell adhesion, and growth-factor signaling and therefore interact with diverse ligands rather than a single ligand class.
 
     \end{core}
 
@@ -899,31 +1436,42 @@
 
       <FIGURE>
 
-      Structure
+      % Structure
+      \textbf{Structure}: Type I cytokine receptors are single-pass membrane proteins that commonly assemble as heterodimers or higher-order complexes.
 
-      Heterodimers or trimers with interchangeable β and γ subunits across different receptors
+      % Heterodimers or trimers with interchangeable β and γ subunits across different receptors
+      Several receptors share signaling subunits, such as the common β chain or common γ chain, allowing related cytokines to activate overlapping pathways.
 
-      Composed of fibronectin domain (like Ig domains), two β pleated sheets running opposite
+      % Composed of fibronectin domain (like Ig domains), two β pleated sheets running opposite
+      Their extracellular cytokine-receptor homology domains are formed primarily from antiparallel β strands arranged in fibronectin type III-like folds.
 
-      β,γ N terminals—Four conserved cysteines that stabilize the structure using 2 disulfide bonds
+      % β,γ N terminals—Four conserved cysteines that stabilize the structure using 2 disulfide bonds
+      The membrane-distal portion contains four conserved cysteine residues that form stabilizing disulfide bonds.
 
-      β,γ proximal domains—conserved [tryptophan]-[serine]-[whatever]-[tryptophan]-[serine] sequence (function unknown)
+      % β,γ proximal domains—conserved [tryptophan]-[serine]-[whatever]-[tryptophan]-[serine] sequence (function unknown)
+      A conserved membrane-proximal WSXWS motif contributes to receptor folding, trafficking, and ligand-responsive organization.
 
-      β,γ C terminals—domains have sites that recruit cytosolic tyrosine kinases (phosphorylation)
+      % β,γ C terminals—domains have sites that recruit cytosolic tyrosine kinases (phosphorylation)
+      Because these receptors lack intrinsic kinase activity, their cytoplasmic tails recruit Janus kinases (JAKs) that phosphorylate receptor-associated signaling proteins.
 
+      % Ligands—a small monomer with 4 α helical domains
+      \textbf{Ligands}: Many type I cytokines are small monomeric proteins organized as four-α-helix bundles.
 
-      Ligands—a small monomer with 4 α helical domains
+      % JAK-STAT Pathway—
+      \textbf{JAK--STAT pathway}: Ligand-dependent receptor assembly initiates a direct route from the plasma membrane to transcriptional regulation.
 
+      \begin{enumerate}[label=(\arabic*)]
 
-      JAK-STAT Pathway—
+        % Ligand binding brings JAKs together and activates
+        \item Ligand binding changes receptor geometry and juxtaposes receptor-associated JAKs, permitting their activation.
 
-        Ligand binding brings JAKs together and activates
+        % P-JAKs phosphorylate the cytoplasmic receptor tails (docking site for STAT)
+        \item Activated JAKs phosphorylate tyrosine residues on the receptor tails, creating docking sites for STAT proteins.
 
+        % JAKs phosphorylate the STATs, which migrate to the nucleus, and up-regulate other genes
+        \item Recruited STATs are phosphorylated, dimerize, enter the nucleus, and regulate expression of cytokine-responsive genes.
 
-
-        P-JAKs phosphorylate the cytoplasmic receptor tails (docking site for STAT)
-
-        JAKs phosphorylate the STATs, which migrate to the nucleus, and up-regulate other genes
+      \end{enumerate}
 
     \end{core}
 
@@ -931,27 +1479,35 @@
 
       <FIGURE>
 
-      Structure
+      % Structure
+      \textbf{Structure}: Type II cytokine receptors are single-pass membrane proteins that assemble as homo- or heterodimeric signaling complexes.
 
-      β, γ heterodimers with extensive cytoplasmic signaling domains
+      % β, γ heterodimers with extensive cytoplasmic signaling domains
+      Their subunits possess cytoplasmic regions that associate with JAK-family kinases and recruit downstream signaling proteins.
 
-      Fibronectin domain
+      % Fibronectin domain
+      The extracellular portions contain fibronectin type III-like cytokine-receptor domains.
 
-      β,γ N terminals—CCCC that stabilize the structure using 2 disulfide bonds
+      % β,γ N terminals—CCCC that stabilize the structure using 2 disulfide bonds
+      Conserved cysteine residues form disulfide bonds that stabilize the extracellular structure, but type II receptors lack the canonical WSXWS motif of type I receptors.
 
+      % Ligands—series of α helices
+      \textbf{Ligands}: Type II receptors bind helical cytokines, principally interferons and members of the IL-10 family.
 
-      Ligands—series of α helices
+      % JAK-STAT Pathway—SAME as Type I
+      \textbf{JAK--STAT pathway}: Signal transduction follows the same general logic as in type I cytokine receptors.
 
+      % Ligand binding brings JAKs together and activates
+      Ligand binding reorganizes receptor-associated JAKs and promotes their activation.
 
-      JAK-STAT Pathway—SAME as Type I
+      % P-JAKs phosphorylate the cytoplasmic receptor tails (docking site for STAT)
+      The activated JAKs phosphorylate receptor tails to generate STAT docking sites.
 
-      Ligand binding brings JAKs together and activates
+      % JAKs phosphorylate the STATs, which migrate to the nucleus, and up-regulate other genes
+      Recruited STATs are phosphorylated, dimerize, and enter the nucleus to regulate target-gene transcription.
 
-      P-JAKs phosphorylate the cytoplasmic receptor tails (docking site for STAT)
-
-      JAKs phosphorylate the STATs, which migrate to the nucleus, and up-regulate other genes
-
-      ***JAKs and STATs have variety (4 and 6 known respectively) and the signaling process uses more than one version of each
+      % ***JAKs and STATs have variety (4 and 6 known respectively) and the signaling process uses more than one version of each
+      Mammals express four JAK proteins and seven STAT proteins. Individual receptor complexes recruit characteristic combinations of these signaling molecules, allowing different cytokines to produce distinct transcriptional programs.
 
     \end{core}
 
@@ -959,20 +1515,23 @@
 
       <FIGURE>
 
-      Structure
+      % Structure
+      \textbf{Structure}: IL-17 receptors constitute a distinct cytokine-receptor family whose subunits can form homo- or heteromeric complexes.
 
-      Heterodimers, Homodimers, Trimers
+      % Heterodimers, Homodimers, Trimers
+      Ligand binding promotes higher-order receptor assembly, although the precise stoichiometry can vary among IL-17 family members.
 
-      IL17R composed on 2 IL17RAs and 1 IL17RC
+      % IL17R composed on 2 IL17RAs and 1 IL17RC
+      The functional receptor for IL-17A and IL-17F contains IL-17RA and IL-17RC subunits; simplified trimeric descriptions should not be treated as a universal fixed stoichiometry.
 
+      % Ligands—IL-17A: β pleated sheets held together by 2 S=S bonds constructed by CCCC (pro-inflammatory)
+      \textbf{Ligands}: IL-17A is a disulfide-linked homodimeric cytokine with a predominantly β-sheet structure and potent pro-inflammatory activity.
 
-      Ligands—IL-17A: β pleated sheets held together by 2 S=S bonds constructed by CCCC (pro-inflammatory)
+      % Activates the Act1 Pathway (NF-κB, MAPK, CCAAT)
+      Receptor engagement recruits the adaptor Act1 and activates NF-κB, MAPK, and C/EBP-family transcriptional pathways.
 
-
-      Activates the Act1 Pathway (NF-κB, MAPK, CCAAT)
-
-
-      **IL-17 is secreted by Th17, iNKT, and γδ T cells (mainly for border patrol)
+      % **IL-17 is secreted by Th17, iNKT, and γδ T cells (mainly for border patrol)
+      IL-17 is produced by T$_{\text{H}}$17 cells as well as several innate-like lymphocyte populations, including γδ T cells and some invariant natural killer T cells, and is particularly important for antimicrobial defense at epithelial barriers.
 
     \end{core}
 
@@ -980,17 +1539,20 @@
 
       <FIGURE>
 
-      Structure
+      % Structure
+      \textbf{Structure}: Tumor necrosis factor receptors are type I transmembrane proteins characterized by extracellular cysteine-rich domains stabilized by disulfide bonds.
 
-      Four repeated β pleated sheet domains stabilized by CCCCs’ S=S bonds
+      % Four repeated β pleated sheet domains stabilized by CCCCs’ S=S bonds
+      These repeated cysteine-rich modules form the elongated extracellular ligand-binding region.
 
-      Upon binding TNF, subunits cluster in trimer, leading to activation
+      % Upon binding TNF, subunits cluster in trimer, leading to activation
+      Binding of trimeric TNF ligands promotes productive clustering and conformational rearrangement of receptor subunits.
 
+      % Ligands—juxtacrine factors composed of β pleated sheets and displayed in clusters of three subunits
+      \textbf{Ligands}: TNF-family ligands are trimeric, β-sheet-rich proteins that are commonly synthesized as membrane-bound juxtacrine signals and may subsequently be released in soluble form.
 
-      Ligands—juxtacrine factors composed of β pleated sheets and displayed in clusters of three subunits
-
-
-      Pathway binds to Death Domain (DD), TRADD, FADD, and RIP → canonical NF-κB pathway
+      % Pathway binds to Death Domain (DD), TRADD, FADD, and RIP → canonical NF-κB pathway
+      Receptor outcome depends on the family member and adaptor complex. TNFR1 can recruit TRADD and RIPK1 to activate canonical NF-κB and MAPK signaling, while alternative complexes involving FADD and caspase-8 can initiate apoptosis.
 
     \end{core}
 
@@ -998,21 +1560,26 @@
 
       <FIGURE>
 
-      Structure
+      % Structure
+      \textbf{Structure}: Chemokine receptors are seven-transmembrane G-protein-coupled receptors whose cytoplasmic regions interact with heterotrimeric G proteins.
 
-      7-spanning α helices in membrane associated with G-protein on C-terminal
+      % 7-spanning α helices in membrane associated with G-protein on C-terminal
+      Their seven membrane-spanning α helices transmit ligand-induced conformational changes to a G protein associated with the receptor's intracellular surface.
 
-      Very promiscuous receptor (cross reception)
+      % Very promiscuous receptor (cross reception)
+      Chemokine recognition is frequently promiscuous: one receptor may bind several chemokines, and one chemokine may engage multiple receptors.
 
+      % Ligands—α helices and β pleated sheets stabilized with CCCCs
+      \textbf{Ligands}: Chemokines are small secreted proteins containing a flexible amino terminus, a three-stranded β sheet, and a carboxy-terminal α helix stabilized by conserved disulfide bonds.
 
-      Ligands—α helices and β pleated sheets stabilized with CCCCs
+      % G Protein Pathway—
+      \textbf{G-protein pathway}: Ligand engagement activates an associated heterotrimeric G protein.
 
+      % Ligand binding to receptor induces α subunit of G protein to switch out its GDP to GTP
+      The activated receptor acts as a guanine-nucleotide exchange factor, causing the Gα subunit to release GDP and bind GTP.
 
-      G Protein Pathway—
-
-      Ligand binding to receptor induces α subunit of G protein to switch out its GDP to GTP
-
-      α, β, γ G Protein subunits all dissociate and start their individual signaling cascades
+      % α, β, γ G Protein subunits all dissociate and start their individual signaling cascades
+      GTP-bound Gα separates functionally from the Gβγ dimer, and both components regulate downstream effectors controlling chemotaxis, adhesion, and cytoskeletal remodeling.
 
     \end{core}
 
@@ -1032,35 +1599,51 @@
 
         \item \textbf{Phosphorylation} 
 
-          Adding phosphates to, and removing phosphates from molecules
+          % Adding phosphates to, and removing phosphates from molecules
+          Reversible phosphorylation adds or removes phosphate groups from proteins or lipids, thereby altering their activity, localization, conformation, or molecular interactions.
 
-          Examples: BCRs, JAK-STAT, TCRs, G Proteins, Membrane inositols
+          % Examples: BCRs, JAK-STAT, TCRs, G Proteins, Membrane inositols
+          This regulatory principle is central to BCR and TCR signaling, JAK--STAT pathways, G-protein-coupled receptor pathways, and the metabolism of membrane phosphoinositides.
 
         \item \textbf{Phospholipid Hydrolysis}
 
-          Phospholipids are split
+          % Phospholipids are split
+          Phospholipid hydrolysis generates membrane-associated and soluble second messengers from phospholipid substrates.
 
-          Examples: 
+          % Examples:
+          A prominent example is the cleavage of phosphatidylinositol 4,5-bisphosphate (PIP$_2$) by phospholipase C.
 
-          Phospholipid is split into
+          % Phospholipid is split into
+          This reaction produces two functionally distinct products:
 
-            DAG (non polar part)
+          \begin{itemize}
 
-            IP3 (polar part) cascades
+            % DAG (non polar part)
+            \item diacylglycerol (DAG), a nonpolar messenger that remains within the plasma membrane; and
 
-          *IP3 makes the ER leaky to Ca2+, leading to the NFAT pathway through binding to calmodulin
+            % IP3 (polar part) cascades
+            \item inositol 1,4,5-trisphosphate (IP$_3$), a soluble messenger that diffuses through the cytosol.
+
+          \end{itemize}
+
+          % *IP3 makes the ER leaky to Ca2+, leading to the NFAT pathway through binding to calmodulin
+          IP$_3$ binds its receptor on the RER and opens Ca$^{2+}$ channels. The resulting rise in cytosolic Ca$^{2+}$ activates calmodulin and calcineurin, which promote NFAT translocation into the nucleus.
 
         \item \textbf{Protein Hydrolysis}
 
-          Using hydrolysis of cytosolic components in situations where you don’t want to reverse the signal (once you’ve clipped a protein, you can’t reassemble it, you must synthesize a new one)
+          % Using hydrolysis of cytosolic components in situations where you don’t want to reverse the signal (once you’ve clipped a protein, you can’t reassemble it, you must synthesize a new one)
+          Regulated proteolysis irreversibly cleaves a protein substrate and is therefore well suited to decisive signaling transitions. Restoration of the original state generally requires synthesis of a new intact protein.
 
-          Examples: Notch Signaling, Apoptosis Induction
+          % Examples: Notch Signaling, Apoptosis Induction
+          Examples include proteolytic release of the Notch intracellular domain and caspase-mediated cleavage of cellular substrates during apoptosis.
 
         \item \textbf{Cytoskeletal Changes}
 
-          In relation to the movement of a cell throughout the body
+          % In relation to the movement of a cell throughout the body
+          Cytoskeletal remodeling enables immune cells to polarize, migrate, adhere, phagocytose targets, and organize receptor signaling interfaces.
 
-          Examples: Chemokine → 7-spanR → G Protein signal → Integrin conformational change → Talins → Actin microfilaments → Movement
+          % Examples: Chemokine → 7-spanR → G Protein signal → Integrin conformational change → Talins → Actin microfilaments → Movement
+          For example, chemokine engagement of a seven-transmembrane receptor activates heterotrimeric G proteins, induces inside-out integrin activation, recruits talin and other adaptor proteins, and couples adhesion receptors to actin remodeling and directed movement.
 
       \end{enumerate}
 
@@ -1076,43 +1659,53 @@
 
           <FIGURE>
 
-          One cytokine may act on several different cell types
+          % One cytokine may act on several different cell types
+          \textbf{Pleiotropy} occurs when a single cytokine produces distinct effects in multiple target-cell populations.
 
-          IL-4 coordinates a Th2 response by acting on both B and mast cells
+          % IL-4 coordinates a Th2 response by acting on both B and mast cells
+          For example, IL-4 coordinates a T$_{\text{H}}$2-associated response by acting on B cells, mast cells, macrophages, and helper T cells.
 
         \item \textbf{Redundancy}
 
           <FIGURE>
 
-          More than one cytokine will produce the same effect
+          % More than one cytokine will produce the same effect
+          \textbf{Redundancy} occurs when different cytokines can elicit overlapping biological outcomes.
 
-          IL-2, 4, and 5 induces proliferation in B cells
+          % IL-2, 4, and 5 induces proliferation in B cells
+          For example, IL-2, IL-4, and IL-5 can each support aspects of activated B-cell proliferation under appropriate conditions.
 
         \item \textbf{Synergy}
 
           <FIGURE>
 
-          Combinations of stimulus have effects neither has by itself
+          % Combinations of stimulus have effects neither has by itself
+          \textbf{Synergy} occurs when two signals acting together generate a response greater than, or qualitatively different from, the response to either signal alone.
 
-          IL-4 and IL-5 together will cause B cells to class switch and make IgE immunoglobulins
+          % IL-4 and IL-5 together will cause B cells to class switch and make IgE immunoglobulins
+          In a T$_{\text{H}}$2-associated response, IL-4 provides a principal signal for IgE class-switch recombination, while IL-5 can support the proliferation and differentiation of appropriately activated B cells.
 
         \item \textbf{Antagonism} 
 
           <FIGURE>
 
-          One cytokine block the effects of another
+          % One cytokine block the effects of another
+          \textbf{Antagonism} occurs when one cytokine inhibits or counterbalances the effects of another.
 
-          IFNγ (a Th1 promoter) blocks the ability of IL-4 (a Th2 promoter) to induce class switching to IgE
+          % IFNγ (a Th1 promoter) blocks the ability of IL-4 (a Th2 promoter) to induce class switching to IgE
+          For example, IFN-γ promotes T$_{\text{H}}$1-associated immunity and can oppose IL-4-driven T$_{\text{H}}$2 differentiation and IgE class switching.
 
-        \item \textbf{Cascade Inductionk}
+        % \item \textbf{Cascade Inductionk}
+        \item \textbf{Cascade Induction}
 
           <FIGURE>
 
-          One cytokine stimulates other cells to produce a different cytokine, which stimulates more cells
+          % One cytokine stimulates other cells to produce a different cytokine, which stimulates more cells
+          \textbf{Cascade induction} occurs when one cytokine stimulates a target cell to produce additional cytokines, thereby propagating and amplifying the response.
 
-          Macrophage → IL-12 → Th1 → IFNγ → activated macrophage pathway of development
+          % Macrophage → IL-12 → Th1 → IFNγ → activated macrophage pathway of development
+          For example, IL-12 produced by activated macrophages and dendritic cells promotes T$_{\text{H}}$1 differentiation; T$_{\text{H}}$1-derived IFN-γ then enhances classical macrophage activation, reinforcing the cell-mediated immune response.
 
       \end{enumerate}
 
     \end{core}
-
