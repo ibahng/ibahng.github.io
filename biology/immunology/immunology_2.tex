@@ -51,8 +51,11 @@
         \draw[process] (c5.south east) to[bend right=8] (c5b.north west);
         \node[font=\sffamily\small, rotate=-73] at (2.62,7.48) {Cleavage};
 
-        \node[note, font=\sffamily\small, text width=1.65cm, anchor=north west] at (3.95,5.9)
+        \node[note, font=\sffamily\small, text width=1.65cm, anchor=north west] at (1,6.5)
           {(A)};
+
+        \node[note, font=\sffamily\small, text width=1.65cm, anchor=north west] at (3.95,5.9)
+          {(B)};
 
         % ===== Recruitment of C6 =====
         \node[component] (c6free) at (4.25,9.1) {C6};
@@ -74,7 +77,7 @@
         \node[component] at (10.02,8.72) {C6};
         \node[component] at (10.60,8.55) {C7};
         \node[note, text width=2.55cm, anchor=south west] at (9.05,10.05)
-          {(B)};
+          {(C)};
 
         % ===== Recruitment of C8 and membrane insertion =====
         \node[component] (c8free) at (13.95,10.25) {C8};
@@ -90,7 +93,7 @@
         \node[component] at (14.10,5.78) {C7};
         \node[component, minimum height=2.05cm] at (14.68,5.35) {C8};
         \node[note, text width=2.9cm, anchor=north west] at (12.7,3.48)
-          {(C)};
+          {(D)};
 
         % ===== C9 recruitment =====
         \node[component, minimum height=1.8cm] (c9free) at (10.55,3.25) {C9};
@@ -119,7 +122,7 @@
         \node[anchor=north] at (8.62,0.08) {Water and ions};
         \node[font=\sffamily\bfseries\large, anchor=east] at (15.4,0.1)
           {Inside of Target Cell};
-      }{Membrane attack complex (MAC); \textit{all different complement pathways converge to this pathway}; (A) \textit{C5b is unstable when left unbound}; (B) \textit{C7 recruitment exposes a hydrophobic site that anchors the complex to the membrane}; (C) \textit{C8 recruitment drives partial insertion of the complex into the lipid bilayer}}{fig:mac}{0.9}
+      }{Membrane attack complex (MAC); \textit{all different complement pathways converge to this pathway}; (A) \textit{C5a acts as a strong \textbf{anaphylatoxin} (\autoref{core:side_pathways})}; (B) \textit{C5b is unstable when left unbound}; (C) \textit{C7 recruitment exposes a hydrophobic site that anchors the complex to the membrane}; (D) \textit{C8 recruitment drives partial insertion of the complex into the lipid bilayer}}{fig:mac}{0.9}
       \vspace{-0.4cm}
 
       As shown in \autoref{fig:mac}, the completed MAC achieves \textbf{membrane lysis} by forming a transmembrane pore composed of polymerized C9 subunits; structural studies generally describe a pore containing approximately 18 C9 subunits. This pore permits the \textbf{uncontrolled movement of water and ions across the membrane}, disrupting ionic homeostasis and potentially inducing osmotic rupture. Several types of susceptible targets can be damaged in this way, including the following.
@@ -215,10 +218,8 @@
         \node[fragment] (c3b) at (3.55,2.85) {C3b};
         \draw[process] (c3.south west) -- (c3a.north);
         \draw[process] (c3.south east) -- (c3b.north);
-        \node[font=\sffamily\small\bfseries, anchor=north] at (1.45,2.1)
-          {Anaphylatoxin};
-        \draw[process] (c3a.south) -- (1.45,2.05);
-        \node[note] at (3.5,1.8) {(C)};
+        \node[note] at (1.45,1.8) {(C)};
+        \node[note] at (3.5,1.8) {(D)};
 
         % ===== Classical C5 convertase =====
         \node[component] (c4bc5) at (8.62,1.75) {C4b};
@@ -233,7 +234,8 @@
           {MAC Activation\\Pathway};
         \draw[process] (c4bc5.east) -- (mac.west)
           node[midway, above, font=\sffamily\small\itshape] {cleaves C5};
-      }{Classical complement pathway activation cascade; (A) \textit{activated C1r cleaves C1s, producing an active protease}; (B) \textit{C4a is a weak anaphylatoxin}; (C) \textit{C3b also functions as an \textbf{opsonin}, coating targets for phagocytic recognition}}{fig:classical_pathway}{0.9}
+      }{Classical complement pathway activation cascade; (A) \textit{activated C1r cleaves C1s, producing an active protease}; (B) \textit{C4a is a weak \textbf{anaphylatoxin} (\autoref{core:side_pathways})}; (C) C3a goes onto act as an \textbf{anaphylatoxin}; (D) \textit{C3b also functions as an \textbf{opsonin} (\autoref{core:side_pathways}), coating targets for phagocytic recognition}}{fig:classical_pathway}{0.9}
+      \vspace{-0.4cm}
 
       It's important to note that complement-activating antibody isotypes differ substantially in their ability to recruit C1q.
 
@@ -351,17 +353,16 @@
         \node[fragment] (c3balt) at (4.55,3.85) {C3b};
         \draw[process] (c3substrate.south west) -- (c3aalt.north);
         \draw[process] (c3substrate.south east) -- (c3balt.north);
-        \node[font=\sffamily\small\bfseries, anchor=north] at (1.55,3)
-          {Anaphylatoxin};
-        \draw[process] (c3aalt.south) -- (1.55,2.95);
-        \node[note] at (4.55,2.85)
+        \node[note] at (1.8,2.85)
           {(B)};
+        \node[note] at (4.55,2.85)
+          {(C)};
 
         % ===== Surface C3 convertase and properdin stabilization =====
         \node[component] (c3bsurface) at (7.55,2.55) {C3b};
         \node[factor, minimum width=1.05cm, minimum height=0.72cm] (bbsurface) at (8.55,2.55) {Bb};
         \draw[process] (c3balt.east) -- (c3bsurface.west);
-        \node[note, anchor=west] at (6,3.42) {(C)};
+        \node[note, anchor=west] at (6,3.42) {(D)};
         \node[font=\sffamily\bfseries, anchor=north] at (8.05,1.78) {C3bBb};
         \node[font=\sffamily\small\bfseries, anchor=north] at (8.05,1.32)
           {(surface C3 convertase)};
@@ -369,7 +370,7 @@
         \node[factor, align=center] (properdin) at (12.65,5.25) {Properdin\\(Factor F)};
         \draw[process, dashed] (properdin.west) to[bend right=12] (bbsurface.north east);
         \node[note, font=\sffamily\small\itshape, text width=3.4cm, anchor=north west]
-          at (10.4,4.45) {(D)};
+          at (10.4,4.45) {(E)};
 
         % ===== Alternative C5 convertase =====
         \node[fragment, minimum width=0.85cm] (c3bextra) at (10.65,2.45) {C3b};
@@ -388,43 +389,35 @@
           {MAC Activation\\Pathway};
         \draw[process] (c3bc5b.east) -- (macalt.west);
         \node[font=\sffamily\small\itshape] at (12.8,-0.5) {cleaves C5};
-      }{Alternative complement pathway activation cascade; (A) \textit{factor Ba diffuses away}; (B) \textit{C3b also serves as an \textbf{opsonin}, coating activating surfaces}; (C) \textit{factor B binding and factor D cleavage of factor B into Bb}; (D) \textit{properdin---sometimes called factor F--- binds and stabilizes C3bBb on the activating surface}}{fig:alternative_pathway}{0.9}
+      }{Alternative complement pathway activation cascade; (A) \textit{factor Ba diffuses away}; (B) \textit{C3a goes onto act as an \textbf{anaphylatoxin} (\autoref{core:side_pathways})}; (C) \textit{C3b also serves as an \textbf{opsonin} (\autoref{core:side_pathways}), coating activating surfaces}; (D) \textit{factor B binding and factor D cleavage of factor B into Bb}; (E) \textit{properdin---sometimes called factor F--- binds and stabilizes C3bBb on the activating surface}}{fig:alternative_pathway}{0.9}
 
     \end{core}
 
-    \begin{core}{Side Signal Pathways \& Other}
+    \begin{core}[label=core:side_pathways]{Side Signal Pathways \& Other}
 
-      % Intro sentence
       Complement activation produces several effects in addition to MAC-mediated lysis. Cleavage products generated throughout the cascade promote inflammation, coat targets for immune recognition, neutralize pathogens, and facilitate the removal of immune complexes.
+
+      An \textbf{anaphylatoxin} is a small peptide fragment released as a byproduct of proteolytic cleavage during the complement cascade; upon binding specific receptors on immune and vascular cells, these fragments trigger localized inflammatory responses. C3a, C4a, and C5a are all anaphylatoxins, arising respectively from cleavage of C3, C4, and C5 during the unique complement and converged MAC pathways.
+
+      \begin{itemize}
+
+        \item \textbf{C3a}: C3a stimulates degranulation of \textbf{mast cells} and \textbf{basophils}, promoting the release of \textbf{histamine} and other inflammatory mediators that increase vascular permeability.
+          
+        \item \textbf{C4a}: C4a exhibits \textbf{comparatively weak anaphylatoxin activity} relative to C3a and C5a, but nonetheless contributes to local inflammatory signaling following its release during C4 cleavage.
+
+        \item \textbf{C5a}: Among the anaphylatoxins, C5a is the most potent, functioning as a chemoattractant that recruits and activates \textbf{neutrophils}, \textbf{monocytes}, and other \textbf{myeloid cells} at sites of complement activation.
+
+      \end{itemize}
+
+      In addition to their inflammatory functions, complement fragments deposited on target surfaces mark pathogens and immune complexes for recognition, neutralization, and clearance by phagocytic mechanisms.
 
       \begin{enumerate}
 
-        \item \textbf{Inflammation} (\textit{Anaphylatoxin})
+        \item \textbf{Opsonization}: Covalently deposited complement fragments, particularly C3b and iC3b, coat microbial surfaces and enhance their recognition and phagocytosis through complement receptors.
 
-          \begin{itemize}
+        \item \textbf{Viral Neutralization}: Complement deposition can sterically hinder viral attachment or entry, promote virion aggregation, and facilitate clearance by phagocytes.
 
-            % \item \textit{C3a}: Triggers degranulation of mast cells and basophils, with also permeability changes in the endothelium
-            \item \textit{C3a}: C3a promotes inflammatory signaling and can stimulate mast-cell and basophil degranulation, thereby contributing to increased vascular permeability.
-
-            % \item \textit{C5a}: Summons macrophages and neutrophils
-            \item \textit{C5a}: C5a is a potent anaphylatoxin and chemoattractant that recruits and activates neutrophils, monocytes, and other myeloid cells.
-
-          \end{itemize}
-
-        \item \textbf{Coating}
-
-          \begin{itemize}
-
-            % \item \textit{Opsonization}: Complements bind to pathogenic cells, enhancing phagocytosis towards them—[C3b]
-            \item \textit{Opsonization}: Covalently deposited complement fragments, particularly C3b and iC3b, coat microbial surfaces and enhance their recognition and phagocytosis through complement receptors.
-
-            % \item \textit{Viral Neutralization}: Simply attaching a complement to a host cell invader makes it much more difficult to invade
-            \item \textit{Viral Neutralization}: Complement deposition can sterically hinder viral attachment or entry, promote virion aggregation, and facilitate clearance by phagocytes.
-
-            % \item \textit{Immune Complex Clearing}: Immune complexes (ICs) like antigen-antibody and antigen-complement complexes tend to bind to RBCs and get filtered as then circulate
-            \item \textit{Immune-Complex Clearance}: Complement-tagged antigen--antibody complexes bind complement receptor 1 on erythrocytes and are transported through the circulation to the liver and spleen, where phagocytes remove and degrade them.
-
-          \end{itemize}
+        \item \textbf{Immune-Complex Clearance}: Complement-tagged antigen--antibody complexes bind complement receptor 1 on erythrocytes and are transported through the circulation to the liver and spleen, where phagocytes remove and degrade them.
 
       \end{enumerate}
 
