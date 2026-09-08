@@ -1,6 +1,7 @@
 % !TEX root = immunology.tex
 
 \section{Complement System}
+  \label{sec:complement}
   
   \subsection{MAC Complex Attack}
 
@@ -429,82 +430,168 @@
 
     \begin{core}[label=core:mhc_characteristics]{MHC Characteristics}
 
-      <FIGURE> 
+      The \textbf{Major Histocompatibility Complex (MHC)} is a set of closely linked genes that encode cell-surface glycoproteins essential for the adaptive immune system. Its primary function is to \textbf{bind antigens} derived from pathogens or self-proteins and \textbf{display them on the cell surface} for recognition by \textbf{T lymphocytes} via \textbf{T-cell receptors} (\textit{\autoref{sec:tcr}}).
 
-      <TABLE>
+      \pgfig{
+        [
+          >=Stealth,
+          mhcdomain/.style={ellipse, draw=none, minimum width=2.15cm, minimum height=2.7cm,
+            inner sep=0pt, font=\bfseries\large, align=center},
+          annotation/.style={font=\scriptsize, align=center},
+          heading/.style={font=\bfseries},
+          pointer/.style={-{Stealth[length=6pt,width=6pt]}, line width=0.6pt},
+          anchorline/.style={line width=5.5pt, line cap=round}
+        ]
+
+        \definecolor{mhcired}{RGB}{220,0,0}
+        \definecolor{mhciired}{RGB}{226,99,102}
+        \definecolor{mhciiblue}{RGB}{103,151,224}
+        \definecolor{mhcblue}{RGB}{61,120,211}
+        \definecolor{cdgreen}{RGB}{101,171,76}
+        \definecolor{peptidemagenta}{RGB}{241,0,226}
+        \definecolor{membraneblue}{RGB}{207,226,243}
+
+        % ===== Compartments and cell membrane =====
+          \node[font=\bfseries\Large, anchor=east] at (18.45,8) {ECM};
+          \filldraw[fill=membraneblue, draw=black, line width=0.65pt]
+            (0,1.05) rectangle (18.55,1.68);
+          \node[font=\bfseries\large, anchor=east] at (18.35,1.36)
+            {Cell Membrane};
+          \node[font=\bfseries\Large, anchor=east] at (18.45,0.37)
+            {Cytoplasm};
+
+        % ===== MHC class I =====
+          \node[font=\bfseries\large] at (3.35,8.5) {[MHC I]};
+
+          \node[] at (5.2,4.08) {(B)};
+
+          \node[] at (3.35,7.7) {(A)};
+
+          \node[mhcdomain, fill=mhcired] (ia2) at (2.45,5.63) {α2};
+          \node[mhcdomain, fill=mhcired] (ia1) at (4.23,5.63) {α1};
+          \node[mhcdomain, fill=mhcired] (ia3) at (2.45,3.02) {α3};
+          \node[mhcdomain, fill=mhcblue, minimum width=1.72cm, minimum height=2.38cm]
+            (ibeta) at (4.27,3.02) {β};
+
+          \draw[peptidemagenta, line width=4pt, line cap=round]
+            (3.08,6.86) .. controls (3.16,7.30) and (3.53,7.30) .. (3.65,6.88);
+          \draw[anchorline, mhcired] (2.45,1.76) -- (2.45,0.98);
+          \fill[mhcired] (2.45,0.98) circle (0.18);
+          \node[] at (2.45,0.3) {(C)};
+
+        % ===== MHC class II =====
+          \node[font=\bfseries\large] at (9.2,8.5) {[MHC II]};
+
+          \node[] at (11.3,6.96) {(E)};
+
+          \node[] at (9.2,7.7) {(D)};
+
+          \node[mhcdomain, fill=mhciired] (iia1) at (8.08,5.63) {α1};
+          \node[mhcdomain, fill=mhciired] (iia2) at (8.08,3.02) {α2};
+          \node[mhcdomain, fill=mhciiblue] (iib1) at (10.28,5.63) {β1};
+          \node[mhcdomain, fill=mhciiblue] (iib2) at (10.28,3.02) {β2};
+          \draw[peptidemagenta, line width=4pt, line cap=round]
+            (9.10,5.45) .. controls (9.28,5.70) and (9.27,6.31) .. (9.35,6.55);
+          \draw[anchorline, mhciired] (8.08,1.76) -- (8.08,0.98);
+          \draw[anchorline, mhciiblue] (10.28,1.76) -- (10.28,0.98);
+          \fill[mhciired] (8.08,0.98) circle (0.18);
+          \fill[mhciiblue] (10.28,0.98) circle (0.18);
+
+        % ===== CD1 (MHC-I-like) molecule =====
+          \node[font=\bfseries\large] at (14.6,8.5) {[CD1 MHC]};
+
+          \node[] at (14.6,7.7) {(F)};
+
+          \node[] at (16.6,7) {(G)};
+
+          \node[mhcdomain, fill=cdgreen] (cda2) at (13.75,5.63) {α2};
+          \node[mhcdomain, fill=cdgreen] (cda1) at (15.55,5.63) {α1};
+          \node[mhcdomain, fill=cdgreen] (cda3) at (13.75,3.02) {α3};
+          \node[mhcdomain, fill=mhcblue, minimum width=1.72cm, minimum height=2.38cm]
+            (cdbeta) at (15.59,3.02) {β};
+          \draw[peptidemagenta, line width=4pt, line cap=round]
+            (14.72,6.12) .. controls (14.86,6.45) and (14.84,6.83) .. (14.93,7.25);
+          \draw[anchorline, cdgreen] (13.75,1.76) -- (13.75,0.98);
+          \fill[cdgreen] (13.75,0.98) circle (0.18);
+
+      }{MHC I (\textit{left}), MHC II (\textit{middle}), and CD1 MHC (\textit{right}) glycoproteins. (A) \textit{closed cleft, bowed antigen-presentation surface (8–10 amino acids; displays peptide middle)}; (B) \textit{β peptide linked to α1 and membrane by weak bonds, required for membrane expression}; (C) \textit{α3 connects to transmembrane segment with cytoplasmic tail}; (D) \textit{open cleft, flat antigen-presentation surface (13–18 amino acids, only 13 fit the cleft)}; (E) \textit{α/β dimer joined by weak interactions}; (F) \textit{deep cleft, flat lipid-presentation surface}; (G) \textit{closely resembles MHC I; β subunit is the identical peptide}}{fig:mhc}{0.8}
+
+      As shown in \autoref{fig:mhc}, three distinct types of MHC receptors exist, each characterized by a unique combination of function, expression pattern, subunit composition, and binding site specificity; this information is summarized in the following table.
+
+      \begin{table}[H]
+        \centering
+        \footnotesize
+        \begin{tabular}{>{\raggedright\arraybackslash}p{1.2cm}>{\raggedright\arraybackslash}p{5cm}>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{2.7cm}}
+          \hline
+          \textbf{} & \textbf{MHC I (Identification)} & \textbf{MHC II (Presentation)} & \textbf{CD1 MHC (Non-Classical MHC)} \\
+          \hline
+          \textbf{Function} &
+          Displays \textbf{endogenous} peptide/antigen (\textit{\autoref{core:endogenous_mhci}}) to T\textsubscript{C} cells as a means of immune surveillance, determining whether the T cell will induce killing. Via \textbf{cross-presentation} (\textit{\autoref{core:cross_presentation}}), APCs also display \textbf{exogenous} peptides/antigens to T\textsubscript{C} cells to activate them. &
+          Displays \textbf{exogenous} peptide/antigen (\textit{\autoref{core:exogenous_mhcii}}) to T\textsubscript{H} cells. &
+          Displays \textbf{exogenous} bacterial glycolipids (\textit{\autoref{core:exogenous_cd1mhc}}) to T\textsubscript{H} cells. \\
+          \textbf{Expression} &
+          Expressed on \textbf{most nucleated cells}, with the exception of RBCs, sperm, and nerve cells. Expression is \textbf{highest on lymphocytes} and comparatively low on fibroblasts, muscle cells, and liver cells. &
+          Expressed on \textbf{APCs} and on \textbf{thymic epithelial cells}, where it mediates T cell selection; other cell types can be induced to express it in response to certain cytokines. &
+          Expressed on \textbf{APCs}. \\
+          \textbf{Subunits} &
+          [1 peptide, 3 domains] + [β globulin] &
+          [2 peptides, 4 domains] &
+          [1 peptide, 3 domains] + [β globulin] \\
+          \textbf{Binding Site} &
+          Consists of a \textbf{closed cleft} between α1 and α2, with α-helical sides and a β-sheet floor. Amino acid \#9 of the antigen peptide (\textit{C-terminal, occasionally assisted by \#8 and \#7}) anchors into the cleft's hydrophobic pocket, while amino acid \#2 (\textit{N-terminal}) anchors at the opposite end; the intervening, displayed residues are what the TCR ultimately engages.[\autoref{fig:mhc_structure}] &
+          Consists of an \textbf{open cleft} between α1 and β1, with α-helical sides and a β-sheet floor; peptides can engage MHC II at multiple points along the cleft. [\autoref{fig:mhc_structure}] &
+          Consists of a deep cleft between α1 and α2. \\
+          \textbf{Antigen Binding Site} &
+          Antigen binding occurs in the RER (\textit{recall that MHC I displays endogenous peptides}). &
+          Antigen binding occurs in the phagolysosome. &
+          Antigen binding occurs in the phagolysosome. \\
+          \textbf{Versions} &
+          3 versions (A, B, C) &
+          3 versions (DP, DQ, DR) &
+          5 versions (A, B, C, D, E) \\
+          \textbf{Chromosome} &
+          Chromosome 6 &
+          Chromosome 6 &
+          Chromosome 1 \\
+          \hline
+        \end{tabular}
+        \caption{Comparison of MHC I, MHC II, and CD1 MHC}
+        \label{tab:mhc_comparison}
+      \end{table}
+
+      \myfig{0.7}{immunology_figures/mhc_structure}{Three-dimensional structures of MHC I (\textit{left}) and MHC II (\textit{right}); \textit{both peptide-binding clefts are formed by α-helical walls flanking a β-sheet floor}}{fig:mhc_structure}
 
     \end{core}
 
     \begin{core}{MHC Gene Sequences}
 
-      <FIGURE>
+      The \textbf{human MHC gene} is encoded within the short arm of \textbf{chromosome 6}, where the linked set of MHC alleles inherited together on a single chromosome constitutes an \textbf{MHC haplotype}; each diploid individual inherits one such haplotype maternally and one paternally, with both sets of alleles expressed \textbf{codominantly} (\textit{\autoref{gen-core:single_gene_abnormal}}). The corresponding gene products are designated \textbf{human leukocyte antigens (HLAs)} and, while products generally adopt immunoglobulin-superfamily folds, the MHC region also encodes numerous genes whose products fall outside this structural family, most notably within the MHC class III gene region, though a smaller number are also found interspersed among the class I and class II loci.
 
-      % The MHC gene sequences is found in chromosome 6
-      The human major histocompatibility complex is encoded within a gene-dense region on the short arm of chromosome 6.
-
-      % This whole block of genes is termed a haplotype
-      The linked set of MHC alleles inherited together on a single chromosome constitutes an \textbf{MHC haplotype}.
-
-      % MHC in humans is commonly referred to as Human Leukocyte Antigen (HLA) and is part of the immunoglobulin superfamily
-      Human MHC molecules are designated \textbf{human leukocyte antigens (HLAs)}. Their extracellular domains adopt immunoglobulin-superfamily folds, although the MHC region also contains many genes whose products are not immunoglobulin-superfamily members.
-
-      % REMINDER: there are 2 copies of these gene sequences (one from mom, one from dad)
-      Each diploid individual inherits one MHC haplotype maternally and one paternally, and both sets of alleles are expressed codominantly.
+      \myfig{0.7}{immunology_figures/hla_gene}{Organization of the HLA (MHC) region on chromosome 6}{fig:hla_gene}
 
       \begin{enumerate}
 
-        \item \textbf{MHC I} 
+        \item \textbf{MHC I} (\textit{HLA-A, HLA-B, HLA-C})
 
-          % Further separated by three different versions: HLA-A, HLA-B, HLA-C (each with a different specificity for peptide binding)
-          Classical MHC class I molecules are encoded by the \textbf{HLA-A, HLA-B, and HLA-C} loci, whose allelic products differ in peptide-binding specificity.
+          Classical MHC class I molecules are encoded by the \textbf{HLA-A, HLA-B, and HLA-C} loci, which give rise to allelic products differing in peptide-binding specificity; these \textbf{loci encode only the polymorphic α chain}, while the invariant \textbf{β} component is encoded separately by the \textit{B2M} gene on chromosome 15. The HLA-A, HLA-B, and HLA-C loci are exceptionally \textbf{polymorphic}---modern allele databases list many thousands of named variants---such that an individual heterozygous at all three loci may express as many as six distinct classical MHC class I allotypes.
 
-          % There are currently 68 HLA-A, 125 HLA-B, and 44 HLA-C version within the human population that have been identified (thus an underestimate)
-          The HLA-A, HLA-B, and HLA-C loci are exceptionally polymorphic, and modern allele databases contain many thousands of named variants; the historical counts of 68, 125, and 44 variants, respectively, are therefore obsolete underestimates.
-
-          % An individual will express at max 6 different types of MHC I proteins—assuming that the maternal alleles are distinct from the paternal alleles
-          An individual may express as many as six distinct classical MHC class I allotypes when the maternal and paternal alleles at all three loci differ.
-
-          % ***This gene sequence only covers the α subunits; the β subunit locus is on chromosome 15 (non-polymorphic)
-          The HLA-A, HLA-B, and HLA-C genes encode only the polymorphic α chains. The invariant \textbf{β2-microglobulin} component is encoded separately by the \textit{B2M} gene on chromosome 15.
-
-          % WILDLY POLYMORPHIC (high allele counts for HLA versions)
-          These classical class I loci exhibit extraordinary allelic polymorphism, particularly within sequences that encode the peptide-binding groove.
-
-          % NO ALTERNATIVE SPLICING FORMS (DNA is not changed)
-          The diversity of classical MHC class I molecules among individuals primarily reflects germline polymorphism rather than somatic DNA rearrangement.
+          This extraordinary allelic polymorphism is concentrated particularly within the sequences encoding the \textbf{peptide-binding groove}, and the resulting diversity among individuals primarily reflects inherited germline polymorphism rather than the somatic DNA rearrangement responsible for generating diversity in the CDRs of immunoglobulins and T-cell receptors.
 
         \item \textbf{MHC III}
 
-          % This gene sequence is completely different from the main MHC proteins I and II
-          The MHC class III region does not encode the peptide-presenting molecules characteristic of MHC classes I and II.
+          Unlike MHC classes I and II, the MHC class III region \textbf{does not encode peptide-presenting molecules}; it is classified as part of the MHC solely on the basis of its physical location between the class I and class II regions on chromosome 6. Instead, this region contains genes encoding a range of immune mediators, including \textbf{complement components} (\textit{\autoref{sec:complement}}), \textbf{tumor necrosis factors} (\textit{\autoref{core:tnf}}), and heat-shock proteins.
 
-          % It is included just because it happens to lie in between
-          It is designated part of the MHC because of its physical location between the class I and class II regions on chromosome 6.
+        \item \textbf{MHC II} (\textit{HLA-DP, HLA-DQ, HLA-DR})
 
-          % Codes for secreted proteins involved in innate response: [complement proteins], [cytokines], [heat shock proteins]
-          This region contains genes encoding several immune mediators, including complement components, tumor necrosis factors, and heat-shock proteins.
+          The classical MHC class II region contains the \textbf{HLA-DP, HLA-DQ, and HLA-DR} loci, each encoding an \textbf{αβ heterodimer} in which both chains contribute to the peptide-binding groove.
 
-        \item \textbf{MHC II}
+          Codominant expression of maternal and paternal class II genes, together with permitted pairing between certain α and β chains, \textbf{allows an individual to display a diverse set of MHC class II molecules}.
 
-          % Each subsection—HLA-DP, HLA-DQ, HLA-DR (each with a different specificity for peptide binding)—codes for 2 separate peptides (α and β) which function together to make up the MHC II protein
-          The classical MHC class II region contains the \textbf{HLA-DP, HLA-DQ, and HLA-DR} loci. Each class II molecule is an αβ heterodimer, and both chains contribute to the peptide-binding groove.
-
-          % An individual will express at max 12 different types of MHC II proteins (due to potential paternal-maternal α-β dimers)—assuming that the maternal alleles are distinct from the paternal alleles
-          Codominant expression of maternal and paternal class II genes, together with permitted pairing between certain α and β chains, allows an individual to display a diverse set of MHC class II molecules; the exact number depends on the inherited haplotypes and the expressed DRB genes rather than a universal maximum of twelve.
-
-          % WILDLY POLYMORPHIC (high allele counts for HLA versions)
-          Classical MHC class II loci are highly polymorphic, with much of this variation concentrated in residues that shape the peptide-binding groove.
-
-          % NO ALTERNATIVE SPLICING FORMS (DNA is not changed)
-          As with class I molecules, interindividual class II diversity primarily reflects inherited germline polymorphism rather than somatic DNA rearrangement.
+          As with class I, classical MHC class II loci are \textbf{highly polymorphic}, with much of this variation concentrated in residues that shape the peptide-binding groove, and the resulting interindividual diversity likewise reflects inherited germline polymorphism rather than somatic DNA rearrangement.
 
         \item \textbf{Other}
 
-          % Interspersed in the MHC II genes are those that code for elements of the antigen processing system for MHC I
-          The class II region also contains genes encoding components of the MHC class I antigen-processing pathway, including \textit{TAP1}, \textit{TAP2}, \textit{PSMB8}, and \textit{PSMB9}.
-
-          % There are other MHC I proteins involved in other functions (specialized receptor, transport, presentation)
-          Nonclassical MHC class I molecules perform more specialized functions in immune recognition, molecular transport, and antigen presentation.
+          The class II region also contains genes encoding components of the MHC class I antigen-processing pathway, including \textit{TAP1}, \textit{TAP2}, \textit{PSMB8}, and \textit{PSMB9}, while nonclassical MHC class I molecules themselves perform more specialized functions in immune recognition, molecular transport, and antigen presentation.
 
       \end{enumerate}
 
@@ -512,36 +599,25 @@
     
     \begin{core}{MHC Mendalian Genetics}
 
+      Because the MHC comprises a cluster of tightly \textbf{linked} (\textit{\autoref{gen-core:gene_linkage}}) loci rather than a single gene, its pattern of inheritance follows the segregation of whole haplotypes and is shaped by the same principles of linkage, recombination, and inbreeding that govern Mendelian genetics more broadly.
+
       \begin{enumerate}
 
         \item \textbf{Non-Recombinant Inheritance} 
 
-          <FIGURE>
+          Due to the MHC loci being tightly linked, their alleles are usually inherited together as a single haplotype, so that in the absence of recombination two full siblings have a 25\% probability of inheriting the same pair of parental MHC haplotypes.
 
-          % The alleles coding for the MHC gene sequences tend to be passed on to offspring as a block (with no crossing over; tightly linked)—thus, in most cases, siblings will have a ¼ chance to have the same MHC genes
-          Because the MHC loci are tightly linked, their alleles are usually inherited together as a haplotype. In the absence of recombination, two full siblings have a 25\% probability of inheriting the same pair of parental MHC haplotypes.
+          \myfig{0.45}{immunology_figures/mhc_nonrecomb}{Non-recombinant HLA gene inheritance; \textit{offspring receive a random MHC haplotype from each parent}}{fig:mhc_nonrecomb}
 
-          % **The term “haplotype” is used in other contexts where a group of genes remains in a block and be passed on as a unit (e.g. \& chromosomes and Mitochondrial DNA)
-          More generally, the term \textbf{haplotype} denotes a set of linked alleles or sequence variants inherited together from one parent; its use is not restricted to the MHC.
+          \textit{More generally, the term \textbf{haplotype} denotes a set of linked alleles or sequence variants inherited together from one parent; its use is not restricted to the MHC.}
 
         \item \textbf{Recombinant Inheritance}
 
-          <FIGURE>
+          Meiotic \textbf{crossing over} (\textit{\autoref{gen-core:crossing_over}}) within the MHC can generate a recombinant haplotype that combines portions of the parental class I and class II regions, thereby reducing the probability that siblings will match across the entire MHC; over evolutionary time, this same process contributes additional haplotypic diversity to the population.
 
-          % Rarely, if the cross over happens between the I and II block, this produces a recombinant haplotype (highly unlikely to have sibling match)
-          Meiotic crossing over within the MHC can generate a recombinant haplotype that combines portions of the parental class I and class II regions. Such recombination reduces the probability that siblings will match across the entire MHC.
+          Conversely, \textbf{inbreeding} increases the probability that an individual will inherit identical or closely related MHC haplotypes; in a highly inbred population, the limited introduction of new haplotypes increases MHC homozygosity, such that an individual may carry the \textbf{same haplotype on both homologous chromosomes}. Such an individual, being homozygous across the classical MHC loci, expresses fewer distinct allotypes than a fully heterozygous individual---typically one product from each of HLA-A, HLA-B, and HLA-C, together with a correspondingly reduced class II repertoire.
 
-          % This increases variability into the gene pool
-          Over evolutionary time, recombination contributes additional haplotypic diversity to the population.
-
-          % Inbreeding
-          \textbf{Inbreeding} increases the probability that an individual will inherit identical or closely related MHC haplotypes.
-
-          % With inbreeding—there will be no introduction of new haplotypes of the MHC gene sequences within the population—thus each individual will have the same haplotype on each homologous chromosome
-          In a highly inbred population, limited introduction of new haplotypes increases MHC homozygosity, such that an individual may carry the same haplotype on both homologous chromosomes.
-
-          % This individual will thus have one 3 versions of MHC I and 3 versions of MHC II rather than the maximum 6 and 12 respectively
-          An individual homozygous across the classical MHC loci expresses fewer distinct allotypes than a fully heterozygous individual---typically one product from each of HLA-A, HLA-B, and HLA-C, together with a correspondingly reduced class II repertoire.
+          \myfig{0.35}{immunology_figures/mhc_recomb}{Recombinant HLA gene inheritance; \textit{crossing over produces recombinant MHC haplotype received by offspring}}{fig:mhc_recomb}
 
       \end{enumerate}
 
@@ -549,7 +625,7 @@
 
   \subsection{MHC Antigen Preparation}
 
-    \begin{core}{Endogenous MHC I (T$_{\text{c}}$ Cells)}
+    \begin{core}[label=core:endogenous_mhci]{Endogenous MHC I (T$_{\text{c}}$ Cells)}
 
       \begin{enumerate}[label=(\arabic*)]
 
@@ -658,7 +734,7 @@
 
     \end{core}
 
-    \begin{core}{Exogenous MHC I / Cross Presentation (T$_{\text{c}}$ Cells)}
+    \begin{core}[label=core:cross_presentation]{Exogenous MHC I / Cross Presentation (T$_{\text{c}}$ Cells)}
 
       \begin{enumerate}[label=(\arabic*)]
 
@@ -686,7 +762,7 @@
 
     \end{core}
 
-    \begin{core}{Exogenous MHC II}
+    \begin{core}[label=core:exogenous_mhcii]{Exogenous MHC II}
 
       \begin{enumerate}[label=(\arabic*)]
 
@@ -784,7 +860,7 @@
 
     \end{core}
 
-    \begin{core}{Exogenous CD1 MHC}
+    \begin{core}[label=core:exogenous_cd1mhc]{Exogenous CD1 MHC}
 
       \begin{enumerate}[label=(\arabic*)]
 
@@ -831,8 +907,11 @@
   \subsection{T Cell Receptor}
 
     \subsubsection{TCR Complex Characteristics}
+    \label{sec:tcr}
 
       <FIGURE>
+
+      % It is important to keep in mind that T cells respond to antigen only when it is presented by MHC molecules encoded by alleles that they themselves possess.
 
       \begin{core}{αβ and γδ Receptors}
 
@@ -1528,7 +1607,7 @@
 
     \end{core}
 
-    \begin{core}{Tumor Necrosis Factor}
+    \begin{core}[label=core:tnf]{Tumor Necrosis Factor}
 
       <FIGURE>
 
